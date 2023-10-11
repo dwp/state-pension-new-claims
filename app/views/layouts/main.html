@@ -1,38 +1,6 @@
+{#
+For guidance on how to use layouts see:
+https://prototype-kit.service.gov.uk/docs/how-to-use-layouts
+#}
+
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
-
-{% block header %}
-
-{% include "includes/remove-govuk-logo.html" %}
-
-  {{ 
-      govukHeader({
-          homepageUrl: "/",
-          serviceName: serviceName,
-          serviceUrl: "/",
-          containerClasses: "govuk-width-container",
-          useTudorCrown: true,
-          
-          navigation: [
-          {
-            href: "#1",
-            text: "Find someone",
-            active: false
-          },
-          {
-            href: "#1",
-            text: "Tasks",
-            active: true
-          },
-          {
-            href: "#2",
-            text: "Telephone claims"
-          },
-          {
-            href: "#3",
-            text: "Paper claims"
-          }
-        ]
-      })
-}}
-
-{% endblock %} 
