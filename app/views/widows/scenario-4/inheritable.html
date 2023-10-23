@@ -1,0 +1,239 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include 'widows/scenario-4/_bar-widows.html' %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+  }}
+
+  <br><br>
+
+        <form method="post">
+  <h1 class="govuk-heading-l">Check for inheritable amounts</h1>
+
+  <br><br>
+
+          <h2 class="govuk-heading-m">Claimant details</h2>
+
+
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">First name </th>
+                  <td class="govuk-table__cell">Nathanial Holland</td>
+                  <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell"></td>
+
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Address</th>
+                  <td class="govuk-table__cell">18 School Lane<br>
+                    DUDLEY<br>
+                    DY60 7TD</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status</th>
+                  <td class="govuk-table__cell">Widowed</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of birth</th>
+              <td class="govuk-table__cell">24 June 1956</td>
+              <td class="govuk-table__cell"><span class="verified-badge verified">
+                <b></b>
+                <td class="govuk-table__cell" style="text-align: right">
+              </td>
+              </span> </td>
+
+            </tr>
+
+
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">State Pension date</th>
+                  <td class="govuk-table__cell">24 June 2022</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Age when widowed</th>
+                  <td class="govuk-table__cell">64</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+
+              </tbody>
+            </table>
+
+
+  <br>  <br>
+          <h2 class="govuk-heading-m">Spouse or civil partner details</h2>
+
+              <form method="">
+
+
+                <table class="govuk-table">
+                  <tbody class="govuk-table__body">
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">First name </th>
+                      <td class="govuk-table__cell">Julia Holland</td>
+                      <td class="govuk-table__cell"></td>
+                      <td class="govuk-table__cell"></td>
+
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Address</th>
+                      <td class="govuk-table__cell">
+                        18 School Lane<Br>
+                        DUDLEY<br>
+                        DY60 7TD</td>
+                      <td class="govuk-table__cell"></td>
+                      <td class="govuk-table__cell"></td>
+
+                    </tr>
+                    <tr class="govuk-table__row">
+                     <th scope="row" class="govuk-table__header" style="width: 40%">National Insurance number</th>
+                     <td class="govuk-table__cell" style="width: 30%">JS 12 34 56 D</td>
+                     <td class="govuk-table__cell"></td>
+                     <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                       <a class="govuk-link" href="nino">Change</a>
+                     </td>
+                   </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Gender</th>
+                      <td class="govuk-table__cell">Female</td>
+                      <td class="govuk-table__cell"> </td>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="nino">Change</a>
+                      </td>
+                    </tr>
+
+                        <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Date of birth</th>
+                      <td class="govuk-table__cell">19 November 1963</td>
+                      <td class="govuk-table__cell"><span class="verified-badge verified">
+                        <b>Verified</b>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="nino">Change</a>
+                      </td>
+                      </span> </td>
+
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Date of death</th>
+                      <td class="govuk-table__cell">20 December 2020</td>
+                      <td class="govuk-table__cell"><span class="verified-badge verified">
+                        <b>Verified</b>
+                      </span> </td>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="nino">Change</a>
+                      </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Date of marriage</th>
+                      <td class="govuk-table__cell">13 June 2005</td>
+                      <td class="govuk-table__cell"><span class="verified-badge verified">
+                        <b>Verified</b>
+                      </span> </td>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="date-of-marriage">Change</a>
+                      </td>
+                    </tr>
+
+
+
+
+                  </tbody>
+                </table>
+
+
+  <br>  <br>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+
+        <h2 class="govuk-fieldset__heading">
+          Are there any inheritable amounts?
+        </h2>
+      </legend>
+
+    <br>
+
+
+
+<div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <div class="govuk-radios__item ">
+      <input class="govuk-radios__input" id="inheritable-amounts-2" name="inheritable-amounts" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="inheritable-amounts-2">
+      Yes
+      </label>
+
+</div>
+
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="inheritable-amounts-2" name="inheritable-amounts" type="radio" value="no">
+<label class="govuk-label govuk-radios__label" for="inheritable-amounts-2">
+No</label>
+
+</div>
+</div>
+
+  <br><br>
+
+  <button class="govuk-button" data-module="govuk-button">
+  Continue
+  </button>
+
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+</div>
+
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

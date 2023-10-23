@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+<br><br>
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full-width">
+
+          {% include './name-bar/_bar-jose.html' %}
+
+          {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.go(-1)"
+      }) }}
+<br><br>
+
+
+<h2 class="govuk-heading-l">Admin only: correct an award</h2>
+
+<table class="govuk-table">
+
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header" scope="col" style="width: 30%">From</th>
+      <th class="govuk-table__header " scope="col" style="width: 30%">Weekly amount</th>
+      <th class="govuk-table__header" scope="col" style="width: 20%">Reason</th>
+      <th class="govuk-table__header" scope="col" style="width: 20%"></th>
+
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">10 Apr 2019</td>
+      <td class="govuk-table__cell">£160.34</td>
+      <td class="govuk-table__cell">HMRC</td>
+      <td class="govuk-table__cell"><a href="change-award-review">Change</a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell">8 Mar 2018</td>
+      <td class="govuk-table__cell">£150.27</td>
+      <td class="govuk-table__cell">Initial award</td>
+      <td class="govuk-table__cell"><a href="change-award-review-2">Change</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+<div>
+  <a href="personal" role="button" class="govuk-button govuk-button--secondary">
+    Return to record overview
+  </a>
+</div>
+
+        </div>
+      </div>
+    </main>
+
+
+
+<br><br><br><br>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /correct-award <br>
+        <b>Error messages:</b> None needed   <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+
+
+
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

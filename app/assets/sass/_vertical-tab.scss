@@ -1,0 +1,61 @@
+/* VERTICAL TABS PATTERN */
+.vTab, .vTab:link {
+    text-decoration: none;
+    padding: 10px 15px 8px 15px;
+    display: inline-block;
+    background-color: #DEE0E2;
+    margin-left: 0;
+    margin-bottom: 5px;
+    width: 125px;
+}
+.vTab:hover {
+    text-decoration: none;
+}
+.vTab:active {
+    color: #0B0C0C;
+    text-decoration: none;
+}
+.vTab:visited {
+    color: #0B0C0C;
+    text-decoration: none;
+}
+.vTab:focus {
+    color: #0B0C0C;
+    text-decoration: none;
+    background-color: #DEE0E2;
+    border: 3px solid #FFBF47;
+}
+.vTab-on, .vTab-on:link, .vTab-on:hover, .vTab-on:active, .vTab-on:visited, .vTab-on:focus  {
+    color: #0B0C0C;
+    text-decoration: none;
+    padding: 10px 10px 8px 10px;
+    display: inline-block;
+    background-color: #FFFFFF;
+    margin-bottom: 5px;
+    border: 1px solid #BFC1C3;
+    border-right: 1px solid #FFFFFF;
+    pointer-events: none;
+    cursor: default;
+    width: 140px;
+}
+#vTabTwoContent, #vTabThreeContent, #vTabThreeContent, #vTabFourContent, #vTabFiveContent {
+    display: none;
+}
+.vTabGroup {
+    display: inline-block;
+    position: absolute;
+}
+#vTabContent {
+    display: inline-block;
+    border: 1px solid #BFC1C3;
+    margin-left: 160px;
+    padding: 0 15px;
+}
+.vTabSecondaryText {
+    color: #0B0C0C;
+    font-size: 14px;
+}
+.vTabGroup img {
+    float: right;
+    margin-top: 6px;
+}

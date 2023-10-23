@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+
+{{ govukBackLink({
+"text": "Back",
+"href": "javascript: window.history.go(-1)"
+})
+}}
+
+        <form method="post" action="get-a-task-2">
+<br>
+          <h1 class="govuk-heading-l">ANZaC actions already complete</h1>
+<p>Select end task to confirm all ANZaC actions are complete.</p>
+        <!--<p>For example, the claimant has already claimed directly from the Australian, New Zealand or Canadian authorities.</p>-->
+<br>
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+                          This will complete the task. No further action will be taken.
+                          </strong>
+                        </div>
+                        <a href="get-a-task-2" role="button" draggable="false" button class="govuk-button " data-module="govuk-button">
+                          End task
+                        </a>
+
+        </div>
+
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+
+          <strong>URL:</strong> /anzac-task-already-complete <br>
+
+
+
+
+
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+
+  <br>
+  <br>
+
+  <div class="govuk-grid-column-full">
+
+    <div class="govuk-button-group">
+
+      <a href="admin4-cases" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+      All cases
+      </a>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+  </div>
+
+
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+
+
+        <div class="column-full-width">
+
+          <br><br>
+          {% include './name-bar/_bar-jose-deleted.html' %}
+
+          <nav class="navigation-secondary">
+            <ul>
+
+              <li>
+                  <a href="personal-deleted" class="active" aria-current="page">Personal</a>
+                </li>
+              <li>
+                <a href="contact-deleted">Contact</a>
+              </li>
+
+              <li>
+                <a href="award-deleted">Award</a>
+              </li>
+                <li>
+                  <a href="payment-deleted" class="" aria-current="page">Payment</a>
+                </li>
+
+            </ul>
+          </nav>
+
+        </div>
+      </div>
+    </main>
+
+    <br>
+    <br>
+
+    <div>
+      <h2 class="govuk-heading-m">Personal details</h2>
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+            <td class="govuk-table__cell" style="width: 50%">Jose Dominguez</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+
+            </a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">National Insurance number</th>
+            <td class="govuk-table__cell">QQ 56 43 21 M</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of birth</th>
+            <td class="govuk-table__cell">12 December 1952</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">State Pension date </th>
+            <td class="govuk-table__cell">10 April 2019 </td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Marital status </th>
+              <td class="govuk-table__cell">Married</td>
+              <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
+
+                </a></td>
+            </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /personal <br>
+        <b>Error messages:</b> None needed   <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+    <br><br>
+    <h2 class="govuk-heading-m">
+      Personal changes
+    </h2>
+    <ol class="app-timeline">
+      <li class="app-timeline__entry">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+          Claimant removed: duplicate claim
+        </h3>
+
+        <p class="app-timeline__info govuk-!-margin-bottom-0">
+          <span class="govuk-visually-hidden">No changes made</span>
+          <span class="app-timeline__date">
+                24 Nov 2021
+          </span>
+        </p>
+      </li>
+
+
+    </ol>
+
+  </div>
+
+
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

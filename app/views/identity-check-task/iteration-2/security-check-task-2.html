@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_bar-2.html' %}
+
+        <form method="post">
+
+
+          <h1 class="govuk-heading-l">Phone the claimant</h1>
+
+          <ol class="govuk-list govuk-list--number">
+            <li>Ask handshake questions and verify their identity.</li>
+            <li>Refer to CIS, NIRS and Searchlight for additional security questions and answers.</li>
+            <li>Leave a voicemail if the claimant does not answer.</li>
+          </ol>
+
+<br><br>
+
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Claimant information</caption>
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Mobile phone</th>
+                <td class="govuk-table__cell">07944 382 789</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Home phone</th>
+                <td class="govuk-table__cell">0191 289 3307</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Work phone</th>
+                <td class="govuk-table__cell">None</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Method of application</th>
+                <td class="govuk-table__cell">Online</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="security-questions-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  What was the outcome of the additional security check?
+                </h1>
+              </legend>
+              <div id="security-questions-hint" class="govuk-hint">
+
+              </div>
+              <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions" name="security-questions" type="radio" value="passed">
+                  <label class="govuk-label govuk-radios__label" for="security-questions">
+                    Passed
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions-2" name="security-questions" type="radio" value="failed">
+                  <label class="govuk-label govuk-radios__label" for="security-questions-2">
+                    Failed
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions-2" name="security-questions" type="radio" value="refused">
+                  <label class="govuk-label govuk-radios__label" for="security-questions-3">
+                    Would not answer questions</label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions-2" name="security-questions" type="radio" value="no-answer">
+                  <label class="govuk-label govuk-radios__label" for="security-questions-4">
+                    Could not reach claimant by phone - left a voicemail
+                  </label>
+                </div>
+
+
+              </div>
+            </fieldset>
+
+
+          </div>
+
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+          {% include './_tab-award.html' %}
+
+
+
+
+        </div>
+      </div>
+    </main>
+
+    </br>
+    </br>
+
+    <div>
+      <div class="moj-banner">
+
+        <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+          xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+          <path d="M13.7,18.5h-2.4v-2.4h2.4V18.5z M12.5,13.7c-0.7,0-1.2-0.5-1.2-1.2V7.7c0-0.7,0.5-1.2,1.2-1.2s1.2,0.5,1.2,1.2v4.8
+                    C13.7,13.2,13.2,13.7,12.5,13.7z M12.5,0.5c-6.6,0-12,5.4-12,12s5.4,12,12,12s12-5.4,12-12S19.1,0.5,12.5,0.5z" />
+        </svg>
+
+        <div class="moj-banner__message">
+          This award will increase on 10 April 2020 <br>
+          <a href="award-uprating">View new award</a>
+
+        </div>
+
+      </div>
+      <h2 class="govuk-heading-m">State Pension awards</h2>
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" style="width: 35%">From</th>
+            <th class="govuk-table__header " scope="col" style="width: 30%">Weekly amount</th>
+            <th class="govuk-table__header" scope="col" style="width: 20%"></th>
+            <th class="govuk-table__header" scope="col" style="width: 15%"></th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 April 2019</td>
+            <td class="govuk-table__cell">£160.34</td>
+            <td class="govuk-table__cell"><a href="award-current">Details</a></td>
+            <td class="govuk-table__cell"><span class="verified-badge verified">
+                <b>In payment</b>
+              </span></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">10 April 2019</td>
+            <td class="govuk-table__cell">£155.27</td>
+            <td class="govuk-table__cell"><a href="award-previous">Details</a></td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+<div class="govuk-grid-column-one-third">
+  <br><br>
+  <h2 class="govuk-heading-m">
+    Award changes
+  </h2>
+  <ol class="app-timeline">
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+        Award reviewed
+      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">SRB</span>
+        <span class="app-timeline__date">
+          27 April 2019
+        </span>
+      </p>
+    </li>
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+        Award reviewed
+      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">SRB</span>
+        <span class="app-timeline__date">
+          29 March 2019
+        </span>
+      </p>
+    </li>
+      <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Award reviewed
+          </h3>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">SRB</span>
+            <span class="app-timeline__date">
+              3 March 2019
+            </span>
+          </p>
+        </li>
+                 
+  </ol>
+
+</div>
+
+
+</div>
+</div>
+</main>
+</div>
+<!-- </div> -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

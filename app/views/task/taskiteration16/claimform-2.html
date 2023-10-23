@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-claimform.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small-paper.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="claimform-1" class="govuk-back-link">Back</a>
+        <br><br>
+        <form method="post" action="contacted">
+
+          <h1 class="govuk-heading-xl">
+            Confirm details
+          </h1>
+
+          <div class="govuk-form-group">
+
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Date of birth</th>
+                  <td class="govuk-table__cell">11 July 1954</td>
+                  <td class="govuk-table__cell"> <a class="govuk-link" style="margin-left: 35%" href="dob2">
+                      Change
+                    </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Address</th>
+                  <td class="govuk-table__cell">5 WINDSOR STREET
+                    <br>SOUTH GOSFORTH
+                    <br>NEWCASTLE UPON TYNE
+                    <br>NE3 1YL
+                  </td>
+
+                  <td class="govuk-table__cell"> <a class="govuk-link" style="margin-left: 35%" href="address1">
+                      Change
+                    </a></td>
+                </tr>
+            
+              </tbody>
+            </table>
+
+          </div>
+
+
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+
+      </div>
+
+
+
+      </form>
+
+
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

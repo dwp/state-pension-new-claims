@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+          <span class="govuk-heading-xl">You have successfully confirmed your identity
+            <br></span>
+
+<p>You can now check and submit your claim for State Pension.</p>
+
+<br>
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /successfully-confirmed-identity <br>
+        <b>Error messages:</b> None
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  </div>
+
+  <div class="column-one-third">
+    {% include 'includes/parts/help.html' %}
+  </div>
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

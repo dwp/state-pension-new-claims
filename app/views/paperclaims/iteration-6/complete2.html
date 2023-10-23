@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+        <form method="post">
+          <div>
+            <a href="check-answers" class="govuk-back-link">Back</a>
+
+          </div>
+          <br>
+          <h1 class="govuk-heading-xl">More information needed</h1>
+
+          <p>The State Pension claim cannot be submitted because the following information is missing:</p>
+         <ul class="govuk-list--bullet">
+          <li><p>the claimant’s signature</p></li>
+         </ul>
+         <p>Print the claim form, highlight the missing information and send it back to the claimant with the appropriate letter.
+        </p>
+  
+          <br>
+          <a href="tasks" button type="submit" class="govuk-button">
+            End task
+          </a>
+
+        </form>
+
+
+
+
+      </div>
+
+  </main>
+</div>
+
+{% endblock %}

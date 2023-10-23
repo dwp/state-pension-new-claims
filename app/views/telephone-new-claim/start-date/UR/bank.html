@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <form method="post">
+        <div class="govuk-grid-column-two-thirds">
+          <a href="address2" class="govuk-back-link">Back</a>
+          <br> <br>
+
+          <h1 class="govuk-heading-xl">
+            What are your bank or building society details? </h1>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="name-on-the-account">
+                Name on the account
+              </label>
+              <input class="govuk-input" id="name-on-the-account" name="name-on-the-account" type="text" spellcheck="false" autocomplete="name"></div>
+
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="sort-code">
+                Sort code
+              </label>
+              <div id="sort-code-hint" class="govuk-hint">
+                Must be 6 digits long
+              </div>
+              <input class="govuk-input govuk-input--width-5" id="sort-code" name="sort-code" type="text" spellcheck="false" aria-describedby="sort-code-hint" pattern="[0-9]*" inputmode="numeric">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="account-number">
+                Account number
+              </label>
+              <div id="account-number-hint" class="govuk-hint">
+                Must be between 6 and 8 digits long
+              </div>
+              <input class="govuk-input govuk-input--width-10" id="account-number" name="account-number" type="text" spellcheck="false" aria-describedby="account-number-hint" pattern="[0-9]*" inputmode="numeric">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="roll-number">
+                Building society roll number (if you have one)
+              </label>
+              <div id="roll-number-hint" class="govuk-hint">
+                You can find it on your card, statement or passbook
+              </div>
+              <input class="govuk-input govuk-input--width-10" id="roll-number" name="roll-number" type="text" spellcheck="false" aria-describedby="roll-number-hint">
+            </div>
+
+            <button class="govuk-button" data-module="govuk-button">
+              Continue
+            </button>
+
+            <br>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> /bank-details <br>
+        </div>
+        <div class="govuk-details__text">
+          <b>Errors:</b> 
+          Name on the account:	Empty: Enter the name on the account<br>
+          Name on the account:	Length: Name on the account must be 70 characters or less<br>
+          Name on the account:	Invalid: Name on the account must start with a letter and only include letters, hyphens, apostrophes, full stops, spaces and ampersands<br>
+          Building society roll number:	Does not exist:	Building society roll number does not exist - check it and try again<br>
+          Building society roll number:	Invalid:	Building society roll number must only include letters a to z, numbers, hyphens, spaces, forward slashes and full stops<br>
+          Building society roll number: Length:	Building society roll number must be between 1 and 18 characters<br>
+          Building society roll number:	Empty:	Enter a building society roll number<br>
+          Sort code:	Does not exist:	The sort code does not exist - check it and try again<br>
+          Sort code: Empty:	Enter a sort code<br>
+          Sort code: Invalid: Enter a valid sort code like 309430<br>
+          Sort code: Length: Sort code must be 6 digits<br>
+
+          Account number:	Length: Account number must be 8 digits<br>
+          Account number:	Invalid:	Enter a valid account number like 00733445<br>
+          Account number:	Empty: Enter an account number<br>
+          Account number:	Does not exist:	The account number does not exist - check it and try again<br>
+          
+
+        </div>
+      </details>
+
+        </div>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

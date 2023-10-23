@@ -1,0 +1,165 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+      <br><br>
+  <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+  <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+  Success
+  </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+  <h3 class="govuk-notification-banner__heading">
+  Task complete       </h3>
+  </div></div>
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+
+
+
+          {% include './_bar.html' %}
+
+<form method="post" action="award-updated-arrears">
+
+
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+          <br>
+          <br>
+
+          <h2 class="govuk-heading-l">Lived or worked abroad</h2>
+
+                      <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                Waiting for RF1 from HMRC. <a href="#" class="govuk-link govuk-link--no-visited-state">Confirm RF1 returned</a>.
+              </strong>
+            </div>
+          </div>
+
+                      <table class="govuk-table">
+                        <caption class="govuk-table__caption govuk-table__caption--m">Canada</caption>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">September 1990 to June 1991</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="govuk-table">
+                        <caption class="govuk-table__caption govuk-table__caption--m">Australia</caption>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">June 1994 to October 1997</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Worked</th>
+                            <td class="govuk-table__cell">June 1994 to October 1997</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Social security number</th>
+                            <td class="govuk-table__cell">LBMSE93</td>
+                          </tr>
+                        </tbody>
+                      </table>
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <br><br>
+      <h2 class="govuk-heading-m">
+      </h2>
+      <ol class="app-timeline">
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+              RF1 requested from HMRC
+            </h3>
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden"></span>
+              <span class="app-timeline__date">
+               12 May 2023</span>
+          </li>
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+              RF1 requested from HMRC
+            </h3>
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden"></span>
+              <span class="app-timeline__date">
+               25 April 2023</span>
+          </li>
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+              CFN1282 form returned
+            </h3>
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden"></span>
+              <span class="app-timeline__date">
+               25 April 2023</span>
+          </li>
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+              CFN1282 form sent to claimant
+            </h3>
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden"></span>
+              <span class="app-timeline__date">
+               14 March 2023</span>
+          </li>
+
+          <!--  <li class="app-timeline__entry">
+                <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+                No improvement possible...
+                </h3>
+                <p class="app-timeline__info govuk-!-margin-bottom-0">
+                  <span class="govuk-visually-hidden"></span>
+                  <span class="app-timeline__date">
+                    14 Decemeber 2022</span>
+              </li>
+-->
+
+
+      </ol>
+
+    </div>
+
+</div>
+
+{% endblock %}

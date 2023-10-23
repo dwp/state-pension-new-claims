@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+<br><br>
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+    }) }}
+
+
+<br><br>
+<h2 class="govuk-heading-l">Prison details</h2>
+<p class="govuk-body">
+
+            <form method="post" action="personal">
+
+              <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Entered prison</th>
+                    <td class="govuk-table__cell">21 December 2021</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Left prison</th>
+                    <td class="govuk-table__cell">18 January 2023</td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> /timeline-details <br>
+          <br><b>Notes:</b> None <br>
+        </div>
+      </details>
+
+
+</div>
+
+
+</div>
+<div class="govuk-grid-column-one-third">
+  <br><br>
+  <h2 class="govuk-heading-m">
+Action history
+  </h2>
+  <ol class="app-timeline">
+
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+Arrears payment sent      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+        <span class="app-timeline__date">8 February 2023
+
+        </span>
+      </p>
+    </li>
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+Payments started again      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+        <span class="app-timeline__date">22 January 2023
+
+        </span>
+      </p>
+    </li>
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+        Prison dates updated
+      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+
+        <span class="app-timeline__date">22 January 2023
+
+        </span>
+      </p>
+    </li>
+
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+        Overpayment referred to debt<br>management service
+      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+        <span class="app-timeline__date">8 February 2021
+
+        </span>
+      </p>
+    </li>
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+Payments stopped      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+        <span class="app-timeline__date">12 January 2022
+
+        </span>
+      </p>
+    </li>
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+        Prison dates added
+      </h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+          <span class="app-timeline__date">12 January 2022
+        </span>
+      </p>
+    </li>
+    <li class="app-timeline__entry">
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+State Pension suspended <br>pending investigation</h3>
+
+      <p class="app-timeline__info govuk-!-margin-bottom-0">
+        <span class="govuk-visually-hidden">No changes made</span>
+          <span class="app-timeline__date">2 January 2022
+        </span>
+      </p>
+    </li>
+
+  </ol>
+
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

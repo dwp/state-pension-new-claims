@@ -1,0 +1,125 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+          {% include './_tab-communications.html' %}
+
+
+
+
+        </div>
+      </div>
+    </main>
+
+    </br>
+    </br>
+
+
+      <h2 class="govuk-heading-m">Communications</h2>
+      
+
+      <ol class="app-timeline">
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Letter sent
+          </h3>
+  
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-content">Change of bank details</span>
+            <span class="app-timeline__date">27 March 2020</span>
+            <a href="resend-letter">Resend letter</a>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Letter sent
+          </h3>
+  
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-content">Review of award</span>
+            <span class="app-timeline__date">15 March 2020</span>
+            <a href="view-letter">View letter</a>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Letter sent
+          </h3>
+  
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-content">Change of payment frequency</span>
+            <span class="app-timeline__date">5 February 2020</span>
+            <a href="view-letter">View letter</a>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Letter sent
+          </h3>
+  
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-content">Award</span>
+            <span class="app-timeline__date">6 January 2020</span>
+            <a href="view-letter">View letter</a>
+          </p>
+        </li>
+
+  
+  
+      </ol>
+
+  </div>
+
+
+    <br><br>
+   
+  </div>
+
+
+
+</div>
+</div>
+</main>
+</div>
+<!-- </div> -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

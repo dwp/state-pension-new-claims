@@ -1,0 +1,141 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+{% include './_find-someone.html' %}
+
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    {% include './_bar.html' %}
+
+    <div class="govuk-grid-column-two-thirds">
+
+    <div class="column-full">
+
+    <div class="govuk-grid-row">
+
+      <form method="post">
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                What is your marital status?
+              </h1>
+            </legend>
+            <span  class="govuk-body govuk-!-font-size-24">
+              Married
+            </span>
+            </br>
+            </br>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="marital-1" name="marital" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="marital-1">
+                  Pass
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="marital-2" name="marital" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="marital-2">
+                  Fail
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Are you receiving any other benefits?
+              </h1>
+            </legend>
+            <span  class="govuk-body govuk-!-font-size-24">
+             Yes
+            </span>
+            </br>
+            </br>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="benefits-1" name="benefits" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="benefits-1">
+                  Pass
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="benefits-2" name="benefits" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="benefits-2">
+                  Fail
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                What is your partner's name?
+              </h1>
+            </legend>
+            <span  class="govuk-body govuk-!-font-size-24">
+              Jemma East
+            </span>
+            </br>
+            </br>
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="partner-1" name="partner" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="partner-1">
+                  Pass
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="partner-2" name="partner" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="partner-2">
+                  Fail
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+
+      </form>
+
+
+    </div>
+
+  </div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+</div>
+
+{% endblock %}

@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+
+  <br>
+  <br>
+
+
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full-width">
+          <br><br>
+
+          {% include './name-bar/_bar-jose-prison.html' %}
+
+        </div>
+      </div>
+    </main>
+
+    {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+    }) }}
+
+    <div>
+            <form method="post" action="personal">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                  </legend>
+                  <h1 class="govuk-heading-l"">
+                              When did their prison sentence end?
+                              </h1>
+                  <div class="govuk-date-input" id="marriage-date">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="marriage-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="marriage-day" name="dead-day"
+                          type="number" pattern="[0-9]*">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="marriage-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="marriage-month"
+                          name="dead-month" type="number" pattern="[0-9]*">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="marriage-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="marriage-year"
+                          name="dead-year" type="number" pattern="[0-9]*">
+                      </div>
+                    </div>
+                  </div>
+
+                </fieldset>
+              </div>
+
+              <!-- <fieldset class="govuk-fieldset" aria-describedby="marriage-verification-hint">
+                <div class="govuk-radios govuk-radios--inline">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="marriage-verification" name="marriage-verification" type="radio"
+                      value="verified">
+                    <label class="govuk-label govuk-radios__label" for="marriage-verification-1">
+                      Verified
+                    </label> </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="marriage-verification" name="marriage-verification" type="radio"
+                      value="not-verified">
+                    <label class="govuk-label govuk-radios__label" for="marriage-verification-2">
+                      Not verified
+                    </label> </div>
+                </div>
+              </fieldset> -->
+      <br>
+        <a href="personal-left-prison" role="button" class="govuk-button">
+          Continue
+        </a>
+      </div>
+
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> /left-prison <br>
+          <b>Error messages:</b>
+          Enter a real date, like 12 2 2019<br>
+          Invalid: Enter a real date, like 12 2 2019
+          <br>Date before sentence started: Date their prison sentence ended must be after 12 2 2022 [date it started]
+          <br>Date in the future: Date their sentence ended must be today or in the past
+          <br><b>Notes:</b> None <br>
+        </div>
+      </details>
+
+
+
+    </div>
+
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

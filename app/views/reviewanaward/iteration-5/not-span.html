@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-tasks.html' %}
+
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+      {% include './_bar-small.html' %}
+    <div class="govuk-grid-column-two-thirds">
+
+      <main id="content" role="main">
+        <div class="grid-row">
+          <div class="column-full">
+<br>
+
+
+
+          </div>
+        </div>
+      </main>
+
+
+<br>
+<br>
+<form method="post">
+<div>
+  <a href="tasks-3" class="govuk-back-link">Back</a>
+
+</div>
+<br>
+  <h1 class="govuk-heading-xl">Update award</h1>
+
+  <p>The weekly State Pension amount will go down from <b>£158.20</b> to <b>£150.10</b> from <b>25 October 2020</b>.</p>
+  <p>A new award letter will be sent to the claimant.</p>
+
+    <a href="tasks-4-4" button type="submit" class="govuk-button">
+      Update award
+    </a>
+
+  </form>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="worked-abroad">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+<form id="countries" action="what-countries-have-you-lived-in" method="post">
+
+
+
+
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="countries">
+                What countries have you lived in?
+              </label>
+            </h1>
+
+
+
+
+
+                <fieldset id="country-type-ahead">
+                  <div class="form-group">
+                    <label class="form-label" for="country-name-1">Country name <span class="remove-link"></span></label>
+                    <input class="form-control country-name" id="country-name-1" type="text" name="country-name-1" autocomplete="off">
+
+                    <div class="country-list" style="display:none;">
+                    </div>
+                  </div>
+                </fieldset>
+
+                <p>
+                  <a id="add-another-country" href="#">Add another country</a>
+                </p>
+
+
+              </form>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}
+
+  {% block pageScripts %}
+    {% include 'additionalsecurity/scripts/countries.html' %}
+{% endblock %}

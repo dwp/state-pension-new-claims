@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">
+Do you have your invitation code?      </h1>
+
+<div class="govuk-radios" data-module="govuk-radios">
+  <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="confirm-identity" name="confirm-identity" type="radio"
+            value="code">
+          <label class="govuk-label govuk-radios__label" for="confirm-identity">
+            <b>Yes, I have my invitation code </b> </label>
+<div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+              You can find this on your Get your State Pension letter</div>
+
+        </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="confirm-identity-2" name="confirm-identity" type="radio"
+            value="verify">
+<label class="govuk-label govuk-radios__label" for="confirm-identity-2">
+            <b>No, I do not have my invitation code</b></label>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">You can prove your identity with GOV.UK Verify instead</div>
+
+        </div>
+      </div>
+      <br><br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+  </div>
+
+</form>
+
+
+
+{% endblock %}

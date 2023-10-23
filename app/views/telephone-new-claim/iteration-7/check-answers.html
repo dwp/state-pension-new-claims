@@ -1,0 +1,312 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="germany" class="govuk-back-link">Back</a>
+
+        <form method="post">
+<br>
+          <h1 class="govuk-heading-xl">
+            Check claim details
+          </h1>
+
+
+  <div class="govuk-form-group">
+
+        <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Name
+            </dt>
+            <dd class="govuk-summary-list__value">
+              Samira McGill
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">
+
+              </a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              National Insurance number
+            </dt>
+            <dd class="govuk-summary-list__value">
+              QQ 12 34 56 X
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="">
+
+              </a>
+            </dd>
+          </div>
+
+            <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          12 December 1955
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['nino'] === 'XX89161B' %}
+          63 Seafield Place<br>
+          Fosten<br>
+          YO6 4HN
+          {% elseif data['nino'] === 'xx89161b' %}
+          63 Seafield Place<br>
+          Fosten<br>
+          YO6 4HN
+          {% else %}
+          14 Mill Lane<br>
+          Arleston<br>
+          TF1 2HN
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Bank account details
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['nino'] === 'xx347612a' %}
+          Theodora Best
+          {% elseif data['nino'] === 'XX347612A' %}
+          Theodora Best
+          {% elseif data['nino'] === 'XX89161B' %}
+          Yara Croft
+          {% elseif data['nino'] === 'xx89161b' %}
+          Yara Croft
+          {% else %}
+          Samira McGill
+          {% endif %}<br>54 65 66<br>24678900
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          State Pension claim date
+        </dt>
+        <dd class="govuk-summary-list__value">
+         12 December 2021
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="sp-date-c">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Spent time in prison?
+        </dt>
+        <dd class="govuk-summary-list__value">
+        No
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="prison">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+
+
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+         Mobile: 07919192873 <br>
+         {% if data['nino'] === 'xx347612a' %}
+         best@hotmail.com
+         {% elseif data['nino'] === 'XX347612A' %}
+            best@hotmail.com
+         {% elseif data['nino'] === 'XX89161B' %}
+            croft@hotmail.com
+         {% elseif data['nino'] === 'xx89161b' %}
+            croft@hotmail.com
+         {% else %}
+            sam@hotmail.com
+         {% endif %} <br>
+
+         {% if data['nino'] === 'XX89161B' %}
+         {% elseif data['nino'] === 'xx89161b' %}
+         {% else %}
+         {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="contacted2-c">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Alternative format for letters
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Braille
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> contact information</span>
+          </a>
+        </dd>
+      </div>
+
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Marital status
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {% if data['nino'] === 'XX89161B' %}
+          Never been married or in a civil partnership
+          {% elseif data['nino'] === 'xx89161b' %}
+          Never been married or in a civil partnership
+          {% else %}
+          Married <br> Date of marriage: 7 May 1979 <br><br>Spouse: John McGill<br>QQ 12 55 87 X<br>3 July 1950
+          {% endif %}
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="marital-status">
+            Change<span class="govuk-visually-hidden"></span>
+          </a>
+        </dd>
+      </div>
+
+
+               {% if data['nino'] === 'XX89161B' %}
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Lived or worked outside the UK
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                  France<br>Lived: Jun 2001 to Sep 2004 <br>Worked: Jun 2001 to Sep 2004<br><br> Germany<br>Lived: Oct 2007 to Dec 2010<br>
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="">
+                     Change<span class="govuk-visually-hidden"></span>
+                   </a>
+                 </dd>
+               </div>
+               {% elseif data['nino'] === 'xx89161b' %}
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Lived or worked outside the UK
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                  France<br>Lived: Jun 2001 to Sep 2004 <br>Worked: Jun 2001 to Sep 2004<br><br> Germany<br>Lived: Oct 2007 to Dec 2010<br>
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="">
+                     Change<span class="govuk-visually-hidden"></span>
+                   </a>
+                 </dd>
+               </div>
+               {% else %}
+               <div class="govuk-summary-list__row">
+                 <dt class="govuk-summary-list__key">
+                  Lived or worked outside the UK
+                 </dt>
+                 <dd class="govuk-summary-list__value">
+                  France<br>Lived: Jun 2001 to Sep 2004 <br>Worked: Jun 2001 to Sep 2004<br>
+                  <br> Germany<br>Lived: Feb 2007 to Mar 2010<br>
+                  <br> Switzerland<br>Lived: Jun 2011 to Jul 2012<br>
+                  <br> Italy<br>Lived: Jan 2014 to Oct 2016<br>
+                  <br> Has the claimant lived or worked in any other countries?<br>Yes<br>
+                 </dd>
+                 <dd class="govuk-summary-list__actions">
+                   <a class="govuk-link" href="">
+                     Change<span class="govuk-visually-hidden"> </span>
+                   </a>
+                 </dd>
+               </div>
+               {% endif %}
+
+
+    </dl>
+  </div>
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+    <br>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /check-claim-details<br>
+      </div>
+      <div class="govuk-details__text">
+        <b>Errors:</b>
+
+      </div>
+    </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

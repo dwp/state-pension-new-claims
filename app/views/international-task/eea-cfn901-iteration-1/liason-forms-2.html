@@ -1,0 +1,309 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+      <form method="post">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+          <br><br>
+          <h2 class="govuk-heading-l">Send claim for EEA pensions</h2>
+          <br>
+
+
+          <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                  Lived or worked abroad details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--m">Lived or worked abroad details</caption>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Country</th>
+                    <th scope="col" class="govuk-table__header">Social security number</th>
+                    <th scope="col" class="govuk-table__header">Insurance records</th>
+
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Spain</th>
+                    <td class="govuk-table__cell">LBMSE93</td>
+                    <td class="govuk-table__cell">Already requested</td>
+
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">France</th>
+                    <td class="govuk-table__cell">NDMSE93</td>
+                              <td class="govuk-table__cell">Request</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Croatia</th>
+                    <td class="govuk-table__cell">Check CFN901</td>
+                              <td class="govuk-table__cell">Do not request</td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                  Claimant details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                <table class="govuk-table">
+
+        <tbody class="govuk-table__body">
+
+          <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of birth</th>
+          <td class="govuk-table__cell">12 October 1955</td>
+          <td class="govuk-table__cell"><span class="verified-badge verified">
+      <b>Verified<b></span></td>
+
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Sex</th>
+            <td class="govuk-table__cell">Female</td>
+            <td class="govuk-table__cell"></td>
+
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Marital status</th>
+            <td class="govuk-table__cell">Married</td>
+            <td class="govuk-table__cell"></td>
+
+          </tr>
+          <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of marriage</th>
+          <td class="govuk-table__cell">2 June 1976</td>
+          <td class="govuk-table__cell"><span class="verified-badge verified">
+      <b>Unverified<b></span></td>
+
+          </tr>
+
+          <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of claim</th>
+          <td class="govuk-table__cell">15 April 2023</td>
+          <td class="govuk-table__cell"><span class="verified-badge verified"></span></td>
+          </tr>
+
+
+        </tbody>
+      </table>
+              </div>
+            </div>
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                  Contact details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-3" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-3">
+                <table class="govuk-table">
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Address</th>
+                      <td class="govuk-table__cell">57 Windsor Road<br>
+                  Tunbridge Wells<br>
+                  TN84 8IF</td>
+                  <td class="govuk-table__cell"></td>
+
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Correspondence address</th>
+                      <td class="govuk-table__cell">11 Windsor Road<br>
+                Tunbridge Wells<br>
+                TN84 8IF</td>
+                <td class="govuk-table__cell"></td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Mobile phone number	</th>
+                      <td class="govuk-table__cell">07123 456789</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Home phone number	</th>
+                      <td class="govuk-table__cell">01234 456789</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Work phone number	</th>
+                      <td class="govuk-table__cell">01234 765432</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Email	</th>
+                      <td class="govuk-table__cell">Malika.Clarke@AOL.com</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                Award details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                <table class="govuk-table">
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th class="govuk-table__header" scope="col" style="width: 30%">From</th>
+                      <th class="govuk-table__header " scope="col" style="width: 30%">Weekly amount</th>
+                    </tr>
+                      </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">12 October 2021</td>
+                  <td class="govuk-table__cell">£169.28</td>
+
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">13 April 2022</td>
+                  <td class="govuk-table__cell">£187.74</td>
+                </tr>
+
+              </tbody>
+            </table>
+              </div>
+            </div>
+
+            <div class="govuk-accordion__section">
+              <div class="govuk-accordion__section-header">
+                <h2 class="govuk-accordion__section-heading">
+                  <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Spouse or civil partner details
+                  </span>
+                </h2>
+              </div>
+              <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+                <table class="govuk-table">
+                <caption class="govuk-table__caption govuk-table__caption--m">Husband, wife or civil partner details</caption>
+                <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Name</th>
+                <td class="govuk-table__cell">Gerald Clarke</td>
+                <td class="govuk-table__cell"></td>
+
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Date of birth</th>
+                <td class="govuk-table__cell">10 March 1954</td>
+                <td class="govuk-table__cell"><span class="verified-badge verified">
+              <b>Verified<b></span></td>
+
+                </tr>
+                <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">National Insurance number</th>
+                <td class="govuk-table__cell">JS123456D</td>
+                <td class="govuk-table__cell"></td>
+                </tr>
+                </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+
+
+      <div class="govuk-inset-text">
+      This will automatically send a text, email or letter to the claimant.
+      </div>
+
+          <button type="submit" class="govuk-button">Confirm claim sent</button>
+
+
+
+                     <br>
+
+
+
+
+
+                     <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+                     <br>
+
+                             <details class="govuk-details" data-module="govuk-details">
+                               <summary class="govuk-details__summary">
+                                 <span class="govuk-details__summary-text">
+                                 <b>URL, errors and notes</b>
+                                 </span>
+                               </summary>
+                               <div class="govuk-details__text">
+                                 <b>URL:</b> /send-eea-claim <br>
+                                 <b>Error messages:</b> <br>
+                                 <b>Notes:</b> None <br>
+                               </div>
+                             </details>
+
+
+        </div>
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

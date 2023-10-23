@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <!-- <a href="get-a-claim" class="govuk-back-link">Back</a> -->
+
+    <br><br>
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+
+<h1 class="govuk-heading-xl">Get claim details</h1>
+
+<h2 class="govuk-heading-m">Envelope ID: 34567890DSBCJS</h2>
+<p class="govuk-hint">Use the envelope ID to find the form 
+  and get the claimant’s National Insurance number or invitation code.</p>
+  <br>
+<!-- 
+  <h2 class="govuk-heading-s">Can the claim be completed in this service?</h2>
+  <div class="govuk-radios govuk-radios--inline">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="process" name="process" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="process">
+        Yes
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="process-2" name="process" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="process-2">
+        No
+      </label>
+    </div>
+  </div> -->
+
+        <a href="ni" button type="submit" class="govuk-button">
+          Continue
+        </button>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

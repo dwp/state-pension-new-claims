@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <br>
+
+          {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+                            <br><br>
+
+        <form method="post" action="confirm">
+
+          <span class="govuk-caption-l">Review 2</span>
+          <h1 class="govuk-heading-l">New award</h1>
+
+
+          <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header award_detail2" scope="col">Total</th>
+                  <th class="govuk-table__header award_detail" scope="col">{% if data.addsp4 %}
+                    £{{data.addsp4}} per week
+                    {% else %}
+                    £0.00 per week
+                    {% endif %}	</th>
+                  <td class="govuk-table__cell award_detail">
+          </td>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">New State Pension</td>
+                  <td class="govuk-table__cell">{% if data.addsp4 %}
+                    £{{data.addsp4}}
+                    {% else %}
+                    {% endif %}	</td>
+                  <td class="govuk-table__cell">
+                    <a class="govuk-link" href="change-nsp2">
+                      {% if not data.addsp4 %}
+                    Add<span class="govuk-visually-hidden"></span>
+                    {% else %}
+                    Change<span class="govuk-visually-hidden"></span>
+                    {% endif %}</a>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Protected payment</td>
+                  <td class="govuk-table__cell">£0.00</td>
+                  <td class="govuk-table__cell">
+                    <a href="change-pp">
+                      Change<span class="govuk-visually-hidden">Change Protected Payment</span>
+                    </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+                  <td class="govuk-table__cell">£0.00</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+                  <td class="govuk-table__cell">£0.00</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+              </tbody>
+              </table>
+              <table class="govuk-table">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header award_detail2" scope="row">Entitlement date</td>
+                  <td class="govuk-table__cell">                    {% if not data.entdate4day %}
+                                    {% else %}
+                                    30 March 2021
+                                    {% endif %}</td>
+                    <td class="govuk-table__cell award_detail">
+                      <a class="govuk-link" href="change-date2">
+                        {% if not data.entdate4day %}
+                      Add<span class="govuk-visually-hidden"></span>
+                      {% else %}
+                      Change<span class="govuk-visually-hidden"></span>
+                      {% endif %}</a>
+                    </td>
+                  </tr>
+              </table>
+
+
+
+          <button class="govuk-button" data-module="govuk-button">
+           Continue
+         </button>
+
+         <a href="review-award3" button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+           Add another review
+         </a>
+
+         <p> <a href="#" class="govuk-link">Postpone or stop review</a> </p>
+
+        </form>
+
+      </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,211 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+          <form method="post" action="payment-frequency">
+
+            {{ govukBackLink({
+              text: "Back",
+              href: "javascript:history.go(-1)"
+                              }) }}
+
+             {{ govukInsetText ({
+              text: 'Payment was reduced by £210.00 due to a Pension Credit adjustment'
+            }) }}
+
+            <h2 class="govuk-heading-l">Payment details</h2>
+
+            <div class="govuk-form-group">
+
+
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                  <tr class="govuk-table__row">
+                  <tr class="govuk-table__row" style="width: 20%"></tr>
+                  <th class="govuk-table__header" scope="col" style="width: 43%">Total</th>
+                  <th class="govuk-table__header" scope="col">£650.72</th>
+                  <th class="govuk-table__header" scope="col"></th>
+
+                </thead>
+
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Period</td>
+                    <td class="govuk-table__cell">27 Jan 2022 to <br>23 Feb 2022</td>
+                    <th class="govuk-table__header" scope="col"></th>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Status</td>
+                    <td class="govuk-table__cell">Reissued</td>
+                    <td class="govuk-table__cell"> <a href=>Mark as returned</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h2 class="govuk-heading-m">Account the payment was  to</h2>
+              <dl class="app-check-your-answers app-check-your-answers--short">
+                <table class="govuk-table">
+                  <tbody class="govuk-table__body">
+
+                      <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header" style="width: 45%">Account holder</th>
+                      <td class="govuk-table__cell" style="width: 45%">
+                        {% if data['name-on-the-account'] %}
+                        {{data['name-on-the-account']}}
+                        {% else %}
+                        Mr M Rooney
+                        {% endif %}</td>
+                      <td class="govuk-table__cell" style="width: 10%"></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Sort code </th>
+                      <td class="govuk-table__cell">
+                        {% if data['sort-code'] %}
+                        {{data['sort-code']}}
+                        {% else %}
+                        54 76 98
+                        {% endif %}</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Account number</th>
+                      <td class="govuk-table__cell">
+                        {% if data['account-number'] %}
+                        {{data['account-number']}}
+                        {% else %}
+                        98765409
+                        {% endif %}</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+
+                    {% if data['roll-number'] %}
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Building society roll or reference number</th>
+                      <td class="govuk-table__cell">
+                        {{data['roll-number']}}</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+                    {% else %}
+
+                    {% endif %}
+                  </tbody>
+                </table>
+
+
+
+            </div>
+
+
+        </div>
+      </div>
+    </main>
+
+    </form>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+<br><br><br>
+    <h2 class="govuk-heading-m">
+      Status changes
+    </h2>
+    <ol class="app-timeline">
+
+      <li class="app-timeline__entry">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+          Paid with CPS Local faster payments
+        </h3>
+
+        <p class="app-timeline__info govuk-!-margin-bottom-0">
+          <span class="govuk-visually-hidden">
+          </span>
+          <span class="app-timeline__date">
+              2 Mar 2022
+          </span>
+        </p>
+      </li>
+
+      <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Sent with CPS Local faster payments
+          </h3>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">
+            </span>
+            <span class="app-timeline__date">
+              2 Mar 2022
+            </span>
+          </p>
+        </li>
+
+      <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Returned
+          </h3>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">
+            </span>
+            <span class="app-timeline__date">
+                28 Feb 2022
+            </span>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+              Sent
+            </h3>
+
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden">
+              </span>
+              <span class="app-timeline__date">
+                25 Feb 2022
+              </span>
+            </p>
+          </li>
+
+    </ol>
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

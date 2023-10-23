@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% set mainClasses = 'id-bar' %}
+
+{% block beforeContent %}
+
+
+<div class="govuk-!-margin-bottom-6">
+<ul class="ul-id-bar govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+  <li class="li-id-bar govuk-!-font-size-16">Claimant:</li> <li class="li-id-bar-item govuk-!-font-size-19"><strong>RACHEL SMITH </strong></li>
+  <li class="li-id-bar govuk-!-font-size-16">NI number:</li> <li class="li-id-bar-item govuk-!-font-size-19"><strong>QQ 12 34 56 X</strong></li>
+ <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-section-break-id-bar">
+</div>
+
+
+<!-- <div class="govuk-!-margin-bottom-6">
+  <ul class="ul-id-bar govuk-body govuk-!-margin-top-4 govuk-!-margin-bottom-0">
+    {% if data["national-insurance-return"] == "Yes" %}<li class="li-id-bar govuk-!-font-size-16">Claimant:</li> <li class="li-id-bar-item govuk-!-font-size-19"><strong>{{ data['full-name'] }} </strong></li>{% endif %}
+    {% if data["national-insurance-return"] == "Yes" %}<li class="li-id-bar govuk-!-font-size-16">NI number:</li> <li class="li-id-bar-item govuk-!-font-size-19"><strong>{{ data['nino'] }}</strong></li>{% endif %}
+    {% if data["who-is-caller-name"] %}<li class="li-id-bar-item govuk-!-font-size-19 verticalLine"><br></li>{% endif %}
+    {% if data["who-is-caller-name"] %}<li class="li-id-bar govuk-!-font-size-16">Caller:</li> <li class="li-id-bar-item govuk-!-font-size-19"><strong>{{ data['who-is-caller-name'] }}</strong></li></ul>{% endif %}
+    {% if data["national-insurance-return"] == "Yes" or data["who-is-caller-name"] %}<hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible govuk-section-break-id-bar">{% endif %}
+  </div> -->
+  
+{% endblock %}
+

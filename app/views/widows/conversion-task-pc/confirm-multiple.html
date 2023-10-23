@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+                            <br><br>
+
+        <form method="post" action="personal-updated">
+
+          <h1 class="govuk-heading-l">Change to award</h1>
+
+  <p>The award was revised from <strong>5 June 2021</strong> from <strong>£144.87</strong> to <strong>£149.87</strong> per week.</p>
+
+  <p>The award was revised from <strong>1 July 2021</strong> from <strong>£144.87</strong> to <strong>£154.87</strong> per week.</p>
+
+  <p>The award was revised from <strong>29 July 2021</strong> from <strong>£160.00</strong> to <strong>£170.00</strong> per week.</p>
+
+  <p>An arrears payment of <strong>£84.57</strong> will be made for the period <strong>5 June 2021</strong> to <strong>17 November 2021</strong>, adjusted due to Pension Credit.
+  </p>
+
+  <p>A new award letter will be sent to the claimant.</p>
+
+  <br>
+          <button class="govuk-button" data-module="govuk-button">
+           End task
+         </button>
+
+        </form>
+
+      </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

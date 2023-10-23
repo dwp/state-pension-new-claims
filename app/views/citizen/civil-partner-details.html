@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+
+                  <form method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        About your civil partner
+      </h1>
+    </legend>
+
+<br>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="civil-name">
+        <b>Their first name</b>
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="civil-name" name="civil-name" type="text" autocomplete="address-level2"></div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="civil-surname">
+        <b>Their surname</b>
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="civil-surname" name="civil-surname" type="text"></div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="civil-other">
+          <b>All other names they have been known by</b>
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+    Including maiden name, former married name and changes of family name.
+      </div>
+        <input class="govuk-input govuk-!-width-two-thirds" id="civil-other" name="civil-other" type="text"></div>
+
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="address-postcode">
+        <b>Their date of birth</b>
+      </label>
+      <div id="civil-dob-hint" class="govuk-hint">
+        For example, 27 3 1968
+      </div>
+      <div class="govuk-date-input" id="civil-dob">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="civil-dob-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="civil-dob-day" name="civil-dob-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="civil-dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="civil-dob-month" name="civil-dob-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="civil-dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="civil-dob-year" name="civil-dob-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+        </div>
+
+  </fieldset>
+
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}

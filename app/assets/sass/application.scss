@@ -1,6 +1,104 @@
 //
 // For guidance on how to add CSS and SCSS see:
 // https://prototype-kit.service.gov.uk/docs/adding-css-javascript-and-images
-// 
+//
 
 // Add extra styles here
+
+
+// Components that aren't in Frontend
+@import "components/cookie-banner";
+
+@import 'most-recent';
+@import 'index-top';
+@import 'key-details-bar';
+@import 'key-details-bar-white';
+@import 'key-details-bar2';
+@import 'navigation-global';
+@import 'timeline';
+@import 'navigation-secondary';
+@import 'app-c-tag';
+@import 'verified-badge';
+@import 'not-verified-badge';
+@import 'work-queue-nav';
+@import 'download';
+@import 'vertical-tab';
+
+.award_detail {
+
+    width: 50%;
+
+}
+
+.award_detail2 {
+
+    width: 56%;
+
+}
+
+.autocomplete__option {
+    font-family: $govuk-font-family;
+    font-weight: normal;
+}
+
+.autocomplete-wrapper { max-width: 44ex;
+}
+
+.govuk-main-wrapper {
+    padding-top: 40px !important;
+  }
+  .id-bar.govuk-main-wrapper {
+    padding-top: 0px !important;
+  }
+  .ul-id-bar{
+    list-style-type: none;
+    text-align: left;
+    padding-left: 0px;
+  }
+  .li-id-bar {
+    display: inline-block;
+    padding-right: 0px !important;
+  }
+  .li-id-bar-item {
+    display: inline-block;
+    padding-right: 20px !important;
+  }
+  .verticalLine {
+    border-left: 1px solid govuk-colour("mid-grey");
+  }
+  .govuk-section-break-id-bar {
+    border-bottom: 1px solid govuk-colour("mid-grey");
+  }
+
+  * {
+    font-family: Arial, sans-serif !important;
+  }
+  // renamed but not sure if needed else where?
+  .govuk-currency-input-other {
+
+    &__inner {
+      position: relative;
+
+      &__unit {
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+        font-weight: bold;
+      }
+
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      font-family: "nta", Arial, sans-serif;
+      font-weight: 400;
+      text-transform: none;
+      font-size: 16px;
+      line-height: 1.25;
+      width: 20%;
+      padding: 5px 4px 4px;
+      border: 2px solid #0b0c0c;
+    }
+  }
+
+
+  // —————————————————————————————————————

@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+         
+
+            {{ govukBackLink({
+              text: "Back",
+              href: "javascript:history.go(-1)"
+                              }) }}
+
+    <br><br>
+    <form method="post" >
+  <h2 class="govuk-heading-l">Has this payment been returned by the bank?</h2>
+  <!---<span id="passport-issued-hint" class="govuk-hint">
+      Payments should only be changed to 'not paid' if they have been returned by the bank.
+    </span> -->
+  <dl class="app-check-your-answers app-check-your-answers--short">
+
+      <div class="govuk-form-group">
+          
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="changed-name">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                  No
+                </label>
+              </div>
+            </div>
+        </div>
+     
+        <button class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+
+        </form>
+</div>
+
+
+
+
+  </div>
+
+
+</main>        </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+<script>
+    nextPageRoutes = {
+        'yes': 'pc-payment-returned',
+        'no': 'pc-payment',
+        }
+</script>
+
+
+{% endblock %}

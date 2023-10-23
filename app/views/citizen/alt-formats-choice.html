@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+How else would you like us to send letters to you?
+      </h1>
+
+      <div id="event-name-hint" class="govuk-hint">
+          Select one option.
+      </div>
+
+
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="alt-format-option" name="alt-format-option" type="radio" value="Audio cassette">
+          <label class="govuk-label govuk-radios__label" for="alt-format-option">
+            Audio cassette
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="alt-format-option-2" name="alt-format-option" type="radio" value="Audio CD">
+          <label class="govuk-label govuk-radios__label" for="alt-format-option-2">
+            Audio CD
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="alt-format-option-3" name="alt-format-option" type="radio" value="Audio MP3">
+          <label class="govuk-label govuk-radios__label" for="alt-format-option-3">
+            Audio MP3
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="alt-format-option-4" name="alt-format-option" type="radio" value="Braille">
+          <label class="govuk-label govuk-radios__label" for="alt-format-option-4">
+            Braille
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="alt-format-option-4" name="alt-format-option" type="radio" value="Large print">
+          <label class="govuk-label govuk-radios__label" for="alt-format-option-4">
+            Large print
+          </label>
+        </div>
+      </div>
+
+<br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+{% endblock %}

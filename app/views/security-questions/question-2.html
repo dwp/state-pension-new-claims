@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="govuk-caption-l">Question 2 of 3
+                <br></span>
+                <h1 class="govuk-heading-l">You took out a loan in February 2016 - what is the current outstanding balance?</h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two" name="security-question-two" type="radio" value="less">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two">
+                    Less than £1,499
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-2" name="security-question-two" type="radio" value="1500">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-2">
+                    Between £1,500 and £2,999
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-3" name="security-question-two" type="radio" value="3000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-3">
+                    Between £3,000 and £5,999
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-4" name="security-question-two" type="radio" value="6000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-4">
+                    Between £6,000 and £9,999
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-5" name="security-question-two" type="radio" value="10000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-5">
+                   £10,000 or more
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+
+      <button type="submit" class="govuk-button">
+        Confirm
+      </button>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /security-question-2 <br>
+        <b>Error messages:</b> Nothing selected: Select the current outstanding balance of your loan<br>
+        <b>Notes:</b> This template is for all questions with a range of values <br>
+      </div>
+    </details>
+
+  </div>
+
+  </div>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="navigation-global">
+      <ul>
+        <li>
+          <a href="find" class="" aria-current="page">Find someone</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details">
+    <div class="key-details-bar__top-block">
+
+      <dd class="key-details-bar__name">Monty East</dd>
+
+      <dd class="key-details-bar__nino">QQ 12 34 56 X</dd>
+
+    </div>
+
+  </dl>
+</section>
+
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+
+          <div>
+
+            <h1 class="govuk-heading-xl">Your contact details</h1>
+
+            <p>We’ll only contact you to confirm your application, or if we need further information.
+              </p>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone-number">
+                <b>Mobile telephone number</b>
+                <span id="mobile-phone-hint" class="govuk-hint">
+                    We may use text messages to update you about your application.
+                  </span>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone-number">
+                <b>Home telephone number</b>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone-number">
+                <b>Work telephone number</b>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="width-20">
+                <b>Email address</b>
+                <span id="mobile-phone-hint" class="govuk-hint">
+                    We'll email you to confirm you have completed your application.
+                  </span>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+            </div>
+
+
+          </div>
+
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}

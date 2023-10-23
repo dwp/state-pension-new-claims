@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+<h1 class="govuk-heading-l">Send the CFN1282 letter</h1>
+<p>Post the letter to this address with a reply envelope.</p>
+
+        <form method="post" action="get-a-task-2">
+          <div class="govuk-inset-text">
+          14 West Avenue<br>
+          Leeds<br>
+          LS12 2WE<br></div>
+
+<!--<table class="govuk-table">
+            <!--<caption class="govuk-table__caption govuk-table__caption--m">Claimant</caption>--
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Address</th>
+                <td class="govuk-table__cell">8 Mill Road<br>
+                  Edinburgh<br>
+                  EH23 1GR</td>
+              </tr>
+
+            </tbody>
+          </table> -->
+
+
+
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm form sent
+</button>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

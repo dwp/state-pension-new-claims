@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+      {% include './_bar-small.html' %}
+    <div class="govuk-grid-column-two-thirds">
+
+      <main id="content" role="main">
+        <div class="grid-row">
+          <div class="column-full">
+<br>
+            
+
+          </div>
+        </div>
+      </main>
+
+     
+
+      <div>
+        <a href="newaward" class="govuk-back-link">Back</a>
+      </div>
+<br>
+      <form action="confirmation" method="post" class="form">
+      <form method="post" >
+        <div class="govuk-form-group">
+          <h1 class="govuk-heading-l">Put State Pension into payment</h1>
+          <br>
+          <dl class="app-check-your-answers app-check-your-answers--short">
+
+            <h2 class="govuk-heading-m">Bank details</h2>
+                <table class="govuk-table">
+                
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row" style="width: 50%">Sort code</td>
+                    <td class="govuk-table__cell">112233</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Account number</td>
+                    <td class="govuk-table__cell">12345678</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Account holder</td>
+                    <td class="govuk-table__cell">Mr Roberto H Smith</td>
+                  </tr>
+                  
+                </tbody>
+                </table>
+
+                <h2 class="govuk-heading-m">First payment</h2>
+                <table class="govuk-table">
+                
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row" style="width: 50%" >Total</td>
+                    <td class="govuk-table__cell">£162.68</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Breakdown</td>
+                    <td class="govuk-table__cell">New State Pension £152.66
+                      <br> Protected payment £10.02
+                      
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Payment period dates</td>
+                    <td class="govuk-table__cell">8 September 2019 to 15 September 2019</td>
+                  </tr>
+                  
+                </tbody>
+                </table>
+
+                <h2 class="govuk-heading-m">Second and regular payment</h2>
+                <table class="govuk-table">
+                
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row" style="width: 50%">Total</td>
+                    <td class="govuk-table__cell">£650.72</td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Breakdown</td>
+                    <td class="govuk-table__cell">New State Pension £610.64
+                      <br> Protected payment £40.08
+                    </td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Payment period dates</td>
+                    <td class="govuk-table__cell">16 September 2019 to 14 October 2019</td>
+                  </tr>
+                  
+                </tbody>
+                </table>
+     <br>
+        <button type="submit" class="govuk-button">
+          Save and send letter
+        </button>
+      </form>
+
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

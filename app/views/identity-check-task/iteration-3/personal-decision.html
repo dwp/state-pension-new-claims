@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_bar.html' %}
+
+        <form method="post" action="">
+
+
+          <h1 class="govuk-heading-l">Did the claimant pass the visiting officer's additional security checks?</h1>
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="security-questions-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <p class="govuk-body-m"></p>
+              </legend>
+              <div id="security-questions-hint" class="govuk-hint">
+
+             
+                <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="passed">
+                    <label class="govuk-label govuk-radios__label" for="changed-name">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="failed">
+                    <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                      No
+                    </label>
+                  </div>
+                
+              </div>
+            </fieldset>
+
+
+          </div>
+
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /visiting-officer-outcome <br>
+        <b>Error messages:</b> If nothing selected: Select yes if the claimant passed the visiting officer's additional security checks<br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+
+
+<script>
+    nextPageRoutes = {
+        'passed': 'personal-passed',
+        'failed': 'personal-failed',
+        }
+</script>
+
+      {% endblock %}

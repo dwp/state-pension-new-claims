@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="contacted" class="govuk-back-link">Back</a>
+
+        <form method="post" action="complete">
+<br>
+          <h1 class="govuk-heading-xl">
+              Payment details
+          </h1>
+
+
+  <div class="govuk-form-group">
+
+    <p style="font-size: large">You will receive <b>£167.68 every 4 weeks</b>
+      <br><br>Your first payment will be for <b>£167.68 </b> and will be paid on <b>12 June 2020.</b> This is to get you on your regular payment cycle.
+      <br><br> Your second payment will be <b>£167.68 </b> and will be paid on <b>10 July 2020.</b> This is your full 4 week payment.
+    </p>
+
+
+  </div>
+<br>
+
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

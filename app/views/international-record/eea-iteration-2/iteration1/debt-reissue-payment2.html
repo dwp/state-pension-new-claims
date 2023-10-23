@@ -1,0 +1,168 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar-returned.html' %}
+
+          <form method="post" action="pc-payment-reissued">
+
+            {{ govukBackLink({
+              text: "Back",
+              href: "javascript:history.go(-1)"
+                              }) }}
+            <br><br>
+            <div class="govuk-form-group">
+
+            <h1 class="govuk-heading-l">Open CPS Local and reissue this as a faster payment</h1>
+
+
+                <br>
+
+                <table class="govuk-table">
+                  <caption class="govuk-table__caption govuk-table__caption--m">Payment details</caption>
+
+
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">Total</th>
+                      <th scope="col" class="govuk-table__header">£456.08</th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">New State Pension</th>
+                      <td class="govuk-table__cell">£658.72</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Deduction amount</th>
+                      <td class="govuk-table__cell">£202.64</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Period</th>
+                      <td class="govuk-table__cell">27 Jan 2022 to 23 Feb 2022</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+
+
+
+<table class="govuk-table">
+    <caption class="govuk-table__caption govuk-table__caption--m">Bank or building society account details</caption>
+  <tbody class="govuk-table__body">
+
+      <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" style="width: 45%">Account holder</th>
+      <td class="govuk-table__cell" style="width: 45%">
+        {% if data['name-on-the-account'] %}
+        {{data['name-on-the-account']}}
+        {% else %}
+        Mr M Rooney
+        {% endif %}</td>
+      <td class="govuk-table__cell" style="width: 10%"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Sort code </th>
+      <td class="govuk-table__cell">
+        {% if data['sort-code'] %}
+        {{data['sort-code']}}
+        {% else %}
+        54 76 98
+        {% endif %}</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Account number</th>
+      <td class="govuk-table__cell">
+        {% if data['account-number'] %}
+        {{data['account-number']}}
+        {% else %}
+        98765409
+        {% endif %}</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+
+    {% if data['roll-number'] %}
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Building society roll or reference number</th>
+      <td class="govuk-table__cell">
+        {{data['roll-number']}}</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    {% else %}
+
+    {% endif %}
+  </tbody>
+</table>
+
+
+ <table class="govuk-table">
+                  <caption class="govuk-table__caption govuk-table__caption--m">Debt deduction details</caption>
+
+                  <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Deduction benefit</th>
+                      <td class="govuk-table__cell">State Pension (Contributory)</td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Source benefit code</th>
+                      <td class="govuk-table__cell">12345</td>
+                    </tr>
+
+
+                  </tbody>
+                </table>
+
+<br>
+
+                            <button class="govuk-button" data-module="govuk-button">
+                              Confirm payment reissued with debt deduction
+                            </button>
+            </div>
+
+</form>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

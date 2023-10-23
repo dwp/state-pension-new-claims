@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+        <form method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="govuk-caption-l">Question 3 of 3
+                <br></span>
+                <h1 class="govuk-heading-xl">What was your year of birth?</h1>
+
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two" name="security-question-two" type="radio" value="less">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two">
+                    1952
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-2" name="security-question-two" type="radio" value="1500">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-2">
+                    1954
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-3" name="security-question-two" type="radio" value="3000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-3">
+                    1955
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-4" name="security-question-two" type="radio" value="6000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-4">
+                    1956
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-two-5" name="security-question-two" type="radio" value="10000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-two-5">
+                    1960
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+
+      <button type="submit" class="govuk-button">
+        Confirm
+      </button>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /security-question-21 <br>
+        <b>Error messages:</b> Nothing selected: Select your year of birth<br>
+        <b>Notes:</b> This template is for all questions with a range of values <br>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="column-one-third">
+    {% include 'includes/parts/help.html' %}
+  </div>
+
+  </div>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include 'widows/late-claim/_bar.html' %}
+
+        {{ govukBackLink({
+              "text": "Back",
+              "href": "javascript: window.history.go(-1)"
+            })
+          }}
+
+
+<br><Br>
+        <h1 class="govuk-heading-l">Has an SRB been issued since 1 August 2021?</h1>
+
+        <p>Systems to check: <strong> NIRs</strong></p>
+
+        <form method="post">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="srb-conditional-hint">
+
+              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="srb-conditional" name="srb" type="radio" value="yes" data-aria-controls="conditional-srb-conditional">
+                  <label class="govuk-label govuk-radios__label" for="srb-conditional">
+                    Yes
+                  </label>
+                </div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="srb-conditional-2" name="srb" type="radio" value="no" data-aria-controls="conditional-srb-conditional-2">
+                  <label class="govuk-label govuk-radios__label" for="srb-conditional-2">
+                    No
+                  </label>
+                </div>
+
+
+              </div>
+            </fieldset>
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Save and continue
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

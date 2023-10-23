@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div class="moj-banner moj-banner--success">
+          <svg class="moj-banner__icon" fill="currentColor" role="presentation" focusable="false"
+            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" height="25" width="25">
+            <path d="M25,6.2L8.7,23.2L0,14.1l4-4.2l4.7,4.9L21,2L25,6.2z" /></svg>
+          <div class="moj-banner__message">
+            <span class="moj-banner__assistive">Success</span>Entitlement date changed</div>
+          </div>
+        <br>
+        <div>
+          <a href="tasks-2" class="govuk-back-link">Back</a>
+        </div>
+        <br>
+        <form method="post">
+          <h1 class="govuk-heading-xl">New Award</h1>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header award_detail2" scope="col" style="width: 55%">Total</th>
+                <th class="govuk-table__header award_detail" scope="col" style="width: 40%">£132.66 per week </th>
+                <td class="govuk-table__cell award_detail" style="width: 5%"></td>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">New State Pension</td>
+                <td class="govuk-table__cell">£132.66</td>
+                <td class="govuk-table__cell"> <a href="change-nsp">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Protected payment</td>
+                <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"> <a href="change-pp">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+                <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"> <a href="change-esp">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+                <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"> <a href="change-iesp">
+                    Change
+                  </a></td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="govuk-table">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__header award_detail2" scope="row" style="width: 55%">Entitlement date</td>
+              <td class="govuk-table__cell award_detail" style="width: 40%">8 September 2019</td>
+              <td class="govuk-table__cell award_detail" style="width: 5%">
+                <a href="change-date">
+                  Change<span class="govuk-visually-hidden">Change address</span>
+                </a></td>
+            </tr>
+      </div>
+      </table>
+      </table>
+      <a href="tasks-4" button type="submit" class="govuk-button">
+        Continue
+        </button>
+      </a>
+      </form>
+    </div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+{% endblock %}

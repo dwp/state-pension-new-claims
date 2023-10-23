@@ -1,0 +1,26 @@
+$govuk-global-styles: true;
+
+.app-most-recent {
+  border: 1px solid govuk-colour("mid-grey");
+  margin-bottom: 15px;
+  margin-top: 15px;
+  overflow: hidden;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 45px;
+  position: relative;
+
+  &::before {
+    background: govuk-colour("mid-grey");
+    color: govuk-colour('white');
+    content: 'PROTOTYPE';
+    font-family: 'nta', Arial, sans-serif;
+    font-weight: 400;
+    left: 0;
+    padding: .2105263158em .7894736842em;
+    position: absolute;
+    text-transform: none;
+    top: 0;
+  }
+}

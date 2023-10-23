@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+   
+    <div class="grid-row">
+      <div class="column-full">
+
+
+        <br><br>
+        {% include './_bar.html' %}
+
+
+        <a href="personal" class="govuk-back-link">Back</a>
+        <br><br>
+
+        <h2 class="govuk-heading-l">Reason for stopping the State Pension</h2>
+
+        <form method="post" action="cancel-date">
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio"
+                value="england">
+              <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                Death
+              </label>
+            </div>
+         
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio"
+                value="northern-ireland">
+              <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+                Deferral
+              </label>
+            </div>
+        
+          </div>
+
+
+      </div>
+    </div>
+    <br><br>
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+    </main>
+  </div>
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

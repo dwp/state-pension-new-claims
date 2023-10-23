@@ -1,0 +1,102 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <div>
+          <a href="tasks-3" class="govuk-back-link">Back</a>
+        </div>
+        <br>
+        <form method="post">
+    <!--- cleaned up classes against https://design-system.service.gov.uk/components/text-input/ -->
+      <div class="govuk-form-group">
+          <h1 class="govuk-heading-xl">Late spouse or civil partner's National Insurance number</h1>
+
+          <div class="govuk-inset-text">
+            <p class="govuk-body-l">XX123456X<br>
+
+            <a href="nino" class="govuk-link">Change</a></p>
+
+          </div>
+
+
+      </div>
+
+
+      <br>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="changed-name-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Is the National Insurance number verified?
+            </h1>
+          </legend>
+          <div class="govuk-radios govuk-radios--inline">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="changed-name">
+                Verified
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="changed-name-2">
+                Not verified
+              </label>
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+          <a href="tasks-3-nino" button type="submit" class="govuk-button">
+            Save
+            </button>
+
+
+          </a>
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

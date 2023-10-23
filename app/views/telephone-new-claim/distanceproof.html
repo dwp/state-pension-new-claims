@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Enter proof of distance</h1>
+        <p>Enter you proof of distance between household and workplace</p>
+
+
+        <div class="govuk-form-group">
+           <label class="govuk-label" for="address-postcode">
+             Home Postcode
+           </label>
+           <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
+         </div>
+         <div class="govuk-form-group">
+            <label class="govuk-label" for="address-postcode">
+              Work Postcode
+            </label>
+            <input class="govuk-input govuk-input--width-10" id="address-postcode" name="address-postcode" type="text" autocomplete="postal-code">
+          </div>
+
+
+
+
+        <a href="bankdetails" role="button" draggable="false" class="govuk-button govuk-button" data-module="govuk-button">
+          Confirm
+        </a>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      {% endblock %}

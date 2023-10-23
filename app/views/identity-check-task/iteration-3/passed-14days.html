@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_barplain.html' %}
+
+        <form method="post" action="payment-details">
+
+
+          <h1 class="govuk-heading-l">Claimant passed additional security</h1>
+                 
+          <p class="govuk-body">
+            Tell the claimant that their claim will now be processed.
+          </p>
+          <p class="govuk-body">
+            We will send a letter to the claimant up to 14 days before their State Pension date, telling them how much State Pension they will get. We may also contact them if we need more information.
+          </p>
+          
+          
+          <button class="govuk-button" data-module="govuk-button">
+            End task
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

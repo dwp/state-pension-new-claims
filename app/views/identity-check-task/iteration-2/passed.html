@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_barplain.html' %}
+
+        <form method="post" action="payment-details">
+
+
+          <h1 class="govuk-heading-l">Claimant passed additional security</h1>
+                 <p class="govuk-body">
+                   Their claim will now be processed.
+                 </p>
+                 <p class="govuk-body">
+                   The claimant will be notified of the outcome of the claim by letter within 3 to 5 working days.
+                 </p>
+
+          <button class="govuk-button" data-module="govuk-button">
+            End task
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

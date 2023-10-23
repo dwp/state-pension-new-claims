@@ -1,0 +1,270 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+                      {% include './_bar2.html' %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="change-marital" class="govuk-back-link">Back</a>
+
+        <form method="post" action="submit-claim">
+<br>
+          <h1 class="govuk-heading-xl">
+            Review claim details
+          </h1>
+
+
+          <h2 class="govuk-heading-m" style="width: 670px;">1. &nbsp Personal details  <strong class="govuk-tag govuk-tag--green" style="float: right;">
+            completed
+          </strong>   </h2>
+          <table class="govuk-table" style="margin-left: 30pt;">
+            <tbody class="govuk-table__body">
+              <th class="govuk-table__header"></th><th class="govuk-table__header"></th><th class="govuk-table__header"></th>
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 35%;">Date of birth</th>
+                <td class="govuk-table__cell">11 July 1954</td>
+                <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="#">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Address </th>
+                <td class="govuk-table__cell">	16 RICHMOND TERRACE<br>NORTH GOSFORTH<br>NEWCASTLE UPON TYNE <br>NE4 2AN
+                <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="#">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Phone number </th>
+                <td class="govuk-table__cell">07958122000</td>
+                <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="#">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Email address</th>
+                <td class="govuk-table__cell">ken.adams54@live.com</td>
+                <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="#">
+                    Change
+                  </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Other formats</th>
+                <td class="govuk-table__cell">Not required</td>
+                <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="#">
+                    Change
+                  </a></td>
+              </tr>
+            </tbody>
+          </table>
+      <br>
+
+
+      <h2 class="govuk-heading-m" style="width: 670px;">2. &nbsp Marital details  <strong class="govuk-tag govuk-tag--green" style="float: right;">
+        completed
+      </strong>   </h2>
+      <table class="govuk-table" style="margin-left: 30pt;">
+        <tr><td> &nbsp;</td><td> &nbsp;</td>
+          <td><a class=“govuk-link” href="change-marital" style=“font-size: 19px;“>
+          Change</a></td>
+        <tbody class="govuk-table__body">
+          <th class="govuk-table__cell"></th><th class="govuk-table__cell"></th><th class="govuk-table__cell"></th>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 41%">Status</th>
+            <td class="govuk-table__cell" style="width: 48%">Divorced</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date</th>
+            <td class="govuk-table__cell">15 March 2001</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <br>
+
+
+      <h2 class="govuk-heading-m" style="width: 670px;">3. &nbsp Lived or worked abroad  <strong class="govuk-tag govuk-tag--green" style="float: right;">
+        completed
+      </strong>   </h2>
+      <table class="govuk-table" style="margin-left: 30pt;">
+
+        <tbody class="govuk-table__body">
+          <th class="govuk-table__cell"></th><th class="govuk-table__cell"></th><th class="govuk-table__cell"></th>
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 40%">Lived or worked abroad</th>
+            <td class="govuk-table__cell" style="width: 60%"> No</td>
+            <td class="govuk-table__cell"><a class=“govuk-link” href="#" style=“font-size: 19px;“>
+              Change
+            </a></td>
+          </tr>
+
+        </tbody>
+      </table>
+      <br>
+
+
+      <h2 class="govuk-heading-m" style="width: 670px;">4. &nbsp State Pension claim date  <strong class="govuk-tag govuk-tag--green" style="float: right;">
+        completed
+      </strong>   </h2>
+      <table class="govuk-table" style="margin-left: 30pt;">
+        <tbody class="govuk-table__body">
+          <th class="govuk-table__header"></th><th class="govuk-table__header"></th><th class="govuk-table__header"></th>
+
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 43%">Date claiming from</th>
+            <td class="govuk-table__cell" style="width: 60%">6 May 2020	 </td>
+            <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="#">
+                Change
+              </a></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <br>
+
+      <h2 class="govuk-heading-m" style="width: 670px;">5. &nbsp Bank or building society details  <strong class="govuk-tag govuk-tag--green" style="float: right;">
+        completed
+      </strong>   </h2>
+      <table class="govuk-table" style="margin-left: 30pt;">
+        <tr><td> &nbsp;</td><td> &nbsp;</td>
+          <td><a class=“govuk-link” href=change-bank style=“font-size: 19px;“>
+          Change
+        </a></td>
+      </tr>
+        <tbody class="govuk-table__body">
+          <th class="govuk-table__header"></th><th class="govuk-table__header"></th><th class="govuk-table__header"></th>
+
+
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 43%">Account holder</th>
+            <td class="govuk-table__cell" style="width: 60%">Mr Ken Adams </td>
+            <td class="govuk-table__cell" style="text-align:right;"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 43%">Sort code</th>
+            <td class="govuk-table__cell" style="width: 60%">54 65 66</td>
+            <td class="govuk-table__cell" style="text-align:right;"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 43%">Account number</th>
+            <td class="govuk-table__cell" style="width: 60%">24678900	 </td>
+            <td class="govuk-table__cell" style="text-align:right;"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 43%">Roll or reference number</th>
+            <td class="govuk-table__cell" style="width: 60%"> </td>
+            <td class="govuk-table__cell" style="text-align:right;"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <h2 class="govuk-heading-m" style="width: 670px;">6. &nbsp Declaration  <strong class="govuk-tag govuk-tag--green" style="float: right;">
+        completed
+      </strong>   </h2>
+      <table class="govuk-table" style="margin-left: 30pt;">
+
+       <tbody class="govuk-table__body">
+         <th class="govuk-table__header"></th><th class="govuk-table__header"></th><th class="govuk-table__header"></th>
+
+
+         <tr class="govuk-table__row">
+           <th scope="row" class="govuk-table__header" style="width: 40%">Form signed</th>
+           <td class="govuk-table__cell" style="width: 40%">Yes</td>
+           <td class="govuk-table__cell" style="text-align:right;"><a class="govuk-link" href="change-signed">
+            Change
+          </a></td>
+         </tr>
+
+       </tbody>
+      </table>
+
+      <br>
+
+
+
+
+        </div>
+
+        <div class="govuk-grid-column-one-third" style="padding-left: 80px;">
+          <br><br>
+          <h2 class="govuk-heading-m">
+            Claim changes
+          </h2>
+          <ol class="app-timeline">
+            <li class="app-timeline__entry">
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+                Marital details updated
+              </h3>
+
+              <p class="app-timeline__info govuk-!-margin-bottom-0">
+                <span class="govuk-visually-hidden"></span>
+                <span class="app-timeline__date">
+                 16 April 2021
+                </span>
+              </p>
+            </li>
+            <li class="app-timeline__entry">
+              <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+                Claim started
+              </h3>
+
+              <p class="app-timeline__info govuk-!-margin-bottom-0">
+                <span class="govuk-visually-hidden">No changes made</span>
+                <span class="app-timeline__date">
+                 30 March 2021
+                </span>
+              </p>
+            </li>
+
+
+          </ol>
+
+        </div>
+
+
+  </div>
+    <button type="submit" class="govuk-button">
+      Submit
+    </button>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

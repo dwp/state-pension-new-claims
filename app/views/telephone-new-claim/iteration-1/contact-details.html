@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details">
+    <div class="key-details-bar__top-block">
+
+      <dd class="key-details-bar__name">Tallulah East</dd>
+
+      <dd class="key-details-bar__nino">QQ 12 34 56 X</dd>
+
+    </div>
+
+    <div class="key-details-bar__bottom-block">
+      <dt><a href="find" class="govuk-link">Start again</a></dt>
+
+    </div>
+
+  </dl>
+</section>
+
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+
+          <div>
+
+            <h1 class="govuk-heading-xl">Your contact details</h1>
+
+            <p>We’ll only contact you to confirm your application, or if we need further information. If possible, we need at least one telephone number or an email address.</p>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone-number">
+                <b>Home telephone number</b>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone-number">
+                <b>Mobile telephone number</b>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+            </div>
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="telephone-number">
+                <b>Work telephone number</b>
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephone-number" type="tel" autocomplete="tel">
+            </div>
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="width-20">
+                <b>Email address</b>
+
+              </label>
+              <input class="govuk-input govuk-input--width-20" id="width-20" name="width-20" type="text">
+            </div>
+
+
+          </div>
+
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+        </form>
+
+      </div>
+
+
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}

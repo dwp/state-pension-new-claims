@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% include 'widows/conversion-task-pc/_bar.html' %}
+
+  {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+
+
+
+  <br>  <br>
+
+  <form method="post">
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+        <h2 class="govuk-fieldset__heading">
+          Has the claimant (or their late partner) received any Pension Credit after 4 June 2022?
+        </h2>
+      </legend>
+
+      <br>
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="pension-credit" name="pension-credit" type="radio" value="yes">
+      <label class="govuk-label govuk-radios__label" for="pension-credit">
+Yes, the claimant or their late partner received Pension Credit</label>
+    </div>
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="pension-credit" name="pension-credit" type="radio" value="no">
+      <label class="govuk-label govuk-radios__label" for="pension-credit-2">
+No, neither the claimant or their late partner received Pension Credit  </label>
+    </div>
+
+<br>
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

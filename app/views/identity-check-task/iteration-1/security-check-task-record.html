@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_bar.html' %}
+
+        <form method="post" action="">
+
+
+          <h1 class="govuk-heading-l">Ask claimant security questions</h1>
+
+          <div class="govuk-inset-text">
+            Refer to SWIs for questions and NIRS to check answers
+          </div>
+
+          <table class="govuk-table">
+            <caption class="govuk-table__caption govuk-table__caption--m">Claimant information</caption>
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Method of application</th>
+                <td class="govuk-table__cell">Online</td>
+              </tr>
+            </tbody>
+          </table>
+
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="security-questions-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h1 class="govuk-fieldset__heading">
+                  What was the outcome of the call?
+                </h1>
+              </legend>
+              <div id="security-questions-hint" class="govuk-hint">
+
+              </div>
+              <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions" name="security-questions" type="radio" value="passed">
+                  <label class="govuk-label govuk-radios__label" for="security-questions">
+                    Passed
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions-2" name="security-questions" type="radio" value="failed">
+                  <label class="govuk-label govuk-radios__label" for="security-questions-2">
+                    Failed
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-questions-2" name="security-questions" type="radio" value="refused">
+                  <label class="govuk-label govuk-radios__label" for="security-questions-2">
+                    Refused to answer questions
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+
+
+          </div>
+
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

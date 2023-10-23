@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Important
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">Task postponed for 14 days</p>
+      </div>
+    </div>
+      <br>
+        <h1 class="govuk-heading-xl">Tasks</h1>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+                  <ul class="moj-sub-navigation__list">
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="">New claims</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="">Award updates (SRBs)</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="">Alternative formats</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" aria-current="page" href="">Widows conversions</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="">Other</a>
+                    </li>
+
+                  </ul>
+
+                </nav>
+
+
+        <form method="post">
+
+          <h1 class="govuk-heading-l">Widows conversions</h1>
+
+          <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+              <h3 class="govuk-heading-l"> 25
+                <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+              </h3>
+
+              <h3 class="govuk-heading-l"> 25
+                <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+              </h3>
+
+            </div>
+
+           <!--  <div class="govuk-grid-column-one-third">
+              <h3 class="govuk-caption-xl"> <b>2,930</b>
+                <p class="govuk-caption-l">unavailable? tasks</p>
+              </h3>
+            </div> -->
+          </div>
+
+
+          <a href="review" button type="submit" class="govuk-button">
+            Get next task
+        </a>
+        </form>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+
+      {% endblock %}

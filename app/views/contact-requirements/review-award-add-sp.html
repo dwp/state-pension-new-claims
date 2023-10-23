@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post" action="review-award">
+
+          <a href="award" class="govuk-back-link">Back</a>
+
+          <br>
+          <br>
+
+          <div class="govuk-form-group">
+              <h1 class="govuk-heading-l">Enter new State Pension amount</h1>
+
+              <span class="govuk-hint">For example, 123.45</span>
+                     <div class="govuk-currency-input__inner">
+                       <span class="govuk-currency-input__inner__unit">£</span>
+                       <input class="govuk-input govuk-currency-input__inner__input govuk-input--width-10" aria-label="Enter amount in pounds" name="addsp" data-non-numeric type="text" id="addsp" pattern="[0-9]\d*(\.\d+)?" {{ checked('tickets-cost','yes') }}>
+                     </div>
+          </div>
+
+
+                      </div>
+
+
+            <button type="submit" class="govuk-button">
+            Continue
+            </button>
+
+
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

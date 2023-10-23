@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+        <h1 class="govuk-heading-xl">Input information received from Pension Credit team
+        </h1>
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+                          <br><br>
+
+        <p>The Pension Credit team have returned part B of form BR403.
+        </p>
+
+        <p>You should input the information contained in this form in order to finalise any change to the claimant's State Pension award.
+        </p>
+        <form method="post"">
+
+<br>
+          <a href="pc-changes" button class="govuk-button" data-module="govuk-button">
+            Start this task
+          </a>
+
+          
+
+     <!-- <a href="personal" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return to claimant record
+        </a> -->
+
+        </form>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

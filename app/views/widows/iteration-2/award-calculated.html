@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+      {% include 'widows/iteration-2/_bar.html' %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+  }}
+
+  <br><br>
+
+      <div class="govuk-form-group">
+
+
+          <h1 class="govuk-heading-l">Award updated</h1>
+
+          <p class="govuk-body">
+
+            A weekly State Pension of <b>{% if data.addsp %}
+              £{{data.addsp}}
+              {% else %}
+            £132.66
+              {% endif %}</b> will apply from <b>1 August 2022.</b><br>
+            <br>
+
+            This includes an inheritable amount of <b>£4.99</b> a week.
+            <br>
+            <p>
+            An award letter will be sent to the claimant.
+
+          </p>
+
+          <a href="get-a-task-2" button type="submit" class="govuk-button">
+             End task
+          </a>
+
+          <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <p>  <b>URL:</b> /award<br></p>
+          <p><b>Notes:</b> Dynamic content displayed if inheritable amounts entered.</p>
+          </div>
+          </details>
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

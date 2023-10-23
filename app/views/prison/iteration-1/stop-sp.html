@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-column-full">
+
+      <main id="content" role="main">
+        <div class="grid-row">
+          <div class="column-full">
+<br>
+
+
+
+
+
+<div class="govuk-grid-column-full">
+
+
+
+</div>
+
+
+
+            {% include './name-bar/_bar-jose.html' %}
+
+          </div>
+        </div>
+      </main>
+
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.go(-1)"
+                        }) }}
+
+
+      <form method="post">
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            </legend>
+
+            <h2 class="govuk-heading-l">Why are you stopping the claimant's <br>State Pension?</h2>
+
+          <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="stop-sp-1" name="stop-sp" type="radio" value="death">
+        <label class="govuk-label govuk-radios__label" for="stop-sp">
+          Claimant has died
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="stop-sp-2" name="stop-sp" type="radio" value="deferral">
+        <label class="govuk-label govuk-radios__label" for="stop-sp">
+          Claimant has deferred their State Pension
+        </label>
+      </div>
+
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="stop-sp-5" name="stop-sp" type="radio" value="prison" data-aria-controls="conditional-prison">
+          <label class="govuk-label govuk-radios__label" for="stop-sp">
+            Claimant is in prison
+          </label>
+        </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="stop-sp-5" name="stop-sp" type="radio" value="suspend" data-aria-controls="conditional-suspend">
+        <label class="govuk-label govuk-radios__label" for="stop-sp">
+        Temporary suspension pending investigation
+        </label>
+      </div>
+
+  </fieldset>
+</div>
+
+<br><br>
+
+          <button type="submit" class="govuk-button">Continue</button
+
+</div>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /stop-state-pension <br>
+        <b>Error messages:</b> Nothing selected: Select why you are stopping the claimant's State Pension
+        <br>Prison date in the future: Date claimant entered prison must be today or in the past
+        <br><b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+
+</div>
+
+
+
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
