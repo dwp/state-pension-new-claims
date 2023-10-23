@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+
+          <a href="marital-date" class="govuk-back-link">Back</a>
+          <br><br>
+          <h2 class="govuk-heading-l">Spouse's details</h2>
+
+
+          <form method="post" action="personal-married">
+            <div class="govuk-form-group">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="firstname">
+                  National Insurance number
+                </label>
+                <input class="govuk-input govuk-!-width-two-thirds" id="firstname" name="firstname" type="text">
+                  <br><br>
+                <label class="govuk-label" for="firstname">
+                  First name
+                </label>
+                <input class="govuk-input" id="firstname" name="firstname" type="text">
+
+                <br>
+                <br>
+
+                <label class="govuk-label" for="surname">
+                 Last name
+                </label>
+                <input class="govuk-input" id="surname" name="surname" type="text">
+
+                <br>
+                <br>
+
+                <label class="govuk-label" for="othernameOh ">
+                Any other names</br>
+                  <span class="govuk-hint">
+                    Include maiden name, former married names and changes of family name.
+                  </span>
+                </label>
+                <input class="govuk-input" id="firstname" name="firstname" type="text">
+
+                <br>
+                <br>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="expiry-hint" role="group">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s"> Date of birth
+                    </legend> 
+                    <div class="govuk-date-input" id="expiry">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day"
+                            name="expiry-day" type="number" pattern="[0-9]*">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month"
+                            name="expiry-month" type="number" pattern="[0-9]*">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year"
+                            name="expiry-year" type="number" pattern="[0-9]*">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                <br>
+              
+              </div>
+              <br> 
+              <br>
+              <button type="submit" class="govuk-button">
+                Save
+              </button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    </form>
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

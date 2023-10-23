@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="marital-status" class="govuk-back-link">Back</a>
+        <br> <br>
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">
+            Divorce details</h1>
+
+          <div class="govuk-form-group">
+            <br>
+            <h2 class="govuk-heading-m">
+              When did you get married?</h2>
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+              <div class="govuk-date-input" id="passport-issued">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
+                      name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month"
+                      name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year"
+                      name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+            <br> <br> <br>
+            <h2 class="govuk-heading-m">
+              Your spouse's details</h2>
+            <label class="govuk-label" for="firstname">
+              National Insurance number
+            </label>
+            <input class="govuk-input govuk-!-width-two-thirds" id="firstname" name="firstname" type="text">
+            <br><br>
+            <label class="govuk-label" for="firstname">
+              First name
+            </label>
+            <input class="govuk-input" id="firstname" name="firstname" type="text">
+            <br><br>
+            <label class="govuk-label" for="firstname">
+              Last name
+            </label>
+            <input class="govuk-input" id="firstname" name="firstname" type="text">
+            <br><br>
+            <label class="govuk-label" for="firstname">
+              Other names
+            </label>
+            <input class="govuk-input" id="firstname" name="firstname" type="text">
+            <br><br>
+
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+              <label class="govuk-label" for="firstname">
+                <b>Date of birth</b>
+              </label>
+              <div class="govuk-date-input" id="passport-issued">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day"
+                      name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month"
+                      name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year"
+                      name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+
+            <br><br><br>
+            <button type="submit" class="govuk-button">
+              Continue
+            </button>
+
+          </div>
+
+      </div>
+
+
+      </form>
+
+
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

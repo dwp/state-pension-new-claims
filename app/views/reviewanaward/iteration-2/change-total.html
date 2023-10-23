@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+      {% include './_bar-small.html' %}
+    <div class="govuk-grid-column-two-thirds">
+
+      <main id="content" role="main">
+        <div class="grid-row">
+          <div class="column-full">
+<br>
+           
+
+          </div>
+        </div>
+      </main>
+
+     
+
+      <div>
+        <a href="reason" class="govuk-back-link">Back</a>
+      </div>
+<br>
+      <form action="newaward-changetotal" method="post" class="form">
+      <form method="post" >
+        <div class="govuk-form-group">
+          <h1 class="govuk-heading-l">Enter the new award amounts</h1>
+          <dl class="app-check-your-answers app-check-your-answers--short">
+
+              <div class="govuk-form-group">
+                  <label class="govuk-label" for="event-name">
+                      New State Pension
+                  </label>
+                  <span class="govuk-hint">
+                    £152.66
+                  </span>
+                  <input class="govuk-input govuk-input--width-5" id="new-sp" name="new-sp" type="text">
+                </div>
+                <div class="govuk-form-group">
+                    <label class="govuk-label" for="event-name">
+                        Protected payment
+                    </label>
+                    <span class="govuk-hint">
+                        £10.02
+                      </span>
+                    <input class="govuk-input govuk-input--width-5" id="protected-payment" name="protected-payment" type="text">
+                  </div>
+
+                  <div class="govuk-form-group">
+                      <label class="govuk-label" for="event-name">
+                          Extra State Pension
+                      </label>
+                      <span class="govuk-hint">
+                          £0.00
+                        </span>
+                      <input class="govuk-input govuk-input--width-5" id="extra-sp" name="extra-sp" type="text">
+                    </div>
+                    <div class="govuk-form-group">
+                        <label class="govuk-label" for="event-name">
+                            Inherited extra State Pension
+                        </label>
+                        <span class="govuk-hint">
+                            £0.00
+                          </span>
+                        <input class="govuk-input govuk-input--width-5" id="inherited-esp" name="inherited-esp" type="text">
+                      </div>
+<br><br>
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+      </form>
+
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

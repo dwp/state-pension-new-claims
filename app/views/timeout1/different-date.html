@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+
+          <a href="cancel-date" class="govuk-back-link">Back</a>
+          <br><br>
+         <form method="post" action="cancel-confirm2">
+            <h1 class="govuk-heading-l">Does the claimant want to defer from the day after they were last paid up to?</h1>
+
+            <div class="govuk-inset-text">
+              Date of deferral will be 1 September 2020
+            </div>
+
+            <div class="govuk-radios govuk-radios--inline">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="claim" name="claim" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="claim">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="claim-2" name="claim" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="claim-2">
+                  No
+                </label>
+              </div>
+            </div>
+
+            <br>
+            <button type="submit" class="govuk-button">
+              Continue
+            </button>
+        </form>
+        </div>
+      </div>
+     
+    
+    </main>
+  </div>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

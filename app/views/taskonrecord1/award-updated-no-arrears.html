@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post" action="award-reviewed">
+
+          <a href="review-award" class="govuk-back-link">Back</a>
+
+          <br>
+          <br>
+
+          <h2 class="govuk-heading-l">Change to award</h2>
+
+          <p class="govuk-body">
+
+            The weekly State Pension will go up from <b>£127.67</b> to <b>£132.66</b> from <b>4 October 2020.</b><br>
+            <br>
+            A new award letter will be sent to the claimant.<br>
+
+          </p>
+
+            <button type="submit" class="govuk-button">
+            Confirm
+            </button>
+
+
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

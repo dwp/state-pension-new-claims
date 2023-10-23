@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <br>
+
+          {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+                            <br><br>
+
+        <form method="post" action="confirm">
+
+                    <h1 class="govuk-heading-l">Inheritance added</h1>
+
+
+          <table class="govuk-table">
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header award_detail2" scope="col">From</th>
+                  <td class="govuk-table__cell">9 May 2021</td>
+                  <td class="govuk-table__cell award_detail">
+          </td>
+                </tr>
+              </thead>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th class="govuk-table__header award_detail2" scope="col">Reason</th>
+                  <td class="govuk-table__cell">Inherited from late spouse</td>
+                  <td class="govuk-table__cell award_detail">
+          </td>
+                </tr>
+              </thead>
+              </table>
+
+
+
+              <table class="govuk-table">
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__header award_detail2" scope="row">Total</td>
+                    <td class="govuk-table__header award_detail2">£200.94 a week</td>
+                    <td class="govuk-table__cell award_detail">
+                      <a href="change-date">
+                      <span class="govuk-visually-hidden">Change address</span>
+                      </a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                      <td class="govuk-table__cell award_detail">New State Pension</td>
+                      <td class="govuk-table__cell award_detail">£179.60</td>
+                      <td class="govuk-table__cell award_detail">
+                        <a href="change-date">
+                        <span class="govuk-visually-hidden">Change address</span>
+                        </a></td>
+                    </tr>
+                    <tr class="govuk-table__row">
+                        <td class="govuk-table__cell award_detail">Protected payment</td>
+                        <td class="govuk-table__cell award_detail">£21.34</td>
+                        <td class="govuk-table__cell award_detail">
+                          <a href="change-date">
+                          <span class="govuk-visually-hidden">Change address</span>
+                          </a></td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                          <td class="govuk-table__cell award_detail">Extra State Pension</td>
+                          <td class="govuk-table__cell award_detail">£0.00</td>
+                          <td class="govuk-table__cell award_detail">
+                            <a href="change-date">
+                            <span class="govuk-visually-hidden">Change address</span>
+                            </a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell award_detail">Inherited extra State Pension</td>
+                            <td class="govuk-table__cell award_detail">£0.00</td>
+                            <td class="govuk-table__cell award_detail">
+                              <a href="change-date">
+                              <span class="govuk-visually-hidden">Change address</span>
+                              </a></td>
+                          </tr>
+              </table>
+
+                    <h2 class="govuk-heading-m">Inherited amounts</h2>
+
+              <table class="govuk-table">
+                      <tr class="govuk-table__row">
+                          <td class="govuk-table__cell award_detail">Additional pension</td>
+                          <td class="govuk-table__cell award_detail">£40.78</td>
+                          <td class="govuk-table__cell award_detail">
+                            <a href="change-date">
+                            <span class="govuk-visually-hidden">Change address</span>
+                            </a></td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell award_detail">Inherited extra State Pension</td>
+                            <td class="govuk-table__cell award_detail" scope="col" style="width: 44%"">£3.67</td>
+                            <td class="govuk-table__cell award_detail">
+                              <a href="change-date">
+                              <span class="govuk-visually-hidden">Change address</span>
+                              </a></td>
+                          </tr>
+              </table>
+
+          <button class="govuk-button" data-module="govuk-button">
+           Continue
+         </button>
+
+        </form>
+
+      </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

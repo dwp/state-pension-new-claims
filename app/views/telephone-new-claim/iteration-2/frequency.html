@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="navigation-global">
+      <ul>
+        <li>
+          <a href="find" class="" aria-current="page">Find someone</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details">
+    <div class="key-details-bar__top-block">
+
+      <dd class="key-details-bar__name">Monty East</dd>
+
+      <dd class="key-details-bar__nino">QQ 12 34 56 X</dd>
+
+    </div>
+
+  </dl>
+</section>
+
+<div class="govuk-width-container">
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-heading-xl">
+                  How often you'll be paid
+                </h1>
+              </legend>
+
+              <p>
+                You'll get your State Pension payment every 4 weeks unless this will cause you a problem.
+              </p>
+
+              <h2 class="govuk-heading-m"> Are you happy to get your State Pension every 4 weeks? </h2>
+              <div class="govuk-radios govuk-radios--inline"">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="frequency" name="frequency" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="frequency-yes">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="frequency" name="frequency" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="frequency-no">
+                    No
+                  </label>
+                </div>
+
+
+              </div>
+            </fieldset>
+          </div>
+
+          <button type="submit" class="govuk-button">
+            Continue
+          </button>
+
+          </div>
+
+            </form>
+          </div>
+        </div>
+      </main>
+
+
+    {% endblock %}

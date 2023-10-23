@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-three-thirds">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+        <form method="post">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="govuk-caption-l">Question 3 of 3
+                <br></span>
+                <h1 class="govuk-heading-xl">How long have you lived at your current address?</h1>
+
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-three" name="security-question-three" type="radio" value="less">
+                  <label class="govuk-label govuk-radios__label" for="security-question-three">
+                    Less than 1 year
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-three-2" name="security-question-three" type="radio" value="1500">
+                  <label class="govuk-label govuk-radios__label" for="security-question-three-2">
+                    Between 1 and 3 years
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-three-3" name="security-question-three" type="radio" value="3000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-three-3">
+                    Between 3 and 5 years
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-three-4" name="security-question-three" type="radio" value="6000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-three-4">
+                    Between 5 and 8 years
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-three-5" name="security-question-three" type="radio" value="10000">
+                  <label class="govuk-label govuk-radios__label" for="security-question-three-5">
+                    More than 8 years
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+
+      <button type="submit" class="govuk-button">
+        Confirm
+      </button>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /security-question-12 <br>
+        <b>Error messages:</b> Nothing selected: Select how long you have lived at your current address<br>
+        <b>Notes:</b> This template is for all questions with a range of values <br>
+      </div>
+    </details>
+
+  </div>
+
+  <div class="column-one-third">
+    {% include 'includes/parts/help.html' %}
+  </div>
+
+  </div>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

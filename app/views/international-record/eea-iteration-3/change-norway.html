@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+          <br><br>
+          {% include './_bar0.html' %}
+
+<form method="post" action="award-updated-arrears">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+          <br>
+          <br>
+</div>
+          <h2 class="govuk-heading-l">Norway</h2>
+
+                      <div class="govuk-form-group">
+
+                        <dl class="govuk-summary-list hmrc-list-with-actions hmrc-list-with-actions--short">
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                            Lived
+                            </dt>
+                            <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                          Aug 1982 to Oct 1986
+                            </dt>
+                            <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                              <ul class="govuk-summary-list__actions-list">
+                                <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change lived</span></a></li>
+                                <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove lived from the list</span></a></li>
+                              </ul>
+                            </dd>
+                          </div>
+                          <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                            Worked
+                            </dt>
+                            <dt class="govuk-summary-list__key govuk-!-font-weight-regular hmrc-summary-list__key">
+                            Aug 1982 to Sep 1986
+                            </dt>
+                            <dd class="govuk-summary-list__actions hmrc-summary-list__actions">
+                              <ul class="govuk-summary-list__actions-list">
+                                <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Change</span><span class="govuk-visually-hidden">Change worked</span></a></li>
+                                <li class="govuk-summary-list__actions-list-item"><a class="govuk-link" href="#"><span aria-hidden="true">Remove</span><span class="govuk-visually-hidden">Remove worked from the list</span></a></li>
+                              </ul>
+                            </dd>
+                          </div>
+                        </dl>
+
+                      </div>
+
+                    <p><a href="add-period-norway" class="govuk-link govuk-link--no-visited-state">Add another period</a></p>
+
+
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <br><br>
+      <h2 class="govuk-heading-m">
+      </h2>
+
+    </div>
+
+</div>
+
+{% endblock %}

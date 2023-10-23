@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+
+                  <form method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+      <h1 class="govuk-fieldset__heading">
+        About your late-spouse
+      </h1>
+    </legend>
+
+<br>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="late-spouse-name">
+        <b>Their first name</b>
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="late-spouse-name" name="late-spouse-name" type="text" autocomplete="address-level2"></div>
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="late-spouse-surname">
+        <b>Their surname</b>
+      </label>
+      <input class="govuk-input govuk-!-width-two-thirds" id="late-spouse-surname" name="late-spouse-surname" type="text"></div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="late-spouse-other">
+          <b>All other names they have been known by</b>
+        </label>
+        <div id="event-name-hint" class="govuk-hint">
+    Including maiden name, former married name and changes of family name.
+      </div>
+        <input class="govuk-input govuk-!-width-two-thirds" id="late-spouse-other" name="late-spouse-other" type="text"></div>
+
+
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="late-spouse-dob">
+        <b>Their date of birth</b>
+      </label>
+      <div id="late-spouse-dob-hint" class="govuk-hint">
+        For example, 27 3 1968
+      </div>
+      <div class="govuk-date-input" id="late-spouse-dob">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="late-spouse-dob-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="late-spouse-dob-day" name="late-spouse-dob-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="late-spouse-dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="late-spouse-dob-month" name="late-spouse-dob-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="late-spouse-dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="late-spouse-dob-year" name="late-spouse-dob-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+          </div>
+        </div>
+
+
+
+  </fieldset>
+
+
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="late-spouse-dod">
+      <b>Their date of death</b>
+    </label>
+    <div id="late-spouse-dob-hint" class="govuk-hint">
+      For example, 22 1 2003
+    </div>
+    <div class="govuk-date-input" id="late-spouse-dod">
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="late-spouse-dod-day">
+              Day
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="late-spouse-dod-day" name="late-spouse-dod-day" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="late-spouse-dod-month">
+              Month
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="late-spouse-dod-month" name="late-spouse-dod-month" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+        <div class="govuk-date-input__item">
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-date-input__label" for="late-spouse-dod-year">
+              Year
+            </label>
+            <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="late-spouse-dod-year" name="late-spouse-dod-year" type="text" pattern="[0-9]*" inputmode="numeric"></div>
+        </div>
+      </div>
+</div>
+      </<fieldset>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}

@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './header/_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+          
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+          <br><br>
+
+          <h2 class="govuk-heading-l">New State Pension award</h2>
+
+        <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col">Total</th>
+                <th class="govuk-table__header" scope="col" style="width: 50%">£167.68 a week	</th>
+              </tr>
+
+
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">New State Pension</td>
+                <td class="govuk-table__cell">£157.66</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Protected payment</td>
+                <td class="govuk-table__cell">£10.02</td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+                  <td class="govuk-table__cell">£0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+                    <td class="govuk-table__cell">£0.00</td>
+                  </tr>
+            </tbody>
+          </table>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%">From</th>
+                <td class="govuk-table__cell">10 April 2020</td>
+                <td class="govuk-table__cell"><a href="current-breakdown.html"></a></td>
+              </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width: 39%">4 weekly amount</th>
+                  <td class="govuk-table__cell">£670.72</td>
+                  <td class="govuk-table__cell" style="width: 9%"></td>
+                </tr>
+                  <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Reason</th>
+                      <td class="govuk-table__cell">Annual uprating</td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+            </tbody>
+          </table>
+
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <span class="govuk-caption-l">Question 3 of 3
+                <br></span>
+                <h1 class="govuk-heading-l">You took out a credit card or store card in July 2017 - which bank or shop was it with?</h1>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-four" name="security-question-four" type="radio" value="correct-answer">
+                  <label class="govuk-label govuk-radios__label" for="security-question-four">
+                    Barclays
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-four-2" name="security-question-four" type="radio" value="wrong-answer-1">
+                  <label class="govuk-label govuk-radios__label" for="security-question-four-2">
+                    HSBC
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-four-3" name="security-question-four" type="radio" value="wrong-answer-2">
+                  <label class="govuk-label govuk-radios__label" for="security-question-four-3">
+                    John Lewis
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-four-4" name="security-question-four" type="radio" value="wrong-answer-3">
+                  <label class="govuk-label govuk-radios__label" for="security-question-four-4">
+                    M&S
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="security-question-four-5" name="security-question-four" type="radio" value="wrong-answer-4">
+                  <label class="govuk-label govuk-radios__label" for="security-question-four-5">
+                    Zara
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+
+      <button type="submit" class="govuk-button">
+        Confirm
+      </button>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /security-question-3 <br>
+        <b>Error messages:</b> Nothing selected: Select which credit card or store card you took out<br>
+        <b>Notes:</b> This template is for all questions with a range of answers where one is the correct option and the others are incorrect options <br>
+      </div>
+    </details>
+
+  </div>
+
+  </div>
+
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

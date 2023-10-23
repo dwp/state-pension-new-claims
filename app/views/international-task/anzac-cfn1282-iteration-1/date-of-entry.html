@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+          <br><br>
+
+          <form method="post">
+
+          <h2 class="govuk-heading-l">Do you need an RF1 to calculate the award?</h2>
+
+
+          <div class="govuk-form-group">
+
+
+ <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+   <div class="govuk-radios__item">
+<input class="govuk-radios__input" id="date-of-entry" name="date-of-entry" type="radio" value="before">
+<label class="govuk-label govuk-radios__label" for="date-of-entry">
+Yes
+</label>
+</div>
+                 <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="date-of-entry-2" name="date-of-entry" type="radio" value="after">
+                <label class="govuk-label govuk-radios__label" for="date-of-entry-2">
+                  No
+                </label>
+              </div>
+
+            </div>
+
+           </div>
+
+           <button class="govuk-button" data-module="govuk-button">
+             Continue
+           </button>
+
+           <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+           <br>
+
+                   <details class="govuk-details" data-module="govuk-details">
+                     <summary class="govuk-details__summary">
+                       <span class="govuk-details__summary-text">
+                       <b>URL, errors and notes</b>
+                       </span>
+                     </summary>
+                     <div class="govuk-details__text">
+                       <b>URL:</b> /need-rf1 <br>
+                       <b>Error messages:</b> <br>
+                       Nothing selected: Select yes if you need an RF1 to calculate the award<br>
+                       <b>Notes:</b> None <br>
+                     </div>
+                   </details>
+
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

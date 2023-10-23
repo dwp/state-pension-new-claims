@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+                      <form method="post" action="confirm">
+
+                      <h1 class="govuk-heading-l">BR403 summary</h1>
+
+                   <h2 class="govuk-heading-m">State Pension review</h2>
+
+                      <table class="govuk-table">
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Initial amount of State Pension</td>
+                          <td class="govuk-table__cell">£144.87
+                            </td>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Revised amount of State Pension (SRB)</td>
+                          <td class="govuk-table__cell">£149.87</td>
+
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" scope="row">Weekly State Pension increase</td>
+                            <td class="govuk-table__cell">£5.00</td>
+
+                        </tbody>
+                      </table>
+
+                    <h2 class="govuk-heading-m">Pension Credit revision</h2>
+
+                      <table class="govuk-table">
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">From</td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell">5 Jun 2021</td>
+
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">To</td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell">30 Oct 2021</td>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Weekly Pension Credit to withhold</td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell">£3.50</td>
+
+                        
+
+                        </tbody>
+                          </table>
+
+                      <h2 class="govuk-heading-m">New amounts for claimant</h2>
+
+                      <table class="govuk-table">
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Weekly increase for claimant</td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell">£1.50</td>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Total arrears to pay</td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell">£31.50</td>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Adjusted amount of State Pension</td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell" scope="row"></td>
+                          <td class="govuk-table__cell">£146.37</td>
+
+                      </tbody>
+                      </table>
+
+
+
+<button class="govuk-button" data-module="govuk-button">
+ Confirm award
+</button>
+
+<p> <a href="#" class="govuk-link">Postpone or stop review</a> </p>
+
+
+<!--
+     <a href="get-next-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+        </form> -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

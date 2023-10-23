@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <form method="post" action="declaration">
+        <div class="govuk-grid-column-two-thirds"> 
+          <a href="lived-worked" class="govuk-back-link">Back</a>
+          <br> <br>
+
+          <h1 class="govuk-heading-xl">
+            Bank or building society details </h1>
+            <div class="govuk-form-group">
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="width-20">
+                 Account holder name
+                </label>
+                <input class="govuk-input" id="account-holder" name="accountholder" type="text">
+              </div>
+      
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="sortcode">
+                Sort code
+                </label>
+                <input class="govuk-input govuk-input--width-5" id="sort-code" name="sortcode" type="text">
+              </div>
+
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="width-20">
+                  Account number
+                </label>
+                <input class="govuk-input govuk-input--width-10" id="account-number" name="accountnumber" type="text">
+              </div>
+      
+      
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="rollnumber">
+                Building society roll or reference number
+                </label>
+                <input class="govuk-input govuk-input--width-10" id="roll-number" name="rollnumber" type="text">
+              </div>
+
+            </div>
+            <button type="submit" class="govuk-button">
+              Continue
+            </button>
+
+
+
+
+        </div>
+      </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

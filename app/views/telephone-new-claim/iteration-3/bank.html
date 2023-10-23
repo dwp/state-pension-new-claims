@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="navigation-global">
+      <ul>
+        <li>
+          <a href="find" class="" aria-current="page">Find someone</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details">
+    <div class="key-details-bar__top-block">
+
+      <dd class="key-details-bar__name">Monty East</dd>
+
+      <dd class="key-details-bar__nino">QQ 12 34 56 X</dd>
+
+    </div>
+
+  </dl>
+</section>
+
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form action="confirm-bank" method="post" novalidate>
+
+          <h1 class="govuk-heading-xl">Bank details</h1>
+
+        </p>
+            <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="acccount-name">
+              Account holder name
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="passport-number" name="passport-number" type="text" aria-describedby="passport-number-hint">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label" for="width-10">
+              <b>Sort code</b>
+            </label>
+            <span class="govuk-hint">
+              <!--Do we need hint text?-->
+            </span>
+            <input class="govuk-input govuk-input--width-10" id="width-10" name="width-10" type="text">
+          </div>
+
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="acccount-name">
+              Account number
+            </label>
+            <input class="govuk-input govuk-input--width-20" id="passport-number" name="passport-number" type="text" aria-describedby="passport-number-hint">
+          </div>
+
+          <div class="govuk-form-group">
+            <label class="govuk-label govuk-label--s" for="acccount-name">
+              Building society roll or reference number
+            </label>
+            <span id="passport-number-hint" class="govuk-hint">
+              If paying into a building society account, we need a roll or reference number, usually found on the passbook.
+            </span>
+            <input class="govuk-input govuk-input--width-20" id="passport-number" name="passport-number" type="text" aria-describedby="passport-number-hint">
+          </div>
+
+
+          <button type="submit" class="govuk-button">
+            Check account
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

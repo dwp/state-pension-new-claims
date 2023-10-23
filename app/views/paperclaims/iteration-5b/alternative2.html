@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+                      {% include './_bar.html' %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="contacted" class="govuk-back-link">Back</a>
+        <br> <br>
+        <form method="post" action="marital-status">
+
+          <h1 class="govuk-heading-xl">
+            Alternative contact preferences</h1>
+
+<div class="govuk-form-group">
+
+
+  <div class="govuk-checkboxes">
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+      <label class="govuk-label govuk-checkboxes__label" for="waste">
+        Audio form
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="waste-2" name="waste" type="checkbox" value="mines">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-2">
+        Audio CD, cassette or MP3
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+        Braille
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+       Large print
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+       TexBox
+      </label>
+    </div>
+    <div class="govuk-checkboxes__item">
+      <input class="govuk-checkboxes__input" id="waste-3" name="waste" type="checkbox" value="farm">
+      <label class="govuk-label govuk-checkboxes__label" for="waste-3">
+        TypeTalk
+      </label>
+    </div>
+  </div>
+
+</div>
+
+<br>
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+<a href="marital-status" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+  Cannot complete this page
+</a>
+</form>
+
+
+
+
+
+  </div>
+
+
+
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

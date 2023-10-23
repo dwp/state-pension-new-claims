@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <br>
+        <div>
+          <a href="tasks-3" class="govuk-back-link">Back</a>
+        </div>
+        <br>
+        <form method="post">
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-heading-xl">Protected payment</h1>
+  
+            <span class="govuk-hint">For example, 123.45</span>
+                   <div class="govuk-currency-input__inner">
+                     <span class="govuk-currency-input__inner__unit">£</span>
+                     <input class="govuk-input govuk-currency-input__inner__input govuk-input--width-10" aria-label="Enter amount in pounds" name="tickets-cost" data-non-numeric type="text" id="tickets-cost" pattern="[0-9]\d*(\.\d+)?" {{ checked('tickets-cost','yes') }}>
+                   </div>
+        </div>
+<br>
+          <a href=# button type="submit" class="govuk-button">
+            Continue
+            </button>
+          </a>
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

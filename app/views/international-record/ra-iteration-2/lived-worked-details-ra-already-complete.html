@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post" action="award-updated-arrears">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+          <br>
+          <br>
+
+          <h2 class="govuk-heading-l">Lived or worked abroad</h2>
+
+                      </div>
+                      <table class="govuk-table">
+                        <caption class="govuk-table__caption govuk-table__caption--m">Mauritius</caption>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">September 1990 to June 2001</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Social security number</th>
+                            <td class="govuk-table__cell">NDMSE93</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="govuk-table">
+                        <caption class="govuk-table__caption govuk-table__caption--m">Jamaica</caption>
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">December 2004 to December 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Worked</th>
+                            <td class="govuk-table__cell">January 2005 to November 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Social security number</th>
+                            <td class="govuk-table__cell">LBMSE93</td>
+                          </tr>
+                        </tbody>
+                      </table>
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <br><br>
+      <h2 class="govuk-heading-m">
+      </h2>
+      <ol class="app-timeline">
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            RA liaison complete
+            </h3>
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden"></span>
+              <span class="app-timeline__date">
+                2 November 2022</span>
+          </li>
+
+      </ol>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+
+        <br> <br>
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">
+            Do you want your State Pension from the earliest possible date?</h1>
+
+            <div class="govuk-inset-text">
+              You reached State Pension age on 28 October 2021 and may be owed some payments.
+            </div>
+                        <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="sp-date-hint">
+                              <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                  <input class="govuk-radios__input" id="sp-date" name="sp-date" type="radio" value="yes">
+                                  <label class="govuk-label govuk-radios__label" for="sp-date">
+                                  Yes, backdate to 28 October 2021</label>
+    </div>
+                              <div class="govuk-radios__item">
+                                <input class="govuk-radios__input" id="sp-date-2" name="sp-date" type="radio" value="no">
+                                <label class="govuk-label govuk-radios__label" for="sp-date-2">
+                                  No, choose a later date</label>
+
+                                </div>
+                            </div>
+
+                          </fieldset>
+                        </div>
+
+                        <button type="submit" class="govuk-button">
+                          Continue
+                        </button>
+
+            <br>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> /state-pension-earliest-date <br>
+        </div>
+        <div class="govuk-details__text">
+          <b>Errors:</b> Nothing selected: Select yes if the claimant wants their State Pension from the earliest possible date
+        </div>
+      </details>
+
+          </div>
+
+
+
+      </form>
+
+
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

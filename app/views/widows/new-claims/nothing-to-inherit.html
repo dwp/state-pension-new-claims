@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+          <form method="post">
+
+            {% include 'widows/new-claims/_bar.html' %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+  }}
+
+  <br><br>
+
+      <div class="govuk-form-group">
+          <h1 class="govuk-heading-l">There is nothing to inherit</h1>
+
+          <p>A weekly State Pension of <b>£178.59</b> will apply from <b>5 May 2022</b>.</p>
+
+          <p>An award letter will be sent to the claimant.</p>
+
+      <br>
+      <button class="govuk-button" data-module="govuk-button">
+      End task
+      </button>
+
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

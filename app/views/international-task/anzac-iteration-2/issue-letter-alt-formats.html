@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+<h1 class="govuk-heading-l">Print and post the CFN1282 form</h1>
+<p>Post the form to this address with a reply envelope.</p>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    This claimant has asked for letters in Braille format.
+  </strong>
+</div>
+
+        <form method="post" action="get-a-task-2">
+          <div class="govuk-inset-text">
+          14 West Avenue<br>
+          Leeds<br>
+          LS12 2WE<br></div>
+
+<!--<table class="govuk-table">
+            <!--<caption class="govuk-table__caption govuk-table__caption--m">Claimant</caption>--
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Address</th>
+                <td class="govuk-table__cell">8 Mill Road<br>
+                  Edinburgh<br>
+                  EH23 1GR</td>
+              </tr>
+
+            </tbody>
+          </table> -->
+
+
+
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm form sent
+</button>
+
+
+        </div>
+
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>Dev info: All possible alt formats warning content</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          This claimant has asked for letters in Audio cassette format.<br>
+          This claimant has asked for letters in Audio CD format.<br>
+          This claimant has asked for letters in Audio MP3 format.<br>
+          This claimant has asked for letters in Braille format.<br>
+          This claimant has asked for letters in Large print format.<br>
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

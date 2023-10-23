@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+          <div>
+            <a href="sp-date" class="govuk-back-link">Back</a>
+          </div>
+          <br>
+          <h1 class="govuk-heading-xl">Claim too early</h1>
+          <p>The State Pension claim cannot be submitted because it is too early. </p>
+          <p>The claim form and any supporting documents will be returned to the claimant. </p>
+          <p>Separately, a letter will be sent to the claimant explaining when to claim.</p>
+          <br>
+          <a href="get-a-claim" button type="submit" class="govuk-button">
+            End task
+          </a>
+        </form>
+
+      </div>
+
+  </main>
+</div>
+
+{% endblock %}

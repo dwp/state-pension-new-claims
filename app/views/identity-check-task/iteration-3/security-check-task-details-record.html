@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form method="post">
+
+        <h1 class="govuk-heading-xl">Take this claimant through additional security
+        </h1>
+        <p>This claimant did not pass authentication when making an online or paper claim.</p>
+
+        <p>You should take them through additional security questions to further verify their identity.</p>
+
+        <p>You may also be required to verify their bank or building society details.</p>
+
+          <br>
+          <button class="govuk-button" data-module="govuk-button">
+            Start this task
+          </button>
+          <a href="personal" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+            Return task to queue
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

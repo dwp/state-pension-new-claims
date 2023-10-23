@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+<br><br>
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full-width">
+<br><br>
+          {% include './name-bar/_bar-jose.html' %}
+
+          {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.go(-1)"
+      }) }}
+<br><br>
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="change-gender-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Gender
+                </h1>
+              </legend>
+<br>
+              <div class="govuk-radios govuk-radios--inline">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-gender" name="change-gender" type="radio" value="female">
+                  <label class="govuk-label govuk-radios__label" for="change-gender">
+                    Female
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="change-gender-2" name="change-gender" type="radio" value="male">
+                  <label class="govuk-label govuk-radios__label" for="change-gender-2">
+                    Male
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </main>
+
+      <div>
+        <a href="change-personal-details" role="button" class="govuk-button">
+          Continue
+        </a>
+      </div>
+
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

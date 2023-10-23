@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <nav class="navigation-global">
+      <ul>
+        <li>
+          <a href="find" class="" aria-current="page">Find someone</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details">
+    <div class="key-details-bar__top-block">
+
+      <dd class="key-details-bar__name">Tallulah East</dd>
+
+      <dd class="key-details-bar__nino">QQ 12 34 56 X</dd>
+
+    </div>
+
+  </dl>
+</section>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      </br>
+        <h1 class="govuk-heading-xl">You cannot get your State Pension yet</h1>
+
+<p>Based on your date of birth, the earliest date you can get your State Pension is [SP date]. This means you can’t make a claim before [SP date - 4 months]. </br>
+</br>
+You should wait for your invitation letter in the post, which you’ll get up to 2 months before this date. You can use that letter to get your State Pension online or you can call us back then.
+</p>
+        <form method="post">
+          <div class="govuk-form-group">
+
+
+
+
+
+          </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

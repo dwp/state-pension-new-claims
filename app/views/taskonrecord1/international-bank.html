@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post" action="payment-bank-overseas">
+
+          <a href="payment" class="govuk-back-link">Back</a>
+          <br><br>
+          <div class="govuk-form-group">
+           <fieldset class="govuk-fieldset">
+             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+               <h1 class="govuk-heading-l">Overseas bank account details </h1>
+             </legend>
+
+             <div class="govuk-form-group">
+               <label class="govuk-label" for="name-on-account">
+                 Account holder name
+               </label>
+               <input class="govuk-input" id="name-on-account" name="name-on-account" type="text" spellcheck="false" aria-describedby="name-on-account-hint">
+             </div>
+
+         <div class="govuk-form-group">
+           <label class="govuk-label" for="bic-code">
+             BIC or SWIFT code
+           </label>
+
+           <input class="govuk-input govuk-input--width-10" id="bic-code" name="bic-code" type="text" spellcheck="false" aria-describedby="bic-code-hint">
+         </div>
+
+         <div class="govuk-form-group">
+           <label class="govuk-label" for="iban">
+             IBAN
+           </label>
+
+           <input class="govuk-input" id="iban" name="iban" type="text" spellcheck="false" aria-describedby="iban-hint">
+         </div>
+
+           </fieldset>
+         </div>
+
+
+
+          <button type="submit" class="govuk-button">Save</button>
+        </div>
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

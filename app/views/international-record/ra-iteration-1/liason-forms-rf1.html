@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+      <form method="post" action="personal-forms-sent-rf1">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+          <br><br>
+          <h2 class="govuk-heading-l">Complete RA liaison application</h2>
+
+          <br>
+
+<p>You will need the claimant's</p>
+<ul class="govuk-list govuk-list--bullet">
+<li>name, date of birth and gender</li>
+<li>nationality</li>
+<li>address</li>
+<li>UK National Insurance number</li>
+<li>foreign social security number</li>
+<li>marital status and information</li>
+<li>State Pension start date</li>
+<li>insurance information</li>
+  </ul>
+<p>You will also need the date that we received the claim.</p>
+  <p>Print and send the completed application. Upload the completed form to DRS.</p>
+<br>
+          <button type="submit" class="govuk-button">Confirm all actions completed</button>
+        </div>
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

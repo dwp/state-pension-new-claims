@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/servicename-newclaims.html' %}
+
+{% block headEnd %}
+{% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+<section class="key-details-bar" role="contentinfo" aria-label="Key details">
+  <dl class="key-details-bar__key-details">
+    <div class="key-details-bar__top-block">
+
+      <dd class="key-details-bar__name">Tallulah East</dd>
+
+      <dd class="key-details-bar__nino">QQ 12 34 56 X</dd>
+
+    </div>
+
+    <div class="key-details-bar__bottom-block">
+      <dt><a href="find" class="govuk-link">Start again</a></dt>
+
+    </div>
+
+  </dl>
+</section>
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+        <h1 class="govuk-heading-xl">YOU ARE TOO EARLY!</h1>
+
+
+        <form method="post">
+          <div class="govuk-form-group">
+
+
+
+
+
+          </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

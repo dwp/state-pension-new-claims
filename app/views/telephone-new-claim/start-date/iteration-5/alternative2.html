@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="contacted2" class="govuk-back-link">Back</a>
+        <br> <br>
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">
+            How else would you like us to send letters to you?</h1>
+
+<div class="govuk-form-group">
+
+  <div id="event-name-hint" class="govuk-hint">
+    Select one option.
+  </div>
+
+  <div class="govuk-radios">
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+      <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+        Audio cassette
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+      <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+        Audio CD
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="where-do-you-live-3" name="where-do-you-live" type="radio" value="wales">
+      <label class="govuk-label govuk-radios__label" for="where-do-you-live-3">
+        Audio MP3
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+      <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+        Braille
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="where-do-you-live-4" name="where-do-you-live" type="radio" value="northern-ireland">
+      <label class="govuk-label govuk-radios__label" for="where-do-you-live-4">
+        Large print
+      </label>
+    </div>
+  
+
+
+
+
+  </div>
+
+</div>
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+      <br>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> /choose-alternative-format <br>
+        </div>
+        <div class="govuk-details__text">
+          <b>Errors:</b> 
+          Noting selected: Select how the claimant would like us to send letters to them <br>
+
+        </div>
+      </details>
+
+
+
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="dob" class="govuk-back-link">Back</a>
+        <br> <br>
+        <form method="post" action="address2">
+
+          <h1 class="govuk-heading-xl">
+            New address        </h1>
+
+  <div class="govuk-form-group">
+    <div class="govuk-form-group">
+      <label class="govuk-label" for="postcode">
+      Property number or name
+      </label>
+      <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="postcode" aria-describedby="postcode-hint">
+      <br><br>
+      <label class="govuk-label" for="postcode">
+        Postcode
+      </label>
+      <input class="govuk-input govuk-input--width-5" id="postcode" name="postcode" type="postcode" aria-describedby="postcode-hint">
+    </div>
+<br><br>
+    <button type="submit" class="govuk-button">
+    Find address
+    </button>
+
+  </div>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,117 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+      <div>
+        <a href="tasks-3-3" class="govuk-back-link">Back</a>
+      </div>
+      <br>
+        <form method="post">
+         
+          <h1 class="govuk-heading-xl">Update State Pension award
+          </h1>
+          <span class="govuk-hint">Enter the new amounts into the relevant components.
+
+
+
+          </span>  
+<br>
+   
+<table class="govuk-table">
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th class="govuk-table__header award_detail2" scope="col" style="width: 55%">Total</th>
+      <th class="govuk-table__header award_detail" scope="col" style="width: 40%">£132.66 per week</th>
+      <td class="govuk-table__cell award_detail" style="width: 5%"></td>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row">New State Pension</td>
+      <td class="govuk-table__cell">£132.66</td>
+      <td class="govuk-table__cell"> <a href="change-nsp">
+        Change
+      </a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row">Protected payment</td>
+      <td class="govuk-table__cell">£0.00</td>
+      <td class="govuk-table__cell"> <a href="change-pp">
+        Change
+      </a></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+      <td class="govuk-table__cell">£0.00</td>
+      <td class="govuk-table__cell"></td>
+    </tr>
+    <tr class="govuk-table__row">
+      <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+      <td class="govuk-table__cell">£0.00</td>
+      <td class="govuk-table__cell"> <a href="change-iesp">
+        Change
+      </a></td>
+    </tr>
+  </tbody>
+  </table>
+       
+  <table class="govuk-table">
+    <tr class="govuk-table__row">
+        <td class="govuk-table__header award_detail2" scope="row" style="width: 51%">Entitlement date</td>
+        <td class="govuk-table__cell award_detail" style="width: 49%">14 May 2020</td>
+        
+      </tr> 
+ 
+</table>
+
+<br>
+          <a href="tasks-5" button type="submit" class="govuk-button"> 
+            Continue
+          </button>
+        </a>
+        </form>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

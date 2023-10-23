@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <br>
+
+          {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+                            <br><br>
+
+        <form method="post" action="confirm">
+
+                    <h1 class="govuk-heading-l">Review postponed</h1>
+
+                    <p> The award cannot be reviewed now. This task will be postponed for 30 days. </p>
+
+
+          <button class="govuk-button" data-module="govuk-button">
+           End task
+         </button>
+
+        </form>
+
+      </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

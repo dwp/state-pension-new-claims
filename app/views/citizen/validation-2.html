@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+        
+                          
+          <h1 class="govuk-heading-xl">We cannot pay money to this account</h1>           
+
+        <div class="govuk-inset-text">
+          This account does not accept State Pension payments. Enter details for a different account.
+          </div>
+          
+       <dl class="govuk-summary-list">
+              <!--  <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">Bank name</dt>
+              <dd class="govuk-summary-list__value">Nationwide</dd>
+            </div> -->
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">Name on the account</dt>
+              <dd class="govuk-summary-list__value">John Snow</dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">Sort code</dt>
+              <dd class="govuk-summary-list__value">555555</dd>
+            </div>
+            
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">Account number</dt>
+              <dd class="govuk-summary-list__value">55555567</dd>
+            </div>
+
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">Building society roll number</dt>
+              <dd class="govuk-summary-list__value">9834602748</dd>
+            </div>
+          
+          </dl>
+
+        <!--  <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              </legend>
+          <h2 class="govuk-heading-m">Do you want to enter details for a different account?</h2>
+          
+          <div class="govuk-radios">
+           <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="yes" name="interruption" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="yes">
+            Yes, I want to enter details for a different account</label>
+              </div>
+                
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="no" name="interruption" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="no">No, call me if you cannot pay money to this account</label>
+                </div>
+      
+            </div></fieldset> 
+          </div> -->
+
+
+          <button class="govuk-button" data-module="govuk-button">Change account details</button>
+
+
+</div>
+
+  <div class="column-one-third">
+    {% include 'includes/parts/help.html' %}
+  </div>
+
+  </div>
+
+  <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+      <b>URL, errors and notes</b>
+      </span>
+    </summary>
+    <div class="govuk-details__text">
+      <b>URL:</b> /cannot-pay-money-to-account <br>
+      <b>Error messages:</b> None needed   <br>
+      <b>Notes:</b> This is for "Warning 7", "Warning 8", "Warning 81" and "Warning 82"  <br>
+    </div>
+  </details>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+        <h1 class="govuk-heading-xl">Record death arrears payee details and pay the arrears
+
+        </h1>
+        <p>Check and enter the relevant details of the death arrears payee from the returned BR330 form and pay the arrears due.
+
+        </p>
+
+        <form method="post" action="tasks-3">
+         
+<br>
+          <button class="govuk-button" data-module="govuk-button">
+            Start this task
+          </button>
+
+          
+
+     <a href="tasks" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary"> 
+          Return task to queue
+        </a>
+
+        </form>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

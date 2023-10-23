@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="check-answers" class="govuk-back-link">Back</a>
+
+        <form method="post">
+          <br>
+          <h1 class="govuk-heading-xl">
+          The claimant must send us proof of their date of birth
+          </h1>
+
+
+          <div class="govuk-form-group">
+
+<h2 class="govuk-heading-m">They must send 1 of these original documents:</h2>
+
+<ul class="govuk-list govuk-list--bullet">
+  <li>Birth certificate</li>
+  <li>Certificate of registration of birth</li>
+  <li>Adoption order</li>
+  <li>Certificate of adoption issued by the Registrar General</li>
+  <li>Identity card</li>
+</ul>
+
+<h3 class="govuk-heading-m">Include their National Insurance number and send it to:</h3>
+
+<p>The Pension Service 4<br>
+Mail Handling Site A<br>
+Wolverhampton<br>
+WV98 1AG</p>
+
+<br>
+
+
+          <button type="submit" class="govuk-button">
+          End call
+          </button>
+
+      </div>
+
+
+      </form>
+
+
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

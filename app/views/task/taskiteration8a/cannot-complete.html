@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+      <div>
+        <a href="tasks-3" class="govuk-back-link">Back</a>
+      </div>
+      <br>
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">Do you want to return this task to the queue?
+          </h1>
+
+
+          <!-- <span class="govuk-hint">Check the record of the late spouse to see if any State Pension can be inherited.</span>
+          <br> -->
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live" name="where-do-you-live" type="radio" value="england">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="where-do-you-live-2" name="where-do-you-live" type="radio" value="scotland">
+                  <label class="govuk-label govuk-radios__label" for="where-do-you-live-2">
+                    No
+                  </label>
+                  <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+                    This task will remain on the claimant's record.
+                  </div>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+
+          <a href="tasks-not-complete" button type="submit" class="govuk-button">
+            Continue
+          </button>
+        </a>
+        </form>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

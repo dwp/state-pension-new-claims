@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+      <div>
+        <a href="tasks-2-2" class="govuk-back-link">Back</a>
+      </div>
+      <br>
+        <form method="post">
+          <h1 class="govuk-heading-xl">New State Pension awards</h1>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col" style="width: 35%">From</th>
+                <th class="govuk-table__header " scope="col" style="width: 30%">Weekly amount</th>
+                <th class="govuk-table__header" scope="col" style="width: 5%"></th>
+    
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">6 April 2020</td>
+                <td class="govuk-table__cell">£148.60</td>
+                <td class="govuk-table__cell"><a href="tasks-31">Details</a></td>
+               
+              </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">20 April 2020</td>
+                <td class="govuk-table__cell">£150.10</td>
+                <td class="govuk-table__cell"><a href="tasks-32">Details</a></td>
+              </tr>
+            </tbody>
+          </table>  
+        </table>
+
+          <a href="tasks-4" button type="submit" class="govuk-button"> 
+            Continue
+          </button>
+           </a>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

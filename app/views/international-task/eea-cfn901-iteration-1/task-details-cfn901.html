@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Process claim for EEA pensions
+        </h1>
+
+        <p class="govuk-body">Check if the claimant has returned their CFN901 form.</p> <p>You may then need to:</p>
+
+<ul class="govuk-list govuk-list--bullet">
+          <li>request an RF1 form from HMRC</li>
+        <li>send a claim for their EEA pensions</li>
+        <li>request insurance records from the EEA countries</li>
+
+        </ul>
+
+        <form method="post">
+          <br>
+          <button class="govuk-button" data-module="govuk-button">
+            Start this task
+          </button>
+          <a href="get-a-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+            Return task to queue
+          </a>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

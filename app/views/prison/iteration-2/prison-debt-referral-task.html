@@ -1,0 +1,140 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-column-two-thirds">
+
+      <main id="content" role="main">
+        <div class="grid-row">
+<br>
+
+
+{% include './name-bar/_bar-jose-prison.html' %}
+
+        </div>
+      </main>
+
+            {{ govukBackLink({
+              text: "Back",
+              href: "javascript:history.go(-1)"
+                              }) }}
+
+        <form method="post" action="personal-task-complete">
+
+
+          <h1 class="govuk-heading-l">Refer the overpayment to the debt management service</h1>
+
+          <p>This is because the claimant is in prison.</p>
+
+          <p>Use these details to refer the overpayment to the debt management service through the e-referral tool.</p>
+          <br>
+
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Full name</th>
+                <td class="govuk-table__cell">Jose Dominguez</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >National Insurance number</th>
+                <td class="govuk-table__cell" style="width: 50%">QQ 56 43 21 M</td>
+              </tr>
+
+            </tbody>
+          </table>
+
+
+<h2 class="govuk-heading-m">Overpayment details
+</h2>
+
+
+<table class="govuk-table">
+  <!-- <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" style="width: 50%" >Benefit entitlement date</th>
+      <td class="govuk-table__cell" style="width: 50%">3 March 2020</td>
+    </tr> -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header" style="width: 50%" >Period</th>
+      <td class="govuk-table__cell" style="width: 50%">25 Oct 2022 to 19 Dec 2022</td>
+    </tr>
+    <!-- <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Incorrect weekly amount</th>
+      <td class="govuk-table__cell">£158.20</td>
+    </tr>
+    <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Correct weekly amount</th>
+        <td class="govuk-table__cell">£150.10 </td>
+      </tr> -->
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Total overpayment</th>
+      <td class="govuk-table__cell">£64.80</td>
+    </tr>
+  </tbody>
+</table>
+
+
+          <button type="submit" class="govuk-button">Confirm these details have been submitted through the e-referral tool</button
+
+
+</div>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /refer-overpayment <br>
+        <b>Error messages:</b>   <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+
+</div>
+
+
+
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

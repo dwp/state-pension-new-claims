@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  <a href="prison" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="prison-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+            When did you go into prison?
+            </h1>
+          </legend>
+          <br>
+          <div id="prison-hint" class="govuk-hint">
+
+          </div>
+
+      <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+
+    <div class="govuk-date-input" id="passport-issued">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+
+  </fieldset>
+</div>
+
+<br>
+<br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+              <b>URL, errors and notes</b>
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <b>URL:</b> /prison-date  <br>
+              <b>Error messages:</b> <br>
+              Nothing entered: Enter the date you went into prison<br>
+              Invalid: Enter a real date, like 12 4 2021<br>
+              Today or future: Date you went into prison must be in the past<br><br>
+              <b>Welsh translation<br><br>
+                Pryd aethoch chi i’r carchar?</b><br><br>
+Nothing entered: Rhowch y dyddiad aethoch chi i’r carchar<br>
+Invalid: Rhowch ddyddiad gwirioneddol, fel 12 4 1993<br>
+Today or future: Rhaid i’r dyddiad aethoch chi i’r carchar fod yn y gorffennol<br>
+              <b>Notes:</b> None <br>
+            </div>
+          </details>
+
+    </div>
+
+    <br><br>
+
+</div>
+
+
+
+</form>
+
+
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+
+
+
+
+  {% endblock %}

@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+  }) }}
+
+        <br> <br>
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">
+            The claim date is too far in advance</h1>
+
+              <p class="govuk-body">Explain to the citizen that their State Pension cannot start more than 4 months after the day they put in their claim.</p>
+              
+              <p class="govuk-body">The citizen can either:</p>
+
+                  <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="claim-date" class="govuk-link">select a new date which is within the next 4 months</a></li>
+                    <!-- <li>call back on [DATE] if they want to stick to the date they gave you</li>-->
+                    <li>call back four months before the date they want their claim to start</li>
+                    </ul>
+
+                    <p class="govuk-body">If the citizen asks, you can tell them they may get more money if they <a href="https://www.gov.uk/deferring-state-pension" class="govuk-link" rel="noreferrer noopener" target="_blank">put off claiming their State Pension into the future (opens in a new tab)</a>.</p>
+
+
+                    <br>
+            <button type="submit" class="govuk-button">
+              End call
+            </button>
+
+            <br>
+            <details class="govuk-details" data-module="govuk-details">
+              <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">
+                <b>URL, errors and notes</b>
+                </span>
+              </summary>
+              <div class="govuk-details__text">
+                <b>URL:</b> /too-far-in-advance<br>
+              </div>
+              <div class="govuk-details__text">
+                <b>Errors:</b> 
+                
+              </div>
+            </details>
+
+          </div>
+
+
+
+      </form>
+
+
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

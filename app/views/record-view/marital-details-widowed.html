@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+
+
+        </div>
+      </div>
+    </main>
+
+    {{ govukBackLink({
+text: "Back",
+href: "javascript:history.go(-1)"
+}) }}
+
+    <br>
+    <br>
+
+    <div>
+      <h2 class="govuk-heading-l">Marital details</h2>
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 50%">Marital status</th>
+            <td class="govuk-table__cell" style="width: 50%">Widowed</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+              Change
+            </a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of marriage</th>
+            <td class="govuk-table__cell">9 May 1989</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <h2 class="govuk-heading-m">Late spouse's details</h2>
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 50%">Full name</th>
+            <td class="govuk-table__cell" style="width: 50%">Sally Rooney</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+            </a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">National insurance number</th>
+            <td class="govuk-table__cell">XX 12 34 59 A</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of birth</th>
+            <td class="govuk-table__cell">8 January 1950</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of death</th>
+            <td class="govuk-table__cell">10 August 2020</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+
+
+
+
+  <div class="govuk-grid-column-one-third">
+
+  </div>
+
+
+</div>
+</div>
+</main>
+</div>
+<!-- </div> -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

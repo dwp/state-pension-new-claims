@@ -4,9 +4,17 @@
     "serve": "govuk-prototype-kit serve",
     "start": "govuk-prototype-kit start"
   },
+  "name": "govuk-prototype-kit",
   "dependencies": {
-    "@govuk-prototype-kit/common-templates": "1.2.2",
-    "govuk-frontend": "4.7.0",
-    "govuk-prototype-kit": "13.13.2"
+    "@dwp/dwp-frontend": "^2.4.0",
+    "@govuk-prototype-kit/common-templates": "1.1.1",
+    "@govuk-prototype-kit/step-by-step": "2.1.0",
+    "@govuk-prototype-kit/task-list": "1.0.0",
+    "govuk-frontend": "4.6.0",
+    "govuk-prototype-kit": "13.9.0",
+    "hmrc-frontend": "5.39.0",
+    "home-office-kit": "0.9.1",
+    "jquery": "3.7.0",
+    "notifications-node-client": "7.0.0"
   }
 }

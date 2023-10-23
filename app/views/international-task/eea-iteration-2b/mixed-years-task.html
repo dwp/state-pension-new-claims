@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+<h1 class="govuk-heading-l">Check for mixed years and request foreign insurance record</h1>
+
+<bR>
+
+  <p>Add everything you can find</p>
+
+            <table class="govuk-table">
+              <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Spain</h2>
+              <a href="review-award" <span class="govuk-link govuk-!-font-size-19" style="margin-left: 58%"></span>
+              </a>
+              <br><br>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Lived</th>
+                  <td class="govuk-table__cell">Jun 1992 to Dec 2006</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Worked</th>
+                  <td class="govuk-table__cell">Jun 1992 to Nov 2006</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Social security number</th>
+                  <td class="govuk-table__cell" style="width: 45%">LBMSE93</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">CFN901</th>
+                  <td class="govuk-table__cell" style="width: 45%">Sent</td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Foreign insurance record</th>
+                  <td class="govuk-table__cell" style="width: 45%">Requested</td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">Change</a></td>
+                </tr>
+              </tbody>
+            </table>
+
+<Br><br>
+
+            <table class="govuk-table">
+              <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Austria</h2>
+              <a href="aus-consider-mixed-years" <span class="govuk-link govuk-!-font-size-19" style="margin-left: 57%">Consider mixed years</span>
+              </a>
+              <br><br>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Lived</th>
+                  <td class="govuk-table__cell" style="width: 45%">Jun 2011to Dec 2011</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Worked</th>
+                  <td class="govuk-table__cell">Jul 2011 to Nov 2011</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Social security number</th>
+                    <td class="govuk-table__cell"></td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">Add</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">CFN901</th>
+                  <td class="govuk-table__cell" style="width: 45%">Sent</td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Foreign insurance record</th>
+                  <td class="govuk-table__cell" style="width: 45%">Not requested</td>
+                  <td class="govuk-table__cell"><a href="#" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">Change</a></td>
+                </tr>
+              </tbody>
+            </table>
+</div>
+</div>
+
+
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

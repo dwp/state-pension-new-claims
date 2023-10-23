@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <br>
+        <div>
+          <a href="tasks-3" class="govuk-back-link">Back</a>
+        </div>
+        <br>
+        <form method="post" action="tasks-3-1">
+
+          <div class="govuk-form-group">
+            <h2 class="govuk-heading-xl">Date of marriage</h2>
+
+         
+            <form method="post" action="consider-spouse-v">
+              <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="expiry-hint" role="group">
+                  <div class="govuk-date-input" id="expiry">
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="expiry-day">
+                          Day
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-day" name="expiry-day" type="number" pattern="[0-9]*" value="8">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="expiry-month">
+                          Month
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="expiry-month" name="expiry-month" type="number" pattern="[0-9]*" value="4">
+                      </div>
+                    </div>
+                    <div class="govuk-date-input__item">
+                      <div class="govuk-form-group">
+                        <label class="govuk-label govuk-date-input__label" for="expiry-year">
+                          Year
+                        </label>
+                        <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="expiry-year" name="expiry-year" type="number" pattern="[0-9]*" value="1987">
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+                <br> <br>
+                <fieldset class="govuk-fieldset" aria-describedby="verified-or-notverified-hint">
+                  <div class="govuk-radios govuk-radios--inline">
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="verified-or-notverified-1" name="verified-or-notverified" type="radio"
+                        value="verified">
+                      <label class="govuk-label govuk-radios__label" for="verified-or-notverified-1">
+                        Verified
+                      </label> </div>
+                    <div class="govuk-radios__item">
+                      <input class="govuk-radios__input" id="verified-or-notverified-2" name="verified-or-notverified" type="radio"
+                        value="not-verified">
+                      <label class="govuk-label govuk-radios__label" for="verified-or-notverified-2">
+                        Not verified
+                      </label> </div>
+                  </div>
+                </fieldset>
+              </div>
+    <br>
+              <button type="submit" class="govuk-button">
+               Save
+              </button>
+
+        </div>
+        <br>
+          </a>
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

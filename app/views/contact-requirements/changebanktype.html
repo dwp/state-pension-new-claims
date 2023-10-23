@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-enquiries.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% include './_find-someone-enquiries.html' %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post">
+
+          <a href="payment" class="govuk-back-link">Back</a>
+          <br><br>
+          <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+        Select the location of the new account
+      </h1>
+    </legend>
+
+<br>
+
+    <div class="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="bankaccounttype" name="bankaccounttype" type="radio" value="uk">
+        <label class="govuk-label govuk-radios__label" for="bankaccounttype">
+            UK bank or building society account
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="bankaccounttype-2" name="bankaccounttype" type="radio" value="international">
+        <label class="govuk-label govuk-radios__label" for="bankaccounttype-2">
+          Overseas bank account
+        </label>
+      </div>
+  </fieldset>
+</div>
+
+
+          <button type="submit" class="govuk-button">Confirm</button>
+        </div>
+      </div>
+    </main>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

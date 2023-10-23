@@ -1,0 +1,116 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+      <form method="post">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+          <br><br>
+
+
+<p></p>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="rf1-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+      <h1 class="govuk-fieldset__heading">
+Do you need to request an RF1 from HMRC?      </h1>
+    </legend>
+    <br>
+
+<br>
+
+
+    <div class="govuk-radios govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="rf1" name="rf1" type="radio" value="request">
+        <label class="govuk-label govuk-radios__label" for="rf1">
+          Request RF1
+        </label>
+      </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="rf1-2" name="rf1" type="radio" value="received">
+        <label class="govuk-label govuk-radios__label" for="rf1-2">RF1 already received
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="rf1-3" name="rf1" type="radio" value="requested">
+        <label class="govuk-label govuk-radios__label" for="rf1-3">
+RF1 requested recently
+        </label>
+      </div>
+    <!--  <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="rf1-2" name="rf1" type="radio" value="received">
+          <label class="govuk-label govuk-radios__label" for="rf1-2">Cannot request RF1
+        </label>
+      </div> -->
+    </div>
+  </fieldset>
+</div>
+<br>
+          <button type="submit" class="govuk-button">Continue</button>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+          <br>
+
+                  <details class="govuk-details" data-module="govuk-details">
+                    <summary class="govuk-details__summary">
+                      <span class="govuk-details__summary-text">
+                      <b>URL, errors and notes</b>
+                      </span>
+                    </summary>
+                    <div class="govuk-details__text">
+                      <b>URL:</b> /need-request-rf1 <br>
+                      <b>Error messages:</b> <br>
+                      Nothing selected: Select whether you need to request an RF1<br>
+                      <b>Notes:</b> None <br>
+                    </div>
+                  </details>
+
+        </div>
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

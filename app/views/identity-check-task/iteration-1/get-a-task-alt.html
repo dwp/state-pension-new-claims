@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      <br>
+        <h1 class="govuk-heading-xl">Tasks</h1>
+
+        <nav class="moj-sub-navigation" aria-label="Sub navigation">
+
+                  <ul class="moj-sub-navigation__list">
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" aria-current="page" href="get-a-task">New claims</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="tasks-award">Award updates (SRBs)</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="tasks-alt-formats">Alternative formats</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="tasks-conversions">Widows conversions</a>
+                    </li>
+
+                    <li class="moj-sub-navigation__item">
+                      <a class="moj-sub-navigation__link" href="tasks-other">Other</a>
+                    </li>
+
+                  </ul>
+
+                </nav>
+
+
+        <form method="post">
+
+          <h1 class="govuk-heading-l">New claims</h1>
+
+          </div>
+          </div>
+
+          <div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-third">
+        <h1 class="govuk-heading-m">New claims (widows)</h1>
+            <h3 class="govuk-heading-l"> 130
+              <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+            </h3>
+            <h3 class="govuk-heading-l"> 112
+              <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+            </h3>
+            <a href="" button type="submit" class="govuk-button">
+              Get next task
+          </a>
+</div>
+  <div class="govuk-grid-column-one-third">
+    <h1 class="govuk-heading-m">New claims (post SPa)</h1>
+        <h3 class="govuk-heading-l"> 89
+          <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+        </h3>
+        <h3 class="govuk-heading-l"> 89
+          <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+        </h3>
+        <a href="" button type="submit" class="govuk-button">
+          Get next task
+      </a>
+  </div>
+  <div class="govuk-grid-column-one-third">
+    <h1 class="govuk-heading-m">Identity check</h1>
+        <h3 class="govuk-heading-l">98
+          <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+        </h3>
+        <h3 class="govuk-heading-l">90
+          <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+        </h3>
+        <a href="security-check-task-details" button type="submit" class="govuk-button">
+          Get next task
+      </a>
+</div>
+</div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+
+      {% endblock %}

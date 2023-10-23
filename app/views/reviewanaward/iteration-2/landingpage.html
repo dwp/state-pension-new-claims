@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block headEnd %}
+  {% include 'includes/remove-blue-bar.html' %}
+{% endblock %}
+
+{% block header %}
+  {% include "includes/cookie-banner.html" %}
+  {# Set serviceName in config.js. #}
+  {{ govukHeader({
+    serviceName: serviceName,
+    serviceUrl: "/"
+  }) }}
+
+{% endblock %}
+
+{% block content %}
+<h1 class="govuk-heading-xl">Landing page</h1>
+
+
+<ul class="govuk-list">
+  <li>
+    <a class="govuk-link" href="#">Add customer</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Fina a claim</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Drop out claim</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Upload overseas claims</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Next pending claim</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="#">Claim information</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="find.html">Changes and enquiries</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="processaclaim">Process a claim</a>
+  </li>
+  <li>
+    <a class="govuk-link" href="reviewanaward2.html">Review an award</a>
+  </li>
+</ul>
+
+{% endblock %}

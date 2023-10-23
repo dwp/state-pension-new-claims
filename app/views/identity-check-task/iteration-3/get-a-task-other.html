@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+      <br>
+        <h1 class="govuk-heading-xl">Tasks</h1>
+
+{% include './sub-nav/_other.html' %}
+
+
+        <form method="post">
+
+          <h1 class="govuk-heading-l">Other</h1>
+
+          </div>
+          </div>
+
+
+                    <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <h1 class="govuk-heading-m">Alternative formats
+              <p class="govuk-body-l"><a href="#" class="govuk-link"><b>Get next task</b></a></p></h1>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                  <h3 class="govuk-heading-l">209
+                    <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                  </h3>
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                  <h3 class="govuk-heading-l">182
+                    <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                  </h3>
+            </div>
+
+          </div>
+
+            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+            <br>
+
+
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h1 class="govuk-heading-m">BL task
+            <p class="govuk-body-l"><a href="#" class="govuk-link"><b>Get next task</b></a></p></h1>
+
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">98
+                  <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                </h3>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">90
+                  <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                </h3>
+          </div>
+          </div>
+
+            
+
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+
+      {% endblock %}

@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+      <div>
+        <a href="tasks-2" class="govuk-back-link">Back</a>
+      </div>
+      <br>
+        <form method="post" action="tasks-5">
+
+          <h2 class="govuk-heading-xl">Overpayment referral details</h2>
+          <br>
+        <span class="govuk-hint">Use these details to refer the overpayment to the debt
+          management service through the e-referral tool.</span>
+          <br>
+        <h2 class="govuk-heading-m">Claimant's details
+          </h2>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 50%" >National Insurance number</th>
+              <td class="govuk-table__cell" style="width: 50%">QQ 12 34 56 X</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Full name</th>
+              <td class="govuk-table__cell">Ken Adams</td>
+            </tr>
+
+
+
+
+          </tbody>
+        </table>
+
+
+      <h2 class="govuk-heading-m">Overpayment details
+      </h2>
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 50%" >Benefit entitlement date</th>
+            <td class="govuk-table__cell" style="width: 50%">3 March 2021</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 50%" >Period</th>
+            <td class="govuk-table__cell" style="width: 50%">25 Oct 2020 to 19 Dec 2020</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Incorrect weekly amount</th>
+            <td class="govuk-table__cell">£158.20</td>
+          </tr>
+          <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Correct weekly amount</th>
+              <td class="govuk-table__cell">£150.10 </td>
+            </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total overpayment</th>
+            <td class="govuk-table__cell">£64.80</td>
+          </tr>
+
+
+        </tbody>
+      </table>
+
+        </table>
+
+         <!--  <h2 class="govuk-heading-m">Payment details
+          </h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Day</th>
+                <td class="govuk-table__cell" style="width: 50%">Monday</td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Frequency</th>
+                <td class="govuk-table__cell">2 Weekly</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Total overpayment</th>
+                <td class="govuk-table__cell">£66.54</td>
+              </tr>
+            </tbody>
+          </table> -->
+
+        <button class="govuk-button" data-module="govuk-button">
+            Continue
+        </button>
+        </a>
+        </form>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

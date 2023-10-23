@@ -1,0 +1,182 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+          <br><br>
+          {% include './_bar.html' %}
+
+          {% include './tabs/_tab-payment.html' %}
+        </div>
+      </div>
+    </main>
+
+    <br><br>
+    <h2 class="govuk-heading-m">Bank or building society account details</h2>
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"></td>
+
+
+              <a href="changebanktype">
+                <span class="govuk-link govuk-!-font-size-19" style="margin-left: 90%">Change</span>
+              </a>
+
+
+          <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" style="width: 45%">Account holder</th>
+          <td class="govuk-table__cell" style="width: 45%"> Mr Nayan Busby</td>
+          <td class="govuk-table__cell" style="width: 10%"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Sort code </th>
+          <td class="govuk-table__cell">54 76 98 </td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Account number</th>
+          <td class="govuk-table__cell">98765409</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+
+      </tbody>
+    </table>
+<br>
+    <h2 class="govuk-heading-m">Payment details</h2>
+    <br>
+    <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 45%"> Payment frequency</th>
+            <td class="govuk-table__cell" style="width: 45%">Every 4 weeks</td>
+            <td class="govuk-table__cell" style="width: 10%"><a href="change-frequency">
+                <span class="govuk-link govuk-!-font-size-19">Change</span>
+              </a></td>
+          </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Next payment date</th>
+              <td class="govuk-table__cell">Friday 25 Feb 2020</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Next payment amount</th>
+                <td class="govuk-table__cell">£162.68</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+        </tbody>
+      </table>
+
+    <br>
+    <br>
+
+    <div>
+    </div>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+    <br><br>
+    <h2 class="govuk-heading-m">
+      Payment changes
+    </h2>
+    <ol class="app-timeline">
+      <li class="app-timeline__entry">
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+          No changes made
+        </h3>
+
+        <p class="app-timeline__info govuk-!-margin-bottom-0">
+          <span class="govuk-visually-hidden">No changes made</span>
+          <span class="app-timeline__date">
+
+          </span>
+        </p>
+      </li>
+
+
+    </ol>
+
+  </div>
+
+  <div class="govuk-grid-column-full">
+    <h2 class="govuk-heading-m">Payment history</h2>
+    <table class="govuk-table">
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+
+              <th class="govuk-table__header" scope="col" style="width: 15%">Payment date</th>
+              <th class="govuk-table__header" scope="col" style="width:20%">Period</th>
+              <th class="govuk-table__header" scope="col" style="width: 10%">Amount</th>
+              <th class="govuk-table__header" scope="col" style="width: 10%">Status</th>
+              <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
+            </tr>
+          </thead>
+      <tbody class="govuk-table__body">
+
+
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">Sat 25 Jan 2021</td>
+          <td class="govuk-table__cell">28 Dec 2019 to 24 Jan 2021</td>
+          <td class="govuk-table__cell">£650.72</td>
+          <td class="govuk-table__cell" class="govuk-orange">Sent
+          </td>
+          <td class="govuk-table__cell" style="text-align: right;"><a href="payment-details-1">Details</a></td>
+        </tr>
+
+
+        <tr class="govuk-table__row">
+
+          <td class="govuk-table__cell">Saturday 28 Dec 2020</td>
+          <td class="govuk-table__cell">30 Nov 2020 to 27 Dec 2020</td>
+          <td class="govuk-table__cell">£650.72</td>
+          <td class="govuk-table__cell" class="govuk-orange">Paid
+          </td>
+          <td class="govuk-table__cell" style="text-align: right;"><a href="payment-details-2">Details</a></td>
+        </tr>
+
+
+        </tbody>
+        </table>
+
+  </div>
+
+
+</div>
+</div>
+</main>
+</div>
+<!-- </div> -->
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

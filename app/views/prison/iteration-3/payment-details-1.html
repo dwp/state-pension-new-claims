@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './name-bar/_bar-jose.html' %}
+          <form method="post" action="payment-frequency">
+
+            <a href="payment" class="govuk-back-link">Back</a>
+            <br><br>
+            <h2 class="govuk-heading-l">Payment details</h2>
+
+            <div class="govuk-form-group">
+
+              <div class="govuk-inset-text">
+            Payment is reduced because they were in prison from 10 July 2022 to 9 January 2023.
+              </div>
+
+              <table class="govuk-table">
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                  <tr class="govuk-table__row">
+                  <tr class="govuk-table__row" style="width: 20%"></tr>
+                  <th class="govuk-table__header" scope="col" style="width: 43%">Total</th>
+                  <th class="govuk-table__header" scope="col">£650.72</th>
+                  <th class="govuk-table__header" scope="col"></th>
+
+                  </tr>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Period</td>
+                    <td class="govuk-table__cell">10 Jan 2022 to 24 Jan 2023</td>
+                    <th class="govuk-table__header" scope="col"></th>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Status</td>
+                    <td class="govuk-table__cell">Sent</td>
+                    <td class="govuk-table__cell"> <a href=#>Recall payment</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h2 class="govuk-heading-m">Account the payment was sent to</h2>
+              <dl class="app-check-your-answers app-check-your-answers--short">
+                  <table class="govuk-table">
+                  <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row" style="width: 43%">Account holder </td>
+                        <td class="govuk-table__cell">Mr K Adams</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                          <td class="govuk-table__cell" scope="row">Account number</td>
+                          <td class="govuk-table__cell">98765409</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell" scope="row">Sort code</td>
+                            <td class="govuk-table__cell">54 76 98</td>
+                          </tr>
+                    </tbody>
+                  </table>
+
+
+            </div>
+
+
+        </div>
+      </div>
+    </main>
+
+    </form>
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+<br><br><br>
+    <h2 class="govuk-heading-m">
+      Status changes
+    </h2>
+    <ol class="app-timeline">
+        <li class="app-timeline__entry">
+            <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+              Sent
+            </h3>
+
+            <p class="app-timeline__info govuk-!-margin-bottom-0">
+              <span class="govuk-visually-hidden">
+              </span>
+              <span class="app-timeline__date">
+                  19 January 2020
+              </span>
+            </p>
+          </li>
+
+    </ol>
+
+  </div>
+
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,172 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-paper.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="declaration" class="govuk-back-link">Back</a>
+
+        <form method="post" action="complete">
+<br>
+          <h1 class="govuk-heading-xl">
+            Review claim details
+          </h1>
+
+
+  <div class="govuk-form-group">
+    
+    <dl class="govuk-summary-list govuk-!-margin-bottom-9">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Name
+        </dt>
+        <dd class="govuk-summary-list__value">
+          Ken Adams
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Date of birth
+        </dt>
+        <dd class="govuk-summary-list__value">
+          11 July 1954
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Address
+        </dt>
+        <dd class="govuk-summary-list__value">
+          16 RICHMOND TERRACE<br> NORTH GOSFORTH<br> NEWCASTLE UPON TYNE<br> NE4 2AN
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div> 
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Contact details
+        </dt>
+        <dd class="govuk-summary-list__value">
+         Mobile: 07958122000 <br> ken.adams54@live.com <br>Other formats: Large print	
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Marital details
+        </dt>
+        <dd class="govuk-summary-list__value">
+         Married: 7 May 1980<br><br>QQ 12 55 87 X<br> Regina Adams<br>Phillips<br> 3 Jul 1960
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+         Lived or worked outside the UK
+        </dt>
+        <dd class="govuk-summary-list__value">
+         France<br>Lived: Jun 1974 to Sep 1975 <br>Worked: Jun 1974 to Sep 1975
+         <br><br> Germany<br>Lived: Jan 1980 to Mar 1985<br>Worked: Jan 1980 to Mar 1985<br>15120190B123
+         <br><br> United Arab Emirates<br>Lived: Feb 1990 to Apr 1993<br>Worked: Feb 1990 to Apr 1993
+         <br><br>Greece<br>Lived: May 2000 to Nov 2002
+         <!-- France<br>Lived: 6 1974 to 9 1975 <br>Worked: 6 1974 to 9 1975
+         <br><br> Germany<br>Lived: 1 1980 to 3 1985<br>Worked: 1 1980 to 3 1985<br>15120190B123
+         <br><br> United Arab Emirates<br>Lived: 2 1990 to 4 1993<br>Worked: 2 1990 to 4 1993
+         <br><br>Greece<br>Lived: 5 2000 to 11 2222 -->
+         <br><br>Lived or worked in more than 4 countries: Yes
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="check-answers2">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          State Pension claim date
+        </dt>
+        <dd class="govuk-summary-list__value">
+         6 May 2020
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change<span class="govuk-visually-hidden"> contact details</span>
+          </a>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Bank or building society
+        </dt>
+        <dd class="govuk-summary-list__value">
+        Mr Ken Adams<br>54 65 66<br>24678900
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="#">
+            Change
+          </a>
+        </dd>
+      </div>
+  
+    </dl>
+
+
+  </div>
+    <button type="submit" class="govuk-button">
+      Continue
+    </button>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

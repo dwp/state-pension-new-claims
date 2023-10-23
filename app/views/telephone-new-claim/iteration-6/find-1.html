@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="moj-identity-bar">
+
+    <div class="moj-identity-bar__container">
+    
+    <div class="moj-identity-bar__details">
+    
+    
+    </div>
+    <div class="moj-identity-bar__details">
+      <span class="moj-identity-bar__title" style="text-align: right;"><a href="find">Start a new claim</a></span>
+    </div>
+    </div>
+    
+    </div> 
+<br>
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div>
+          <h1 class="govuk-heading-xl">
+           Ken Adams </br>
+                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+                            <strong class="govuk-tag govuk-tag--green">
+                              ready to claim State Pension
+                            </strong>                              </h1>
+        </div>
+
+        <a href="dob" button type="submit" class="govuk-button">
+          Continue
+        </button>
+        </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

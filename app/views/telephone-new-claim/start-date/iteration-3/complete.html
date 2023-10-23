@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  {% include './_bar-small.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div class="govuk-panel govuk-panel--confirmation">
+          <h1 class="govuk-panel__title">
+            Application submitted
+          </h1>
+        </div>
+
+        <form method="post">
+<br>
+
+<p>We have sent an email to <b>firstnamelastname@provider.com</b> to confirm your application has been submitted.<br>
+
+  <div class="govuk-form-group">
+
+<h1 class="govuk-heading-m">What happens next</h1>
+    <p>We will send you a letter up to 2 weeks before your State Pension date. We may also contact you if we need more information.</p>
+
+<button type="submit" class="govuk-button">
+      End call
+    </button>
+
+    <br>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /application-submitted<br>
+      </div>
+      <div class="govuk-details__text">
+        <b>Errors:</b>
+
+      </div>
+    </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

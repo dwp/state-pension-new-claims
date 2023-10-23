@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        How would you like to be contacted?
+      </h1>
+
+
+
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <p>We may contact you if we need further information.</p>
+          <div id="contact-hint" class="govuk-hint">
+          You must provide at least one phone number.
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="contact" name="home-phone" type="checkbox" value="home-phone" data-aria-controls="conditional-contact">
+              <label class="govuk-label govuk-checkboxes__label" for="home-phone">
+                Home phone
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="home-phone">
+                  Home phone number
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="home-phone" name="home" type="tel" spellcheck="false" autocomplete="tel"></div>
+
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="contact" name="mobile-phone" type="checkbox" value="mobile-phone" data-aria-controls="conditional-contact-mobile">
+              <label class="govuk-label govuk-checkboxes__label" for="mobile-phone">
+                Mobile phone
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-mobile">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="mobile-phone">
+                  Mobile phone number
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="mobile-phone" name="mobile" type="tel" spellcheck="false" autocomplete="tel"></div>
+
+            </div>
+
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="work" name="contact" type="checkbox" value="work" data-aria-controls="conditional-contact-work">
+              <label class="govuk-label govuk-checkboxes__label" for="work">
+              Work phone
+              </label>
+            </div>
+            <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden" id="conditional-contact-work">
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="contact-work">
+                  Work phone number
+                </label>
+                <input class="govuk-input govuk-!-width-one-third" id="contact-by-work" name="work" type="tel" autocomplete="tel"></div>
+
+            </div>
+          </div>
+
+        </fieldset>
+      </div>
+
+
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label">
+            <b>Email address</b>
+            <p class="govuk-hint">We'll use this to confirm we've received your application.</p>
+          </label>
+        </h1>
+ <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint" autocomplete="email">
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+<!--{{ govukHeader({
+  serviceName: serviceName,
+  serviceUrl: "/"
+}) }}
+-->
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+      <div>
+        <a href="tasks-2" class="govuk-back-link">Back</a>
+      </div>
+      <br>
+        <form method="post" action="tasks-5">
+         
+          <h2 class="govuk-heading-xl">Send BR330 form to the person dealing with the estate</h2>
+     
+    
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+              <td class="govuk-table__cell" style="width: 50%">Rachel Adams</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Address</th>
+              <td class="govuk-table__cell">14 REDWOOD DRIVE<br>JESMOND<br>NEWCASTLE UPON TYNE<br>NE4 7SU</td>
+            </tr>
+           
+          </tbody>
+        </table>
+
+
+        <h2 class="govuk-heading-m">Claimant's details
+        </h2>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 50%" >National Insurance number</th>
+              <td class="govuk-table__cell" style="width: 50%">QQ 12 34 56 X</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Full name</th>
+              <td class="govuk-table__cell">Ken Adams</td>
+            </tr>
+          </tbody>
+        </table>
+
+          <br>
+        <button class="govuk-button" data-module="govuk-button">
+            Continue
+        </button>
+        </a>
+        </form>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
