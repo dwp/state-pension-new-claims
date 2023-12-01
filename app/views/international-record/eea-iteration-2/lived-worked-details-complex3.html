@@ -1,0 +1,365 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post" action="award-updated-arrears">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+          <br>
+          <br>
+
+          <h2 class="govuk-heading-l">Lived or worked abroad</h2>
+
+          <div class="govuk-notification-banner" role="region"
+  aria-labelledby="govuk-notification-banner-title"
+  data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      Claimant has lived or worked in multiple country groups.
+    </p>
+  </div>
+</div>
+
+<div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive">Warning</span>
+    Waiting for CFN901 from the claimant.<br>  <a href="../../international-task/eea-cfn901-iteration-1/cfn-task.html" class="govuk-link">Confirm CFN901 returned</a>.
+  </strong>
+</div>
+
+<br>
+
+<table class="govuk-table">
+                        <h2 class="govuk-heading-m">United States</h2>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">Jun 1992 to Dec 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Worked</th>
+                            <td class="govuk-table__cell">Jun 1992 to Nov 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Social security number</th>
+                            <td class="govuk-table__cell" style="width: 45%">123 45 6789</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+                    <br><br><br>
+
+                      <table class="govuk-table">
+                        <h2 class="govuk-heading-m">Spain</h2>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">Jun 1992 to Dec 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Worked</th>
+                            <td class="govuk-table__cell">Jun 1992 to Nov 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Social security number</th>
+                            <td class="govuk-table__cell" style="width: 45%">12 34567890 21</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Task outstanding</th>
+                            <td class="govuk-table__cell" style="width: 45%"><a href="spain-record" class="govuk-link">Confirm insurance record returned</a>.
+                            </div></td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <table class="govuk-table">
+                        <h2 class="govuk-heading-m">France</h2>
+
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell" style="width: 45%">Jun 1992 to Dec 2006</td>
+                          </tr>
+
+                      </table>
+
+                      <table class="govuk-table">
+                        <h2 class="govuk-heading-m">Croatia</h2>
+
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell" style="width: 45%">Jun 1992 to Dec 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Worked</th>
+                            <td class="govuk-table__cell">Jun 1992 to Nov 2006</td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <br><br><br>
+
+                      <table class="govuk-table">
+                        <h2 class="govuk-heading-m">Canada</h2>
+
+                        <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Lived</th>
+                            <td class="govuk-table__cell">Jun 1992 to Dec 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Worked</th>
+                            <td class="govuk-table__cell">Jun 1992 to Nov 2006</td>
+                          </tr>
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Social security number</th>
+                            <td class="govuk-table__cell" style="width: 45%">123 123 132</td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+
+
+        </div>
+      </div>
+
+
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-one-third">
+      <br><br>
+      <h2 class="govuk-heading-m">
+      </h2>
+      <ol class="app-timeline">
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Claims sent for EEA pensions
+          </h3>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">Text sent to claimant             </span>
+
+            <span class="app-timeline__date">5 February 2023             </span>
+          </p>
+        </li>
+
+      <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            RF1 returned
+          </h3>
+          <p>5 February 2023 <br>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+          Insurance record requested from Croatia
+          </h3>
+          <p>5 February 2023 <br>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+          Insurance record requested from France
+          </h3>
+          <p>5 February 2023 <br>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            RF1 requested from HMRC
+          </h3>
+          <p>21 January 2023 <br>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            CFN901 returned
+          </h3>
+          <p>21 January 2023<br>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+
+
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+          Insurance record requested from Spain
+          </h3>
+          <p>14 December 2022</p>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            CFN901 form sent to claimant
+          </h3>
+          <p>14 December 2022</p>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            RA liaison application complete
+          </h3>
+          <p>5 November 2022 <br>
+        <!--<a href="/international-record/ra-iteration-1/rf1-returned" class="govuk-link govuk-link--no-visited-state">Complete RA liaison application</a></p>-->
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            RF1 returned
+          </h3>
+          <p>2 November 2022 <br>
+        <!--<a href="/international-record/ra-iteration-1/rf1-returned" class="govuk-link govuk-link--no-visited-state">Complete RA liaison application</a></p>-->
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            RF1 requested from HMRC
+          </h3>
+          <p>29 October 2022 <!--<br>
+        <a href="/international-record/ra-iteration-1/date-of-entry" class="govuk-link govuk-link--no-visited-state">Confirm date of entry</a></p>-->
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Enquiry letters returned
+          </h3>
+          <p>21 October 2022 <!--<br>
+        <a href="/international-record/ra-iteration-1/date-of-entry" class="govuk-link govuk-link--no-visited-state">Confirm date of entry</a></p>-->
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+        <li class="app-timeline__entry">
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
+            Enquiry letters sent to claimant
+          </h3>
+          <p>12 October 2022</p>
+
+          <p class="app-timeline__info govuk-!-margin-bottom-0">
+            <span class="govuk-visually-hidden">No changes made</span>
+            <span class="app-timeline__date">
+
+            </span>
+          </p>
+        </li>
+
+      </ol>
+    </div>
+
+</div>
+
+{% endblock %}

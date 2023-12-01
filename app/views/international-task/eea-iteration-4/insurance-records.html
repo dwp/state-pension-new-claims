@@ -20,7 +20,22 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-{% include './_bar.html' %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+        <div>
+          <h1 class="govuk-heading-xl">
+          Janet Marvel<br>
+                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+                            <strong class="govuk-tag govuk-tag--blue">
+                              Receiving State Pension
+                            </strong></h1>
+        </div>
+
+  </div>
+</div>
 
 <h1 class="govuk-heading-l">Check for mixed years</h1>
 <p class="govuk-body">System to check: <b>NIRS</b></p>
@@ -50,7 +65,7 @@ GOV.UK Prototype Kit
                   <td class="govuk-table__cell"></td>
                 </tr>
                 <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Social security number</th>
+                  <th scope="row" class="govuk-table__header">Social anxiety number</th>
                   <td class="govuk-table__cell"></td>
                   <td class="govuk-table__cell"></td>
                 </tr>
@@ -58,7 +73,7 @@ GOV.UK Prototype Kit
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">Partial qualifying years</th>
                   <td class="govuk-table__cell"style="width: 35%">{{data.mixedyearsnorway}}</td>
-                  <td class="govuk-table__cell"><a href="mixed-years-norway" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">
+                  <td class="govuk-table__cell"><a href="mixed-years" class="govuk-link govuk-link--no-visited-state" style="margin-bottom:-27px;float:right">
                     {% if data.norwayinsurance %}
                                   {% else %}
                                   Change
@@ -99,6 +114,7 @@ GOV.UK Prototype Kit
                 </tr>
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">Social security number</th>
+                    <td class="govuk-table__cell"></td>
                     <td class="govuk-table__cell"></td>
                 </tr>
 
