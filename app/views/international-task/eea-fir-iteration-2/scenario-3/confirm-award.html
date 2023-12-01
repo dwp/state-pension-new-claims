@@ -1,0 +1,122 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+          <br><br>
+
+        <form method="post" action="get-a-task-2">
+
+          <h2 class="govuk-heading-l">Confirm change to award</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Previous award</th>
+                <td class="govuk-table__cell">£132.25 per week</td>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Updated award</th>
+                <td class="govuk-table__cell"><b>{% if data.addsp1 %}
+                  £{{data.addsp1}} per week
+                  {% else %}
+                  £132.25 per week
+                  {% endif %}	k</b></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">From</th>
+                <td class="govuk-table__cell">13 September 2022</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2 class="govuk-heading-m">Arrears payment</h2>
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="col" class="govuk-table__header">Amount</th>
+                <td class="govuk-table__cell">£309.12</td>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Period</th>
+                <td class="govuk-table__cell" style="width: 50%">13 September 2022 to 22 May 2023</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="govuk-inset-text">
+        An award letter will be sent to the claimant.
+          </div>
+
+<button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
+  Confirm and send letter
+</button>
+
+
+
+        <br>
+
+        <br>
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+        <br>
+
+                <details class="govuk-details" data-module="govuk-details">
+                  <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">
+                    <b>URL, errors and notes</b>
+                    </span>
+                  </summary>
+                  <div class="govuk-details__text">
+                    <b>URL:</b> /confirm-award <br>
+                    <b>Error messages:</b> <br>
+                    <b>Notes:</b> None <br>
+                  </div>
+                </details>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
