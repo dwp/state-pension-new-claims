@@ -109,7 +109,42 @@ GOV.UK Prototype Kit
       </h2>
     </div>
     <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
-        {% include 'notes/internationalrecord.html' %}
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Version history for current team</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date added</th>
+            <th scope="col" class="govuk-table__header">Change log</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Link</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">00 month 2023</td>
+            <td class="govuk-table__cell">
+              <h2 class="govuk-heading-s">Findings</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1701771823852/55fc34babe0a682f12a5194c41fee0e250958e9e?sender=uf014c59a3a2f65ac8f965427">Citizen record view redesign Mural board</a></li>
+                <li>Example finding</li>
+              </ul>
+              <h2 class="govuk-heading-s">Changes</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Change 1</li>
+                <li>Change 2</li>
+                <li>Change 3</li>
+              </ul>
+              <h2 class="govuk-heading-s">Jira tickets</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/SA-6982">SA-6982</a></li>
+              </ul>
+            </td>
+            <td scope="row" class="govuk-table__cell "><a class="govuk-link" href="#">Example - Go to sprint 04</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      {% include 'notes/internationalrecord.html' %}
     </div>
   </div>
 
