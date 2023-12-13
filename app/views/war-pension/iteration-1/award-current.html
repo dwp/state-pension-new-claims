@@ -7,17 +7,10 @@ GOV.UK Prototype Kit
 {% block header %}
 {% include "includes/cookie-banner.html" %}
 {# Set serviceName in config.js. #}
-<!--{{ govukHeader({
-  serviceName: serviceName,
-  serviceUrl: "/"
-}) }}
--->
-{% include './header/_header-nav-enquiries.html' %}
+{% include './header/_header-nav-unselected.html' %}
 
 {% block headEnd %}
 {% endblock %}
-
-{% include './_find-someone-enquiries.html' %}
 
 <div class="govuk-width-container">
   <div class="govuk-grid-column-two-thirds">
@@ -48,7 +41,7 @@ GOV.UK Prototype Kit
               </tr>
                 <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">Reason</th>
-                  <td class="govuk-table__cell">HMRC review</td>
+                  <td class="govuk-table__cell">First payment</td>
                 </tr>
             </tbody>
           </table>
@@ -57,7 +50,7 @@ GOV.UK Prototype Kit
              <thead class="govuk-table__head">
                <tr class="govuk-table__row">
                  <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
-                 <th class="govuk-table__header" scope="col" style="width: 50%">£160.34 a week	</th>
+                 <th class="govuk-table__header" scope="col" style="width: 50%">£168.34 a week	</th>
                </tr>
 
 
@@ -73,7 +66,7 @@ GOV.UK Prototype Kit
                </tr>
                <tr class="govuk-table__row">
                    <td class="govuk-table__cell" scope="row">Extra State Pension</td>
-                   <td class="govuk-table__cell">£0.00</td>
+                   <td class="govuk-table__cell">£8.00</td>
                  </tr>
                  <tr class="govuk-table__row">
                      <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
