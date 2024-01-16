@@ -1,0 +1,106 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+
+          <div class="govuk-form-group">
+
+            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="countries">
+                What countries have you lived in?
+              </label>
+            </h1>
+
+            <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% if data['choose-country']%}
+      {{data['choose-country']}}
+      {% endif %}
+
+      {{ xGovukAutocomplete({
+        id: "country",
+        name: "country",
+        allowEmpty: false,
+        label: {
+          classes: "govuk-label--l",
+          isPageHeading: true,
+          text: "Pick a country"
+        },
+        items: [
+          { text: "Austria" },
+          { text: "Belgium" },
+          { text: "Bulgaria" },
+          { text: "Croatia" },
+          { text: "Republic of Cyprus" },
+          { text: "Czech Republic" },
+          { text: "Denmark" },
+          { text: "Estonia" },
+          { text: "Finland" },
+          { text: "France" },
+          { text: "Germany" },
+          { text: "Greece" },
+          { text: "Hungary" },
+          { text: "Ireland" },
+          { text: "Italy" },
+          { text: "Latvia" },
+          { text: "Lithuania" },
+          { text: "Luxembourg" },
+          { text: "Malta" },
+          { text: "Netherlands" },
+          { text: "Poland" },
+          { text: "Portugal" },
+          { text: "Romania" },
+          { text: "Slovakia" },
+          { text: "Slovenia" },
+          { text: "Spain" },
+          { text: "Sweden" }
+        ]
+      }) }}
+      
+
+    </div>
+  </div>
+
+            </div>
+
+                <p>
+                  <a id="add-another-country" href="countries-lived-3">Add another country</a>
+                </p>
+
+
+              </form>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}
+  {% block pageScripts %}
+{% endblock %}

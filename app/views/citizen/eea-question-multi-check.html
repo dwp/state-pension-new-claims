@@ -1,0 +1,81 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="eea-question-multi-check">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+<br><br><br>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Which countries do you want to make a claim for your EU pension from?
+            </h1>
+          </legend>
+          <div id="countries-hint" class="govuk-hint">
+            Select all countries that apply
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="france">
+              <label class="govuk-label govuk-checkboxes__label" for="countries">
+                France
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries-2" name="countries" type="checkbox" value="spain">
+              <label class="govuk-label govuk-checkboxes__label" for="countries-2">
+                Spain
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries-3" name="countries" type="checkbox" value="germany">
+              <label class="govuk-label govuk-checkboxes__label" for="countries-3">
+                Germany
+              </label>
+            </div>
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="countries-5" name="countries" type="checkbox" value="none" data-behaviour="exclusive">
+              <label class="govuk-label govuk-checkboxes__label" for="countries-5">
+                None - I am already receiving pensions from, or do not want to claim from these countries.
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+<br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+</form>
+
+
+{% endblock %}
