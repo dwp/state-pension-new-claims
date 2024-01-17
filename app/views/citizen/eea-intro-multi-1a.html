@@ -33,42 +33,31 @@ GOV.UK Prototype Kit
 
 <br><br><br>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-      <h1 class="govuk-fieldset__heading">
-        Do you want to apply for your EU pensions?</h1>
-    </legend>
-    <div id="signIn-hint" class="govuk-hint">
-    </div>
-    <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="signIn" name="signIn" type="radio" value="government-gateway" aria-describedby="signIn-item-hint">
-        <label class="govuk-label govuk-radios__label" for="signIn">
-          Yes
-        </label>
-        <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
-        </div>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="signIn-2" name="signIn" type="radio" value="govuk-one-login" aria-describedby="signIn-2-item-hint">
-        <label class="govuk-label govuk-radios__label" for="signIn-2">
-          No, I have already applied
-        </label>
-        <div id="signIn-2-item-hint" class="govuk-hint govuk-radios__hint">
-        </div>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="signIn-3" name="signIn" type="radio" value="do-not-want" aria-describedby="signIn-3-item-hint">
-        <label class="govuk-label govuk-radios__label" for="signIn-3">
-          No, I do not want to apply
-        </label>
-        <div id="signIn-3-item-hint" class="govuk-hint govuk-radios__hint">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Do you want to apply for your EU pensions?",
+      classes: "govuk-label--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no-1",
+      text: "No, I have already applied"
+    },
+    {
+      value: "no-2",
+      text: "No, I do not want to apply"
+    }
+  ]
+}) }}
 
 <br><br><br>
 
