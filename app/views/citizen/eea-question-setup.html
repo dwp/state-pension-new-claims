@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+                    <br><br>
+                  
+                  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+                  
+                  {{ govukRadios({
+                    name: "which-path",
+                    fieldset: {
+                      legend: {
+                        text: "Which path do you want to choose?",
+                        classes: "govuk-label--xl"
+                      }
+                    },
+                    items: [
+                      {
+                        value: "single-country",
+                        text: "Single EEA country"
+                      },
+                      {
+                        value: "multiple-countries-1",
+                        text: "Multiple EEA countries - Scenario 1"
+                      }
+                    ]
+                  }) }}
+                  
+                  <br><br><br>
+                  
+                        <button class="govuk-button" data-module="govuk-button" href="#">
+                          Continue
+                        </button>
+                  
+                      </div>
+                    </div>
+                  
+                  
+                  </form>
+                  
+                  
+                  {% endblock %}

@@ -11,13 +11,17 @@ router.post('/citizen/confirm-identity', function (req, res) {
   }
 })
 
-router.post('/citizen/check-your-start-date', (req, res) => {
-  res.redirect('/citizen/prison')
+router.post('/citizen/your-details-routing', function (req, res) {
+  res.redirect('spa')
+})
+
+router.post('/citizen/spa-routing', (req, res) => {
+  res.redirect('lived-abroad')
 })
 
 // Prison
 router.post('/citizen/prison', (req, res) => {
-  res.redirect('/citizen/prison-date')
+  res.redirect('prison-date')
 })
 
 router.post('/citizen/prison-date', (req, res) => {
@@ -46,22 +50,65 @@ router.post('/citizen/lived-abroad', function (req, res) {
   }
 })
 
+router.post('/citizen/countries-lived', function (req, res) {
+    res.redirect('countries-lived-details')
+  })
+
+  router.post('/citizen/countries-lived-details-2-routing', function (req, res) {
+    res.redirect('countries-lived-details-3')
+  })
+
+  router.post('/citizen/countries-lived-details-3-routing', function (req, res) {
+    res.redirect('worked-abroad')
+  })
+
+  router.post('/citizen/worked-abroad-details-routing', function (req, res) {
+    res.redirect('worked-abroad-details-2')
+  })
+
+  router.post('/citizen/worked-abroad-details-2-routing', function (req, res) {
+    res.redirect('worked-abroad-details-3')
+  })
+
+  router.post('/citizen/worked-abroad-details-3-routing', function (req, res) {
+    res.redirect('eea-question-setup')
+  })
+
 // Worked abroad yes/no
 router.post('/citizen/worked-abroad', function (req, res) {
   if (req.body['worked-abroad'] === 'yes') {
-    res.redirect('countries-worked-details')
+    res.redirect('worked-abroad-details')
   } else {
     res.redirect('marital-status')
   }
 })
 
+// which path
+router.post('/citizen/eea-question-setup', function (req, res) {
+  if (req.body['which-path'] === 'single-country') {
+    res.redirect('eea-intro-single-3')
+  } else if (req.body['which-path'] === 'multiple-countries-1') {
+    res.redirect('eea-intro-multi-1a')
+  } else {
+    res.redirect('eea-intro-multi-1b')
+  }
+})
+
 // EU pensions yes/no
 router.post('/citizen/eea-intro-multi-1a', function (req, res) {
-  if (req.body['yes'] === 'yes') {
-    res.redirect('marital-status')
+  if (req.body['applyforEUpensions'] === 'yes') {
+    res.redirect('eea-question-multi-check')
   } else {
     res.redirect('marital-status')
   }
+})
+
+router.post('/citizen/eea-intro-single-3-routing', function (req, res) {
+  res.redirect('marital-status')
+})
+
+router.post('/citizen/eea-question-multi-check-routing', function (req, res) {
+  res.redirect('marital-status')
 })
 
 // marital
