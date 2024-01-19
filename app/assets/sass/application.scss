@@ -70,6 +70,9 @@
     border-bottom: 1px solid govuk-colour("mid-grey");
   }
 
+  * {
+    font-family: Arial, sans-serif !important;
+  }
   // renamed but not sure if needed else where?
   .govuk-currency-input-other {
 
