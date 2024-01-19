@@ -62,6 +62,10 @@ router.post('/citizen/countries-lived', function (req, res) {
     res.redirect('worked-abroad')
   })
 
+  router.post('/citizen/countries-worked-routing', function (req, res) {
+    res.redirect('worked-abroad-details')
+  })
+
   router.post('/citizen/worked-abroad-details-routing', function (req, res) {
     res.redirect('worked-abroad-details-2')
   })
@@ -77,7 +81,7 @@ router.post('/citizen/countries-lived', function (req, res) {
 // Worked abroad yes/no
 router.post('/citizen/worked-abroad', function (req, res) {
   if (req.body['worked-abroad'] === 'yes') {
-    res.redirect('worked-abroad-details')
+    res.redirect('countries-worked')
   } else {
     res.redirect('marital-status')
   }
