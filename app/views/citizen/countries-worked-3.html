@@ -8,7 +8,7 @@
   
   {% from "autocomplete/macro.njk" import xGovukAutocomplete %}
   
-  <form class="form" action="countries-worked-routing" method="post">
+  <form class="form" action="countries-worked-3-routing" method="post">
 
     {{ govukBackLink({
       text: "Back",
@@ -16,6 +16,7 @@
     }) }}
 
     <br><br>
+
   
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -24,11 +25,21 @@
             What countries have you worked in?
           </label>
         </h1>
-
-        <br><br>
   
+        <br><br>
+
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-two-thirds">
+
+            <span class="govuk-caption-m">Country</span>
+             <h3 class="govuk-heading-m">France</h3>
+
+            <br>
+
+            <span class="govuk-caption-m">Country</span>
+             <h3 class="govuk-heading-m">Spain</h3>
+
+            <br>
   
             {{ xGovukAutocomplete({
               id: "country",
@@ -77,7 +88,7 @@
         </form>
         <p>
   
-          <a class="govuk-link" href="countries-worked-2">Add another country</a>
+          <a class="govuk-link" href="countries-worked-3">Add another country</a>
         </p>
   
         <br><br><br>

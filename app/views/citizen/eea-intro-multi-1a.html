@@ -23,9 +23,9 @@ GOV.UK Prototype Kit
       <h1 class="govuk-heading-xl"> Applying for European Union (EU) pensions     
       </h1>
 
-<p>You may be entitled to EU pensions from France, Spain and Germany based on the time you lived or worked there.</p>
+<p>You may be entitled to EU pensions from Germany and the Netherlands based on the time you lived or worked there.</p>
 
-<p>If you want to apply for your EU pensions, we will send you some forms to complete.</p>
+<p>If you want to apply for your EU pensions, we will send you a form by post to complete and return to us.</p>
 
 <p>If you have already applied for your EU pension from a country, you do not need to apply again.</p>
 
@@ -33,35 +33,31 @@ GOV.UK Prototype Kit
 
 <br><br><br>
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
-
-{{ govukRadios({
-  name: "applyforEUpensions",
-  fieldset: {
-    legend: {
-      text: "Do you want to apply for your EU pensions?",
-      classes: "govuk-label--m"
-    }
-  },
-  items: [
-    {
-      value: "yes",
-      text: "Yes"
-    },
-    {
-      value: "no-1",
-      text: "No, I have already applied"
-    },
-    {
-      value: "no-2",
-      text: "No, I do not want to apply"
-    }
-  ]
-}) }}
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      Do you want to apply for your EU pensions?
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="EUpensions" name="whereDoYouLive" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="EUpensions">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="EUpensions" name="whereDoYouLive" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="EUpensions">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
 
 <br><br><br>
 
-      <button class="govuk-button" data-module="govuk-button" href="#">
+      <button class="govuk-button">
         Continue
       </button>
 
