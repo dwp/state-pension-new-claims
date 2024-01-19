@@ -4,16 +4,20 @@
     "serve": "govuk-prototype-kit serve",
     "start": "govuk-prototype-kit start"
   },
-  "name": "govuk-prototype-kit",
+  "engines": {
+    "node": "20.x"
+  },
+  "name": "state-pension-new-claims",
   "dependencies": {
-    "@govuk-prototype-kit/common-templates": "1.1.1",
-    "@govuk-prototype-kit/step-by-step": "2.1.0",
+    "@dwp/dwp-frontend": "^2.5.0",
+    "@govuk-prototype-kit/common-templates": "2.0.1",
+    "@govuk-prototype-kit/step-by-step": "2.2.2",
     "@govuk-prototype-kit/task-list": "1.0.0",
+    "@x-govuk/govuk-prototype-components": "^3.0.2",
     "govuk-frontend": "5.0.0",
-    "govuk-prototype-kit": "13.9.0",
-    "hmrc-frontend": "5.39.0",
-    "home-office-kit": "0.9.1",
-    "jquery": "3.7.0",
-    "notifications-node-client": "7.0.0"
+    "govuk-prototype-kit": "13.16.0",
+    "hmrc-frontend": "6.0.0",
+    "jquery": "3.7.1",
+    "notifications-node-client": "8.0.0"
   }
 }
