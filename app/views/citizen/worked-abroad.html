@@ -13,39 +13,47 @@ GOV.UK Prototype Kit
     href: "javascript:history.go(-1)"
                     }) }}
 
+                    <br><br>
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
       <div class="govuk-form-group">
-        <h1 class="govuk-label-wrapper">
-          <label class="govuk-label">
-            <p class="govuk-heading-xl">Have you worked outside the UK since 6 April 1972?</p>
-            <p class="govuk-hint">You do not need to provide any details if you have served overseas with the British armed forces.<br>
-            </p>
-          </label>
-        </h1>
-        <div class="govuk-radios govuk-radios--inline">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="worked-abroad" name="worked-abroad" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="worked-abroad">
-              Yes
-            </label>
+        <fieldset class="govuk-fieldset" aria-describedby="changedName-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Have you worked outside the UK since 6 April 1972?
+            </h1>
+          </legend>
+          <div id="changedName-hint" class="govuk-hint">
+            You do not need to provide any details if you have served overseas with the British armed forces.
           </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="worked-abroad-2" name="worked-abroad" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="worked-abroad-2">
-              No
-            </label>
+
+          <br><br>
+
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="worked-abroad" name="worked-abroad" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="worked-abroad">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="worked-abroad-2" name="worked-abroad" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="worked-abroad-2">
+                No
+              </label>
+            </div>
           </div>
-        </div>      
+        </fieldset>
       </div>
+
+      <br><br><br>
 
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
 
-      <br>
-      <br>
       <br>
       <br>
 

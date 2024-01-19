@@ -50,12 +50,20 @@ router.post('/citizen/lived-abroad', function (req, res) {
   }
 })
 
-router.post('/citizen/countries-lived', function (req, res) {
+router.post('/citizen/countries-lived-routing', function (req, res) {
+    res.redirect('countries-lived-details')
+  })
+
+  router.post('/citizen/countries-lived-2-routing', function (req, res) {
+    res.redirect('countries-lived-details')
+  })
+
+  router.post('/citizen/countries-lived-3-routing', function (req, res) {
     res.redirect('countries-lived-details')
   })
 
   router.post('/citizen/countries-lived-details-2-routing', function (req, res) {
-    res.redirect('countries-lived-details-3')
+    res.redirect('worked-abroad')
   })
 
   router.post('/citizen/countries-lived-details-3-routing', function (req, res) {
@@ -66,12 +74,20 @@ router.post('/citizen/countries-lived', function (req, res) {
     res.redirect('worked-abroad-details')
   })
 
+  router.post('/citizen/countries-worked-2-routing', function (req, res) {
+    res.redirect('worked-abroad-details')
+  })
+
+  router.post('/citizen/countries-worked-3-routing', function (req, res) {
+    res.redirect('worked-abroad-details')
+  })
+
   router.post('/citizen/worked-abroad-details-routing', function (req, res) {
     res.redirect('worked-abroad-details-2')
   })
 
   router.post('/citizen/worked-abroad-details-2-routing', function (req, res) {
-    res.redirect('worked-abroad-details-3')
+    res.redirect('eea-intro-multi-1a')
   })
 
   router.post('/citizen/worked-abroad-details-3-routing', function (req, res) {
@@ -100,7 +116,7 @@ router.post('/citizen/eea-question-setup', function (req, res) {
 
 // EU pensions yes/no
 router.post('/citizen/eea-intro-multi-1a', function (req, res) {
-  if (req.body['applyforEUpensions'] === 'yes') {
+  if (req.body['EUpensions'] === 'yes') {
     res.redirect('eea-question-multi-check')
   } else {
     res.redirect('marital-status')
