@@ -6,43 +6,76 @@ GOV.UK Prototype Kit
 
 {% block content %}
 
+{% from "autocomplete/macro.njk" import xGovukAutocomplete %}
+
 <form class="form" method="post">
 
   {{ govukBackLink({
     text: "Back",
     href: "javascript:history.go(-1)"
-                    }) }}
+  }) }}
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="countries">
+          What countries have you lived in?
+        </label>
+      </h1>
 
-          <div class="govuk-form-group">
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
 
-            <h1 class="govuk-label-wrapper"><label class="govuk-label govuk-label--xl" for="countries">
-                What countries have you lived in?
-              </label>
-            </h1>
+          {{ xGovukAutocomplete({
+            id: "country",
+            name: "country",
+            allowEmpty: false,
+            label: {
+              isPageHeading: true,
+              text: "Choose a country"
+            },
+            items: [
+              { text: "Austria" },
+              { text: "Belgium" },
+              { text: "Bulgaria" },
+              { text: "Croatia" },
+              { text: "Republic of Cyprus" },
+              { text: "Czech Republic" },
+              { text: "Denmark" },
+              { text: "Estonia" },
+              { text: "Finland" },
+              { text: "France" },
+              { text: "Germany" },
+              { text: "Greece" },
+              { text: "Hungary" },
+              { text: "Ireland" },
+              { text: "Italy" },
+              { text: "Latvia" },
+              { text: "Lithuania" },
+              { text: "Luxembourg" },
+              { text: "Malta" },
+              { text: "Netherlands" },
+              { text: "Poland" },
+              { text: "Portugal" },
+              { text: "Romania" },
+              { text: "Slovakia" },
+              { text: "Slovenia" },
+              { text: "Spain" },
+              { text: "Sweden" }
+            ]
+          }) }}
 
-            <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+        </div>
+      </div>
 
 
      
       </form>
+      <p>
 
-    </div>
-  </div>
+        <a class="govuk-link" href="countries-lived-2">Add another country</a>
+      </p>
 
-            </div>
-
-                <p>
-
-                  <a class="govuk-link" href="countries-lived-2">Add another country</a>
-                </p>
-
-
-              </form>
 
       <button class="govuk-button" data-module="govuk-button">
         Continue
@@ -61,9 +94,6 @@ GOV.UK Prototype Kit
     </div>
 
   </div>
-
-
-
 </form>
 
 
