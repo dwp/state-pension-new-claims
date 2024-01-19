@@ -4,7 +4,10 @@
     "serve": "govuk-prototype-kit serve",
     "start": "govuk-prototype-kit start"
   },
-  "name": "govuk-prototype-kit",
+  "engines": {
+    "node": "20.x"
+  },
+  "name": "state-pension-new-claims",
   "dependencies": {
     "@dwp/dwp-frontend": "^2.5.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
