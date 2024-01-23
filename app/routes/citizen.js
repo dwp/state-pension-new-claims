@@ -62,6 +62,10 @@ router.post('/citizen/countries-lived-routing', function (req, res) {
     res.redirect('countries-lived-details')
   })
 
+  router.post('/citizen/countries-lived-details-routing', function (req, res) {
+    res.redirect('worked-abroad')
+  })
+
   router.post('/citizen/countries-lived-details-2-routing', function (req, res) {
     res.redirect('worked-abroad')
   })
@@ -83,7 +87,7 @@ router.post('/citizen/countries-lived-routing', function (req, res) {
   })
 
   router.post('/citizen/worked-abroad-details-routing', function (req, res) {
-    res.redirect('worked-abroad-details-2')
+    res.redirect('eea-intro-single-3')
   })
 
   router.post('/citizen/worked-abroad-details-2-routing', function (req, res) {
