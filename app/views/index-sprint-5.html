@@ -66,7 +66,13 @@ GOV.UK Prototype Kit
 
 {% block content %}
 
-<br>
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+<br><br>
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -89,7 +95,7 @@ GOV.UK Prototype Kit
         text: "User journeys"
       },
       content: {
-        html: '<p class="govuk-body">Nothing created for this sprint</p>'
+        html: '<p class="govuk-body">Nothing new created for this sprint</p>'
       }
     },
     {
@@ -97,60 +103,13 @@ GOV.UK Prototype Kit
         text: "Screens"
       },
       content: {
-        html: '<p class="govuk-body">Nothing created for this sprint</p>'
+        html: '<p class="govuk-body">Nothing new created for this sprint</p>'
       }
     }
   ]
 }) }}
 
 {% from "govuk/components/accordion/macro.njk" import govukAccordion %}
-
-{{ govukAccordion({
-  id: "accordion-default",
-  items: [
-    {
-      heading: {
-        text: "User journeys"
-      },
-      content: {
-        html: '<p class="govuk-body">
-          <a href="international-task/eea-fir-iteration-2/lived-worked-details-fir-2" class="govuk-link">Citizen record view to FIR task</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/enquiries" class="govuk-link">LWA complex scenario record view</a>
-         </p>'
-      }
-    },
-    {
-      heading: {
-        text: "Screens"
-      },
-      content: {
-        html: '<p class="govuk-body">
-          <a href="international-task/eea-fir-iteration-2/fir-task" class="govuk-link">Check for insurance records (multiple countries)</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/lived-worked-details-complex1b" class="govuk-link">Citizen record view - complex LWA scenario 1a</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/lived-worked-details-complex1b" class="govuk-link">Citizen record view - complex LWA scenario 1b</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/lived-worked-details-complex2" class="govuk-link">Citizen record view - complex LWA scenario 2</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/lived-worked-details-complex3" class="govuk-link">Citizen record view - complex LWA scenario 3</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/lived-worked-details-complex4" class="govuk-link">Citizen record view - complex LWA scenario 4</a>
-         </p>
-         <p class="govuk-body">
-          <a href="international-record/eea-iteration-2/lived-worked-details-complex5" class="govuk-link">Citizen record view - complex LWA scenario 5</a>
-         </p>'
-      }
-    }
-  ]
-}) }}
 
 <br>
 <br>
@@ -168,18 +127,29 @@ GOV.UK Prototype Kit
   items: [
     {
       heading: {
-        text: "User journeys"
+        text: "Amended user journey"
       },
       content: {
-        html: '<p class="govuk-body">Nothing to show for this sprint</p>'
+        html: '<p class="govuk-body">
+          <a href="citizen/start" class="govuk-link">Citizen online journey</a>
+         </p>
+         <p class="govuk-body">The new screens appear after Worked abroad details have been entered.</p>'
       }
     },
     {
       heading: {
-        text: "Screens"
+        text: "New screens"
       },
       content: {
-        html: '<p class="govuk-body">Nothing to show for this sprint</p>'
+        html: '<p class="govuk-body">
+          <a href="citizen/eea-intro-single-3" class="govuk-link">EEA claims question - single EEA country</a>
+         </p>
+         <p class="govuk-body">
+          <a href="citizen/eea-intro-multi-1a" class="govuk-link">EEA claims question - multiple EEA countries - part one</a>
+         </p>
+         <p class="govuk-body">
+          <a href="citizen/eea-question-multi-check" class="govuk-link">EEA claims question - multiple EEA countries - part two</a>
+         </p>'
       }
     }
   ]
