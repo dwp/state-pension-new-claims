@@ -13,7 +13,7 @@ GOV.UK Prototype Kit
 {% block headEnd %}
 {% endblock %}
 
-
+<form class="form" action="task details-routing" method="post">
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
@@ -31,11 +31,12 @@ GOV.UK Prototype Kit
 </ul>
 
 
-        <form method="post">
+       
           <br>
           <button class="govuk-button" data-module="govuk-button">
             Start this task
           </button>
+
           <a href="get-a-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
             Return task to queue
           </a>
