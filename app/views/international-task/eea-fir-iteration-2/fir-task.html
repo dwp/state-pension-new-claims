@@ -22,7 +22,14 @@ GOV.UK Prototype Kit
 
 {% include './_bar.html' %}
 
-<form class="form" action="change-award">
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+                  <br><br>
+
+<form class="form" action="fir-task" method="post">
 
 <h1 class="govuk-heading-l">Check for insurance records</h1>
 
@@ -39,14 +46,14 @@ You can find these in RINA or CAMlite.   </div>
       </legend>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="norway-records" name="norway-records" type="radio" value="yes">
-          <label class="govuk-label govuk-radios__label" for="norway-records">
+          <input class="govuk-radios__input" id="norwayRecords" name="norwayRecords" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="norwayRecords">
             Yes
           </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="norway-records-2" name="norway-records" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="norway-records-2">
+          <input class="govuk-radios__input" id="norwayRecords" name="norwayRecords" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="norwayRecords">
             No
           </label>
         </div>
@@ -63,14 +70,14 @@ You can find these in RINA or CAMlite.   </div>
     </legend>
     <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="spain-records" name="spain-records" type="radio" value="yes">
-        <label class="govuk-label govuk-radios__label" for="spain-records">
+        <input class="govuk-radios__input" id="spainRecords" name="spainRecords" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="spainRecords">
           Yes
         </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="spain-records-2" name="spain-records" type="radio" value="no">
-        <label class="govuk-label govuk-radios__label" for="spain-records-2">
+        <input class="govuk-radios__input" id="spainRecords" name="spainRecords" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="spainRecords">
           No
         </label>
       </div>
