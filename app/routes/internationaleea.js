@@ -379,7 +379,7 @@ router.post('/international-task/eea-fir-iteration-2/fir-task', function (req, r
   let spainRecords = req.session.data.spainRecords;
 
   if (norwayRecords == 'no' && spainRecords == 'no'){
-      res.redirect('no-increase-letter-2');
+      res.redirect('no-increase-letter-1');
      } else {
       res.redirect('change-award');
   }   
