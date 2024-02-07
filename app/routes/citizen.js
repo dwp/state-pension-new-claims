@@ -91,7 +91,7 @@ router.post('/citizen/countries-lived-routing', function (req, res) {
   })
 
   router.post('/citizen/worked-abroad-details-2-routing', function (req, res) {
-    res.redirect('eea-intro-multi-1a')
+    res.redirect('eea-question-setup')
   })
 
   router.post('/citizen/worked-abroad-details-3-routing', function (req, res) {
@@ -111,10 +111,8 @@ router.post('/citizen/worked-abroad', function (req, res) {
 router.post('/citizen/eea-question-setup', function (req, res) {
   if (req.body['which-path'] === 'single-country') {
     res.redirect('eea-intro-single-3')
-  } else if (req.body['which-path'] === 'multiple-countries-1') {
-    res.redirect('eea-intro-multi-1a')
   } else {
-    res.redirect('eea-intro-multi-1b')
+    res.redirect('eea-intro-multi-1a')
   }
 })
 
@@ -221,8 +219,12 @@ router.post('/citizen/check-failed', (req, res) => {
   res.redirect('/citizen/check-answers')
 })
 
-router.post('/citizen/check-answers', (req, res) => {
-  res.redirect('/citizen/declaration')
+router.post('/citizen/check-answers-routing', (req, res) => {
+  res.redirect('declaration')
+})
+
+router.post('/citizen/check-answers-2-routing', (req, res) => {
+  res.redirect('declaration')
 })
 
 router.post('/citizen/declaration', (req, res) => {

@@ -6,7 +6,7 @@ GOV.UK Prototype Kit
 
 {% block content %}
 
-<form class="form" action="check-answers-routing" method="post">
+<form class="form" action="check-answers-2-routing" method="post">
 
   {{ govukBackLink({
     text: "Back",
@@ -63,21 +63,39 @@ GOV.UK Prototype Kit
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-           Apply for EU pension          
+           Apply for EU pensions          
           </dt>
           <dd class="govuk-summary-list__value">
-            {% if data['pension'] === 'yes' %}
+            {% if data['EUpensions'] === 'yes' %}
             Yes
             {% else %}
             No
             {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="eea-intro-single-3">
+            <a class="govuk-link" href="eea-intro-multi-1a">
               Change<span class="govuk-visually-hidden"> date of birth</span>
             </a>
           </dd>
         </div>
+
+        {% if data.EUpensions === 'yes' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Countries selected to apply for EU pensions from
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">
+                {{data['EUcountries']}}
+            </p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="eea-question-multi-check.html">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+        {% endif %}
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">

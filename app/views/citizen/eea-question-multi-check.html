@@ -19,34 +19,38 @@ GOV.UK Prototype Kit
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-      
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-            <h1 class="govuk-fieldset__heading">
-              Which countries do you want to apply for your EU pension from?
-            </h1>
-          </legend>
-          <div id="countries-hint" class="govuk-hint">
-            Select all countries that apply.
-          </div>
-          <br>
-          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="france">
-              <label class="govuk-label govuk-checkboxes__label" for="countries">
-                Belgium
-              </label>
-            </div>
-            <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="countries-2" name="countries" type="checkbox" value="spain">
-              <label class="govuk-label govuk-checkboxes__label" for="countries-2">
-                France
-              </label>
-            </div>
-          </div>
-        </fieldset>
-      </div>
+
+{{ govukCheckboxes({
+  name: "EUcountries",
+  fieldset: {
+    legend: {
+      text: "Which countries do you want to apply for your EU pension from?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  hint: {
+    text: "If you are already getting your pension from a country, you do not need to apply to that country again."
+  },
+  items: [
+    {
+      value: "Belgium",
+      text: "Belgium"
+    },
+    {
+      value: "France",
+      text: "France"
+    },
+    {
+      divider: "or"
+    },
+    {
+      value: "None",
+      text: "None",
+      behaviour: "exclusive"
+    }
+  ]
+}) }}
 
 <br><br>
 
