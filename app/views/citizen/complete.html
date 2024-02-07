@@ -16,13 +16,18 @@ GOV.UK Prototype Kit
           Application complete
         </h1>
         <div class="govuk-panel__body">
-          24 January 2022<br>your reference number is
+          24 January 2024<br>your reference number is
           <br><strong>your National Insurance number</strong>
         </div>
       </div>
 
       <h2 class="govuk-heading-m">What happens next</h2>
       <p>You will receive details about your State Pension up to 14 days before your State Pension date. We may also contact you if we need more information.</p>
+
+      {% if data.EUpensions === 'yes' %}
+      <h3 class="govuk-heading-m">Your European Union pension application</h3>
+      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+      {% endif %}
 
       <h3 class="govuk-heading-m">If your circumstances change</h3>
       <p>You must report the following changes straight away:</p>
