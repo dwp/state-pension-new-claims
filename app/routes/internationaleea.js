@@ -373,6 +373,14 @@ router.post('/international-task/eea-fir-iteration-2/change-award', function (re
   }
 })
 
+router.post('/international-task/eea-fir-iteration-2/increase-in-payment', function (req, res) {
+  if (req.body['changeAward'] === 'yes') {
+    res.redirect('review-award')
+  } else {
+    res.redirect('no-increase-letter-3')
+  }
+})
+
 router.post('/international-task/eea-fir-iteration-2/fir-task', function (req, res) {
  
   let norwayRecords = req.session.data.norwayRecords;
@@ -387,5 +395,10 @@ router.post('/international-task/eea-fir-iteration-2/fir-task', function (req, r
 
 router.post('/international-task/eea-fir-iteration-2/task-details-2-routing', function (req, res) {
   res.redirect('fir-task')
+})
+module.exports = router
+
+router.post('/international-task/eea-fir-iteration-2/check-for-increase-routing', function (req, res) {
+  res.redirect('increase-in-payment')
 })
 module.exports = router
