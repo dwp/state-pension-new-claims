@@ -240,4 +240,8 @@ router.post('/citizen/question-3', function (req, res) {
   }
 })
 
+router.post('/citizen/payment-bank-routing', (req, res) => {
+  res.redirect('/citizen/check-answers-2')
+})
+
 module.exports = router
