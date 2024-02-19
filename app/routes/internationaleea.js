@@ -389,7 +389,7 @@ router.post('/international-task/eea-fir-iteration-2/fir-task', function (req, r
   if (norwayRecords == 'no' && spainRecords == 'no'){
       res.redirect('no-increase-letter-1');
      } else {
-      res.redirect('calculate-increase');
+      res.redirect('calculate');
   }   
 });
 
@@ -398,7 +398,11 @@ router.post('/international-task/eea-fir-iteration-2/task-details-2-routing', fu
 })
 module.exports = router
 
-router.post('/international-task/eea-fir-iteration-2/calculate-increase-routing', function (req, res) {
-  res.redirect('increase-in-payment')
+router.post('/international-task/eea-fir-iteration-2/calculate-routing', function (req, res) {
+  res.redirect('change-nsp')
+})
+
+router.post('/international-task/eea-fir-iteration-2/change-nsp-routing', function (req, res) {
+  res.redirect('confirm-award')
 })
 module.exports = router

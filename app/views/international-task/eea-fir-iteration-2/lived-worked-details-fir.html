@@ -1,0 +1,209 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <dv class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+<form method="post" action="award-updated-arrears">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+                    <br>
+                    <br>
+          
+                    <h2 class="govuk-heading-l">Lived or worked abroad</h2>
+          
+                    <br>
+          
+            <h2 class="govuk-heading-m">EEA</h2>
+            <hr class="govuk-section-break govuk-section-break--visible">
+            <div class="govuk-!-padding-bottom-6"></div>
+          
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Waiting for CFN901 from the claimant.<br>  <a href="../../international-task/eea-cfn901-iteration-1/cfn-task.html" class="govuk-link">Confirm CFN901 returned</a>.
+              </strong>
+            </div>
+                               
+                                <div class="govuk-summary-card">
+                                  <div class="govuk-summary-card__title-wrapper">
+                                    <h2 class="govuk-summary-card__title">Norway</h2>
+                                  </div>
+                                  <div class="govuk-summary-card__content">
+                                    <dl class="govuk-summary-list">
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                         Lived
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          May 1990 to Dec 1991 
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                            <span class="govuk-visually-hidden"> whether details are known</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Worked
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          May 1990 to Dec 1991
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                            <span class="govuk-visually-hidden"> relationship to lead tenant</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Social security number
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          25 18735476 84
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                            <span class="govuk-visually-hidden"> age</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Outstanding task
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          <a class="govuk-link" href="fir-task.html"> Confirm insurance records returned
+                                            <span class="govuk-visually-hidden"> working situation</span>
+                                            </a>
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                          <span class="govuk-visually-hidden"> working situation</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                    </dl>
+                                  </div>
+                                </div>
+          
+                                <div class="govuk-summary-card">
+                                  <div class="govuk-summary-card__title-wrapper">
+                                    <h2 class="govuk-summary-card__title">Spain</h2>
+                                  </div>
+                                  <div class="govuk-summary-card__content">
+                                    <dl class="govuk-summary-list">
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                         Lived
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          Jun 1992 to Dec 1996
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                            <span class="govuk-visually-hidden"> whether details are known</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Worked
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          Jun 1992 to Nov 1996
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                            <span class="govuk-visually-hidden"> relationship to lead tenant</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                      <div class="govuk-summary-list__row">
+                                        <dt class="govuk-summary-list__key">
+                                          Outstanding task
+                                        </dt>
+                                        <dd class="govuk-summary-list__value">
+                                          <a class="govuk-link" href="fir-task.html"> Confirm insurance records returned
+                                            <span class="govuk-visually-hidden"> working situation</span>
+                                            </a>
+                                        </dd>
+                                        <dd class="govuk-summary-list__actions">
+                                          <a class="govuk-link" href="#">
+                                          <span class="govuk-visually-hidden"> working situation</span>
+                                          </a>
+                                        </dd>
+                                      </div>
+                                    </dl>
+                                  </div>
+                                </div>
+                  </div>
+                </div>
+          
+          
+          </div>
+          </div>
+           
+          {% endblock %}
+          
+          {% block content %}
+          <div class="govuk-grid-row">
+          
+              <div class="govuk-grid-column-one-third">
+          
+                <br>
+          
+                <div class="dwp-timeline">
+                  <ol class="dwp-timeline__events">
+                  <li class="dwp-timeline__events--entry">
+                      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Spain</h2>
+                      <p class="govuk-caption-m">14 December 2022</p>
+                  </li>
+                  <li class="dwp-timeline__events--entry">
+                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Norway</h2>
+                    <p class="govuk-caption-m">14 December 2022</p>
+                </li>
+                 <li class="dwp-timeline__events--entry">
+                      <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: CFN901 form sent to claimant</h2>
+                      <p class="govuk-caption-m">17 November 2022</p>
+                </li>
+                  </ol>
+                  </div> 
+          
+                
+          
+                </ol>
+          
+              </div>
+          
+          </div>
+          
+          {% endblock %}
