@@ -33,7 +33,7 @@ router.post('/international-task/anzac-cfn1282-iteration-1/date-of-entry', funct
   if (req.body['date-of-entry'] === 'before') {
     res.redirect('rf1-send')
   } else {
-    res.redirect('sp-increase')
+    res.redirect('calculate-anzac')
   }
 })
 

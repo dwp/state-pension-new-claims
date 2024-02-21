@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+      <form method="post" action="award.html">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+          <br><br>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="croatiarecord-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+            You cannot review this award
+                </h1>
+              </legend>
+              <Br>
+              <p>This claimants State Pension includes an increase for time spent abroad.</p>
+
+              <br>
+
+          <button type="submit" class="govuk-button">Return to award</button>
+        </div>
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
