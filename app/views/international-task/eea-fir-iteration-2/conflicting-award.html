@@ -31,18 +31,6 @@ GOV.UK Prototype Kit
 
         <form method="post" action="get-a-task-2">
 
-          {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-
-{% set html %}
-  <p class="govuk-notification-banner__heading">
-    An ANZaC increase is in payment.
-  </p>
-{% endset %}
-
-{{ govukNotificationBanner({
-  html: html
-}) }}
-
           <h1 class="govuk-heading-xl">Award cannot be changed</h1>
 
 <p>The current award is more than the new award calculated based on the time the claimant lived or worked in an EEA country. We will not change the claimant's award.</p>
