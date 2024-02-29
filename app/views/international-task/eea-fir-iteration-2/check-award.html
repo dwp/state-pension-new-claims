@@ -49,25 +49,8 @@ GOV.UK Prototype Kit
 <table class="govuk-table">
   <thead class="govuk-table__head">
     <tr class="govuk-table__row">
-      <th class="govuk-table__header award_detail2" scope="col">State Pension date</th>
-      <td class="govuk-table__cell award_detail">25 June 2022
-</td>
-    </tr>
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header award_detail2" scope="col">Uprating year for calculation</th>
-      <td class="govuk-table__cell award_detail">2022
-</td>
-    </tr>
-  </thead>
-</table>
-
-<br><br>
-
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
       <th class="govuk-table__header award_detail2" scope="col">Total</th>
-      <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 %}
+      <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 and data.protectedPayment %}  
         £{{data.addsp1}} per week
         {% else %}
         £203.85 per week
@@ -91,13 +74,13 @@ GOV.UK Prototype Kit
     </tr>
     <tr class="govuk-table__row">
       <td class="govuk-table__cell" scope="row">Protected payment</td>
-      <td class="govuk-table__cell">{% if data.addpp %}
-        £{{data.addpp}}
+      <td class="govuk-table__cell">{% if data.protectedPayment %}
+        £{{data.protectedPayment}}
         {% else %}
         £0.00
         {% endif %}</td>
       <td class="govuk-table__cell">
-        <a href="change-pp">
+        <a href="change-nsp">
           Change<span class="govuk-visually-hidden">Change Protected Payment</span>
         </a></td>
     </tr>
