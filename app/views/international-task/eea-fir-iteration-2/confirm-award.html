@@ -36,11 +36,11 @@ GOV.UK Prototype Kit
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Updated award</th>
-                <td class="govuk-table__cell"><b>{% if data.addsp1 %}
-                  £{{data.addsp1}} per week
+                <td class="govuk-table__cell"><b>{% if data.addsp1 and data.protectedPayment %}  
+                  £{{ data.addsp1 | float + data.protectedPayment | float }} per week
                   {% else %}
-                  £132.25 per week
-                  {% endif %}</b></td>
+                  £203.85 per week
+                  {% endif %}	</th></b></td>
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">From</th>
