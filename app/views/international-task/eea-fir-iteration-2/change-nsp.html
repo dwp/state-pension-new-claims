@@ -36,11 +36,50 @@ GOV.UK Prototype Kit
                         <h1 class="govuk-heading-l">Enter new State Pension amount</h1>
 
                         <span class="govuk-hint">For example, 123.45</span>
-                               <div class="govuk-currency-input__inner">
-                                 <span class="govuk-currency-input__inner__unit">£</span>
-                                 <input class="govuk-input govuk-currency-input__inner__input govuk-input--width-10" aria-label="Enter amount in pounds" name="addsp1" data-non-numeric type="text" id="addsp11" pattern="[0-9]\d*(\.\d+)?" {{ checked('tickets-cost','yes') }}>
-                               </div>
+                               <div class="govuk-input__wrapper">
+                                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                                <input class="govuk-input govuk-input--width-10" id="addsp11" name="addsp1" type="text" spellcheck="false">
+                              </div>
                     </div>
+
+                    <br><br><br><br>
+
+                    <div class="govuk-form-group">
+                      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                          <h1 class="govuk-fieldset__heading">
+                            Do you need to enter a Protected Payment amount?
+                          </h1>
+                        </legend>
+                        <div id="contact-hint" class="govuk-hint">
+                          Select one option.
+                        </div>
+                        <div class="govuk-radios" data-module="govuk-radios">
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="protected" name="protected" type="radio" value="yes" data-aria-controls="conditional-protectedPayment">
+                            <label class="govuk-label govuk-radios__label" for="protected">
+                              Yes
+                            </label>
+                          </div>
+                          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-protectedPayment">
+                            <div class="govuk-form-group">
+                              <label class="govuk-label" for="protectedPayment">
+                                Enter Protected Payment amount
+                              </label>
+                              <div class="govuk-input__wrapper">
+                                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                                <input class="govuk-input govuk-input--width-10" id="pp1" name="protectedPayment" type="text" spellcheck="false">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="protected3" name="protected" type="radio" value="no">
+                            <label class="govuk-label govuk-radios__label" for="protectedPayment2">
+                              No
+                            </label>
+                          </div>
+                          
+                          <br><br><br>
 
           <button class="govuk-button" data-module="govuk-button">
            Confirm
