@@ -399,11 +399,11 @@ router.post('/international-task/eea-fir-iteration-2/task-details-2-routing', fu
 module.exports = router
 
 router.post('/international-task/eea-fir-iteration-2/calculate-routing', function (req, res) {
-  res.redirect('change-nsp')
+  res.redirect('review-award')
 })
 
 router.post('/international-task/eea-fir-iteration-2/change-nsp-routing', function (req, res) {
-  res.redirect('check-award')
+  res.redirect('review-award')
 })
 
 router.post('/international-task/eea-fir-iteration-2/br403-routing', function (req, res) {
