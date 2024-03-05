@@ -32,22 +32,65 @@ GOV.UK Prototype Kit
         <form method="post" action="get-a-task-2">
 
           <h2 class="govuk-heading-l">Confirm change to award</h2>
+
+          <br><br>
+          
           <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header award_detail2" scope="col">Total</th>
+                <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 and data.protectedPayment %}  
+                  £{{ data.addsp1 | float + data.protectedPayment | float }} per week
+                  {% else %}
+                  £203.85 per week
+                  {% endif %}	
+                </th>
+                <th class="govuk-table__header award_detail2" scope="col"><a href="calculate">
+                  Change<span class="govuk-visually-hidden">Change New State Pension</span>
+                 </a></th>
+              </tr>
+            </thead>
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Updated award</th>
-                <td class="govuk-table__cell"><b>£141.91 per week</b></td>
+                <td class="govuk-table__cell" scope="row">New State Pension</td>
+                <td class="govuk-table__cell">{% if data.addsp1 %}
+                  £{{data.addsp1}}
+                  {% else %}
+                  £203.85
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell" scope="row"></td>
               </tr>
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">From</th>
-                <td class="govuk-table__cell">13 September 2022</td>
+                <td class="govuk-table__cell" scope="row">Protected payment</td>
+                <td class="govuk-table__cell">{% if data.protectedPayment %}
+                  £{{data.protectedPayment}}
+                  {% else %}
+                  £0.00
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell" scope="row"></td>
               </tr>
+              <!-- <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+                <td class="govuk-table__cell">£5.00</td>
+                <td class="govuk-table__cell">  </td>
+              </tr>
+               <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+                <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"></td>
+              </tr> -->
             </tbody>
-          </table>
+            </table>
+
+            <br>
 
           <div class="govuk-inset-text">
           This will automatically pay any arrears and send an award letter to the claimant.
           </div>
+
+          <br><br><br>
 
 <button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
   Confirm and send letter

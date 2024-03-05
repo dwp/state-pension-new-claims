@@ -33,7 +33,15 @@ router.post('/international-task/anzac-cfn1282-iteration-1/date-of-entry', funct
   if (req.body['date-of-entry'] === 'before') {
     res.redirect('rf1-send')
   } else {
+    res.redirect('check-information')
+  }
+})
+
+router.post('/international-task/anzac-cfn1282-iteration-1/check-information', function (req, res) {
+  if (req.body['calculateNew'] === 'yes') {
     res.redirect('calculate-anzac')
+  } else {
+    res.redirect('get-a-task-2')
   }
 })
 
@@ -41,7 +49,7 @@ router.post('/international-task/anzac-cfn1282-iteration-1/rf1-send', function (
   if (req.body.rf1 === 'request') {
     res.redirect('rf1-hmrc')
   } else if (req.body.rf1 === 'received') {
-    res.redirect('sp-increase')
+    res.redirect('check-information')
   } else {
     res.redirect('get-a-task-2')
   }
@@ -53,6 +61,10 @@ router.post('/international-task/anzac-cfn1282-iteration-1/sp-increase', functio
   } else {
     res.redirect('get-a-task-2')
   }
+})
+
+router.post('/international-task/anzac-cfn1282-iteration-1/calculate-anzac-routing', function (req, res) {
+  res.redirect('check-award-anzac')
 })
 
 router.post('/international-task/anzac-cfn1282-iteration-1/rf1-task', function (req, res) {
