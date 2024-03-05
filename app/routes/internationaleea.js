@@ -458,3 +458,8 @@ router.post('/international-task/eea-fir-mixed/br403-routing', function (req, re
   res.redirect('get-a-task-2')
 })
 module.exports = router
+
+router.post('/international-task/eea-fir-mixed/conflicting-award-routing', function (req, res) {
+  res.redirect('upload')
+})
+module.exports = router
