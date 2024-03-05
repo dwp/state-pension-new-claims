@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+              "text": "Back",
+              "href": "javascript: window.history.go(-1)"
+            })
+          }}
+
+          <br><br>
+
+              <div class="govuk-form-group">
+                <h2 class="govuk-heading-l">Confirm no change to award</h2>
+
+
+
+        <p>Based on the insurance records received, you do not want to change the claimant's award. </p>
+
+        <p>A letter will be automatically sent to the claimant to let them know their State Pension amount will stay the same. </p>
+
+            <br>
+
+            <button class="govuk-button" data-module="govuk-button">
+        Postpone task    </button>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
