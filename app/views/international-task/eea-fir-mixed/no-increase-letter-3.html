@@ -31,32 +31,22 @@ GOV.UK Prototype Kit
 
         <form method="post" action="get-a-task-2">
 
-          <h2 class="govuk-heading-l">Confirm change to award</h2>
-          <table class="govuk-table">
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Updated award</th>
-                <td class="govuk-table__cell"><b>{% if data.addsp1 and data.protectedPayment %}  
-                  £{{ data.addsp1 | float + data.protectedPayment | float }} per week
-                  {% else %}
-                  £{{data.addsp1}}
-                  {% endif %}	</th></b></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">From</th>
-                <td class="govuk-table__cell">13 September 2022</td>
-              </tr>
-            </tbody>
-          </table>
+          <h2 class="govuk-heading-l">Confirm no change to award</h2>
+          
 
-          <div class="govuk-inset-text">
-          This will automatically pay any arrears and send an award letter to the claimant.
-          </div>
+          <p>
+            Based on the insurance records received, you do not want to change the claimant's award.
+          </p>
 
+          <p>
+            A letter will be automatically sent to the claimant to tell them they can send us their own copies.
+          </p>
 
-<button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
-  Confirm and send letter
-</button>
+          <br><br><br>
+
+  <button type="submit" class="govuk-button" data-module="govuk-button">
+    Confirm and send letter
+  </button>
 
 
 
@@ -75,7 +65,7 @@ GOV.UK Prototype Kit
                   <div class="govuk-details__text">
                     <b>URL:</b> /confirm-award <br>
                     <b>Error messages:</b> <br>
-                    <b>Notes:</b> If the award cannot be changed due to a conflicting ANZaC payment, the agent will be shown <a href="conflicting-award" class="govuk-link">this screen</a>. <br>
+                    <b>Notes:</b> None <br>
                   </div>
                 </details>
 
