@@ -53,7 +53,7 @@ GOV.UK Prototype Kit
       <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 and data.protectedPayment %}  
         £{{ data.addsp1 | float + data.protectedPayment | float }} per week
         {% else %}
-        £203.85 per week
+        £{{data.addsp1}}
         {% endif %}	
       </th>
       <th class="govuk-table__header award_detail2" scope="col"><a href="calculate">
