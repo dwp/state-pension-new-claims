@@ -148,9 +148,17 @@ GOV.UK Prototype Kit
 
           <br><br><br>
 
-<button class="govuk-button" data-module="govuk-button">
-  Confirm award calculated
-</button>
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          <div class="govuk-button-group">
+            {{ govukButton({
+              text: "Confirm award calculated"
+            }) }}
+          
+            {{ govukButton({
+              text: "Postpone task",
+              classes: "govuk-button--secondary"
+            }) }}
 
 
 

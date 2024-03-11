@@ -33,73 +33,13 @@ GOV.UK Prototype Kit
 
           <h1 class="govuk-heading-l">EEA award will be recorded</h1>
 
-<p>The award will be recorded but not changed.</p>
+          <p>The award will be recorded as an underlying entitlement. It will not be changed. 
+            This is because the amount entered is less than the claimant's award based on the time they spent in ANZaC countries.
+          </p>  
 
-<p>The amount entered is less then the claimant's award based on the time they spent in ANZaC countries.</p>
+          <p>We are still waiting for insurance records from some countries.</p>
 
-<br><br>
-
-{% from "govuk/components/table/macro.njk" import govukTable %}
-
-{{ govukTable({
-  caption: "",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  head: [
-    {
-      text: "ANZaC award",
-      classes: "govuk-!-width-one-half"
-    },
-    {
-      text: "£200.00",
-      classes: "govuk-!-width-one-half"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "From"
-      },
-      {
-        text: "13th September 2022"
-      }
-    ]
-  ]
-}) }}
-
-<br><br>
-
-{% from "govuk/components/table/macro.njk" import govukTable %}
-
-{{ govukTable({
-  caption: "",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: true,
-  head: [
-    {
-      text: "EEA award",
-      classes: "govuk-!-width-one-half"
-    },
-    {
-      text: "£150.00",
-      classes: "govuk-!-width-one-half"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "From"
-      },
-      {
-        text: "13th September 2022"
-      }
-    ]
-  ]
-}) }}
-
-<br><br>
-
-<p>We are still waiting for insurance records from some countries.</p>
+<br>
 
 <div class="govuk-inset-text">
   A letter will be automatically sent to the claimant to tell them they can send us their own copies.
