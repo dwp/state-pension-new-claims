@@ -67,6 +67,7 @@ router.post('/international-task/anzac-cfn1282-iteration-1/calculate-anzac-routi
   res.redirect('check-award-anzac')
 })
 
+
 router.post('/international-task/anzac-cfn1282-iteration-1/rf1-task', function (req, res) {
   if (req.body['rf1-returned'] === 'yes') {
     res.redirect('sp-increase')
