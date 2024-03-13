@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <form method="post" action="get-a-task">
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+
+                            <br><br>
+
+          {{ govukPanel({
+            titleText: "Postpone task",
+            html: ""
+          }) }}
+
+          <br><br>
+        
+          <h2 class="govuk-heading-m">What happens next</h2>
+    
+          <p class="govuk-body">
+            This task will be postponed for 28 days and then put back into the queue.
+          </p>
+
+          <br><br><br>
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm postpone task
+</button>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

@@ -25,7 +25,7 @@ GOV.UK Prototype Kit
           <br><br>
           {% include './_bar.html' %}
 
-      <form method="post" action="calculate-anzac-routing">
+      <form method="post">
 
         {{ govukBackLink({
           text: "Back",
@@ -37,8 +37,9 @@ GOV.UK Prototype Kit
           
           <p>
             Use the VolNICs tool to calculate the claimant's award based on the time they spent in ANZaC countries. 
-            Record the information on the IPC975 form.
           </p>
+
+          <p>Record the information on the IPC975 form.</p>
 
           <p class="govuk-body">You may also need information from:</p>
            <ul class="govuk-list govuk-list--bullet">
@@ -149,17 +150,13 @@ GOV.UK Prototype Kit
 
           <br><br><br>
 
-          {% from "govuk/components/button/macro.njk" import govukButton %}
-
           <div class="govuk-button-group">
-            {{ govukButton({
-              text: "Confirm award calculated"
-            }) }}
-          
-            {{ govukButton({
-              text: "Postpone task",
-              classes: "govuk-button--secondary"
-            }) }}
+            <a href="check-award-anzac" button type="submit" class="govuk-button govuk-button">
+              Confirm award calculated
+            </a>
+            <a href="confirm-postpone" button type="submit" class="govuk-button govuk-button--secondary">
+              Postpone task
+            </a>
           </div>
 
 
