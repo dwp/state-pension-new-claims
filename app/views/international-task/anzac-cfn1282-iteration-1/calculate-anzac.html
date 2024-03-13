@@ -25,7 +25,7 @@ GOV.UK Prototype Kit
           <br><br>
           {% include './_bar.html' %}
 
-      <form method="post">
+      <form method="post" action="calculate-anzac-routing">
 
         {{ govukBackLink({
           text: "Back",
@@ -150,10 +150,12 @@ GOV.UK Prototype Kit
 
           <br><br><br>
 
+         
+
           <div class="govuk-button-group">
-            <a href="check-award-anzac" button type="submit" class="govuk-button govuk-button">
+            <button type="submit" class="govuk-button" data-module="govuk-button">
               Confirm award calculated
-            </a>
+            </button>
             <a href="confirm-postpone" button type="submit" class="govuk-button govuk-button--secondary">
               Postpone task
             </a>
