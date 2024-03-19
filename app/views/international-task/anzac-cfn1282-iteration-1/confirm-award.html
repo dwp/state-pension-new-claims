@@ -33,58 +33,33 @@ GOV.UK Prototype Kit
 
           <h2 class="govuk-heading-l">Confirm change to award</h2>
 
+          <p>The updated award includes any upratings, SRBs, ESPs and inheritance.
+            <br>It may be different to the amount you previously input.</br> 
+          </p>
+
           <br><br>
-          
+
           <table class="govuk-table">
-            <thead class="govuk-table__head">
+            <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
-                <th class="govuk-table__header award_detail2" scope="col">Total</th>
-                <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 and data.protectedPayment %}  
+                <th scope="row" class="govuk-table__header">Updated award</th>
+                <td class="govuk-table__cell"><b>{% if data.addsp1 and data.protectedPayment %}  
                   £{{ data.addsp1 | float + data.protectedPayment | float }} per week
                   {% else %}
                   £{{data.addsp1}}
-                  {% endif %}	
-                </th>
-              </tr>
-            </thead>
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">New State Pension</td>
-                <td class="govuk-table__cell">{% if data.addsp1 %}
-                  £{{data.addsp1}}
-                  {% else %}
-                  £203.85
-                  {% endif %}
-                </td>
-                <td class="govuk-table__cell" scope="row"></td>
+                  {% endif %}	</th></b></td>
               </tr>
               <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Protected payment</td>
-                <td class="govuk-table__cell">{% if data.protectedPayment %}
-                  £{{data.protectedPayment}}
-                  {% else %}
-                  £0.00
-                  {% endif %}
-                </td>
-                <td class="govuk-table__cell" scope="row"></td>
+                <th scope="row" class="govuk-table__header">From</th>
+                <td class="govuk-table__cell">13 September 2022</td>
               </tr>
-              <!-- <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Extra State Pension</td>
-                <td class="govuk-table__cell">£5.00</td>
-                <td class="govuk-table__cell">  </td>
-              </tr>
-               <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
-                <td class="govuk-table__cell">£0.00</td>
-                <td class="govuk-table__cell"></td>
-              </tr> -->
             </tbody>
-            </table>
+          </table>
 
-            <br>
+          <br>
 
           <div class="govuk-inset-text">
-          This will automatically pay any arrears and send an award letter to the claimant.
+          This will automatically pay any arrears and send an award letter to the claimant. 
           </div>
 
           <br><br><br>
