@@ -1,0 +1,99 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+          <br><br>
+
+        <form method="post">
+
+          <h1 class="govuk-heading-l">Check claimant's information</h1>
+
+          <p>Check the claimant's information to make sure you can continue to calculate a new award.
+          </p>
+          
+<p class="govuk-body">You may need to check:</p>
+<ul class="govuk-list govuk-list--bullet">
+  <li>the CFN1282</li>
+  <li>OLE</li>
+</ul>
+
+<br><br>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "calculateNew",
+  fieldset: {
+    legend: {
+      text: "Do you want to continue to calculate a new award?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+          <br><br><br>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+
+
+        <br>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
