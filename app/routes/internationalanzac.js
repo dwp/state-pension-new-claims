@@ -41,7 +41,7 @@ router.post('/international-task/anzac-cfn1282-iteration-1/check-information', f
   if (req.body['calculateNew'] === 'yes') {
     res.redirect('calculate-anzac')
   } else {
-    res.redirect('get-a-task-2')
+    res.redirect('confirm-no-change')
   }
 })
 
@@ -73,6 +73,10 @@ router.post('/international-task/anzac-cfn1282-iteration-1/rf1-task', function (
   } else {
     res.redirect('rf1-hmrc')
   }
+})
+
+router.post('/international-task/anzac-cfn1282-iteration-1/confirm-no-change', function (req, res) {
+  res.redirect('get-a-task-2')
 })
 
 // PENSION CREDIT
