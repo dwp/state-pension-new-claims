@@ -367,7 +367,7 @@ router.post('/international-task/eea-fir-iteration-1/change-award', function (re
 
 router.post('/international-task/eea-fir-iteration-2/change-award', function (req, res) {
   if (req.body['change-award'] === 'Yes') {
-    res.redirect('calculate')
+    res.redirect('review-award')
   } else {
     res.redirect('no-increase-letter-2')
   }
