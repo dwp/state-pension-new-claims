@@ -104,7 +104,7 @@ GOV.UK Prototype Kit
           <div class="govuk-form-group">
             <h2 class="govuk-heading-l">2. Enter new State Pension amount</h2>
 
-            <span class="govuk-hint">For example, 123.45</span>
+            <span class="govuk-hint">For example, 123.45.</span>
                    <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
                     <input class="govuk-input govuk-input--width-10" id="addsp11" name="addsp1" type="text" spellcheck="false">
@@ -121,7 +121,6 @@ GOV.UK Prototype Kit
               </h1>
             </legend>
             <div id="contact-hint" class="govuk-hint">
-              Select one option.
             </div>
             <div class="govuk-radios" data-module="govuk-radios">
               <div class="govuk-radios__item">
@@ -133,8 +132,11 @@ GOV.UK Prototype Kit
               <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-protectedPayment">
                 <div class="govuk-form-group">
                   <label class="govuk-label" for="protectedPayment">
-                    Enter Protected Payment amount
+                    Enter protected payment amount
                   </label>
+                  <div id="contact-hint" class="govuk-hint">
+                    For example, 42.77.
+                  </div>
                   <div class="govuk-input__wrapper">
                     <div class="govuk-input__prefix" aria-hidden="true">£</div>
                     <input class="govuk-input govuk-input--width-10" id="pp1" name="protectedPayment" type="text" spellcheck="false">
