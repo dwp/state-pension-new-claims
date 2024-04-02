@@ -471,3 +471,11 @@ router.post('/international-task/eea-fir-mixed/conflicting-award-routing', funct
   res.redirect('upload')
 })
 module.exports = router
+
+router.post('/international-task/eea-fir-mixed/cannot-change-award-3-routing', function (req, res) {
+  res.redirect('get-a-task-3')
+})
+
+router.post('/international-task/eea-fir-mixed/cannot-change-award-2-routing', function (req, res) {
+  res.redirect('get-a-task-3')
+})
