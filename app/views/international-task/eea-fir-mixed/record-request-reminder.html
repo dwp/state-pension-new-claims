@@ -22,12 +22,20 @@ GOV.UK Prototype Kit
 
 {% include './_bar.html' %}
 
+{{ govukBackLink({
+  "text": "Back",
+  "href": "javascript: window.history.go(-1)"
+})
+}}
+
+<br><br>
+
 <h1 class="govuk-heading-l">Use RINA or the EU liaison tool to send a reminder 
 </h1>
 
 
 <br>
-  <form method="post">
+  <form method="post" action="record-request-reminder-routing">
 
 
 <table class="govuk-table">
@@ -35,12 +43,12 @@ GOV.UK Prototype Kit
 
 
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Croatia</th>
+      <th scope="row" class="govuk-table__header">Norway</th>
       <td class="govuk-table__cell">ABC12345D</td>
     </tr>
     <tr class="govuk-table__row">
-      <th scope="row" class="govuk-table__header">Switzerland</th>
-      <td class="govuk-table__cell">Check CFN901</td>
+      <th scope="row" class="govuk-table__header">Spain</th>
+      <td class="govuk-table__cell">DC54321BA</td>
     </tr>
 
   </tbody>

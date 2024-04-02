@@ -436,10 +436,18 @@ router.post('/international-task/eea-fir-mixed/fir-task', function (req, res) {
 
   if (norwayRecords == 'no' && spainRecords == 'no'){
       res.redirect('no-increase-letter-1');
+     } else if (norwayRecords == 'yes' && spainRecords == 'no'){
+      res.redirect('record-request-reminder');
+     } else if (norwayRecords == 'no' && spainRecords == 'yes'){
+      res.redirect('record-request-reminder');
      } else {
       res.redirect('change-award-1');
   }   
 });
+
+router.post('/international-task/eea-fir-mixed/record-request-reminder-routing', function (req, res) {
+  res.redirect('get-a-task-2')
+})
 
 router.post('/international-task/eea-fir-mixed/task-details-2-routing', function (req, res) {
   res.redirect('fir-task')
