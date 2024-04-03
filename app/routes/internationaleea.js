@@ -479,3 +479,12 @@ router.post('/international-task/eea-fir-mixed/cannot-change-award-3-routing', f
 router.post('/international-task/eea-fir-mixed/cannot-change-award-2-routing', function (req, res) {
   res.redirect('get-a-task-3')
 })
+
+router.post('/international-task/eea-fir-mixed/calculate-test', function (req, res) {
+
+  if (req.body['addsp1'] === '203.00') {
+    res.redirect('enter-pp')
+  } else {
+    res.redirect('check-award')
+  }
+})

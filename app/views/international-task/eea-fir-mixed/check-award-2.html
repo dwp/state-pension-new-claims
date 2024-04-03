@@ -41,84 +41,6 @@ GOV.UK Prototype Kit
   </ul>
 <p class="govuk-body">Record the increase on a 975 form.</p> -->
 
-{% if data['addsp1'] == '203.00' %}
-<br><br>
-
-<form method="post" action="check-award-2">
-
-
-  <div class="govuk-form-group">
-    <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-      <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-        <h1 class="govuk-fieldset__heading">
-          Do you need to enter a protected payment amount?
-        </h1>
-      </legend>
-      
-      <div class="govuk-radios" data-module="govuk-radios">
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="protected" name="protected" type="radio" value="yes" data-aria-controls="conditional-protectedPayment">
-          <label class="govuk-label govuk-radios__label" for="protected">
-            Yes
-          </label>
-        </div>
-        <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-protectedPayment">
-          <div class="govuk-form-group">
-            <label class="govuk-label" for="protectedPayment">
-              Enter protected payment amount
-            </label>
-            <div class="govuk-hint">
-              For example, 43.21.
-            </div>
-            <div class="govuk-input__wrapper">
-              <div class="govuk-input__prefix" aria-hidden="true">£</div>
-              <input class="govuk-input govuk-input--width-10" id="pp1" name="protectedPayment" type="text" spellcheck="false">
-            </div>
-          </div>
-        </div>
-        <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="protected3" name="protected" type="radio" value="no">
-          <label class="govuk-label govuk-radios__label" for="protectedPayment2">
-            No
-          </label>
-        </div>
-
-        <br><br><br>
-
-        <button class="govuk-button" data-module="govuk-button">
-          Confirm
-        </button>
-
- <br><br><br><br><br>
- 
- <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
- <br>
-
-         <details class="govuk-details" data-module="govuk-details">
-           <summary class="govuk-details__summary">
-             <span class="govuk-details__summary-text">
-             <b>URL, errors and notes</b>
-             </span>
-           </summary>
-           <div class="govuk-details__text">
-             <b>URL:</b> <br>
-             <b>Error messages:</b> <br>
-             Less than current amount: Protected payment amount must be £8.50 or more [current amount + £0.01]<br>
-             Nothing selected: <br>
-             <b>Notes:</b> None <br>
-           </div>
-         </details>
-</form>
-
-</div>
-</div>
-</div>
-</div>
-</main>
-</div>
-
-      {% else %}      
-
 <h1 class="govuk-heading-l">Check award</h1>
 
 <br>
@@ -211,7 +133,7 @@ GOV.UK Prototype Kit
 </main>
       </div>
 
-      {% endif %}
+  
 
       {% endblock %}
 
