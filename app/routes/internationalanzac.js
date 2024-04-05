@@ -79,6 +79,27 @@ router.post('/international-task/anzac-cfn1282-iteration-1/confirm-no-change', f
   res.redirect('get-a-task-2')
 })
 
+router.post('/international-task/anzac-cfn1282-iteration-1/enter-pp-anzac-routing', function (req, res) {
+  res.redirect('check-award-anzac')
+})
+
+router.post('/international-task/anzac-cfn1282-iteration-1/rf1-task', function (req, res) {
+  if (req.body['rf1-returned'] === 'yes') {
+    res.redirect('sp-increase')
+  } else {
+    res.redirect('rf1-hmrc')
+  }
+})
+
+router.post('/international-task/anzac-cfn1282-iteration-1/calculate-anzac', function (req, res) {
+
+  if (req.body['addsp1'] === '221.20') {
+    res.redirect('enter-pp-anzac')
+  } else {
+    res.redirect('check-award-anzac')
+  }
+})
+
 // PENSION CREDIT
 
 router.post('/pension-credit/anzac/pension-credit-decision-1', function (req, res) {
@@ -134,17 +155,3 @@ router.post('/international-task/anzac-cfn1282-current/sp-increase', function (r
     res.redirect('get-a-task-2')
   }
 })
-
-router.post('/international-task/anzac-cfn1282-current/calculate-anzac-routing', function (req, res) {
-  res.redirect('check-award-anzac')
-})
-
-router.post('/international-task/anzac-cfn1282-current/rf1-task', function (req, res) {
-  if (req.body['rf1-returned'] === 'yes') {
-    res.redirect('sp-increase')
-  } else {
-    res.redirect('rf1-hmrc')
-  }
-})
-
-

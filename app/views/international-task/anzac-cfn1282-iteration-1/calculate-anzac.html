@@ -25,7 +25,7 @@ GOV.UK Prototype Kit
           <br><br>
           {% include './_bar.html' %}
 
-      <form method="post" action="calculate-anzac-routing">
+      <form method="post">
 
         {{ govukBackLink({
           text: "Back",
@@ -111,45 +111,6 @@ GOV.UK Prototype Kit
                     <input class="govuk-input govuk-input--width-10" id="addsp11" name="addsp1" type="text" spellcheck="false">
                   </div>
         </div>
-
-        <br><br>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h3 class="govuk-fieldset__heading">
-                Do you need to enter a protected payment amount?
-              </h3>
-            </legend>
-            <div id="contact-hint" class="govuk-hint">
-            </div>
-            <div class="govuk-radios" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="protected" name="protected" type="radio" value="yes" data-aria-controls="conditional-protectedPayment">
-                <label class="govuk-label govuk-radios__label" for="protected">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-protectedPayment">
-                <div class="govuk-form-group">
-                  <label class="govuk-label" for="protectedPayment">
-                    Enter protected payment amount
-                  </label>
-                  <div id="contact-hint" class="govuk-hint">
-                    For example, 42.77.
-                  </div>
-                  <div class="govuk-input__wrapper">
-                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
-                    <input class="govuk-input govuk-input--width-10" id="pp1" name="protectedPayment" type="text" spellcheck="false">
-                  </div>
-                </div>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="protected3" name="protected" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="protectedPayment2">
-                  No
-                </label>
-              </div>
 
           <br><br><br>
 

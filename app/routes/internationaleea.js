@@ -415,7 +415,7 @@ module.exports = router
 
 router.post('/international-task/eea-fir-mixed/change-award-1', function (req, res) {
   if (req.body['checkInsurance'] === 'yes') {
-    res.redirect('calculate')
+    res.redirect('calculate-test')
   } else {
     res.redirect('no-increase-letter-2')
   }
@@ -482,7 +482,7 @@ router.post('/international-task/eea-fir-mixed/cannot-change-award-2-routing', f
 
 router.post('/international-task/eea-fir-mixed/calculate-test', function (req, res) {
 
-  if (req.body['addsp1'] === '203.00') {
+  if (req.body['addsp1'] === '221.20') {
     res.redirect('enter-pp')
   } else {
     res.redirect('check-award')
