@@ -46,54 +46,56 @@ GOV.UK Prototype Kit
 
 <br>
 
-<table class="govuk-table">
-  <thead class="govuk-table__head">
-    <tr class="govuk-table__row">
-      <th class="govuk-table__header award_detail2" scope="col">Total</th>
-      <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 and data.protectedPayment %}  
-        £{{ data.addsp1 | float + data.protectedPayment | float }} per week
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      New State Pension
+    </dt>
+    <dd class="govuk-summary-list__value-numeric">
+      {% if data.addsp1 %}
+      £{{data.addsp1}}
+      {% else %}
+      £0.00
+      {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="calculate-anzac">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Protected payment
+    </dt>
+    <dd class="govuk-summary-list__value-numeric">
+      {% if data.protectedPayment %}
+      £{{data.protectedPayment}}
+      {% else %}
+      £0.00
+      {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      {% if data.protectedPayment %}
+      <a class="govuk-link" href="enter-pp-anzac">Change<span class="govuk-visually-hidden"> protected payment amount</span></a>
+      {% else %}
+      <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> protected payment amount</span></a>
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total
+    </dt>
+    <dd class="govuk-summary-list__value-numeric">
+      {% if data.addsp1 and data.protectedPayment %}  
+       £{{ data.addsp1 | float + data.protectedPayment | float }} per week
         {% else %}
         £{{data.addsp1}}
         {% endif %}	
-      </th>
-      <th class="govuk-table__header award_detail2" scope="col"><a href="calculate-anzac">
-        Change<span class="govuk-visually-hidden">Change New State Pension</span>
-       </a></th>
-    </tr>
-  </thead>
-  <tbody class="govuk-table__body">
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" scope="row">New State Pension</td>
-      <td class="govuk-table__cell">{% if data.addsp1 %}
-        £{{data.addsp1}}
-        {% else %}
-        £203.85
-        {% endif %}
-      </td>
-      <td class="govuk-table__cell" scope="row"></td>
-    </tr>
-    <tr class="govuk-table__row">
-      <td class="govuk-table__cell" scope="row">Protected payment</td>
-      <td class="govuk-table__cell">{% if data.protectedPayment %}
-        £{{data.protectedPayment}}
-        {% else %}
-        £0.00
-        {% endif %}
-      </td>
-      <td class="govuk-table__cell" scope="row"></td>
-    </tr>
-    <!-- <tr class="govuk-table__row">
-      <td class="govuk-table__cell" scope="row">Extra State Pension</td>
-      <td class="govuk-table__cell">£5.00</td>
-      <td class="govuk-table__cell">  </td>
-    </tr>
-     <tr class="govuk-table__row">
-      <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
-      <td class="govuk-table__cell">£0.00</td>
-      <td class="govuk-table__cell"></td>
-    </tr> -->
-  </tbody>
-  </table>
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl> 
 
 <br><br>   
 
