@@ -93,7 +93,7 @@ router.post('/international-task/anzac-cfn1282-iteration-1/rf1-task', function (
 
 router.post('/international-task/anzac-cfn1282-iteration-1/calculate-anzac', function (req, res) {
 
-  if (req.body['addsp1'] === '221.20') {
+  if (req.body['addsp1'] === '185.15') {
     res.redirect('enter-pp-anzac')
   } else {
     res.redirect('check-award-anzac')

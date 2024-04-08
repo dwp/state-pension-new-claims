@@ -482,7 +482,7 @@ router.post('/international-task/eea-fir-mixed/cannot-change-award-2-routing', f
 
 router.post('/international-task/eea-fir-mixed/calculate-test', function (req, res) {
 
-  if (req.body['addsp1'] === '221.20') {
+  if (req.body['addsp1'] === '185.15') {
     res.redirect('enter-pp')
   } else {
     res.redirect('check-award')
