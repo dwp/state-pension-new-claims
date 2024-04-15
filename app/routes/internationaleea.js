@@ -415,7 +415,7 @@ module.exports = router
 
 router.post('/international-task/eea-fir-mixed/change-award-1', function (req, res) {
   if (req.body['checkInsurance'] === 'yes') {
-    res.redirect('calculate')
+    res.redirect('calculate-test')
   } else {
     res.redirect('no-increase-letter-2')
   }
@@ -436,10 +436,18 @@ router.post('/international-task/eea-fir-mixed/fir-task', function (req, res) {
 
   if (norwayRecords == 'no' && spainRecords == 'no'){
       res.redirect('no-increase-letter-1');
+     } else if (norwayRecords == 'yes' && spainRecords == 'no'){
+      res.redirect('record-request-reminder');
+     } else if (norwayRecords == 'no' && spainRecords == 'yes'){
+      res.redirect('record-request-reminder');
      } else {
       res.redirect('change-award-1');
   }   
 });
+
+router.post('/international-task/eea-fir-mixed/record-request-reminder-routing', function (req, res) {
+  res.redirect('get-a-task-2')
+})
 
 router.post('/international-task/eea-fir-mixed/task-details-2-routing', function (req, res) {
   res.redirect('fir-task')
@@ -463,3 +471,20 @@ router.post('/international-task/eea-fir-mixed/conflicting-award-routing', funct
   res.redirect('upload')
 })
 module.exports = router
+
+router.post('/international-task/eea-fir-mixed/cannot-change-award-3-routing', function (req, res) {
+  res.redirect('get-a-task-3')
+})
+
+router.post('/international-task/eea-fir-mixed/cannot-change-award-2-routing', function (req, res) {
+  res.redirect('get-a-task-3')
+})
+
+router.post('/international-task/eea-fir-mixed/calculate-test', function (req, res) {
+
+  if (req.body['addsp1'] === '185.15') {
+    res.redirect('enter-pp')
+  } else {
+    res.redirect('check-award')
+  }
+})

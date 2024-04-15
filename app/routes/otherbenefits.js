@@ -47,4 +47,12 @@ router.post('/pension-credit/iteration-1/pension-credit-decision-1', function (r
   }
 })
 
+router.post('/international-task/br403-part-b/pension-credit-decision-1', function (req, res) {
+  if (req.body['pension-credit'] === 'yes') {
+    res.redirect('pension-credit-details')
+  } else {
+    res.redirect('no-offset')
+  }
+})
+
 module.exports = router
