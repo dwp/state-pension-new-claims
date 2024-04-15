@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="contact">
+
+  <a href="worked-abroad" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        What is your current marital status?
+      </h1>
+        
+      <div class="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="marital-status-never" name="marital-status" type="radio" value="never">
+          <label class="govuk-label govuk-radios__label" for="marital-status-never">
+            Never been married or in a civil partnership
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="marital-status-married" name="marital-status" type="radio" value="married">
+          <label class="govuk-label govuk-radios__label" for="marital-status-married">
+            Married
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="marital-status-civil" name="marital-status" type="radio" value="civil">
+          <label class="govuk-label govuk-radios__label" for="marital-status-civil">
+            In a civil partnership
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="marital-status-widowed" name="marital-status" type="radio" value="widowed">
+          <label class="govuk-label govuk-radios__label" for="marital-status-widowed">
+            Widowed
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="marital-status-divorced" name="marital-status" type="radio" value="divorced">
+          <label class="govuk-label govuk-radios__label" for="marital-status-divorced">
+            Divorced
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="marital-status-dissolved" name="marital-status" type="radio" value="dissolved">
+          <label class="govuk-label govuk-radios__label" for="marital-status-dissolved">
+            Dissolved civil partnership
+          </label>
+        </div>
+      </div>
+<br><br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+ 
+
+</form>
+
+
+  {% endblock %}

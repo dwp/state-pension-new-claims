@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="check-start-date">
+
+  <a href="post-spa" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+What date do you want to start your State Pension from?      </h1>
+<h1 class="govuk-heading-m">
+A date in the past    </h1>
+<p>To get some of the State Pension we owe you as a one-off payment and use the rest to increase your payments for the rest of your life, enter a date between <b>14 August 2021</b> and <b>14 June 2022</b>.</p>
+
+<p>The earlier your start date is, the bigger your one-off arrears payment will be.</p>
+<p>The later your start date is, the more your payments will increase.</p>
+<h1 class="govuk-heading-m">
+A date in the future      </h1>
+
+<p>To increase your State Pension payments further enter a date between <b>14 June 2022</b> and <b>14 October 2022</b>. You will not receive any State Pension payments until the date you enter.</p>
+
+
+
+<div class="govuk-form-group">
+<fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+<legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+  <h2 class="govuk-fieldset__heading">
+</h2>
+</legend>
+<div id="passport-issued-hint" class="govuk-hint">
+  For example, 27 3 2007
+</div>
+<div class="govuk-date-input" id="passport-issued">
+  <div class="govuk-date-input__item">
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+        Day
+      </label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+    </div>
+  </div>
+  <div class="govuk-date-input__item">
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+        Month
+      </label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+    </div>
+  </div>
+  <div class="govuk-date-input__item">
+    <div class="govuk-form-group">
+      <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+        Year
+      </label>
+      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+    </div>
+  </div>
+</div>
+
+</fieldset>
+</div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+      <br><br><br><br><br><br><br><br>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}
