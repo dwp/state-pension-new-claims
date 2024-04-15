@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Application complete
+        </h1>
+        <div class="govuk-panel__body">
+          30 January 2021<br>your reference number is
+          <br><strong>your National Insurance number</strong>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+      <p>You will receive details about your State Pension up to 14 days before your State Pension date. We may also contact you if we need more information.</p>
+
+      <h3 class="govuk-heading-m">If your circumstances change</h3>
+      <p>You must report the following changes straight away:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>change of address (including going into hospital, a care home or permanently leaving the UK)</li>
+        <li>bank details</li>
+        <li>death of a spouse or civil partner</li>
+      </ul>
+
+      <p><b>Telephone:</b> 0800 731 0469 <br> <b>Textphone:</b> 0800 731 0464</p>
+      
+      <p><img src="/public/images/icon-print.png" width="30" style="float: left; margin-top: 25px; margin-right: 15px">&nbsp; <a href="#" onclick="window.print();" class="govuk-heading-m">Print this page</a></p>
+
+
+    </div>
+
+
+  
+
+  </div>
+
+ 
+
+</form>
+
+
+  {% endblock %}

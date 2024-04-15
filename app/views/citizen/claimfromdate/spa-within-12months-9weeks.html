@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="date-want-sp">
+
+  <a href="your-details" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Your State Pension date
+</h1>
+
+<p>You reached State Pension age on 5 June 2021 and may be owed some payments.</p>
+<p>You can backdate any State Pension we owe you from the last 12 months and get it as a one-off payment.</p>
+
+ <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+    Do you want to backdate your State Pension?</h2>
+    </legend>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+      <label class="govuk-label govuk-radios__label" for="sign-in-2">
+    Yes, backdate to 15 July 2021</label>
+    <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">Get any State Pension we owe you from the last 12 months as a one-off payment.</div>
+    <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">You will not be paid any State Pension for the period 5 June 2021 to 14 July 2021.</div></div>
+
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+      <label class="govuk-label govuk-radios__label" for="sign-in-2">
+Yes, backdate to 8 August 2021</label>
+<div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">Use any State Pension we owe you from 5 June 2021 to 7 August 2021 to increase your regular payments by 1%.</div>
+<div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">You'll also get a one-off payment to cover any State Pension we owe you from 8 August 2021 to 14 July 2022.</div>
+
+    </div>
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in-2">
+No, increase my regular payments</label>
+<div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">Use any State Pension we owe you to increase your payments.</div><div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">They increase by 0.1% for every week from 5 June 2021 to 14 July 2022. It takes over 17 years to get back the money you use to increase your payments.</div>
+
+</div>
+
+ <div class="govuk-radios__divider">or</div>
+      <div class="govuk-radios" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+          <label class="govuk-label govuk-radios__label" for="sign-in">
+Backdate to a different date</label>
+    <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+      Take some of State Pension we owe you from the last 12 months as a one-off payment and use the rest to increase to your regular payments.</div>
+
+  </div>
+  </div>
+
+
+  </fieldset></div>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}
