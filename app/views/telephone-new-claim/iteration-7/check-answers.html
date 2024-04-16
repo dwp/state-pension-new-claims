@@ -14,19 +14,22 @@ GOV.UK Prototype Kit
 
 <div class="govuk-width-container">
 
-  {% include './_bar-small.html' %}
+  <br><br>
 
+  {% include './_bar.html' %}
+
+  <form method="post">
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <a href="germany" class="govuk-back-link">Back</a>
 
-        <form method="post">
-<br>
-          <h1 class="govuk-heading-xl">
-            Check claim details
-          </h1>
+        <br>
+
+    <h1 class="govuk-heading-xl">
+      Check claim details
+    </h1>
 
 
   <div class="govuk-form-group">
@@ -185,7 +188,7 @@ GOV.UK Prototype Kit
         </dd>
         <dd class="govuk-summary-list__actions">
           <a class="govuk-link" href="contacted2-c">
-            Change<span class="govuk-visually-hidden"> contact details</span>
+            Change<span class="govuk-visually-hidden">contact details</span>
           </a>
         </dd>
       </div>
@@ -225,61 +228,55 @@ GOV.UK Prototype Kit
         </dd>
       </div>
 
-
-               {% if data['nino'] === 'XX89161B' %}
-               <div class="govuk-summary-list__row">
-                 <dt class="govuk-summary-list__key">
-                  Lived or worked outside the UK
-                 </dt>
-                 <dd class="govuk-summary-list__value">
-                  France<br>Lived: Jun 2001 to Sep 2004 <br>Worked: Jun 2001 to Sep 2004<br><br> Germany<br>Lived: Oct 2007 to Dec 2010<br>
-                 </dd>
-                 <dd class="govuk-summary-list__actions">
-                   <a class="govuk-link" href="">
-                     Change<span class="govuk-visually-hidden"></span>
-                   </a>
-                 </dd>
-               </div>
-               {% elseif data['nino'] === 'xx89161b' %}
-               <div class="govuk-summary-list__row">
-                 <dt class="govuk-summary-list__key">
-                  Lived or worked outside the UK
-                 </dt>
-                 <dd class="govuk-summary-list__value">
-                  France<br>Lived: Jun 2001 to Sep 2004 <br>Worked: Jun 2001 to Sep 2004<br><br> Germany<br>Lived: Oct 2007 to Dec 2010<br>
-                 </dd>
-                 <dd class="govuk-summary-list__actions">
-                   <a class="govuk-link" href="">
-                     Change<span class="govuk-visually-hidden"></span>
-                   </a>
-                 </dd>
-               </div>
-               {% else %}
-               <div class="govuk-summary-list__row">
-                 <dt class="govuk-summary-list__key">
-                  Lived or worked outside the UK
-                 </dt>
-                 <dd class="govuk-summary-list__value">
-                  France<br>Lived: Jun 2001 to Sep 2004 <br>Worked: Jun 2001 to Sep 2004<br>
-                  <br> Germany<br>Lived: Feb 2007 to Mar 2010<br>
-                  <br> Switzerland<br>Lived: Jun 2011 to Jul 2012<br>
-                  <br> Italy<br>Lived: Jan 2014 to Oct 2016<br>
-                  <br> Has the claimant lived or worked in any other countries?<br>Yes<br>
-                 </dd>
-                 <dd class="govuk-summary-list__actions">
-                   <a class="govuk-link" href="">
-                     Change<span class="govuk-visually-hidden"> </span>
-                   </a>
-                 </dd>
-               </div>
-               {% endif %}
-
-
+      {% if data['pension'] === 'yes' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Lived or worked outside the UK
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <b>{{data['country-1']}}</b><br>
+            Lived from: {{data['dob-month1']}} / {{data['dob-year1']}} <br>
+            To: {{data['dob-month2']}} / {{data['dob-year2']}} <br>
+            {% if data['dob-month3'] %}
+            Worked from: {{data['dob-month3']}} / {{data['dob-year3']}} <br>
+            To: {{data['dob-month4']}} / {{data['dob-year4']}}
+            {% endif %} 
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">
+              Change<span class="govuk-visually-hidden"></span>
+            </a>
+          </dd>
+        </div>
+       {% elseif data['country-2'] %}
+        <b>{{data['country-2']}}</b><br>
+          Lived from: {{data['dob-month5']}} / {{data['dob-year5']}} <br>
+          To: {{data['dob-month6']}} / {{data['dob-year6']}} <br>
+          {% if data['dob-month3'] %}
+          Worked from: {{data['dob-month7']}} / {{data['dob-year7']}} <br>
+          To: {{data['dob-month8']}} / {{data['dob-year8']}}
+          {% endif %}
+       {% else %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+          Lived or worked outside the UK
+          </dt>
+          <dd class="govuk-summary-list__value">
+          No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="">
+              Change<span class="govuk-visually-hidden"> </span>
+            </a>
+          </dd>
+        </div>
+      {% endif %}
     </dl>
   </div>
-    <button type="submit" class="govuk-button">
-      Continue
-    </button>
+
+  <button type="submit" class="govuk-button">
+    Continue
+  </button>
 
     <br>
     <details class="govuk-details" data-module="govuk-details">

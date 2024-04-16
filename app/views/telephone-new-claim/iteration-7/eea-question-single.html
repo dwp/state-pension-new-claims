@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <br>
+
+  {% include './_bar.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="marital-details" class="govuk-back-link">Back</a>
+        <br> <br>
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">
+            Applying for a pension from [EU Country]</h1>
+    
+    <p>You may be entitled to a European Union (EU) pension from [EU Country] based on the time you lived or worked there.</p>
+    
+    <p>If you want to apply for your pension from [EU Country], we will send you a form by post to complete and return to us.</p>
+    
+    <p>If you are already getting your pension from [EU Country], you do not need to apply again.</p>
+    
+    <p>EU pensions do not affect how much UK State Pension you will get.</p>
+    
+    <br><br><br>
+    
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h1 class="govuk-fieldset__heading">
+            Do you want to apply for your pension from [EU Country]?</h1>
+        </legend>
+        <div id="signIn-hint" class="govuk-hint">
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="pension" name="pension" type="radio" value="yes" aria-describedby="pension-item-hint">
+            <label class="govuk-label govuk-radios__label" for="pension">
+              Yes
+            </label>
+            <div id="pension-item-hint" class="govuk-hint govuk-radios__hint">
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="pension-2" name="pension" type="radio" value="no" aria-describedby="pension-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="pension-2">
+              No
+            </label>
+            <div id="pension-2-item-hint" class="govuk-hint govuk-radios__hint">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+    
+    <br><br><br>
+    
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+
+      <br><br><br>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <b>URL: <br><br>
+            Error messages:<br><br>
+
+            <br>
+
+              Country</b><br>
+                Empty: Enter the country they lived or worked in<br><br>
+
+                <b>All dates empty:</b> Enter either the dates they lived or worked there<br>[Highlight all date fields]<br><br>
+
+<b>Dates they lived there</b><br>
+If any worked date entered and both lived dates are empty then ignore lived section.<br><br>
+
+            <b>  From</b><br>
+                Empty but 'to' date complete: Enter the date they lived there from<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Future: The date they lived there from must be in the past <br><br>
+
+          <b>To</b><br>
+                Empty but 'from' date complete: Enter the date they lived there to<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Sequence: The 'to' date must be after the 'from' date<br>
+                Future: The date they lived there to must be in the past
+
+                <br><br>
+
+                <b>Dates they worked there</b><br>
+                If any lived dated entered and both worked dates are empty then ignore worked section.<br><br>
+
+                                    <b>  From</b><br>
+                                        Empty but 'to' date complete: Enter the date they worked there from<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Future: The date they worked there from must be in the past <br><br>
+
+                                  <b>To</b><br>
+                                        Empty but 'from' date complete: Enter the date they worked there to<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Sequence: The 'to' date must be after the 'from' date<br>
+                                        Future: The date they worked there to must be in the past <br><br>
+
+                                  <b>Social Security or National Insurance number</b><br>
+                                    Length: Social Security or National Insurance number must have 24 characters or less<br>
+                                    Format: Enter a real Social Security or National Insurance number<br>
+
+
+          </div>
+          </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
