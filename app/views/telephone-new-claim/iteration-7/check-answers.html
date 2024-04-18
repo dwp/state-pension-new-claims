@@ -228,57 +228,170 @@ GOV.UK Prototype Kit
         </dd>
       </div>
 
-      {% if data['pension'] === 'yes' %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Lived or worked outside the UK
           </dt>
+          {% if data['lived-worked'] === 'yes' %}
           <dd class="govuk-summary-list__value">
-            <b>{{data['country-1']}}</b><br>
-            Lived from: {{data['dob-month1']}} / {{data['dob-year1']}} <br>
-            To: {{data['dob-month2']}} / {{data['dob-year2']}} <br>
-            {% if data['dob-month3'] %}
-            Worked from: {{data['dob-month3']}} / {{data['dob-year3']}} <br>
-            To: {{data['dob-month4']}} / {{data['dob-year4']}}
-            {% endif %} 
+            Yes
           </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="">
-              Change<span class="govuk-visually-hidden"></span>
-            </a>
-          </dd>
-        </div>
-       {% elseif data['country-2'] %}
-        <b>{{data['country-2']}}</b><br>
-          Lived from: {{data['dob-month5']}} / {{data['dob-year5']}} <br>
-          To: {{data['dob-month6']}} / {{data['dob-year6']}} <br>
-          {% if data['dob-month3'] %}
-          Worked from: {{data['dob-month7']}} / {{data['dob-year7']}} <br>
-          To: {{data['dob-month8']}} / {{data['dob-year8']}}
-          {% endif %}
-       {% else %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-          Lived or worked outside the UK
-          </dt>
+          {% else %}
           <dd class="govuk-summary-list__value">
           No
           </dd>
+          {% endif %}
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="">
               Change<span class="govuk-visually-hidden"> </span>
             </a>
           </dd>
         </div>
+       {% if data['country-1'] %}
+       <div class="govuk-summary-list__row">
+         <dt class="govuk-summary-list__key">
+           Country 1
+         </dt>
+         <dd class="govuk-summary-list__value">
+           {{data['country-1']}}<br>
+           {% if data['dob-month1'] %}
+           Lived from: {{data['dob-month1']}} / {{data['dob-year1']}} <br>
+           To: {{data['dob-month2']}} / {{data['dob-year2']}} <br>
+           {% endif %}
+           {% if data['dob-month3'] %}
+           Worked from: {{data['dob-month3']}} / {{data['dob-year3']}} <br>
+           To: {{data['dob-month4']}} / {{data['dob-year4']}}
+           {% endif %}  
+         </dd>
+         <dd class="govuk-summary-list__actions">
+           <a class="govuk-link" href="">
+             Change<span class="govuk-visually-hidden"></span>
+           </a>
+         </dd>
+       </div>
       {% endif %}
+      {% if data['country-2'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country 2
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['country-2']}}<br>
+          {% if data['dob-month5'] %}
+          Lived from: {{data['dob-month5']}} / {{data['dob-year5']}} <br>
+          To: {{data['dob-month6']}} / {{data['dob-year6']}} <br>
+          {% endif %}
+          {% if data['dob-month3'] %}
+          Worked from: {{data['dob-month7']}} / {{data['dob-year7']}} <br>
+          To: {{data['dob-month8']}} / {{data['dob-year8']}}
+          {% endif %}  
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+            Change<span class="govuk-visually-hidden"></span>
+          </a>
+        </dd>
+      </div>
+    {% endif %}
+    {% if data['country-3'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country 3
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['country-3']}}<br>
+          {% if data['live-month1'] %}
+          Lived from: {{data['live-month1']}} / {{data['live-year1']}} <br>
+          To: {{data['live-month2']}} / {{data['live-year2']}} <br>
+          {% endif %}
+          {% if data['work-month1'] %}
+          Worked from: {{data['work-month1']}} / {{data['work-year1']}} <br>
+          To: {{data['dob-month2']}} / {{data['dob-year2']}}
+          {% endif %}  
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+            Change<span class="govuk-visually-hidden"></span>
+          </a>
+        </dd>
+      </div>
+    {% endif %}
+    {% if data['country-4'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country 4
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['country-4']}}<br>
+          {% if data['live-month3'] %}
+          Lived from: {{data['live-month3']}} / {{data['live-year3']}} <br>
+          To: {{data['live-month4']}} / {{data['live-year4']}} <br>
+          {% endif %}
+          {% if data['work-month3'] %}
+          Worked from: {{data['work-month3']}} / {{data['work-year3']}} <br>
+          To: {{data['work-month4']}} / {{data['work-year4']}}
+          {% endif %}  
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+            Change<span class="govuk-visually-hidden"></span>
+          </a>
+        </dd>
+      </div>
+    {% endif %}
+    {% if data['country-5'] %}
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Country 5
+        </dt>
+        <dd class="govuk-summary-list__value">
+          {{data['country-5']}}<br>
+          {% if data['live-month5'] %}
+          Lived from: {{data['live-month5']}} / {{data['live-year5']}} <br>
+          To: {{data['live-month6']}} / {{data['live-year6']}} <br>
+          {% endif %}
+          {% if data['work-month5'] %}
+          Worked from: {{data['work-month5']}} / {{data['work-year5']}} <br>
+          To: {{data['work-month6']}} / {{data['work-year6']}}
+          {% endif %} 
+        </dd>
+        <dd class="govuk-summary-list__actions">
+          <a class="govuk-link" href="">
+            Change<span class="govuk-visually-hidden"></span>
+          </a>
+        </dd>
+      </div>
+    {% endif %}
+    {% if data.EUpensions === 'yes' %}
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key">
+        Countries selected to apply for EU pensions from
+      </dt>
+      <dd class="govuk-summary-list__value">
+        <p class="govuk-body">
+          {% if data['countries'] %}
+            {{data['countries']}}
+            {% endif %}
+        </p>
+      </dd>
+      <dd class="govuk-summary-list__actions">
+        <a class="govuk-link" href="eea-question-multi-check.html">
+          Change<span class="govuk-visually-hidden"> contact details</span>
+        </a>
+      </dd>
+    </div>
+    {% endif %}
     </dl>
   </div>
+
+  <br><br><br>
 
   <button type="submit" class="govuk-button">
     Continue
   </button>
 
-    <br>
+    <br><br><br><br><br>
+
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">

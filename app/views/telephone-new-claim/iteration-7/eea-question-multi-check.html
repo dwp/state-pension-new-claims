@@ -15,6 +15,9 @@ GOV.UK Prototype Kit
 
   <br><br>
 
+
+  <form method="post">
+
   {% include './_bar.html' %}
 
 
@@ -22,42 +25,68 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         <a href="marital-details" class="govuk-back-link">Back</a>
-        <br> <br>
-        <form method="post">
 
-          {{ govukCheckboxes({
-            name: "EUcountries",
-            fieldset: {
-              legend: {
-                text: "Which countries do you want to apply for your EU pension from?",
-                isPageHeading: true,
-                classes: "govuk-fieldset__legend--xl"
-              }
-            },
-            hint: {
-              text: "If you are already getting your pension from a country, you do not need to apply to that country again."
-            },
-            items: [
-              {
-                value: "EUCountry1",
-                text: "EU Country 1"
-              },
-              {
-                value: "EUCountry2",
-                text: "EU Country 2"
-              },
-              {
-                divider: "or"
-              },
-              {
-                value: "None",
-                text: "None",
-                behaviour: "exclusive"
-              }
-            ]
-          }) }}
-          
-          <br><br>
+        <br><br>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                  Which countries do you want to apply for your EU pension from?
+                </h1>
+              </legend>
+              <div id="countries-hint" class="govuk-hint">
+                If you are already getting your pension from a country, you do not need to apply to that country again.
+              </div>
+                
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="{{data['country-1']}}">
+                <label class="govuk-label govuk-checkboxes__label" for="countries">
+                  {{data['country-1']}}
+                </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="{{data['country-2']}}">
+                  <label class="govuk-label govuk-checkboxes__label" for="countries">
+                    {{data['country-2']}}
+                  </label>
+                </div>
+                {% if data['country-3'] %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="countries-2" name="countries" type="checkbox" value="{{data['country-3']}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="countries">
+                      {{data['country-3']}}
+                    </label>
+                  </div>
+                {% endif %}
+                {% if data['country-4'] %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="countries-3" name="countries" type="checkbox" value="{{data['country-4']}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="countries">
+                      {{data['country-4']}}
+                    </label>
+                  </div>
+                {% endif %}
+                {% if data['country-5'] %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="countries-4" name="countries" type="checkbox" value="{{data['country-5']}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="countries">
+                      {{data['country-5']}}
+                    </label>
+                  </div>
+                {% endif %}
+                <div class="govuk-checkboxes__divider">or</div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="countries-5" name="countries" type="checkbox" value="None" data-behaviour="exclusive">
+                  <label class="govuk-label govuk-checkboxes__label" for="countries-5">
+                    None
+                  </label>
+                </div>
+
+                <br><br><br>
           
                 <button class="govuk-button" data-module="govuk-button">
                   Continue
