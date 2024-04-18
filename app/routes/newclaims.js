@@ -326,7 +326,15 @@ router.post('/telephone-new-claim/iteration-7/country-3', function (req, res) {
   }
 })
 
-router.post('/telephone-new-claim/iteration-7/country-4', (req, res) => {
+router.post('/telephone-new-claim/iteration-7/country-4', function (req, res) {
+  if (req.body['another-country-4'] === 'yes') {
+    res.redirect('/telephone-new-claim/iteration-7/country-5')
+  } else {
+    res.redirect('/telephone-new-claim/iteration-7/eea-question-multi')
+  }
+})
+
+router.post('/telephone-new-claim/iteration-7/country-5', (req, res) => {
   res.redirect('/telephone-new-claim/iteration-7/eea-question-multi')
 })
 
