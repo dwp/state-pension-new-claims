@@ -370,8 +370,10 @@ GOV.UK Prototype Kit
       <dd class="govuk-summary-list__value">
         <p class="govuk-body">
           {% if data['countries'] %}
-            {{data['countries']}}
-            {% endif %}
+            {% for item in data['countries']%}
+            {{item}}<br>
+            {% endfor %}
+          {% endif %}
         </p>
       </dd>
       <dd class="govuk-summary-list__actions">
