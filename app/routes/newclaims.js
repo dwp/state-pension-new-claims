@@ -350,6 +350,10 @@ router.post('/telephone-new-claim/iteration-7/eea-question-multi-check', (req, r
   res.redirect('/telephone-new-claim/iteration-7/check-answers')
 })
 
+router.post('/telephone-new-claim/iteration-7/eea-question-multi-2', (req, res) => {
+  res.redirect('/telephone-new-claim/iteration-7/check-answers')
+})
+
 router.post('/telephone-new-claim/iteration-7/worked', function (req, res) {
   if (req.body['worked-outside'] === 'yes') {
     res.redirect('/telephone-new-claim/iteration-7/worked-countries')
