@@ -1,0 +1,126 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav.html' %}
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+
+  <br><br>
+
+
+  <form method="post">
+
+  {% include './_bar.html' %}
+
+
+  <main class="govuk-main-wrapper " id="main-content" role="main">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <a href="marital-details" class="govuk-back-link">Back</a>
+
+        <br><br>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="countries-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h1 class="govuk-fieldset__heading">
+                  Which countries do you want to apply for your EU pension from?
+                </h1>
+              </legend>
+              <div id="countries-hint" class="govuk-hint">
+                You may need to tell them that if they are already getting their EU pension from a country they do not need to apply again.
+              </div>
+                
+              <div class="govuk-checkboxes__item">
+                <input class="govuk-checkboxes__input" id="countries" name="countries" type="checkbox" value="{{data['country-1']}}">
+                <label class="govuk-label govuk-checkboxes__label" for="countries">
+                  {{data['country-1']}}
+                </label>
+                </div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="countries-2" name="countries" type="checkbox" value="{{data['country-2']}}">
+                  <label class="govuk-label govuk-checkboxes__label" for="countries">
+                    {{data['country-2']}}
+                  </label>
+                </div>
+                {% if data['country-3'] %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="countries-3" name="countries" type="checkbox" value="{{data['country-3']}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="countries">
+                      {{data['country-3']}}
+                    </label>
+                  </div>
+                {% endif %}
+                {% if data['country-4'] %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="countries-4" name="countries" type="checkbox" value="{{data['country-4']}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="countries">
+                      {{data['country-4']}}
+                    </label>
+                  </div>
+                {% endif %}
+                {% if data['country-5'] %}
+                <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+                  <div class="govuk-checkboxes__item">
+                    <input class="govuk-checkboxes__input" id="countries-5" name="countries" type="checkbox" value="{{data['country-5']}}">
+                    <label class="govuk-label govuk-checkboxes__label" for="countries">
+                      {{data['country-5']}}
+                    </label>
+                  </div>
+                {% endif %}
+                <div class="govuk-checkboxes__divider">or</div>
+                <div class="govuk-checkboxes__item">
+                  <input class="govuk-checkboxes__input" id="countries-6" name="countries" type="checkbox" value="None" data-behaviour="exclusive">
+                  <label class="govuk-label govuk-checkboxes__label" for="countries-5">
+                    None
+                  </label>
+                </div>
+
+                <br><br><br>
+          
+                <button class="govuk-button" data-module="govuk-button">
+                  Continue
+                </button>
+
+      <br>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b>  <br>
+          <b>Notes:</b>  <br>
+          <br>
+          <p class="govuk-body">Link to
+            <a href="#" 
+            class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+          </p>
+        </div>
+      </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
