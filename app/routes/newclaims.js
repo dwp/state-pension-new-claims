@@ -354,6 +354,18 @@ router.post('/telephone-new-claim/iteration-7/eea-question-multi-2', (req, res) 
   res.redirect('/telephone-new-claim/iteration-7/check-answers')
 })
 
+router.post('/telephone-new-claim/iteration-7/eea-question-multi-3', function (req, res) {
+  if (req.body['EUpensions'] === 'yes') {
+    res.redirect('/telephone-new-claim/iteration-7/eea-question-multi-check-2')
+  } else {
+    res.redirect('/telephone-new-claim/iteration-7/check-answers')
+  }
+})
+
+router.post('/telephone-new-claim/iteration-7/eea-question-multi-check-2', (req, res) => {
+  res.redirect('/telephone-new-claim/iteration-7/check-answers')
+})
+
 router.post('/telephone-new-claim/iteration-7/worked', function (req, res) {
   if (req.body['worked-outside'] === 'yes') {
     res.redirect('/telephone-new-claim/iteration-7/worked-countries')
