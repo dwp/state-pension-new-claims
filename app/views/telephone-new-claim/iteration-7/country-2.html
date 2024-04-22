@@ -13,13 +13,18 @@ GOV.UK Prototype Kit
 
 <div class="govuk-width-container">
 
-  {% include './_bar-small.html' %}
+  {% include './_bar.html' %}
 
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <a href="marital-details" class="govuk-back-link">Back</a>
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
         <br> <br>
         <form method="post">
 
