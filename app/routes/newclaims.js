@@ -314,7 +314,7 @@ router.post('/telephone-new-claim/iteration-7/country-2', function (req, res) {
   if (req.body['another-country-2'] === 'yes') {
     res.redirect('/telephone-new-claim/iteration-7/country-3')
   } else {
-    res.redirect('/telephone-new-claim/iteration-7/eea-question-multi-2')
+    res.redirect('/telephone-new-claim/iteration-7/eea-routes')
   }
 })
 
@@ -322,7 +322,7 @@ router.post('/telephone-new-claim/iteration-7/country-3', function (req, res) {
   if (req.body['another-country-3'] === 'yes') {
     res.redirect('/telephone-new-claim/iteration-7/country-4')
   } else {
-    res.redirect('/telephone-new-claim/iteration-7/eea-question-multi-2')
+    res.redirect('/telephone-new-claim/iteration-7/eea-routes')
   }
 })
 
@@ -330,16 +330,26 @@ router.post('/telephone-new-claim/iteration-7/country-4', function (req, res) {
   if (req.body['another-country-4'] === 'yes') {
     res.redirect('/telephone-new-claim/iteration-7/country-5')
   } else {
-    res.redirect('/telephone-new-claim/iteration-7/eea-question-multi-2')
+    res.redirect('/telephone-new-claim/iteration-7/eea-routes')
   }
 })
 
 router.post('/telephone-new-claim/iteration-7/country-5', (req, res) => {
-  res.redirect('/telephone-new-claim/iteration-7/eea-question-multi-2')
+  res.redirect('/telephone-new-claim/iteration-7/eea-routes')
 })
 
 router.post('/telephone-new-claim/iteration-7/eea-question-single', (req, res) => {
   res.redirect('/telephone-new-claim/iteration-7/check-answers')
+})
+
+router.post('/telephone-new-claim/iteration-7/eea-routes', function (req, res) {
+  if (req.body['options'] === 'optionA') {
+    res.redirect('eea-question-multi')
+  } else if (req.body['options'] === 'optionB') {
+    res.redirect('eea-question-multi-2')
+  } else if (req.body['options'] === 'optionC') {
+    res.redirect('eea-question-multi-3')
+  }
 })
 
 router.post('/telephone-new-claim/iteration-7/eea-question-multi', (req, res) => {
@@ -352,6 +362,14 @@ router.post('/telephone-new-claim/iteration-7/eea-question-multi-check', (req, r
 
 router.post('/telephone-new-claim/iteration-7/eea-question-multi-2', (req, res) => {
   res.redirect('/telephone-new-claim/iteration-7/check-answers')
+})
+
+router.post('/telephone-new-claim/iteration-7/eea-question-multi', function (req, res) {
+  if (req.body['EUpensions'] === 'yes') {
+    res.redirect('/telephone-new-claim/iteration-7/eea-question-multi-check')
+  } else {
+    res.redirect('/telephone-new-claim/iteration-7/check-answers')
+  }
 })
 
 router.post('/telephone-new-claim/iteration-7/eea-question-multi-3', function (req, res) {
