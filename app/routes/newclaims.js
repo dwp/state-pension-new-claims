@@ -343,11 +343,11 @@ router.post('/telephone-new-claim/iteration-7/eea-question-single', (req, res) =
 })
 
 router.post('/telephone-new-claim/iteration-7/eea-routes', function (req, res) {
-  if (req.body['options'] === 'optionA') {
+  if (req.body['EEAoption'] === 'option1') {
     res.redirect('eea-question-multi')
-  } else if (req.body['options'] === 'optionB') {
+  } else if (req.body['EEAoption'] === 'option2') {
     res.redirect('eea-question-multi-2')
-  } else if (req.body['options'] === 'optionC') {
+  } else if (req.body['EEAoption'] === 'option3') {
     res.redirect('eea-question-multi-3')
   }
 })

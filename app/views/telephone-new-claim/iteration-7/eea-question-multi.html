@@ -28,7 +28,15 @@ GOV.UK Prototype Kit
           <h1 class="govuk-heading-xl"> Applying for European Union (EU) pensions     
           </h1>
     
-    <p>You may be entitled to EU pensions from [EU Country 1] and [EU Country 2] based on the time you lived or worked there.</p>
+    <p>You may be entitled to EU pensions from {% if data['country-5'] %}
+      {{data['country-1']}}, {{data['country-2']}}, {{data['country-3']}}, {{data['country-4']}} and {{data['country-5']}}
+      {% elseif data['country-4'] %}
+      {{data['country-1']}}, {{data['country-2']}}, {{data['country-3']}}, and {{data['country-4']}}
+      {% elseif data['country-3'] %}
+      {{data['country-1']}}, {{data['country-2']}}, and {{data['country-3']}}
+      {% else %}
+      {{data['country-1']}} and {{data['country-2']}}
+      {% endif %} based on the time you lived or worked there.</p>
     
     <p>If you want to apply for your EU pensions, we will send you a form by post to complete and return to us.</p>
     
