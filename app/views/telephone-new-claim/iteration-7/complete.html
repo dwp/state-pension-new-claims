@@ -14,7 +14,9 @@ GOV.UK Prototype Kit
 
 <div class="govuk-width-container">
 
-  {% include './_bar-small.html' %}
+  <br>
+
+  {% include './_bar.html' %}
 
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
@@ -37,11 +39,29 @@ GOV.UK Prototype Kit
 <h1 class="govuk-heading-m">What happens next</h1>
     <p>We will send you a letter up to 2 weeks before your State Pension date. We may also contact you if we need more information.</p>
 
+    {% if data.pension === 'yes' %}
+      <h3 class="govuk-heading-m">Your European Union pension application</h3>
+      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+    {% endif %}
+
+    {% if data.EUpensions === 'yes' %}
+      <h3 class="govuk-heading-m">Your European Union pension application</h3>
+      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+    {% endif %}
+
+    {% if data.countries %}
+      <h3 class="govuk-heading-m">Your European Union pension application</h3>
+      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+    {% endif %}
+
+    <br><br><br>
+
 <button type="submit" class="govuk-button">
       End call
     </button>
 
-    <br>
+    <br><br><br><br><br>
+    
     <details class="govuk-details" data-module="govuk-details">
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
