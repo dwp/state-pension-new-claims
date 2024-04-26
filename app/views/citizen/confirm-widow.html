@@ -1,0 +1,76 @@
+
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+
+<br><br>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <h1 class="govuk-heading-xl"> Confirm late-spouse's name
+      </h1>
+
+<p>The name you entered for the applicant's late-spouse is
+  {{data['late-spouse-name']}} {{data['late-spouse-surname']}}.
+  This is the same as the applicant's name.
+</p>
+
+<p>If you are helping someone to apply, you should answer all questions as if you are the person who wants to claim their State Pension.</p>
+
+<br><br><br>
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  name: "lateSpouseName",
+  fieldset: {
+    legend: {
+      text: "Do you want to change the name you entered?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+<br><br><br>
+
+      <button class="govuk-button">
+        Continue
+      </button>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+</form>
+
+
+{% endblock %}
