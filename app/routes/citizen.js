@@ -170,28 +170,88 @@ router.post('/citizen/marital-details-civil-partner', (req, res) => {
   res.redirect('/citizen/civil-partner-details')
 })
 
-router.post('/citizen/spouse-details', (req, res) => {
-  res.redirect('/citizen/contact')
-})
-
-router.post('/citizen/late-spouse-details', (req, res) => {
-  res.redirect('/citizen/contact')
-})
-
 router.post('/citizen/ex-spouse-details', (req, res) => {
-  res.redirect('/citizen/contact')
+  if (req.body['ex-spouse-name'] === 'Jane' && req.body['ex-spouse-surname'] === 'Smith') {
+    res.redirect('confirm-ex-spouse')
+  } else {
+    res.redirect('contact')
+  }
+})
+
+router.post('/citizen/confirm-ex-spouse', function(req, res) {
+  if (req.body['exSpouseName'] === 'yes') {
+    res.redirect('ex-spouse-details') 
+  } else {
+    res.redirect('contact') 
+  }
 })
 
 router.post('/citizen/ex-civil-partner-details', (req, res) => {
-  res.redirect('/citizen/contact')
+  if (req.body['ex-civil-name'] === 'Jane' && req.body['ex-civil-surname'] === 'Smith') {
+    res.redirect('confirm-ex-partner')
+  } else {
+    res.redirect('contact')
+  }
+})
+
+router.post('/citizen/confirm-ex-partner', function(req, res) {
+  if (req.body['exCivilName'] === 'yes') {
+    res.redirect('ex-civil-partner-details') 
+  } else {
+    res.redirect('contact') 
+  }
 })
 
 router.post('/citizen/civil-partner-details', (req, res) => {
-  res.redirect('/citizen/contact')
+  if (req.body['civil-name'] === 'Jane' && req.body['civil-surname'] === 'Smith') {
+    res.redirect('confirm-civil-partner')
+  } else {
+    res.redirect('contact')
+  }
+})
+
+router.post('/citizen/confirm-civil-partner', function(req, res) {
+  if (req.body['civilName'] === 'yes') {
+    res.redirect('civil-partner-details') 
+  } else {
+    res.redirect('contact') 
+  }
 })
 
 router.post('/citizen/contact', (req, res) => {
   res.redirect('/citizen/alt-formats')
+})
+
+router.post('/citizen/spouse-details', function (req, res) {
+  if (req.body['spouse-name'] === 'Jane' && req.body['spouse-surname'] === 'Smith') {
+    res.redirect('confirm-spouse')
+  } else {
+    res.redirect('contact')
+  }
+})
+
+router.post('/citizen/confirm-spouse', function(req, res) {
+  if (req.body['spouseName'] === 'yes') {
+    res.redirect('spouse-details') 
+  } else {
+    res.redirect('contact') 
+  }
+})
+
+router.post('/citizen/late-spouse-details', function (req, res) {
+  if (req.body['late-spouse-name'] === 'Jane' && req.body['late-spouse-surname'] === 'Smith') {
+    res.redirect('confirm-widow')
+  } else {
+    res.redirect('contact')
+  }
+})
+
+router.post('/citizen/confirm-widow', function(req, res) {
+  if (req.body['lateSpouseName'] === 'yes') {
+    res.redirect('late-spouse-details') 
+  } else {
+    res.redirect('contact') 
+  }
 })
 
 // Alt formats yes/no
