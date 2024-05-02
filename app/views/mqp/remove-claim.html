@@ -1,6 +1,8 @@
 {% extends "layouts/main.html" %}
 
-{% include './_header-nav-unselected.html' %}
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
 
 {% block content %}
 
@@ -11,36 +13,25 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-{{ govukBackLink({
-  text: "Back",
-  href: "javascript:history.go(-1)"
-                  }) }}
+<form method="post" action="task-details-2-routing">
 
-          <br><br>
+  <h1 class="govuk-heading-xl">Remove claim from GySP</h1>
 
-        <form method="post">
+   <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
 
-          <h1 class="govuk-heading-l">Confirm disallowance</h1>
+   <br>
+  
+   {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-<p>Check the claimant's details in OLE to confirm they do not qualify for State Pension.</p>
-          
-<p class="govuk-body">They have:</p>
-<ul class="govuk-list govuk-list--bullet">
-  <li>less than 10 qualifying years</li>
-  <li>No RRE</li>
-  <li>no widow entitlement</li>
-  <li>no Pension Share Divorce Orde</li>
-  <li>not lived or worked abroad</li>
-</ul>
-
-<br>
-
-<p>You need to check agent notes and liability screens.</p>
+   {{ govukWarningText({
+     text: "This action cannot be undone",
+     iconFallbackText: "Warning"
+   }) }}
 
 <br><br><br>
 
-<button class="govuk-button" data-module="govuk-button">
-  Continue
+<button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+  Send to PSCS
 </button>
 
    <br><br><br><br><br>

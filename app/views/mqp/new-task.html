@@ -1,10 +1,43 @@
-{% extends "layouts/main.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
-  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+GOV.UK Prototype Kit
 {% endblock %}
 
-{% block content %}
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include './_header-nav-tasks.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Get your State Pension",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#",
+      text: "Find someone",
+      active: true
+    },
+    {
+      href: "#",
+      text: "Tasks"
+    },
+    {
+      href: "#",
+      text: " Paper claims"
+    },
+    {
+      href: "#",
+      text: " Telephone claims"
+    }
+  ]
+}) }}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
