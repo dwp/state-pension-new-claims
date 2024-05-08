@@ -4,40 +4,9 @@
 GOV.UK Prototype Kit
 {% endblock %}
 
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
+{% block head %}
 {% include './_header-nav-tasks.html' %}
-
-{% block headEnd %}
 {% endblock %}
-
-{% from "govuk/components/header/macro.njk" import govukHeader %}
-
-{{ govukHeader({
-  homepageUrl: "#",
-  serviceName: "Get your State Pension",
-  serviceUrl: "#",
-  navigation: [
-    {
-      href: "#",
-      text: "Find someone",
-      active: true
-    },
-    {
-      href: "#",
-      text: "Tasks"
-    },
-    {
-      href: "#",
-      text: " Paper claims"
-    },
-    {
-      href: "#",
-      text: " Telephone claims"
-    }
-  ]
-}) }}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
