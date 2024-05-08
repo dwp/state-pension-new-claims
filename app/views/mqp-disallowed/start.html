@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<br>
+
+<form method="post" action="task-details-2-routing">
+
+  <h1 class="govuk-heading-xl">Check claimant's entitlement to State Pension</h1>
+
+   <p>You will need to check the claimant's record in OLE and either:</p>
+   <ul class="govuk-list govuk-list--bullet">
+     <li>send a letter advising the claimant they are not entitled to State Pension</li>
+     <li>send the case for further review</li>
+   </ul>
+  
+   <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Start this task
+    </button>
+
+    <a href="get-a-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
+
+   <br><br><br><br><br>
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% include './_bar.html' %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
+
+<br><br>
+
+<h1 class="govuk-heading-xl">Claimant is not entitled to a State Pension</h1>
+
+<p>Claim disallowed. A letter will be automatically sent to the claimant to let them know they are not entitled to State Pension.</p>
+
+<br><br><br>
+
+ <button class="govuk-button" data-module="govuk-button">
+   Confirm and send letter
+ </button>
+
+<br><br><br><br><br>
+
+ <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+ 
+ <br>
+
+ <details class="govuk-details" data-module="govuk-details">
+   <summary class="govuk-details__summary">
+     <span class="govuk-details__summary-text">
+     <b>URL and notes</b>
+     </span>
+   </summary>
+   <div class="govuk-details__text">
+     <b>URL:</b> /confirm-award <br>
+     <b>Notes:</b> None <br>
+   </div>
+ </details>
+
+
+   </div>
+
+ </div>
+
+</div>
+
+</main>
+   </div>
+
+{% endblock %}
