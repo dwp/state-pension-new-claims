@@ -4,7 +4,7 @@
 
 {% include './_bar.html' %}
 
-<form class="form" action="/details-answer" method="post">
+<form class="form" action="/mqp-answer" method="post">
 
   {{ govukBackLink({
     "text": "Back",
@@ -23,26 +23,25 @@
    {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
 
 {{ govukCheckboxes({
-  name: "details",
-  values: data["details"],
+  name: "mqp",
   items: [
     {
-      value: "qualifying-years",
+      value: "Claimant has 10 or more qualifying years",
       text: "Claimant has 10 or more qualifying years"
     },
     {
-      value: "rre",
+      value: "RRE on record",
       text: "RRE on record"
     },
     {
-      value: "late-spouse",
+      value: "Claimant has entitlement to an award based on a late spouse or partner",
       text: "Claimant has entitlement to an award based on a late spouse or partner"
     },
     {
-      value: "psod",
+      value: "Pension share order on divorce in place",
       text: "Pension share order on divorce in place"
     },{
-      value: "lwa",
+      value: "Claimant has lived or worked abroad in an EEA country or a country with a reciprocal agreement",
       text: "Claimant has lived or worked abroad in an EEA country or a country with a reciprocal agreement"
     },
     {
@@ -90,5 +89,7 @@
 
 </main>
       </div>
+
+      </form>
 
 {% endblock %}

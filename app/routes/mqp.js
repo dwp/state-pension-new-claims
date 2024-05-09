@@ -1,23 +1,28 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.use((req, res, next) => {
-  if (req.method === 'POST') {
-    console.log(JSON.stringify(req.session.data, null, 2))
-  }
-  next()
-})
+// Disallowance Option 1
 
-// Disallowance
-router.post('/details-answer', function(request, response) {
+router.post('/mqp-answer', function(request, response) {
 
-  var exports = request.session.data['details']
-  if (details.includes("none")){
-      response.redirect("/claim-disallowed")
+  var mqp = request.session.data['mqp']
+  if (mqp.includes("none")){
+      response.redirect("/mqp-disallowed//option-1/claim-disallowed")
   } else {
-      response.redirect("/remove-claim")
+      response.redirect("/mqp-disallowed//option-1/remove-claim")
   }
 })
 
+router.post('/mqp-disallowed/option-2/confirm-disallowance', function (req, res) {
+  if (req.body['disallowClaim'] === 'yes') {
+    res.redirect('claim-disallowed')
+  } else {
+    res.redirect('record-reason')
+  }
+})
+
+router.post('/mqp-disallowed/option-2/start-routing', function (req, res) {
+  res.redirect('confirm-disallowance')
+})
 
 module.exports = router
