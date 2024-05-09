@@ -4,7 +4,7 @@
 
 {% include './_bar.html' %}
 
-<form method="post" action="task-details-2-routing">
+<form method="post" action="dashboard-3">
 
   {{ govukBackLink({
     "text": "Back",
@@ -19,7 +19,16 @@
    <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
 
    <br>
-  
+
+    <p>Reason for further review:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        {% for text in data['mqp']%}
+        <li>{{text}}</li>
+        {% endfor %}
+      </ul>
+
+   <br>
+
    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
    {{ govukWarningText({
