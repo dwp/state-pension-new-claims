@@ -31,15 +31,24 @@ GOV.UK Prototype Kit
         <form method="post">
 
           <h1 class="govuk-heading-xl">
-            Applying for a pension from {{data['country-1']}}</h1>
+            Entitlement to a pension from {{data['country-1']}}</h1>
     
-    <p>You may be entitled to a European Union (EU) pension from {{data['country-1']}} based on the time you lived or worked there.</p>
+    <p>Explain to the claimant that based on their answers, they may be entitled to a European Union (EU) pension from {{data['country-1']}}.</p>
+        
+    <p class="govuk-body">You may need to tell them that:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>if they are already getting their EU pension from {{data['country-1']}} they do not need to apply again</li>
+      <li>EU pensions do not affect how much State Pension the claimant will get</li>
+    </ul>
+
+    <p>If the claimant wants to apply, International Group will send a form out by post when they pick up the task.</p>
     
-    <p>If you want to apply for your pension from {{data['country-1']}}, we will send you a form by post to complete and return to us.</p>
-    
-    <p>If you are already getting your pension from {{data['country-1']}}, you do not need to apply again.</p>
-    
-    <p>EU pensions do not affect how much UK State Pension you will get.</p>
+    <p class="govuk-body">Explain to the claimant:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>they will need to complete and return the form by post</li>
+      <li>when we get the completed form, we'll send a claim to the Foreign Authority</li>
+      <li>the Foreign Authority will review the claim and confirm whether or not the claimant can get a pension from them</li>
+    </ul>
     
     <br><br><br>
     
@@ -78,59 +87,21 @@ GOV.UK Prototype Kit
             Continue
           </button>
 
-      <br><br><br>
+      <br><br><br><br><br>
 
       <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
           <details class="govuk-details" data-module="govuk-details">
           <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-          <b>URL, errors and notes</b>
+          <b>URL and notes</b>
           </span>
           </summary>
           <div class="govuk-details__text">
-          <b>URL: <br><br>
-            Error messages:<br><br>
-
-            <br>
-
-              Country</b><br>
-                Empty: Enter the country they lived or worked in<br><br>
-
-                <b>All dates empty:</b> Enter either the dates they lived or worked there<br>[Highlight all date fields]<br><br>
-
-<b>Dates they lived there</b><br>
-If any worked date entered and both lived dates are empty then ignore lived section.<br><br>
-
-            <b>  From</b><br>
-                Empty but 'to' date complete: Enter the date they lived there from<br>
-                Format: Enter a real date as a month and a year, like 06 1983<br>
-                Future: The date they lived there from must be in the past <br><br>
-
-          <b>To</b><br>
-                Empty but 'from' date complete: Enter the date they lived there to<br>
-                Format: Enter a real date as a month and a year, like 06 1983<br>
-                Sequence: The 'to' date must be after the 'from' date<br>
-                Future: The date they lived there to must be in the past
-
-                <br><br>
-
-                <b>Dates they worked there</b><br>
-                If any lived dated entered and both worked dates are empty then ignore worked section.<br><br>
-
-                                    <b>  From</b><br>
-                                        Empty but 'to' date complete: Enter the date they worked there from<br>
-                                        Format: Enter a real date as a month and a year, like 06 1983<br>
-                                        Future: The date they worked there from must be in the past <br><br>
-
-                                  <b>To</b><br>
-                                        Empty but 'from' date complete: Enter the date they worked there to<br>
-                                        Format: Enter a real date as a month and a year, like 06 1983<br>
-                                        Sequence: The 'to' date must be after the 'from' date<br>
-                                        Future: The date they worked there to must be in the past <br><br>
-
-                                  <b>Social Security or National Insurance number</b><br>
-                                    Length: Social Security or National Insurance number must have 24 characters or less<br>
-                                    Format: Enter a real Social Security or National Insurance number<br>
+          <b>URL:</b> /entitlement-eu-pension <br>
+          <b> Notes:</b> Link to 
+              <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B81677BD0-8555-45D4-884A-45795D31BDC4%7D&file=GYSP-telephone-claim-form-SoT.xlsx&action=default&mobileredirect=true" 
+              class="govuk-link" rel="noreferrer noopener" target="_blank">content source of truth (opens in new tab)</a>
+            
 
 
           </div>
