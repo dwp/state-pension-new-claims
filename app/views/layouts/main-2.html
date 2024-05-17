@@ -1,0 +1,34 @@
+{% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
+
+{% block header %}
+  {{ 
+      govukHeader({
+          homepageUrl: "/",
+          serviceName: serviceName,
+          serviceUrl: "/",
+          containerClasses: "govuk-width-container",
+          useTudorCrown: true,
+          
+          navigation: [
+          {
+            href: "#1",
+            text: "Find someone",
+            active: true
+          },
+          {
+            href: "#1",
+            text: "Tasks",
+            active: false
+          },
+          {
+            href: "#2",
+            text: "Telephone claims"
+          },
+          {
+            href: "#3",
+            text: "Paper claims"
+          }
+        ]
+      })
+}}
+{% endblock %} 
