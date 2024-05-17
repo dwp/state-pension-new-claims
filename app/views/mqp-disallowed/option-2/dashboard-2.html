@@ -9,16 +9,8 @@
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-{% set html %}
-  <h3 class="govuk-notification-banner__heading">
-    Claim disallowed
-  </h3>
-  <p class="govuk-body">Contact <a class="govuk-notification-banner__link" href="#">example@department.gov.uk</a> if you think there’s a problem.</p>
-{% endset %}
-
 {{ govukNotificationBanner({
-  html: html,
-  type: "success"
+  text: "Task postponed"
 }) }}
         
       <br>

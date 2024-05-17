@@ -77,6 +77,7 @@ const fraud = require('./routes/fraud')
 const citizen = require('./routes/citizen')
 const mqp = require('./routes/mqp')
 const option1 = require('./routes/mqp')
+const option2 = require('./routes/mqp')
 // copy the router use and update the sprint version
 router.use(newclaims)
 router.use(bpviteration)
@@ -143,4 +144,5 @@ router.use(otherbenefits)
 router.use(citizen)
 router.use(mqp)
 router.use(option1)
+router.use(option2)
 module.exports = router
