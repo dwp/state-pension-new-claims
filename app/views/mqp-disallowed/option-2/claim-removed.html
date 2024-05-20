@@ -4,7 +4,7 @@
 
 {% include './_bar.html' %}
 
-<form method="post" action="dashboard-3">
+<form method="post" action="citizen-record">
 
   {{ govukBackLink({
     "text": "Back",
@@ -17,15 +17,6 @@
 <h1 class="govuk-heading-xl">Remove claim from GySP</h1>
 
    <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
-
-   <br>
-
-   <p>Reason for further review:</p>
-      <ul class="govuk-list govuk-list--bullet">
-        {% for text in data['mqp-reason']%}
-        <li>{{text}}</li>
-        {% endfor %}
-      </ul>
 
    <br>
   

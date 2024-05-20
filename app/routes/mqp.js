@@ -13,16 +13,19 @@ router.post('/mqp-answer', function(request, response) {
   }
 })
 
-router.post('/mqp-disallowed/option-2/confirm-disallowance', function (req, res) {
-  if (req.body['disallowClaim'] === 'yes') {
+router.post('/mqp-disallowed/option-2/check-qualifying-years', function (req, res) {
+  if (req.body['howToContinue'] === 'postpone') {
+    res.redirect('claim-postponed')
+  } else if (req.body['howToContinue'] === 'pscs') {
+    res.redirect('claim-removed')
+  } else if (req.body['howToContinue'] === 'disallow') {
     res.redirect('claim-disallowed')
-  } else {
-    res.redirect('record-reason')
   }
 })
 
+
 router.post('/mqp-disallowed/option-2/start-routing', function (req, res) {
-  res.redirect('confirm-disallowance')
+  res.redirect('check-qualifying-years')
 })
 
 module.exports = router
