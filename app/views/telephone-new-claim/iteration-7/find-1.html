@@ -37,15 +37,18 @@ GOV.UK Prototype Kit
       </strong> -->
 </p>
 
-<!-- <div class="govuk-warning-text">
+{% if data['nino'] === 'QQ 12 34 56 X' %}
+
+ <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
-    <span class="govuk-warning-text__assistive">Warning</span>
+    <span class="govuk-warning-text__assistive"></span>
     This claimant has currently deferred their State Pension.
   </strong>
-</div> -->
+</div>
 
-<!-- Tell them they cannot defer more than once.-->
+
+<!-- <p>Tell them they cannot defer more than once.</p> -->
 
 
 </div>
@@ -56,7 +59,7 @@ GOV.UK Prototype Kit
         </button>
         </a>
 
-        <p><a href="find" class="govuk-link">The claimant's name does not match</a></p>
+        <!-- <p><a href="find" class="govuk-link">The claimant's name does not match</a></p> -->
 
 
       </div>
@@ -83,6 +86,58 @@ GOV.UK Prototype Kit
 
 </main>
 </div>
+
+{% else %} 
+
+<!-- <div class="govuk-warning-text">
+  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+  <strong class="govuk-warning-text__text">
+    <span class="govuk-warning-text__assistive"></span>
+    This claimant has currently deferred their State Pension.
+  </strong>
+</div> -->
+
+
+<!-- Tell them they cannot defer more than once.-->
+
+
+</div>
+
+<br>
+        <a href="dob" button type="submit" class="govuk-button">
+          Continue
+        </button>
+        </a>
+
+        <p><a href="find" class="govuk-link">The claimant's name does not match</a></p> 
+
+
+      </div>
+      <br>
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> /confirm-full-name <br>
+        </div>
+        <div class="govuk-details__text">
+          <b>Errors:</b> None<br>
+        </div>
+      </details>
+    </div>
+
+    
+
+</div>
+  </div>
+
+</main>
+</div>
+
+{% endif %} 
 
 {% endblock %}
 
