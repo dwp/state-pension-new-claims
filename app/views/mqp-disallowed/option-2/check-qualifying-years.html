@@ -2,57 +2,66 @@
 
 {% block content %}
 
-{% include './_bar.html' %}
-
-<br>
-
 <form class="form" method="post">
 
-  {{ govukBackLink({
-    "text": "Back",
-    "href": "javascript: window.history.go(-1)"
-  })
-}}
+{% include './_bar.html' %}
 
-<br><br>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+    <br>
 
-{{ govukRadios({
-  name: "howToContinue",
-  fieldset: {
-    legend: {
-      text: "Can you confirm the claimant has less than 10 qualifying years?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
-    }
-  },
-  items: [
-    {
-      value: "postpone",
-      text: "No - postpone task due to FRY posting"
-    },
-    {
-      value: "pscs",
-      text: "No - remove from GySP"
-    },
-    {
-      divider: "or"
-    },
-    {
-      value: "disallow",
-      text: "Yes - send a letter to tell the claimant they are not entitled to State Pension as they have less than 10 qualifying years"
-    }
-  ]
-}) }}
-  
-   <br><br><br>
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
 
-    <button class="govuk-button" data-module="govuk-button">
-     Continue
-    </button>
+    <br><br>
 
-   <br><br><br><br><br>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "howToContinue",
+      fieldset: {
+        legend: {
+          text: "Can you confirm the claimant has less than 10 qualifying years?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "postpone",
+          text: "No - postpone task due to FRY posting"
+        },
+        {
+          value: "pscs",
+          text: "No - remove from GySP"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "disallow",
+          text: "Yes - send a letter to tell the claimant they are not entitled to State Pension as they have less than 10 qualifying years"
+        }
+      ]
+    }) }}
+      
+      <br><br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
     <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
     
@@ -70,14 +79,7 @@
       </div>
     </details>
 
-
-      </div>
-
-    </div>
-
   </div>
-
-</main>
-      </div>
+</div>
 
 {% endblock %}

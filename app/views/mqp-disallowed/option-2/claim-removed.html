@@ -2,38 +2,47 @@
 
 {% block content %}
 
-{% include './_bar.html' %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
 
-<form method="post" action="citizen-record">
+    {% include './_bar.html' %}
 
-  {{ govukBackLink({
-    "text": "Back",
-    "href": "javascript: window.history.go(-1)"
-  })
-}}
+    <form method="post" action="citizen-record">
 
-<br><br>
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
 
-<h1 class="govuk-heading-xl">Remove claim from GySP</h1>
+    <br><br>
 
-   <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
+    <h1 class="govuk-heading-xl">Remove claim from GySP</h1>
 
-   <br>
-  
-   {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+      <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
 
-   {{ govukWarningText({
-     text: "This action cannot be undone",
-     iconFallbackText: "Warning"
-   }) }}
+      <br>
+      
+      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
-<br><br><br>
+      {{ govukWarningText({
+        text: "This action cannot be undone",
+        iconFallbackText: "Warning"
+      }) }}
 
-<button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
-  Send to PSCS
-</button>
+    <br><br><br>
 
-   <br><br><br><br><br>
+    <button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+      Send to PSCS
+    </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
     <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
     
@@ -51,14 +60,7 @@
       </div>
     </details>
 
-
-      </div>
-
-    </div>
-
   </div>
-
-</main>
-      </div>
+</div>
 
 {% endblock %}
