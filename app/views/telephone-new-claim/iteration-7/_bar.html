@@ -15,11 +15,21 @@
             Yara Croft
             {% else %}
             Samira McGill
-            {% endif %} </br>
-                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-                            <strong class="govuk-tag govuk-tag--green">
-                              ready to claim State Pension
-                            </strong>                              </h1>
+            {% endif %}
+
+            {% if data['nino'] === 'QQ 12 34 56 X' %}
+            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+            <strong class="govuk-tag govuk-tag--red">
+              Deferred
+            </strong>  
+            {% else %}
+            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+            <strong class="govuk-tag govuk-tag--green">
+              Ready to claim State Pension
+            </strong>   
+            {% endif %}
+
+          </h1>
         </div>
 
   </div>
