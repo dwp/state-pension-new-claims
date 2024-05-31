@@ -19,15 +19,15 @@ router.post('/paperclaims/iteration-5c/marital-status', function (req, res) {
 
 // Iteration 9 (POST SPA)
 
-router.post('/paperclaims/iteration-9/find-1', function (req, res) {
-  if (req.body.process === 'yes') {
-    res.redirect('/paperclaims/iteration-9/ni')
+router.post('/paperclaims/iteration-9/find', function (req, res) {
+  if (req.body.nino === 'QQ 12 34 56 X') {
+    res.redirect('/paperclaims/iteration-9/deferred')
   } else {
-    res.redirect('/paperclaims/iteration-9/drop-out')
+    res.redirect('/paperclaims/iteration-9/dob')
   }
 })
 
-router.post('/paperclaims/iteration-9/ni', (req, res) => {
+router.post('/paperclaims/iteration-9/deferred', (req, res) => {
   res.redirect('/paperclaims/iteration-9/dob')
 })
 
