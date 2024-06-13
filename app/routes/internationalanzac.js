@@ -63,8 +63,13 @@ router.post('/international-task/anzac-cfn1282-iteration-1/sp-increase', functio
   }
 })
 
-router.post('/international-task/anzac-cfn1282-iteration-1/calculate-anzac-routing', function (req, res) {
-  res.redirect('check-award-anzac')
+router.post('/international-task/anzac-cfn1282-iteration-1/calculate-anzac', function (req, res) {
+
+  if (req.body['addsp1'] === '185.15') {
+    res.redirect('enter-pp-anzac')
+  } else {
+    res.redirect('check-award-anzac')
+  }
 })
 
 router.post('/international-task/anzac-cfn1282-iteration-1/rf1-task', function (req, res) {
@@ -155,3 +160,5 @@ router.post('/international-task/anzac-cfn1282-current/sp-increase', function (r
     res.redirect('get-a-task-2')
   }
 })
+
+

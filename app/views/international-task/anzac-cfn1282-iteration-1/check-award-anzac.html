@@ -1,0 +1,147 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+                  <br><br>
+
+        <form method="post" action="upload">
+
+<!-- <h1 class="govuk-heading-l">1. Calculate new award</h1>
+
+<p class="govuk-body">
+  Use the VOLNICs calculator to work out how much the claimant's State Pension will increase. You may also need information from:</p>
+<ul class="govuk-list govuk-list--bullet">    <li>OLE</li>
+    <li>the CFN1282</li>
+    <li>the RF1</li>
+  </ul>
+<p class="govuk-body">Record the increase on a 975 form.</p> -->
+
+<h1 class="govuk-heading-l">Check award</h1>
+
+<br>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      New State Pension
+    </dt>
+    <dd class="govuk-summary-list__value-numeric">
+      {% if data.addsp1 %}
+      £{{data.addsp1}}
+      {% else %}
+      £0.00
+      {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="govuk-link" href="calculate-anzac">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Protected payment
+    </dt>
+    <dd class="govuk-summary-list__value-numeric">
+      {% if data.protectedPayment %}
+      £{{data.protectedPayment}}
+      {% else %}
+      £0.00
+      {% endif %}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      {% if data.protectedPayment %}
+      <a class="govuk-link" href="enter-pp-anzac">Change<span class="govuk-visually-hidden"> protected payment amount</span></a>
+      {% else %}
+      <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> protected payment amount</span></a>
+      {% endif %}
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Total
+    </dt>
+    <dd class="govuk-summary-list__value-numeric">
+      {% if data.addsp1 and data.protectedPayment %}  
+       £{{ data.addsp1 | float + data.protectedPayment | float }} per week
+        {% else %}
+        £{{data.addsp1}}
+        {% endif %}	
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl> 
+
+<br><br><br>   
+
+    <button class="govuk-button" data-module="govuk-button">
+      Confirm and continue
+    </button>
+
+    <br><br><br><br><br>
+
+<hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+<br>
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+            <b>URL and notes</b>
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <b>URL:</b>check-award<br>
+            
+            <b>Notes:</b> If the award cannot be changed due to a conflicting ANZaC payment, the agent will be shown <a href="conflicting-award" class="govuk-link">screen 1</a>,<a href="conflicting-award-2" class="govuk-link">screen 2</a>, or <a href="conflicting-award-3" class="govuk-link">screen 3</a> depending on conditions. <br>
+            <br>
+              <p class="govuk-body">Link to
+                <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B6066B1E4-A06C-4E42-A7CC-5CD2D2693D97%7D&file=EEA-mixed-SoT.xlsx&nav=MTVfe0YwNEVFQTQ1LTM4OEYtNDIxRS05RUYwLTA2NzRFQzVDNDY2Nn0&action=default&mobileredirect=true" 
+                class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+              </p>
+          </div>
+        </details>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
