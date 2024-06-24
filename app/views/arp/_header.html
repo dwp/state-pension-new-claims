@@ -1,0 +1,26 @@
+{% from "govuk/components/header/macro.njk" import govukHeader %}
+
+{{ govukHeader({
+  homepageUrl: "#",
+  serviceName: "Get your State Pension",
+  serviceUrl: "#",
+  navigation: [
+    {
+      href: "#",
+      text: "Find someone",
+    },
+    {
+      href: "#",
+      text: "Tasks"
+      active: true
+    },
+    {
+      href: "#",
+      text: "Paper claims"
+    },
+    {
+      href: "#",
+      text: "Telephone claims"
+    }
+  ]
+}) }}

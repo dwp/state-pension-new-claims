@@ -78,6 +78,7 @@ const citizen = require('./routes/citizen')
 const mqp = require('./routes/mqp')
 const option1 = require('./routes/mqp')
 const option2 = require('./routes/mqp')
+const arp = require('./routes/arp')
 // copy the router use and update the sprint version
 router.use(newclaims)
 router.use(bpviteration)
@@ -145,4 +146,5 @@ router.use(citizen)
 router.use(mqp)
 router.use(option1)
 router.use(option2)
+router.use(arp)
 module.exports = router
