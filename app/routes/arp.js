@@ -31,7 +31,7 @@ router.post('/arp/iteration-1/srb-question', function (req, res) {
 
 router.post('/arp/iteration-1/gmp-question', function (req, res) {
   if (req.body['gmpQuestion'] === 'yes') {
-    res.redirect('upload-documents')
+    res.redirect('upload-documents-2')
   } else {
     res.redirect('ca1741-requested')
 }
@@ -39,10 +39,10 @@ router.post('/arp/iteration-1/gmp-question', function (req, res) {
 
 router.post('/arp/iteration-1/gmp-question-2', function (req, res) {
   if (req.body['gmpQuestion2'] === 'yes') {
-    res.redirect('upload-documents')
+    res.redirect('upload-documents-2')
   } else if (req.body['gmpQuestion2'] === 'no') {
     res.redirect('claim-removed')
-  } else { res.redirect('citizen-record-3')
+  } else { res.redirect('postpone-task')
 }
 })
 
