@@ -13,19 +13,42 @@ router.post('/mqp-answer', function(request, response) {
   }
 })
 
-router.post('/mqp-disallowed/option-2/check-qualifying-years', function (req, res) {
-  if (req.body['howToContinue'] === 'postpone') {
-    res.redirect('claim-postponed')
-  } else if (req.body['howToContinue'] === 'pscs') {
+router.post('/arp/iteration-1/maxwell-question', function (req, res) {
+  if (req.body['maxwellQuestion'] === 'yes') {
+    res.redirect('ca1741-requested')
+  } else {
+    res.redirect('upload-documents')
+}
+})
+
+router.post('/arp/iteration-1/srb-question', function (req, res) {
+  if (req.body['srbQuestion'] === 'yes') {
+    res.redirect('dashboard')
+  } else {
+    res.redirect('maxwell-question')
+}
+})
+
+router.post('/arp/iteration-1/gmp-question', function (req, res) {
+  if (req.body['gmpQuestion'] === 'yes') {
+    res.redirect('upload-documents')
+  } else {
+    res.redirect('ca1741-requested')
+}
+})
+
+router.post('/arp/iteration-1/gmp-question-2', function (req, res) {
+  if (req.body['gmpQuestion2'] === 'yes') {
+    res.redirect('upload-documents')
+  } else if (req.body['gmpQuestion2'] === 'no') {
     res.redirect('claim-removed')
-  } else if (req.body['howToContinue'] === 'disallow') {
-    res.redirect('claim-disallowed')
-  }
+  } else { res.redirect('citizen-record-3')
+}
 })
 
 
-router.post('/mqp-disallowed/option-2/start-routing', function (req, res) {
-  res.redirect('check-qualifying-years')
+router.post('/arp/iteration-1/start-routing', function (req, res) {
+  res.redirect('maxwell-question')
 })
 
 module.exports = router
