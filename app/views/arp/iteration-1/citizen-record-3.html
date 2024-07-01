@@ -7,15 +7,39 @@
 
         <div>
           <h1 class="govuk-heading-l">
-            Bob Dobalina <br>
+            Otto Kirch <br>
                             <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-                            <strong class="govuk-tag govuk-tag--red">
-                              Claim unsuccessful
+                            <strong class="govuk-tag govuk-tag--green">
+                              Ready to claim State Pension
                             </strong>
           </h1>
         </div>
 
+        {% if postpone %}
+          <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Success
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <h3 class="govuk-notification-banner__heading">
+                Task complete
+              </h3>
+            </div>
+          </div>
+        {% endif %}
+
         <br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Waiting for CA1741 from HMRC. 
+            <p><a href="gmp-question" class="govuk-link"><b>Confirm CA1741 returned.</b></a></p>
+          </strong>
+        </div>
 
         <nav class="navigation-secondary">
           <ul>
@@ -74,25 +98,28 @@
             </tbody>
           </table>
       </div>
-      <div class="govuk-grid-column-one-third">
-            {% from "timeline/macro.njk" import dwpTimeline %}
 
-              {{
-                  dwpTimeline({ 
-                    title: "Personal changes",
-                      events: [
-                      {
-                          state: "Less than 10 qualifying years. Claim unsuccessful. Letter sent to claimant",
-                          date: "17 May 2024"
-                      },
-                      {
-                          state: "Number of qualifying years checked",
-                          date: "17 May 2024"
-                      }
-                      ]
-                  })
-              }}
+      <div class="govuk-grid-column-one-third">
+
+        <div class="dwp-timeline">
+          <h1 class="govuk-heading-m">Personal changes</h1>
+            <ol class="dwp-timeline__events">
+              <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">CA1741 correction requested</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
+                <p class="govuk-caption-m">19 May 2024</p>
+              </li>
+              
+              <li class="dwp-timeline__events--entry">
+                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">CA1741 requested</h2>
+                <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
+                <p class="govuk-caption-m">17 May 2024</p>
+              </li>
+            </ol>
+        </div>
+
       </div>
+      
     </div>
   </main>
 </div>

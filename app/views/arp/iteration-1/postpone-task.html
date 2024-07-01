@@ -5,28 +5,28 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-{% include './_bar.html' %}
+<form method="post" action="dashboard">
 
-{{ govukBackLink({
-  "text": "Back",
-  "href": "javascript: window.history.go(-1)"
-})
+  {% include './_bar.html' %}
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
 }}
 
 <br><br>
 
-<form method="post" action="dashboard">
+<h1 class="govuk-heading-l">Postpone task</h1>
 
-  <h1 class="govuk-heading-xl">CA1741 requested</h1>
+<br>
 
-  <p>An email will be sent to HMRC to request a CA1741.</p>
-  
-   <br><br><br>
+<p>Postpone this task to put it back in the queue for 28 days.</p>
 
-    <button class="govuk-button" data-module="govuk-button">
-      Continue
-    </button>
+<br><br><br>
 
+<button class="govuk-button" data-module="govuk-button">
+Postpone task    </button>
 
    <br><br><br><br><br>
 
@@ -47,7 +47,7 @@
         </span>
       </summary>
       <div class="govuk-details__text">
-        <b>URL:</b> <br>
+        <b>URL:</b>#<br>
         <b>Notes:</b> None <br>
       </div>
     </details>

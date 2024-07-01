@@ -20,7 +20,7 @@
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "gmpQuestion",
+      name: "gmpQuestion2",
       fieldset: {
         legend: {
           text: "Does GMP amount on OLE match CA1741?",
@@ -42,9 +42,18 @@
       
       <br><br><br>
 
-        <button class="govuk-button" data-module="govuk-button">
-        Continue
-        </button>
+        {% from "govuk/components/button/macro.njk" import govukButton %}
+
+        <div class="govuk-button-group">
+          {{ govukButton({
+            text: "Continue"
+          }) }}
+
+          {{ govukButton({
+            text: "Postpone task",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
 
       <br><br><br><br><br>
 
