@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">Check if CFN901 needed</h1>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Spain</caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Lived</th>
+          <td class="govuk-table__cell">September 1990 to June 1991</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">France</caption>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Lived</th>
+          <td class="govuk-table__cell">June 1994 to October 1997</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Worked</th>
+          <td class="govuk-table__cell">June 1994 to October 1997</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+<br><br>
+
+<div class="govuk-form-group">
+<fieldset class="govuk-fieldset" aria-describedby="send-cfn901-hint">
+<h1 class="govuk-heading-m">Do you need to send a CFN901 to the claimant?</h1>
+
+<div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="send-cfn901" name="send-cfn901" type="radio" value="yes">
+<label class="govuk-label govuk-radios__label" for="send-cfn901">
+Yes
+</label>
+</div>
+<div class="govuk-radios__item">
+<input class="govuk-radios__input" id="send-cfn901-2" name="send-cfn901" type="radio" value="no">
+<label class="govuk-label govuk-radios__label" for="send-cfn901-2">
+No
+</label>
+</div>
+</div>
+</fieldset>
+</div>
+
+<br><br><br>
+
+<button class="govuk-button" data-module="govuk-button">
+Continue
+</button>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b> /cfn901-needed  <br>
+<b>Notes:</b> None <br>
+</div>
+</details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,141 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+  <h1 class="govuk-heading-l">Check if MQP can be met based on time spent living or working abroad</h1>
+
+  <p class="govuk-body">Perhaps some content about using OLE/NIRs to check if the claimant meets MQP with their time abroad.</p>
+
+  <br>
+
+  <div class="govuk-inset-text">
+    The claimant currently has <b>6 qualifying years</b> in the UK
+  </div>
+
+  <br><br><br>
+
+  <table class="govuk-table">
+    <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Norway</h2>
+    <br><br>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Lived</th>
+        <td class="govuk-table__cell">Aug 1982 to Mar 1986</td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Worked</th>
+        <td class="govuk-table__cell">Aug 1982 to Mar 1986</td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+
+  <table class="govuk-table">
+    <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Croatia</h2>
+    <br><br>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Lived</th>
+        <td class="govuk-table__cell">Mar 1986 to Sept 1993</td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Worked</th>
+        <td class="govuk-table__cell">Mar 1986 to Aug 1993</td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br>
+
+  <table class="govuk-table">
+    <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Switzerland</h2>
+    <br><br>
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Lived</th>
+        <td class="govuk-table__cell">Feb 1994 to Apr 1996</td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+      <tr class="govuk-table__row">
+        <th scope="row" class="govuk-table__header">Worked</th>
+        <td class="govuk-table__cell">Feb 1994 to Apr 1996</td>
+        <td class="govuk-table__cell"></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br><br><br>
+
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "mqpMet",
+  fieldset: {
+    legend: {
+      text: "Can MQP be met?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+ </div>
+</div>
+
+<br><br><br>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+  <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+    <b>URL and notes</b>
+    </span>
+    </summary>
+    <div class="govuk-details__text">
+    <b>URL:</b>existing<br>
+    <b>Notes:</b> None <br>
+    </div>
+  </details>
+
+  </form>
+
+  </div>
+</div>
+
+{% endblock %}

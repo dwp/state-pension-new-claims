@@ -28,4 +28,14 @@ router.post('/mqp-disallowed/option-2/start-routing', function (req, res) {
   res.redirect('check-qualifying-years')
 })
 
+// EEA boost - part 1
+
+router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901', function (req, res) {
+  if (req.body['send-cfn901'] === 'yes') {
+    res.redirect('print-and-send-form')
+  } else {
+    res.redirect('check-mqp-met')
+  }
+})
+
 module.exports = router
