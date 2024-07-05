@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post" action="citizen-record">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">Print and send the form</h1>
+
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      This claimant asked for letters in Braille.
+      </strong>
+    </div>
+
+    <h1 class="govuk-heading-m">1. Enter the information</h1>
+
+    <p>Enter this information into the CFN901 system</p>
+
+    <table class="govuk-table">
+      <!--<caption class="govuk-table__caption govuk-table__caption--m">Countries claimant has lived or worked in</caption>-->
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Norway</th>
+          <td class="govuk-table__cell" style="width: 50%">Lived and worked</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Croatia</th>
+          <td class="govuk-table__cell">Lived and worked</td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Switzerland</th>
+          <td class="govuk-table__cell">Lived and worked</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+<!--  <p>Include this information on the United States letter.</p>-->
+
+<br>
+
+<h1 class="govuk-heading-m">2. Print and post the form</h1>
+
+<p>Print and send it to the claimant with a reply envelope.</p>
+
+<table class="govuk-table">
+  <!--<caption class="govuk-table__caption govuk-table__caption--m">Claimant</caption>-->
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <th scope="row" class="govuk-table__header">Address</th>
+      <td class="govuk-table__cell">8 Mill Road<br>
+        Edinburgh<br>
+        EH23 1GR</td>
+    </tr>
+  </tbody>
+</table>
+
+<br><br><br>
+
+<button class="govuk-button" data-module="govuk-button">
+  Confirm CFN901 sent
+</button>
+
+<br>
+
+<!--<p><a href="#" class="govuk-link govuk-link--no-visited-state">CFN901 sent recently</a></p>-->
+
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b>existing<br>
+<b>Notes:</b> None <br>
+</div>
+</details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
