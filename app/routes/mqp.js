@@ -30,11 +30,23 @@ router.post('/mqp-disallowed/option-2/start-routing', function (req, res) {
 
 // EEA boost - part 1
 
+router.post('/mqp-disallowed/eea-boost/part-1/start-routing', function (req, res) {
+  res.redirect('check-cfn901')
+})
+
 router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901', function (req, res) {
   if (req.body['send-cfn901'] === 'yes') {
     res.redirect('print-and-send-form')
   } else {
     res.redirect('check-mqp-met')
+  }
+})
+
+router.post('/mqp-disallowed/eea-boost/part-1/check-mqp-met', function (req, res) {
+  if (req.body['mqpMet'] === 'yes') {
+    res.redirect('request-records')
+  } else {
+    res.redirect('do-not-request-records')
   }
 })
 
