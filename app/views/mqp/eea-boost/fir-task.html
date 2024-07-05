@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+                  <br><br>
+
+<form class="form" action="fir-task" method="post">
+
+<h1 class="govuk-heading-l">Check for insurance records</h1>
+
+<div id="hint" class="govuk-hint">
+You can find these in RINA or CAMlite.   </div>
+<br>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset" aria-describedby="norway-records-hint">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          Have we received the records from Norway?
+        </h2>
+      </legend>
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="norwayRecords" name="norwayRecords" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="norwayRecords">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="norwayRecords" name="norwayRecords" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="norwayRecords">
+            No
+          </label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="spain-records-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+          Have we received the records from Spain?
+      </h2>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="spainRecords" name="spainRecords" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="spainRecords">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="spainRecords" name="spainRecords" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="spainRecords">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+<br>
+<br><br><br><br><br>
+
+<hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+
+<br>
+               
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> existing <br>
+          <b>Notes:</b><br>
+          If "Yes" to some and a reminder has not been sent, go to <a href="record-request-reminder" class="govuk-link">send a reminder</a><br>
+          If "Yes" to some and a reminder has been sent, go to <a href="change-award-1" class="govuk-link">check information</a><br>
+          If "No" to all and a reminder has not been sent, go to <a href="record-request-reminder" class="govuk-link">send a reminder</a><br>
+          If "No" to all and a reminder has been sent, go to <a href="no-increase-letter-1" class="govuk-link">no change</a><br>
+          <br>
+          <p class="govuk-body">Link to
+            <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B6066B1E4-A06C-4E42-A7CC-5CD2D2693D97%7D&file=EEA-mixed-SoT.xlsx&nav=MTVfezE4RjNCQ0VDLTIxRDItNEYwRS1BRUJBLTIwRkZBQzgyRkNFNn0&action=default&mobileredirect=true" 
+            class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+          </p>
+        </div>
+      </details>
+
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

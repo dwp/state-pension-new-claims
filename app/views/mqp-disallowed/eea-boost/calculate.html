@@ -1,0 +1,205 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+          <br><br>
+
+        <form method="post" action="calculate-routing">
+
+          <h1 class="govuk-heading-l">1. Calculate the award</h1>
+          
+          <p>
+           Use the NSP processing and calculation tool to calculate the claimant's award based on the time they spent in the EEA.
+          </p>
+
+          <br><br>
+
+          {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+{{ govukWarningText({
+  text: "Check DRS for details of existing EEA increases to use in your calculation.",
+  iconFallbackText: "Warning"
+}) }}
+
+<br>
+
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header award_detail2" scope="col">State Pension date</th>
+                <td class="govuk-table__cell award_detail">25 June 2022
+          </td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header award_detail2" scope="col">Uprating year for calculation</th>
+                <td class="govuk-table__cell award_detail">2022
+          </td>
+              </tr>
+            </thead>
+          </table>
+
+          <br><br><br>
+
+          <table class="govuk-table">
+            <h2 class="govuk-heading-m">Norway</h2>
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">Jun 1992 to Dec 1998</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">Jul 1992 to Dec 1998</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br><br>
+
+          <table class="govuk-table">
+            <h2 class="govuk-heading-m">Spain</h2>
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">May 2000 to Nov 2002</td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">Jul 2000 to Nov 2002</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br><br><br>
+
+          <div class="govuk-form-group">
+            <h2 class="govuk-heading-l">2. Enter new State Pension amount</h2>
+
+            <div class="govuk-hint">
+              For example, 123.45.
+            </div>
+                   <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-10" id="addsp11" name="addsp1" type="text" spellcheck="false">
+                  </div>
+        </div>
+
+        <br><br>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h2 class="govuk-fieldset__heading">
+                Do you need to enter a protected payment amount?
+              </h2>
+            </legend>
+            <div id="contact-hint" class="govuk-hint">
+           
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="protected" name="protected" type="radio" value="yes" data-aria-controls="conditional-protectedPayment">
+                <label class="govuk-label govuk-radios__label" for="protected">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-protectedPayment">
+                <div class="govuk-form-group">
+                  <label class="govuk-label" for="protectedPayment">
+                    Enter protected payment amount
+                  </label>
+                  <div class="govuk-hint">
+                    For example, 43.21.
+                  </div>
+                  <div class="govuk-input__wrapper">
+                    <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                    <input class="govuk-input govuk-input--width-10" id="pp1" name="protectedPayment" type="text" spellcheck="false">
+                  </div>
+                </div>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="protected3" name="protected" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="protectedPayment2">
+                  No
+                </label>
+              </div>
+
+          <br><br><br>
+
+          {% from "govuk/components/button/macro.njk" import govukButton %}
+
+          <button type="submit" class="govuk-button" data-module="govuk-button">
+            Confirm award calculated
+          </button>
+
+          <br><br><br><br><br>
+
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+        
+        <br>
+                       
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                  <b>URL and notes</b>
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <b>URL:</b> calculate-award <br>
+                  <b>Notes:</b> None<br>
+                  <br>
+                  <p class="govuk-body">Link to
+                    <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B6066B1E4-A06C-4E42-A7CC-5CD2D2693D97%7D&file=EEA-mixed-SoT.xlsx&nav=MTVfe0Y2QUI2MTYzLUUyNTUtNDg2OS05REZDLTdFNTkzRjQxN0ZBQ30&action=default&mobileredirect=true" 
+                    class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+                  </p>
+                </div>
+              </details>
+
+        <br>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

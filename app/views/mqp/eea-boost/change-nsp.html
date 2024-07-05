@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+                            <br><br>
+
+        <form method="post" action="change-nsp-routing">
+
+
+                    <div class="govuk-form-group">
+                        <h1 class="govuk-heading-l">Enter new State Pension amount</h1>
+
+                        <span class="govuk-hint">For example, 123.45</span>
+                               <div class="govuk-input__wrapper">
+                                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                                <input class="govuk-input govuk-input--width-10" id="addsp11" name="addsp1" type="text" spellcheck="false">
+                              </div>
+                    </div>
+                          
+                          <br><br><br>
+
+          <button class="govuk-button" data-module="govuk-button">
+           Confirm
+         </button>
+
+
+         <br>
+
+
+
+
+
+         <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+         <br>
+
+                 <details class="govuk-details" data-module="govuk-details">
+                   <summary class="govuk-details__summary">
+                     <span class="govuk-details__summary-text">
+                     <b>URL, errors and notes</b>
+                     </span>
+                   </summary>
+                   <div class="govuk-details__text">
+                     <b>URL:</b> <br>
+                     <b>Error messages:</b> <br>
+                     Less than current amount: New State Pension amount must be £178.50 or more [current amount + £0.01]<br>
+                     Nothing selected: <br>
+                     <b>Notes:</b> None <br>
+                   </div>
+                 </details>
+
+        </form>
+
+      </div>
+    </div>
+</div>
+</div>
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
