@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="start-routing"> 
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">Process claim for EEA pensions</h1>
+
+      <p class="govuk-body">In this task you may need to:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Print and send a CFN901 form to the claimant.</li>
+        <li>Check OLE for potential mixed years.</li>
+        <li>Request insurance records from other countries.</li>
+      </ul>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Start this task
+      </button>
+      <a href="dashboard-3" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+        Return task to queue
+      </a>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <b>URL:</b> Existing<br>
+          <b>Notes:</b> Add link to other start screen here...<br>
+          </div>
+        </details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
