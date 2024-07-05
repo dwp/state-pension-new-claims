@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+          <br><br>
+
+        <form method="post" action="conflicting-award-routing">
+
+          <h1 class="govuk-heading-l">Award will be recorded</h1>
+
+<p>The claimant’s award will not be changed as they are already getting more based on the time they spent in ANZaC countries.</p>
+
+<p>An EEA increase to £x will be recorded as an underlying entitlement. 
+   This will only be used if the claimant moves out of the UK and is no longer entitled to the ANZaC increase. 
+</p>
+
+<br>
+
+<div class="govuk-inset-text">
+  A letter will be automatically sent to the claimant to let them know their State Pension amount will stay the same.
+</div>
+
+          <br><br><br>
+
+<button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
+  Confirm and send letter
+</button>
+
+                <br><br><br><br><br>
+
+                <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+                
+                <br>
+                               
+                      <details class="govuk-details" data-module="govuk-details">
+                        <summary class="govuk-details__summary">
+                          <span class="govuk-details__summary-text">
+                          <b>URL and notes</b>
+                          </span>
+                        </summary>
+                        <div class="govuk-details__text">
+                          <b>URL:</b> award-recorded-letter <br>
+                          <b>Notes:</b> ANZaC award in place, no decision made on EEA as FIRS outstanding at 16 weeks. 
+                          Post 16 weeks FIRS returned, ANZaC award higher. No change to award.<br>
+                          <br>
+                          <p class="govuk-body">Link to
+                            <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B6066B1E4-A06C-4E42-A7CC-5CD2D2693D97%7D&file=EEA-mixed-SoT.xlsx&nav=MTVfezE0RkUxNDhFLTU1N0UtNDQxOC04NTY1LTg2NjRCREM0MEE4MX0&action=default&mobileredirect=true" 
+                            class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+                          </p>
+                        </div>
+                      </details>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

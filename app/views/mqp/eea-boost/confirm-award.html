@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% include './_bar.html' %}
+
+{{ govukBackLink({
+  text: "Back",
+  href: "javascript:history.go(-1)"
+                  }) }}
+
+          <br><br>
+
+        <form method="post" action="get-a-task-2">
+
+          <h2 class="govuk-heading-l">Confirm change to award</h2>
+
+          <p>The updated award includes any upratings, SRBs, ESPs and inheritance. 
+            <br>It may be different to the amount you entered.</br> 
+          </p>
+
+          <br><br>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Updated award</th>
+                <td class="govuk-table__cell"><b>{% if data.addsp1 and data.protectedPayment %}  
+                  £{{ data.addsp1 | float + data.protectedPayment | float }} per week
+                  {% else %}
+                  £{{data.addsp1}}
+                  {% endif %}	</th></b></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">From</th>
+                <td class="govuk-table__cell">13 September 2022</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <br>
+
+          <div class="govuk-inset-text">
+          This will automatically pay any arrears and send an award letter to the claimant. 
+          </div>
+
+          <br><br><br>
+
+
+<button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
+  Confirm and send letter
+</button>
+
+<br><br><br><br><br>
+
+<hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+
+<br>
+               
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL and notes</b>
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <b>URL:</b> existing <br>
+          <b>Notes:</b> If the award cannot be changed due to a conflicting ANZaC payment, the agent will be shown <a href="conflicting-award" class="govuk-link">this screen</a>.
+          <br>
+          <br>
+          <p class="govuk-body">Link to
+            <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B6066B1E4-A06C-4E42-A7CC-5CD2D2693D97%7D&file=EEA-mixed-SoT.xlsx&nav=MTVfezFEQzlCNTEzLTYzNTgtNDg2OS1BOTdDLTYyMjQ3MDg1MEQ2OH0&action=default&mobileredirect=true" 
+            class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+          </p>
+        </div>
+      </details>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

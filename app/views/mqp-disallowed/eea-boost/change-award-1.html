@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+<br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="mixedyearscroatia-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Check the claimant's information
+          </h1>
+        </legend>
+
+        <p>Check the claimant's information to make sure you can continue to calculate a new award.</p>
+
+        <p class="govuk-body">You may need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>compare the foreign insurance records with OLE to confirm there are qualifying mixed years</li>
+          <li>check if the claimant is already entitled to full State Pension</li>
+        </ul>
+
+    <br><br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  classes: "govuk-radios--inline",
+  name: "checkInsurance",
+  fieldset: {
+    legend: {
+      text: "Do you want to continue to calculate a new award?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    }
+  ]
+}) }}
+
+<br><br><br>
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+        <br><br><br><br><br>
+
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+        
+        <br>
+                       
+              <details class="govuk-details" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                  <b>URL and notes</b>
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <b>URL:</b> check-claimants-information <br>
+                  <b>Notes:</b> 
+            <br>Contingent screens if 'no' selected:
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="no-increase-letter-2" class="govuk-link">Outstanding FIRs</a></li>
+              <li><a href="get-a-task-2" class="govuk-link">No outstanding FIRs</a></li>
+              <li><a href="no-increase-letter-3" class="govuk-link">Post 16 weeks - no FIRs outstanding</a></li>
+            </ul> 
+            <br> Task will be postponed if: 
+            <ul class="govuk-list govuk-list--bullet">
+              <li><a href="cannot-change-award-3" class="govuk-link">Award has changed post SPa</a></li>
+              <li><a href="cannot-change-award-2" class="govuk-link">Outstanding SRB task</a></li>
+            </ul> 
+                  <br>
+                  <p class="govuk-body">Link to
+                    <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B6066B1E4-A06C-4E42-A7CC-5CD2D2693D97%7D&file=EEA-mixed-SoT.xlsx&nav=MTVfe0RCRDUzN0JFLUE1OEYtNDBFMy1BRjE3LTJERjQ4RUZCNTY5Qn0&action=default&mobileredirect=true" 
+                    class="govuk-link" rel="noreferrer noopener" target="_blank">Content source of truth (opens in new tab)</a>
+                  </p>
+                </div>
+              </details>
+
+
+        </div>
+
+      </div>
+
+      {% endblock %}
