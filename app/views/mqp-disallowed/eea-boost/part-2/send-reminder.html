@@ -1,0 +1,107 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post" action="dashboard-3">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">Use RINA or the EU liaison tool to send a reminder 
+    </h1>
+    
+    <br><br>
+    
+    
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+    
+    
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Norway</th>
+          <td class="govuk-table__cell">ABC12345D</td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Spain</th>
+          <td class="govuk-table__cell">DC54321BA</td>
+        </tr>
+    
+      </tbody>
+      </table>
+    
+    
+    <br><br>
+    
+      <table class="govuk-table">
+        
+        <caption class="govuk-table__caption govuk-table__caption--m">Claimant details</caption>
+        <br><br>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Address</th>
+            <td class="govuk-table__cell">57 Windsor Road<br>
+        Tunbridge Wells<br>
+        TN84 8IF</td>
+    
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Correspondence address</th>
+            <td class="govuk-table__cell">11 Windsor Road<br>
+      Tunbridge Wells<br>
+      TN84 8IF</td>
+    
+          </tr>
+          <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of birth</th>
+          <td class="govuk-table__cell">12 October 1956</td>
+    
+    
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Sex</th>
+            <td class="govuk-table__cell">Female</td>
+    
+          </tr>
+        </tbody>
+      </table>
+    
+    </div>
+    </div>
+    
+      <br><br>
+    
+    <button class="govuk-button" data-module="govuk-button">
+      Confirm reminder sent
+    </button>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b> <br>
+<b>Notes:</b> None <br>
+</div>
+</details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

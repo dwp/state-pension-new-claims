@@ -74,4 +74,35 @@ router.post('/mqp-disallowed/eea-boost/part-1/date-of-entry', function (req, res
   }
 })
 
+router.post('/mqp-disallowed/eea-boost/part-1/need-request-rf1', function (req, res) {
+  if (req.body['requestRf1'] === 'request-rf1') {
+    res.redirect('request-rf1')
+  } else if (req.body['requestRf1'] === 'rf1-already-received') {
+    res.redirect('send-claim')
+  } else {
+    res.redirect('dashboard-3')
+  }
+})
+
+// EEA boost - part 2
+
+router.post('/mqp-disallowed/eea-boost/part-2/start-4-routing', function (req, res) {
+  res.redirect('check-insurance')
+})
+
+router.post('/mqp-disallowed/eea-boost/part-2/check-insurance', function (req, res) {
+ 
+  let norwayRecords = req.session.data.norwayRecords;
+  let croatiaRecords = req.session.data.croatiaRecords;
+  let swissRecords = req.session.data.swissRecords;
+
+  if (norwayRecords == 'no' && croatiaRecords == 'no' && swissRecords == 'no'){
+      res.redirect('send-reminder');
+     } else if (norwayRecords == 'yes' && croatiaRecords == 'yes' && swissRecords == 'yes'){
+      res.redirect('can-claimant-qualify');
+     } else {
+      res.redirect('can-claimant-qualify-2');
+  }   
+});
+
 module.exports = router
