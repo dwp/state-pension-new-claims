@@ -105,4 +105,22 @@ router.post('/mqp-disallowed/eea-boost/part-2/check-insurance', function (req, r
   }   
 });
 
+router.post('/mqp-disallowed/eea-boost/part-2/can-claimant-qualify', function (req, res) {
+  if (req.body['qualifyingYears'] === 'yes') {
+    res.redirect('calculate-award')
+  } else {
+    res.redirect('claim-unsuccessful')
+  }
+})
+
+router.post('/mqp-disallowed/eea-boost/part-2/can-claimant-qualify-2', function (req, res) {
+  if (req.body['qualifyingYears-2'] === 'yes') {
+    res.redirect('calculate-award')
+  } else if (req.body['qualifyingYears-2'] === 'no') {
+    res.redirect('claim-unsuccessful')
+  } else {
+    res.redirect('send-reminder')
+  }
+})
+
 module.exports = router
