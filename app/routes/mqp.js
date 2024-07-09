@@ -50,4 +50,28 @@ router.post('/mqp-disallowed/eea-boost/part-1/check-mqp-met', function (req, res
   }
 })
 
+router.post('/mqp-disallowed/eea-boost/part-1/returned-rf1', function (req, res) {
+  if (req.body['rf1-returned'] === 'yes') {
+    res.redirect('send-claim')
+  } else {
+    res.redirect('request-rf1-again')
+  }
+})
+
+router.post('/mqp-disallowed/eea-boost/part-1/returned-cfn901', function (req, res) {
+  if (req.body['cfn901-returned'] === 'yes') {
+    res.redirect('dashboard-3')
+  } else {
+    res.redirect('date-of-entry')
+  }
+})
+
+router.post('/mqp-disallowed/eea-boost/part-1/date-of-entry', function (req, res) {
+  if (req.body['dateOfEntry'] === 'after') {
+    res.redirect('send-claim')
+  } else {
+    res.redirect('need-request-rf1')
+  }
+})
+
 module.exports = router

@@ -17,42 +17,40 @@
 
     <br><br>
 
-    <h1 class="govuk-fieldset__heading">
-      Do you need to request an RF1 from HMRC?      </h1>
-          </legend>
-          <br>
-      
-      <br>
-      
-      
-          <div class="govuk-radios govuk-radios" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changed-name" name="changed-name" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="changed-name">
-                Request RF1
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changed-name-2">RF1 already received
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changed-name-2">
-      RF1 requested recently
-              </label>
-            </div>
-        <!--    <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="changed-name-2" name="changed-name" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="changed-name-2">Cannot request RF1
-              </label>
-            </div> -->
-          </div>
-        </fieldset>
-      </div>
-      <br>
-                <button type="submit" class="govuk-button">Continue</button>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "requestRf1",
+      fieldset: {
+        legend: {
+          text: "Do you need to request an RF1 from HMRC?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "request-rf1",
+          text: "Request RF1"
+        },
+        {
+          value: "rf1-already-received",
+          text: "RF1 already received"
+        },
+        {
+          value: "rf1-requested-recently",
+          text: "RF1 requested recently"
+        },
+        {
+          value: "cannot-request-rf1",
+          text: "Cannot request RF1"
+        }
+      ]
+    }) }}
+
+    <br><br><br>
+
+    <button type="submit" class="govuk-button">Continue</button>
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
