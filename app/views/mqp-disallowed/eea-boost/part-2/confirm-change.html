@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post" action="dashboard-3">
+
+      <h1 class="govuk-heading-l">Confirm change to award</h1>
+
+      <p>The updated award includes any upratings, SRBs, ESPs and inheritance. 
+        <br>It may be different to the amount you entered.</br> 
+      </p>
+
+      <br><br>
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Updated award</th>
+            <td class="govuk-table__cell"><b>{% if data.addsp1 and data.protectedPayment %}  
+              £{{ data.addsp1 | float + data.protectedPayment | float }} per week
+              {% else %}
+              £{{data.addsp1}}
+              {% endif %}	</th></b></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">From</th>
+            <td class="govuk-table__cell">13 September 2022</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div class="govuk-inset-text">
+      This will automatically pay any arrears and send an award letter to the claimant. 
+      </div>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and send letter
+      </button>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b> <br>
+<b>Notes:</b> None <br>
+</div>
+</details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
