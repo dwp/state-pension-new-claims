@@ -34,6 +34,14 @@ router.post('/mqp-disallowed/eea-boost/part-1/start-routing', function (req, res
   res.redirect('check-cfn901')
 })
 
+router.post('/mqp-disallowed/eea-boost/part-1/start-2-routing', function (req, res) {
+  res.redirect('returned-cfn901')
+})
+
+router.post('/mqp-disallowed/eea-boost/part-1/start-3-routing', function (req, res) {
+  res.redirect('returned-rf1')
+})
+
 router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901', function (req, res) {
   if (req.body['send-cfn901'] === 'yes') {
     res.redirect('print-and-send-form')
@@ -59,7 +67,7 @@ router.post('/mqp-disallowed/eea-boost/part-1/returned-rf1', function (req, res)
 })
 
 router.post('/mqp-disallowed/eea-boost/part-1/returned-cfn901', function (req, res) {
-  if (req.body['cfn901-returned'] === 'yes') {
+  if (req.body['cfn901-returned'] === 'no') {
     res.redirect('dashboard-3')
   } else {
     res.redirect('date-of-entry')
@@ -88,6 +96,14 @@ router.post('/mqp-disallowed/eea-boost/part-1/need-request-rf1', function (req, 
 
 router.post('/mqp-disallowed/eea-boost/part-2/start-4-routing', function (req, res) {
   res.redirect('check-insurance')
+})
+
+router.post('/mqp-disallowed/eea-boost/part-2/srb', function (req, res) {
+  if (req.body['srbQuestion'] === 'yes') {
+    res.redirect('dashboard-3')
+  } else {
+    res.redirect('check-insurance')
+  }
 })
 
 router.post('/mqp-disallowed/eea-boost/part-2/check-insurance', function (req, res) {
@@ -120,6 +136,15 @@ router.post('/mqp-disallowed/eea-boost/part-2/can-claimant-qualify-2', function 
     res.redirect('claim-unsuccessful')
   } else {
     res.redirect('send-reminder')
+  }
+})
+
+router.post('/mqp-disallowed/eea-boost/part-2/calculate-award', function (req, res) {
+
+  if (req.body['addsp1'] === '185.15') {
+    res.redirect('enter-protected-payment')
+  } else {
+    res.redirect('check-award')
   }
 })
 

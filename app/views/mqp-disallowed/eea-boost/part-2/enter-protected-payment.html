@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post" action="check-award">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+    
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Do you need to enter a protected payment amount?
+          </h1>
+        </legend>
+        
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="protected" name="protected" type="radio" value="yes" data-aria-controls="conditional-protectedPayment">
+            <label class="govuk-label govuk-radios__label" for="protected">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-protectedPayment">
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="protectedPayment">
+                Enter protected payment amount
+              </label>
+              <div class="govuk-hint">
+                For example, 43.21.
+              </div>
+              <div class="govuk-input__wrapper">
+                <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                <input class="govuk-input govuk-input--width-10" id="pp1" name="protectedPayment" type="text" spellcheck="false">
+              </div>
+            </div>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="protected3" name="protected" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="protectedPayment2">
+              No
+            </label>
+          </div>
+
+          <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+     Confirm
+   </button>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b> <br>
+<b>Notes:</b> None <br>
+</div>
+</details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
