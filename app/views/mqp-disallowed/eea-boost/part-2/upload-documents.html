@@ -7,7 +7,15 @@
 
     {% include './_bar.html' %}
 
-    <form method="post" action="confirm-change">
+    <form method="post" action="dashboard-3">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
 
       <h1 class="govuk-heading-l">Upload documents into DRS </h1>
       

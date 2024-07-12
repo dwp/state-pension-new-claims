@@ -43,7 +43,7 @@ router.post('/mqp-disallowed/eea-boost/part-1/start-3-routing', function (req, r
 })
 
 router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901', function (req, res) {
-  if (req.body['send-cfn901'] === 'yes') {
+  if (req.body['sendCfn901'] === 'yes') {
     res.redirect('print-and-send-form')
   } else {
     res.redirect('check-mqp-met')
