@@ -72,26 +72,32 @@
 
 <br><br>
 
-<div class="govuk-form-group">
-<fieldset class="govuk-fieldset" aria-describedby="send-cfn901-hint">
-<h1 class="govuk-heading-m">Do you need to send a CFN901 to the claimant?</h1>
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-<div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-<div class="govuk-radios__item">
-<input class="govuk-radios__input" id="send-cfn901" name="send-cfn901" type="radio" value="yes">
-<label class="govuk-label govuk-radios__label" for="send-cfn901">
-Yes
-</label>
-</div>
-<div class="govuk-radios__item">
-<input class="govuk-radios__input" id="send-cfn901-2" name="send-cfn901" type="radio" value="no">
-<label class="govuk-label govuk-radios__label" for="send-cfn901-2">
-No
-</label>
-</div>
-</div>
-</fieldset>
-</div>
+{{ govukRadios({
+  name: "sendCfn901",
+  fieldset: {
+    legend: {
+      text: "Do you need to send a CFN901 to the claimant?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "yes",
+      text: "Yes"
+    },
+    {
+      value: "no",
+      text: "No"
+    },
+    {
+      value: "held",
+      text: "CFN901 already held"
+    }
+  ]
+}) }}
 
 <br><br><br>
 
