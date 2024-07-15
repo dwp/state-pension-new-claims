@@ -50,6 +50,10 @@ router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901', function (req, res)
   }
 })
 
+router.post('/mqp-disallowed/eea-boost/part-1/print-and-send-form-routing', function (req, res) {
+  res.redirect('check-mqp-met')
+})
+
 router.post('/mqp-disallowed/eea-boost/part-1/check-mqp-met', function (req, res) {
   if (req.body['mqpMet'] === 'yes') {
     res.redirect('request-records')
