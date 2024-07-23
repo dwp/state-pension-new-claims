@@ -1,0 +1,150 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    <form method="post" action="dashboard-3">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">Check for potential mixed years</h1>
+
+    <p class="govuk-body">Use OLE to check if the claimant has any deficient qualifying years.
+    </p>
+
+    <bR><bR>
+
+
+  <form method="post">
+
+    <table class="govuk-table">
+      <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Norway</h2>
+      <br><br>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Lived</th>
+          <td class="govuk-table__cell">Aug 1982 to Mar 1986</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Worked</th>
+          <td class="govuk-table__cell">Aug 1982 to Mar 1986</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="mixed-years-norway-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Are there any mixed years during their time in Norway?
+
+          </h1>
+        </legend>
+        <div id="mixedyearsnorwayhint" class="govuk-hint">
+
+        </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="mixedyearsnorway" name="mixedyearsnorway" type="radio" value="Yes">
+            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="mixedyearsnorway2" name="mixedyearsnorway" type="radio" value="No">
+            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br>
+
+    <table class="govuk-table">
+      <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Switzerland</h2>
+      <br><br>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Lived</th>
+          <td class="govuk-table__cell">Feb 1994 to Apr 1996</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Worked</th>
+          <td class="govuk-table__cell">Feb 1994 to Apr 1996</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="mixedyearsswitzerland-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Are there any mixed years during their time in Switzerland?
+          </h1>
+        </legend>
+        <div id="mixedyearsswitzerland-hint" class="govuk-hint">
+
+        </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="mixedyearsswitzerland" name="mixedyearsswitzerland" type="radio" value="Yes">
+            <label class="govuk-label govuk-radios__label" for="mixedyearsswitzerland">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="mixedyearsswitzerland-2" name="mixedyearsswitzerland" type="radio" value="No">
+            <label class="govuk-label govuk-radios__label" for="mixedyearsswitzerland-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+</div>
+</div>
+
+
+
+<button class="govuk-button" data-module="govuk-button">
+  Continue
+</button>
+
+<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b> <br>
+<b>Notes:</b> None <br>
+</div>
+</details>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
