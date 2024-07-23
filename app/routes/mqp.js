@@ -148,8 +148,10 @@ router.post('/mqp-disallowed/eea-boost/part-2/check-insurance', function (req, r
 router.post('/mqp-disallowed/eea-boost/part-2/can-claimant-qualify', function (req, res) {
   if (req.body['qualifyingYears'] === 'yes') {
     res.redirect('calculate-award')
-  } else {
+  } else if (req.body['qualifyingYears'] === 'no') {
     res.redirect('claim-unsuccessful')
+  } else {
+    res.redirect('dashboard-4')
   }
 })
 
