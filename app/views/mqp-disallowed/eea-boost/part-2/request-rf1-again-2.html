@@ -7,7 +7,7 @@
 
     {% include './_bar.html' %}
 
-    <form method="post">
+    <form method="post" action="dashboard-4">
 
       {{ govukBackLink({
         "text": "Back",
@@ -17,36 +17,16 @@
 
     <br><br>
 
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    <h1 class="govuk-heading-l">Request RF1 from HMRC again</h1>
 
-    {{ govukRadios({
-      name: "qualifyingYears-2",
-      fieldset: {
-        legend: {
-          text: "Can claimant reach 10 qualifying years?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
-        }
-      },
-      hint: {
-        text: "Based on the insurance records received, check if the time spent abroad can help the claimant reach 10 qualifying years. You may need to use the NSP processing and calculation tool."
-      },
-      items: [
-        {
-          value: "yes",
-          text: "Yes"
-        },
-        {
-          value: "notSure",
-          text: "No, some insurance records outstanding"
-        }
-      ]
-    }) }}
-    
+    <p>Use the HMRC RF1 request tool. Add the note: <b>Urgent 2nd request</b>.</p>
+
+    <p> You will need the claimant's name and National Insurance number.</p>
+
     <br><br><br>
-    
+
     <button class="govuk-button" data-module="govuk-button">
-      Continue
+    Confirm RF1 requested
     </button>
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
