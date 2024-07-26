@@ -16,11 +16,11 @@
     }}
 
     <br><br>
-
+    
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "qualifyingYears-2",
+      name: "qualifyingYears",
       fieldset: {
         legend: {
           text: "Can claimant reach 10 qualifying years?",
@@ -37,8 +37,12 @@
           text: "Yes"
         },
         {
-          value: "notSure",
-          text: "No, some insurance records outstanding"
+          value: "no",
+          text: "No"
+        },
+        {
+          value: "rf1",
+          text: "Not sure, I need to request an RF1"
         }
       ]
     }) }}
