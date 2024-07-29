@@ -20,7 +20,11 @@
     <h1 class="govuk-heading-l">1. Calculate the award</h1>
           
           <p>
-           Use the NSP processing and calculation tool to calculate the claimant's award based on the time they spent in the EEA.
+            Use the NSP processing and calculation tool to calculate the claimant's award based on the time they spent in the EEA.
+          </p>
+
+          <p>
+            If there are any mixed years, include these in your calculation.
           </p>
 
           <br><br>
@@ -42,52 +46,62 @@
 
           <br><br><br>
 
+          {% if (data['norwayRecords'] == "yes") %}
           <table class="govuk-table">
             <h2 class="govuk-heading-m">Norway</h2>
 
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Lived</th>
-                <td class="govuk-table__cell">Jun 1992 to Dec 1998</td>
+                <td class="govuk-table__cell">Aug 1982 to Mar 1986</td>
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Worked</th>
-                <td class="govuk-table__cell">Jul 1992 to Dec 1998</td>
+                <td class="govuk-table__cell">Aug 1982 to Mar 1986</td>
               </tr>
             </tbody>
           </table>
-
+      
           <br><br>
 
+          {% endif %}
+
+          {% if (data['croatiaRecords'] == "yes") %}
           <table class="govuk-table">
             <h2 class="govuk-heading-m">Croatia</h2>
 
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Lived</th>
-                <td class="govuk-table__cell">May 2000 to Nov 2002</td>
+                <td class="govuk-table__cell">Mar 1986 to Sept 1993</td>
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Worked</th>
-                <td class="govuk-table__cell">Jul 2000 to Nov 2002</td>
+                <td class="govuk-table__cell">Mar 1986 to Aug 1993</td>
               </tr>
             </tbody>
           </table>
 
+          <br><br>
+
+          {% endif %}
+
+          {% if (data['swissRecords'] == "yes") %}
           <table class="govuk-table">
             <h2 class="govuk-heading-m">Switzerland</h2>
 
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Lived</th>
-                <td class="govuk-table__cell">May 2000 to Nov 2002</td>
+                <td class="govuk-table__cell">Feb 1994 to Apr 1996</td>
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Worked</th>
-                <td class="govuk-table__cell">Jul 2000 to Nov 2002</td>
+                <td class="govuk-table__cell">Feb 1994 to Apr 1996</td>
               </tr>
             </tbody>
           </table>
+          {% endif %}
 
           <br><br><br>
 

@@ -67,34 +67,34 @@
       </tbody>
     </table>
 
-  </div>
-</div>
+    <br><br>
 
-<br><br>
-
-{% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
 {{ govukRadios({
   name: "sendCfn901",
   fieldset: {
     legend: {
-      text: "Do you need an up-to-date CFN901?",
+      text: "Do you need an up-to-date CFN901 to process their EU pensions?",
       isPageHeading: false,
       classes: "govuk-fieldset__legend--m"
     }
   },
+  hint: {
+    text: "Check DRS to see if we have an up-to-date CFN901 on file. If the claimant is already getting their EU pensions, we do not need a CFN901."
+  },
   items: [
     {
       value: "yes",
-      text: "Yes, I need to request a CFN901"
+      text: "Yes, I need to request an up-to-date CFN901"
     },
     {
       value: "no",
-      text: "No, a CFN901 is not needed"
+      text: "No, I do not need an up-to-date CFN901"
     },
     {
       value: "held",
-      text: "No, we have an up-to-date CFN901 on file"
+      text: "No, there is an up-to-date CFN901 on file"
     }
   ]
 }) }}
@@ -104,6 +104,13 @@
 <button class="govuk-button" data-module="govuk-button">
 Continue
 </button>
+
+  </div>
+</div>
+
+<br><br>
+
+
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
