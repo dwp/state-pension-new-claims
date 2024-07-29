@@ -7,7 +7,7 @@
 
     {% include './_bar.html' %}
 
-    <form method="post" action="claim-unsuccessful">
+    <form method="post" action="dashboard-3">
 
       {{ govukBackLink({
         "text": "Back",
@@ -16,31 +16,15 @@
     }}
 
     <br><br>
-    
-    {% from "govuk/components/input/macro.njk" import govukInput %}
 
-{{ govukInput({
-  label: {
-    text: "How many valid foreign insurance years does the claimant have?",
-    classes: "govuk-label--l",
-    isPageHeading: true
-  },
-  hint: {
-    text: "Enter the number of valid foreign insurance years."
-  },
-  suffix: {
-    text: "years"
-  },
-  classes: "govuk-input--width-2",
-  spellcheck: false
-}) }}
+    <h1 class="govuk-heading-l">Request RF1 from HMRC</h1>
 
-          <br><br><br>
 
-          <button class="govuk-button" data-module="govuk-button">
-            Continue
+    <p>Use the HMRC RF1 request tool. You will need the claimant's name and National Insurance number.</p>
 
-          </button>
+    <br><br><br>
+
+    <button type="submit" class="govuk-button">Confirm RF1 requested</button>
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
