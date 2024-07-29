@@ -24,9 +24,7 @@
 
     <bR><bR>
 
-
-  <form method="post">
-
+    {% if (data['norwayRecords'] == "no") %}
     <table class="govuk-table">
       <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Norway</h2>
       <br><br>
@@ -73,7 +71,58 @@
     </div>
 
     <br>
+    {% endif %}
 
+    {% if (data['norwayRecords'] == "no") %}
+    <table class="govuk-table">
+      <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Croatia</h2>
+      <br><br>
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Lived</th>
+          <td class="govuk-table__cell">Mar 1986 to Sept 1993</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Worked</th>
+          <td class="govuk-table__cell">Mar 1986 to Aug 1993</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="mixed-years-norway-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <h1 class="govuk-fieldset__heading">
+            Are there any mixed years during their time in Norway?
+
+          </h1>
+        </legend>
+        <div id="mixedyearsnorwayhint" class="govuk-hint">
+
+        </div>
+        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="mixedyearsnorway" name="mixedyearsnorway" type="radio" value="Yes">
+            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="mixedyearsnorway2" name="mixedyearsnorway" type="radio" value="No">
+            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br>
+    {% endif %}
+
+    {% if (data['swissRecords'] == "no") %}
     <table class="govuk-table">
       <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Switzerland</h2>
       <br><br>
@@ -117,15 +166,16 @@
         </div>
       </fieldset>
     </div>
+    {% endif %}
+
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
 
 </div>
 </div>
-
-
-
-<button class="govuk-button" data-module="govuk-button">
-  Continue
-</button>
 
 <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
