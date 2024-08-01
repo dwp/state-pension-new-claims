@@ -54,6 +54,10 @@ router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901', function (req, res)
   }
 })
 
+router.post('/mqp-disallowed/eea-boost/part-1/select-reason-cfn901-routing', function (req, res) {
+  res.redirect('check-mqp-met')
+})
+
 router.post('/mqp-disallowed/eea-boost/part-1/print-and-send-form-routing', function (req, res) {
   res.redirect('check-mqp-met')
 })
@@ -79,6 +83,14 @@ router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901-2', function (req, re
     res.redirect('need-send-cfn901')
   } else {
     res.redirect('check-mqp-met')
+  }
+})
+
+router.post('/mqp-disallowed/eea-boost/part-1/check-cfn901-3', function (req, res) {
+  if (req.body['901needed'] === 'yes') {
+    res.redirect('print-and-send-form')
+  } else {
+    res.redirect('select-reason-cfn901')
   }
 })
 
