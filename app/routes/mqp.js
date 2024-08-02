@@ -31,7 +31,7 @@ router.post('/mqp-disallowed/option-2/start-routing', function (req, res) {
 // EEA boost - part 1
 
 router.post('/mqp-disallowed/eea-boost/part-1/start-routing', function (req, res) {
-  res.redirect('check-cfn901')
+  res.redirect('check-cfn901-3')
 })
 
 router.post('/mqp-disallowed/eea-boost/part-1/start-2-routing', function (req, res) {
