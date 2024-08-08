@@ -157,7 +157,7 @@ router.post('/mqp-disallowed/eea-boost/part-2/check-insurance', function (req, r
   let swissRecords = req.session.data.swissRecords;
 
   if (norwayRecords == 'no' && croatiaRecords == 'no' && swissRecords == 'no'){
-      res.redirect('send-reminder');
+      res.redirect('send-reminder-2');
      } else if (norwayRecords == 'yes' && croatiaRecords == 'yes' && swissRecords == 'yes'){
       res.redirect('can-claimant-qualify');
      } else {
