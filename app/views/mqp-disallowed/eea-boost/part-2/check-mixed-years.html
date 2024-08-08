@@ -7,7 +7,7 @@
 
     {% include './_bar.html' %}
 
-    <form method="post" action="dashboard-3">
+    <form method="post">
 
       {{ govukBackLink({
         "text": "Back",
@@ -45,33 +45,29 @@
       </tbody>
     </table>
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="mixed-years-norway-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          <h1 class="govuk-fieldset__heading">
-            Are there any mixed years during their time in Norway?
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-          </h1>
-        </legend>
-        <div id="mixedyearsnorwayhint" class="govuk-hint">
-
-        </div>
-        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="mixedyearsnorway" name="mixedyearsnorway" type="radio" value="Yes">
-            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway">
-              Yes
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="mixedyearsnorway2" name="mixedyearsnorway" type="radio" value="No">
-            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway2">
-              No
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "mixedyearsnorway",
+      fieldset: {
+        legend: {
+          text: "Are there any potential mixed years?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
 
     <br>
     {% endif %}
@@ -94,33 +90,29 @@
       </tbody>
     </table>
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="mixed-years-norway-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          <h1 class="govuk-fieldset__heading">
-            Are there any mixed years during their time in Croatia?
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-          </h1>
-        </legend>
-        <div id="mixedyearsnorwayhint" class="govuk-hint">
-
-        </div>
-        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="mixedyearsnorway" name="mixedyearsnorway" type="radio" value="Yes">
-            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway">
-              Yes
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="mixedyearsnorway2" name="mixedyearsnorway" type="radio" value="No">
-            <label class="govuk-label govuk-radios__label" for="mixedyearsnorway2">
-              No
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "mixedyearscroatia",
+      fieldset: {
+        legend: {
+          text: "Are there any potential mixed years?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
 
     <br>
     {% endif %}
@@ -143,32 +135,29 @@
       </tbody>
     </table>
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset" aria-describedby="mixedyearsswitzerland-hint">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-          <h1 class="govuk-fieldset__heading">
-            Are there any mixed years during their time in Switzerland?
-          </h1>
-        </legend>
-        <div id="mixedyearsswitzerland-hint" class="govuk-hint">
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        </div>
-        <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="mixedyearsswitzerland" name="mixedyearsswitzerland" type="radio" value="Yes">
-            <label class="govuk-label govuk-radios__label" for="mixedyearsswitzerland">
-              Yes
-            </label>
-          </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="mixedyearsswitzerland-2" name="mixedyearsswitzerland" type="radio" value="No">
-            <label class="govuk-label govuk-radios__label" for="mixedyearsswitzerland-2">
-              No
-            </label>
-          </div>
-        </div>
-      </fieldset>
-    </div>
+    {{ govukRadios({
+      classes: "govuk-radios--inline",
+      name: "mixedyearsswitzerland",
+      fieldset: {
+        legend: {
+          text: "Are there any potential mixed years?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--s"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
     {% endif %}
 
     <br><br><br>

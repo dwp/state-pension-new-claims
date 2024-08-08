@@ -213,4 +213,21 @@ router.post('/mqp-disallowed/eea-boost/part-2/returned-rf1-2', function (req, re
   }
 })
 
+router.post('/mqp-disallowed/eea-boost/part-2/check-mixed-years', function (req, res) {
+ 
+  let mixedyearsnorway = req.session.data.mixedyearsnorway;
+  let mixedyearscroatia = req.session.data.mixedyearscroatia;
+  let mixedyearsswitzerland = req.session.data.mixedyearsswitzerland;
+
+  if (mixedyearsnorway == 'yes'){
+      res.redirect('send-reminder-3');
+    } else if (mixedyearscroatia == 'yes'){
+      res.redirect('send-reminder-3');
+    } else if (mixedyearsswitzerland == 'yes'){
+      res.redirect('send-reminder-3');
+     } else {
+      res.redirect('upload-documents');
+  }   
+});
+
 module.exports = router
