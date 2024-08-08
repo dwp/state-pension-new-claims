@@ -17,26 +17,40 @@
 
     <br><br>
 
-    <h2 class="govuk-heading-l">What is the claimant's date of entry?</h2>
-          <div id="changed-name-hint" class="govuk-hint">You can find this in OLE.</div>
-
-
-
           <div class="govuk-form-group">
 
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-             <div class="govuk-radios govuk-radios--inline">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="dateOfEntry" name="dateOfEntry" type="radio" value="after">
-                <label class="govuk-label govuk-radios__label" for="date-of-entry-2">
-                  6 April 1975 or after
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-         <input class="govuk-radios__input" id="dateOfEntry-2" name="dateOfEntry" type="radio" value="before">
-         <label class="govuk-label govuk-radios__label" for="date-of-entry">
-           Before 6 April 1975
-         </label>
+{{ govukRadios({
+  name: "dateOfEntry",
+  fieldset: {
+    legend: {
+      text: "What is the claimant's date of entry?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  hint: {
+    text: "You can find this in OLE."
+  },
+  items: [
+    {
+      value: "after",
+      text: "6 April 1975 or after",
+      hint: {
+        text: ""
+      }
+    },
+    {
+      value: "before",
+      text: "Before 6 April 1975",
+      hint: {
+        text: ""
+      }
+    }
+  ]
+}) }}
+
        </div>
             </div>
 
