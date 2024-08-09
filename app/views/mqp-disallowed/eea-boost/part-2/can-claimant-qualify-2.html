@@ -15,9 +15,19 @@
       })
     }} 
 
+    <br><br>
+
+    <h1 class="govuk-heading-l">Number of qualifying years</h1>
+
+    <p>Based on the insurance records received, check if the time spent abroad can help the claimant reach 10 qualifying years. You may need to use the NSP processing and calculation tool.</p>
+
+    <br>
+
     <div class="govuk-inset-text">
       The claimant has <b>6 qualifying years</b> in the UK.
     </div>
+
+    <br><br>
 
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
@@ -26,12 +36,9 @@
       fieldset: {
         legend: {
           text: "Can claimant reach 10 qualifying years?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--l"
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
         }
-      },
-      hint: {
-        text: "Based on the insurance records received, check if the time spent abroad can help the claimant reach 10 qualifying years. You may need to use the NSP processing and calculation tool."
       },
       items: [
         {
