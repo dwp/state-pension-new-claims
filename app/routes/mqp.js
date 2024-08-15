@@ -201,7 +201,7 @@ router.post('/mqp-disallowed/eea-boost/part-2/calculate-award', function (req, r
 })
 
 router.post('/mqp-disallowed/eea-boost/part-2/start-5-routing', function (req, res) {
-  res.redirect('returned-rf1-2')
+  res.redirect('check-insurance')
 })
 
 router.post('/mqp-disallowed/eea-boost/part-2/returned-rf1-2', function (req, res) {
