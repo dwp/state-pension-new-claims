@@ -26,16 +26,20 @@
           </strong>
         </div>
 
-        <nav class="navigation-secondary">
-          <ul>
-            <li>
-                <a href="personal" class="active" aria-current="page">Personal</a>
-              </li>
-            <li>
-              <a href="contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "#",
+            current: true
+          }, {
+            text: "Contact",
+            href: "#"
+          }, {
+            text: "Tasks",
+            href: "#"
+          }]
+        }) }}
 
         <br><br>
 
