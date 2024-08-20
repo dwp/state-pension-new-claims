@@ -51,4 +51,44 @@ router.post('/arp/iteration-1/start-routing', function (req, res) {
   res.redirect('maxwell-question')
 })
 
+// Maxwell iteration 2
+
+router.post('/arp/iteration-2/maxwell-question', function (req, res) {
+  if (req.body['maxwellQuestion'] === 'yes') {
+    res.redirect('ca1741-requested')
+  } else {
+    res.redirect('award-calculated-a')
+}
+})
+
+router.post('/arp/iteration-2/srb-question', function (req, res) {
+  if (req.body['srbQuestion'] === 'yes') {
+    res.redirect('dashboard')
+  } else {
+    res.redirect('maxwell-question')
+}
+})
+
+router.post('/arp/iteration-2/gmp-question', function (req, res) {
+  if (req.body['gmpQuestion'] === 'yes') {
+    res.redirect('upload-documents-2')
+  } else {
+    res.redirect('request-CA1741-again')
+}
+})
+
+router.post('/arp/iteration-2/gmp-question-2', function (req, res) {
+  if (req.body['gmpQuestion2'] === 'yes') {
+    res.redirect('upload-documents-2')
+  } else if (req.body['gmpQuestion2'] === 'no') {
+    res.redirect('claim-removed')
+  } else { res.redirect('postpone-task')
+}
+})
+
+
+router.post('/arp/iteration-2/start-routing', function (req, res) {
+  res.redirect('maxwell-question')
+})
+
 module.exports = router

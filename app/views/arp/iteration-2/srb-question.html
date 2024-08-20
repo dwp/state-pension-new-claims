@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Has there been an SRB issued since 1 August, 2021?
+          </h1>
+        </legend>
+        <p>Systems to check: <strong> NIRs</strong></p>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbQuestion" name="srbQuestion" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbQuestion-2" name="srbQuestion" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+      
+      <br><br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% include './_bar.html' %}
+
+<form class="form" action="/mqp-disallowed/option-2/remove-claim" method="post">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
+
+<br><br>
+
+  <h1 class="govuk-heading-xl">Record reason claim cannot be disallowed</h1>
+
+   <p>A task will be created to review the claim further.</p>
+
+   <br>
+
+   {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{{ govukCheckboxes({
+  name: "mqp-reason",
+  items: [
+    {
+      value: "Claimant has 10 or more qualifying years",
+      text: "Claimant has 10 or more qualifying years"
+    },
+    {
+      value: "RRE on record",
+      text: "RRE on record"
+    },
+    {
+      value: "Claimant has entitlement to an award based on a late spouse or partner",
+      text: "Claimant has entitlement to an award based on a late spouse or partner"
+    },
+    {
+      value: "Pension share order on divorce in place",
+      text: "Pension share order on divorce in place"
+    },{
+      value: "Claimant has lived or worked abroad in an EEA country or a country with a reciprocal agreement",
+      text: "Claimant has lived or worked abroad in an EEA country or a country with a reciprocal agreement"
+    }
+  ]
+}) }}
+   
+  
+   <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+   <br><br><br><br><br>
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      </form>
+
+{% endblock %}

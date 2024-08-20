@@ -1,0 +1,114 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div>
+          <h1 class="govuk-heading-l">
+            Otto Kirch <br>
+                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+                            <strong class="govuk-tag govuk-tag--green">
+                              Ready to claim State Pension
+                            </strong>
+          </h1>
+        </div>
+
+        <br>
+        {% if data.maxwellQuestion === 'yes' %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            Waiting for CA1741 from HMRC. 
+            <p><a href="gmp-question" class="govuk-link"><b>Confirm CA1741 returned.</b></a></p>
+          </strong>
+        </div>
+        {% endif %}
+
+        <nav class="navigation-secondary">
+          <ul>
+            <li>
+                <a href="personal" class="active" aria-current="page">Personal</a>
+              </li>
+            <li>
+              <a href="contact">Contact</a>
+            </li>
+          </ul>
+        </nav>
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+                <td class="govuk-table__cell" style="width: 50%">Bob Dobalina</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+                  Change
+                </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">National Insurance number</th>
+                <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Date of birth</th>
+                <td class="govuk-table__cell">12 December 1952</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">State Pension date </th>
+                <td class="govuk-table__cell">10 April 2019 </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status </th>
+                  <td class="govuk-table__cell">Never been married</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
+                      Details
+                    </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                    <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
+                        Details
+                      </a></td>
+                  </tr>
+
+            </tbody>
+          </table>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+          <div class="dwp-timeline">
+            <h1 class="govuk-heading-m">Personal changes</h1>
+              <ol class="dwp-timeline__events">
+                {% if data.maxwellQuestion === 'yes' %}
+                <li class="dwp-timeline__events--entry">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">CA1741 requested</h2>
+                  <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
+                  <p class="govuk-caption-m">17 May 2024</p>
+                </li>
+                {% elseif data.maxwellQuestion === 'no' %}   
+                <li class="dwp-timeline__events--entry">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check complete</h2>
+                  <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
+                  <p class="govuk-caption-m">17 May 2024</p>
+                </li>
+                {% endif %}
+              </ol>
+          </div>
+
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
