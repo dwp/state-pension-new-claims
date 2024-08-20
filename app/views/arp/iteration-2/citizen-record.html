@@ -9,8 +9,8 @@
           <h1 class="govuk-heading-l">
             Otto Kirch <br>
                             <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-                            <strong class="govuk-tag govuk-tag--green">
-                              Ready to claim State Pension
+                            <strong class="govuk-tag govuk-tag--orange">
+                              Task outstanding
                             </strong>
           </h1>
         </div>
@@ -27,16 +27,20 @@
         </div>
         {% endif %}
 
-        <nav class="navigation-secondary">
-          <ul>
-            <li>
-                <a href="personal" class="active" aria-current="page">Personal</a>
-              </li>
-            <li>
-              <a href="contact">Contact</a>
-            </li>
-          </ul>
-        </nav>
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "#",
+            current: true
+          }, {
+            text: "Contact",
+            href: "#"
+          }, {
+            text: "Tasks",
+            href: "#"
+          }]
+        }) }}
 
         <br><br>
 
@@ -103,6 +107,11 @@
                   <p class="govuk-caption-m">17 May 2024</p>
                 </li>
                 {% endif %}
+                <li class="dwp-timeline__events--entry">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Claim received</h2>
+                  <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
+                  <p class="govuk-caption-m">11 May 2024</p>
+                </li>
               </ol>
           </div>
 
