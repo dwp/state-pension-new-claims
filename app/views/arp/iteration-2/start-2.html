@@ -5,29 +5,30 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<form method="post" action="dashboard-3">
+<br>
 
-  {% include './_bar.html' %}
+<form method="post" action="start-2-routing">
 
-  {{ govukBackLink({
-    "text": "Back",
-    "href": "javascript: window.history.go(-1)"
-  })
-}}
+  <h1 class="govuk-heading-xl">ARP check</h1>
 
-<br><br>
+  <p>In this task you will need to check the type of ARP.</p>
 
-  <h1 class="govuk-heading-xl">Award calculated</h1>
-
-   <p>A weekly State Pension of <b>£132.88</b> will apply from <b>1 August 2022.</b></p>
-
-   <p>An award letter will be sent to the claimant.</p>   
+   <p>You may need to:</p>
+   <ul class="govuk-list govuk-list--bullet">
+     <li>confirm CA1741 has been returned</li> 
+     <li>award State Pension </li>
+     <li>remove the claim from this system </li>
+   </ul>
   
    <br><br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-      End task
+      Start this task
     </button>
+
+    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
 
    <br><br><br><br><br>
 
@@ -48,8 +49,8 @@
         </span>
       </summary>
       <div class="govuk-details__text">
-        <b>URL:</b>#<br>
-        <b>Notes:</b> None <br>
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
       </div>
     </details>
 
