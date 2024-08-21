@@ -82,7 +82,16 @@ router.post('/arp/iteration-2/gmp-question-2', function (req, res) {
     res.redirect('upload-documents-2')
   } else if (req.body['gmpQuestion2'] === 'no') {
     res.redirect('claim-removed')
-  } else { res.redirect('postpone-task')
+}
+})
+
+router.post('/arp/iteration-2/gmp-question-3', function (req, res) {
+  if (req.body['gmpQuestion2'] === 'yes') {
+    res.redirect('upload-documents-2')
+  } else if (req.body['gmpQuestion2'] === 'no') {
+    res.redirect('claim-removed')
+  } else if (req.body['gmpQuestion2'] === 'notSure') {
+    res.redirect('postpone-task')
 }
 })
 
