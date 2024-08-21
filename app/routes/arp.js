@@ -91,4 +91,8 @@ router.post('/arp/iteration-2/start-routing', function (req, res) {
   res.redirect('maxwell-question')
 })
 
+router.post('/arp/iteration-2/start-2-routing', function (req, res) {
+  res.redirect('gmp-question')
+})
+
 module.exports = router
