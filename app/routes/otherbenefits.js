@@ -9,11 +9,12 @@ router.use((req, res, next) => {
 })
 
 // WAR PENSION
+
 router.post('/war-pension/iteration-1/war-pension-decision', function (req, res) {
   if (req.body['war-pension-decision'] === 'award-state-pension') {
-    res.redirect('award-change')
+    res.redirect('pscs')
   } else {
-    res.redirect('no-award')
+    res.redirect('award-no-unsupp')
   }
 })
 
