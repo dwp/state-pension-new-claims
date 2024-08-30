@@ -24,7 +24,12 @@ GOV.UK Prototype Kit
 
 <form method="post">
 
-
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
+  
+  <br><br>
 
 <div class="govuk-form-group">
   <fieldset class="govuk-fieldset" aria-describedby="spIncrease-hint">
