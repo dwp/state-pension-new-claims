@@ -213,6 +213,10 @@ router.post('/international-task/eea-iteration-4/sp-increase', function (req, re
   }
 })
 
+router.post('/international-task/eea-iteration-4/cfn-task-alt-routing', (req, res) => {
+  res.redirect('sp-increase')
+})
+
 router.post('/international-task/eea-iteration-4/cfn-task', (req, res) => {
   res.redirect('/international-task/eea-iteration-4/award-improvement')
 })
