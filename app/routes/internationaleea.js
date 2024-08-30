@@ -195,7 +195,23 @@ router.post('/international-task/eea-iteration-3/request-records', (req, res) =>
   res.redirect('/international-task/eea-iteration-3/get-a-task-2')
 })
 
-// ITERATION 3
+// ITERATION 4
+
+router.post('/international-task/eea-iteration-4/cfn-required', function (req, res) {
+  if (req.body['send-cfn901'] === 'yes') {
+    res.redirect('cfn-task-alt')
+  } else {
+    res.redirect('sp-increase')
+  }
+})
+
+router.post('/international-task/eea-iteration-4/sp-increase', function (req, res) {
+  if (req.body['spIncrease'] === 'Yes') {
+    res.redirect('mixed-years')
+  } else {
+    res.redirect('get-a-task-2')
+  }
+})
 
 router.post('/international-task/eea-iteration-4/cfn-task', (req, res) => {
   res.redirect('/international-task/eea-iteration-4/award-improvement')
