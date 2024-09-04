@@ -2,63 +2,116 @@
 
 {% block content %}
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
 
-        {{ govukBackLink({
-          "text": "Back",
-          "href": "javascript: window.history.go(-1)"
-        })
-      }}
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+  }}
 
-      <br><br>
+  <br><br>
 
-      <h1 class="govuk-heading-l">Accrued Rights Premium details</h1>
+  <h1 class="govuk-heading-l">Accrued Rights Premium details</h1>
 
-      <br><br>
+  <br><br>
 
-      <div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-          <span class="govuk-visually-hidden">Warning</span>
-          Maxwell Indemnity may need to be confirmed 
-          <p><a href="#" class="govuk-link"><b>Check for Maxwell Indemnity</b></a></p>
-        </strong>
-      </div>
+  {% if data.maxwellQuestion === 'yes' %}
 
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      Waiting for CA1741 from HMRC. 
+      <p><a href="gmp-question" class="govuk-link"><b>Confirm CA1741 returned.</b></a></p>
+    </strong>
+  </div>
 
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Action history</caption>
-        <thead class="govuk-table__head">
-          <tr class="govuk-table__row">
-            <th scope="col" class="govuk-table__header">Event</th>
-            <th scope="col" class="govuk-table__header">Date</th>
-            <th scope="col" class="govuk-table__header">By</th>
-          </tr>
-        </thead>
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Maxwell Scheme awarded</th>
-            <td class="govuk-table__cell">17 May 2024</td>
-            <td class="govuk-table__cell">Agent</td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">CA1741 returned</th>
-            <td class="govuk-table__cell">13 May 2024</td>
-            <td class="govuk-table__cell">System</td> 
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">CA1741 requested</th>
-            <td class="govuk-table__cell">11 May 2024</td>
-            <td class="govuk-table__cell">Agent</td>
-          </tr>
-        </tbody>
-      </table>
+  {% from "govuk/components/table/macro.njk" import govukTable %}
 
-     </div>
-      
-    </div>
-  </main>
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "CA1741 requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+{% elseif data.maxwellQuestion === 'no' %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell Scheme not identified"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+{% endif %}
+
+ </div>
+  
+</div>
+</main>
 </div>
 
 {% endblock %}

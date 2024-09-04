@@ -17,15 +17,7 @@
 
   <br><br>
 
-  <div class="govuk-warning-text">
-    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-    <strong class="govuk-warning-text__text">
-      <span class="govuk-visually-hidden">Warning</span>
-      Maxwell Indemnity may need to be confirmed 
-      <p><a href="#" class="govuk-link"><b>Check for Maxwell Indemnity</b></a></p>
-    </strong>
-  </div>
-
+  {% if data.gmpQuestion === 'yes' %}
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
@@ -49,12 +41,11 @@
   ],
   rows: [
     [
-    
       {
         text: "17 May 2024"
       },
       {
-        text: "Maxwell Scheme awarded"
+        text: "GMP amount confirmed"
       },
       {
         text: "Sent"
@@ -65,7 +56,7 @@
     ],
     [
       {
-        text: "13 May 2024"
+        text: "15 May 2024"
       },
       {
         text: "CA1741 returned"
@@ -79,7 +70,7 @@
     ],
     [
       {
-        text: "11 May 2024"
+        text: "13 May 2024"
       },
       {
         text: "CA1741 requested"
@@ -93,6 +84,158 @@
     ]
   ]
 }) }}
+
+{% elseif data.gmpQuestion === 'no' %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "17 May 2024"
+      },
+      {
+        text: "CA1741 correction requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "15 May 2024"
+      },
+      {
+        text: "CA1741 returned"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "System"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "CA1741 requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+{% elseif data.gmpQuestion2 === 'yes' %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+    ],
+      rows: [
+      [
+      {
+        text: "19 May 2024"
+      },
+      {
+        text: "GMP amount confirmed"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "17 May 2024"
+      },
+      {
+        text: "CA1741 correction requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "15 May 2024"
+      },
+      {
+        text: "CA1741 returned"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "System"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "CA1741 requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+{% endif %}
 
  </div>
   

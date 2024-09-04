@@ -9,23 +9,24 @@
           <h1 class="govuk-heading-l">
             Otto Kirch <br>
                             <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+
+                            {% if data.maxwellQuestion === 'yes' %}
+
                             <strong class="govuk-tag govuk-tag--orange">
                               Task outstanding
                             </strong>
+
+                            {% elseif data.maxwellQuestion === 'no' %}
+
+                            <strong class="govuk-tag govuk-tag--blue">
+                              Receiving State Pension
+                            </strong>
+
+                            {% endif %}
           </h1>
         </div>
 
         <br>
-        {% if data.maxwellQuestion === 'yes' %}
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-visually-hidden">Warning</span>
-            Waiting for CA1741 from HMRC. 
-            <p><a href="gmp-question" class="govuk-link"><b>Confirm CA1741 returned.</b></a></p>
-          </strong>
-        </div>
-        {% endif %}
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
@@ -94,19 +95,20 @@
           <div class="dwp-timeline">
             <h1 class="govuk-heading-m">Personal changes</h1>
               <ol class="dwp-timeline__events">
-                {% if data.maxwellQuestion === 'yes' %}
+                {% if data.maxwellQuestion === 'no' %}   
                 <li class="dwp-timeline__events--entry">
-                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">CA1741 requested</h2>
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">State Pension awarded</h2>
                   <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                  <p class="govuk-caption-m">17 May 2024</p>
-                </li>
-                {% elseif data.maxwellQuestion === 'no' %}   
-                <li class="dwp-timeline__events--entry">
-                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check complete</h2>
-                  <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                  <p class="govuk-caption-m">17 May 2024</p>
+                  <p class="govuk-caption-m">13 May 2024</p>
                 </li>
                 {% endif %}
+                
+                <li class="dwp-timeline__events--entry">
+                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check performed</h2>
+                  <p class="govuk-caption-m govuk-!-margin-bottom-1"><a href="arp-details-2" class="govuk-link">Details</a></p>
+                  <p class="govuk-caption-m">13 May 2024</p>
+                </li>
+
                 <li class="dwp-timeline__events--entry">
                   <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Claim received</h2>
                   <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
