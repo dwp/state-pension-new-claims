@@ -9,6 +9,16 @@
         
       <br>
       
+      {% if data.ca1741returned === 'no' %}
+
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+      {{ govukNotificationBanner({
+        text: "Task postponed for 7 days."
+      }) }}
+
+      {% else %}
+
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -21,6 +31,8 @@
             </h3>
           </div>
         </div>
+
+        {% endif %}
 
       <br>
 
