@@ -9,7 +9,6 @@
         
       <br>
       
-      {% if data.srbQuestion === 'yes' %}
         <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
           <div class="govuk-notification-banner__header">
             <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -22,37 +21,6 @@
             </h3>
           </div>
         </div>
-      {% endif %}
-
-      {% if data.gmpQuestion === 'yes' %}
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Success
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <h3 class="govuk-notification-banner__heading">
-              Task complete
-            </h3>
-          </div>
-        </div>
-      {% endif %}
-
-      {% if data.maxwellQuestion %}
-        <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
-          <div class="govuk-notification-banner__header">
-            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
-              Success
-            </h2>
-          </div>
-          <div class="govuk-notification-banner__content">
-            <h3 class="govuk-notification-banner__heading">
-              Task complete
-            </h3>
-          </div>
-        </div>
-      {% endif %}
 
       <br>
 
@@ -191,8 +159,8 @@
               <div class="govuk-details__text">
                 <b>URL:</b><br>
                 <b>Notes:</b> 
-                  
-                  <p>If CA1741 is requested a second time, the agent will resume the task from the <a href="citizen-record-2" class="govuk-link">citizen's record view</a></p>
+                <p>Action history will show up in the <a href="citizen-record-2" class="govuk-link">citizen's record view</a></p>
+                <p>If CA1741 is requested a second time, the agent will resume the task from the <a href="citizen-record-4" class="govuk-link">citizen's record view</a></p>
                  
               </div>
             </details>
