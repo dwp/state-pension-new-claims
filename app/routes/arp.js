@@ -85,6 +85,22 @@ router.post('/arp/iteration-2/gmp-question-2', function (req, res) {
 }
 })
 
+router.post('/arp/iteration-2/ca1741-returned', function (req, res) {
+  if (req.body['ca1741returned'] === 'yes') {
+    res.redirect('gmp-question')
+  } else {
+    res.redirect('dashboard-2')
+}
+})
+
+router.post('/arp/iteration-2/ca1741-returned-2', function (req, res) {
+  if (req.body['ca1741returned2'] === 'yes') {
+    res.redirect('gmp-question-2')
+  } else {
+    res.redirect('dashboard-3')
+}
+})
+
 router.post('/arp/iteration-2/gmp-question-3', function (req, res) {
   if (req.body['gmpQuestion2'] === 'yes') {
     res.redirect('upload-documents-2')
@@ -95,13 +111,16 @@ router.post('/arp/iteration-2/gmp-question-3', function (req, res) {
 }
 })
 
-
 router.post('/arp/iteration-2/start-routing', function (req, res) {
   res.redirect('maxwell-question')
 })
 
 router.post('/arp/iteration-2/start-2-routing', function (req, res) {
-  res.redirect('gmp-question')
+  res.redirect('ca1741-returned')
+})
+
+router.post('/arp/iteration-2/start-3-routing', function (req, res) {
+  res.redirect('ca1741-returned-2')
 })
 
 module.exports = router

@@ -5,27 +5,30 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<form method="post" action="award-calculated-a">
+<br>
 
-  {% include './_bar.html' %}
+<form method="post" action="start-3-routing">
 
-  {{ govukBackLink({
-    "text": "Back",
-    "href": "javascript: window.history.go(-1)"
-  })
-}}
+  <h1 class="govuk-heading-xl">Complete Maxwell ARP actions</h1>
 
-<br><br>
+  <p>In this task you will need to check if HMRC has returned the CA1741.</p>
 
-<h1 class="govuk-heading-xl">Upload document into DRS</h1>
-
-<p>You need to upload a copy of the CA1741.</p>
+   <p>You may need to:</p>
+   <ul class="govuk-list govuk-list--bullet">
+     <li>check the amounts match</li> 
+     <li>award State Pension </li>
+     <li>remove the claim from the system </li>
+   </ul>
   
    <br><br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-      Confirm document uploaded
+      Start this task
     </button>
+
+    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
 
    <br><br><br><br><br>
 
@@ -46,8 +49,8 @@
         </span>
       </summary>
       <div class="govuk-details__text">
-        <b>URL:</b>#<br>
-        <b>Notes:</b> None <br>
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
       </div>
     </details>
 

@@ -19,6 +19,15 @@
 
   {% if data.gmpQuestion2 === 'yes' %}
 
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-visually-hidden">Warning</span>
+      Claimant may request proof of Maxwell Indemnity
+      <p><a href="#" class="govuk-link"><b>Check for Maxwell Indemnity records.</b></a></p>
+    </strong>
+  </div>
+
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {{ govukTable({
@@ -52,6 +61,20 @@
       },
       {
         text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "19 May 2024"
+      },
+      {
+        text: "CA1741 correction returned"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "System"
       }
     ],
     [
@@ -91,6 +114,20 @@
       },
       {
         text: "Sent"
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell Scheme Identified"
+      },
+      {
+        text: ""
       },
       {
         text: "Agent"
