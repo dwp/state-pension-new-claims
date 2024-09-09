@@ -17,6 +17,10 @@
 
     <br><br>
 
+    <h1 class="govuk-heading-xl">Compare the CA1741 with OLE</h1>
+
+    <p>Check that the Guaranteed Minimum Pension (GMP) amount to remain in payment shown on the CA1741 matches with OLE.</p>
+
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
@@ -25,7 +29,7 @@
         legend: {
           text: "Do the amounts match?",
           isPageHeading: true,
-          classes: "govuk-fieldset__legend--m"
+          classes: "govuk-fieldset__legend--l"
         }
       },
       items: [
