@@ -19,15 +19,6 @@
 
   {% if data.maxwellQuestion === 'yes' %}
 
-  <div class="govuk-warning-text">
-    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-    <strong class="govuk-warning-text__text">
-      <span class="govuk-visually-hidden">Warning</span>
-      Waiting for CA1741 from HMRC. 
-      <p><a href="start-2" class="govuk-link"><b>Confirm CA1741 returned.</b></a></p>
-    </strong>
-  </div>
-
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
 {{ govukTable({
