@@ -71,7 +71,7 @@ router.post('/arp/iteration-2/srb-question', function (req, res) {
 
 router.post('/arp/iteration-2/gmp-question', function (req, res) {
   if (req.body['gmpQuestion'] === 'yes') {
-    res.redirect('upload-documents-3')
+    res.redirect('upload-documents-2')
   } else {
     res.redirect('request-CA1741-again')
 }
@@ -79,7 +79,7 @@ router.post('/arp/iteration-2/gmp-question', function (req, res) {
 
 router.post('/arp/iteration-2/gmp-question-2', function (req, res) {
   if (req.body['gmpQuestion2'] === 'yes') {
-    res.redirect('upload-documents-2')
+    res.redirect('upload-documents-3')
   } else if (req.body['gmpQuestion2'] === 'no') {
     res.redirect('claim-removed')
 }

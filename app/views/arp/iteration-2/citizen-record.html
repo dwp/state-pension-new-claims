@@ -5,10 +5,15 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+        {% if data.maxwellQuestion === 'no' %}
+
         <div>
           <h1 class="govuk-heading-l">
             Otto Kirch <br>
-                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+            <strong class="govuk-tag govuk-tag--blue">
+              Receiving State Pension
+            </strong>
 
                             {% if data.maxwellQuestion === 'yes' %}
 
@@ -27,8 +32,6 @@
         </div>
 
         <br>
-
-        {% if data.maxwellQuestion === 'no' %}
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
@@ -130,6 +133,18 @@
 
           {% elseif data.maxwellQuestion === 'yes' %}
 
+          <div>
+            <h1 class="govuk-heading-l">
+              Otto Kirch <br>
+              <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+              <strong class="govuk-tag govuk-tag--orange">
+                Task outstanding
+              </strong>               
+            </h1>
+          </div>
+  
+          <br>
+
           <div class="govuk-warning-text">
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
@@ -209,12 +224,6 @@
             <div class="dwp-timeline">
               <h1 class="govuk-heading-m">Personal changes</h1>
                 <ol class="dwp-timeline__events">
-                   
-                  <li class="dwp-timeline__events--entry">
-                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">State Pension awarded</h2>
-                    <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                    <p class="govuk-caption-m">13 May 2024</p>
-                  </li>
                   
                   <li class="dwp-timeline__events--entry">
                     <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check</h2>
