@@ -9,7 +9,7 @@
   },
   "name": "state-pension-new-claims",
   "dependencies": {
-    "@dwp/dwp-frontend": "^2.5.0",
+    "@dwp/dwp-frontend": "3.0.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@govuk-prototype-kit/step-by-step": "2.2.2",
     "@govuk-prototype-kit/task-list": "1.0.0",
