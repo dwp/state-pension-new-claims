@@ -187,34 +187,34 @@
 
   <div class="govuk-grid-column-one-third">
 
-        {% from "timeline/macro.njk" import dwpTimeline %}
+    {% from "timeline/macro.njk" import dwpTimeline %}
 
-<h1 class="govuk-heading-m">Personal changes</h1>
-{{
-    dwpTimeline({ 
-        items: [
-            {
-                title:  "ARP check",
-                byline:  "John Goldsmith",
-                description: {
-                  text: "Maxwell scheme has been identified"
-                },
-                link: {
-                  href: "arp-details-2",
-                  text: "View details",
-                  visuallyHiddenText: "related to the ARP check"
-                },
-                date:  "13 May 2024 at 1:04pm"
-            },
-          
-            {
-                title:  "Claim received",
-                byline:  "online",
-                date:  "11 May 2024 at 7:14pm"
-            }
-    ]
-    })
-}}
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+                  {
+                      title:  "ARP check",
+                      byline:  "John Goldsmith",
+                      description: {
+                        text: "Maxwell scheme has been identified"
+                      },
+                      link: {
+                        href: "arp-details-2",
+                        text: "View details",
+                        visuallyHiddenText: "related to the ARP check"
+                      },
+                      date:  "13 May 2024 at 1:04pm"
+                  },
+                
+                  {
+                      title:  "Claim received",
+                      byline:  "online",
+                      date:  "11 May 2024 at 7:14pm"
+                  }
+          ]
+          })
+      }}
 
   </div>
 
