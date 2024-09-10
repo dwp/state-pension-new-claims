@@ -14,20 +14,6 @@
             <strong class="govuk-tag govuk-tag--blue">
               Receiving State Pension
             </strong>
-
-                            {% if data.maxwellQuestion === 'yes' %}
-
-                            <strong class="govuk-tag govuk-tag--orange">
-                              Task outstanding
-                            </strong>
-
-                            {% elseif data.maxwellQuestion === 'no' %}
-
-                            <strong class="govuk-tag govuk-tag--blue">
-                              Receiving State Pension
-                            </strong>
-
-                            {% endif %}
           </h1>
         </div>
 
@@ -107,29 +93,39 @@
 
       <div class="govuk-grid-column-one-third">
 
-          <div class="dwp-timeline">
-            <h1 class="govuk-heading-m">Personal changes</h1>
-              <ol class="dwp-timeline__events">
-                 
-                <li class="dwp-timeline__events--entry">
-                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">State Pension awarded</h2>
-                  <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                  <p class="govuk-caption-m">13 May 2024</p>
-                </li>
-                
-                <li class="dwp-timeline__events--entry">
-                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check</h2>
-                  <p class="govuk-caption-m govuk-!-margin-bottom-1"><a href="arp-details-2" class="govuk-link">Details</a></p>
-                  <p class="govuk-caption-m">13 May 2024</p>
-                </li>
+      {% from "timeline/macro.njk" import dwpTimeline %}
 
-                <li class="dwp-timeline__events--entry">
-                  <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Claim received</h2>
-                  <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                  <p class="govuk-caption-m">11 May 2024</p>
-                </li>
-              </ol>
-          </div>
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                title:  "State Pension awarded",
+                byline:  "John Goldsmith",
+                date:  "13 May 2024 at 1:16pm"
+              },    
+              {
+                      title:  "ARP check",
+                      byline:  "John Goldsmith",
+                      description: {
+                        text: "Maxwell scheme has not been identified"
+                      },
+                      link: {
+                        href: "arp-details-2",
+                        text: "View details",
+                        visuallyHiddenText: "related to the ARP check"
+                      },
+                      date:  "13 May 2024 at 1:04pm"
+                  },
+                
+                  {
+                      title:  "Claim received",
+                      byline:  "online",
+                      date:  "11 May 2024 at 7:14pm"
+                  }
+          ]
+          })
+      }}
 
           {% elseif data.maxwellQuestion === 'yes' %}
 
