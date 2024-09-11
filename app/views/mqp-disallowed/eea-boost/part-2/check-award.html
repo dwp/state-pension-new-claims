@@ -17,7 +17,7 @@
 
     <br><br>
     
-    <h1 class="govuk-heading-l">Confirm award</h1>
+    <h1 class="govuk-heading-l">Check award</h1>
 
     <br>
     
@@ -34,7 +34,7 @@
           {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a class="govuk-link" href="calculate-award">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
+          <a class="govuk-link" href="calculate-test">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
         </dd>
       </div>
       <div class="govuk-summary-list__row">
@@ -50,7 +50,7 @@
         </dd>
         <dd class="govuk-summary-list__actions">
           {% if data.protectedPayment %}
-          <a class="govuk-link" href="enter-protected-payment">Change<span class="govuk-visually-hidden"> protected payment amount</span></a>
+          <a class="govuk-link" href="enter-pp">Change<span class="govuk-visually-hidden"> protected payment amount</span></a>
           {% else %}
           <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> protected payment amount</span></a>
           {% endif %}
@@ -70,46 +70,24 @@
         <dd class="govuk-summary-list__actions">
         </dd>
       </div>
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          From
-        </dt>
-        <dd class="govuk-summary-list__value-numeric">
-          25 June 2022
-        </dd>
-        <dd class="govuk-summary-list__actions">
-        </dd>
+    </dl> 
+    
+    <br><br><br>   
+    
+        <button class="govuk-button" data-module="govuk-button">
+          Confirm and continue
+        </button>
+    
+        <br><br><br><br><br>
+    
+          </div>
+    
+        </div>
+    
       </div>
-    </dl>
-
-    <br>
-
-    <div class="govuk-inset-text">
-      This will automatically pay any arrears and send an award letter to the claimant. 
-    </div>
-
-      <br><br><br>
-
-      <button class="govuk-button" data-module="govuk-button">
-        Confirm and send letter
-      </button>
-
-<hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-
-<details class="govuk-details" data-module="govuk-details">
-<summary class="govuk-details__summary">
-<span class="govuk-details__summary-text">
-<b>URL and notes</b>
-</span>
-</summary>
-<div class="govuk-details__text">
-<b>URL:</b> <br>
-<b>Notes:</b> If BR403
-is needed, a slightly different <a href="check-award-2" class="govuk-link">confirm award</a> screen will be displayed.<br>
-<br>If there are any possible mixed years, the system will prompt the agent to <a href="check-mixed-years" class="govuk-link">check for mixed years</a>. <br>
-</div>
-</details>
+    
+    </main>
+          </div>  
 
     </form>
 
