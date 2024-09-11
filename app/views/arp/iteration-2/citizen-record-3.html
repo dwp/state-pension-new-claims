@@ -93,30 +93,6 @@
 
       <div class="govuk-grid-column-one-third">
 
-        <div class="dwp-timeline">
-          <h1 class="govuk-heading-m">Personal changes</h1>
-            <ol class="dwp-timeline__events">
-               
-              <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">State Pension awarded</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                <p class="govuk-caption-m">19 May 2024</p>
-              </li>
-              
-              <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1"><a href="arp-details" class="govuk-link">Details</a></p>
-                <p class="govuk-caption-m">13 May 2024</p>
-              </li>
-
-              <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Claim received</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                <p class="govuk-caption-m">11 May 2024</p>
-              </li>
-            </ol>
-        </div>
-
         {% from "timeline/macro.njk" import dwpTimeline %}
 
       <h1 class="govuk-heading-m">Personal changes</h1>
@@ -131,9 +107,6 @@
               {
                       title:  "ARP check",
                       byline:  "John Goldsmith",
-                      description: {
-                        text: "Maxwell scheme has not been identified"
-                      },
                       link: {
                         href: "arp-details",
                         text: "View details",
