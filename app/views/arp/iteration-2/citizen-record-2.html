@@ -225,6 +225,35 @@
 
       </div>
 
+      {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                      title:  "ARP check",
+                      byline:  "John Goldsmith",
+                      description: {
+                        text: "Maxwell scheme has not been identified"
+                      },
+                      link: {
+                        href: "arp-details-3",
+                        text: "View details",
+                        visuallyHiddenText: "related to the ARP check"
+                      },
+                      date:  "13 May 2024 at 1:04pm"
+                  },
+                
+                  {
+                      title:  "Claim received",
+                      byline:  "online",
+                      date:  "11 May 2024 at 7:14pm"
+                  }
+          ]
+          })
+      }}
+
   </div>
 
   {% elseif data.gmpQuestion === 'no' and data.gmpQuestion2 === 'yes' %}
@@ -336,6 +365,40 @@
           </li>
         </ol>
     </div>
+
+    {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                title:  "State Pension awarded",
+                byline:  "Jane Doe",
+                date:  "17 May 2024 at 4:07pm"
+              },    
+              {
+                      title:  "ARP check",
+                      byline:  "John Goldsmith",
+                      description: {
+                        text: "Maxwell scheme has not been identified"
+                      },
+                      link: {
+                        href: "arp-details-3",
+                        text: "View details",
+                        visuallyHiddenText: "related to the ARP check"
+                      },
+                      date:  "13 May 2024 at 1:04pm"
+                  },
+                
+                  {
+                      title:  "Claim received",
+                      byline:  "online",
+                      date:  "11 May 2024 at 7:14pm"
+                  }
+          ]
+          })
+      }}
 
   </div>
 

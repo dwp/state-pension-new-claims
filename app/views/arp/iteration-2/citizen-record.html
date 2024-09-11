@@ -216,25 +216,35 @@
         </div>
   
         <div class="govuk-grid-column-one-third">
-  
-            <div class="dwp-timeline">
-              <h1 class="govuk-heading-m">Personal changes</h1>
-                <ol class="dwp-timeline__events">
-                  
-                  <li class="dwp-timeline__events--entry">
-                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check</h2>
-                    <p class="govuk-caption-m govuk-!-margin-bottom-1"><a href="arp-details-2" class="govuk-link">Details</a></p>
-                    <p class="govuk-caption-m">13 May 2024</p>
-                  </li>
-  
-                  <li class="dwp-timeline__events--entry">
-                    <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Claim received</h2>
-                    <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                    <p class="govuk-caption-m">11 May 2024</p>
-                  </li>
-                </ol>
-            </div>
-        </div>
+
+        {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                      title:  "ARP check",
+                      byline:  "John Goldsmith",
+                      description: {
+                        text: "Maxwell scheme has not been identified"
+                      },
+                      link: {
+                        href: "arp-details-2",
+                        text: "View details",
+                        visuallyHiddenText: "related to the ARP check"
+                      },
+                      date:  "13 May 2024 at 1:04pm"
+                  },
+                
+                  {
+                      title:  "Claim received",
+                      byline:  "online",
+                      date:  "11 May 2024 at 7:14pm"
+                  }
+          ]
+          })
+      }}
 
         {% endif %}
 
