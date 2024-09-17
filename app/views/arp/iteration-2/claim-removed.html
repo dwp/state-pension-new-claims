@@ -19,16 +19,26 @@
 
     <h1 class="govuk-heading-xl">Remove claim from GySP</h1>
 
-      <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
-
-      <br>
-      
-      {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+    {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
 
       {{ govukWarningText({
         text: "This action cannot be undone",
         iconFallbackText: "Warning"
       }) }}
+
+      <br>
+
+      <p>If you cannot confirm that 
+        the GMP amounts to 
+        remain in payment match, 
+        you can send this claim to 
+        PSCS.
+      </p>
+
+      <p>This means you can carry 
+        out a manual calculation 
+        and award State Pension.
+      </p>
 
     <br><br><br>
 
