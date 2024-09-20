@@ -83,21 +83,81 @@ GOV.UK Prototype Kit
   <div class="govuk-accordion__section ">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-3"
-          style="font-size: 16pt;">
-          Other benefits
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-size: 16pt;">
+          Accrued rights premium (ARP)
+          <p><br>Enable GYSP to process claims with an Accrued rights premium (ARP).</p>
         </span>
       </h2>
-      <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-3"
-        style="font-size: 14pt;">
-        New claim with benefit interest
-        </div>
     </div>
-    <div id="accordion-with-summary-sections-content-3" class="govuk-accordion__section-content"
-      aria-labelledby="accordion-with-summary-sections-heading-3">
-          {% include 'notes/otherbenefits.html' %}
+
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+      <table class="govuk-table">
+
+        <caption class="govuk-table__caption govuk-table__caption--m">Maxwell scheme</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date added</th>
+            <th scope="col" class="govuk-table__header">Change log</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Link</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">19 September 2024</td>
+            <td class="govuk-table__cell">
+              <h2 class="govuk-heading-s">Findings</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" 
+                  href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1716889003333/e3a3efaaed26cba80ea251ebd871ad0b2b8c098c?sender=uf014c59a3a2f65ac8f965427">
+                  Link to the design ideation Mural board</a>
+                </li>
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" 
+                  href="https://dwpdigital.atlassian.net/l/cp/3gXw7fhc">
+                  Link to design history in Confluence</a>
+                </li>
+              </ul>
+              <h2 class="govuk-heading-s">Overview</h2>
+              <p>Specialist agent team (Section 10) will check if there a claim who’s citizen was a former employee of Maxwell.</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>If no, then they will go ahead to make the new state pension award.</li>
+                <li>If yes, then section 10 would contact HMRC to double check if they’ve done the calculation right. If HMRC confirms that this is right then, they will go ahead to make the award.</li>
+              </ul>
+              <h2 class="govuk-heading-s">Jira ticket</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/RFP-1910">RFP-1910</a></li>
+              </ul>
+            </td>
+            <td scope="row" class="govuk-table__cell "><a class="govuk-link" href="arp/iteration-2/dashboard.html">Go to final prototype</a></td>
+          </tr>
+        </tbody>
+        
+      </table>
+
     </div>
   </div>
+
+
+
+
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-4" style="font-size: 16pt;">
+          Incomplete claim record
+          <p><br>Record of a citizen who has made a claim but has an outstanding task before the claim can be processed.</p>
+        </span>
+      </h2>
+    </div>
+    <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
+      <div class="app-most-recent">
+        {% include 'notes/incompleteclaim.html' %}
+      </div>
+    </div>
+  </div>
+
+
 
   <div class="govuk-accordion__section ">
     <div class="govuk-accordion__section-header">
@@ -193,8 +253,8 @@ GOV.UK Prototype Kit
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
         <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-size: 16pt;">
-          Accrued Rights Premium
-          <p><br>Enable GYSP to process claims with an Accrued rights premium (ARP).</p>
+          Minimum qualifying period (MQP)
+          <p><br>Calculate the State Pension amount based on on a citizen's contribution records.</p>
         </span>
       </h2>
     </div>
@@ -203,8 +263,7 @@ GOV.UK Prototype Kit
 
       <table class="govuk-table">
 
-        <caption class="govuk-table__caption govuk-table__caption--m">Maxwell scheme</caption>
-
+        <caption class="govuk-table__caption govuk-table__caption--m">MQP not met with EEA boost</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date added</th>
@@ -220,26 +279,35 @@ GOV.UK Prototype Kit
               <h2 class="govuk-heading-s">Findings</h2>
               <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" 
-                  href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1716889003333/e3a3efaaed26cba80ea251ebd871ad0b2b8c098c?sender=uf014c59a3a2f65ac8f965427">
+                  href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1718871079160/17966789efff07ca28aec2a90662bbb42312131e?sender=uf014c59a3a2f65ac8f965427">
                   Link to the design ideation Mural board</a>
                 </li>
                 <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" 
-                  href="https://dwpdigital.atlassian.net/l/cp/3gXw7fhc">
+                  href="https://dwpdigital.atlassian.net/wiki/spaces/LLS/pages/133726799019/MQP+not+met+with+EEA+boost">
                   Link to design history in Confluence</a>
+                </li>
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" 
+                  href="https://dwpdigital.atlassian.net/wiki/spaces/LLS/pages/133632233061/MQP+Not+Met+-+Theory">
+                  Link to project goals and theory in Confluence</a>
                 </li>
               </ul>
               <h2 class="govuk-heading-s">Overview</h2>
-              <p>Specialist agent team (Section 10) will check if there a claim who’s citizen was a former employee of Maxwell.</p>
+              <p>Design a user journey/solution to process the claims on GySP when below criteria are met:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>If no, then they will go ahead to make the new state pension award.</li>
-                <li>If yes, then section 10 would contact HMRC to double check if they’ve done the calculation right. If HMRC confirms that this is right then, they will go ahead to make the award.</li>
+                <li>MQP not met</li>
+                <li>No Reduced Rate Election (RRE)</li>
+                <li>No Inheritable components</li>
+                <li>No Pension Share Order</li>
+                <li>Lived or worked abroad (LWA) - EEA country</li>
               </ul>
+              <p>Allow agents to calculate the nSP award on the basis of the citizen's foreign insurance contributions with EEA </p>
+              <p>Allow agents to calculate the nSP award on the basis of the citizen's foreign insurance contributions with EEA </p>
               <h2 class="govuk-heading-s">Jira ticket</h2>
               <ul class="govuk-list govuk-list--bullet">
-                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/RFP-1910">RFP-1910</a></li>
+                <li><a class="govuk-link govuk-link--no-underline" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/RFP-2719">RFP-2719</a></li>
               </ul>
             </td>
-            <td scope="row" class="govuk-table__cell "><a class="govuk-link" href="arp/iteration-2/dashboard.html">Go to final prototype</a></td>
+            <td scope="row" class="govuk-table__cell "><a class="govuk-link" href="mqp-disallowed/eea-boost/part-1/dashboard.html">Go to final prototype</a></td>
           </tr>
         </tbody>
         
@@ -251,20 +319,22 @@ GOV.UK Prototype Kit
 
 
 
-
   <div class="govuk-accordion__section ">
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
-        <span class="govuk-accordion__section-button" id="accordion-default-heading-4" style="font-size: 16pt;">
-          Incomplete claim record
-          <p><br>Record of a citizen who has made a claim but has an outstanding task before the claim can be processed.</p>
+        <span class="govuk-accordion__section-button" id="accordion-with-summary-sections-heading-3"
+          style="font-size: 16pt;">
+          Other benefits
         </span>
       </h2>
+      <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-3"
+        style="font-size: 14pt;">
+        New claim with benefit interest
+        </div>
     </div>
-    <div id="accordion-default-content-4" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-4">
-      <div class="app-most-recent">
-        {% include 'notes/incompleteclaim.html' %}
-      </div>
+    <div id="accordion-with-summary-sections-content-3" class="govuk-accordion__section-content"
+      aria-labelledby="accordion-with-summary-sections-heading-3">
+          {% include 'notes/otherbenefits.html' %}
     </div>
   </div>
 
