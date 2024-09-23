@@ -11,12 +11,28 @@ router.post('/citizen/confirm-identity', function (req, res) {
   }
 })
 
+router.post('/citizen/delay-your-start-date-routing', function (req, res) {
+  res.redirect('check-your-start-date')
+})
+
+router.post('/citizen/post-spa-routing', function (req, res) {
+  res.redirect('prison')
+})
+
 router.post('/citizen/your-details-routing', function (req, res) {
   res.redirect('spa')
 })
 
 router.post('/citizen/spa-routing', (req, res) => {
   res.redirect('lived-abroad')
+})
+
+router.post('/citizen/check-your-start-date', function (req, res) {
+  if (req.body['sign-in'] === 'yes') {
+    res.redirect('prison')
+  } else {
+    res.redirect('delay-your-start-date')
+  }
 })
 
 // Prison
