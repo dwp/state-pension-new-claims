@@ -17,7 +17,75 @@
 
   <br><br>
 
-  {% if data.gmpQuestion === 'yes' %}
+  {% if data.ca1741returned === 'no' %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "15 May 2024"
+      },
+      {
+        text: "CA1741 not returned. Task postponed for 7 days"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "CA1741 requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "System"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell scheme identified"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+  {% elseif data.gmpQuestion === 'yes' %}
 
   <!-- <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
