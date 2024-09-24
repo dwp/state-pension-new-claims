@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_bar-task-outstanding.html' %}
+
+                      <form method="post" action="personal-complete">
+                        <h1 class="govuk-heading-l">Pension Credit to deduct</h1>
+
+                      <br><br>  <h2 class="govuk-heading-m">Check the information you entered</h2>
+
+                      <table class="govuk-table">
+                         <tbody class="govuk-table__body">
+                           <tr class="govuk-table__row">
+                             <td class="govuk-table__cell" scope="row">Weekly amount to deduct</td>
+                           <td class="govuk-table__cell" scope="row"></td>
+                           <td class="govuk-table__cell" scope="row"></td>
+                           <td class="govuk-table__cell">£62.50</td>
+
+                     <tbody class="govuk-table__body">
+                       <tr class="govuk-table__row">
+                       <td class="govuk-table__cell" scope="row">From</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                       <td class="govuk-table__cell">25 June 2022</td>
+
+
+                     <tbody class="govuk-table__body">
+                       <tr class="govuk-table__row">
+                       <td class="govuk-table__cell" scope="row">To</td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                       <td class="govuk-table__cell" scope="row"></td>
+                       <td class="govuk-table__cell">13 February 2023</td>
+
+
+                       <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row">Excluded days</td>
+                        <td class="govuk-table__cell" scope="row"></td>
+                        <td class="govuk-table__cell" scope="row"></td>
+                        <td class="govuk-table__cell">233 days</td>  
+
+
+
+                         <!--  <tr class="govuk-table__row">
+                           <td class="govuk-table__cell" scope="row">Period</td>
+                           <td class="govuk-table__cell" scope="row"></td>
+                           <td class="govuk-table__cell" scope="row"></td>
+                           <td class="govuk-table__cell">20 weeks and 5 days</td> -->
+
+
+                   </table>
+                    <!--    <h2 class="govuk-heading-m">2. Confirm and send letter</h2>
+
+
+
+                        <table class="govuk-table">
+                          <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                         <td class="govuk-table__cell" scope="row">Amount to deduct</td>
+                            <td class="govuk-table__cell" scope="row"></td>
+                            <td class="govuk-table__cell" scope="row"></td>
+                            <td class="govuk-table__cell">  £1459.50</td>
+
+
+                            </table> -->
+
+
+                          <div class="govuk-inset-text">An award letter will be sent with details of the deduction.
+    </div>
+<br>
+
+<button class="govuk-button" data-module="govuk-button">
+ Confirm and send letter
+</button>
+
+<!--
+     <a href="get-next-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+        </form> -->
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+        <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+        <b>URL:</b> /check-information <br>
+        <b>Error messages:</b><br><br>
+
+        <b>Notes:</b> <br>
+        </div>
+        </details>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

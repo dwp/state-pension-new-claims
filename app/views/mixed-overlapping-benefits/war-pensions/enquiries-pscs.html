@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+      <br>
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+<h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+  Success
+</h2>
+</div>
+<div class="govuk-notification-banner__content">
+<h3 class="govuk-notification-banner__heading">
+Claim sent to PSCS    </h3>
+</div>
+  </div>
+    <h2 class="govuk-heading-xl">Find someone</h2>
+      <form method="post">
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="nino">
+            National Insurance number
+          </label>
+          <input class="govuk-input govuk-!-width-two-thirds" id="nino" name="nino" type="nino" aria-describedby="nino-hint">
+        </div>
+
+        <a href="find" button type="submit" class="govuk-button">
+          Find
+        </button>
+      </a>
+      </form>
+
+      <br><br>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+      <a href="../../carers-allowance/iteration-1/enquiries" role="button" draggable="false" button class="govuk-button govuk-button--secondary" data-module="govuk-button">
+        Continue to Carer's allowance
+      </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
