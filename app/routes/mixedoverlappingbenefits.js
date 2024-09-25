@@ -8,6 +8,14 @@ router.use((req, res, next) => {
   next()
 })
 
+router.post('/mixed-overlapping-benefits/select-scenario', function (req, res) {
+  if (req.body['chooseScenario'] === 'scenario4') {
+    res.redirect('/mixed-overlapping-benefits/carers-allowance/enquiries')
+  } else {
+    res.redirect('/mixed-overlapping-benefits/war-pensions/enquiries')
+  }
+})
+
 // WAR PENSION
 
 router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision', function (req, res) {
