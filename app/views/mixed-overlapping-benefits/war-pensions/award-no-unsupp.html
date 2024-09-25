@@ -1,19 +1,6 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include 'includes/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-
+{% block content %}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
@@ -28,7 +15,7 @@ GOV.UK Prototype Kit
     })
   }}
 
-  <br><br>
+  <br><br><br>
 
   <form method="post" action="personal-no-unsupp">
 
@@ -39,7 +26,7 @@ GOV.UK Prototype Kit
 
           <p>An award letter will be sent to the claimant.</p>
 
-      <br>
+      <br><br><br>
 
             <button class="govuk-button" data-module="govuk-button">
             End task
@@ -60,9 +47,6 @@ GOV.UK Prototype Kit
 </main>
 </div>
 
-{% endblock %}
-
-{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 

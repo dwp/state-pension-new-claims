@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-2.html" %}
 
 {% block content %}
 
@@ -88,6 +88,8 @@
         </tbody>
       </table>
 
+      <br><br><br>
+
     </div>
   </div>
 
@@ -100,27 +102,25 @@
     {% from "timeline/macro.njk" import dwpTimeline %}
 
     <h1 class="govuk-heading-m">Personal changes</h1>
+    
     {{
         dwpTimeline({ 
-            items: [
-            {
-                    title:  "ARP check",
-                    byline:  "agent",
-                    link: {
-                      href: "arp-details-2",
-                      text: "Details",
-                      visuallyHiddenText: "related to the ARP check"
-                    },
-                    date:  "13 May 2024 at 1:04pm"
-                },
-              
-                {
+        items: [
+
+                  {
+                    title:  " Email sent to Veterans Agency",
+                    byline:  "system",
+                    date:  "11 May 2024 at 7:22pm"
+                  },
+                
+                  {
                     title:  "Claim received",
                     byline:  "online",
                     date:  "11 May 2024 at 7:14pm"
-                }
-        ]
-        })
+                  }
+
+               ]
+                   })
     }}
 
   </div>
