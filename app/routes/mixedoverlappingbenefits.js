@@ -10,7 +10,7 @@ router.use((req, res, next) => {
 
 // WAR PENSION
 
-router.post('/war-pension/iteration-1/war-pension-decision', function (req, res) {
+router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision', function (req, res) {
   if (req.body['war-pension-decision'] === 'award-state-pension') {
     res.redirect('pscs')
   } else {

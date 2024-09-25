@@ -1,19 +1,6 @@
-{% extends "layout.html" %}
+{% extends "layouts/main-2.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include './header/_header-nav.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-
+{% block content %}
 
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
@@ -40,19 +27,13 @@ Claim sent to PSCS    </h3>
           <input class="govuk-input govuk-!-width-two-thirds" id="nino" name="nino" type="nino" aria-describedby="nino-hint">
         </div>
 
+        <br> <br> <br>
+
         <a href="find" button type="submit" class="govuk-button">
           Find
         </button>
       </a>
       </form>
-
-      <br><br>
-
-      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-      <a href="../../carers-allowance/iteration-1/enquiries" role="button" draggable="false" button class="govuk-button govuk-button--secondary" data-module="govuk-button">
-        Continue to Carer's allowance
-      </a>
 
         </div>
 
@@ -67,9 +48,6 @@ Claim sent to PSCS    </h3>
 </main>
       </div>
 
-      {% endblock %}
-
-      {% block content %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
