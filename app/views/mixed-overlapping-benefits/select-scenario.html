@@ -1,0 +1,94 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  GOV.UK page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">Mixed overlapping benefits</h1>
+
+        
+
+        <p>For illustration purposes, the Carer's allowance journey is used in these scenarios to demonstrate the flow between the different overlapping benefits.
+          Carer's support payment is the Scottish equivalent of Carer's allowance and uses the same design patterns and pathways.
+        </p>
+
+        <p>Click the link to view the <a href="../carers-support/iteration-1/enquiries.html" class="govuk-link">Carer's support payment prototype</a>.</p>
+
+        <br><br>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Which scenario would you like to explore?
+              </h1>
+            </legend>
+            <div id="signIn-hint" class="govuk-hint">
+              Choose from one of the 4 ways that mixed overlapping benefits can be combined.
+            </div>
+            <div class="govuk-radios" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="chooseScenario" name="chooseScenario" type="radio" value="scenario1" aria-describedby="signIn-item-hint">
+                <label class="govuk-label govuk-radios__label" for="chooseScenario">
+                  <b>Scenario 1</b>
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  War Pension, Carrer's allowance or Carrer's Support Payment, and Pension Credit.
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="chooseScenario-2" name="chooseScenario" type="radio" value="scenario2" aria-describedby="signIn-item-hint">
+                <label class="govuk-label govuk-radios__label" for="chooseScenario-2">
+                  <b>Scenario 2</b>
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  War Pension, and Carrer's allowance or Carrer's Support Payment.
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="chooseScenario-3" name="chooseScenario" type="radio" value="scenario3" aria-describedby="signIn-item-hint">
+                <label class="govuk-label govuk-radios__label" for="chooseScenario-3">
+                  <b>Scenario 3</b>
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  War Pension, and Pension Credit.
+                </div>
+              </div>
+
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="chooseScenario-4" name="chooseScenario" type="radio" value="scenario4" aria-describedby="signIn-item-hint">
+                <label class="govuk-label govuk-radios__label" for="chooseScenario-4">
+                  <b>Scenario 4</b>
+                </label>
+                <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">
+                  Carrer's allowance or Carrer's Support Payment, and Pension Credit.
+                </div>
+              </div>
+              
+            </div>
+          </fieldset>
+        </div>
+
+        <br><br><br>
+
+        <button type="submit" class="govuk-button">
+          Continue
+        </button>
+        
+      </div>
+    </div>
+  </main>
+</div>
+
+{% endblock %}
