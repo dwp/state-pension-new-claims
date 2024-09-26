@@ -22,7 +22,7 @@ router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision', fun
   if (req.body['war-pension-decision'] === 'award-state-pension') {
     res.redirect('pscs')
   } else {
-    res.redirect('award-no-unsupp')
+    res.redirect('more-information')
   }
 })
 
