@@ -48,7 +48,7 @@ router.post('/carers-support/iteration-1/carers-support-decision-1', function (r
 
 // PENSION CREDIT
 
-router.post('/pension-credit/iteration-1/pension-credit-decision-1', function (req, res) {
+router.post('/mixed-overlapping-benefits/pension-credit/pension-credit-decision-1', function (req, res) {
   if (req.body['pension-credit'] === 'yes') {
     res.redirect('pension-credit-details')
   } else {

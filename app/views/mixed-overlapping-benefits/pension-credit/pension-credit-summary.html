@@ -1,96 +1,93 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-
+{% block content %}
 
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-              {% include './_bar-task-outstanding.html' %}
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
 
-                      <form method="post" action="personal-complete">
-                        <h1 class="govuk-heading-l">Pension Credit to deduct</h1>
+          {% include './_bar.html' %}
 
-                      <br><br>  <h2 class="govuk-heading-m">Check the information you entered</h2>
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
 
-                      <table class="govuk-table">
-                         <tbody class="govuk-table__body">
-                           <tr class="govuk-table__row">
-                             <td class="govuk-table__cell" scope="row">Weekly amount to deduct</td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell">£62.50</td>
+          <br><br><br>
 
-                     <tbody class="govuk-table__body">
-                       <tr class="govuk-table__row">
-                       <td class="govuk-table__cell" scope="row">From</td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell">25 June 2022</td>
+          <form method="post" action="personal-complete">
+            <h1 class="govuk-heading-l">Pension Credit to deduct</h1>
 
+          <br><br>  <h2 class="govuk-heading-m">Check the information you entered</h2>
 
-                     <tbody class="govuk-table__body">
-                       <tr class="govuk-table__row">
-                       <td class="govuk-table__cell" scope="row">To</td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell">13 February 2023</td>
+          <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Weekly amount to deduct</td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell">£62.50</td>
 
-
-                       <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                        <td class="govuk-table__cell" scope="row">Excluded days</td>
-                        <td class="govuk-table__cell" scope="row"></td>
-                        <td class="govuk-table__cell" scope="row"></td>
-                        <td class="govuk-table__cell">233 days</td>  
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">From</td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell">25 June 2022</td>
 
 
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">To</td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell">13 February 2023</td>
 
-                         <!--  <tr class="govuk-table__row">
-                           <td class="govuk-table__cell" scope="row">Period</td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell">20 weeks and 5 days</td> -->
 
-
-                   </table>
-                    <!--    <h2 class="govuk-heading-m">2. Confirm and send letter</h2>
+            <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">Excluded days</td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell">233 days</td>  
 
 
 
-                        <table class="govuk-table">
-                          <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                         <td class="govuk-table__cell" scope="row">Amount to deduct</td>
-                            <td class="govuk-table__cell" scope="row"></td>
-                            <td class="govuk-table__cell" scope="row"></td>
-                            <td class="govuk-table__cell">  £1459.50</td>
+            <!--  <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Period</td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell">20 weeks and 5 days</td> -->
 
 
-                            </table> -->
+        </table>
+        <!--    <h2 class="govuk-heading-m">2. Confirm and send letter</h2>
 
 
-                          <div class="govuk-inset-text">An award letter will be sent with details of the deduction.
-    </div>
-<br>
 
-<button class="govuk-button" data-module="govuk-button">
- Confirm and send letter
-</button>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Amount to deduct</td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell">  £1459.50</td>
+
+
+                </table> -->
+
+        <br>
+
+        <div class="govuk-inset-text">An award letter will be sent with details of the deduction.</div>
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Confirm and send letter
+        </button>
 
 <!--
      <a href="get-next-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
@@ -127,9 +124,6 @@ GOV.UK Prototype Kit
 </main>
       </div>
 
-      {% endblock %}
-
-      {% block content %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 

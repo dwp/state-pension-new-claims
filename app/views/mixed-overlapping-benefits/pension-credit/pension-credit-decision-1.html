@@ -1,55 +1,58 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-
+{% block content %}
 
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-              {% include './_bar-task-outstanding.html' %}
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+          {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+
+          <br><br><br>
 
         <form method="post">
-          <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset" aria-describedby="pension-credit-hint">
-              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                <h1 class="govuk-fieldset__heading">
-Is there an amount to be recovered?</h1>
-              </legend>
-              <div id="pension-credit-hint" class="govuk-hint">
-Only select no if Pension Credit have advised there is 'nil recovery' and all arrears should be paid.
-              </div>
-              <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="pension-credit" name="pension-credit" type="radio" value="yes">
-                  <label class="govuk-label govuk-radios__label" for="pension-credit">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="pension-credit-2" name="pension-credit" type="radio" value="no">
-                  <label class="govuk-label govuk-radios__label" for="pension-credit-2">
-                    No
-                  </label>
-                </div>
-              </div>
-            </fieldset>
 
+          {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-          </div>
+          {{ govukRadios({
+            name: "pension-credit",
+            fieldset: {
+              legend: {
+                text: "Is there an amount to be recovered?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              text: "Only select no if Pension Credit have advised there is 'nil recovery' and all arrears should be paid."
+            },
+            items: [
+              {
+                value: "yes",
+                text: "Yes",
+                hint: {
+                  text: ""
+                }
+              },
+              {
+                value: "no",
+                text: "No",
+                hint: {
+                  text: ""
+                }
+              }
+            ]
+          }) }}
 
+          <br><br><br>
 
           <button class="govuk-button" data-module="govuk-button">
             Confirm
@@ -79,10 +82,6 @@ Only select no if Pension Credit have advised there is 'nil recovery' and all ar
 
     </div>
 
-
-      {% endblock %}
-
-      {% block content %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
