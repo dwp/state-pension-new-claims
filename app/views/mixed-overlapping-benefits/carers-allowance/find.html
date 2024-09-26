@@ -1,19 +1,9 @@
-{% extends "layout.html" %}
+{% extends "layouts/main-2.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
+{% block content %}
 
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
+<br><br>
 
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-<br><br><br>
 <div class="govuk-width-container">
     <div class="govuk-grid-column-two-thirds">
 
@@ -23,17 +13,15 @@ GOV.UK Prototype Kit
 
           {% include './_bar-task-outstanding.html' %}
 
+          <br><br>
+
             <a href="personal" button type="submit" class="govuk-button">
               Continue</a>
-            </main>
+      </main>
     </div>
 
 </div>
 
-
-{% endblock %}
-
-{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
