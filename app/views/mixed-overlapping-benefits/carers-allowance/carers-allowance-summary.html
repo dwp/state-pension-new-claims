@@ -1,91 +1,82 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-
+{% block content %}
 
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-              {% include './_bar-task-outstanding.html' %}
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
 
-              {{ govukBackLink({
-                text: "Back",
-                href: "javascript:history.go(-1)"
-                                }) }} <br><br>
+          {% include './_bar.html' %}
 
-                      <form method="post" action="personal-complete">
-                        <h1 class="govuk-heading-">Carer's Allowance to deduct</h1>
-                        <p class="govuk-body">The claimant was paid too much Carer's Allowance and needs to repay it from their State Pension.</p>
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
 
-                      <br><br>  <h2 class="govuk-heading-m">1. Check the information you entered</h2>
+          <br><br><br>
 
-                      <table class="govuk-table">
-                         <tbody class="govuk-table__body">
-                           <tr class="govuk-table__row">
-                           <td class="govuk-table__cell" scope="row">Weekly amount of Carer's Allowance</td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell">£69.70</td>
+          <form method="post" action="personal-complete">
 
-                     <tbody class="govuk-table__body">
-                       <tr class="govuk-table__row">
-                       <td class="govuk-table__cell" scope="row">From</td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell">25 Jun 2022</td>
+            <h1 class="govuk-heading-l">Carer's Allowance to deduct</h1>
 
+            <p class="govuk-body">The claimant was paid too much Carer's Allowance and needs to repay it from their State Pension.</p>
 
-                     <tbody class="govuk-table__body">
-                       <tr class="govuk-table__row">
-                       <td class="govuk-table__cell" scope="row">To</td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell" scope="row"></td>
-                       <td class="govuk-table__cell">13 Feb 2023</td>
+          <br><br>  <h2 class="govuk-heading-m">1. Check the information you entered</h2>
+
+          <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Weekly amount of Carer's Allowance</td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell">£69.70</td>
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">From</td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell">25 Jun 2022</td>
 
 
-
-                         <!--  <tr class="govuk-table__row">
-                           <td class="govuk-table__cell" scope="row">Period</td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell" scope="row"></td>
-                           <td class="govuk-table__cell">20 weeks and 5 days</td> -->
-
-
-                   </table>
-
-                   <h2 class="govuk-heading-m">2. Confirm and send letter</h2>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">To</td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell" scope="row"></td>
+            <td class="govuk-table__cell">13 Feb 2023</td>
 
 
 
-                        <table class="govuk-table">
-                          <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                         <td class="govuk-table__cell" scope="row">Amount to deduct</td>
-                            <td class="govuk-table__cell" scope="row"></td>
-                            <td class="govuk-table__cell" scope="row"></td>
-                            <td class="govuk-table__cell">  £1459.50</td>
+              <!--  <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Period</td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell" scope="row"></td>
+                <td class="govuk-table__cell">20 weeks and 5 days</td> -->
 
 
-                            </table>
+              </table>
 
+              <h2 class="govuk-heading-m">2. Confirm and send letter</h2>
 
-                          <div class="govuk-inset-text">This amount will be deducted from their State Pension. An award letter will be sent with details of the deduction.
+                <table class="govuk-table">
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Amount to deduct</td>
+                    <td class="govuk-table__cell" scope="row"></td>
+                    <td class="govuk-table__cell" scope="row"></td>
+                    <td class="govuk-table__cell">  £1459.50</td>
+                </table>
+
+                <br>
+
+              <div class="govuk-inset-text">This amount will be deducted from their State Pension. An award letter will be sent with details of the deduction.
     </div>
-<br>
+
+<br><br><br>
 
 <button class="govuk-button" data-module="govuk-button">
  Confirm and send letter
@@ -126,9 +117,6 @@ GOV.UK Prototype Kit
 </main>
       </div>
 
-      {% endblock %}
-
-      {% block content %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 
