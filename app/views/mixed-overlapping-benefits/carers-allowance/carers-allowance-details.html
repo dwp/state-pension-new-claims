@@ -1,31 +1,22 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
-
+{% block content %}
 
 <div class="govuk-width-container">
-  <main class="govuk-main-wrapper">
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-              {% include './_bar-task-outstanding.html' %}
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
 
-              {{ govukBackLink({
-                text: "Back",
-                href: "javascript:history.go(-1)"
-                                }) }} <br><br>
+          {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+
+          <br><br><br>
 
                       <form method="post" action="carers-allowance-summary">
 
@@ -114,16 +105,14 @@ GOV.UK Prototype Kit
                           </div>
                         </div>
 
-
-
-
-
-<p></p>
+                        <br><br><br>
 
 
 <button class="govuk-button" data-module="govuk-button">
  Continue
 </button>
+
+<br>
 
 <p>
 <a href="pension-credit-details-2" class="govuk-link govuk-link--no-visited-state">Add another adjustment</a>
@@ -171,9 +160,6 @@ GOV.UK Prototype Kit
 </main>
       </div>
 
-      {% endblock %}
-
-      {% block content %}
       <div class="govuk-grid-row">
         <div class="govuk-grid-column-two-thirds">
 

@@ -28,8 +28,8 @@ router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision', fun
 
 // CARERS ALLOWANCE
 
-router.post('/carers-allowance/iteration-1/carers-allowance-decision-1', function (req, res) {
-  if (req.body['carers-allowance'] === 'yes') {
+router.post('/mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1', function (req, res) {
+  if (req.body['carersAllowance'] === 'yes') {
     res.redirect('carers-allowance-details')
   } else {
     res.redirect('no-offset')
