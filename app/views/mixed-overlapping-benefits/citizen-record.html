@@ -2,6 +2,9 @@
 
 {% block content %}
 
+<!-- SCENARIO 1 -->
+
+{% if data.chooseScenario === 'scenario1' %}
 
 <div class="govuk-width-container">
   <div class="govuk-grid-column-two-thirds">
@@ -9,16 +12,40 @@
     <main id="content" role="main">
       <div class="grid-row">
         <div class="column-full">
-          
-          {% include './_bar.html' %}
 
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive">Warning</span>
-              Waiting for Pension Credit team to return part B of the BR403 form. <a href="pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
-            </strong>
-          </div>
+          {% if data.pension-credit === 'yes' %}
+          
+            {% include './_bar-awarded.html' %}
+
+            {% else %}
+
+            {% include './_bar.html' %}
+
+          {% endif %}
+
+          {% if data.pension-credit === 'yes' %}
+
+            {% elseif data.carersAllowance === 'yes' %}
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive">Warning</span>
+                Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
+              </strong>
+            </div>
+
+            {% else %}
+
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive"></span>
+                Waiting for information from the Carer's Allowance team. <br><a href="../mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1" class="govuk-link govuk-link--no-visited-state">Update Carer's Allowance information</a>.
+              </strong>
+            </div>
+
+          {% endif %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -46,45 +73,44 @@
 
     <div>
       <h2 class="govuk-heading-m">Personal details</h2>
+
       <table class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
             <td class="govuk-table__cell" style="width: 50%">Cece Bonham</td>
-            <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
-
-            </a></td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="change-name"></a></td>
           </tr>
+
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">National Insurance number</th>
             <td class="govuk-table__cell">QQ 12 34 56 X</td>
             <td class="govuk-table__cell"></td>
           </tr>
+
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Date of birth</th>
             <td class="govuk-table__cell">12 December 1952</td>
             <td class="govuk-table__cell"></td>
           </tr>
+
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">State Pension date </th>
             <td class="govuk-table__cell">10 April 2019 </td>
             <td class="govuk-table__cell"></td>
           </tr>
+
           <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Marital status </th>
-              <td class="govuk-table__cell">Married</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
-                  Details
-                </a></td>
-            </tr>
-            <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
-                <td class="govuk-table__cell">No</td>
-                <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
+            <th scope="row" class="govuk-table__header">Marital status </th>
+            <td class="govuk-table__cell">Married</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>Details</a></td>
+          </tr>
 
-                  </a></td>
-              </tr>
-
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+            <td class="govuk-table__cell">No</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details"></a></td>
+          </tr>
         </tbody>
       </table>
 
@@ -94,49 +120,110 @@
       Stop State Pension
     </a>
 
-<br><br><br>
+    <br><br><br>
 
   </div>
 
-  <div class="govuk-grid-column-one-third">
+</div>
 
+<div class="govuk-grid-column-one-third">
 
-    {% from "timeline/macro.njk" import dwpTimeline %}
+    {% if data.carersAllowance === 'yes' %}
 
-    <h1 class="govuk-heading-m">Personal changes</h1>
-    
-    {{
+      {% from "timeline/macro.njk" import dwpTimeline %}
+
+        <h1 class="govuk-heading-m">Personal changes</h1>
+        {{
         dwpTimeline({ 
-        items: [
+          items: [
+          {
+            title:  "Part A of BR403 sent to Pension Credit team",
+            byline:  "agent",
+            date:  "15 May 2024 at 1:22pm"
+          },
 
-                  {
-                    title:  "Part A of BR403 sent to Pension Credit team",
-                    byline:  "agent",
-                    date:  "11 May 2024 at 1:22pm"
-                  },
-                
-                  {
-                    title:  "Claim received",
-                    byline:  "online",
-                    date:  "11 May 2024 at 7:14pm"
-                  }
+          {
+            title:  " Carer's Allowance information updated",
+            byline:  "agent",
+            date:  "15 May 2024 at 3:14pm"
+          },
+          
+          {
+            title:  "Email sent to Carer's Allowance team",
+            byline:  "system",
+            date:  "14 May 2024 at 11:35am"
+          },
+          
+          {
+            title:  "Email received from Veterans Agency",
+            byline:  "system",
+            date:  "13 May 2024 at 9:41am"
+          },
 
-               ]
-                   })
-    }}
+          {
+            title:  "Email sent to Veterans Agency",
+            byline:  "system",
+            date:  "11 May 2024 at 7:22pm"
+          },
+
+          {
+            title:  "Claim received",
+            byline:  "online",
+            date:  "11 May 2024 at 7:14pm"
+          }
+        ]
+        })
+        }}
+
+      {% else %}
+
+      {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                title:  "Email sent to Carer's Allowance team",
+                byline:  "system",
+                date:  "14 May 2024 at 11:35am"
+              },
+              
+              {
+                title:  "Email received from Veterans Agency",
+                byline:  "system",
+                date:  "13 May 2024 at 9:41am"
+              },
+
+              {
+                title:  "Email sent to Veterans Agency",
+                byline:  "system",
+                date:  "11 May 2024 at 7:22pm"
+              },
+            
+              {
+                title:  "Claim received",
+                byline:  "online",
+                date:  "11 May 2024 at 7:14pm"
+              }
+          ]
+          })
+      }}
+
+    {% endif %}
 
   </div>
 
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds"></div>
+    </div>
 
 </div>
-</div>
-</main>
-</div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
+{% endif %}
 
-  </div>
-</div>
+{% if data.chooseScenario === 'scenario2' %}
+
+{% endif %}
 
 {% endblock %}

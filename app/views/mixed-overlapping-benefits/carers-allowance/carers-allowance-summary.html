@@ -9,6 +9,8 @@
       <div class="grid-row">
         <div class="column-full">
 
+          {% if data.chooseScenario === 'scenario2' %}
+
           {% include './_bar.html' %}
 
           {{ govukBackLink({
@@ -39,7 +41,7 @@
             <td class="govuk-table__cell" scope="row">From</td>
             <td class="govuk-table__cell" scope="row"></td>
             <td class="govuk-table__cell" scope="row"></td>
-            <td class="govuk-table__cell">25 Jun 2022</td>
+            <td class="govuk-table__cell">25 Jun 2023</td>
 
 
           <tbody class="govuk-table__body">
@@ -47,7 +49,7 @@
             <td class="govuk-table__cell" scope="row">To</td>
             <td class="govuk-table__cell" scope="row"></td>
             <td class="govuk-table__cell" scope="row"></td>
-            <td class="govuk-table__cell">13 Feb 2023</td>
+            <td class="govuk-table__cell">13 Feb 2024</td>
 
 
 
@@ -113,6 +115,90 @@
     </div>
 
   </div>
+
+  {% else %}
+
+  {% include './_bar.html' %}
+
+          {{ govukBackLink({
+            text: "Back",
+            href: "javascript:history.go(-1)"
+                            }) }}
+
+          <br><br><br>
+
+          <form method="post">
+
+            <h1 class="govuk-heading-l">Carer's Allowance to deduct</h1>
+
+            <p class="govuk-body">The claimant was paid too much Carer's Allowance and needs to repay it from their State Pension.</p>
+
+          <br><br>  <h2 class="govuk-heading-m">1. Check the information you entered</h2>
+
+          <table class="govuk-table">
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Weekly amount of Carer's Allowance</td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell">£69.70</td>
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">From</td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell">25 Jun 2023</td>
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">To</td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell">13 Feb 2024</td>
+
+            <!--  <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Period</td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell" scope="row"></td>
+              <td class="govuk-table__cell">20 weeks and 5 days</td> -->
+
+          </table>
+
+        <br><br><br>
+
+        <a href="../br403-part-a" button type="submit" class="govuk-button govuk-button--primary">
+          Confirm
+        </a>
+
+
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+        <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL, errors and notes</b>
+        </span>
+        </summary>
+        <div class="govuk-details__text">
+        <b>URL:</b> /carers-allowance-summary <br>
+        <b>Error messages:</b><br><br>
+
+        <b>Notes:</b> <br>
+        </div>
+        </details>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  {% endif %}
 
 </main>
       </div>
