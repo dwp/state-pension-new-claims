@@ -4,8 +4,6 @@
 
 <!-- SCENARIO 1 -->
 
-{% if data.chooseScenario === 'scenario1' %}
-
 <div class="govuk-width-container">
   <div class="govuk-grid-column-two-thirds">
 
@@ -13,37 +11,41 @@
       <div class="grid-row">
         <div class="column-full">
 
-          {% if data.pension-credit === 'yes' %}
-          
-            {% include './_bar-awarded.html' %}
 
-            {% else %}
-
+          {% if data.warPensionDecision === 'no' %}
             {% include './_bar.html' %}
+          {% endif %}    
 
+          {% if data.pension-credit === 'yes' %} 
+            {% include './_bar-awarded.html' %}
+          {% endif %}    
+
+
+          {% if data.warPensionDecision === 'no' %}
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive"></span>
+              Waiting for information from the Carer's Allowance team. <br><a href="../mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1" class="govuk-link govuk-link--no-visited-state">Update Carer's Allowance information</a>.
+            </strong>
+          </div>
+
+          {% else %}
+          
           {% endif %}
 
-          {% if data.pension-credit === 'yes' %}
+          {% if data.carersAllowance === 'yes' %}
 
-            {% elseif data.carersAllowance === 'yes' %}
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive"></span>
+              Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
+            </strong>
+          </div>
 
-            <div class="govuk-warning-text">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text">
-                <span class="govuk-warning-text__assistive">Warning</span>
-                Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
-              </strong>
-            </div>
-
-            {% else %}
-
-            <div class="govuk-warning-text">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text">
-                <span class="govuk-warning-text__assistive"></span>
-                Waiting for information from the Carer's Allowance team. <br><a href="../mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1" class="govuk-link govuk-link--no-visited-state">Update Carer's Allowance information</a>.
-              </strong>
-            </div>
+          {% else %}
 
           {% endif %}
 
@@ -219,11 +221,5 @@
     </div>
 
 </div>
-
-{% endif %}
-
-{% if data.chooseScenario === 'scenario2' %}
-
-{% endif %}
 
 {% endblock %}
