@@ -1,13 +1,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.use((req, res, next) => {
-  if (req.method === 'POST') {
-    console.log(JSON.stringify(req.session.data, null, 2))
-  }
-  next()
-})
-
 router.post('/mixed-overlapping-benefits/select-scenario', function (req, res) {
   if (req.body['chooseScenario'] === 'scenario4') {
     res.redirect('/mixed-overlapping-benefits/carers-allowance/enquiries')
@@ -19,10 +12,10 @@ router.post('/mixed-overlapping-benefits/select-scenario', function (req, res) {
 // WAR PENSION
 
 router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision', function (req, res) {
-  if (req.body['war-pension-decision'] === 'award-state-pension') {
-    res.redirect('pscs')
-  } else {
+  if (req.body['warPensionDecision'] === 'no') {
     res.redirect('more-information')
+  } else {
+    res.redirect('pscs')
   }
 })
 
@@ -39,7 +32,7 @@ router.post('/mixed-overlapping-benefits/carers-allowance/carers-allowance-decis
 // CARERS SUPPORT
 
 router.post('/carers-support/iteration-1/carers-support-decision-1', function (req, res) {
-  if (req.body['carers-allowance'] === 'yes') {
+  if (req.body['carers-support'] === 'yes') {
     res.redirect('carers-support-details')
   } else {
     res.redirect('no-offset')
@@ -49,15 +42,7 @@ router.post('/carers-support/iteration-1/carers-support-decision-1', function (r
 // PENSION CREDIT
 
 router.post('/mixed-overlapping-benefits/pension-credit/pension-credit-decision-1', function (req, res) {
-  if (req.body['pension-credit'] === 'yes') {
-    res.redirect('pension-credit-details')
-  } else {
-    res.redirect('no-offset')
-  }
-})
-
-router.post('/international-task/br403-part-b/pension-credit-decision-1', function (req, res) {
-  if (req.body['pension-credit'] === 'yes') {
+  if (req.body['pensionCredit'] === 'yes') {
     res.redirect('pension-credit-details')
   } else {
     res.redirect('no-offset')
