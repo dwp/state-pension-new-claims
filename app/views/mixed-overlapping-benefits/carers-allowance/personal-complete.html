@@ -10,8 +10,15 @@
       <div class="grid-row">
         <div class="column-full">
           
-          {% include './_bar.html' %}
-
+          <div>
+            <h1 class="govuk-heading-xl">
+              Cece Bonham
+              <span class="govuk-caption-l">QQ 12 34 56 X</span>
+              <strong class="govuk-tag govuk-tag--blue">
+                Receiving State Pension
+              </strong>
+            </h1>
+          </div>
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -26,6 +33,14 @@
             }, 
             {
               text: "Tasks",
+              href: "#"
+            },
+            {
+              text: "Award",
+              href: "#"
+            },
+            {
+              text: "Payments",
               href: "#"
             }]
           }) }}
@@ -100,6 +115,12 @@
         dwpTimeline({ 
         items: [
 
+        {
+          title:  " State Pension awarded",
+          byline:  "agent",
+          date:  "18 May 2024 at 3:14pm"
+        },
+        
         {
           title:  " Carer's Allowance information updated",
           byline:  "agent",
