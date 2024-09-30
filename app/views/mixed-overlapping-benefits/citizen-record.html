@@ -4,6 +4,8 @@
 
 <!-- SCENARIO 1 -->
 
+{% if data.chooseScenario === 'scenario1' %}
+
 <div class="govuk-width-container">
   <div class="govuk-grid-column-two-thirds">
 
@@ -146,7 +148,10 @@
       Stop State Pension
     </a>
 
-    <br><br><br>
+    <br><br><br><br><br>
+
+
+    <a href="../mixed-overlapping-benefits/select-scenario.html" class="govuk-body govuk-link--no-visited-state"><b>Explore a different scenario</b></a>.
 
   </div>
 
@@ -304,5 +309,7 @@
     </div>
 
 </div>
+
+{% endif %}
 
 {% endblock %}
