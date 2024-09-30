@@ -11,60 +11,84 @@
       <div class="grid-row">
         <div class="column-full">
 
-
-          {% if data.warPensionDecision === 'no' %}
-            {% include './_bar.html' %}
-          {% endif %}    
-
-          {% if data.pension-credit === 'yes' %} 
-            {% include './_bar-awarded.html' %}
+          {% if data['pcAmount'] %} 
+              {% include './_bar-awarded.html' %}
+            {% elseif data.warPensionDecision === 'no' %}
+              {% include './_bar.html' %}
           {% endif %}    
 
 
-          {% if data.warPensionDecision === 'no' %}
+          {% if data['pcAmount'] %}
 
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive"></span>
-              Waiting for information from the Carer's Allowance team. <br><a href="../mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1" class="govuk-link govuk-link--no-visited-state">Update Carer's Allowance information</a>.
-            </strong>
-          </div>
+            {% elseif data['caAmount'] %}
 
-          {% else %}
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive"></span>
+                Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
+              </strong>
+            </div>
           
-          {% endif %}
+            {% elseif data.warPensionDecision === 'no' %}
 
-          {% if data.carersAllowance === 'yes' %}
-
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-warning-text__assistive"></span>
-              Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
-            </strong>
-          </div>
-
-          {% else %}
+            <div class="govuk-warning-text">
+              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+              <strong class="govuk-warning-text__text">
+                <span class="govuk-warning-text__assistive"></span>
+                Waiting for information from the Carer's Allowance team. <br><a href="../mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1" class="govuk-link govuk-link--no-visited-state">Update Carer's Allowance information</a>.
+              </strong>
+            </div>
 
           {% endif %}
 
-          {{ xGovukSecondaryNavigation({
-            visuallyHiddenTitle: "Secondary menu",
-            items: [{
-              text: "Personal",
-              href: "#",
-              current: true
-            }, 
-            {
-              text: "Contact",
-              href: "#"
-            }, 
-            {
-              text: "Tasks",
-              href: "#"
-            }]
-          }) }}
+          {% if data['pcAmount'] %}
+
+            {{ xGovukSecondaryNavigation({
+              visuallyHiddenTitle: "Secondary menu",
+              items: [{
+                text: "Personal",
+                href: "#",
+                current: true
+              }, 
+              {
+                text: "Contact",
+                href: "#"
+              }, 
+              {
+                text: "Tasks",
+                href: "#"
+              },
+              {
+                text: "Award",
+                href: "#"
+              },
+              {
+                text: "Payments",
+                href: "#"
+              }]
+            }) }}
+
+            {% elseif data.warPensionDecision === 'no' %}
+
+            {{ xGovukSecondaryNavigation({
+              visuallyHiddenTitle: "Secondary menu",
+              items: [{
+                text: "Personal",
+                href: "#",
+                current: true
+              }, 
+              {
+                text: "Contact",
+                href: "#"
+              }, 
+              {
+                text: "Tasks",
+                href: "#"
+              }]
+            }) }}
+
+          {% endif %}
 
         </div>
       </div>
@@ -130,87 +154,146 @@
 
 <div class="govuk-grid-column-one-third">
 
-    {% if data.carersAllowance === 'yes' %}
+  {% if data['pcAmount'] %}
 
-      {% from "timeline/macro.njk" import dwpTimeline %}
-
-        <h1 class="govuk-heading-m">Personal changes</h1>
-        {{
-        dwpTimeline({ 
-          items: [
-          {
-            title:  "Part A of BR403 sent to Pension Credit team",
-            byline:  "agent",
-            date:  "15 May 2024 at 1:22pm"
-          },
-
-          {
-            title:  " Carer's Allowance information updated",
-            byline:  "agent",
-            date:  "15 May 2024 at 3:14pm"
-          },
-          
-          {
-            title:  "Email sent to Carer's Allowance team",
-            byline:  "system",
-            date:  "14 May 2024 at 11:35am"
-          },
-          
-          {
-            title:  "Email received from Veterans Agency",
-            byline:  "system",
-            date:  "13 May 2024 at 9:41am"
-          },
-
-          {
-            title:  "Email sent to Veterans Agency",
-            byline:  "system",
-            date:  "11 May 2024 at 7:22pm"
-          },
-
-          {
-            title:  "Claim received",
-            byline:  "online",
-            date:  "11 May 2024 at 7:14pm"
-          }
-        ]
-        })
-        }}
-
-      {% else %}
-
-      {% from "timeline/macro.njk" import dwpTimeline %}
+    {% from "timeline/macro.njk" import dwpTimeline %}
 
       <h1 class="govuk-heading-m">Personal changes</h1>
       {{
-          dwpTimeline({ 
-              items: [
-              {
-                title:  "Email sent to Carer's Allowance team",
-                byline:  "system",
-                date:  "14 May 2024 at 11:35am"
-              },
-              
-              {
-                title:  "Email received from Veterans Agency",
-                byline:  "system",
-                date:  "13 May 2024 at 9:41am"
-              },
+      dwpTimeline({ 
+        items: [
+        {
+          title:  "State Pension awarded",
+          byline:  "system",
+          date:  "18 May 2024 at 10:57am"
+        },
+        
+        {
+          title:  "Part B of BR403 returned",
+          byline:  "agent",
+          date:  "18 May 2024 at 10:57am"
+        },
+        
+        {
+          title:  "Part A of BR403 sent to Pension Credit team",
+          byline:  "agent",
+          date:  "15 May 2024 at 1:22pm"
+        },
 
-              {
-                title:  "Email sent to Veterans Agency",
-                byline:  "system",
-                date:  "11 May 2024 at 7:22pm"
-              },
-            
-              {
-                title:  "Claim received",
-                byline:  "online",
-                date:  "11 May 2024 at 7:14pm"
-              }
-          ]
-          })
+        {
+          title:  " Carer's Allowance information updated",
+          byline:  "agent",
+          date:  "15 May 2024 at 3:14pm"
+        },
+        
+        {
+          title:  "Email sent to Carer's Allowance team",
+          byline:  "system",
+          date:  "14 May 2024 at 11:35am"
+        },
+        
+        {
+          title:  "Email received from Veterans Agency",
+          byline:  "system",
+          date:  "13 May 2024 at 9:41am"
+        },
+
+        {
+          title:  "Email sent to Veterans Agency",
+          byline:  "system",
+          date:  "11 May 2024 at 7:22pm"
+        },
+
+        {
+          title:  "Claim received",
+          byline:  "online",
+          date:  "11 May 2024 at 7:14pm"
+        }
+      ]
+      })
       }}
+
+    {% elseif data['caAmount'] %}  
+
+    {% from "timeline/macro.njk" import dwpTimeline %}
+
+    <h1 class="govuk-heading-m">Personal changes</h1>
+    {{
+    dwpTimeline({ 
+      items: [
+      {
+        title:  "Part A of BR403 sent to Pension Credit team",
+        byline:  "agent",
+        date:  "15 May 2024 at 1:22pm"
+      },
+
+      {
+        title:  " Carer's Allowance information updated",
+        byline:  "agent",
+        date:  "15 May 2024 at 3:14pm"
+      },
+      
+      {
+        title:  "Email sent to Carer's Allowance team",
+        byline:  "system",
+        date:  "14 May 2024 at 11:35am"
+      },
+      
+      {
+        title:  "Email received from Veterans Agency",
+        byline:  "system",
+        date:  "13 May 2024 at 9:41am"
+      },
+
+      {
+        title:  "Email sent to Veterans Agency",
+        byline:  "system",
+        date:  "11 May 2024 at 7:22pm"
+      },
+
+      {
+        title:  "Claim received",
+        byline:  "online",
+        date:  "11 May 2024 at 7:14pm"
+      }
+    ]
+    })
+    }}
+
+    {% elseif data.warPensionDecision === 'no' %}
+
+    {% from "timeline/macro.njk" import dwpTimeline %}
+
+    <h1 class="govuk-heading-m">Personal changes</h1>
+    {{
+        dwpTimeline({ 
+            items: [
+            {
+              title:  "Email sent to Carer's Allowance team",
+              byline:  "system",
+              date:  "14 May 2024 at 11:35am"
+            },
+            
+            {
+              title:  "Email received from Veterans Agency",
+              byline:  "system",
+              date:  "13 May 2024 at 9:41am"
+            },
+
+            {
+              title:  "Email sent to Veterans Agency",
+              byline:  "system",
+              date:  "11 May 2024 at 7:22pm"
+            },
+          
+            {
+              title:  "Claim received",
+              byline:  "online",
+              date:  "11 May 2024 at 7:14pm"
+            }
+        ]
+        })
+    }}
 
     {% endif %}
 

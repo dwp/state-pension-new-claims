@@ -1,6 +1,8 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+// SCENARIOS
+
 router.post('/mixed-overlapping-benefits/select-scenario', function (req, res) {
   if (req.body['chooseScenario'] === 'scenario4') {
     res.redirect('/mixed-overlapping-benefits/carers-allowance/enquiries')
