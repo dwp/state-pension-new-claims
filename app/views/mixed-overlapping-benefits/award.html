@@ -23,7 +23,8 @@
             visuallyHiddenTitle: "Secondary menu",
             items: [{
               text: "Personal",
-              href: "../citizen-record"
+              href: "citizen-record",
+              current: false
             }, 
             {
               text: "Contact",
@@ -35,12 +36,12 @@
             },
             {
               text: "Award",
-              href: "",
+              href: "award",
               current: true
             },
             {
               text: "Payment",
-              href: "../payment",
+              href: "payment",
               current: false
             }]
           }) }}
@@ -57,7 +58,7 @@
 
         <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">State Pension awards</h2>
 
-        <a href="review-award" class="govuk-link govuk-!-font-size-19" style="margin-left: 80%">Review award</span>
+        <a href="review-award" class="govuk-body govuk-link--no-visited-state" style="margin-left: 80%">Review award</span>
         </a>
 
           <br>
@@ -76,9 +77,9 @@
         </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">25 Feb 2023</td>
+            <td class="govuk-table__cell">15 May 2024</td>
             <td class="govuk-table__cell">£585.48</td>
-            <td class="govuk-table__cell"><a href="award-current-details">Details</a></td>
+            <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="award-current-details">Details</a></td>
             <td class="govuk-table__cell">In payment</td>
           </tr>
         </tbody>
@@ -96,19 +97,21 @@
 
 
 <div class="govuk-grid-column-one-third">
-  <br><br>
-  <h2 class="govuk-heading-m">
-    Award changes
-  </h2>
-  <ol class="app-timeline">
 
-      <li class="app-timeline__entry">
-          <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
-            No changes made
-          </h3>
-        </li>
+  {% from "timeline/macro.njk" import dwpTimeline %}
 
-  </ol>
+  <h1 class="govuk-heading-m">Award changes</h1>
+  {{
+      dwpTimeline({ 
+          items: [
+          {
+            title:  "No changes made",
+            byline:  "",
+            date:  ""
+          }
+      ]
+      })
+  }}
 
 </div>
 
