@@ -1,39 +1,55 @@
-{% extends "layout.html" %}
+{% extends "layouts/main-2.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
-
+{% block content %}
 
 <div class="govuk-width-container">
-
-  <br>
-  <br>
-
-
   <div class="govuk-grid-column-two-thirds">
 
     <main id="content" role="main">
       <div class="grid-row">
         <div class="column-full">
-          <br><br>
-          {% include './_bar.html' %}
 
-          {% include './tabs/_tab-payment.html' %}
+          <div>
+            <h1 class="govuk-heading-xl">
+              Cece Bonham
+              <span class="govuk-caption-l">QQ 12 34 56 X</span>
+              <strong class="govuk-tag govuk-tag--blue">
+               Receiving State Pension
+              </strong>
+            </h1>
+          </div>
+
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "../citizen-record"
+            }, 
+            {
+              text: "Contact",
+              href: "#"
+            }, 
+            {
+              text: "Tasks",
+              href: "#"
+            },
+            {
+              text: "Award",
+              href: "#"
+            },
+            {
+              text: "Payment",
+              href: "#",
+              current: true
+            }]
+          }) }}
+
         </div>
       </div>
     </main>
 
     <br><br>
-    <h2 class="govuk-heading-m">Bank or building society account details</h2>
+    <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Bank or building society account details</h2>
     <table class="govuk-table">
       <tbody class="govuk-table__body">
 
@@ -43,13 +59,13 @@ GOV.UK Prototype Kit
 
 
               <a href="changebanktype">
-                <span class="govuk-link govuk-!-font-size-19" style="margin-left: 90%">Change</span>
+                <span class="govuk-link govuk-!-font-size-19" class="govuk-link govuk-!-font-size-19" style="margin-left: 90%">Change</span>
               </a>
 
 
           <tr class="govuk-table__row">
           <th scope="row" class="govuk-table__header" style="width: 45%">Account holder</th>
-          <td class="govuk-table__cell" style="width: 45%"> Mrs Gabrielle Lewis</td>
+          <td class="govuk-table__cell" style="width: 45%"> Mrs Cece Bonham</td>
           <td class="govuk-table__cell" style="width: 10%"></td>
         </tr>
         <tr class="govuk-table__row">
@@ -74,14 +90,14 @@ GOV.UK Prototype Kit
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header" style="width: 45%"> Payment frequency</th>
             <td class="govuk-table__cell" style="width: 45%">Every 4 weeks</td>
-            <td class="govuk-table__cell" style="width: 10%"><a href="change-frequency">
+            <td class="govuk-table__cell" style="width: 10%"><a class="govuk-body govuk-link--no-visited-state" href="change-frequency">
                 <span class="govuk-link govuk-!-font-size-19">Change</span>
               </a></td>
           </tr>
 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Next payment date</th>
-              <td class="govuk-table__cell">22 Feb 2021</td>
+              <td class="govuk-table__cell">18 Jun 2024</td>
               <td class="govuk-table__cell"></td>
             </tr>
 
@@ -104,35 +120,29 @@ GOV.UK Prototype Kit
 
 
   <div class="govuk-grid-column-one-third">
-    <br><br>
-    <h2 class="govuk-heading-m">
-      Payment changes
-    </h2>
-    <ol class="app-timeline">
-      <li class="app-timeline__entry">
-        <h3 class="govuk-heading-s govuk-!-margin-bottom-0">
-          No changes made
-        </h3>
+    {% from "timeline/macro.njk" import dwpTimeline %}
 
-        <p class="app-timeline__info govuk-!-margin-bottom-0">
-          <span class="govuk-visually-hidden">No changes made</span>
-          <span class="app-timeline__date">
-
-          </span>
-        </p>
-      </li>
-
-
-    </ol>
+    <h1 class="govuk-heading-m">Payment changes</h1>
+    {{
+        dwpTimeline({ 
+            items: [
+            {
+              title:  "No changes made",
+              byline:  "",
+              date:  ""
+            }
+        ]
+        })
+    }}
 
   </div>
 
   <div class="govuk-grid-column-full">
     <h2 class="govuk-heading-m">Payment history</h2>
     <table class="govuk-table">
+
         <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-
               <th class="govuk-table__header" scope="col" style="width: 15%">Payment date</th>
               <th class="govuk-table__header" scope="col" style="width:20%">Period</th>
               <th class="govuk-table__header" scope="col" style="width: 10%">Amount</th>
@@ -140,33 +150,20 @@ GOV.UK Prototype Kit
               <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
             </tr>
           </thead>
+
       <tbody class="govuk-table__body">
-
-
         <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">25 Jan 2021</td>
-          <td class="govuk-table__cell">28 Dec 2020 to 24 Jan 2021</td>
+          <td class="govuk-table__cell">18 May 2024</td>
+          <td class="govuk-table__cell">18 May 2024 to 19 Jun 2024</td>
           <td class="govuk-table__cell">£650.72</td>
           <td class="govuk-table__cell" class="govuk-orange">Sent
           </td>
-          <td class="govuk-table__cell" style="text-align: right;"><a href="payment-details-1">Details</a></td>
+          <td class="govuk-table__cell" style="text-align: right;"><a class="govuk-body govuk-link--no-visited-state" href="payment-details-1">Details</a></td>
         </tr>
-
-
-        <tr class="govuk-table__row">
-
-          <td class="govuk-table__cell">28 Dec 2020</td>
-          <td class="govuk-table__cell">30 Nov 2020 to 27 Dec 2020</td>
-          <td class="govuk-table__cell">£650.72</td>
-          <td class="govuk-table__cell" class="govuk-orange">Paid
-          </td>
-          <td class="govuk-table__cell" style="text-align: right;"><a href="payment-details-2">Details</a></td>
-        </tr>
-
-
-        </tbody>
+      </tbody>
         </table>
+
+        <br><br><br>
 
   </div>
 
@@ -175,10 +172,7 @@ GOV.UK Prototype Kit
 </div>
 </main>
 </div>
-<!-- </div> -->
-{% endblock %}
 
-{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
