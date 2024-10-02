@@ -70,7 +70,7 @@
           <tr class="govuk-table__row">
             <th class="govuk-table__header" scope="col" style="width: 25%">From</th>
             <th class="govuk-table__header " scope="col" style="width: 30%">Weekly amount</th>
-            <th class="govuk-table__header" scope="col" style="width: 20%"></th>
+            <th class="govuk-table__header" scope="col" style="width: 20%">Adjustment</th>
             <th class="govuk-table__header" scope="col" style="width: 15%"></th>
 
           </tr>
@@ -79,8 +79,8 @@
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">15 May 2024</td>
             <td class="govuk-table__cell">£585.48</td>
+            <td class="govuk-table__cell">{% if data['pcAmount'] %}Yes{% elseif data['caAmount'] %}Yes{% else %}No{% endif %}</td>
             <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="award-current-details">Details</a></td>
-            <td class="govuk-table__cell">In payment</td>
           </tr>
         </tbody>
       </table>

@@ -21,6 +21,14 @@ router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision', fun
   }
 })
 
+router.post('/mixed-overlapping-benefits/war-pensions/war-pension-decision2', function (req, res) {
+  if (req.body['warPensionDecision'] === 'no') {
+    res.redirect('../br403-part-a')
+  } else {
+    res.redirect('pscs')
+  }
+})
+
 // CARERS ALLOWANCE
 
 router.post('/mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1', function (req, res) {
