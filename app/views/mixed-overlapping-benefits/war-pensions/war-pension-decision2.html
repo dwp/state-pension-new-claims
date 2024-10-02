@@ -1,17 +1,6 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include './header/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
+{% block content %}
 
 <div class="govuk-width-container">
   <div class="govuk-grid-column-two-thirds">
@@ -20,8 +9,6 @@ GOV.UK Prototype Kit
       <div class="grid-row">
         <div class="column-full">
 
-
-          <br><br>
           {% include './_bar.html' %}
 
           {{ govukBackLink({
@@ -29,36 +16,42 @@ GOV.UK Prototype Kit
             href: "javascript:history.go(-1)"
                             }) }}
 
-          <br><br>
-          <form>
+          <br><br><br>
+       
+<form method="post">
 
             <div class="govuk-form-group">
-  <fieldset class="govuk-fieldset">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-      <h1 class="govuk-fieldset__heading">
-        Does Luke Beasley still want to claim their State Pension?
-      </h1><br>
-    </legend>
-    <div class="govuk-radios" data-module="govuk-radios">
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="war-pension-decision" name="war-pension-decision3" type="radio" value="award-state-pension">
-        <label class="govuk-label govuk-radios__label" for="war-pension-decision">
-          Yes, award State Pension
-        </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="war-pension-decision-2" name="war-pension-decision3" type="radio" value="dont-award">
-        <label class="govuk-label govuk-radios__label" for="war-pension-decision-2">
-          No, cancel claim
-        </label>
-      </div>
-    </div>
-  </fieldset>
-</div>
+              <fieldset class="govuk-fieldset">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="govuk-fieldset__heading">
+                    Does Cece Bonham get any Unemployability Supplement?
+                  </h1>
+                </legend><br>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="warPensionDecision" name="warPensionDecision" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="warPensionDecision">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="warPensionDecision-2" name="warPensionDecision" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="warPensionDecision">
+                    No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+            </div>
+
+            <br><br><br>
 
             <button type="submit" class="govuk-button">
               Continue
             </button>
+
+            <br><br>
+
           </form>
         </div>
       </div>
@@ -68,11 +61,6 @@ GOV.UK Prototype Kit
 </div>
 </div>
 
-
-
-{% endblock %}
-
-{% block content %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
