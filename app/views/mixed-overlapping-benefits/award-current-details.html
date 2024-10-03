@@ -76,7 +76,35 @@
              </tbody>
            </table>
 
-           {% if data['caAmount'] %}
+           {% if data['pcAmount'] %}
+            <table class="govuk-table">
+              <caption class="govuk-table__caption govuk-table__caption--m">Withheld amounts</caption>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header app-custom-class">Weekly amount</th>
+                  <th scope="col" class="govuk-table__header app-custom-class">Reason</th>
+                  <th scope="col" class="govuk-table__header app-custom-class">Date from</th>
+                  <th scope="col" class="govuk-table__header app-custom-class">Date to</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">£65.00</td>
+                  <td class="govuk-table__cell">Pension credit</td>
+                  <td class="govuk-table__cell">18 May 2024</td>
+                  <td class="govuk-table__cell">25 Jun 2024</td>
+                </tr> 
+             {% if data['caAmount'] %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell">£65.00</td>
+                  <td class="govuk-table__cell">Carer's Allowance</td>
+                  <td class="govuk-table__cell">15 May 2024</td>
+                  <td class="govuk-table__cell">23 Jun 2024</td>
+                </tr>
+             {% endif %}
+              </tbody>
+            </table>
+           {% elseif data['caAmount'] %}
             <table class="govuk-table">
               <caption class="govuk-table__caption govuk-table__caption--m">Withheld amounts</caption>
               <thead class="govuk-table__head">
