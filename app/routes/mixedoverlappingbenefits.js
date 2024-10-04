@@ -35,6 +35,14 @@ router.post('/mixed-overlapping-benefits/carers-allowance/carers-allowance-decis
   if (req.body['carersAllowance'] === 'yes') {
     res.redirect('carers-allowance-details')
   } else {
+    res.redirect('/mixed-overlapping-benefits/br403-part-a')
+  }
+})
+
+router.post('/mixed-overlapping-benefits/carers-allowance/carers-allowance-decision-1', function (req, res) {
+  if (req.body['carersConditional'] === 'yes') {
+    res.redirect('carers-allowance-details')
+  } else {
     res.redirect('no-offset')
   }
 })
