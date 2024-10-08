@@ -8,10 +8,10 @@
         <div>
           <h1 class="govuk-heading-l">
             Bob Dobalina <br>
-                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-                            <strong class="govuk-tag govuk-tag--red">
-                              Claim unsuccessful
-                            </strong>
+            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+            <strong class="govuk-tag govuk-tag--red">
+              Claim unsuccessful
+            </strong>
           </h1>
         </div>
 
@@ -75,23 +75,28 @@
           </table>
       </div>
       <div class="govuk-grid-column-one-third">
-            {% from "timeline/macro.njk" import dwpTimeline %}
+        {% from "timeline/macro.njk" import dwpTimeline %}
 
-              {{
-                  dwpTimeline({ 
-                    title: "Personal changes",
-                      events: [
-                      {
-                          state: "Less than 10 qualifying years. Claim unsuccessful. Letter sent to claimant",
-                          date: "17 May 2024"
-                      },
-                      {
-                          state: "Number of qualifying years checked",
-                          date: "17 May 2024"
-                      }
-                      ]
-                  })
-              }}
+        <h1 class="govuk-heading-m">Personal changes</h1>
+        {{
+            dwpTimeline({ 
+                items: [
+                    {
+                        title:  "Less than 10 qualifying years. Claim unsuccessful. Letter sent to claimant",
+                        byline:  "System",
+                        date:  "17 May 2024"
+                    },
+                  
+                    {
+                        title:  "Number of qualifying years checked",
+                        byline:  "System",
+                        date:  "17 May 2024"
+                    }
+            ]
+            })
+        }}
+          
+          
       </div>
     </div>
   </main>
