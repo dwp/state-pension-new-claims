@@ -54,23 +54,23 @@
                 {% if data['pcAmount'] and data['caAmount'] %}
 
                   <div class="govuk-inset-text">
-                    Payment was reduced by £260.00. This is due to:
+                    Payment was reduced by £132.20. This is due to:
                     <ul class="govuk-list govuk-list--bullet">
-                      <li>a Carer's Allowance adjustment of £200.00</li>
-                      <li>a Pension Credit adjustment of £60.00</li>
+                      <li>a Carer's Allowance adjustment of £69.70</li>
+                      <li>a Pension Credit adjustment of £62.50</li>
                     </ul>
                   </div> 
 
                 {% elseif data['pcAmount'] %}
 
                   <div class="govuk-inset-text">
-                    Payment was reduced due to a Pension Credit adjustment of £60.00
+                    Payment was reduced due to a Pension Credit adjustment of £62.50
                   </div> 
 
                 {% elseif data['caAmount'] %}
                 
                   <div class="govuk-inset-text">
-                    Payment was reduced due to a Carer's Allowance adjustment of £200.00
+                    Payment was reduced due to a Carer's Allowance adjustment of £69.70
                   </div> 
 
                 {% endif %}
