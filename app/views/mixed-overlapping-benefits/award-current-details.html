@@ -51,7 +51,7 @@
              <thead class="govuk-table__head">
                <tr class="govuk-table__row">
                  <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
-                 <th class="govuk-table__header" scope="col" style="width: 50%">£149.87 a week	</th>
+                 <th class="govuk-table__header" scope="col" style="width: 50%">£254.32 a week</th>
                </tr>
 
 
@@ -59,7 +59,7 @@
              <tbody class="govuk-table__body">
                <tr class="govuk-table__row">
                  <td class="govuk-table__cell" scope="row">New State Pension</td>
-                 <td class="govuk-table__cell">£149.87</td>
+                 <td class="govuk-table__cell">£254.32</td>
                </tr>
                <tr class="govuk-table__row">
                  <td class="govuk-table__cell" scope="row">Protected payment</td>
@@ -89,14 +89,14 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">£69.70</td>
+                  <td class="govuk-table__cell">£{{data.pcAmount}}</td>
                   <td class="govuk-table__cell">Pension credit</td>
                   <td class="govuk-table__cell">18 May 2024</td>
                   <td class="govuk-table__cell">25 Jun 2024</td>
                 </tr> 
              {% if data['caAmount'] %}
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">£62.50</td>
+                  <td class="govuk-table__cell">£{{data.caAmount}}</td>
                   <td class="govuk-table__cell">Carer's Allowance</td>
                   <td class="govuk-table__cell">15 May 2024</td>
                   <td class="govuk-table__cell">23 Jun 2024</td>
@@ -117,14 +117,14 @@
               </thead>
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">£69.70</td>
+                  <td class="govuk-table__cell">£{{data.caAmount}}</td>
                   <td class="govuk-table__cell">Carer's Allowance</td>
                   <td class="govuk-table__cell">15 May 2024</td>
                   <td class="govuk-table__cell">23 Jun 2024</td>
                 </tr>
               {% if data['pcAmount'] %}
                 <tr class="govuk-table__row">
-                  <td class="govuk-table__cell">£62.50</td>
+                  <td class="govuk-table__cell">£{{data.pcAmount}}</td>
                   <td class="govuk-table__cell">Pension credit</td>
                   <td class="govuk-table__cell">18 May 2024</td>
                   <td class="govuk-table__cell">25 Jun 2024</td>
