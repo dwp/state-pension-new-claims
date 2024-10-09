@@ -1,0 +1,213 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+  }}
+
+  <br><br>
+
+  <h1 class="govuk-heading-l">Accrued Rights Premium check details</h1>
+
+  <br><br>
+
+  {% if data.ca1741returned === 'no' %}
+
+  <!-- <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          Outstanding Maxwell indemnity task
+          <p><a href="#" class="govuk-link"><b>Complete task</b></a>.</p>
+        </strong>
+      </div> -->
+
+  {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "15 May 2024"
+      },
+      {
+        text: "CA1741 not returned. Task postponed for 7 days"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "CA1741 requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "System"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell scheme Identified"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+  {% elseif data.maxwellQuestion === 'yes' %}
+
+  {% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "CA1741 requested"
+      },
+      {
+        text: "Sent"
+      },
+      {
+        text: "System"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell scheme identified"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+{% elseif data.maxwellQuestion === 'no' %}
+
+{% from "govuk/components/table/macro.njk" import govukTable %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell scheme actions complete"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ],
+    [
+      {
+        text: "13 May 2024"
+      },
+      {
+        text: "Maxwell scheme not identified"
+      },
+      {
+        text: ""
+      },
+      {
+        text: "Agent"
+      }
+    ]
+  ]
+}) }}
+
+{% endif %}
+
+ </div>
+  
+</div>
+</main>
+</div>
+
+{% endblock %}
