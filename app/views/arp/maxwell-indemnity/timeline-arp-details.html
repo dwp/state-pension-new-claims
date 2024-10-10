@@ -17,84 +17,17 @@
 
   <br><br>
 
-  {% if data.ca1741returned2 === 'no' %}
-
-{% from "govuk/components/table/macro.njk" import govukTable %}
-
-{{ govukTable({
-  caption: "Dates and events",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Date"
-    },
-    {
-      text: "Event"
-    },
-    {
-      text: "Notification"
-    },
-    {
-      text: "By"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "15 May 2024"
-      },
-      {
-        text: "CA1741 not returned. Task postponed for 7 days"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "CA1741 requested"
-      },
-      {
-        text: "Sent"
-      },
-      {
-        text: "System"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "Maxwell scheme identified"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ]
-  ]
-}) }}
-
-  {% elseif data.gmpQuestion2 === 'yes' %}
-
-  <!-- <div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-          <span class="govuk-visually-hidden">Warning</span>
-          Outstanding Maxwell indemnity task
-          <p><a href="#" class="govuk-link"><b>Complete task</b></a>.</p>
-        </strong>
-      </div> -->
+  {% if data.indemnityQuestion === 'yes' %}
+  {% else %}
+    <div class="govuk-warning-text">
+      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+      <strong class="govuk-warning-text__text">
+        <span class="govuk-visually-hidden">Warning</span>
+        Outstanding Maxwell indemnity task
+        <p><a href="#" class="govuk-link"><b>Complete task</b></a>.</p>
+      </strong>
+    </div> 
+  {% endif %}  
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
@@ -217,99 +150,6 @@
     ]
   ]
 }) }}
-
-{% else %}
-
-<div class="govuk-warning-text">
-  <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-  <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
-    Waiting for CA1741 check from HMRC. 
-    <p><a href="gmp-question-2" class="govuk-link"><b>Confirm CA1741 check returned</b></a>.</p>
-  </strong>
-</div>
-
-{% from "govuk/components/table/macro.njk" import govukTable %}
-
-{{ govukTable({
-  caption: "Dates and events",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Date"
-    },
-    {
-      text: "Event"
-    },
-    {
-      text: "Notification"
-    },
-    {
-      text: "By"
-    }
-  ],
-  rows: [
-    [
-      {
-        text: "15 May 2024"
-      },
-      {
-        text: "CA1741 check requested"
-      },
-      {
-        text: "Sent"
-      },
-      {
-        text: "System"
-      }
-    ],
-    [
-      {
-        text: "15 May 2024"
-      },
-      {
-        text: "CA1741 returned"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "CA1741 requested"
-      },
-      {
-        text: "Sent"
-      },
-      {
-        text: "System"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "Maxwell scheme identified"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ]
-  ]
-}) }}
-
-{% endif %}
 
  </div>
   
