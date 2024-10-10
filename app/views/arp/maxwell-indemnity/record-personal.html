@@ -5,45 +5,36 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <div>
-          <h1 class="govuk-heading-l">
-            Otto Kirch <br>
-                            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-                            <strong class="govuk-tag govuk-tag--orange">
-                              Task outstanding
-                            </strong>
-          </h1>
-        </div>
+        {% include './_bar-receiving.html' %}
 
         <br>
-
-        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
-
-        {{ govukNotificationBanner({
-          text: "This task has been brought forward (BF) for 7 days."
-        }) }}
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-visually-hidden">Warning</span>
-            Waiting for CA1741 from HMRC. 
-            <p><a href="gmp-question-2" class="govuk-link"><b>Confirm CA1741 returned.</b></a></p>
-          </strong>
-        </div>
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
             text: "Personal",
-            href: "#",
+            href: "record-personal",
             current: true
-          }, {
+          }, 
+          {
             text: "Contact",
             href: "#"
-          }, {
+          }, 
+          {
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Payment",
+            href: "record-payment"
+          },
+          {
             text: "Tasks",
-            href: "#"
+            href: "record-tasks"
+          },
+          {
+            text: "Full history",
+            href: "record-history"
           }]
         }) }}
 
@@ -55,7 +46,7 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
-                <td class="govuk-table__cell" style="width: 50%">Otto Kirch</td>
+                <td class="govuk-table__cell" style="width: 50%">Ivor Wood</td>
                 <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
                   Change
                 </a></td>
@@ -67,7 +58,7 @@
               </tr>
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">Date of birth</th>
-                <td class="govuk-table__cell">12 December 1957</td>
+                <td class="govuk-table__cell">12 January 1966</td>
                 <td class="govuk-table__cell"></td>
               </tr>
               <tr class="govuk-table__row">
@@ -77,7 +68,7 @@
               </tr>
               <tr class="govuk-table__row">
                   <th scope="row" class="govuk-table__header">Marital status </th>
-                  <td class="govuk-table__cell">Never been married</td>
+                  <td class="govuk-table__cell">Married</td>
                   <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
                       Details
                     </a></td>
@@ -96,27 +87,38 @@
 
       <div class="govuk-grid-column-one-third">
 
-        <div class="dwp-timeline">
-          <h1 class="govuk-heading-m">Personal changes</h1>
-            <ol class="dwp-timeline__events">
+      {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h1 class="govuk-heading-m">Personal changes</h1>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                title:  "State Pension awarded",
+                byline:  "system",
+                date:  "17 May 2024 at 1:16pm"
+              },    
               
-              <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">ARP check</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1"><a href="arp-details" class="govuk-link">Details</a></p>
-                <p class="govuk-caption-m">13 May 2024</p>
-              </li>
+              {
+                title:  "ARP check",
+                byline:  "agent",
+                link: {
+                  href: "timeline-arp-details",
+                  text: "Details",
+                  visuallyHiddenText: "related to the ARP check"
+                  },
+                date:  "13 May 2024 at 1:04pm"
+              },
+                
+              {
+                  title:  "Claim received",
+                  byline:  "online",
+                  date:  "11 May 2024 at 7:14pm"
+              }
+          ]
+          })
+      }}
 
-              <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">Claim received</h2>
-                <p class="govuk-caption-m govuk-!-margin-bottom-1">Agent</p>
-                <p class="govuk-caption-m">11 May 2024</p>
-              </li>
-
-            </ol>
-        </div>
-
-      </div>
-      
     </div>
   </main>
 </div>
