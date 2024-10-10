@@ -5,15 +5,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <div>
-          <h1 class="govuk-heading-l">
-            Otto Kirch <br>
-            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-            <strong class="govuk-tag govuk-tag--blue">
-              Receiving State Pension
-            </strong>            
-          </h1>
-        </div>
+        {% include './_bar-receiving.html' %}
 
         <br>
 
@@ -21,24 +13,29 @@
           visuallyHiddenTitle: "Secondary menu",
           items: [{
             text: "Personal",
-            href: "citizen-record"
+            href: "record-personal",
+            current: false
           }, 
           {
             text: "Contact",
             href: "#"
           }, 
           {
-            text: "Tasks",
-            href: "#"
-          },
-          {
             text: "Award",
-            href: "citizen-award"
+            href: "record-award"
           },
           {
             text: "Payment",
-            href: "#",
+            href: "record-payment",
             current: true
+          },
+          {
+            text: "Tasks",
+            href: "record-tasks"
+          },
+          {
+            text: "Full history",
+            href: "record-history"
           }]
         }) }}
 
