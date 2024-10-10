@@ -123,4 +123,14 @@ router.post('/arp/iteration-2/start-3-routing', function (req, res) {
   res.redirect('ca1741-returned-2')
 })
 
+// Maxwell Indemnity
+
+router.post('/arp/maxwell-indemnity/indemnity-question', function (req, res) {
+  if (req.body['indemnityQuestion'] === 'yes') {
+    res.redirect('calculate-ap')
+  } else {
+    res.redirect('cannot-complete')
+}
+})
+
 module.exports = router
