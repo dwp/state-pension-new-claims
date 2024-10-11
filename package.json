@@ -14,10 +14,10 @@
     "@govuk-prototype-kit/step-by-step": "2.2.3",
     "@govuk-prototype-kit/task-list": "2.0.0",
     "@x-govuk/govuk-prototype-components": "3.0.9",
-    "govuk-frontend": "5.0.0",
-    "govuk-prototype-kit": "13.16.0",
+    "govuk-frontend": "5.7.1",
+    "govuk-prototype-kit": "13.16.2",
     "hmrc-frontend": "6.34.0",
     "jquery": "3.7.1",
-    "notifications-node-client": "8.0.0"
+    "notifications-node-client": "8.2.1"
   }
 }
