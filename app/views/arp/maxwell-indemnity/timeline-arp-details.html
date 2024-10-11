@@ -31,6 +31,8 @@
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
+  {% if data.indemnityQuestion === 'yes' %}
+
 {{ govukTable({
   caption: "Dates and events",
   captionClasses: "govuk-table__caption--m",
@@ -50,106 +52,258 @@
     }
   ],
   rows: [
-    [
-      {
-        text: "19 May 2024"
-      },
-      {
-        text: "Maxwell scheme actions complete"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ],
-    [
-      {
-        text: "19 May 2024"
-      },
-      {
-        text: "GMP amount confirmed"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ],
-    [
-      {
-        text: "19 May 2024"
-      },
-      {
-        text: "Updated CA1741 returned"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      } 
-    ], 
-    [
-      {
-        text: "15 May 2024"
-      },
-      {
-        text: "CA1741 check requested"
-      },
-      {
-        text: "Sent"
-      },
-      {
-        text: "System"
-      }
-    ],
-    [
-      {
-        text: "15 May 2024"
-      },
-      {
-        text: "CA1741 returned"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "CA1741 requested"
-      },
-      {
-        text: "Sent"
-      },
-      {
-        text: "System"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "Maxwell scheme Identified"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
-    ]
+  [
+    {
+      text: "27 July 2024"
+    },
+    {
+      text: "Maxwell indemnity actions complete"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "27 July 2024"
+    },
+    {
+      text: "Maxwell indemnity request identified"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "19 May 2024"
+    },
+    {
+      text: "Maxwell scheme actions complete"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "19 May 2024"
+    },
+    {
+      text: "GMP amount confirmed"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "19 May 2024"
+    },
+    {
+      text: "Updated CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    } 
+  ], 
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 check requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "CA1741 requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "Maxwell scheme Identified"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ]
   ]
 }) }}
+
+{% else %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+  [
+    {
+      text: "19 May 2024"
+    },
+    {
+      text: "Maxwell scheme actions complete"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "19 May 2024"
+    },
+    {
+      text: "GMP amount confirmed"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "19 May 2024"
+    },
+    {
+      text: "Updated CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    } 
+  ], 
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 check requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "CA1741 requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "Maxwell scheme Identified"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ]
+  ]
+}) }}
+
+{% endif %}
 
  </div>
   
