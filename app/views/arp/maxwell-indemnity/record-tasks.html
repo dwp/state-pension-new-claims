@@ -45,6 +45,8 @@
 
         <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
 
+        {% if data.indemnityQuestion === 'yes' %}
+        {% else %}
         <table class="govuk-table">
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
@@ -52,11 +54,12 @@
               <td class="govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter"><a href="#"></a></td>
             </tr>
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell govuk-!-width-three-quarters">Outstanding Maxwell indemnity task</td>
+              <td class="govuk-table__cell govuk-!-width-three-quarters">Maxwell indemnity task</td>
               <td class="govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter"><a href="indemnity-question">View</a></td>
             </tr>
           </tbody>
         </table>
+        {% endif %}
 
     </div>
   </main>
