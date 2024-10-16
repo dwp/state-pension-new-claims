@@ -133,4 +133,8 @@ router.post('/arp/maxwell-indemnity/indemnity-question', function (req, res) {
 }
 })
 
+router.post('/arp/maxwell-indemnity/calculate-ap-routing', function (req, res) {
+  res.redirect('send-letter')
+})
+
 module.exports = router
