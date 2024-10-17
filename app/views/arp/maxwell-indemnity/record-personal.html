@@ -87,37 +87,74 @@
 
       <div class="govuk-grid-column-one-third">
 
+      {% if data.indemnityQuestion === 'yes' %}
+
+
       {% from "timeline/macro.njk" import dwpTimeline %}
 
       <h1 class="govuk-heading-m">Personal changes</h1>
+
       {{
-          dwpTimeline({ 
-              items: [
-              {
-                title:  "State Pension awarded",
-                byline:  "system",
-                date:  "17 May 2024 at 1:16pm"
-              },    
-              
-              {
-                title:  "ARP check",
-                byline:  "agent",
-                link: {
-                  href: "timeline-arp-details",
-                  text: "Details",
-                  visuallyHiddenText: "related to the ARP check"
-                  },
-                date:  "13 May 2024 at 1:04pm"
+      dwpTimeline({ 
+          items: [
+          {
+            title:  "ARP check",
+            byline:  "agent",
+            link: {
+              href: "timeline-arp-details",
+              text: "Details",
+              visuallyHiddenText: "related to the ARP check"
               },
-                
-              {
-                  title:  "Claim received",
-                  byline:  "online",
-                  date:  "11 May 2024 at 7:14pm"
-              }
-          ]
-          })
+            date:  "22 August 2024 at 1:04pm"
+          },
+
+          {
+            title:  "State Pension awarded",
+            byline:  "system",
+            date:  "17 May 2024 at 1:16pm"
+          },    
+            
+          {
+              title:  "Claim received",
+              byline:  "online",
+              date:  "11 May 2024 at 7:14pm"
+          }
+      ]
+      })
       }}
+
+      {% else %}
+
+      {{
+      dwpTimeline({ 
+          items: [
+          {
+            title:  "State Pension awarded",
+            byline:  "system",
+            date:  "17 May 2024 at 1:16pm"
+          },    
+          
+          {
+            title:  "ARP check",
+            byline:  "agent",
+            link: {
+              href: "timeline-arp-details",
+              text: "Details",
+              visuallyHiddenText: "related to the ARP check"
+              },
+            date:  "17 May 2024 at 1:04pm"
+          },
+            
+          {
+              title:  "Claim received",
+              byline:  "online",
+              date:  "11 May 2024 at 7:14pm"
+          }
+      ]
+      })
+      }}
+
+    {% endif %}
 
     </div>
   </main>
