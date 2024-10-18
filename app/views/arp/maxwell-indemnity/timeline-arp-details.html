@@ -15,19 +15,39 @@
 
   <h1 class="govuk-heading-l">Accrued Rights Premium check details</h1>
 
-  <br><br>
+  <br>
 
   {% if data.indemnityQuestion === 'yes' %}
   {% else %}
-    <div class="govuk-warning-text">
+    <!--<div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
       <strong class="govuk-warning-text__text">
         <span class="govuk-visually-hidden">Warning</span>
         Maxwell indemnity task.
-        <p><a href="indemnity-question" class="govuk-link govuk-link--no-visited-state"><b>Confirm Maxwell indemnity received</b></a>.</p>
+        <p><a href="indemnity-question" class="govuk-link--no-visited-state"><b>Confirm Maxwell indemnity received</b></a>.</p>
       </strong>
-    </div> 
+    </div>
+
+    <div class="govuk-inset-text">
+      Maxwell indemnity task.<br>
+      <a href="indemnity-question" class="govuk-link--no-visited-state"><b>Confirm Maxwell indemnity received</b></a>.
+    </div>-->
+
+    <details class="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Maxwell indemnity task
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        If a request has been made (or something like this perhaps), you can
+        <a href="indemnity-question" class="govuk-link--no-visited-state">confirm Maxwell indemnity received</a>.
+      </div>
+    </details>
+
   {% endif %}  
+
+  <br>
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
@@ -304,6 +324,8 @@
 }) }}
 
 {% endif %}
+
+<br>
 
  </div>
   
