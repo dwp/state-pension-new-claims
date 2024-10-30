@@ -230,4 +230,10 @@ router.post('/mqp-disallowed/eea-boost/part-2/check-mixed-years', function (req,
   }   
 });
 
+// Fry Posting
+
+router.post('/mqp-disallowed/fry-posting/enquiries', function (req, res) {
+  res.redirect('find')
+})
+
 module.exports = router

@@ -1,0 +1,107 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar-receiving.html' %}
+
+        <br>
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal",
+            current: false
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact",
+            current: true
+          }]
+        }) }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Address</th>
+                <td class="govuk-table__cell" style="width: 50%">
+                123 Fake Street<br>
+                Londen<br>
+                N0T R34L
+                </td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">
+                  Change
+                </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Correspondance address</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Home phone number</th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Work phone number</th>
+                <td class="govuk-table__cell"> </td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Mobile phone number</th>
+                  <td class="govuk-table__cell">01234567891</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Change</a></td></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Email address</th>
+                    <td class="govuk-table__cell">citizen@wompwomp.fake</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="lived-worked-details">
+                        Details
+                      </a></td>
+                  </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Alternative format for letters</th>
+                    <td class="govuk-table__cell"></td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+                  </tr>
+
+            </tbody>
+          </table>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+      {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h2 class="govuk-heading-m">Personal changes</h2>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                title:  "Fry posting event title goes here",
+                byline:  "system",
+                date:  "11 Sept 2024 at 7:16pm"
+              },    
+                
+              {
+                  title:  "Claim received",
+                  byline:  "online",
+                  date:  "11 Sept 2024 at 7:14pm"
+              }
+          ]
+          })
+      }}
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar-receiving.html' %}
+
+        <br>
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal",
+            current: false
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact"
+          }, 
+          {
+            text: "Award",
+            href: "record-award",
+            current: true
+          },
+          {
+            text: "Payment",
+            href: "record-payment",
+            current: false
+          },
+          {
+            text: "Tasks",
+            href: "record-tasks"
+          },
+          {
+            text: "Full history",
+            href: "record-history"
+          }]
+        }) }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">State Pension awards</h2>
+        <a href="record-award-review" <span class="govuk-link govuk-!-font-size-19" style="margin-left: 80%">Review award</span>
+        </a>
+
+          <br>
+          <br>
+
+      <table class="govuk-table">
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" style="width: 15%">From</th>
+            <th class="govuk-table__header " scope="col" style="width: 20%">Weekly amount</th>
+            <th class="govuk-table__header" scope="col" style="width: 10%">Adjustment</th>
+            <th class="govuk-table__header" scope="col" style="width: 10%"></th>
+
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">13 May 2023</td>
+            <td class="govuk-table__cell">£132.88</td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a href="record-award-details">Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}
