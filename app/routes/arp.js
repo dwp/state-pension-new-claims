@@ -127,9 +127,17 @@ router.post('/arp/iteration-2/start-3-routing', function (req, res) {
 
 router.post('/arp/maxwell-indemnity/indemnity-question', function (req, res) {
   if (req.body['indemnityQuestion'] === 'yes') {
-    res.redirect('calculate-ap')
+    res.redirect('calc-question')
   } else {
     res.redirect('cannot-complete')
+}
+})
+
+router.post('/arp/maxwell-indemnity/calc-question', function (req, res) {
+  if (req.body['calcQuestion'] === 'yes') {
+    res.redirect('calculate-ap')
+  } else {
+    res.redirect('send-request')
 }
 })
 
