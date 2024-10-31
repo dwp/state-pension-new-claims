@@ -9,20 +9,24 @@ GOV.UK Prototype Kit
 <form method="post">
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-full">
 
       <div class="govuk-panel govuk-panel--confirmation">
         <h1 class="govuk-panel__title">
           Application complete
         </h1>
         <div class="govuk-panel__body">
-          24 January 2024<br>your reference number is
+          24 October 2024<br>your reference number is
           <br><strong>your National Insurance number</strong>
         </div>
       </div>
 
+      <br>
+      
+      <p>We have sent an email to citizen@email.com to confirm we have received your application.</p>
+
       <h2 class="govuk-heading-m">What happens next</h2>
-      <p>You will receive details about your State Pension up to 14 days before your State Pension date. We may also contact you if we need more information.</p>
+      <p>You will either receive details about your State Pension or we will contact you if we need more information.</p>
 
       {% if data.EUpensions === 'yes' %}
       <h3 class="govuk-heading-m">Your European Union pension application</h3>
@@ -30,15 +34,22 @@ GOV.UK Prototype Kit
       {% endif %}
 
       <h3 class="govuk-heading-m">If your circumstances change</h3>
-      <p>You must report the following changes straight away:</p>
+      <p>You must tell us straight away if:</p>
 
       <ul class="govuk-list govuk-list--bullet">
-        <li>change of address (including going into hospital, a care home or permanently leaving the UK)</li>
-        <li>bank details</li>
-        <li>death of a spouse or civil partner</li>
+        <li>you change address or move into a care home</li>
+        <li>you move or intend to move to another country permanently</li>
+        <li>you change bank details</li>
+        <li>you go to prison or are held in legal custody</li>
+        <li>you start or stop getting another social security benefit</li>
+        <li>you get married or form a civil partnership</li>
+        <li>you get divorced or your civil partnership is dissolved</li>
+        <li>your husband, wife or civil partner dies</li>
       </ul>
 
       <p><b>Telephone:</b> 0800 731 0469 <br> <b>Textphone:</b> 0800 731 0464</p>
+
+      <p>Report changes as soon as they happen because they may affect how much State Pension you get. If you do not tell us about any changes, you may be paid too much and have to pay this back.</p>
 
       <p><img src="/public/images/icon-print.png" width="30" style="float: left; margin-top: 25px; margin-right: 15px">&nbsp; <a href="#" onclick="window.print();" class="govuk-heading-m">Print this page</a></p>
 
