@@ -14,80 +14,102 @@ GOV.UK Prototype Kit
 
 <div class="govuk-width-container">
 
-  <br>
-
-  {% include './_bar.html' %}
-
 
   <main class="govuk-main-wrapper " id="main-content" role="main">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <div class="govuk-panel govuk-panel--confirmation">
-          <h1 class="govuk-panel__title">
-            Application submitted
-          </h1>
+      <br><br>
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Application submitted
+        </h1>
+        <div class="govuk-panel__body">
+          24 October 2024<br>your reference number is
+          <br><strong>your National Insurance number</strong>
         </div>
+      </div>
 
-        <form method="post">
-<br>
+            <form method="post">
+      <br>
 
-<p>We have sent an email to <b>firstnamelastname@provider.com</b> to confirm your application has been submitted.<br>
+        <p>We have sent an email to citizen@email.com to confirm we have received your application.</p>
 
-  <div class="govuk-form-group">
+        <br>
 
-<h1 class="govuk-heading-m">What happens next</h1>
-    <p>We will send you a letter up to 2 weeks before your State Pension date. We may also contact you if we need more information.</p>
+          <div class="govuk-form-group">
 
-    {% if data.pension === 'yes' %}
-      <h3 class="govuk-heading-m">Your European Union pension application</h3>
-      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
-    {% endif %}
+        <h1 class="govuk-heading-m">What happens next</h1>
+            <p>You will either receive details about your State Pension or we will contact you if we need more information.</p>
 
-    {% if data.EUpensions === 'yes' %}
-      <h3 class="govuk-heading-m">Your European Union pension application</h3>
-      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
-    {% endif %}
+            {% if data.pension === 'yes' %}
+              <h3 class="govuk-heading-m">Your European Union pension application</h3>
+              <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+            {% endif %}
 
-    {% if data.countries %}
-      <h3 class="govuk-heading-m">Your European Union pension application</h3>
-      <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
-    {% endif %}
+            {% if data.EUpensions === 'yes' %}
+              <h3 class="govuk-heading-m">Your European Union pension application</h3>
+              <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+            {% endif %}
 
-    <br><br><br>
+            {% if data.countries %}
+              <h3 class="govuk-heading-m">Your European Union pension application</h3>
+              <p>We will send you an application form by post to complete and return to us. When we get your completed form, we will send a claim for you to the relevant Foreign Authorities. They will review the claim and confirm whether you can get a pension from them.</p>
+            {% endif %}
 
-<button type="submit" class="govuk-button">
-      End call
-    </button>
+        <h2 class="govuk-heading-m">If your circumstances change</h1>
+          <p class="govuk-body">You must tell us straight away if:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>you change address or move into a care home</li>
+            <li>you move or intend to move to another country permanently</li>
+            <li>you change bank details</li>
+            <li>you go to prison or are held in legal custody</li>
+            <li>you start or stop getting another social security benefit</li>
+            <li>you get married or form a civil partnership</li>
+            <li>you get divorced or your civil partnership is dissolved</li>
+            <li>your husband, wife or civil partner dies</li>
+          </ul>
 
-    <br><br><br><br><br>
-    
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-    
-          <details class="govuk-details" data-module="govuk-details">
-            <summary class="govuk-details__summary">
-            <span class="govuk-details__summary-text">
-            <b>URL and notes</b>
-            </span>
-            </summary>
-            <div class="govuk-details__text">
-            <b>URL:</b> as existing <br>
-            <b> Notes:</b> Link to 
-                <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B81677BD0-8555-45D4-884A-45795D31BDC4%7D&file=GYSP-telephone-claim-form-SoT.xlsx&action=default&mobileredirect=true" 
-                class="govuk-link" rel="noreferrer noopener" target="_blank">content source of truth (opens in new tab)</a>
-            </div>
-          </details>
+          <p><b>Telephone</b>: 0800 731 0469 <br>
+            <b>Telephone</b>: 0800 731 0464</p>
 
-  </div>
+          <p>Report changes as soon as they happen because they may affect how much State Pension you get. If you do not tell us about any changes, you may be paid too much and have to pay this back.</p>
+
+            <br><br><br>
+
+        <button type="submit" class="govuk-button">
+          End call
+        </button>
+
+        <br><br><br>
+        
+        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+        
+        <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <b>URL:</b> as existing <br>
+          <b> Notes:</b> Link to 
+              <a href="https://dwpgovuk.sharepoint.com/:x:/r/sites/ext-rbc/_layouts/15/Doc.aspx?sourcedoc=%7B81677BD0-8555-45D4-884A-45795D31BDC4%7D&file=GYSP-telephone-claim-form-SoT.xlsx&action=default&mobileredirect=true" 
+              class="govuk-link" rel="noreferrer noopener" target="_blank">content source of truth (opens in new tab)</a>
+          </div>
+        </details>
+
+      </div>
 
 
- </form>
+    </form>
 
 
 
-</div>
+   </div>
 
-</main>
+  </main>
 </div>
 
 {% endblock %}
