@@ -17,7 +17,7 @@
 
   <br>
 
-  {% if data.indemnityQuestion === 'yes' %}
+  {% if data.calcQuestion === 'yes' %}
   {% else %}
     <!--<div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -50,7 +50,158 @@
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
-  {% if data.indemnityQuestion === 'yes' %}
+  {% if data.calcQuestion === 'no' %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+  [
+    {
+      text: "22 August 2024"
+    },
+    {
+      text: "Request for calculation from HMRC"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "22 August 2024"
+    },
+    {
+      text: "Maxwell indemnity received"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "17 May 2024"
+    },
+    {
+      text: "Maxwell scheme actions complete"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "17 May 2024"
+    },
+    {
+      text: "GMP amount confirmed"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "17 May 2024"
+    },
+    {
+      text: "Updated CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    } 
+  ], 
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 check requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "CA1741 requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "Maxwell scheme identified"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ]
+  ]
+}) }}
+  
+  
+  {% elseif data.indemnityQuestion === 'yes' %}
 
 {{ govukTable({
   caption: "Dates and events",
