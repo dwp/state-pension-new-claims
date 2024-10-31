@@ -2,32 +2,32 @@
 
 {% block content %}
 
-{% include './_bar.html' %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="dashboard-2">
+<form method="post" action="record-personal">
 
-      {{ govukBackLink({
-        "text": "Back",
-        "href": "javascript: window.history.go(-1)"
-      })
-    }}
+  {% include './_bar-receiving.html' %}
 
-    <br><br>
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
 
-    <h1 class="govuk-heading-xl">Postpone the task</h1>
+<br><br>
 
-    <p>Task will be postponed so we can check again in x days.</p>
+  <h1 class="govuk-heading-xl">Send request to HMRC</h1>
 
-    <br><br><br>
+   <p>Contact HMRC to confirm amount from 1991 split.</p>
+  
+   <br><br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-      Continue
+      Send email
     </button>
 
-    <br><br><br><br><br>
+   <br><br><br><br><br>
 
   </div>
 </div>
@@ -46,12 +46,14 @@
         </span>
       </summary>
       <div class="govuk-details__text">
-        <b>URL:</b> /confirm-award <br>
+        <b>URL:</b>#<br>
         <b>Notes:</b> None <br>
       </div>
     </details>
 
-   </div>
- </div>
+
+  </div>
+
+</div>
 
 {% endblock %}
