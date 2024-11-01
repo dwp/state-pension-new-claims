@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+
+    <h2 class="govuk-heading-s" style="margin-bottom:-27px;float:left">Mark Rooney</h2>
+    <a href="changebanktype" <span class="govuk-link govuk-table__cell--numeric govuk-!-font-size-19" style="margin-left: 85%">Start a new claim</span>
+    </a>
+
+    <br>
+
+    <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+
+    <!--<br>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+        <div>
+          <h1 class="govuk-heading-xl">
+            Mark Rooney
+            <span class="govuk-caption-l">QQ 12 34 56 Z</span>
+            <strong class="govuk-tag govuk-tag--red">
+              Claim unsuccessful
+            </strong>
+          </h1>
+        </div>
+      </div>
+    </div>-->
+
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.go(-1)"
+    }) }}
+
+
+    <br><br>
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <h1 class="govuk-heading-xl">Cannot process claim on GySP</h1>
+
+
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">National Insurance number</th>
+              <td class="govuk-table__cell">QQ 12 34 56 M</th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Full name</th>
+              <td class="govuk-table__cell">Mark Rooney</td>
+            </tr>
+            <!--<tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Status</th>
+              <td class="govuk-table__cell"><strong class="govuk-tag govuk-tag--red">
+                Claim unsuccessful
+              </strong>
+              </td>
+            </tr>-->
+          </tbody>
+        </table>
+
+       
+
+<br>
+        <p>The claimant's status is Claim unsuccessful. You will need to build the claim on legacy systems.</p>
+
+        <br><br><br>
+
+        <a href="get-a-claim" button type="submit" class="govuk-button">
+          End task
+          </button>
+        </a>
+      </div>
+
+    </div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
