@@ -7,13 +7,13 @@
 
         {% include './_bar.html' %}
 
-      <div class="govuk-warning-text">
+        <!--<div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive"></span>
             There are tasks that need to be completed before an award can be issued. <br><a href="tasks" class="govuk-link govuk-link--no-visited-state">View tasks</a>.
           </strong>
-        </div>
+        </div>-->
 
         <br>
 
@@ -36,39 +36,41 @@
 
         <br><br>
 
-        <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
+        <h2 class="govuk-heading-m">Outstanding tasks</h2>
 
-       
-        <ul class="govuk-task-list">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PSOD
+            </dt>
+            <dd class="govuk-summary-list__value">
+              <p class="govuk-body">£0.00</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <ul class="govuk-summary-list__actions-list">
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> contact details</span></a>
+                </li>
+                <li class="govuk-summary-list__actions-list-item">
+                  <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
+                </li>
+              </ul>
+            </dd>
+          </div>
 
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="task-1-question.html" aria-describedby="application-details-3-status">
-                Task 1 (PSOD)
-              </a>
-            </div>
-            <div class="govuk-task-list__status" id="application-details-3-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Not yet started
-              </strong>
-            </div>
-          </li>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              COEG
+            </dt>
+            <dd class="govuk-summary-list__value">
+              COEG info not confirmed
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            </dd>
+          </div>
 
-          <li class="govuk-task-list__item">
-            <div class="govuk-task-list__name-and-hint">
-              <div>
-                Task 2 (COEG)
-              </div>
-              <div id="application-details-3-hint" class="govuk-task-list__hint">
-                Task 1 needs to be completed before you can start this task
-              </div>
-            </div>
-            <div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-              Cannot start yet
-            </div>
-          </li>
-
-        </ul>
+        </dl>
 
     </div>
 
