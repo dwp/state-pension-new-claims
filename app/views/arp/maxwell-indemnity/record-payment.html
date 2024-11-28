@@ -41,9 +41,7 @@
 
         <br><br>
 
-        <h2 class="govuk-heading-m" style="margin-bottom:-27px;float:left">Bank or building society account details</h2>
-        <a href="changebanktype" <span class="govuk-link govuk-table__cell--numeric govuk-!-font-size-19" style="margin-left: 90%">Change</span>
-        </a>
+        <h2 class="govuk-heading-m">Bank or building society account details</h2>
 
         <table class="govuk-table">
           <tbody class="govuk-table__body">
@@ -72,9 +70,15 @@
     
           </tbody>
         </table>
-    <br>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Change bank or building society account details</a>
+         </p>
+
+    <br><br><br>
+
         <h2 class="govuk-heading-m">Payment details</h2>
-        <br>
+ 
         <table class="govuk-table">
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
@@ -102,36 +106,59 @@
 
     </div>
 
+    <div class="govuk-grid-column-one-third">
+
+      {% from "timeline/macro.njk" import dwpTimeline %}
+        
+      <h2 class="govuk-heading-m">Payment changes</h2>
+      {{
+          dwpTimeline({ 
+              items: [   
+              {
+                  title:  "Claim received",
+                  byline:  "",
+                  date:  ""
+              }
+          ]
+          })
+      }}
+  
+    </div>
+
     <div class="govuk-grid-column-full">
+
+      <br><br><br>
+
       <h2 class="govuk-heading-m">Payment history</h2>
+
       <table class="govuk-table">
-          <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-  
-                <th class="govuk-table__header" scope="col" style="width: 15%">Payment date</th>
-                <th class="govuk-table__header" scope="col" style="width:20%">Period</th>
-                <th class="govuk-table__header" scope="col" style="width: 10%">Amount</th>
-                <th class="govuk-table__header" scope="col" style="width: 10%">Status</th>
-                <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
-              </tr>
-            </thead>
+        <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th class="govuk-table__header" scope="col" style="width: 15%">Payment date</th>
+              <th class="govuk-table__header" scope="col" style="width:20%">Period</th>
+              <th class="govuk-table__header" scope="col" style="width: 10%">Amount</th>
+              <th class="govuk-table__header" scope="col" style="width: 10%">Status</th>
+              <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
+            </tr>
+        </thead>
+
         <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">13 May 2024</td>
+              <td class="govuk-table__cell">13 May 2024 to 19 May 2023</td>
+              <td class="govuk-table__cell">£132.88</td>
+              <td class="govuk-table__cell" class="govuk-orange">Sent
+              </td>
+              <td class="govuk-table__cell" style="text-align: right;"><a href="record-payment-details">Details</a></td>
+            </tr>
   
-  
-          <tr class="govuk-table__row">
-  
-            <td class="govuk-table__cell">13 May 2024</td>
-            <td class="govuk-table__cell">13 May 2024 to 19 May 2023</td>
-            <td class="govuk-table__cell">£132.88</td>
-            <td class="govuk-table__cell" class="govuk-orange">Sent
-            </td>
-            <td class="govuk-table__cell" style="text-align: right;"><a href="record-payment-details">Details</a></td>
-          </tr>
-  
-  
-  
-          </tbody>
-          </table>
+        </tbody>
+      </table>
+
+      <p class="govuk-body">
+       <a href="#" class="govuk-link">Record a manual payment</a>
+      </p>
   
     </div>
 
