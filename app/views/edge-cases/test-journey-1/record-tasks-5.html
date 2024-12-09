@@ -29,6 +29,16 @@
           Short explaination of what the task entails could go here.
         </p>
 
+        <br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            You must complete all of the steps to continue the journey.
+          </strong>
+        </div>
+
         <div data-module="appstepnav"id="step-by-step-navigation" class="app-step-nav js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
           <ol class="app-step-nav__steps">
             <li class="app-step-nav__step js-step" id="check-you-re-allowed-to-drive">
@@ -90,15 +100,21 @@
                       </div>
                       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
                         <div class="govuk-form-group">
-                          <label class="govuk-label" for="contact-by-phone">
-                            Phone number
-                          </label>
-                          <input class="govuk-input govuk-!-width-one-third" id="contact-by-phone" name="contactByPhone" type="tel" autocomplete="tel">
+                          <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--s" for="cost">
+                              Enter the credit amount in pounds
+                            </label>
+                          </h1>
+                          <div class="govuk-input__wrapper">
+                            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                            <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+                          </div>
                         </div>
                       </div>
                     </div>
                   </fieldset>
                 </div>
+                
               </div>
     
             </li>
@@ -121,17 +137,26 @@
               </div>
     
               <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
-                <ol class="app-step-nav__list " data-length="3">
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="4.1" class="app-step-nav__link js-link" href="#">Theory test revision and practice </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="4.2" class="app-step-nav__link js-link" href="#">Take a practice theory test </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a rel="external" data-position="4.3" class="app-step-nav__link js-link" href="#">Theory and hazard perception test app </a>
-                  </li>
-                </ol>
+                
+                <p class="app-step-nav__paragraph">Explanitory paragraph about where to find start date and what data to enter could go here.</p>
+              
+                {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+                {{ govukDateInput({
+                  id: "startDate",
+                  namePrefix: "startDate",
+                  fieldset: {
+                    legend: {
+                      text: "Enter the start date of this share order",
+                      isPageHeading: false,
+                      classes: "govuk-fieldset__legend--s"
+                    }
+                  },
+                  hint: {
+                    text: "For example, 27 3 2024"
+                  }
+                }) }}
+              
               </div>
     
             </li>
@@ -154,95 +179,67 @@
               </div>
     
               <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
-                <ol class="app-step-nav__list " data-length="1">
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="2.1" class="app-step-nav__link js-link" href="#">Apply for your first provisional driving licence <span class="app-step-nav__context">£34 to £43</span></a>
-                  </li>
-                </ol>
-              </div>
-    
-            </li>
-    
-            <li class="app-step-nav__step js-step" id="driving-lessons-and-practice">
-              <div class="app-step-nav__header js-toggle-panel" data-position="3">
-                <h2 class="app-step-nav__title">
-                  <span class="app-step-nav__circle app-step-nav__circle--number">
-                    <span class="app-step-nav__circle-inner">
-                      <span class="app-step-nav__circle-background">
-                          <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 3<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
-                      </span>
-                    </span>
-                  </span>
-    
-                  <span class="js-step-title">
-                    Upload documents into DRS
-                  </span>
-                </h2>
-              </div>
-    
-              <div class="app-step-nav__panel js-panel" id="step-panel-driving-lessons-and-practice-3">
-                <p class="app-step-nav__paragraph">You need a provisional driving licence to take lessons or practice.</p>
-    
-                <ol class="app-step-nav__list " data-length="4">
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="3.1" class="app-step-nav__link js-link" href="#">The Highway Code </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="3.2" class="app-step-nav__link js-link" href="#">Taking driving lessons </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="3.3" class="app-step-nav__link js-link" href="#">Find driving schools, lessons and instructors </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="3.4" class="app-step-nav__link js-link" href="#">Practise vehicle safety questions </a>
-                  </li>
-                </ol>
-              </div>
-            </li>
-    
-            <li class="app-step-nav__step js-step" id="book-and-manage-your-theory-test">
-              <div class="app-step-nav__header js-toggle-panel" data-position="5">
-                <h2 class="app-step-nav__title">
-                  <span class="app-step-nav__circle app-step-nav__circle--number">
-                    <span class="app-step-nav__circle-inner">
-                      <span class="app-step-nav__circle-background">
-                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 4<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
-                      </span>
-                    </span>
-                  </span>
-    
-                  <span class="js-step-title">
-                    Notify the claimant
-                  </span>
-                </h2>
-              </div>
-    
-              <div class="app-step-nav__panel js-panel" id="step-panel-book-and-manage-your-theory-test-5">
-                <p class="app-step-nav__paragraph">You need a provisional driving licence to book your theory test.</p>
-    
-                <ol class="app-step-nav__list " data-length="5">
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="5.1" class="app-step-nav__link js-link" href="#">Book your theory test <span class="app-step-nav__context">£23</span></a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="5.2" class="app-step-nav__link js-link" href="#">What to take to your test </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="5.3" class="app-step-nav__link js-link" href="#">Change your theory test appointment </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="5.4" class="app-step-nav__link js-link" href="#">Check your theory test appointment details </a>
-                  </li>
-                  <li class="app-step-nav__list-item js-list-item ">
-                    <a data-position="5.5" class="app-step-nav__link js-link" href="#">Cancel your theory test </a>
-                  </li>
-                </ol>
+
+                <p class="app-step-nav__paragraph">Explanitory paragraph about the share order agreement date could go here.</p>
+              
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="agreement-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h1 class="govuk-fieldset__heading">
+                        Is the agreement date before 17 Jan 2023?
+                      </h1>
+                    </legend>
+                    <div id="agreement-hint" class="govuk-hint">
+                      This is the citizen's SPa date
+                    </div>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="agreement" name="agreement" type="radio" value="yes" data-aria-controls="conditional-agreement">
+                        <label class="govuk-label govuk-radios__label" for="agreement">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-agreement"></div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="agreement-2" name="agreement" type="radio" value="no" data-aria-controls="conditional-agreement-2">
+                        <label class="govuk-label govuk-radios__label" for="agreement-2">
+                          No
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-agreement-2">
+                        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+                        {{ govukDateInput({
+                          id: "startDate",
+                          namePrefix: "startDate",
+                          fieldset: {
+                            legend: {
+                              text: "Enter the agreement date of this share order",
+                              isPageHeading: false,
+                              classes: "govuk-fieldset__legend--s"
+                            }
+                          },
+                          hint: {
+                            text: "For example, 27 3 2024"
+                          }
+                        }) }}
+
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
               </div>
     
             </li>
     
           </ol>
         </div>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
     
       </div>
 
