@@ -7,16 +7,6 @@
 
         {% include './_bar.html' %}
 
-      <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            There are tasks that need to be completed before an award can be issued. <br><a href="tasks" class="govuk-link govuk-link--no-visited-state">View tasks</a>.
-          </strong>
-        </div>
-
-        <br>
-
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
@@ -36,14 +26,56 @@
 
         <br><br>
 
+        <h2 class="govuk-heading-m">Current pre award status</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Total
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £164.68
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              New State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £164.68
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Protected payment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £0.00
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Extra State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              £0.00
+            </dd>
+          </div>
+
+        </dl>
+
+        <br><br>
+
         <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
 
-       
         <ul class="govuk-task-list">
 
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="task-1-question.html" aria-describedby="application-details-3-status">
+              <a class="govuk-link govuk-task-list__link" href="record-tasks-5" aria-describedby="application-details-3-status">
                 Task 1 (PSOD)
               </a>
             </div>

@@ -1,19 +1,21 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-2.html" %}
 
-{% block pageTitle %}
-  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
-{% endblock %}
-
-{% block beforeContent %}
-  {{ govukBackLink({
-    text: "Back",
-    href: "javascript:window.history.back()"
-  }) }}
-{% endblock %}
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
 
       <h1 class="govuk-heading-xl">
         Check your answers before uploading documentation
@@ -24,35 +26,69 @@
           <dt class="govuk-summary-list__key">
             Transaction type
           </dt>
+
           <dd class="govuk-summary-list__value">
-            Sarah Philips
+            {% if data['debitCredit'] === 'debit' %}
+            Debit
+            {% else %}
+            Credit
+            {% endif %}
           </dd>
+
+          <dd class="govuk-summary-list__value">
+            {% if data['debitCredit'] === 'debit' %}
+            £{{data['debitAmount']}}
+            {% else %}
+            £{{data['creditAmount']}}
+            {% endif %}
+          </dd>
+
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> name</span></a>
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> transaction</span></a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Date of birth
+            Share order start date
           </dt>
+
           <dd class="govuk-summary-list__value">
-            5 January 1978
+            {{data['startDate-day']}} / {{data['startDate-month']}} / {{data['startDate-year']}}
           </dd>
+          <dd class="govuk-summary-list__value">
+           
+          </dd>
+
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Address
+            Share order agreement date
           </dt>
+
           <dd class="govuk-summary-list__value">
-            72 Guild Street<br>London<br>SE23 6FH
+            {% if data['agreement'] === 'yes' %}
+            Before SPa
+            {% else %}
+            After SPa on
+            {% endif %}
           </dd>
+          <dd class="govuk-summary-list__value">
+            {% if data['agreement'] === 'yes' %}
+            {% else %}
+            {{data['agreementDate-day']}} / {{data['agreementDate-month']}} / {{data['agreementDate-year']}}
+            {% endif %}
+          </dd>
+
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> address</span></a>
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
           </dd>
         </div>
+
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             Contact details
