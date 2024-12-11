@@ -1,4 +1,4 @@
-{% extends "layouts/main-2.html" %}
+{% extends "layouts/main.html" %}
 
 {% block content %}
 
@@ -8,6 +8,7 @@
     var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
   </script>
 {% endblock %}
+
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
@@ -19,7 +20,7 @@
           href: "javascript:history.go(-1)"
                           }) }}
 
-        <br><br><br>
+        <br><br>
 
         <h1 class="govuk-heading-l">
           Pension share on divorce (PSOD)
@@ -39,9 +40,9 @@
           </strong>
         </div>
 
-        <div data-module="appstepnav"id="step-by-step-navigation" class="app-step-nav js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+        <div data-module="appstepnav" id="step-by-step-navigation" class="app-step-nav js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
           <ol class="app-step-nav__steps">
-            <li class="app-step-nav__step js-step" id="check-you-re-allowed-to-drive">
+            <li class="app-step-nav__step js-step" id="psod">
               <div class="app-step-nav__header js-toggle-panel" data-position="1">
                 <h2 class="app-step-nav__title">
                   <span class="app-step-nav__circle app-step-nav__circle--number">
@@ -58,7 +59,7 @@
                 </h2>
               </div>
     
-              <div class="app-step-nav__panel js-panel" id="step-panel-psod-1">
+              <div class="app-step-nav__panel js-panel" id="step-panel-psod">
 
                 <p class="app-step-nav__paragraph">Check the email sent from the FPC to confirm whether to add to or take away money from this account.</p>
     
@@ -139,23 +140,45 @@
               <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
                 
                 <p class="app-step-nav__paragraph">Explanitory paragraph about where to find start date and what data to enter could go here.</p>
-              
-                {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-                {{ govukDateInput({
-                  id: "startDate",
-                  namePrefix: "startDate",
-                  fieldset: {
-                    legend: {
-                      text: "Enter the start date of this share order",
-                      isPageHeading: false,
-                      classes: "govuk-fieldset__legend--s"
-                    }
-                  },
-                  hint: {
-                    text: "For example, 27 3 2024"
-                  }
-                }) }}
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="startDate-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">
+                        What is the start date for this share order?
+                      </h2>
+                    </legend>
+                    <div id="startDate-hint" class="govuk-hint">
+                      For example, 27 3 2007
+                    </div>
+                    <div class="govuk-date-input" id="startDate">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="startDate-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-day" name="startDate-day" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="startDate-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-month" name="startDate-month" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="startDate-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="startDate-year" name="startDate-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
               
               </div>
     
@@ -208,22 +231,45 @@
                         </label>
                       </div>
                       <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-agreement-2">
-                        {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-                        {{ govukDateInput({
-                          id: "agreementDate",
-                          namePrefix: "agreementDate",
-                          fieldset: {
-                            legend: {
-                              text: "Enter the agreement date of this share order",
-                              isPageHeading: false,
-                              classes: "govuk-fieldset__legend--s"
-                            }
-                          },
-                          hint: {
-                            text: "For example, 27 3 2024"
-                          }
-                        }) }}
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group" aria-describedby="agreementDate-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                              <h2 class="govuk-fieldset__heading">
+                                What is the start date for this share order?
+                              </h2>
+                            </legend>
+                            <div id="agreementDate-hint" class="govuk-hint">
+                              For example, 27 3 2007
+                            </div>
+                            <div class="govuk-date-input" id="agreementDate">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="agreementDate-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="agreementDate-day" name="agreementDate-day" type="text" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="agreementDate-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="agreementDate-month" name="agreementDate-month" type="text" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="agreementDate-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="agreementDate-year" name="agreementDate-year" type="text" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
 
                       </div>
                     </div>
@@ -237,29 +283,11 @@
           </ol>
         </div>
 
-        <button type="submit" class="govuk-button" data-module="govuk-button">
+
+        <a href="check-answers" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
           Continue
-        </button>
+        </a>
     
-      </div>
-
-      <div class="govuk-grid-column-one-third">
-
-        {% from "timeline/macro.njk" import dwpTimeline %}
-  
-        <h2 class="govuk-heading-m">Personal changes</h2>
-        {{
-            dwpTimeline({ 
-                items: [
-                {
-                    title:  "Claim received",
-                    byline:  "online",
-                    date:  "11 May 2024 at 7:14pm"
-                }
-            ]
-            })
-        }}
-  
       </div>
 
     </div>
