@@ -16,13 +16,17 @@ router.post('/edge-cases/test-journey-2/enter-amount', function (req, res) {
   }
 })
 
-router.post('/edge-cases/test-journey-4/step-by-step-3', function (req, res) {
+router.post('/edge-cases/test-journey-3/enter-psod', function (req, res) {
 
   if (req.body['PSODamount'] === '185.15') {
     res.redirect('enter-pp')
   } else {
     res.redirect('check-answers')
   }
+})
+
+router.post('/edge-cases/test-journey-3/spouse-question-routing', function (req, res) {
+  res.redirect('enter-psod')
 })
 
 
