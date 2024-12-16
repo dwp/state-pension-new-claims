@@ -7,5 +7,23 @@ router.post('/edge-cases/test-journey-1/record-tasks-5', function (req, res) {
   res.redirect('check-answers')
 })
 
+router.post('/edge-cases/test-journey-2/enter-amount', function (req, res) {
+
+  if (req.body['PSODamount'] === '185.15') {
+    res.redirect('enter-pp')
+  } else {
+    res.redirect('check-answers')
+  }
+})
+
+router.post('/edge-cases/test-journey-4/step-by-step-3', function (req, res) {
+
+  if (req.body['PSODamount'] === '185.15') {
+    res.redirect('enter-pp')
+  } else {
+    res.redirect('check-answers')
+  }
+})
+
 
 module.exports = router
