@@ -22,7 +22,7 @@
         <br><br><br>
 
         <h1 class="govuk-heading-l">
-          Pension share on divorce (PSOD)
+          Pension share on divorce (PSOD)  
         </h1>
     
         <p>
@@ -53,7 +53,7 @@
                 <p class="app-step-nav__paragraph">Check the email sent from the FPC to confirm whether to add to or take away money from this account.</p>
     
                 <div class="govuk-form-group">
-                  <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+                  <fieldset disabled aria-disabled="true" class="govuk-fieldset" aria-describedby="contact-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
                       <h1 class="govuk-fieldset__heading">
                         Do you want to debit or credit this account?
@@ -99,6 +99,29 @@
                     </div>
                   </fieldset>
                 </div>
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+{{ govukRadios({
+  disabled: true,
+  name: "whereDoYouLive",
+  fieldset: {
+    legend: {
+      text: "Where do you live?",
+      isPageHeading: false,
+      disabled: true,
+      classes: "govuk-fieldset__legend--l"
+    }
+  },
+  items: [
+    {
+      value: "england",
+      text: "England",
+      disabled: true
+    }
+  ]
+}) }}
+
+
               </div>
     
             </li>
@@ -120,7 +143,7 @@
                 </h2>
               </div>
     
-              <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
+              <div disabled aria-disabled="true" class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4" data-aria-controls="step-panel-prepare-for-your-theory-test-4">
                 <ol class="app-step-nav__list " data-length="3">
                   <li class="app-step-nav__list-item js-list-item ">
                     <a data-position="4.1" class="app-step-nav__link js-link" href="#">Theory test revision and practice </a>
