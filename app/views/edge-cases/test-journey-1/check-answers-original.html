@@ -18,33 +18,45 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Check your answers before uploading documentation
+        Check your answers and confirm award
       </h1>
+
+      <p>Supporting paragraph about next steps could go here.</p>
+
+      <h2 class="govuk-heading-l">
+        1. Check your answers
+      </h2>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Transaction type
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Claimant
           </dt>
 
           <dd class="govuk-summary-list__value">
             {% if data['debitCredit'] === 'debit' %}
-            Debit
+            Member
             {% else %}
-            Credit
-            {% endif %}
-          </dd>
-
-          <dd class="govuk-summary-list__value">
-            {% if data['debitCredit'] === 'debit' %}
-            £{{data['debitAmount']}}
-            {% else %}
-            £{{data['creditAmount']}}
+            Former spouse
             {% endif %}
           </dd>
 
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> transaction</span></a>
+            <a class="govuk-link" href="accordion-test">Change<span class="govuk-visually-hidden"> transaction</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            PSOD amount
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+            £{{data['cost']}}
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="accordion-test">Change<span class="govuk-visually-hidden"> date of birth</span></a>
           </dd>
         </div>
 
@@ -56,72 +68,43 @@
           <dd class="govuk-summary-list__value">
             {{data['startDate-day']}} / {{data['startDate-month']}} / {{data['startDate-year']}}
           </dd>
-          <dd class="govuk-summary-list__value">
-           
-          </dd>
 
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+            <a class="govuk-link" href="accordion-test">Change<span class="govuk-visually-hidden"> date of birth</span></a>
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Share order agreement date
-          </dt>
-
-          <dd class="govuk-summary-list__value">
-            {% if data['agreement'] === 'yes' %}
-            Before SPa
-            {% else %}
-            After SPa on
-            {% endif %}
-          </dd>
-          <dd class="govuk-summary-list__value">
-            {% if data['agreement'] === 'yes' %}
-            {% else %}
-            {{data['agreementDate-day']}} / {{data['agreementDate-month']}} / {{data['agreementDate-year']}}
-            {% endif %}
-          </dd>
-
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Contact details
-          </dt>
-          <dd class="govuk-summary-list__value">
-            <p class="govuk-body">07700 900457</p>
-            <p class="govuk-body">sarah.phillips@example.com</p>
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <ul class="govuk-summary-list__actions-list">
-              <li class="govuk-summary-list__actions-list-item">
-                <a class="govuk-link" href="#">Add<span class="govuk-visually-hidden"> contact details</span></a>
-              </li>
-              <li class="govuk-summary-list__actions-list-item">
-                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> contact details</span></a>
-              </li>
-            </ul>
-          </dd>
-        </div>
       </dl>
 
-      <h2 class="govuk-heading-m">
-        Now send your application
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        2. Upload documents into DRS
       </h2>
 
-      <p>
-        By submitting this application you are confirming that, to the best of your knowledge, the details you are providing are correct.
-      </p>
+        <p>Upload copies of:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the share order</li>
+          <li>the Decree absolute</li>
+        </ul>
+        </p>
 
-      <form action="/confirmation" method="post" novalidate>
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        3. Confirm and send letter
+      </h2>
+
+      <p>A weekly State Pension amount of <b>£180.00</b> will apply from <b>28 December 2024</b>.</p>
+
+      <p>An award letter will be sent to the claimant.</p>
+
+      <br><br><br>
+
+      <form action="/edge-cases/test-journey-4/dashboard" method="post" novalidate>
 
         {{ govukButton({
-          text: "Accept and send"
+          text: "Confirm and send letter"
         }) }}
 
       </form>
