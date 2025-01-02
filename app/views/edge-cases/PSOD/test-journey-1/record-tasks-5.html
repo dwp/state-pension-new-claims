@@ -1,0 +1,300 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+        <br><br>
+
+        <h1 class="govuk-heading-l">
+          Pension share on divorce (PSOD)
+        </h1>
+    
+        <p>
+          Short explaination of what the task entails could go here.
+        </p>
+
+        <br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            You must complete all of the steps to continue the journey.
+          </strong>
+        </div>
+
+        <div data-module="appstepnav" id="step-by-step-navigation" class="app-step-nav js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+          <ol class="app-step-nav__steps">
+            <li class="app-step-nav__step js-step" id="psod">
+              <div class="app-step-nav__header js-toggle-panel" data-position="1">
+                <h2 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 1<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Establish the transaction
+                  </span>
+                </h2>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-psod">
+
+                <p class="app-step-nav__paragraph">Check the email sent from the FPC to confirm whether to add to or take away money from this account.</p>
+    
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="debitCredit-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">
+                        Do you want to debit or credit this account?
+                      </h2>
+                    </legend>
+                    <div id="debitCredit-hint" class="govuk-hint">
+                      Select one option
+                    </div>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="debitCredit" name="debitCredit" type="radio" value="debit" data-aria-controls="conditional-debitCredit">
+                        <label class="govuk-label govuk-radios__label" for="debitCredit">
+                          Debit
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-debitCredit">
+                        <div class="govuk-form-group">
+                          <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--s" for="debitAmount">
+                              Enter the debit amount in pounds
+                            </label>
+                          </h1>
+                          <div class="govuk-input__wrapper">
+                            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                            <input class="govuk-input govuk-input--width-5" id="debitAmount" name="debitAmount" type="text" spellcheck="false">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="debitCredit-2" name="debitCredit" type="radio" value="credit" data-aria-controls="conditional-debitCredit-2">
+                        <label class="govuk-label govuk-radios__label" for="debitCredit-2">
+                          Credit
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-debitCredit-2">
+                        <div class="govuk-form-group">
+                          <h1 class="govuk-label-wrapper">
+                            <label class="govuk-label govuk-label--s" for="creditAmount">
+                              Enter the credit amount in pounds
+                            </label>
+                          </h1>
+                          <div class="govuk-input__wrapper">
+                            <div class="govuk-input__prefix" aria-hidden="true">£</div>
+                            <input class="govuk-input govuk-input--width-5" id="creditAmount" name="creditAmount" type="text" spellcheck="false">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+                
+              </div>
+    
+            </li>
+
+            <li class="app-step-nav__step js-step" id="prepare-for-your-theory-test">
+              <div class="app-step-nav__header js-toggle-panel" data-position="4">
+                <h2 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--logic">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        and
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Provide a start date
+                  </span>
+                </h2>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-prepare-for-your-theory-test-4">
+                
+                <p class="app-step-nav__paragraph">Explanitory paragraph about where to find start date and what data to enter could go here.</p>
+
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" role="group" aria-describedby="startDate-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">
+                        What is the start date for this share order?
+                      </h2>
+                    </legend>
+                    <div id="startDate-hint" class="govuk-hint">
+                      For example, 27 3 2007
+                    </div>
+                    <div class="govuk-date-input" id="startDate">
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="startDate-day">
+                            Day
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-day" name="startDate-day" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="startDate-month">
+                            Month
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-month" name="startDate-month" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                      <div class="govuk-date-input__item">
+                        <div class="govuk-form-group">
+                          <label class="govuk-label govuk-date-input__label" for="startDate-year">
+                            Year
+                          </label>
+                          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="startDate-year" name="startDate-year" type="text" inputmode="numeric">
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+              
+              </div>
+    
+            </li>
+    
+            <li class="app-step-nav__step js-step" id="get-a-provisional-licence">
+              <div class="app-step-nav__header js-toggle-panel" data-position="2">
+                <h2 class="app-step-nav__title">
+                  <span class="app-step-nav__circle app-step-nav__circle--number">
+                    <span class="app-step-nav__circle-inner">
+                      <span class="app-step-nav__circle-background">
+                        <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 2<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                      </span>
+                    </span>
+                  </span>
+    
+                  <span class="js-step-title">
+                    Check the share order agreement date
+                  </span>
+                </h2>
+              </div>
+    
+              <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
+
+                <p class="app-step-nav__paragraph">Explanitory paragraph about the share order agreement date could go here.</p>
+              
+                <div class="govuk-form-group">
+                  <fieldset class="govuk-fieldset" aria-describedby="agreement-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                      <h2 class="govuk-fieldset__heading">
+                        Is the agreement date before 17 Jan 2023?
+                      </h2>
+                    </legend>
+                    <div id="agreement-hint" class="govuk-hint">
+                      This is the citizen's SPa date
+                    </div>
+                    <div class="govuk-radios" data-module="govuk-radios">
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="agreement" name="agreement" type="radio" value="yes" data-aria-controls="conditional-agreement">
+                        <label class="govuk-label govuk-radios__label" for="agreement">
+                          Yes
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-agreement"></div>
+
+                      <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="agreement-2" name="agreement" type="radio" value="no" data-aria-controls="conditional-agreement-2">
+                        <label class="govuk-label govuk-radios__label" for="agreement-2">
+                          No
+                        </label>
+                      </div>
+                      <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-agreement-2">
+
+                        <div class="govuk-form-group">
+                          <fieldset class="govuk-fieldset" role="group" aria-describedby="agreementDate-hint">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                              <h2 class="govuk-fieldset__heading">
+                                What is the start date for this share order?
+                              </h2>
+                            </legend>
+                            <div id="agreementDate-hint" class="govuk-hint">
+                              For example, 27 3 2007
+                            </div>
+                            <div class="govuk-date-input" id="agreementDate">
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="agreementDate-day">
+                                    Day
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="agreementDate-day" name="agreementDate-day" type="text" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="agreementDate-month">
+                                    Month
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="agreementDate-month" name="agreementDate-month" type="text" inputmode="numeric">
+                                </div>
+                              </div>
+                              <div class="govuk-date-input__item">
+                                <div class="govuk-form-group">
+                                  <label class="govuk-label govuk-date-input__label" for="agreementDate-year">
+                                    Year
+                                  </label>
+                                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="agreementDate-year" name="agreementDate-year" type="text" inputmode="numeric">
+                                </div>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>
+
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+              </div>
+    
+            </li>
+    
+          </ol>
+        </div>
+
+
+        <a href="check-answers" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+          Continue
+        </a>
+    
+      </div>
+
+    </div>
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}
