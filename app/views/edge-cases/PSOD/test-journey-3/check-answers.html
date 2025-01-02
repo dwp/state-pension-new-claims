@@ -1,0 +1,111 @@
+{% extends "layouts/main.html" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        Check your answers and confirm award
+      </h1>
+
+      <p>Supporting paragraph about next steps could go here.</p>
+
+      <h2 class="govuk-heading-l">
+        1. Check your answers
+      </h2>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Claimant
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+            Former spouse 
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            PSOD amount
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+            £67.89
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Share order date of effect
+          </dt>
+
+          <dd class="govuk-summary-list__value">
+            16 December 2024
+          </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> date of birth</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        2. Upload documents into DRS
+      </h2>
+
+        <p>Upload copies of:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the share order</li>
+          <li>the Decree absolute</li>
+        </ul>
+        </p>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        3. Confirm and send letter
+      </h2>
+
+      <p>A weekly State Pension amount of <b>£180.00</b> will apply from <b>28 December 2024</b>.</p>
+
+      <p>An award letter will be sent to the claimant.</p>
+
+      <br><br><br>
+
+      <form action="/edge-cases/test-journey-3/dashboard" method="post">
+
+        {{ govukButton({
+          text: "Confirm and send letter"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
