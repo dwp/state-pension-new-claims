@@ -9,6 +9,7 @@
   {{ govukHeader() }}
 {% endblock %}
 
+
 {% block pageScripts %}
   <script type="text/javascript">
     var $element = document.querySelector('#step-by-step-navigation')
@@ -16,14 +17,6 @@
   </script>
 {% endblock %}
 
-{% block beforeContent %}
-  <div class="app-step-nav-header">
-    <span class="app-step-nav-header__part-of">Part of</span>
-    <a class="app-step-nav-header__title" href="#">
-      Learn to drive a car: step by step
-    </a>
-  </div>
-{% endblock %}
 
 {% block content %}
 <div class="govuk-grid-row">
@@ -48,20 +41,8 @@
       </svg>
     </a>
 
-  </div>
 
-  <div class="govuk-grid-column-one-third">
-
-    <div class="app-step-nav-related app-step-nav-related--singular">
-      <h2 class="app-step-nav-related__heading">
-        <span class="app-step-nav-related__pretitle">Part of</span>
-        <a href="#">
-          Learn to drive a car: step by step
-        </a>
-      </h2>
-    </div>
-
-    <div data-module="appstepnav"id="step-by-step-navigation" class="app-step-nav govuk-!-display-none-print js-hidden" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+    <div data-module="appstepnav" id="step-by-step-navigation" class="app-step-nav govuk-!-display-none-print js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
       <ol class="app-step-nav__steps">
         <li class="app-step-nav__step js-step app-step-nav__step--active" aria-current="step" id="check-you-re-allowed-to-drive">
           <div class="app-step-nav__header js-toggle-panel" data-position="1">
@@ -312,8 +293,10 @@
       </ol>
     </div>
 
-
-  </div>
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+  
 
 </div>
 
