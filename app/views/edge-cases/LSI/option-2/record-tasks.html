@@ -11,48 +11,35 @@
           visuallyHiddenTitle: "Secondary menu",
           items: [{
             text: "Personal",
-            href: "record-personal"
+            href: "record-personal",
+            current: false
           }, 
           {
             text: "Contact",
-            href: "record-contact"
-          },
+            href: "record-contact",
+            current: false
+          }, 
           {
-            text: "Pre award",
+            text: "Tasks",
             href: "record-tasks",
             current: true
+          },
+          {
+            text: "Award",
+            href: "record-award",
+            current: false
+          },
+          {
+            text: "Payment",
+            href: "payment",
+            current: false
+          },
+          {
+            text: "Full history",
+            href: "payment",
+            current: false
           }]
         }) }}
-
-        <br><br>
-
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Current pre award status</caption>
-
-          <tbody class="govuk-table__body">
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Total</th>
-              <td class="govuk-table__cell">£164.68</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">New State Pension</th>
-              <td class="govuk-table__cell">£164.68</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Protected payment</th>
-              <td class="govuk-table__cell">£0.00</td>
-            </tr>
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Extra State Pension</th>
-              <td class="govuk-table__cell">£0.00</td>
-            </tr>
-
-          </tbody>
-        </table>
 
         <br><br>
 
@@ -62,28 +49,14 @@
 
           <li class="govuk-task-list__item govuk-task-list__item--with-link">
             <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="record-tasks-5" aria-describedby="application-details-3-status">
-                Task 1 (PSOD)
+              <a class="govuk-link govuk-task-list__link" href="step-by-step-b" aria-describedby="application-details-3-status">
+                Lump sum inheritance (LSI)
               </a>
             </div>
             <div class="govuk-task-list__status" id="application-details-3-status">
               <strong class="govuk-tag govuk-tag--blue">
                 Not yet started
               </strong>
-            </div>
-          </li>
-
-          <li class="govuk-task-list__item">
-            <div class="govuk-task-list__name-and-hint">
-              <div>
-                Task 2 (COEG)
-              </div>
-              <div id="application-details-3-hint" class="govuk-task-list__hint">
-                Task 1 needs to be completed before you can start this task
-              </div>
-            </div>
-            <div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-              Cannot start yet
             </div>
           </li>
 

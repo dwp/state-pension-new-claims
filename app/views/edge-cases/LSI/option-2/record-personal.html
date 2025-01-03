@@ -9,16 +9,6 @@
 
         {% include './_bar.html' %}
 
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            There are tasks that need to be completed before an award can be issued. <br><a href="tasks" class="govuk-link govuk-link--no-visited-state">View tasks</a>.
-          </strong>
-        </div>
-
-        <br>
-
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
@@ -28,11 +18,28 @@
           }, 
           {
             text: "Contact",
-            href: "record-contact"
+            href: "record-contact",
+            current: false
+          }, 
+          {
+            text: "Tasks",
+            href: "record-tasks",
+            current: false
           },
           {
-            text: "Pre award",
-            href: "record-tasks"
+            text: "Award",
+            href: "record-award",
+            current: false
+          },
+          {
+            text: "Payment",
+            href: "payment",
+            current: false
+          },
+          {
+            text: "Full history",
+            href: "payment",
+            current: false
           }]
         }) }}
 

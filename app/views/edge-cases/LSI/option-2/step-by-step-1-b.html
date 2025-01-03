@@ -1,21 +1,25 @@
 {% extends "layouts/main.html" %}
 
+{% block pageScripts %}
+  <script type="text/javascript">
+    var $element = document.querySelector('#step-by-step-navigation')
+    var stepByStepNavigation = new GOVUK.Modules.AppStepNav($element).init()
+  </script>
+{% endblock %}
+
+
 {% block content %}
-
-<form class="form" method="post" action="check-answers-1">
-
-  {% include './_bar.html' %}
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-      {{ govukBackLink({
-        "text": "Back",
-        "href": "javascript: window.history.go(-1)"
-      })
-    }}
+    {% include './_bar.html' %}
 
-    <br><br>
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.go(-1)"
+                      }) }}
+
+    <br><br><br>
 
     <h1 class="govuk-heading-xl">
       Lump sum inheritance
@@ -67,7 +71,7 @@
 
     <br><br>
 
-    <h2 class="govuk-heading-m">Late spouse or civil partner</h2>
+    <h1 class="govuk-heading-m">Late spouse or civil partner</h1>
 
         <table class="govuk-table">
           <tbody class="govuk-table__body">
@@ -140,77 +144,119 @@
           </tbody>
         </table>
 
-        <br><br>
+      <br><br>
 
-        {% from "govuk/components/input/macro.njk" import govukInput %}
+    <div data-module="appstepnav" id="step-by-step-navigation" class="app-step-nav govuk-!-display-none-print js-hidden app-step-nav--large" data-show-text="Show" data-hide-text="Hide" data-show-all-text="Show all steps" data-hide-all-text="Hide all steps">
+      <ol class="app-step-nav__steps">
+        
+        <li class="app-step-nav__step js-step app-step-nav__step--active" aria-current="step" id="check-you-re-allowed-to-drive">
+          <div class="app-step-nav__header js-toggle-panel" data-position="1">
+            <h3 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 1<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
 
-        {{ govukInput({
-          id: "lsi",
-          name: "lsi",
-          label: {
-            text: "1. Enter the lump sum inheritance amount in pounds",
-            classes: "govuk-label--m",
-            isPageHeading: false
-          },
-          hint: {
-            text: "Hint text could go here."
-          },
-          prefix: {
-            text: "£"
-          },
-          classes: "govuk-input--width-5",
-          spellcheck: false
-        }) }}
+              <span class="js-step-title">
+                Enter the lump sum inheritance amount in pounds
+              </span>
+            </h3>
+          </div>
 
-        <br><br>
+          <div class="app-step-nav__panel js-panel" id="step-panel-check-you-re-allowed-to-drive-1">
+            <p class="app-step-nav__paragraph">Help text could go here.</p>
 
-        {{ govukInput({
-          id: "esp",
-          name: "esp",
-          label: {
-            text: "2. Enter the extra State Pension amount in pounds",
-            classes: "govuk-label--m",
-            isPageHeading: false
-          },
-          hint: {
-            text: "Hint text could go here."
-          },
-          prefix: {
-            text: "£"
-          },
-          classes: "govuk-input--width-5",
-          spellcheck: false
-        }) }}
+            <ol class="app-step-nav__list " data-length="3">
+              <li class="app-step-nav__list-item js-list-item app-step-nav__list-item">
 
-      <br><br><br>
+                <form method="post">
+                
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                {{ govukInput({
+                  id: "lsi",
+                  name: "lsi",
+                  prefix: {
+                    text: "£"
+                  },
+                  classes: "govuk-input--width-5",
+                  spellcheck: false
+                }) }}
 
-    {{ govukButton({
-      text: "Confirm and send letter"
-    }) }}
+                </form>
 
-  </div>
+              </li>
+            </ol>
+
+          </div>
+
+        </li>
+
+
+        <li class="app-step-nav__step js-step" id="get-a-provisional-licence">
+          <div class="app-step-nav__header js-toggle-panel" data-position="2">
+            <h3 class="app-step-nav__title">
+              <span class="app-step-nav__circle app-step-nav__circle--number">
+                <span class="app-step-nav__circle-inner">
+                  <span class="app-step-nav__circle-background">
+                    <span class="govuk-visually-hidden govuk-!-display-none-print">Step</span> 2<span class="govuk-visually-hidden govuk-!-display-none-print" aria-hidden="true">:</span>
+                  </span>
+                </span>
+              </span>
+
+              <span class="js-step-title">
+                Enter the extra State Pension amount in pounds
+              </span>
+            </h3>
+          </div>
+
+          <div class="app-step-nav__panel js-panel" id="step-panel-get-a-provisional-licence-2">
+            <p class="app-step-nav__paragraph">Help text could go here.</p>
+
+            <ol class="app-step-nav__list " data-length="1">
+              <li class="app-step-nav__list-item js-list-item ">
+
+                <form method="post">
+                
+                {% from "govuk/components/input/macro.njk" import govukInput %}
+                {{ govukInput({
+                  id: "esp",
+                  name: "esp",
+                  prefix: {
+                    text: "£"
+                  },
+                  classes: "govuk-input--width-5",
+                  spellcheck: false
+                }) }}
+
+              </form>
+
+              </li>
+            </ol>
+          </div>
+        </li>
+
+      </ol>
+    </div>
+
+    <br><br>
+
+    <form class="form" method="post" action="check-answers-1b">
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+
+    </form>
+  
+    <br><br><br><br><br>
+
 </div>
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
 
-    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-    
-    <br>
-
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-        <b>URL and notes</b>
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <b>URL:</b> /confirm-award <br>
-        <b>Notes:</b> None <br>
-      </div>
-    </details>
-
-  </div>
 </div>
-
+</div>
 {% endblock %}
