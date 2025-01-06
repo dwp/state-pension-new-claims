@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post" action="record-tasks-3">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Calculate the claimant's option amounts and send letter</h1>
+
+
+
+    <p class="govuk-body">You will need to:</p>
+    <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+      <li>check their late spouse's State Pension entitlement</li>
+      <li>calculate the lump sum inheritance and inherited extra State Pension amounts</li>
+      <li>send a choices letter to the claimant</li>
+    </ul>
+
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+    Confirm letter sent
+    </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+
+{% endblock %}
