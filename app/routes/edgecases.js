@@ -37,6 +37,24 @@ router.post('/edge-cases/PSOD/test-journey-3/spouse-question-routing', function 
   res.redirect('enter-psod')
 })
 
+router.post('/edge-cases/LSI/option-3/which-option', function (req, res) {
+
+  if (req.body['whichOption'] === 'lsi') {
+    res.redirect('tax-year')
+  } else {
+    res.redirect('check-answers')
+  }
+})
+
+router.post('/edge-cases/LSI/option-3/tax-year', function (req, res) {
+
+  if (req.body['whichYear'] === 'now') {
+    res.redirect('tax-rate')
+  } else {
+    res.redirect('check-answers')
+  }
+})
+
 
 
 module.exports = router
