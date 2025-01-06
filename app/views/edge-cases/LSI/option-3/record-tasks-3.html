@@ -17,20 +17,39 @@
 
         <br>
 
+        {% include './_bar.html' %}
+
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
             text: "Personal",
-            href: "record-personal"
+            href: "record-personal",
+            current: false
           }, 
           {
             text: "Contact",
-            href: "record-contact"
-          },
+            href: "record-contact",
+            current: false
+          }, 
           {
-            text: "Pre award",
+            text: "Tasks",
             href: "record-tasks",
             current: true
+          },
+          {
+            text: "Award",
+            href: "record-award",
+            current: false
+          },
+          {
+            text: "Payment",
+            href: "payment",
+            current: false
+          },
+          {
+            text: "Full history",
+            href: "payment",
+            current: false
           }]
         }) }}
 

@@ -19,6 +19,8 @@
 
         <br>
 
+        {% include './_bar.html' %}
+
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
@@ -28,11 +30,28 @@
           }, 
           {
             text: "Contact",
-            href: "record-contact"
+            href: "record-contact",
+            current: false
+          }, 
+          {
+            text: "Tasks",
+            href: "record-tasks",
+            current: false
           },
           {
-            text: "Pre award",
-            href: "record-tasks"
+            text: "Award",
+            href: "record-award",
+            current: false
+          },
+          {
+            text: "Payment",
+            href: "payment",
+            current: false
+          },
+          {
+            text: "Full history",
+            href: "payment",
+            current: false
           }]
         }) }}
 
