@@ -21,7 +21,7 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Check your answers and confirm award
+        Check your answers and send letter
       </h1>
 
       <p>Supporting paragraph about next steps could go here.</p>
@@ -38,13 +38,56 @@
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            £{{data['LSIamount']}}
+            £{{data['lsiAmount']}}
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
             <a class="govuk-link" href="enter-lsi">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Tax year to be paid
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['whichYear'] === 'now' %}
+            This tax year
+            {% else %}
+            Next tax year
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        {% if data['whichYear'] === 'now' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Tax rate
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['taxRate'] === '0' %}
+            0%
+            {% elseif data['taxRate'] === '20' %}
+            20%
+            {% elseif data['taxRate'] === '40' %}
+            40%
+            {% elseif data['taxRate'] === '45' %}
+            45%
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+        {% else %}
+        {% endif %}
 
       </dl>
 
