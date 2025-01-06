@@ -21,9 +21,12 @@
     <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--xl" for="event-name">
-          Enter the lump sum inheritance amount in pounds
+          Lump sum inheritance
         </label>
       </h1>
+
+      <br><br>
+
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
         <strong class="govuk-warning-text__text">
@@ -31,12 +34,80 @@
           The uprating year for the amount is 2024
         </strong>
       </div>
-      <div class="govuk-input__wrapper">
-        <div class="govuk-input__prefix" aria-hidden="true">£</div>
-        <input class="govuk-input govuk-input--width-5" id="PSODamount" name="LSIamount" type="text" spellcheck="false">
-        <!--<div class="govuk-input__suffix" aria-hidden="true">per item</div>-->
-      </div>
+
+      <br>
+      
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          id: "lsi",
+          name: "lsiAmount",
+          label: {
+            text: "1. Enter the lump sum inheritance in pounds",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          prefix: {
+            text: "£"
+          },
+          classes: "govuk-input--width-5",
+          spellcheck: false
+        }) }}
     </div>
+
+    <br><br>
+
+    {{ govukRadios({
+      name: "whichYear",
+      fieldset: {
+        legend: {
+          text: "2. What tax year does the claimant want to be paid in?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "now",
+          text: "This tax year"
+        },
+        {
+          value: "later",
+          text: "Next tax year"
+        }
+      ]
+    }) }}
+
+    <br><br>
+
+        {{ govukRadios({
+          name: "taxRate",
+          fieldset: {
+            legend: {
+              text: "3. What is the claimant's tax rate?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "0",
+              text: "0%"
+            },
+            {
+              value: "20",
+              text: "20%"
+            },
+            {
+              value: "40",
+              text: "40%"
+            },
+            {
+              value: "45",
+              text: "45%"
+            }
+          ]
+        }) }}
       
       <br><br><br>
 
