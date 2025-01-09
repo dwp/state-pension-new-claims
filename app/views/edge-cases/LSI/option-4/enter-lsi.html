@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="check-answers-2">
+<form class="form" method="post">
 
   {% include './_bar.html' %}
 
@@ -43,25 +43,77 @@
           id: "lsi",
           name: "lsiAmount",
           label: {
-            text: "1. Enter the lump sum inheritance in pounds",
+            text: "Enter the lump sum inheritance in pounds",
             classes: "govuk-label--m",
             isPageHeading: false
           },
           prefix: {
             text: "£"
           },
-          classes: "govuk-input--width-5",
+          classes: "govuk-!-width-one-third",
           spellcheck: false
         }) }}
     </div>
 
     <br><br>
 
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set amountHtml %}
+{{ govukInput({
+  id: "pre2005",
+  name: "pre2005",
+  type: "amount",
+  spellcheck: false,
+  prefix: {
+    text: "£"
+  },
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter amount in pounds"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "pre2005",
+  fieldset: {
+    legend: {
+      text: "Is there any pre 2005 extra State Pension?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select one option"
+  },
+  items: [
+    {
+      value: "amount",
+      text: "Yes",
+      conditional: {
+        html: amountHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No",
+      conditional: {
+        html: phoneHtml
+      }
+    }
+  ]
+}) }}
+
+<br><br>
+
     {{ govukRadios({
       name: "whichYear",
       fieldset: {
         legend: {
-          text: "2. What tax year does the claimant want to be paid in?",
+          text: "What tax year does the claimant want to be paid in?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -78,37 +130,6 @@
       ]
     }) }}
 
-    <br><br>
-
-        {{ govukRadios({
-          name: "taxRate",
-          fieldset: {
-            legend: {
-              text: "3. What is the claimant's tax rate?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "0",
-              text: "0%"
-            },
-            {
-              value: "20",
-              text: "20%"
-            },
-            {
-              value: "40",
-              text: "40%"
-            },
-            {
-              value: "45",
-              text: "45%"
-            }
-          ]
-        }) }}
-      
       <br><br><br>
 
         <button class="govuk-button" data-module="govuk-button">
