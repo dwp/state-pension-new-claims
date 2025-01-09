@@ -55,6 +55,15 @@ router.post('/edge-cases/LSI/option-3/tax-year', function (req, res) {
   }
 })
 
+router.post('/edge-cases/LSI/option-4/enter-lsi', function (req, res) {
+
+  if (req.body['whichYear'] === 'now') {
+    res.redirect('tax-rate')
+  } else {
+    res.redirect('check-answers-2')
+  }
+})
+
 
 
 module.exports = router
