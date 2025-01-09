@@ -64,6 +64,14 @@ router.post('/edge-cases/LSI/option-4/enter-lsi', function (req, res) {
   }
 })
 
+// Iteration 2 - PSOD
+
+// Option 1
+
+router.post('/edge-cases/PSOD/iteration-2/option-1/psod-task-routing', function (req, res) {
+  res.redirect('check-answers')
+})
+
 
 
 module.exports = router
