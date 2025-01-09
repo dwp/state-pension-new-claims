@@ -1,0 +1,116 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal"
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact"
+          },
+          {
+            text: "Pre award",
+            href: "record-tasks",
+            current: true
+          }]
+        }) }}
+
+        <br><br>
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Current pre award status</caption>
+
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Total</th>
+              <td class="govuk-table__cell">£164.68</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">New State Pension</th>
+              <td class="govuk-table__cell">£164.68</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Protected payment</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Extra State Pension</th>
+              <td class="govuk-table__cell">£0.00</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
+
+        <ul class="govuk-task-list">
+
+          <li class="govuk-task-list__item govuk-task-list__item--with-link">
+            <div class="govuk-task-list__name-and-hint">
+              <a class="govuk-link govuk-task-list__link" href="step-by-step-3" aria-describedby="application-details-3-status">
+                Task 1 (PSOD)
+              </a>
+            </div>
+            <div class="govuk-task-list__status" id="application-details-3-status">
+              <strong class="govuk-tag govuk-tag--blue">
+                Not yet started
+              </strong>
+            </div>
+          </li>
+
+          <li class="govuk-task-list__item">
+            <div class="govuk-task-list__name-and-hint">
+              <div>
+                Task 2 (COEG)
+              </div>
+              <div id="application-details-3-hint" class="govuk-task-list__hint">
+                Task 1 needs to be completed before you can start this task
+              </div>
+            </div>
+            <div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
+              Cannot start yet
+            </div>
+          </li>
+
+        </ul>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      {% from "timeline/macro.njk" import dwpTimeline %}
+
+      <h2 class="govuk-heading-m">Personal changes</h2>
+      {{
+          dwpTimeline({ 
+              items: [
+              {
+                  title:  "Claim received",
+                  byline:  "online",
+                  date:  "11 May 2024 at 7:14pm"
+              }
+          ]
+          })
+      }}
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

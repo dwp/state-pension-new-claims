@@ -1,0 +1,98 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Confirm the start date</h1>
+
+    <p>Explanitory paragraph about where to find start date and what data to enter could go here.</p>
+
+    <br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" role="group" aria-describedby="startDate-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            What is the start date for this share order?
+          </h2>
+        </legend>
+        <div id="startDate-hint" class="govuk-hint">
+          For example, 27 3 2007
+        </div>
+        <div class="govuk-date-input" id="startDate">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="startDate-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-day" name="startDate-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="startDate-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-month" name="startDate-month" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="startDate-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="startDate-year" name="startDate-year" type="text" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+      
+      <br><br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

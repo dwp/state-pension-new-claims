@@ -1,0 +1,102 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post" action="psod-task-routing">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br>
+    <h1 class="govuk-heading-xl">
+      Pension sharing on divorce
+    </h1>
+
+    <p>Use the information from the future pension centre to complete the information below.</p>
+
+    <br><br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "claimant",
+      fieldset: {
+        legend: {
+          text: "Is the claimant the member or the former spouse?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "member",
+          text: "Member"
+        },
+        {
+          value: "former",
+          text: "Former spouse"
+        }
+      ]
+    }) }}
+
+    <br><br>
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+      id: "psodAmount",
+      name: "psodAmount",
+      label: {
+        text: "Enter the PSOD amount in pounds and pence",
+        classes: "govuk-label--m",
+        isPageHeading: true
+      },
+      prefix: {
+        text: "£"
+      },
+      classes: "govuk-input--width-10",
+      hint: {
+        text: "For example, 123.40"
+      },
+      spellcheck: false
+    }) }}
+
+    <br><br>
+
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+    {{ govukDateInput({
+      id: "dateOfEffect",
+      namePrefix: "dateOfEffect",
+      fieldset: {
+        legend: {
+          text: "Enter the date of effect of the share order",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "For example, 27 3 2007"
+      }
+    }) }}
+      
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}
