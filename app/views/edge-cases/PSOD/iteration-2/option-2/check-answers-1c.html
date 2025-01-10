@@ -1,0 +1,154 @@
+{% extends "layouts/main.html" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        Check your answers and confirm award
+      </h1>
+
+      <p>Supporting paragraph about next steps could go here.</p>
+
+      <h2 class="govuk-heading-l">
+        1. Check your answers
+      </h2>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          {% if data['creditAmount'] %}
+            <dt class="govuk-summary-list__key">
+              PSOD credit
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+              £{{data['creditAmount']}}
+            </dd>
+          {% elseif data['debitAmount'] %}
+            <dt class="govuk-summary-list__key">
+              PSOD debit
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+              £{{data['debitAmount']}}
+            </dd>
+          {% endif %}
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Share order date of effect
+            </dt>
+
+            <dd class="govuk-summary-list__value">
+              {{data['dateOfEffect-day']}} {{data['dateOfEffect-month'] | monthName }} {{data['dateOfEffect-year']}}
+            </dd>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+          </dd>
+        </div>
+
+        
+
+      </dl>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        2. Upload documents into DRS
+      </h2>
+
+        <p>Upload copies of:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the share order</li>
+          <li>the Decree absolute</li>
+        </ul>
+        </p>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        3. Confirm and send letter
+      </h2>
+
+      <p>The updated award includes any upratings, SRBs, ESPs and inheritance. 
+        <br>It may be different to the amount you entered.</br> 
+      </p>
+
+      <br><br>
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Updated award</th>
+            <td class="govuk-table__cell">
+              <b>{% if data['creditAmount'] %}
+              £{{ 200 + data.creditAmount | float }}.00
+             {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}.00
+             {% endif %}</b>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">New State Pension</th>
+            <td class="govuk-table__cell">
+              {% if data['creditAmount'] %}
+              £203.85
+              {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}.00
+             {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Protected payment</th>
+            <td class="govuk-table__cell">
+              {% if data['creditAmount'] %}
+              £{{ data.creditAmount - 3.85 | float }}
+             {% elseif data['debitAmount']%}
+              £0.00
+             {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">From</th>
+            <td class="govuk-table__cell">28 December 2024</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div class="govuk-inset-text">
+      This will automatically pay any arrears and send an award letter to the claimant. 
+      </div>
+
+      <br><br><br>
+
+      {{ govukButton({
+        text: "Confirm and send letter"
+      }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
