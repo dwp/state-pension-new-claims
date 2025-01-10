@@ -54,23 +54,13 @@
         </div>
 
         <div class="govuk-summary-list__row">
-          {% if data['creditAmount'] %}
             <dt class="govuk-summary-list__key">
-              PSOD credit
+              Share order date of effect
             </dt>
 
             <dd class="govuk-summary-list__value">
-              £{{data['creditAmount']}}
+              {{data['dateOfEffect-day']}} {{data['dateOfEffect-month'] | monthName }} {{data['dateOfEffect-year']}}
             </dd>
-          {% elseif data['debitAmount'] %}
-            <dt class="govuk-summary-list__key">
-              PSOD debit
-            </dt>
-
-            <dd class="govuk-summary-list__value">
-              £{{data['debitAmount']}}
-            </dd>
-          {% endif %}
 
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
@@ -101,10 +91,10 @@
       </h2>
 
       <p>A weekly State Pension amount of 
-        <b>{% if data['psodCredit'] %}
-            £{{ 180.00 + data.psodCredit | float }}.00
-           {% elseif data['psodDebit']%}
-            £{{ 180.00 - data.psodDebit | float }}.00
+        <b>{% if data['creditAmount'] %}
+            £{{ 200 + data.creditAmount | float }}.00
+           {% elseif data['debitAmount']%}
+            £{{ 200 - data.debitAmount | float }}.00
            {% endif %}
         </b> will apply from <b>28 December 2024</b>.</p>
 
