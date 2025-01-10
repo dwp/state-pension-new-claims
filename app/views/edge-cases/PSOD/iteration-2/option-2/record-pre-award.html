@@ -7,14 +7,6 @@
 
         {% include './_bar.html' %}
 
-        <!--<div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            There are tasks that need to be completed before an award can be issued. <br><a href="tasks" class="govuk-link govuk-link--no-visited-state">View tasks</a>.
-          </strong>
-        </div>-->
-
         <br>
 
         {{ xGovukSecondaryNavigation({
@@ -29,7 +21,7 @@
           },
           {
             text: "Pre award",
-            href: "record-tasks",
+            href: "record-pre-award",
             current: true
           }]
         }) }}
@@ -56,7 +48,7 @@
               £180.00
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="enter-amount">Change<span class="govuk-visually-hidden">New State Pension</span></a>
+              <a class="govuk-link" href="enter-amount"><span class="govuk-visually-hidden">New State Pension</span></a>
             </dd>
           </div>
 
@@ -68,7 +60,7 @@
               £0.00
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden">Protected payment</span></a>
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden">Protected payment</span></a>
             </dd>
           </div>
 
@@ -89,7 +81,7 @@
               
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden">New State Pension</span></a>
+              <a class="govuk-link" href="enter-psod-credit">Add<span class="govuk-visually-hidden">New State Pension</span></a>
             </dd>
           </div>
 
@@ -122,7 +114,7 @@
               
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pensionh</span></a>
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pension</span></a>
             </dd>
           </div>
 
@@ -134,7 +126,7 @@
               
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pensionh</span></a>
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pension</span></a>
             </dd>
           </div>
 

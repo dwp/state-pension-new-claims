@@ -6,15 +6,32 @@
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
+
+        {% if data['claimant'] %}
+
+        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+        {% set html %}
+          <h3 class="govuk-notification-banner__heading">
+            Task complete
+          </h3>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html,
+          type: "success"
+        }) }}
+
+        {% endif %}
         
       <br>
 
-<h1 class="govuk-heading-xl">Tasks</h1>
+        <h1 class="govuk-heading-xl">Tasks</h1>
 
-{% include './_claims.html' %}
-<br>
-        <form method="post">
-<br>
+        {% include './_claims.html' %}
+        <br>
+                <form method="post">
+        <br>
           <h1 class="govuk-heading-l">New claims</h1>
 
           </div>
@@ -135,7 +152,7 @@
             <div class="govuk-grid-row">
               <div class="govuk-grid-column-one-half">
                 <h1 class="govuk-heading-m">Pension share on divorce
-                <p class="govuk-body-l"><a href="step-by-step-3" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+                <p class="govuk-body-l"><a href="psod-task" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
 
               </div>
 
