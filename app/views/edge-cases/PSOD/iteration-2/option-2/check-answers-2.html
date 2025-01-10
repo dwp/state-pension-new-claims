@@ -30,80 +30,54 @@
       <dl class="govuk-summary-list">
 
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            New State Pension
-          </dt>
+          {% if data['creditAmount'] %}
+            <dt class="govuk-summary-list__key">
+              PSOD credit
+            </dt>
 
-          <dd class="govuk-summary-list__value">
-            £180.00
-          </dd>
+            <dd class="govuk-summary-list__value">
+              £{{data['creditAmount']}}
+            </dd>
+          {% elseif data['debitAmount'] %}
+            <dt class="govuk-summary-list__key">
+              PSOD debit
+            </dt>
 
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> transaction type</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Protected payment
-          </dt>
-
-          <dd class="govuk-summary-list__value">
-            £0.00
-          </dd>
-
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> transaction type</span></a>
-          </dd>
-        </div>
-
-        {% if data['psodCredit'] %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            PSOD credit
-          </dt>
-
-          <dd class="govuk-summary-list__value">
-            £{{data['psodCredit']}}
-          </dd>
+            <dd class="govuk-summary-list__value">
+              £{{data['debitAmount']}}
+            </dd>
+          {% endif %}
 
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
           </dd>
         </div>
 
-        {% elseif data['psodDebit'] %}
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            PSOD debit
-          </dt>
+          {% if data['creditAmount'] %}
+            <dt class="govuk-summary-list__key">
+              PSOD credit
+            </dt>
 
-          <dd class="govuk-summary-list__value">
-            £{{data['psodDebit']}}
-          </dd>
+            <dd class="govuk-summary-list__value">
+              £{{data['creditAmount']}}
+            </dd>
+          {% elseif data['debitAmount'] %}
+            <dt class="govuk-summary-list__key">
+              PSOD debit
+            </dt>
 
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="enter-psod-debit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
-          </dd>
-        </div>
-        {% endif %}
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Total
-          </dt>
-
-          {% if data['psodCredit'] %}
-          <dd class="govuk-summary-list__value">
-            £{{ 180.00 + data.psodCredit | float }}.00
-          </dd>
-          {% elseif data['psodDebit']%}
-            £{{ 180.00 - data.psodDebit | float }}.00
-          <dd class="govuk-summary-list__actions">
+            <dd class="govuk-summary-list__value">
+              £{{data['debitAmount']}}
+            </dd>
           {% endif %}
-            <a class="govuk-link" href="enter-psod-debit"><span class="govuk-visually-hidden"> transaction type</span></a>
+
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
           </dd>
         </div>
+
+        
 
       </dl>
 

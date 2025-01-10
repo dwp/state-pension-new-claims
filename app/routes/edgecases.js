@@ -72,6 +72,15 @@ router.post('/edge-cases/PSOD/iteration-2/option-1/psod-task-routing', function 
   res.redirect('check-answers')
 })
 
+// Option 2
+
+router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-credit-routing', function (req, res) {
+  res.redirect('check-answers-2')
+})
+
+router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-debit-routing', function (req, res) {
+  res.redirect('check-answers-2')
+})
 
 
 module.exports = router
