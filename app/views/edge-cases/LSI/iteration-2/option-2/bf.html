@@ -1,0 +1,20 @@
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-xl">
+    Task is postponed for 8 weeks
+  </h1>
+  <p class="govuk-body-l">
+    If no resposned is received after the 8 week BF, a reminder letter is sent to the claimant and the task is postponed for another 4 weeks.
+  </p>
+
+  <p class="govuk-body-l">
+    If no resposned is received after the 4 week reminder BF, the backend automatically applies the inheritance as a lump sum.
+  </p>
+
+{% endblock %}

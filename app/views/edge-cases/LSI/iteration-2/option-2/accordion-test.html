@@ -1,0 +1,200 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post" action="check-answers-original">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Pension share order on divorce (PSOD)</h1>
+
+    <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+              Step 1.
+            </span>
+          </h2>
+          <div class="govuk-accordion__section-summary govuk-heading-m" id="accordion-with-summary-sections-summary-1">
+            <b>Is the claimant the member or the former spouse?</b>
+          </div>
+        </div>
+        <div id="accordion-default-content-1" class="govuk-accordion__section-content">
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="debitCredit-hint">
+              
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="debitCredit" name="debitCredit" type="radio" value="debit" data-aria-controls="conditional-debitCredit">
+                  <label class="govuk-label govuk-radios__label" for="debitCredit">
+                    Member
+                  </label>
+                </div>
+                
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="debitCredit-2" name="debitCredit" type="radio" value="credit" data-aria-controls="conditional-debitCredit-2">
+                  <label class="govuk-label govuk-radios__label" for="debitCredit-2">
+                    Former spouse
+                  </label>
+                </div>
+                
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+          2. Enter the PSOD amount in pounds
+            </span>
+          </h2>
+        </div>
+        <div id="accordion-default-content-2" class="govuk-accordion__section-content">
+
+          <p>The uprating year for the amount is 2024</p>
+
+          <br>
+        
+          <div class="govuk-form-group">
+            <div class="govuk-input__wrapper">
+              <div class="govuk-input__prefix" aria-hidden="true">£</div>
+              <input class="govuk-input govuk-input--width-5" id="cost" name="cost" type="text" spellcheck="false">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+              Step 3.
+            </span>
+          </h2>
+          <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+            Enter the date of effect of the share order
+          </div>
+        </div>
+        <div id="accordion-default-content-3" class="govuk-accordion__section-content">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="startDate-hint">
+              
+              <div class="govuk-date-input" id="startDate">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="startDate-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-day" name="startDate-day" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="startDate-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="startDate-month" name="startDate-month" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="startDate-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="startDate-year" name="startDate-year" type="text" inputmode="numeric">
+                  </div>
+                </div>
+
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="govuk-accordion__section">
+        <div class="govuk-accordion__section-header">
+          <h2 class="govuk-accordion__section-heading">
+            <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+              Step 4.
+            </span>
+          </h2>
+          <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+            Test radio button
+          </div>
+        </div>
+        <div id="accordion-default-content-4" class="govuk-accordion__section-content">
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Test for branching
+                </h1>
+              </legend>
+              <div id="contact-hint" class="govuk-hint">
+                Select one option
+              </div>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact" name="contact" type="radio" value="email" data-aria-controls="conditional-contact">
+                  <label class="govuk-label govuk-radios__label" for="contact">
+                    Yes
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact"></div>
+
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-2" name="contact" type="radio" value="phone" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="contact-2">
+                    No
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <a href="award-sp" button type="submit" class="govuk-button govuk-button--secondary">
+                    Return task to queue
+                  </a>
+                </div>
+                
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+      </div>
+
+    </div>
+  </div>
+      
+</div>
+      
+    <br><br><br>
+      
+      <button class="govuk-button" data-module="govuk-button">
+      Continue
+      </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}

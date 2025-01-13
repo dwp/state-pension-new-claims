@@ -1,0 +1,129 @@
+{% extends "layouts/main.html" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% block content %}
+
+<form class="form" method="post" action="dashboard-2">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        Check your answers and send letter
+      </h1>
+
+      <p>Supporting paragraph about next steps could go here.</p>
+
+      <h2 class="govuk-heading-l">
+        1. Check your answers
+      </h2>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Lump sum inheritance
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            £{{data['lsiAmount']}}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-lsi">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Tax year to be paid
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['whichYear'] === 'now' %}
+            This tax year
+            {% else %}
+            Next tax year
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        {% if data['whichYear'] === 'now' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Tax rate
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['taxRate'] === '0' %}
+            0%
+            {% elseif data['taxRate'] === '20' %}
+            20%
+            {% elseif data['taxRate'] === '40' %}
+            40%
+            {% elseif data['taxRate'] === '45' %}
+            45%
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+        {% else %}
+        {% endif %}
+
+      </dl>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        2. Upload documents into DRS
+      </h2>
+
+        <p>Upload copies of:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Document 1</li>
+          <li>Document 2</li>
+          <li>Document 3</li>
+        </ul>
+        </p>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        3. Confirm and send letter
+      </h2>
+
+      <p>A weekly State Pension amount of <b>£180.00</b> will apply from <b>28 December 2024</b>.</p>
+
+      <p>An award letter will be sent to the claimant.</p>
+
+      <br><br><br>
+
+
+        {{ govukButton({
+          text: "Confirm and send letter"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

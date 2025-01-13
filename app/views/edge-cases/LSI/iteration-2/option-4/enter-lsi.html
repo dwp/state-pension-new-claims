@@ -1,0 +1,166 @@
+
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--xl" for="event-name">
+          Lump sum inheritance
+        </label>
+      </h1>
+
+      <br><br>
+
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          The uprating year for the amount is 2024
+        </strong>
+      </div>
+
+      <br>
+      
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {{ govukInput({
+          id: "lsi",
+          name: "lsiAmount",
+          label: {
+            text: "Enter the lump sum inheritance in pounds",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          prefix: {
+            text: "£"
+          },
+          classes: "govuk-!-width-one-third",
+          spellcheck: false
+        }) }}
+    </div>
+
+    <br><br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% set amountHtml %}
+{{ govukInput({
+  id: "pre2005",
+  name: "pre2005",
+  type: "amount",
+  spellcheck: false,
+  prefix: {
+    text: "£"
+  },
+  classes: "govuk-!-width-one-third",
+  label: {
+    text: "Enter amount in pounds"
+  }
+}) }}
+{% endset -%}
+
+
+{{ govukRadios({
+  name: "pre2005",
+  fieldset: {
+    legend: {
+      text: "Is there any pre 2005 extra State Pension?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  hint: {
+    text: "Select one option"
+  },
+  items: [
+    {
+      value: "amount",
+      text: "Yes",
+      conditional: {
+        html: amountHtml
+      }
+    },
+    {
+      value: "no",
+      text: "No",
+      conditional: {
+        html: phoneHtml
+      }
+    }
+  ]
+}) }}
+
+<br><br>
+
+    {{ govukRadios({
+      name: "whichYear",
+      fieldset: {
+        legend: {
+          text: "What tax year does the claimant want to be paid in?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "now",
+          text: "This tax year"
+        },
+        {
+          value: "later",
+          text: "Next tax year"
+        }
+      ]
+    }) }}
+
+      <br><br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}
