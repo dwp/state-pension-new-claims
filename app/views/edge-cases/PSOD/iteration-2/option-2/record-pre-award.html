@@ -59,10 +59,10 @@
               New State Pension
             </dt>
             <dd class="govuk-summary-list__value">
-              {% if data['creditAmount'] %}
+              {% if data['creditAmount'] %}.00
               £203.85
               {% elseif data['debitAmount']%}
-              £{{ 200 - data.debitAmount | float }}
+              £{{ 200 - data.debitAmount | float }}.00
               {% else %}
               £200.00
               {% endif %}
