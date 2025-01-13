@@ -5,7 +5,17 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+        {% include './_bar-2.html' %}
+
+        {% else %}
+
         {% include './_bar.html' %}
+
+        {% endif %}
+
+        <br>
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
@@ -19,94 +29,194 @@
           },
           {
             text: "Pre award",
-            href: "record-tasks",
+            href: "record-pre-award",
             current: true
           }]
         }) }}
 
         <br><br>
 
-        <table class="govuk-table">
-          <caption class="govuk-table__caption govuk-table__caption--m">Current pre award status</caption>
+        <h2 class="govuk-heading-m">Summary of pre State Pension award</h2>
 
-          <tbody class="govuk-table__body">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Total
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              £{{ 200 + data.creditAmount | float }}.00
+             {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}.00
+             {% else %}
+             £200.00
+             {% endif %}
+            </dd>
+          </div>
 
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Total</th>
-              <td class="govuk-table__cell">£164.68</td>
-            </tr>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              New State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              £203.85
+              {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}
+              {% else %}
+              £200.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-amount"><span class="govuk-visually-hidden">New State Pension</span></a>
+            </dd>
+          </div>
 
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">New State Pension</th>
-              <td class="govuk-table__cell">£164.68</td>
-            </tr>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Protected payment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              £{{ data.creditAmount - 3.85 | float }}
+              {% elseif data['debitAmount']%}
+              £0.00
+              {% else %}
+              £0.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden">Protected payment</span></a>
+            </dd>
+          </div>
 
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Protected payment</th>
-              <td class="govuk-table__cell">£0.00</td>
-            </tr>
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Extra State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+    
+            </dd>
+          </div>
 
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Extra State Pension</th>
-              <td class="govuk-table__cell">£0.00</td>
-            </tr>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PSOD credit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              {{data['creditAmount']}}
+              {% else %}
+              £0.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-psod-credit">
+                {% if data['creditAmount'] %}
+                Change
+                {% elseif data['debitAmount'] %}
+                {% else %}
+                Add
+                {% endif %}<span class="govuk-visually-hidden">PSOD debit</span></a><span class="govuk-visually-hidden">PSOD credit</span></a>
+            </dd>
+          </div>
 
-          </tbody>
-        </table>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PSOD debit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['debitAmount'] %}
+              £{{data['debitAmount']}}
+              {% else %}
+              £0.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-psod-debit">
+                {% if data['debitAmount'] %}
+                Change
+                {% elseif data['creditAmount'] %}
+                {% else %}
+                Add
+                {% endif %}<span class="govuk-visually-hidden">PSOD debit</span></a>
+            </dd>
+          </div>
 
-        <br><br>
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Inherited extra State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+          </div>
 
-        <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pension</span></a>
+            </dd>
+          </div>
 
-        <ul class="govuk-task-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Extra State Pension Graduated Retirement Benefit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pension</span></a>
+            </dd>
+          </div>
 
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="step-by-step-3" aria-describedby="application-details-3-status">
-                Task 1 (PSOD)
-              </a>
-            </div>
-            <div class="govuk-task-list__status" id="application-details-3-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Not yet started
-              </strong>
-            </div>
-          </li>
-
-          <li class="govuk-task-list__item">
-            <div class="govuk-task-list__name-and-hint">
-              <div>
-                Task 2 (COEG)
-              </div>
-              <div id="application-details-3-hint" class="govuk-task-list__hint">
-                Task 1 needs to be completed before you can start this task
-              </div>
-            </div>
-            <div class="govuk-task-list__status govuk-task-list__status--cannot-start-yet" id="application-details-3-status">
-              Cannot start yet
-            </div>
-          </li>
-
-        </ul>
+        </dl>
 
     </div>
 
     <div class="govuk-grid-column-one-third">
 
-      {% from "timeline/macro.njk" import dwpTimeline %}
+      <h3 class="govuk-heading-m">Personal changes</h3>
 
-      <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-          dwpTimeline({ 
-              items: [
-              {
-                  title:  "Claim received",
-                  byline:  "online",
-                  date:  "11 May 2024 at 7:14pm"
-              }
-          ]
-          })
-      }}
+      <div class="dwp-timeline">
+      <ol class="dwp-timeline__items">
+
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+          <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+          <p class="dwp-timeline__by-line">by Agent</p>
+        </li>
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+          <h2 class="dwp-timeline__heading">PSOD actions complete</h2>
+          <p class="dwp-timeline__by-line">by Agent</p>
+        </li>
+
+        {% endif %}
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">1 Dec 2024 at 9:34am</p>
+          <h2 class="dwp-timeline__heading">Email sent to future pension centre</h2>
+          <p class="dwp-timeline__by-line">by System</p>
+        </li>
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">13 Nov 2024 at 10:22am</p>
+          <h2 class="dwp-timeline__heading">Claim received</h2>
+          <p class="dwp-timeline__by-line">by Agent</p>
+        </li>
+
+      </ol>
+      </div>
 
     </div>
 
