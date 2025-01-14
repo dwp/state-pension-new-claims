@@ -100,7 +100,7 @@
               <b>{% if data['creditAmount'] %}
               £{{ 200 + data.creditAmount | float }}.00
              {% elseif data['debitAmount']%}
-              £{{ 200 - data.debitAmount | float }}.00
+              £{{ 200 - data.debitAmount | float }}
              {% endif %}</b></th>
             </td>
           </tr>
