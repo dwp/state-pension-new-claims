@@ -92,7 +92,7 @@
         <b>{% if data['creditAmount'] %}
             £{{ 200 + data.creditAmount | float }}.00
            {% elseif data['debitAmount']%}
-            £{{ 200 - data.debitAmount | float }}.00
+            £{{ 200 - data.debitAmount | float }}
            {% endif %}
         </b> will apply from <b>28 December 2024</b>.</p>
 
