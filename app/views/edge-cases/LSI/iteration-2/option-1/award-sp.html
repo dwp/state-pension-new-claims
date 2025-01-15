@@ -17,34 +17,17 @@
 
     <br><br>
 
-    {{ govukRadios({
-      name: "whichOption",
-      fieldset: {
-        legend: {
-          text: "Which option did the claimant choose?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      items: [
-        {
-          value: "lsi",
-          text: "Lump sum inheritance"
-        },
-        {
-          value: "esp",
-          text: "Extra State Pension"
-        }
-      ]
-    }) }}
-      
-      <br><br><br>
+    <h1 class="govuk-heading-xl">Award State Pension</h1>
 
-        <button class="govuk-button" data-module="govuk-button">
-        Continue
-        </button>
+    <p class="govuk-body">An award letter will be sent to the claimant.</p>
 
-      <br><br><br><br><br>
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+    End task
+    </button>
+
+    <br><br><br><br><br>
 
   </div>
 </div>

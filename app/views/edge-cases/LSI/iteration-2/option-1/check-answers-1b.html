@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="dashboard-2">
+<form class="form" method="post" action="check-answers-1">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
@@ -21,10 +21,12 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Check your answers and confirm award
+        Check your answers and send letter
       </h1>
 
       <p>Supporting paragraph about next steps could go here.</p>
+
+      <br>
 
       <h2 class="govuk-heading-l">
         1. Check your answers
@@ -34,11 +36,25 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Inherited extra State Pension
+            Lump sum inheritance
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            £{{data['iespAmount']}}
+            £300.00
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Extra State Pension
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            £120.00
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
@@ -51,26 +67,10 @@
       <br><br>
 
       <h2 class="govuk-heading-l">
-        2. Upload documents into DRS
+        2. Confirm and send letter
       </h2>
 
-      <p>Upload copies of:
-        <ul class="govuk-list govuk-list--bullet">
-          <li>Document 1</li>
-          <li>Document 2</li>
-          <li>Document 3</li>
-        </ul>
-        </p>
-
-      <br><br>
-
-      <h2 class="govuk-heading-l">
-        3. Confirm and send letter
-      </h2>
-
-      <p>A weekly State Pension amount of <b>£180.00</b> will apply from <b>28 December 2024</b>.</p>
-
-      <p>An award letter will be sent to the claimant.</p>
+      <p>A letter will be automatically sent to the claimant to tell them their options</p>
 
       <br><br><br>
 

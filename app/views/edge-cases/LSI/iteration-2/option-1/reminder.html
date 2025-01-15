@@ -17,34 +17,19 @@
 
     <br><br>
 
-    {{ govukRadios({
-      name: "whichYear",
-      fieldset: {
-        legend: {
-          text: "What tax year does the claimant want to be paid in?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      items: [
-        {
-          value: "now",
-          text: "This tax year"
-        },
-        {
-          value: "later",
-          text: "Next tax year"
-        }
-      ]
-    }) }}
+    <h1 class="govuk-heading-xl">
+      Options letter reminder sent
+    </h1>
+
+    <p>A letter has been automatically sent to the claimant to tell them their options.</p>
       
-      <br><br><br>
+    <br><br><br>
 
-        <button class="govuk-button" data-module="govuk-button">
-        Continue
-        </button>
+      <button class="govuk-button" data-module="govuk-button">
+      End task
+      </button>
 
-      <br><br><br><br><br>
+    <br><br><br><br><br>
 
   </div>
 </div>

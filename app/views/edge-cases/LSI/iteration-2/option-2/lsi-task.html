@@ -2,7 +2,10 @@
 
 {% block content %}
 
-<form class="form" method="post" action="check-answers-1a">
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<form class="form" method="post" action="check-answers-2a">
 
   {% include './_bar.html' %}
 
@@ -20,6 +23,15 @@
     <h1 class="govuk-heading-xl">
       Lump sum inheritance
     </h1>
+
+    <p>Text that explains or sets up expectations for the task could go here.</p>
+
+    <br>
+
+  {% set yesLetterHtml %}
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
 
     <p>Text that sets up expectations for the task could go here.</p>
 
@@ -158,7 +170,7 @@
           id: "lsi",
           name: "lsi",
           label: {
-            text: "1. Enter the lump sum inheritance amount in pounds",
+            text: "Enter the lump sum inheritance amount in pounds",
             classes: "govuk-label--m",
             isPageHeading: false
           },
@@ -178,7 +190,7 @@
           id: "esp",
           name: "esp",
           label: {
-            text: "2. Enter the inherited extra State Pension amount in pounds",
+            text: "Enter the inherited extra State Pension amount in pounds",
             classes: "govuk-label--m",
             isPageHeading: false
           },
@@ -192,13 +204,191 @@
           spellcheck: false
         }) }}
 
-      <br><br><br>
+  {% endset -%}
 
-    {{ govukButton({
-      text: "Continue"
+  {% set noLetterHtml %}
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    
+    {% set yesHtml %}
+    {{ govukInput({
+      id: "preAmount",
+      name: "preAmount",
+      label: {
+        text: "Enter the amount in pounds and pence",
+        classes: "govuk-label--m",
+        isPageHeading: false
+      },
+      prefix: {
+        text: "£"
+      },
+      classes: "govuk-input--width-5",
+      hint: {
+        text: "For example 123.40"
+      },
+      spellcheck: false
+    }) }}
+    {% endset -%}
+    
+    {{ govukRadios({
+      name: "pre2005",
+      fieldset: {
+        legend: {
+          text: "Is there any pre 2005 extra State Pension?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select one option"
+      },
+      items: [
+        {
+          value: "no",
+          text: "No"
+        },
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: yesHtml
+          }
+        }
+      ]
     }) }}
 
-    <br><br><br>
+    <br><br>
+
+    {% set taxHtml %}
+
+    {{ govukRadios({
+      name: "taxRate",
+      fieldset: {
+        legend: {
+          text: "What is the claimant's tax rate?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "0",
+          text: "0%"
+        },
+        {
+          value: "20",
+          text: "20%"
+        },
+        {
+          value: "40",
+          text: "40%"
+        },
+        {
+          value: "45",
+          text: "45%"
+        }
+      ]
+    }) }}
+
+    {% endset -%}
+    
+    {% set lsiHtml %}
+
+    {{ govukRadios({
+      name: "whichYear",
+      fieldset: {
+        legend: {
+          text: "What tax year does the claimant want to be paid in?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "later",
+          text: "Next tax year"
+        },
+        {
+          value: "now",
+          text: "This tax year",
+          conditional: {
+            html: taxHtml
+          }
+        }
+      ]
+    }) }}
+    
+    {% endset -%}
+
+    {{ govukRadios({
+      name: "whichOption",
+      fieldset: {
+        legend: {
+          text: "Which option did the claimant choose?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      hint: {
+        text: "Select one option"
+      },
+      items: [
+        {
+          value: "esp",
+          text: "Extra State Pension",
+          conditional: {
+            html: espHtml
+          }
+        },
+        {
+          value: "lsi",
+          text: "Lump sum inheritance",
+          conditional: {
+            html: lsiHtml
+          }
+        }
+      ]
+    }) }}
+
+  {% endset -%}
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "pre2005",
+      fieldset: {
+        legend: {
+          text: "Do you need to send the claimant an options letter?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+      {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: yesLetterHtml
+          }
+        },
+        {
+          value: "no",
+          text: "No",
+          conditional: {
+            html: noLetterHtml
+          }
+        }
+      ]
+    }) }}
+
+      <br><br><br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+  <br><br><br>
 
   </div>
 </div>
