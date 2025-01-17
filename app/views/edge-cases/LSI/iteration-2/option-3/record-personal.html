@@ -9,14 +9,6 @@
 
         {% include './_bar.html' %}
 
-        <!--<div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            There are tasks that need to be completed before an award can be issued. <br><a href="tasks" class="govuk-link govuk-link--no-visited-state">View tasks</a>.
-          </strong>
-        </div>-->
-
         <br>
 
         {{ xGovukSecondaryNavigation({
@@ -43,12 +35,12 @@
           },
           {
             text: "Payment",
-            href: "payment",
+            href: "record-payment",
             current: false
           },
           {
             text: "Full history",
-            href: "payment",
+            href: "",
             current: false
           }]
         }) }}
@@ -104,20 +96,22 @@
 
         {% from "timeline/macro.njk" import dwpTimeline %}
 
-      <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-      dwpTimeline({ 
-          items: [
-          {
-              title:  "Claim received",
-              byline:  "online",
-              date:  "11 May 2024 at 7:14pm"
-          }
-      ]
-      })
-      }}
+        <h2 class="govuk-heading-m">Personal changes</h2>
 
-    </div>
+          {{
+          dwpTimeline({ 
+              items: [
+              {
+                  title:  "Claim received",
+                  byline:  "online",
+                  date:  "11 May 2024 at 7:14pm"
+              }
+          ]
+          })
+          }}
+
+      </div>
+      
   </main>
 </div>
 

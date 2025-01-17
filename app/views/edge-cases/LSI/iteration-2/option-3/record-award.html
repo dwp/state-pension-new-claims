@@ -33,12 +33,12 @@
           },
           {
             text: "Payment",
-            href: "payment",
+            href: "record-payment",
             current: false
           },
           {
             text: "Full history",
-            href: "payment",
+            href: "",
             current: false
           }]
         }) }}
@@ -75,24 +75,23 @@
 
     </div>
 
-    <br><br><br><br>
-
     <div class="govuk-grid-column-one-third">
 
       {% from "timeline/macro.njk" import dwpTimeline %}
 
       <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-          dwpTimeline({ 
-              items: [
-              {
-                  title:  "Claim received",
-                  byline:  "online",
-                  date:  "11 May 2024 at 7:14pm"
-              }
-          ]
-          })
-      }}
+
+        {{
+        dwpTimeline({ 
+            items: [
+            {
+                title:  "Claim received",
+                byline:  "online",
+                date:  "11 May 2024 at 7:14pm"
+            }
+        ]
+        })
+        }}
 
     </div>
 
