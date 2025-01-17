@@ -36,6 +36,24 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Pre 2005 extra State Pension
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['pre2005'] === 'yes' %}
+            £{{data['preAmount']}}
+            {% else %}
+            £0.00
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
             Lump sum inheritance
           </dt>
 
