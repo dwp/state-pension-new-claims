@@ -152,17 +152,66 @@
           </tbody>
         </table>
 
-        <br>
+        <br><br>
 
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-visually-hidden">Warning</span>
-            The uprating year for the amount is 2024
+            The uprating year for the amount is 2023
           </strong>
         </div>
 
-        <br>
+        <br><br>
+
+        {% set yesHtml %}
+          {{ govukInput({
+            id: "preAmount",
+            name: "preAmount",
+            label: {
+              text: "Enter the amount in pounds and pence",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            prefix: {
+              text: "£"
+            },
+            classes: "govuk-input--width-5",
+            hint: {
+              text: "For example 123.40"
+            },
+            spellcheck: false
+          }) }}
+        {% endset -%}
+  
+        {{ govukRadios({
+          name: "pre2005",
+          fieldset: {
+            legend: {
+              text: "Is there any pre 2005 extra State Pension?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          hint: {
+            text: "Select one option"
+          },
+          items: [
+            {
+              value: "no",
+              text: "No"
+            },
+            {
+              value: "yes",
+              text: "Yes",
+              conditional: {
+                html: yesHtml
+              }
+            }
+          ]
+        }) }}
+
+  <br>
 
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -210,55 +259,6 @@
 
   {% from "govuk/components/radios/macro.njk" import govukRadios %}
   {% from "govuk/components/input/macro.njk" import govukInput %}
-  
-  {% set yesHtml %}
-  {{ govukInput({
-    id: "preAmount",
-    name: "preAmount",
-    label: {
-      text: "Enter the amount in pounds and pence",
-      classes: "govuk-label--m",
-      isPageHeading: false
-    },
-    prefix: {
-      text: "£"
-    },
-    classes: "govuk-input--width-5",
-    hint: {
-      text: "For example 123.40"
-    },
-    spellcheck: false
-  }) }}
-  {% endset -%}
-  
-  {{ govukRadios({
-    name: "pre2005",
-    fieldset: {
-      legend: {
-        text: "Is there any pre 2005 extra State Pension?",
-        isPageHeading: false,
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: "Select one option"
-    },
-    items: [
-      {
-        value: "no",
-        text: "No"
-      },
-      {
-        value: "yes",
-        text: "Yes",
-        conditional: {
-          html: yesHtml
-        }
-      }
-    ]
-  }) }}
-
-  <br><br>
 
   {% set taxHtml %}
 
@@ -352,7 +352,7 @@
         legend: {
           text: "Do you need to send the claimant an options letter?",
           isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
+          classes: "govuk-fieldset__legend--l"
         }
       },
       items: [
