@@ -82,5 +82,13 @@ router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-debit-routing', fu
   res.redirect('check-answers-1a')
 })
 
+// Iteration 2 - LSI
+
+// Option 3
+
+router.post('/edge-cases/LSI/iteration-2/option-3/enter-lsi', function (req, res) {
+  res.redirect('check-answers-2')
+})
+
 
 module.exports = router

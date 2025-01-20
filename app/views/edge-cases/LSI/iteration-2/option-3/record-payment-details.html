@@ -1,56 +1,23 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-2.html" %}
 
 {% block content %}
 
-<div class="govuk-width-container">
-  <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
 
-    <main id="content" role="main">
-      <div class="grid-row">
-        <div class="column-full">
+        {% include './_bar.html' %}
 
-          <div>
-            <h1 class="govuk-heading-xl">
-              Cece Bonham
-              <span class="govuk-caption-l">QQ 12 34 56 X</span>
-              <strong class="govuk-tag govuk-tag--blue">
-               Receiving State Pension
-              </strong>
-            </h1>
-          </div>
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+          }) }}
 
-          {{ govukBackLink({
-            text: "Back",
-            href: "javascript:history.go(-1)"
-                            }) }}
+        <br><br><br>
 
-          <br><br><br>
-
-          <form method="post" action="payment-frequency">
-
-            <h2 class="govuk-heading-m">Payment details</h2>
+        <h2 class="govuk-heading-m">Payment details</h2>
 
             <div class="govuk-form-group">
 
-            <!-- <div class="govuk-inset-text">
-                Payment was reduced due to a Pension Credit adjustment.
-                </div>
-
-                <div class="govuk-inset-text">
-              Payment was reduced by £3.50 per week due to a Pension Credit adjustment.
-              </div>
-
-              <div class="govuk-inset-text">
-                Payment was reduced by £3.50 per week for part of payment period due to a Pension Credit adjustment.
-                </div> 
-
-                <div class="govuk-inset-text">
-                  Payment was reduced by £260. This is due to:
-                  <ul class="govuk-list govuk-list--bullet">
-                    <li>a Carer's Allowance adjustment of £200</li>
-                    <li>a Pension Credit adjustment of £60</li>
-                  </ul>
-                </div> -->
                 {% if data['pcAmount'] and data['caAmount'] %}
 
                   <div class="govuk-inset-text">
@@ -81,7 +48,7 @@
                   <tr class="govuk-table__row">
                   <tr class="govuk-table__row" style="width: 20%"></tr>
                   <th class="govuk-table__header" scope="col" style="width: 40%">Total</th>
-                  <th class="govuk-table__header" scope="col" style="width: 30%">	£254.32</th>
+                  <th class="govuk-table__header" scope="col" style="width: 30%">	£{{data['lsiAmount']}}</th>
                   <th class="govuk-table__header" scope="col" style="width: 30%"></th>
                 </thead>
 
@@ -119,42 +86,31 @@
                     </tbody>
                   </table>
 
-
-            </div>
-
-
-        </div>
       </div>
-    </main>
 
-    </form>
-  </div>
+    </div>
 
-  <div class="govuk-grid-column-one-third">
+      <div class="govuk-grid-column-one-third">
 
-    {% from "timeline/macro.njk" import dwpTimeline %}
+        {% from "timeline/macro.njk" import dwpTimeline %}
 
-    <h1 class="govuk-heading-m">Status changes</h1>
-    {{
-        dwpTimeline({ 
-            items: [
-            {
-              title:  "Sent",
-              byline:  "system",
-              date:  "14 May 2024 at 11:35am"
-            }
-        ]
-        })
-    }}
+        <h2 class="govuk-heading-m">Payment status</h2>
 
-  </div>
+          {{
+          dwpTimeline({ 
+              items: [
+              {
+                  title:  "Claim received",
+                  byline:  "online",
+                  date:  "11 May 2024 at 7:14pm"
+              }
+          ]
+          })
+          }}
 
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds">
-
-  </div>
+      </div>
+      
+  </main>
 </div>
 
 {% endblock %}
