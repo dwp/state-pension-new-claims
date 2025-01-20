@@ -84,6 +84,26 @@ router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-debit-routing', fu
 
 // Iteration 2 - LSI
 
+// Option 1
+
+router.post('/edge-cases/LSI/iteration-2/option-1/which-option', function (req, res) {
+
+  if (req.body['whichOption'] === 'esp') {
+    res.redirect('check-answers-2a')
+  } else {
+    res.redirect('what-year')
+  }
+})
+
+router.post('/edge-cases/LSI/iteration-2/option-1/what-year', function (req, res) {
+
+  if (req.body['whichYear'] === 'later') {
+    res.redirect('check-answers-2a')
+  } else {
+    res.redirect('tax-rate')
+  }
+})
+
 // Option 3
 
 router.post('/edge-cases/LSI/iteration-2/option-3/enter-lsi', function (req, res) {
