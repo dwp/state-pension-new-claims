@@ -109,6 +109,42 @@
 
 <br><br>
 
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {% set taxHtml %}
+
+    {{ govukRadios({
+      name: "taxRate",
+      fieldset: {
+        legend: {
+          text: "What is the claimant's tax rate?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "0",
+          text: "0%"
+        },
+        {
+          value: "20",
+          text: "20%"
+        },
+        {
+          value: "40",
+          text: "40%"
+        },
+        {
+          value: "45",
+          text: "45%"
+        }
+      ]
+    }) }}
+
+    {% endset -%}
+
     {{ govukRadios({
       name: "whichYear",
       fieldset: {
@@ -120,15 +156,19 @@
       },
       items: [
         {
-          value: "now",
-          text: "This tax year"
-        },
-        {
           value: "later",
           text: "Next tax year"
+        },
+        {
+          value: "now",
+          text: "This tax year",
+          conditional: {
+            html: taxHtml
+          }
         }
       ]
     }) }}
+    
 
       <br><br><br>
 
