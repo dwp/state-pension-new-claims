@@ -91,11 +91,11 @@ router.post('/edge-cases/LSI/iteration-2/option-1/which-option', function (req, 
   if (req.body['whichOption'] === 'esp') {
     res.redirect('check-answers-2a')
   } else {
-    res.redirect('what-year')
+    res.redirect('which-year')
   }
 })
 
-router.post('/edge-cases/LSI/iteration-2/option-1/what-year', function (req, res) {
+router.post('/edge-cases/LSI/iteration-2/option-1/which-year', function (req, res) {
 
   if (req.body['whichYear'] === 'later') {
     res.redirect('check-answers-2a')
