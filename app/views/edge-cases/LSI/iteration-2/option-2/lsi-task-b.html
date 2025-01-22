@@ -136,24 +136,24 @@
       name: "optionsLetter",
       fieldset: {
         legend: {
-          text: "Has the claimant chosen an option?",
+          text: "Has an options letter been sent to the claimant?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--l"
         }
       },
       items: [
-      {
-          value: "yes",
-          text: "Yes",
-          conditional: {
-            html: yesLetterHtml
-          }
-        },
         {
           value: "no",
           text: "No",
           conditional: {
             html: noLetterHtml
+          }
+        },
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: yesLetterHtml
           }
         }
       ]

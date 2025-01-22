@@ -24,8 +24,6 @@
       Lump sum inheritance
     </h1>
 
-    <p>Text that explains or sets up expectations for the task could go here.</p>
-
     <br>
 
   {% set yesLetterHtml %}
@@ -33,9 +31,11 @@
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
     {% from "govuk/components/input/macro.njk" import govukInput %}
 
-    <p>Text that sets up expectations for the task could go here.</p>
+    <h2 class="govuk-heading-m">Calculate the claimant's option amounts and send letter</h2>
 
-    <br><br>
+    <p>Use the information below and legacy systems to calculate the claimants options amounts.</p>
+
+    <br>
     
     <h2 class="govuk-heading-m">Claimant</h2>
 
@@ -350,7 +350,7 @@
       name: "optionsLetter",
       fieldset: {
         legend: {
-          text: "Do you need to send the claimant an options letter?",
+          text: "Has an options letter been sent to the claimant?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--l"
         }
