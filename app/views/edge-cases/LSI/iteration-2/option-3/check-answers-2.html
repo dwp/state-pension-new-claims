@@ -52,10 +52,10 @@
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            {% if data['pre2005'] === 'yes' %}
-            £{{data['preAmount']}}
+            {% if data['pre2005'] === 'amount' %}
+            Yes
             {% else %}
-            £0.00
+            No
             {% endif %}
           </dd>
 
@@ -64,23 +64,41 @@
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Tax year to be paid
-          </dt>
+        {% if data['pre2005'] === 'amount' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Pre 2005 eSP amount
+            </dt>
 
-          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            {% if data['whichYear'] === 'now' %}
-            This tax year
-            {% else %}
-            Next tax year
-            {% endif %}
-          </dd>
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              £{{data['preAmount']}}
+            </dd>
 
-          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
-          </dd>
-        </div>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            </dd>
+          </div>
+        {% endif %}
+
+        {% if data['pre2005'] === 'amount' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Tax year to be paid
+            </dt>
+
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {% if data['whichYear'] === 'now' %}
+              This tax year
+              {% else %}
+              Next tax year
+              {% endif %}
+            </dd>
+
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            </dd>
+          </div>
+        {% endif %}
 
         {% if data['whichYear'] === 'now' %}
         <div class="govuk-summary-list__row">
