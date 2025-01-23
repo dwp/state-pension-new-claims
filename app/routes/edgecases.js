@@ -89,7 +89,7 @@ router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-debit-routing', fu
 router.post('/edge-cases/LSI/iteration-2/option-1/which-option', function (req, res) {
 
   if (req.body['whichOption'] === 'esp') {
-    res.redirect('check-answers-2a')
+    res.redirect('enter-inherited-esp')
   } else {
     res.redirect('which-year')
   }

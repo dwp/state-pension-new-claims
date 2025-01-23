@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="check-answers-1">
+<form class="form" method="post" action="record-personal">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
@@ -36,11 +36,11 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Lump sum inheritance
+            Basic extra State Pension
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            £300.00
+            £{{ data.basicEsp }}
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
@@ -50,15 +50,43 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Extra State Pension
+            Additional pension
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            £120.00
+            £{{ data.apAmount }}
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
             <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Graduated retirement benefit
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            £{{ data.grbAmount }}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Total inherited extra State Pension
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            <b>£{{ data.basicEsp | float + data.apAmount | float + data.grbAmount | float }}</b>
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
 

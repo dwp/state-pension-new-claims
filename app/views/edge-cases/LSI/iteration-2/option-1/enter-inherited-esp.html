@@ -1,8 +1,9 @@
+
 {% extends "layouts/main.html" %}
 
 {% block content %}
 
-<form class="form" method="post" action="check-answers-2a">
+<form class="form" method="post" action="check-answers-2b">
 
   {% include './_bar.html' %}
 
@@ -17,51 +18,19 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">
-      Claimant decision
-    </h1>
+    <div class="govuk-form-group">
 
-    <p>Text that explains or sets up expectations for the task could go here.</p>
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--xl" for="event-name">
+          Inherited extra State Pension
+        </label>
+      </h1>
 
-    <br><br>
+      <br><br>
 
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
-    {% from "govuk/components/input/macro.njk" import govukInput %}
+      <p>Supporting text about the content below could go here.</p>
 
-    {% set taxHtml %}
-
-    {{ govukRadios({
-      name: "taxRate",
-      fieldset: {
-        legend: {
-          text: "What is the claimant's tax rate?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      items: [
-        {
-          value: "0",
-          text: "0%"
-        },
-        {
-          value: "20",
-          text: "20%"
-        },
-        {
-          value: "40",
-          text: "40%"
-        },
-        {
-          value: "45",
-          text: "45%"
-        }
-      ]
-    }) }}
-
-    {% endset -%}
-
-    {% set espHtml %}
+      <br><br>
 
       <div class="govuk-warning-text">
         <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -70,6 +39,8 @@
           The uprating year for calculation is 2023
         </strong>
       </div>
+
+      <br>
       
       <div class="govuk-form-group">
         <h2 class="govuk-label-wrapper">
@@ -119,78 +90,38 @@
           <input class="govuk-input govuk-input--width-5" id="grbAmount" name="grbAmount" type="text" spellcheck="false">
         </div>
       </div>
+
+    </div>
+      
+      <br><br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
     
-    {% endset -%}
-    
-    {% set lsiHtml %}
+    <br>
 
-    {{ govukRadios({
-      name: "whichYear",
-      fieldset: {
-        legend: {
-          text: "What tax year does the claimant want to be paid in?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      items: [
-        {
-          value: "later",
-          text: "Next tax year"
-        },
-        {
-          value: "now",
-          text: "This tax year",
-          conditional: {
-            html: taxHtml
-          }
-        }
-      ]
-    }) }}
-    
-    {% endset -%}
-
-    {{ govukRadios({
-      name: "whichOption",
-      fieldset: {
-        legend: {
-          text: "Which option did the claimant choose?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
-        }
-      },
-      hint: {
-        text: "Select one option"
-      },
-      items: [
-        {
-          value: "esp",
-          text: "Extra State Pension",
-          conditional: {
-            html: espHtml
-          }
-        },
-        {
-          value: "lsi",
-          text: "Lump sum inheritance",
-          conditional: {
-            html: lsiHtml
-          }
-        }
-      ]
-    }) }}
-
-    <br><br><br>
-
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <p class="govuk-body">
-      View an <a href="which-option" class="govuk-link--no-visited-state">alternative journey for this step</a>.
-    </p>
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
 
   </div>
 </div>
