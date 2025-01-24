@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="enter-psod-credit-routing">
+<form class="form" method="post" action="enter-psod-debit-routing">
 
   {% include './_bar.html' %}
 
@@ -68,6 +68,37 @@
         text: "For example, 27 3 2007"
       }
     }) }}
+
+    <br><br>
+
+    {% if data['debitQuestion'] == 'yes' %}
+
+      {% else %}
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "creditQuestion",
+        fieldset: {
+          legend: {
+            text: "Do you also need to add a PSOD credit for this claimant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+    {% endif %}
       
       <br><br><br>
 
