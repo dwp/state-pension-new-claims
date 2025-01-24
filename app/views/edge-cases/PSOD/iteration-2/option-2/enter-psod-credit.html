@@ -69,13 +69,44 @@
       }
     }) }}
       
-      <br><br><br>
+    <br><br>
+    
+    {% if data['creditQuestion'] == 'yes' %}
 
-        <button class="govuk-button" data-module="govuk-button">
-        Continue
-        </button>
+      {% else %}
 
-      <br><br><br><br><br>
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "debitQuestion",
+        fieldset: {
+          legend: {
+            text: "Do you also need to add a PSOD debit for this claimant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+    
+    <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+      Continue
+      </button>
+
+    <br><br><br><br><br>
 
   </div>
 </div>
