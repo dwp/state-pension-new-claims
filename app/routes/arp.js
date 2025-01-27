@@ -135,9 +135,9 @@ router.post('/arp/maxwell-indemnity/indemnity-question', function (req, res) {
 
 router.post('/arp/maxwell-indemnity/calc-question', function (req, res) {
   if (req.body['calcQuestion'] === 'yes') {
-    res.redirect('calculate-ap')
-  } else {
     res.redirect('send-request')
+  } else {
+    res.redirect('calculate-ap')
 }
 })
 
