@@ -4,6 +4,8 @@
       <div class="govuk-grid-column-two-thirds">
 
 {% block content %}
+
+<form class="form" method="post" action="dashboard">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -104,7 +106,7 @@
             <td class="govuk-table__cell">
               <b>
              {% if data['debitAmount'] and data['creditAmount'] %}
-              £{{ 200 - data.debitAmount | float +  data.creditAmount | float }}.00
+              £{{ 200 - data.debitAmount | float + data.creditAmount | float }}
              {% elseif data['creditAmount'] %}
               £{{ 200 + data.creditAmount | float }}.00
              {% elseif data['debitAmount']%}
@@ -125,7 +127,9 @@
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Protected payment</th>
             <td class="govuk-table__cell">
-              {% if data['creditAmount'] %}
+             {% if data['creditAmount'] and data['debitAmount'] %}
+              £{{ data.creditAmount | float - 3.85 | float - data.debitAmount | float }}
+             {% elseif data['creditAmount'] %}
               £{{ data.creditAmount - 3.85 | float }}
              {% elseif data['debitAmount']%}
               £0.00
@@ -155,4 +159,5 @@
 
     </div>
   </div>
+  
 {% endblock %}
