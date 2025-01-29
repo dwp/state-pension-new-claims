@@ -5,7 +5,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="dashboard">
+<form class="form" method="post" action="br403-part-a">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds-from-desktop">
 
@@ -20,7 +20,7 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Complete PSOD  actions
+        Complete PSOD actions
       </h1>
 
       <h2 class="govuk-heading-l">
@@ -146,13 +146,14 @@
       <br>
 
       <div class="govuk-inset-text">
-      This will automatically pay any arrears and send an award letter to the claimant. 
+        <p>This claimant gets a War Pensions allowance.</p>
+        <p>A request for information has been sent to the Veterans Agency team.</p>
       </div>
 
       <br><br><br>
 
       {{ govukButton({
-        text: "Confirm and send letter"
+        text: "Confirm and end task"
       }) }}
 
       <br><br><br><br><br>
@@ -168,7 +169,6 @@
             <li><a href="check-answers-ca" class="govuk-link--no-visited-state">Carer's allowance</a></li>
             <li><a href="check-answers-csp" class="govuk-link--no-visited-state">Carer's support payment</a></li>
             <li><a href="check-answers-pc" class="govuk-link--no-visited-state">Pension credit</a></li>
-            <li><a href="check-answers-wp" class="govuk-link--no-visited-state">War pension</a></li>
           </ul>
       </details>
 
