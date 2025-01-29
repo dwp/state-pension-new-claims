@@ -15,6 +15,8 @@
 
     {% endif %}
 
+    <br>
+
     {{ xGovukSecondaryNavigation({
       visuallyHiddenTitle: "Secondary menu",
       items: [{
@@ -63,8 +65,16 @@
       </thead>
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">15 May 2024</td>
-          <td class="govuk-table__cell">£254.32</td>
+          <td class="govuk-table__cell">28 Dec 2024</td>
+          <td class="govuk-table__cell">
+            {% if data['debitAmount'] and data['creditAmount'] %}
+              £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+            {% elseif data['creditAmount'] %}
+              £{{ 200 + data.creditAmount | float }}.00
+            {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}.00
+            {% endif %}
+          </td>
           <td class="govuk-table__cell">Yes</td>
           <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="record-award-details.html">Details</a></td>
         </tr>
