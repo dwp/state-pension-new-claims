@@ -7,11 +7,11 @@
 
         {% if data['creditAmount'] or data['debitAmount'] %}
 
-        {% include './_bar-2.html' %}
+          {% include './_bar-2.html' %}
 
         {% else %}
 
-        {% include './_bar.html' %}
+          {% include './_bar.html' %}
 
         {% endif %}
 
@@ -25,12 +25,24 @@
           }, 
           {
             text: "Contact",
-            href: "record-contact"
+            href: "record-contact",
+            current: true
+          }, 
+          {
+            text: "Tasks",
+            href: "record-tasks"
           },
           {
-            text: "Pre award",
-            href: "record-pre-award",
-            current: true
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Payment",
+            href: "record-payment"
+          },
+          {
+            text: "Full history",
+            href: "record-full-history"
           }]
         }) }}
 
