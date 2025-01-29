@@ -5,15 +5,15 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <div>
-          <h1 class="govuk-heading-xl">
-           Hakim Umar
-            <span class="govuk-caption-l">QQ 12 34 56 X</span>
-            <strong class="govuk-tag govuk-tag--blue">
-              Receiving State Pension
-            </strong>
-          </h1>
-        </div>
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+        {% include './_bar-2.html' %}
+
+        {% else %}
+
+        {% include './_bar.html' %}
+
+        {% endif %}
 
         {{ govukBackLink({
           text: "Back",
@@ -76,74 +76,41 @@
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
                 <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+              </tr>
+
+  
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">PSOD credit</td>
+              <td class="govuk-table__cell">
+                {% if data['creditAmount'] %}
+                  £{{data['creditAmount']}}
+                {% else %}
+                  £0.00
+                {% endif %}</td>
+              <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
+              </tr>
+              
+
+             
+                <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">PSOD debit</td>
+                <td class="govuk-table__cell">
+                  {% if data['debitAmount'] %}
+                    £{{data['debitAmount']}}
+                  {% else %}
+                    £0.00
+                  {% endif %}
+                </td>
                 <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
-              </tr>
-
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">Additional pension</td>
-              <td class="govuk-table__cell">£0.00</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
-              </tr>
-
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">Graduated Retirement Benefit</td>
-              <td class="govuk-table__cell">£0.00</td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-amount-2">Change</a></td>
-              </tr>
-
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">Extra State Pension Basic Pension</td>
-              <td class="govuk-table__cell">£0.00</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
-              </tr>
-
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">Extra State Pension Graduated Retirement Benefit</td>
-              <td class="govuk-table__cell">£0.00</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
-              </tr>
-
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">Extra State Pension Additional Pension</td>
-              <td class="govuk-table__cell">£0.00</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
-              </tr>
-
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">Pension share on divorce (PSOD)</td>
-              <td class="govuk-table__cell">£95.38</td>
-              <td class="govuk-table__cell"><a class="govuk-link" href="#">Change</a></td>
-              </tr>
+                </tr>
+             
 
             </tbody>
           </table>
 
           <br><br><br>
 
-      </div>
-
-      <div class="govuk-grid-column-one-third">
-
-        {% from "timeline/macro.njk" import dwpTimeline %}
-
-        <h2 class="govuk-heading-m">Personal changes</h2>
-          {{
-          dwpTimeline({ 
-              items: [
-              {
-                title:  "State Pension awarded",
-                byline:  "agent",
-                date:  "14 May 2024 at 2:10pm"
-            },
-            {
-                title:  "Claim received",
-                byline:  "system",
-                date:  "11 May 2024 at 7:14pm"
-            }
-          ]
-          })
-          }}
-    
       </div>
 
     </div>
