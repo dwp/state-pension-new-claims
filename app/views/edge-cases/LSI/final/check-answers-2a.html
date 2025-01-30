@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% block content %}
+
+<form class="form" method="post" action="record-personal">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        Check your answers and send letter
+      </h1>
+
+      <p>Supporting paragraph about next steps could go here.</p>
+
+      <br>
+
+      <h2 class="govuk-heading-m">
+        1. Check your answers
+      </h2>
+
+      <dl class="govuk-summary-list">
+        
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Claimant choice
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['whichOption'] === 'lsi' %}
+            Lump sum inheritance
+            {% else %}
+            Extra State Pension
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        {% if data['whichOption'] === 'lsi' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Tax year to be paid
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['whichYear'] === 'now' %}
+            This tax year
+            {% else %}
+            Next tax year
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+        {% else %}
+        {% endif %}
+
+        {% if data['whichYear'] === 'now' %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Tax rate
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['taxRate'] === '0' %}
+            0%
+            {% elseif data['taxRate'] === '20' %}
+            20%
+            {% elseif data['taxRate'] === '40' %}
+            40%
+            {% elseif data['taxRate'] === '45' %}
+            45%
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+        {% else %}
+        {% endif %}
+
+
+      </dl>
+
+      <br><br>
+
+      {% if data['whichOption'] === 'lsi' %}
+
+      <h2 class="govuk-heading-m">
+        2. Confirm and send letter
+      </h2>
+
+      <p>A letter will be automatically sent to the claimant to tell them about their payment.</p>
+
+      <br><br><br>
+
+      
+        {{ govukButton({
+          text: "Confirm and send letter"
+        }) }}
+
+        {% elseif data['whichOption'] === 'esp' %}
+
+        <h2 class="govuk-heading-m">2. Confirm change to award</h2>
+
+        <p>The updated award includes any upratings, SRBs, ESPs and inheritance. 
+          <br>It may be different to the amount you entered.</br> 
+        </p>
+
+        <br><br>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Updated award</th>
+              <td class="govuk-table__cell"><b>£420.00</th></b></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">From</th>
+              <td class="govuk-table__cell">13/09/2024</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <br>
+
+        <div class="govuk-inset-text">
+        This will automatically pay any arrears and send an award letter to the claimant. 
+        </div>
+
+        <br><br><br>
+
+
+        <button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
+        Confirm and send letter
+        </button>
+
+        {% endif %}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

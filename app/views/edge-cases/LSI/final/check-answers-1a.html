@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% block content %}
+
+<form class="form" method="post" action="step-1-complete">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        Check your answers and send letter
+      </h1>
+
+      <br>
+
+      <h2 class="govuk-heading-l">
+        1. Check your answers
+      </h2>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Pre 2005 extra State Pension
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            {% if data['pre2005'] === 'yes' %}
+            Yes
+            {% else %}
+            No
+            {% endif %}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        {% if data['pre2005'] === 'yes' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Pre 2005 eSP amount
+            </dt>
+
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              £{{data['preAmount']}}
+            </dd>
+
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            </dd>
+          </div>
+        {% endif %}
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Lump sum inheritance
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            £{{data['lsi']}}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Inherited extra State Pension
+          </dt>
+
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            £{{data['esp']}}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        2. Upload documents into DRS
+      </h2>
+
+      <p>Upload copies of:
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Document 1</li>
+          <li>Document 2</li>
+          <li>Document 3</li>
+        </ul>
+        </p>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">
+        3. Confirm and send letter
+      </h2>
+
+      <p>A letter will be automatically sent to the claimant to tell them their options</p>
+
+      <br><br><br>
+
+      
+        {{ govukButton({
+          text: "Confirm and send letter"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
