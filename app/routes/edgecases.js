@@ -118,5 +118,24 @@ router.post('/edge-cases/LSI/iteration-2/option-3/enter-lsi', function (req, res
   res.redirect('check-answers-2')
 })
 
+// LSI - Final
+
+router.post('/edge-cases/LSI/final/which-option', function (req, res) {
+
+  if (req.body['whichOption'] === 'esp') {
+    res.redirect('enter-inherited-esp')
+  } else {
+    res.redirect('which-year')
+  }
+})
+
+router.post('/edge-cases/LSI/final/which-year', function (req, res) {
+
+  if (req.body['whichYear'] === 'later') {
+    res.redirect('check-answers-2a')
+  } else {
+    res.redirect('tax-rate')
+  }
+})
 
 module.exports = router

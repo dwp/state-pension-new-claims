@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form method="post">
+
+  {% include './_bar.html' %}
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
+
+<br><br>
+
+{{ govukRadios({
+  name: "whichYear",
+  fieldset: {
+    legend: {
+      text: "Which tax year does the claimant want to be paid in?",
+      isPageHeading: true,
+      classes: "govuk-fieldset__legend--xl"
+    }
+  },
+  items: [
+    {
+      value: "later",
+      text: "Next tax year"
+    },
+    {
+      value: "now",
+      text: "This tax year"
+    }
+  ]
+}) }}
+
+<br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+   <br><br><br><br><br>
+
+  </div>
+</div>
+
+
+{% endblock %}
