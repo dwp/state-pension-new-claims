@@ -75,12 +75,67 @@ router.post('/edge-cases/PSOD/iteration-2/option-1/psod-task-routing', function 
 // Option 2
 
 router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-credit-routing', function (req, res) {
-  res.redirect('check-answers-1a')
+  if (req.body['debitQuestion'] === 'yes') {
+    res.redirect('enter-psod-debit')
+  } else {
+    res.redirect('check-answers-1c')
+  }
 })
 
 router.post('/edge-cases/PSOD/iteration-2/option-2/enter-psod-debit-routing', function (req, res) {
-  res.redirect('check-answers-1a')
+  if (req.body['creditQuestion'] === 'yes') {
+    res.redirect('enter-psod-credit')
+  } else {
+    res.redirect('check-answers-1c')
+  }
 })
 
+// Iteration 2 - LSI
+
+// Option 1
+
+router.post('/edge-cases/LSI/iteration-2/option-1/which-option', function (req, res) {
+
+  if (req.body['whichOption'] === 'esp') {
+    res.redirect('enter-inherited-esp')
+  } else {
+    res.redirect('which-year')
+  }
+})
+
+router.post('/edge-cases/LSI/iteration-2/option-1/which-year', function (req, res) {
+
+  if (req.body['whichYear'] === 'later') {
+    res.redirect('check-answers-2a')
+  } else {
+    res.redirect('tax-rate')
+  }
+})
+
+// Option 3
+
+router.post('/edge-cases/LSI/iteration-2/option-3/enter-lsi', function (req, res) {
+  res.redirect('check-answers-2')
+})
+
+// LSI - Final
+
+router.post('/edge-cases/LSI/final/which-option', function (req, res) {
+
+  if (req.body['whichOption'] === 'esp') {
+    res.redirect('enter-inherited-esp')
+  } else {
+    res.redirect('which-year')
+  }
+})
+
+router.post('/edge-cases/LSI/final/which-year', function (req, res) {
+
+  if (req.body['whichYear'] === 'later') {
+    res.redirect('check-answers-2a')
+  } else {
+    res.redirect('tax-rate')
+  }
+})
 
 module.exports = router

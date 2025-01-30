@@ -18,7 +18,7 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Check your answers and send letter
+        Check your answers and upload documents
       </h1>
 
       <h2 class="govuk-heading-l">
@@ -26,34 +26,41 @@
       </h2>
 
       <dl class="govuk-summary-list">
+        {% if data['creditAmount'] %}
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSOD credit
+              </dt>
+
+              <dd class="govuk-summary-list__value">
+                £{{data['creditAmount']}}
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+              </dd>
+          </div>
+        {% endif %}
+
+        {% if data['debitAmount'] %}
+          <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                PSOD debit
+              </dt>
+
+              <dd class="govuk-summary-list__value">
+                £{{data['debitAmount']}}
+              </dd>
+
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="enter-psod-debit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+              </dd>
+          </div>
+        {% endif %}
 
         <div class="govuk-summary-list__row">
-          {% if data['creditAmount'] %}
             <dt class="govuk-summary-list__key">
-              PSOD credit
-            </dt>
-
-            <dd class="govuk-summary-list__value">
-              £{{data['creditAmount']}}
-            </dd>
-          {% elseif data['debitAmount'] %}
-            <dt class="govuk-summary-list__key">
-              PSOD debit
-            </dt>
-
-            <dd class="govuk-summary-list__value">
-              £{{data['debitAmount']}}
-            </dd>
-          {% endif %}
-
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="enter-psod-credit">Change<span class="govuk-visually-hidden"> transaction type</span></a>
-          </dd>
-        </div>
-
-        <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Share order date of effect
+              Sharing order date of effect
             </dt>
 
             <dd class="govuk-summary-list__value">
@@ -78,33 +85,15 @@
         <p>Upload copies of:
         <ul class="govuk-list govuk-list--bullet">
           <li>the pension sharing order</li>
-          <li>the Decree absolute</li>
+          <li>the decree absolute</li>
         </ul>
         </p>
 
-      <br><br>
-
-      <h2 class="govuk-heading-l">
-        3. Confirm and send letter
-      </h2>
-
-      <p>A weekly State Pension amount of 
-        <b>{% if data['creditAmount'] %}
-            £{{ 200 + data.creditAmount | float }}.00
-           {% elseif data['debitAmount']%}
-            £{{ 200 - data.debitAmount | float }}
-           {% endif %}
-        </b> will apply from <b>28 December 2024</b>.</p>
-
-      <p>An award letter will be sent to the claimant.</p>
-
       <br><br><br>
 
-      <form action="/edge-cases/PSOD/iteration-2/option-2/dashboard" method="post">
-
-        {{ govukButton({
-          text: "Confirm and send letter"
-        }) }}
+      {{ govukButton({
+        text: "Continue"
+      }) }}
 
       </form>
 

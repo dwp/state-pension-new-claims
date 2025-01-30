@@ -17,6 +17,8 @@
 
         <br>
 
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
@@ -25,14 +27,47 @@
           }, 
           {
             text: "Contact",
+            href: "record-contact",
+            current: true
+          },
+          {
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Tasks",
+            href: "record-Tasks"
+          },
+          {
+            text: "Payments",
+            href: "record-Payments"
+          },
+          {
+            text: "Full history",
+            href: "record-full-history"
+          }]
+        }) }}
+
+        {% else %}
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal",
+            current: true
+          }, 
+          {
+            text: "Contact",
             href: "record-contact"
           },
           {
             text: "Pre award",
-            href: "record-pre-award",
-            current: true
+            href: "record-pre-award"
           }]
         }) }}
+
+        {% endif %}
 
         <br><br>
 

@@ -17,7 +17,7 @@
 
   <br>
 
-  {% if data.calcQuestion === 'yes' %}
+  {% if data.calcQuestion === 'no' %}
   {% else %}
     <!--<div class="govuk-warning-text">
       <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -50,7 +50,7 @@
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
-  {% if data.calcQuestion === 'no' %}
+  {% if data.calcQuestion === 'yes' %}
 
 {{ govukTable({
   caption: "Dates and events",
@@ -201,7 +201,7 @@
 }) }}
   
   
-  {% elseif data.indemnityQuestion === 'yes' %}
+  {% elseif data.calcQuestion === 'no' %}
 
 {{ govukTable({
   caption: "Dates and events",

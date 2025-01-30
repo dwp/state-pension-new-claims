@@ -18,15 +18,17 @@
     <br><br>
 
     <h1 class="govuk-heading-xl">
-      PSOD credit
+      PSOD credit information
     </h1>
+
+    <p>Use the information from the future pension centre to complete the following.</p>
 
     <br>
 
     <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
         <label class="govuk-label govuk-label--m" for="creditAmount">
-          Enter the PSOD credit amount in pounds and pence
+          PSOD credit amount in pounds
         </label>
       </h1>
 
@@ -50,32 +52,69 @@
       </div>
     </div>
 
-    <br><br>
+    {% if data['creditQuestion'] == 'yes' %}
 
-    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+    {% else %}
 
-    {{ govukDateInput({
-      id: "dateOfEffect",
-      namePrefix: "dateOfEffect",
-      fieldset: {
-        legend: {
-          text: "Enter the date of effect of the pension sharing order",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--m"
+      <br><br>
+
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+      {{ govukDateInput({
+        id: "dateOfEffect",
+        namePrefix: "dateOfEffect",
+        fieldset: {
+          legend: {
+            text: "Date of effect of pension sharing order",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
         }
-      },
-      hint: {
-        text: "For example, 27 3 2007"
-      }
-    }) }}
-      
-      <br><br><br>
+      }) }}
 
-        <button class="govuk-button" data-module="govuk-button">
-        Continue
-        </button>
+    {% endif %}
+    
+    {% if data['creditQuestion'] == 'yes' %}
 
-      <br><br><br><br><br>
+      {% else %}
+
+      <br><br>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "debitQuestion",
+        fieldset: {
+          legend: {
+            text: "Do you need to add a PSOD debit for this claimant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+    {% endif %}
+    
+    <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+      Continue
+      </button>
+
+    <br><br><br><br><br>
 
   </div>
 </div>

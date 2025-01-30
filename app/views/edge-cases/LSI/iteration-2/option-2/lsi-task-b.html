@@ -1,0 +1,173 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% from "govuk/components/radios/macro.njk" import govukRadios %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+<form class="form" method="post" action="check-answers-2a">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">
+      Lump sum inheritance
+    </h1>
+
+    <p>Text that explains or sets up expectations for the task could go here.</p>
+
+    <br>
+
+  {% set yesLetterHtml %}
+
+  {% from "govuk/components/radios/macro.njk" import govukRadios %}
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {% set taxHtml %}
+
+  {% from "govuk/components/input/macro.njk" import govukInput %}
+
+  {{ govukInput({
+    id: "taxRate",
+    name: "taxRate",
+    label: {
+      text: "Enter the claimant's tax rate",
+      classes: "govuk-label--m",
+      isPageHeading: false
+    },
+    suffix: {
+      text: "%"
+    },
+    classes: "govuk-input--width-2",
+    hint: {
+      text: "You can enter 0, 20, 40, or 45"
+    },
+    spellcheck: false
+  }) }}
+
+  {% endset -%}
+  
+  {% set lsiHtml %}
+
+  {{ govukRadios({
+    name: "whichYear",
+    fieldset: {
+      legend: {
+        text: "What tax year does the claimant want to be paid in?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "later",
+        text: "Next tax year"
+      },
+      {
+        value: "now",
+        text: "This tax year",
+        conditional: {
+          html: taxHtml
+        }
+      }
+    ]
+  }) }}
+  
+  {% endset -%}
+
+  {{ govukRadios({
+    name: "whichOption",
+    fieldset: {
+      legend: {
+        text: "Which option did the claimant choose?",
+        isPageHeading: false,
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Select one option"
+    },
+    items: [
+      {
+        value: "esp",
+        text: "Extra State Pension",
+        conditional: {
+          html: espHtml
+        }
+      },
+      {
+        value: "lsi",
+        text: "Lump sum inheritance",
+        conditional: {
+          html: lsiHtml
+        }
+      }
+    ]
+  }) }}
+
+  {% endset -%}
+
+  {% set noLetterHtml %}
+
+  <h2 class="govuk-heading-m">Calculate the claimant's option amounts and send letter</h2>
+
+  <p class="govuk-body">You will need to:</p>
+  <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+    <li>check their late spouse's State Pension entitlement</li>
+    <li>calculate the lump sum inheritance and inherited extra State Pension amounts</li>
+    <li>send a choices letter to the claimant</li>
+  </ul>
+
+  {% endset -%}
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "optionsLetter",
+      fieldset: {
+        legend: {
+          text: "Has an options letter been sent to the claimant?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+        {
+          value: "no",
+          text: "No",
+          conditional: {
+            html: noLetterHtml
+          }
+        },
+        {
+          value: "yes",
+          text: "Yes",
+          conditional: {
+            html: yesLetterHtml
+          }
+        }
+      ]
+    }) }}
+
+      <br><br><br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+  <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}

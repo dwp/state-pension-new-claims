@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="enter-psod-credit-routing">
+<form class="form" method="post" action="enter-psod-debit-routing">
 
   {% include './_bar.html' %}
 
@@ -18,15 +18,17 @@
     <br><br>
 
     <h1 class="govuk-heading-xl">
-      PSOD debit
+      PSOD debit information
     </h1>
+
+    <p>Use the information from the future pension centre to complete the following.</p>
 
     <br>
 
     <div class="govuk-form-group">
       <h1 class="govuk-label-wrapper">
-        <label class="govuk-label govuk-label--m" for="creditAmount">
-          Enter the PSOD credit amount in pounds and pence
+        <label class="govuk-label govuk-label--m" for="debitAmount">
+          PSOD debit amount in pounds
         </label>
       </h1>
 
@@ -50,24 +52,61 @@
       </div>
     </div>
 
+    {% if data['debitQuestion'] == 'yes' %}
+
+    {% else %}
+
     <br><br>
 
-    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-    {{ govukDateInput({
-      id: "dateOfEffect",
-      namePrefix: "dateOfEffect",
-      fieldset: {
-        legend: {
-          text: "Enter the date of effect of the pension sharing order",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--m"
+      {{ govukDateInput({
+        id: "dateOfEffect",
+        namePrefix: "dateOfEffect",
+        fieldset: {
+          legend: {
+            text: "Date of effect of the pension sharing order",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
         }
-      },
-      hint: {
-        text: "For example, 27 3 2007"
-      }
-    }) }}
+      }) }}
+
+    {% endif %}
+
+    {% if data['debitQuestion'] == 'yes' %}
+
+    {% else %}
+
+      <br><br>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+      {{ govukRadios({
+        name: "creditQuestion",
+        fieldset: {
+          legend: {
+            text: "Do you need to add a PSOD credit for this claimant?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+    {% endif %}
       
       <br><br><br>
 
