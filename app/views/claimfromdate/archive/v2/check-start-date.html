@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="prison">
+
+  <a href="spa" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+Check your start date</h1>
+
+<p>If you choose 5 June 2022 as your start date, you will not get any State Pension for the period 12 April 2022 to 4 June 2022.
+</p>
+<p>You could put this State Pension towards increasing your payments if you start on <b>14 June 2022 or later</b>.</p>
+<p> <a href="https://www.gov.uk/deferring-state-pension">Find out more about delaying your State Pension (opens in a new tab)</a>.</p>
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+    Are you sure you want to start your State Pension from 5 June 2022?</h2>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in">
+Yes        </label>
+      </div>
+
+
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in-2">
+No, choose a different date        </label>
+    </div>
+
+  </fieldset>
+</div>
+  <button class="govuk-button" data-module="govuk-button">
+    Continue
+  </button>
+
+  <details class="govuk-details" data-module="govuk-details">
+  <summary class="govuk-details__summary">
+  <span class="govuk-details__summary-text">
+  <b>URL, errors and notes</b>
+  </span>
+  </summary>
+  <div class="govuk-details__text">
+  <b>URL:</b> /check-your-start-date <br><br>
+
+
+  <b>Error messages:<br>
+  Nothing selected - </b> Select when you want your State Pension to start <br>
+
+  </div>
+  </details>
+
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+<br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+  {% endblock %}
