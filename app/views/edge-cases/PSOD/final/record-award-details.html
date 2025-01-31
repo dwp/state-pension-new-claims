@@ -112,21 +112,88 @@
               
 
              
-                <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">PSOD debit</td>
-                <td class="govuk-table__cell">
-                  {% if data['debitAmount'] %}
-                    £{{data['debitAmount']}}
-                  {% else %}
-                    £0.00
-                  {% endif %}
-                </td>
-                <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
-                </tr>
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">PSOD debit</td>
+              <td class="govuk-table__cell">
+                {% if data['debitAmount'] %}
+                  £{{data['debitAmount']}}
+                {% else %}
+                  £0.00
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              </tr>
              
 
             </tbody>
           </table>
+
+          <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
+                <th class="govuk-table__header" scope="col" style="width: 50%">
+                  {% if data['debitAmount'] and data['creditAmount'] %}
+                    £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+                  {% elseif data['creditAmount'] %}
+                    £{{ 200 + data.creditAmount | float }}.00
+                  {% elseif data['debitAmount']%}
+                    £{{ 200 - data.debitAmount | float }}.00
+                  {% endif %}
+                </th>
+                <th class="govuk-table__header" scope="col"></th>
+              </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+            
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">PSOD credit</td>
+              <td class="govuk-table__cell">
+                {% if data['creditAmount'] %}
+                  £{{data['creditAmount']}}
+                {% else %}
+                  £0.00
+                {% endif %}</td>
+              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              </tr>
+              
+
+             
+              <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">PSOD debit</td>
+              <td class="govuk-table__cell">
+                {% if data['debitAmount'] %}
+                  £{{data['debitAmount']}}
+                {% else %}
+                  £0.00
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              </tr>
+             
+
+            </tbody>
+          </table>
+
+          <h2 class="govuk-heading-m">Current State Pension award</h2>
+
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 45%">From</th>
+              <td class="govuk-table__cell" style="width: 55%">28 Dec 2024</td>
+            </tr>
+      
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Reason</th>
+              <td class="govuk-table__cell">First award</td>
+            </tr>
+          </tbody>
+        </table>
 
           <br><br><br>
 
