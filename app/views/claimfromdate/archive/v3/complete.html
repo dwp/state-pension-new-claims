@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="govuk-panel govuk-panel--confirmation">
+        <h1 class="govuk-panel__title">
+          Application complete
+        </h1>
+        <div class="govuk-panel__body">
+          30 January 2021<br>your reference number is
+          <br><strong>your National Insurance number</strong>
+        </div>
+      </div>
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+<!--      <p>You will receive details about your State Pension between . We may also contact you if we need more information.</p> -->
+
+      <p> We will send you a letter by the 19 June 2022. The letter will confirm how much State Pension you will get and when your payments will start.</p>
+
+        <p>If we need more information before then, we will contact you.</p>
+
+      <h3 class="govuk-heading-m">If something changes</h3>
+      <p>You must tell us straight away if:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>you change address or permanently leave the UK</li>
+        <li>you move into a hospital or care home</li>
+        <li>you change bank details</li>
+        <li>your spouse or civil partner dies</li>
+      </ul>
+
+      <p><b>Telephone:</b> 0800 731 0469 <br> <b>Textphone:</b> 0800 731 0464</p>
+
+      <p><img src="/public/images/icon-print.png" width="30" style="float: left; margin-top: 25px; margin-right: 15px">&nbsp; <a href="#" onclick="window.print();" class="govuk-heading-m">Print this page</a></p>
+
+
+    </div>
+
+
+
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}

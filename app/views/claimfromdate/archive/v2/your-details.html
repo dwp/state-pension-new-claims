@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="spa">
+
+  <a href="confirm-identity" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Your details
+      </h1>
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label">
+            <b>What is your invitation code?</b>
+            <p class="govuk-hint">You can find this on your Get your State Pension letter.<br>
+              <a class="govuk-body govuk-!-font-size-19" href="https://get-state-pension.service.gov.uk/verify">I
+                haven't
+                got my letter with me</a></p>
+          </label>
+        </h1>
+        <input class="govuk-input govuk-input--width-20" type="text">
+      </div>
+
+      <h2 class="govuk-heading-s">
+        Are you living at the address we sent your invitation letter to?
+      </h2>
+      <div class="govuk-radios govuk-radios--inline">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="address" name="address" type="radio" value="yes">
+          <label class="govuk-label govuk-radios__label" for="address">
+            Yes
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="address-2" name="address" type="radio" value="no">
+          <label class="govuk-label govuk-radios__label" for="address-2">
+            No
+          </label>
+        </div>
+      </div>
+      <br>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+
+
+
+    <div class="column-one-third">
+      {% include 'includes/parts/helpstart.html' %}
+    </div>
+
+  </div>
+
+</form>
+
+
+{% endblock %}

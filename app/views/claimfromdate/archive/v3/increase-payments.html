@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="check-start-date">
+
+  <a href="your-details" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+Increase your regular payments
+      </h1>
+<h1 class="govuk-heading-m">
+  <p>
+     Your State Pension could increase by just over 0.1% for every week that you delay, as long you delay until <b>7 May 2022 or later</b>.</p>
+     <p>It takes over 17 years to get back the money that you delay taking. You will not get any payments before the date you enter.</p>
+<br>
+         <fieldset class="govuk-fieldset">
+           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+             <h1 class="govuk-fieldset__heading">
+               When do you want your State Pension to start from?
+             </h1>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" pattern="[0-9]*" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+
+        </fieldset>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}
