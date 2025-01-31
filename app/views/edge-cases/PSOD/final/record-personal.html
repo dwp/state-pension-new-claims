@@ -19,34 +19,57 @@
 
         <br>
 
-        {{ xGovukSecondaryNavigation({
-          visuallyHiddenTitle: "Secondary menu",
-          items: [{
-            text: "Personal",
-            href: "record-personal",
-            current: true
-          }, 
-          {
-            text: "Contact",
-            href: "record-contact"
-          }, 
-          {
-            text: "Tasks",
-            href: "record-tasks"
-          },
-          {
-            text: "Award",
-            href: "record-award"
-          },
-          {
-            text: "Payment",
-            href: "record-payment"
-          },
-          {
-            text: "Full history",
-            href: "record-full-history"
-          }]
-        }) }}
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "record-personal",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "record-contact"
+            }, 
+            {
+              text: "Tasks",
+              href: "record-tasks"
+            },
+            {
+              text: "Award",
+              href: "record-award"
+            },
+            {
+              text: "Payment",
+              href: "record-payment"
+            },
+            {
+              text: "Full history",
+              href: "record-full-history"
+            }]
+          }) }}
+
+          {% else %}
+
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "record-personal",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "record-contact"
+            }, 
+            {
+              text: "Tasks",
+              href: "record-tasks"
+            }]
+          }) }}
+
+        {% endif %}
 
         <br><br>
 
