@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="lived-abroad">
+
+  <a href="your-details" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+You do not need to claim your State Pension yet      </h1>
+
+
+
+
+
+<p class="govuk-body">If you want your State Pension to start more than 4 months from today, you do not need to let us know yet.</p>
+
+<p class="govuk-body">To start your State Pension from <strong>1 September 2022</strong>, make your claim after <strong>1 May 2022</strong>.</p>
+
+<details class="govuk-details" data-module="govuk-details">
+<summary class="govuk-details__summary">
+<span class="govuk-details__summary-text">
+<b>URL, errors and notes</b>
+</span>
+</summary>
+<div class="govuk-details__text">
+<b>URL:</b> use existing URL <br><br>
+<b>Welsh translation</b><br><br>
+<p>Nid oes angen i chi wneud cais am eich Pensiwn y Wladwriaeth eto</p>
+
+<p>Os ydych am i'ch Pensiwn y Wladwriaeth ddechrau mwy na 4 mis o heddiw ymlaen, nid oes angen i chi roi gwybod i ni eto.</p>
+
+<p>I ddechrau eich Pensiwn y Wladwriaeth o <b>1 Medi 2022</b>, gwnewch eich cais ar ôl <b>1 Mai 2022</b>.</p>
+</div>
+</details>
+
+      <br><br><br><br><br><br><br><br><br><br>
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}

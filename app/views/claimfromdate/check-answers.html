@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<form method="post" action="declaration">
+
+  <a href="bank" class="govuk-back-link">Back</a>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Check your details
+      </h1>
+      <h2 class="govuk-heading-l">
+        Your details
+      </h2>
+
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+          State Pension start date
+          </dt>
+          <dd class="govuk-summary-list__value">
+            12 August 2022
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="delay-your-start-date">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>      </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            State Pension calculated from
+            </dt>
+            <dd class="govuk-summary-list__value">
+              12 March 2022
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="post-spa">
+                Change<span class="govuk-visually-hidden"> name</span>
+              </a>
+            </dd>      </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Lived outside the UK
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> name</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Worked outside the UK
+          </dt>
+          <dd class="govuk-summary-list__value">
+            No
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> date of birth</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Current marital status
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Never been married
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Contact details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">07700 900457</p>
+            <p class="govuk-body">07892 099921</p>
+            <p class="govuk-body">sarah.phillips@example.com</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Alternative format for letters
+          </dt>
+          <dd class="govuk-summary-list__value">
+            Braille
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact information</span>
+            </a>
+          </dd>
+        </div>
+
+
+
+        <!-- <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Payment frequency
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Every 2 weeks</p>
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Bank or building society details
+          </dt>
+          <dd class="govuk-summary-list__value">
+            <p class="govuk-body">Miss Sarah Phillips</p>
+            <p class="govuk-body">004030</p>
+            <p class="govuk-body">09836623</p>
+            <p class="govuk-body">CXJ-K6 897/98X</p>
+
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#">
+              Change<span class="govuk-visually-hidden"> contact details</span>
+            </a>
+          </dd>
+        </div> -->
+      </dl>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm details
+      </button>
+
+    </div>
+
+    <div class="column-one-third">
+      {% include 'includes/parts/help.html' %}
+    </div>
+
+  </div>
+
+
+
+</form>
+
+
+  {% endblock %}
