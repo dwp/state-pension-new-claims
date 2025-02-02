@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="check-answers-1a">
+<form class="form" method="post" action="claimant-options">
 
   {% include './_bar.html' %}
 
@@ -23,7 +23,11 @@
 
     <p>Use the information below and legacy systems to calculate the claimants options amounts.</p>
 
-    <br><br>
+    <div class="govuk-inset-text">
+      Uprate the amounts at the <b>2023</b> rate.
+    </div>
+
+    <br>
     
     <h2 class="govuk-heading-m">Claimant</h2>
 
@@ -140,98 +144,12 @@
           </tbody>
         </table>
 
-        <br>
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-visually-hidden">Warning</span>
-            The uprating year for calculations is 2023.
-          </strong>
-        </div>
-
-        <br>
-
-        {% set yesHtml %}
-          {{ govukInput({
-            id: "preAmount",
-            name: "preAmount",
-            label: {
-              text: "Enter the pre-2005 extra State Pension amount in pounds and pence",
-              classes: "govuk-label--m",
-              isPageHeading: false
-            },
-            prefix: {
-              text: "£"
-            },
-            classes: "govuk-input--width-5",
-            hint: {
-              text: "For example 123.40"
-            },
-            spellcheck: false
-          }) }}
-        {% endset -%}
-  
-        {{ govukRadios({
-          name: "pre2005",
-          fieldset: {
-            legend: {
-              text: "Do you need to calculate any pre-2005 extra State Pension?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "Select if any pre-2005 extra State Pension applies"
-          },
-          items: [
-            {
-              value: "no",
-              text: "No"
-            },
-            {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: yesHtml
-              }
-            }
-          ]
-        }) }}
-
-  <br>
-
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-
-        {{ govukInput({
-          id: "lsi",
-          name: "lsi",
-          label: {
-            text: "Enter the lump sum inheritance amount in pounds and pence",
-            classes: "govuk-label--m",
-            isPageHeading: false
-          },
-          hint: {
-            text: "For example 123.40"
-          },
-          prefix: {
-            text: "£"
-          },
-          classes: "govuk-input--width-5",
-          spellcheck: false
-        }) }}
-
       <br><br><br>
 
     {{ govukButton({
       text: "Continue"
     }) }}
 
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <p class="govuk-body">
-      View an <a href="step-1-b" class="govuk-link--no-visited-state">alternative journey for this step</a>.
-    </p>
 
   </div>
 </div>
