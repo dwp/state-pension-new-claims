@@ -1,14 +1,11 @@
 {% extends "layouts/main.html" %}
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-
 {% block content %}
 
-<form class="form" method="post" action="record-personal">
-
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds-from-desktop">
+    <div class="govuk-grid-column-two-thirds">
+
+      <form class="form" method="post" action="record-personal">
 
       {% include './_bar.html' %}
 
@@ -21,10 +18,8 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Check your answers and send letter
+        Complete LSI actions
       </h1>
-
-      <p>Supporting paragraph about next steps could go here.</p>
 
       <br>
 
@@ -48,7 +43,7 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="which-option">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
 
@@ -67,7 +62,7 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="which-year">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
         {% else %}
@@ -92,65 +87,47 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="tax-rate">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
         {% else %}
         {% endif %}
-
-
       </dl>
 
       <br><br>
 
-      {% if data['whichOption'] === 'lsi' %}
-
       <h2 class="govuk-heading-m">
-        2. Confirm and send letter
+        2. Upload documents
       </h2>
 
+      <p>Upload copies of:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Document 1</li>
+          <li>Document 2</li>
+          <li>Document 3</li>
+        </ul>
+
+      <br>
+
+      <h2 class="govuk-heading-m">
+        3. Confirm
+      </h2>
+      {% if data['whichOption'] === 'lsi' %}
       <p>A letter will be automatically sent to the claimant to tell them about their payment.</p>
+      {% else %}
+      <p>An award letter will be automatically sent to the claimant.</p>
+      {% endif %}
 
       <br><br><br>
 
-      
-        {{ govukButton({
-          text: "Confirm and send letter"
-        }) }}
 
-        {% elseif data['whichOption'] === 'esp' %}
-
-        <h2 class="govuk-heading-m">
-          2. Upload documents into DRS
-        </h2>
-  
-        <p>Upload copies of:
-          <ul class="govuk-list govuk-list--bullet">
-            <li>Document 1</li>
-            <li>Document 2</li>
-            <li>Document 3</li>
-          </ul>
-          </p>
-  
-        <br><br>
-
-        <h2 class="govuk-heading-m">
-          3. Confirm
-        </h2>
-
-        <p>An award letter will be automatically sent to the claimant.</p>
-
-        <br><br><br>
-
-
-        <button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
         Confirm and send letter
-        </button>
-
-        {% endif %}
+      </button>
 
       </form>
 
     </div>
   </div>
+
 {% endblock %}
