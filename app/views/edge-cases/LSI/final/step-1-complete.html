@@ -1,37 +1,49 @@
-{% extends "layouts/main.html" %}
+{% extends "govuk-prototype-kit/layouts/unbranded.html" %}
+
+{% block pageTitle %}
+  Unbranded page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
 
 {% block content %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
+    <br>
+
 <form method="post" action="record-personal">
 
-  {{ govukBackLink({
-    "text": "Back",
-    "href": "javascript: window.history.go(-1)"
-  })
-}}
+<div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+  <div class="govuk-notification-banner__header">
+    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+      Important
+    </h2>
+  </div>
+  <div class="govuk-notification-banner__content">
+    <p class="govuk-notification-banner__heading">
+      This page is only to explain operational procedure and will not be part of the journey.
+  </div>
+</div>
 
-<br><br>
+<h2 class="govuk-heading-m">After the options letter has been sent to the claimant:</h2>
 
-{% from "govuk/components/panel/macro.njk" import govukPanel %}
+<ol class="govuk-list govuk-list--number govuk-list--spaced">
+  <li>The task is postponed for 3 weeks to allow a response, either by post or by phone, from the claimant.</li>
+  <li>If we haven't gotten a response within 3 weeks, a reminder letter is automatically sent to the claimant, telling them what will happen if they do not respond to the letter. The task is postponed for another week.</li>
+  <li>If we still have not heard back from the claimant after the second postponment period, the lump sum inheritance is automatically applied to the claimant's account.</li>
+</ol>
 
-{{ govukPanel({
-  titleText: "Step 1 complete",
-  html: "this task will will now have an<br><strong>8 week BF</strong>"
-}) }}
+
 
 <br><br><br>
 
     <button type="submit" class="govuk-button govuk-button--secondary" data-module="govuk-button">
-      Continue to citizen record
+      Continue to step 2
     </button>
 
    <br><br><br><br><br>
 
   </div>
 </div>
-
 
 {% endblock %}
