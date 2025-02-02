@@ -123,7 +123,7 @@ router.post('/edge-cases/LSI/iteration-2/option-3/enter-lsi', function (req, res
 router.post('/edge-cases/LSI/final/which-option', function (req, res) {
 
   if (req.body['whichOption'] === 'esp') {
-    res.redirect('enter-inherited-esp')
+    res.redirect('check-answers-2a')
   } else {
     res.redirect('which-year')
   }

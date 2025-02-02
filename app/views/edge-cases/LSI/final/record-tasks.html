@@ -45,22 +45,21 @@
 
         <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
 
-        <ul class="govuk-task-list">
-
-          <li class="govuk-task-list__item govuk-task-list__item--with-link">
-            <div class="govuk-task-list__name-and-hint">
-              <a class="govuk-link govuk-task-list__link" href="which-option" aria-describedby="application-details-3-status">
-                Lump sum inheritance (LSI)
-              </a>
-            </div>
-            <div class="govuk-task-list__status" id="application-details-3-status">
-              <strong class="govuk-tag govuk-tag--blue">
-                Not yet started
-              </strong>
-            </div>
-          </li>
-
-        </ul>
+        {% if data.calcQuestion === 'yes' %}
+        {% else %}
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-!-width-three-quarters"></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter"><a href="#"></a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell govuk-!-width-three-quarters">Lump sum inheritance (LSI)</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter"><a href="which-option">View</a></td>
+            </tr>
+          </tbody>
+        </table>
+        {% endif %}
 
     </div>
 
