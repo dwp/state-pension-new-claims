@@ -53,23 +53,25 @@
           <td class="govuk-table__cell"></td>
         </tr>
 
-        <tr class="govuk-table__row">
-          <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
-          <td class="govuk-table__cell">
-            {% if data['basicEsp'] %}
-              £{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
-            {% else %}
-              £0.00
-            {% endif %}
-          </td>
-          <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-inherited-esp">
-            {% if data['basicEsp'] %}
-              Change
+        {% if data['whichOption'] === 'esp' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+            <td class="govuk-table__cell">
+              {% if data['basicEsp'] %}
+                £{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
               {% else %}
-              Add
-            {% endif %}
-            <span class="govuk-visually-hidden">change Inherited extra State Pension</span></a></td>
-        </tr>
+                £0.00
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-inherited-esp">
+              {% if data['basicEsp'] %}
+                Change
+                {% else %}
+                Add
+              {% endif %}
+              <span class="govuk-visually-hidden">change Inherited extra State Pension</span></a></td>
+          </tr>
+        {% endif %}
 
         <tr class="govuk-table__row">
             <td class="govuk-table__header award_detail2" scope="row">Entitlement date</td>
