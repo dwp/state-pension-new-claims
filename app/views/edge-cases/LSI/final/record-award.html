@@ -39,12 +39,12 @@
       },
       {
         text: "Payment",
-        href: "payment",
+        href: "record-payment",
         current: false
       },
       {
         text: "Full history",
-        href: "payment",
+        href: "record-full-history",
         current: false
       }]
     }) }}
@@ -69,12 +69,20 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell">15 May 2024</td>
-          <td class="govuk-table__cell">£254.32</td>
+          <td class="govuk-table__cell">
+            {% if data['whichOption'] === 'esp' %}
+              £{{ (200.00 + data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
+            {% else %}
+              £200.00
+            {% endif %}
+          </td>
           <td class="govuk-table__cell">Yes</td>
           <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="record-award-details.html">Details</a></td>
         </tr>
       </tbody>
     </table>
+
+    <a href="record-award-review" class="govuk-link--no-visited-state govuk-!-font-size-19">Review award</a>
 
     <br><br><br>
 
