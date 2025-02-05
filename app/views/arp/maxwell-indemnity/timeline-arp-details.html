@@ -19,19 +19,6 @@
 
   {% if data.calcQuestion === 'no' %}
   {% else %}
-    <!--<div class="govuk-warning-text">
-      <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-      <strong class="govuk-warning-text__text">
-        <span class="govuk-visually-hidden">Warning</span>
-        Maxwell indemnity task.
-        <p><a href="indemnity-question" class="govuk-link--no-visited-state"><b>Confirm Maxwell indemnity received</b></a>.</p>
-      </strong>
-    </div>
-
-    <div class="govuk-inset-text">
-      Maxwell indemnity task.<br>
-      <a href="indemnity-question" class="govuk-link--no-visited-state"><b>Confirm Maxwell indemnity received</b></a>.
-    </div>-->
 
     <details class="govuk-details">
       <summary class="govuk-details__summary">
@@ -201,7 +188,7 @@
 }) }}
   
   
-  {% elseif data.calcQuestion === 'no' %}
+  {% elseif data.calcQuestion === 'yes' and data.calcQuestion === 'no' %}
 
 {{ govukTable({
   caption: "Dates and events",
@@ -224,7 +211,7 @@
   rows: [
   [
     {
-      text: "22 August 2024"
+      text: "25 August 2024"
     },
     {
       text: "Maxwell indemnity actions complete"
@@ -234,6 +221,184 @@
     },
     {
       text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "22 August 2024"
+    },
+    {
+      text: "Request for calculation from HMRC"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "22 August 2024"
+    },
+    {
+      text: "Maxwell indemnity received"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "17 May 2024"
+    },
+    {
+      text: "Maxwell scheme actions complete"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "17 May 2024"
+    },
+    {
+      text: "GMP amount confirmed"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "17 May 2024"
+    },
+    {
+      text: "Updated CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    } 
+  ], 
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 check requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "15 May 2024"
+    },
+    {
+      text: "CA1741 returned"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "CA1741 requested"
+    },
+    {
+      text: "Sent"
+    },
+    {
+      text: "System"
+    }
+  ],
+  [
+    {
+      text: "13 May 2024"
+    },
+    {
+      text: "Maxwell scheme identified"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ]
+  ]
+}) }}
+
+{% elseif data.calcQuestion === 'no' %}
+
+{{ govukTable({
+  caption: "Dates and events",
+  captionClasses: "govuk-table__caption--m",
+  firstCellIsHeader: false,
+  head: [
+    {
+      text: "Date"
+    },
+    {
+      text: "Event"
+    },
+    {
+      text: "Notification"
+    },
+    {
+      text: "By"
+    }
+  ],
+  rows: [
+  [
+    {
+      text: "25 August 2024"
+    },
+    {
+      text: "Maxwell indemnity actions complete"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "Agent"
+    }
+  ],
+  [
+    {
+      text: "22 August 2024"
+    },
+    {
+      text: "Request for calculation from HMRC"
+    },
+    {
+      text: ""
+    },
+    {
+      text: "System"
     }
   ],
   [
