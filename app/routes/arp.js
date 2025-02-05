@@ -125,6 +125,10 @@ router.post('/arp/iteration-2/start-3-routing', function (req, res) {
 
 // Maxwell Indemnity
 
+router.post('/arp/maxwell-indemnity/start-routing', function (req, res) {
+  res.redirect('hmrc-confirmed')
+})
+
 router.post('/arp/maxwell-indemnity/indemnity-question', function (req, res) {
   if (req.body['indemnityQuestion'] === 'yes') {
     res.redirect('calc-question')
@@ -138,6 +142,14 @@ router.post('/arp/maxwell-indemnity/calc-question', function (req, res) {
     res.redirect('send-request')
   } else {
     res.redirect('calculate-ap')
+}
+})
+
+router.post('/arp/maxwell-indemnity/hmrc-confirmed', function (req, res) {
+  if (req.body['hmrcConfirmed'] === 'yes') {
+    res.redirect('calculate-ap')
+  } else {
+    res.redirect('send-reminder')
 }
 })
 
