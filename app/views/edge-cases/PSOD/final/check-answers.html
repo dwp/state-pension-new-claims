@@ -108,9 +108,9 @@
              {% if data['debitAmount'] and data['creditAmount'] %}
               £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
              {% elseif data['creditAmount'] %}
-              £{{ 200 + data.creditAmount | float }}.00
+              £{{ (200 + data.creditAmount | float).toFixed(2) }}
              {% elseif data['debitAmount']%}
-              £{{ 200 - data.debitAmount | float }}.00
+              £{{ (200 - data.debitAmount | float).toFixed(2) }}
              {% endif %}</b>
             </td>
           </tr>
@@ -130,7 +130,7 @@
              {% if data['creditAmount'] and data['debitAmount'] %}
               £{{ (data.creditAmount | float - 3.85 | float - data.debitAmount | float).toFixed(2) }}
              {% elseif data['creditAmount'] %}
-              £{{ data.creditAmount - 3.85 | float }}
+              £{{ (data.creditAmount - 3.85 | float).toFixed(2) }}
              {% elseif data['debitAmount']%}
               £0.00
              {% endif %}
