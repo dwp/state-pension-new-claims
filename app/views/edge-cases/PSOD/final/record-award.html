@@ -89,25 +89,55 @@
 
   <div class="govuk-grid-column-one-third">
 
-    {% from "timeline/macro.njk" import dwpTimeline %}
+    <h3 class="govuk-heading-m">Award changes</h3>
 
-    <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-      dwpTimeline({ 
-          items: [
-          {
-            title:  "State Pension awarded",
-            byline:  "agent",
-            date:  "14 May 2024 at 2:10pm"
-        },
-        {
-            title:  "Claim received",
-            byline:  "system",
-            date:  "11 May 2024 at 7:14pm"
-        }
-      ]
-      })
-      }}
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__items">
+
+          {% if data['creditAmount'] or data['debitAmount'] %}
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+            <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>
+
+            {% if data['creditAmount'] and data['debitAmount'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+                <h2 class="dwp-timeline__heading">PSOD credit and debit applied</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['creditAmount'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+                <h2 class="dwp-timeline__heading">PSOD credit applied</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['debitAmount'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+                <h2 class="dwp-timeline__heading">PSOD debit applied</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+          {% endif %}
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">1 Dec 2024 at 9:34am</p>
+            <h2 class="dwp-timeline__heading">Email sent to Future Pension Centre</h2>
+            <p class="dwp-timeline__by-line">by System</p>
+          </li>
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">13 Nov 2024 at 10:22am</p>
+            <h2 class="dwp-timeline__heading">Claim received</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>
+
+        </ol>
+      </div>
 
   </div>
 
