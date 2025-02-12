@@ -29,8 +29,8 @@
           <tbody class="govuk-table__body">
 
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header" style="width: 45%">From</th>
-              <td class="govuk-table__cell" style="width: 55%">28 Dec 2024</td>
+              <th scope="row" class="govuk-table__header" style="width: 50%">From</th>
+              <td class="govuk-table__cell" style="width: 50%">28 Dec 2024</td>
             </tr>
       
             <tr class="govuk-table__row">
@@ -49,9 +49,9 @@
                   {% if data['debitAmount'] and data['creditAmount'] %}
                     £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
                   {% elseif data['creditAmount'] %}
-                    £{{ 200 + data.creditAmount | float }}.00
+                    £{{ (200 + data.creditAmount | float).toFixed(2) }}
                   {% elseif data['debitAmount']%}
-                    £{{ 200 - data.debitAmount | float }}.00
+                    £{{ (200 - data.debitAmount | float).toFixed(2) }}
                   {% endif %}
                 </th>
                 <th class="govuk-table__header" scope="col"></th>
@@ -78,7 +78,7 @@
                   {% if data['creditAmount'] and data['debitAmount'] %}
                     £{{ (data.creditAmount | float - 3.85 | float - data.debitAmount | float).toFixed(2) }}
                   {% elseif data['creditAmount'] %}
-                    £{{ data.creditAmount - 3.85 | float }}
+                    £{{ (data.creditAmount - 3.85 | float).toFixed(2) }}
                   {% elseif data['debitAmount']%}
                     £0.00
                   {% endif %}
@@ -98,51 +98,28 @@
                 <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
               </tr>
 
-  
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">PSOD credit</td>
-              <td class="govuk-table__cell">
-                {% if data['creditAmount'] %}
-                  £{{data['creditAmount']}}
-                {% else %}
-                  £0.00
-                {% endif %}</td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
-              </tr>
-              
-
-             
-              <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">PSOD debit</td>
-              <td class="govuk-table__cell">
-                {% if data['debitAmount'] %}
-                  £{{data['debitAmount']}}
-                {% else %}
-                  £0.00
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
-              </tr>
-             
-
             </tbody>
           </table>
+
+          <br><br>
+
+          <h2 class="govuk-heading-m">Additional components</h2>
 
           <table class="govuk-table">
 
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
-                <th class="govuk-table__header" scope="col" style="width: 50%">
-                  {% if data['debitAmount'] and data['creditAmount'] %}
-                    £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+                <th class="govuk-table__header" scope="col" style="width: 25%">
+                  {% if data['creditAmount'] and data['debitAmount'] %}
+                    £{{ (data.creditAmount | float - data.debitAmount | float).toFixed(2) }}
                   {% elseif data['creditAmount'] %}
-                    £{{ 200 + data.creditAmount | float }}.00
+                    £{{ (data.creditAmount | float).toFixed(2) }}
                   {% elseif data['debitAmount']%}
-                    £{{ 200 - data.debitAmount | float }}.00
+                    £{{ (data.debitAmount | float).toFixed(2) }}
                   {% endif %}
                 </th>
-                <th class="govuk-table__header" scope="col"></th>
+                <th class="govuk-table__header" scope="col" style="width: 25%"></th>
               </tr>
             </thead>
 
@@ -156,7 +133,7 @@
                 {% else %}
                   £0.00
                 {% endif %}</td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
               </tr>
               
 
@@ -170,30 +147,12 @@
                   £0.00
                 {% endif %}
               </td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
               </tr>
              
 
             </tbody>
           </table>
-
-          <h2 class="govuk-heading-m">Pension sharing on divorce</h2>
-
-
-        <table class="govuk-table">
-          <tbody class="govuk-table__body">
-
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header" style="width: 45%">From</th>
-              <td class="govuk-table__cell" style="width: 55%">28 Dec 2024</td>
-            </tr>
-      
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Reason</th>
-              <td class="govuk-table__cell">First award</td>
-            </tr>
-          </tbody>
-        </table>
 
           <br><br><br>
 
