@@ -107,33 +107,17 @@
 
           <table class="govuk-table">
 
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
-                <th class="govuk-table__header" scope="col" style="width: 25%">
-                  {% if data['creditAmount'] and data['debitAmount'] %}
-                    £{{ (data.creditAmount | float - data.debitAmount | float).toFixed(2) }}
-                  {% elseif data['creditAmount'] %}
-                    £{{ (data.creditAmount | float).toFixed(2) }}
-                  {% elseif data['debitAmount']%}
-                    £{{ (data.debitAmount | float).toFixed(2) }}
-                  {% endif %}
-                </th>
-                <th class="govuk-table__header" scope="col" style="width: 25%"></th>
-              </tr>
-            </thead>
-
             <tbody class="govuk-table__body">
             
               <tr class="govuk-table__row">
-              <td class="govuk-table__cell" scope="row">PSOD credit</td>
+              <td class="govuk-table__cell" scope="row" style="width: 50%">PSOD credit</td>
               <td class="govuk-table__cell">
                 {% if data['creditAmount'] %}
                   £{{data['creditAmount']}}
                 {% else %}
                   £0.00
                 {% endif %}</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="#"></a></td>
               </tr>
               
 
@@ -147,7 +131,7 @@
                   £0.00
                 {% endif %}
               </td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="#">Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="#"></a></td>
               </tr>
              
 

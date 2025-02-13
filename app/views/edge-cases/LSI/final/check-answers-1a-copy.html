@@ -34,20 +34,34 @@
 
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Lump sum inheritance
+            Claimant options amounts
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            <b>£{{data['lsi']}}</b>
+            
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
             <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
+        
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+          <dt class="govuk-summary-list__value govuk-!-width-two-thirds">
+            Lump sum inheritance
+          </dt>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+            £{{data['lsi']}}
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+          <dt class="govuk-summary-list__value govuk-!-width-one-half">
             Pre 2005 extra State Pension
           </dt>
 
@@ -60,13 +74,13 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
 
         {% if data['pre2005'] === 'yes' %}
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+            <dt class="govuk-summary-list__value govuk-!-width-one-half">
               Pre 2005 eSP amount
             </dt>
 
@@ -75,19 +89,13 @@
             </dd>
 
             <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-              <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+              <a class="govuk-link--no-visited-state" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
             </dd>
           </div>
         {% endif %}
 
-      </dl>
-
-      <br><br>
-
-      <dl class="govuk-summary-list">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+          <dt class="govuk-summary-list__value govuk-!-width-one-half">
             Extra State Pension
           </dt>
 
@@ -96,12 +104,12 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+          <dt class="govuk-summary-list__value govuk-!-width-one-half">
             Extra State Pension Additional Pension
           </dt>
 
@@ -110,12 +118,12 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+          <dt class="govuk-summary-list__value govuk-!-width-one-half">
             Extra State Pension Graduated Retirement Benefit
           </dt>
 
@@ -124,17 +132,17 @@
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp"><span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
 
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+        <div class="govuk-summary-list__row govuk-summary-list__row--no-border">
+          <dt class="govuk-summary-list__value govuk-!-width-one-half">
             Total inherited extra State Pension
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            <b>£{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}</b>
+            £{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
           </dd>
 
           <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
