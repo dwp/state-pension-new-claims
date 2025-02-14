@@ -27,6 +27,64 @@
         1. Check your answers
       </h2>
 
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            PSOD information
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            {% if data['creditAmount'] %}
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key" style="width: 50%">
+                    PSOD credit
+                  </dt>
+    
+                  <dd class="govuk-summary-list__value" style="width: 35%">
+                    £{{data['creditAmount']}}
+                  </dd>
+    
+                  <dd class="govuk-summary-list__actions" style="width: 15%">
+                    <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+                  </dd>
+              </div>
+            {% endif %}
+    
+            {% if data['debitAmount'] %}
+              <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    PSOD debit
+                  </dt>
+    
+                  <dd class="govuk-summary-list__value">
+                    £{{data['debitAmount']}}
+                  </dd>
+    
+                  <dd class="govuk-summary-list__actions">
+                    <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+                  </dd>
+              </div>
+            {% endif %}
+    
+            <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Pension sharing order date of effect
+                </dt>
+    
+                <dd class="govuk-summary-list__value">
+                  {{data['dateOfEffect-day']}} {{data['dateOfEffect-month'] | monthName }} {{data['dateOfEffect-year']}}
+                </dd>
+    
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+              </dd>
+            </div>
+    
+          </dl>
+        </div>
+      </div>
+
       <h3 class="govuk-heading-m">PSOD information</h3>
 
       <dl class="govuk-summary-list">
@@ -108,9 +166,9 @@
              {% if data['debitAmount'] and data['creditAmount'] %}
               £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
              {% elseif data['creditAmount'] %}
-              £{{ 200 + data.creditAmount | float }}.00
+              £{{ (200 + data.creditAmount | float).toFixed(2) }}
              {% elseif data['debitAmount']%}
-              £{{ 200 - data.debitAmount | float }}.00
+              £{{ (200 - data.debitAmount | float).toFixed(2) }}
              {% endif %}</b>
             </td>
           </tr>
@@ -130,7 +188,7 @@
              {% if data['creditAmount'] and data['debitAmount'] %}
               £{{ (data.creditAmount | float - 3.85 | float - data.debitAmount | float).toFixed(2) }}
              {% elseif data['creditAmount'] %}
-              £{{ data.creditAmount - 3.85 | float }}
+              £{{ (data.creditAmount - 3.85 | float).toFixed(2) }}
              {% elseif data['debitAmount']%}
               £0.00
              {% endif %}
@@ -146,13 +204,13 @@
       <br>
 
       <div class="govuk-inset-text">
-        <p>This claimant gets Carer's Support payment. A request for information has been sent to the Carer's Support payment team.</p>
+      This will automatically pay any arrears and send an award letter to the claimant. 
       </div>
 
       <br><br><br>
 
       {{ govukButton({
-        text: "Confirm and end task"
+        text: "Confirm and send letter"
       }) }}
 
       <br><br><br><br><br>
@@ -166,6 +224,7 @@
         <br>
           <ul class="govuk-list govuk-list--bullet">
             <li><a href="check-answers-ca" class="govuk-link--no-visited-state">Carer's allowance</a></li>
+            <li><a href="check-answers-csp" class="govuk-link--no-visited-state">Carer's support payment</a></li>
             <li><a href="check-answers-pc" class="govuk-link--no-visited-state">Pension credit</a></li>
             <li><a href="check-answers-wp" class="govuk-link--no-visited-state">War pension</a></li>
           </ul>
