@@ -27,25 +27,12 @@
         1. Check your answers
       </h2>
 
+      <h3 class="govuk-heading-m">PSOD information</h3>
+
       <dl class="govuk-summary-list">
-
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            PSOD information
-          </dt>
-
-          <dd class="govuk-summary-list__value">
-       
-          </dd>
-
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
-          </dd>
-      </div>
-
         {% if data['creditAmount'] %}
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">
                 PSOD credit
               </dt>
 
@@ -54,14 +41,14 @@
               </dd>
 
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="psod-task"><span class="govuk-visually-hidden"> transaction type</span></a>
+                <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
               </dd>
           </div>
         {% endif %}
 
         {% if data['debitAmount'] %}
           <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__value">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">
                 PSOD debit
               </dt>
 
@@ -70,13 +57,13 @@
               </dd>
 
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="psod-task"><span class="govuk-visually-hidden"> transaction type</span></a>
+                <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
               </dd>
           </div>
         {% endif %}
 
         <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__value">
+            <dt class="govuk-summary-list__key">
               Pension sharing order date of effect
             </dt>
 
@@ -85,11 +72,9 @@
             </dd>
 
           <dd class="govuk-summary-list__actions">
-            <a class="govuk-link--no-visited-state" href="psod-task"><span class="govuk-visually-hidden"> transaction type</span></a>
+            <a class="govuk-link--no-visited-state" href="psod-task">Change<span class="govuk-visually-hidden"> transaction type</span></a>
           </dd>
         </div>
-
-        
 
       </dl>
 
