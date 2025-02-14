@@ -152,10 +152,10 @@
 
       <thead class="govuk-table__head">
         <tr class="govuk-table__row">
-          <th class="govuk-table__header" scope="col" style="width: 15%">Payment date</th>
-          <th class="govuk-table__header" scope="col" style="width:20%">Period</th>
-          <th class="govuk-table__header" scope="col" style="width: 10%">Amount</th>
-          <th class="govuk-table__header" scope="col" style="width: 10%">Status</th>
+          <th class="govuk-table__header" scope="col" style="width: 10%">Payment date</th>
+          <th class="govuk-table__header" scope="col" style="width:25%">Period</th>
+          <th class="govuk-table__header" scope="col" style="width: 15%">Amount</th>
+          <th class="govuk-table__header" scope="col" style="width: 5%">Status</th>
           <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
         </tr>
       </thead>
@@ -165,7 +165,7 @@
         {% if data['whichOption'] === 'lsi' %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">13 Jan 2025</td>
-            <td class="govuk-table__cell">One time payment</td>
+            <td class="govuk-table__cell">One-off lump-sum inheritance payment</td>
             <td class="govuk-table__cell">£{{data['lsi']}}</td>
             <td class="govuk-table__cell" class="govuk-orange">Sent
             </td>
