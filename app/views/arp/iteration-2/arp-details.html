@@ -15,7 +15,7 @@
 
   <h1 class="govuk-heading-l">Accrued Rights Premium check details</h1>
 
-  <br><br>
+  <br>
 
   {% if data.ca1741returned2 === 'no' %}
 
@@ -87,16 +87,12 @@
 
   {% elseif data.gmpQuestion2 === 'yes' %}
 
-    <details class="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-          Maxwell indemnity
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <a href="indemnity-question" class="govuk-link--no-visited-state">Confirm Maxwell indemnity received and complete actions</a>.
-      </div>
-    </details>
+  <div class="govuk-inset-text">
+    <h2 class="govuk-heading-m">Maxwell indemnity</h2>
+    <a href="../maxwell-indemnity/indemnity-question" class="govuk-link--no-visited-state">Confirm Maxwell indemnity received and complete actions</a>.
+  </div>
+
+  <br><br>
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
@@ -225,7 +221,7 @@
 <div class="govuk-warning-text">
   <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
   <strong class="govuk-warning-text__text">
-    <span class="govuk-visually-hidden">Warning</span>
+    <span class="govuk-visually-hidden"></span>
     Waiting for CA1741 check from HMRC. 
     <p><a href="gmp-question-2" class="govuk-link"><b>Confirm CA1741 check returned</b></a>.</p>
   </strong>
