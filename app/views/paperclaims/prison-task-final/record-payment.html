@@ -5,9 +5,9 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {% if data['creditAmount'] or data['debitAmount'] %}
+    {% if data['prison-left-day'] %}
 
-      {% include './_bar-2.html' %}
+      {% include './_bar2.html' %}
 
     {% else %}
 
@@ -17,41 +17,58 @@
 
     <br>
 
-    {{ xGovukSecondaryNavigation({
-      visuallyHiddenTitle: "Secondary menu",
-      items: [{
-        text: "Personal",
-        href: "record-personal",
-        current: false
-      }, 
-      {
-        text: "Contact",
-        href: "record-contact",
-        current: false
-      }, 
-      {
-        text: "Tasks",
-        href: "record-tasks",
-        current: false
-      },
-      {
-        text: "Award",
-        href: "record-award",
-        current: false
-      },
-      {
-        text: "Payment",
-        href: "record-payment",
-        current: true
-      },
-      {
-        text: "Full history",
-        href: "record-full-history",
-        current: false
-      }]
-    }) }}
+    {% if data['prison-left-day'] %}
 
-    
+      {{ xGovukSecondaryNavigation({
+        visuallyHiddenTitle: "Secondary menu",
+        items: [{
+          text: "Personal",
+          href: "record-personal"
+        }, 
+        {
+          text: "Contact",
+          href: "record-contact"
+        }, 
+        {
+          text: "Tasks",
+          href: "record-tasks"
+        },
+        {
+          text: "Award",
+          href: "record-award"
+        },
+        {
+          text: "Payment",
+          href: "record-payment",
+          current: true
+        },
+        {
+          text: "Full history",
+          href: "record-full-history"
+        }]
+      }) }}
+
+      {% else %}
+
+      {{ xGovukSecondaryNavigation({
+        visuallyHiddenTitle: "Secondary menu",
+        items: [{
+          text: "Personal",
+          href: "record-personal"
+        }, 
+        {
+          text: "Contact",
+          href: "record-contact"
+        }, 
+        {
+          text: "Tasks",
+          href: "record-tasks",
+          current: true
+        }]
+      }) }}
+
+    {% endif %}
+
     <br><br>
 
     <h2 class="govuk-heading-m">Bank or building society account details</h2>

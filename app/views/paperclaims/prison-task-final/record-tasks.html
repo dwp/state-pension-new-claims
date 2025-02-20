@@ -5,9 +5,9 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% if data['creditAmount'] or data['debitAmount'] %}
+        {% if data['prison-left-day'] %}
 
-          {% include './_bar-2.html' %}
+          {% include './_bar2.html' %}
 
         {% else %}
 
@@ -17,14 +17,13 @@
 
         <br>
 
-        {% if data['creditAmount'] or data['debitAmount'] %}
+        {% if data['prison-left-day'] %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
             items: [{
               text: "Personal",
-              href: "record-personal",
-              current: true
+              href: "record-personal"
             }, 
             {
               text: "Contact",
@@ -32,7 +31,8 @@
             }, 
             {
               text: "Tasks",
-              href: "record-tasks"
+              href: "record-tasks",
+              current: true
             },
             {
               text: "Award",
@@ -73,6 +73,10 @@
 
         <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
 
+        {% if data['prison-left-day'] %}
+
+        {% else %}
+
         <table class="govuk-table">
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
@@ -85,6 +89,8 @@
             </tr>
           </tbody>
         </table>
+
+        {% endif %}
 
     </div>
   </main>
