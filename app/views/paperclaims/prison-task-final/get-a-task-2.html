@@ -19,8 +19,6 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        {% if data['prison-left-day'] %}
-
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
         {% set html %}
@@ -34,10 +32,8 @@ GOV.UK Prototype Kit
           type: "success"
         }) }}
 
-        {% endif %}
-
       <br>
-
+      
         <h1 class="govuk-heading-xl">Tasks</h1>
 
         <form method="post">
@@ -175,19 +171,6 @@ GOV.UK Prototype Kit
   </div>
 
 </div>
-
-    <br><br><br>
-
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-        <b>Notes</b>
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        The results of this task can be found on the <a href="record-personal" class="govuk-link">citizen's record</a>.
-      </div>
-    </details>
 
 
 
