@@ -1,0 +1,62 @@
+
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <a href="javascript: window.history.go(-1)" class="govuk-back-link">Back</a>
+
+        <br><br><br>
+
+        <h1 class="govuk-heading-xl">Prison details</h1>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Entered prison</th>
+                <td class="govuk-table__cell" style="width: 50%">{{data['prison-entered-day']}} {{data['prison-entered-month'] | monthName }} {{data['prison-entered-year']}}</td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Left prison</th>
+                <td class="govuk-table__cell" style="width: 50%">{{data['prison-left-day']}} {{data['prison-left-month'] | monthName }} {{data['prison-left-year']}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+
+        <h3 class="govuk-heading-m">Action history</h3>
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+
+            {% if data['prison-left-day'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">24 Jan 2025 at 2:16pm</p>
+                <h2 class="dwp-timeline__heading">Prison dates added</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">15 Jan 2025 at 4:01pm</p>
+              <h2 class="dwp-timeline__heading">Unable to get prison dates. Notification sent asking claimant to call us.</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+          </ol>
+        </div>
+
+      </div>
+  </main>
+</div>
+
+{% endblock %}
