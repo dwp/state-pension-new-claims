@@ -7,7 +7,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        {% if data['creditAmount'] or data['debitAmount'] %}
+        {% if data['prison-entered'] %}
 
           {% include './_bar-2.html' %}
 
@@ -19,7 +19,17 @@
 
         <br>
 
-        {% if data['creditAmount'] or data['debitAmount'] %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            Waiting for the claimant's prison dates.<br> <a href="paper-prison-task-record" class="govuk-link govuk-link--no-visited-state">Enter dates</a>
+          </strong>
+        </div>
+
+        <br>
+
+        {% if data['prison-entered'] %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -79,7 +89,7 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
-                <td class="govuk-table__cell" style="width: 50%">Sofia Finn</td>
+                <td class="govuk-table__cell" style="width: 50%">Lill Olmos</td>
                 <td class="govuk-table__cell"><a class="govuk-link" href="change-name"></a></td>
               </tr>
               <tr class="govuk-table__row">
@@ -124,7 +134,7 @@
       <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
 
-          {% if data['creditAmount'] or data['debitAmount'] %}
+          {% if data['prison-entered'] %}
 
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
@@ -132,37 +142,11 @@
             <p class="dwp-timeline__by-line">by Agent</p>
           </li>
 
-            {% if data['creditAmount'] and data['debitAmount'] %}
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
-                <h2 class="dwp-timeline__heading">PSOD credit and debit applied</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% elseif data['creditAmount'] %}
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
-                <h2 class="dwp-timeline__heading">PSOD credit applied</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% elseif data['debitAmount'] %}
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
-                <h2 class="dwp-timeline__heading">PSOD debit applied</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% endif %}
-
           {% endif %}
 
           <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">1 Dec 2024 at 9:34am</p>
-            <h2 class="dwp-timeline__heading">Email sent to Future Pension Centre</h2>
-            <p class="dwp-timeline__by-line">by System</p>
-          </li>
-
-          <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">13 Nov 2024 at 10:22am</p>
-            <h2 class="dwp-timeline__heading">Claim received</h2>
+            <h2 class="dwp-timeline__heading">Paper claim received</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
           </li>
 

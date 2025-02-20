@@ -20,100 +20,96 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-              {% include './_bar.html' %}
+        {% include './_bar.html' %}
 
         <form method="post" action="personal-complete">
 
+          <h1 class="govuk-heading-xl">Prison dates</h1>
 
-
-
-            <h1 class="govuk-heading-l">Prison dates</h1>
-
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="prison-entered-hint">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                    When did you go into prison?
-                  </h1>
-                </legend>
-                <div id="prison-entered-hint" class="govuk-hint">
-                  For example, 27 3 2007
-                </div>
-                <div class="govuk-date-input" id="prison-entered">
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="prison-entered-day">
-                        Day
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-day" name="prison-entered-day" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="prison-entered-month">
-                        Month
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-month" name="prison-entered-month" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="prison-entered-year">
-                        Year
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="prison-entered-year" name="prison-entered-year" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-
-            <div class="govuk-form-group">
-              <fieldset class="govuk-fieldset" role="group" aria-describedby="prison-entered-hint">
-                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                  <h1 class="govuk-fieldset__heading">
-                    When did you leave prison?
-                  </h1>
-                </legend>
-                <div id="prison-entered-hint" class="govuk-hint">
-                  For example, 27 3 2007
-                </div>
-                <div class="govuk-date-input" id="prison-entered">
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="prison-entered-day">
-                        Day
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-day" name="prison-entered-day" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="prison-entered-month">
-                        Month
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-month" name="prison-entered-month" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                  <div class="govuk-date-input__item">
-                    <div class="govuk-form-group">
-                      <label class="govuk-label govuk-date-input__label" for="prison-entered-year">
-                        Year
-                      </label>
-                      <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="prison-entered-year" name="prison-entered-year" type="text" inputmode="numeric">
-                    </div>
-                  </div>
-                </div>
-              </fieldset>
-            </div>
-
-
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="prison-entered-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h3 class="govuk-fieldset__heading">
+                  When did you go into prison?
+                </h3>
+              </legend>
+              <div id="prison-entered-hint" class="govuk-hint">
+                For example, 27 3 2007
               </div>
-
-
-
+              <div class="govuk-date-input" id="prison-entered">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="prison-entered-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-day" name="prison-entered-day" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="prison-entered-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-month" name="prison-entered-month" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="prison-entered-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="prison-entered-year" name="prison-entered-year" type="text" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
           </div>
-<br><br>
+  
+          <br><br>
+  
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" role="group" aria-describedby="prison-entered-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h3 class="govuk-fieldset__heading">
+                  When did you leave prison?
+                </h3>
+              </legend>
+              <div id="prison-entered-hint" class="govuk-hint">
+                For example, 27 3 2007
+              </div>
+              <div class="govuk-date-input" id="prison-entered">
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="prison-entered-day">
+                      Day
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-day" name="prison-entered-day" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="prison-entered-month">
+                      Month
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-month" name="prison-entered-month" type="text" inputmode="numeric">
+                  </div>
+                </div>
+                <div class="govuk-date-input__item">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label govuk-date-input__label" for="prison-entered-year">
+                      Year
+                    </label>
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="prison-entered-year" name="prison-entered-year" type="text" inputmode="numeric">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+        </div>
+      </div>
+
+<br><br><br>
 
 <div class="govuk-button-group">
   <button class="govuk-button" data-module="govuk-button">
