@@ -20,16 +20,22 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <h1 class="govuk-heading-xl">Could not get prison dates</h1>
+        {% include './_bar.html' %}
 
-        <p>This may have been because the claimant could not answer or you could not reach them by phone.</p>
+        <h1 class="govuk-heading-xl">Cannot get dates</h1>
 
-        <p>A notification will be automatically sent to the claimant. asking them to call.</p>
+        <p class="govuk-body">This may be because either:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the claimant could not answer your questions</li>
+          <li>you could not reach the claimant by phone</li>
+        </ul>
+
+        <p>A notification will be automatically sent to the claimant asking them to call.</p>
 
         <form method="post" action="get-a-task-2">
           <br>
           <button class="govuk-button" data-module="govuk-button">
-            Continue
+            End task
           </button>
 
         </div>
