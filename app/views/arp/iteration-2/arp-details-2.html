@@ -21,164 +21,164 @@
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
-{{ govukTable({
-  caption: "Dates and events",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Date"
-    },
-    {
-      text: "Event"
-    },
-    {
-      text: "Notification"
-    },
-    {
-      text: "By"
-    }
-  ],
-  rows: [
-    [
+  {{ govukTable({
+    caption: "Dates and events",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: false,
+    head: [
       {
-        text: "15 May 2024"
+        text: "Date"
       },
       {
-        text: "CA1741 not returned. Task postponed for 7 days"
+        text: "Event"
       },
       {
-        text: ""
+        text: "Notification"
       },
       {
-        text: "Agent"
+        text: "By"
       }
     ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "CA1741 requested"
-      },
-      {
-        text: "Sent"
-      },
-      {
-        text: "System"
-      }
-    ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "Maxwell scheme identified"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
+    rows: [
+      [
+        {
+          text: "15 May 2024"
+        },
+        {
+          text: "CA1741 not returned. Task postponed for 7 days"
+        },
+        {
+          text: ""
+        },
+        {
+          text: "Agent"
+        }
+      ],
+      [
+        {
+          text: "13 May 2024"
+        },
+        {
+          text: "CA1741 requested"
+        },
+        {
+          text: "Sent"
+        },
+        {
+          text: "System"
+        }
+      ],
+      [
+        {
+          text: "13 May 2024"
+        },
+        {
+          text: "Maxwell scheme identified"
+        },
+        {
+          text: ""
+        },
+        {
+          text: "Agent"
+        }
+      ]
     ]
-  ]
-}) }}
+  }) }}
 
   {% elseif data.maxwellQuestion === 'yes' %}
 
   {% from "govuk/components/table/macro.njk" import govukTable %}
 
-{{ govukTable({
-  caption: "Dates and events",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Date"
-    },
-    {
-      text: "Event"
-    },
-    {
-      text: "Notification"
-    },
-    {
-      text: "By"
-    }
-  ],
-  rows: [
-    [
+  {{ govukTable({
+    caption: "Dates and events",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: false,
+    head: [
       {
-        text: "13 May 2024"
+        text: "Date"
       },
       {
-        text: "CA1741 requested"
+        text: "Event"
       },
       {
-        text: "Sent"
+        text: "Notification"
       },
       {
-        text: "System"
+        text: "By"
       }
     ],
-    [
-      {
-        text: "13 May 2024"
-      },
-      {
-        text: "Maxwell scheme identified"
-      },
-      {
-        text: ""
-      },
-      {
-        text: "Agent"
-      }
+    rows: [
+      [
+        {
+          text: "13 May 2024"
+        },
+        {
+          text: "CA1741 requested"
+        },
+        {
+          text: "Sent"
+        },
+        {
+          text: "System"
+        }
+      ],
+      [
+        {
+          text: "13 May 2024"
+        },
+        {
+          text: "Maxwell scheme identified"
+        },
+        {
+          text: ""
+        },
+        {
+          text: "Agent"
+        }
+      ]
     ]
-  ]
-}) }}
+  }) }}
 
-{% elseif data.maxwellQuestion === 'no' %}
+  {% elseif data.maxwellQuestion === 'no' %}
 
-{% from "govuk/components/table/macro.njk" import govukTable %}
+  {% from "govuk/components/table/macro.njk" import govukTable %}
 
-{{ govukTable({
-  caption: "Dates and events",
-  captionClasses: "govuk-table__caption--m",
-  firstCellIsHeader: false,
-  head: [
-    {
-      text: "Date"
-    },
-    {
-      text: "Event"
-    },
-    {
-      text: "Notification"
-    },
-    {
-      text: "By"
-    }
-  ],
-  rows: [
-    [
+  {{ govukTable({
+    caption: "Dates and events",
+    captionClasses: "govuk-table__caption--m",
+    firstCellIsHeader: false,
+    head: [
       {
-        text: "Maxwell scheme not identified"
+        text: "Date"
       },
       {
-        text: ""
-      },{
-        text: ""
+        text: "Event"
       },
       {
-        text: "Agent"
+        text: "Notification"
+      },
+      {
+        text: "By"
       }
+    ],
+    rows: [
+      [
+        {
+          text: "Maxwell scheme not identified"
+        },
+        {
+          text: ""
+        },{
+          text: ""
+        },
+        {
+          text: "Agent"
+        }
+      ]
     ]
-  ]
-}) }}
+  }) }}
 
-{% endif %}
+  {% endif %}
 
  </div>
   
