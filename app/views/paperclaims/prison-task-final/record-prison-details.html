@@ -16,15 +16,31 @@
           <table class="govuk-table">
             <tbody class="govuk-table__body">
 
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="width: 50%" >Entered prison</th>
-                <td class="govuk-table__cell" style="width: 50%">{{data['prison-entered-day']}} {{data['prison-entered-month'] | monthName }} {{data['prison-entered-year']}}</td>
-              </tr>
+              {% if data['prison-left-day-2'] %}
 
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="width: 50%" >Left prison</th>
-                <td class="govuk-table__cell" style="width: 50%">{{data['prison-left-day']}} {{data['prison-left-month'] | monthName }} {{data['prison-left-year']}}</td>
-              </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width: 50%" >Entered prison</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{data['prison-entered-day']}} {{data['prison-entered-month'] | monthName }} {{data['prison-entered-year']}}</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width: 50%" >Left prison</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{data['prison-left-day-2']}} {{data['prison-left-month'] | monthName }} {{data['prison-left-year']}}</td>
+                </tr>
+
+              {% else %}
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width: 50%" >Entered prison</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{data['prison-entered-day']}} {{data['prison-entered-month'] | monthName }} {{data['prison-entered-year']}}</td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width: 50%" >Left prison</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{data['prison-left-day']}} {{data['prison-left-month'] | monthName }} {{data['prison-left-year']}}</td>
+                </tr>
+
+              {% endif %}
 
             </tbody>
           </table>
