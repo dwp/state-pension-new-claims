@@ -7,7 +7,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
+        {% if data.hmrcQuestion === 'yes' %}
 
           {% include './_bar2.html' %}
 
@@ -17,7 +17,7 @@
 
         {% endif %}
 
-        {% if data['prison-left-day'] or data['prison-left-day-2']%}
+        {% if data.hmrcQuestion === 'yes' %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",

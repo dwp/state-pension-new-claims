@@ -15,8 +15,6 @@
 
         {% endif %}
 
-        <br>
-
         {% if data['creditAmount'] or data['debitAmount'] %}
 
           {{ xGovukSecondaryNavigation({
@@ -73,6 +71,10 @@
 
         <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
 
+        {% if data.hmrcQuestion === 'yes' %}
+
+        {% else %}
+
         <table class="govuk-table">
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
@@ -86,6 +88,8 @@
           </tbody>
         </table>
 
+        {% endif %}
+        
     </div>
   </main>
 </div>
