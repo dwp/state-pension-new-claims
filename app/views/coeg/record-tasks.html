@@ -5,7 +5,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% if data['creditAmount'] or data['debitAmount'] %}
+        {% if data.hmrcQuestion === 'yes' %}
 
           {% include './_bar-2.html' %}
 
@@ -15,59 +15,59 @@
 
         {% endif %}
 
-        {% if data['creditAmount'] or data['debitAmount'] %}
+        {% if data.hmrcQuestion === 'yes' %}
 
-          {{ xGovukSecondaryNavigation({
-            visuallyHiddenTitle: "Secondary menu",
-            items: [{
-              text: "Personal",
-              href: "record-personal",
-              current: true
-            }, 
-            {
-              text: "Contact",
-              href: "record-contact"
-            }, 
-            {
-              text: "Tasks",
-              href: "record-tasks"
-            },
-            {
-              text: "Award",
-              href: "record-award"
-            },
-            {
-              text: "Payment",
-              href: "record-payment"
-            },
-            {
-              text: "Full history",
-              href: "record-full-history"
-            }]
-          }) }}
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal"
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact"
+          }, 
+          {
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Payment",
+            href: "record-payment"
+          },
+          {
+            text: "Tasks",
+            href: "record-tasks",
+            current: true
+          },
+          {
+            text: "Full history",
+            href: "record-full-history"
+          }]
+        }) }}
 
-          {% else %}
+        {% else %}
 
-          {{ xGovukSecondaryNavigation({
-            visuallyHiddenTitle: "Secondary menu",
-            items: [{
-              text: "Personal",
-              href: "record-personal"
-            }, 
-            {
-              text: "Contact",
-              href: "record-contact"
-            }, 
-            {
-              text: "Tasks",
-              href: "record-tasks",
-              current: true
-            }]
-          }) }}
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal"
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact"
+          }, 
+          {
+            text: "Tasks",
+            href: "record-tasks",
+            current: true
+          }]
+        }) }}
 
-        {% endif %}
+      {% endif %}
 
-        <br><br>
+        <br>
 
         <h2 class="govuk-heading-m">Outstanding tasks for this account</h2>
 
@@ -89,7 +89,7 @@
         </table>
 
         {% endif %}
-        
+
     </div>
   </main>
 </div>
