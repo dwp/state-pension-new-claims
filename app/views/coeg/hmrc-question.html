@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="psod-task">
+<form class="form" method="post">
 
   {% include './_bar.html' %}
 
@@ -20,32 +20,25 @@
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "whichAction",
+      name: "hmrcQuestion",
       fieldset: {
         legend: {
-          text: "Which PSOD action do you need to take for this claimant?",
+          text: "Has HMRC completed the investigation? ",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl"
         }
       },
       hint: {
-        text: "Check the information from the Future Pension Centre."
+        text: " "
       },
       items: [
         {
-          value: "credit",
-          text: "PSOD credit"
+          value: "yes",
+          text: " Yes"
         },
         {
-          value: "debit",
-          text: "PSOD debit"
-        },
-        {
-          divider: "or"
-        },
-        {
-          value: "both",
-          text: "PSOD credit and debit"
+          value: "no",
+          text: "No"
         }
       ]
     }) }}
@@ -60,5 +53,7 @@
 
   </div>
 </div>
+
+</form>
 
 {% endblock %}

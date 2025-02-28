@@ -81,6 +81,7 @@ const option2 = require('./routes/mqp')
 const arp = require('./routes/arp')
 const mixedoverlappingbenefits = require('./routes/mixedoverlappingbenefits')
 const edgecases = require('./routes/edgecases')
+const coeg = require('./routes/coeg')
 // copy the router use and update the sprint version
 router.use(newclaims)
 router.use(bpviteration)
@@ -151,4 +152,5 @@ router.use(option2)
 router.use(arp)
 router.use(mixedoverlappingbenefits)
 router.use(edgecases)
+router.use(coeg)
 module.exports = router
