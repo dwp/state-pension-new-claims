@@ -5,6 +5,10 @@ router.post('/coeg/check-nirs-routing', (req, res) => {
   res.redirect('hmrc-question')
 })
 
+router.post('/coeg/check-nirs-routing-3', (req, res) => {
+  res.redirect('hmrc-question-3')
+})
+
 router.post('/coeg/check-nirs-routing-2', (req, res) => {
   res.redirect('hmrc-question-2')
 })

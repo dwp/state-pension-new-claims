@@ -5,8 +5,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
-
+        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
           {% include './_bar-2.html' %}
 
         {% else %}
@@ -15,25 +14,7 @@
 
         {% endif %}
 
-        <br>
-
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
-
-        {% else %}
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            Waiting for the claimant's prison dates.<br> <a href="paper-prison-task-record" class="govuk-link govuk-link--no-visited-state">Enter dates</a>
-          </strong>
-        </div>
-
-        <br>
-
-        {% endif %}
-
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
+        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
