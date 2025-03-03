@@ -81,54 +81,64 @@
 
         <tbody class="govuk-table__body">
 
-          {% if data['prison-left-day-2'] %}
+          {% if data.hmrcQuestion3 === 'yes' %}
 
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">24 January 2025</td>
+              <td class="govuk-table__cell">01 March 2025</td>
               <td class="govuk-table__cell">State Pension awarded</td>
               <td class="govuk-table__cell">Agent</td>
             </tr>
 
+          {% elseif data.hmrcQuestion3 === 'no' %}
+
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">24 January 2025</td>
-              <td class="govuk-table__cell"><a href="record-prison-details"class="govuk-link--no-visited-state govuk-!-font-size-19">Prison dates added<span class="govuk-visually-hidden"></span></a></td>
+              <td class="govuk-table__cell">01 March 2025</td>
+              <td class="govuk-table__cell">HMRC investigation checked</td>
               <td class="govuk-table__cell">Agent</td>
             </tr>
 
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">15 January 2025</td>
-              <td class="govuk-table__cell">Cannot get prison dates. Notification sent to claimant</td>
-              <td class="govuk-table__cell">Agent</td>
-            </tr>
+          {% endif %}
 
-          {% elseif data['prison-left-day'] %}
+          {% if data.hmrcQuestion2 === 'yes' %}
 
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">15 January 2025</td>
+              <td class="govuk-table__cell">22 February 2025</td>
               <td class="govuk-table__cell">State Pension awarded</td>
               <td class="govuk-table__cell">Agent</td>
             </tr>
 
+          {% elseif data.hmrcQuestion2 === 'no' %}
+
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">15 January 2025</td>
-              <td class="govuk-table__cell"><a href="record-prison-details"class="govuk-link--no-visited-state govuk-!-font-size-19">Prison dates added<span class="govuk-visually-hidden"></span></a></td>
+              <td class="govuk-table__cell">22 February 2025</td>
+              <td class="govuk-table__cell">HMRC investigation checked</td>
               <td class="govuk-table__cell">Agent</td>
             </tr>
 
-          {% else %}
+          {% endif %}
+
+          {% if data.hmrcQuestion === 'yes' %}
 
             <tr class="govuk-table__row">
-              <td class="govuk-table__cell">15 January 2025</td>
-              <td class="govuk-table__cell">Cannot get prison dates. Notification sent to claimant</td>
+              <td class="govuk-table__cell">14 February 2025</td>
+              <td class="govuk-table__cell">State Pension awarded</td>
+              <td class="govuk-table__cell">Agent</td>
+            </tr>
+
+          {% elseif data.hmrcQuestion === 'no' %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">14 February 2025</td>
+              <td class="govuk-table__cell">BIC1 form sent to HMRC</td>
               <td class="govuk-table__cell">Agent</td>
             </tr>
 
           {% endif %}
 
           <tr class="govuk-table__row">
-            <td class="govuk-table__cell">13 January 2025</td>
-            <td class="govuk-table__cell">Paper claim received</td>
-            <td class="govuk-table__cell">Agent</td>
+            <td class="govuk-table__cell">10 February 2025</td>
+            <td class="govuk-table__cell">Claim received</td>
+            <td class="govuk-table__cell">Online</td>
           </tr>
 
         </tbody>
