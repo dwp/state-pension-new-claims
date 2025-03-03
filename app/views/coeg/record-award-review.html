@@ -5,15 +5,15 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% if data['creditAmount'] or data['debitAmount'] %}
+      {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
 
-          {% include './_bar-2.html' %}
-    
-        {% else %}
-    
-          {% include './_bar.html' %}
-    
-        {% endif %}
+        {% include './_bar-2.html' %}
+  
+      {% else %}
+  
+        {% include './_bar.html' %}
+  
+      {% endif %}
 
         {{ govukBackLink({
           text: "Back",
@@ -31,7 +31,7 @@
                 <tr class="govuk-table__row">
                   <th class="govuk-table__header award_detail2" scope="col">Total</th>
                   <th class="govuk-table__header award_detail" scope="col">
-                  £180.00
+                    £270.56
                     per week	</th>
                   <td class="govuk-table__cell award_detail">
                   </td>
@@ -41,18 +41,13 @@
               <tbody class="govuk-table__body">
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell" scope="row">New State Pension</td>
-                  <td class="govuk-table__cell">£180.00</td>
+                  <td class="govuk-table__cell">£270.56</td>
                   <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-amount">Change<span class="govuk-visually-hidden">change new State Pension</span></a></td>
                 </tr>
 
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell" scope="row">Protected payment</td>
-                  <td class="govuk-table__cell">
-                    {% if data.changepp %}
-                    £{{data.changepp}}
-                    {% else %}
-                    £0.00
-                    {% endif %}</td>
+                  <td class="govuk-table__cell">£0.00</td>
                   <td class="govuk-table__cell">
                     {% if data.changepp %}
                     <a href="review-award-change-pp">
@@ -69,13 +64,7 @@
                 </tr>
                 <tr class="govuk-table__row">
                   <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
-                  <td class="govuk-table__cell">
-                    {% if data['basicEsp'] %}
-                      £{{ data.basicEsp | float + data.apAmount | float + data.grbAmount | float }}
-                      {% else %}
-                      £0.00
-                    {% endif %}
-                  </td>
+                  <td class="govuk-table__cell">£0.00</td>
                   <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-inherited-esp">
                     {% if data['basicEsp'] %}
                       Change
