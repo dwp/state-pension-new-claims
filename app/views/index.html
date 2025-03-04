@@ -190,6 +190,67 @@ GOV.UK Prototype Kit
     <div class="govuk-accordion__section-header">
       <h2 class="govuk-accordion__section-heading">
         <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-size: 20pt;">
+          Contracted out employment group (COEG)
+          <p><br>Upon receiving a new claim and GySP identifies a COEG Investigation Position fail flag from the HMRC filter, Claims should not be filtered out anymore. These claims should be processed on GYSP with and HMRC notified of same.</p>
+        </span>
+      </h2>
+    </div>
+
+    <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+      <table class="govuk-table">
+
+        <!--<caption class="govuk-table__caption govuk-table__caption--m">Maxwell scheme</caption>-->
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date added</th>
+            <th scope="col" class="govuk-table__header">Change log</th>
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Link</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td scope="row" class="govuk-table__cell">04 March 2025</td>
+            <td class="govuk-table__cell">
+              <h2 class="govuk-heading-s">Design evolution</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-body govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" 
+                  href="https://app.mural.co/t/dwpdigital7412/m/dwpdigital7412/1740567142000/ba6be59eb62cc33b2d5c0b0a34f0f595ee1d5e5e">
+                  Link to research and design ideation Mural board</a>
+                </li>
+              </ul>
+              <h2 class="govuk-heading-s">Overview</h2>
+
+              <p>Previously designed prototype has been amended and updated at allow agents to deal with citizens who have indicated they have been to prison.</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Design an agent process to handle new claims with a COEG Investigation flag</li>
+                <li>GySP to Postpone task in line with HMRC investigation period</li>
+                <li>Where HMRC Investigation pending after six(6) weeks, display information to enable agents complete ebic and send same to HMRC</li>
+                <li>Award SP claim (final award)</li>
+              </ul>
+              <h2 class="govuk-heading-s">Jira tickets</h2>
+              <ul class="govuk-list govuk-list--bullet">
+                <li><a class="govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/RFP-8133">RFP-8133 (BA)</a></li>
+                <li><a class="govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/RFP-8266">RFP-8266 (prototype design)</a></li>
+                <li><a class="govuk-link--no-visited-state" rel="noreferrer noopener" target="_blank" href="https://dwpdigital.atlassian.net/browse/RFP-8267">RFP-8267 (content design)</a></li>
+              </ul>
+            </td>
+            <td scope="row" class="govuk-table__cell "><a class="govuk-body govuk-link--no-visited-state" href="https://state-pension-new-claims-cc345982f2ab.herokuapp.com/coeg/dashboard">Go to final prototype</a></td>
+          </tr>
+        </tbody>
+        
+      </table>
+
+    </div>
+  </div>
+
+
+
+  <div class="govuk-accordion__section ">
+    <div class="govuk-accordion__section-header">
+      <h2 class="govuk-accordion__section-heading">
+        <span class="govuk-accordion__section-button" id="accordion-default-heading-1" style="font-size: 20pt;">
           Edge cases
           <p><br>Enable GYSP to process edge cases previously handled in legacy systems.</p>
           <p>Prototypes in this section:</p>
