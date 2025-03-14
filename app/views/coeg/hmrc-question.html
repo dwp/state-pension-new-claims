@@ -17,31 +17,44 @@
 
     <br><br>
 
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Has HMRC completed the COEG investigation?
+          </h1>
+        </legend>
 
-    {{ govukRadios({
-      name: "hmrcQuestion",
-      fieldset: {
-        legend: {
-          text: "Has HMRC completed the COEG investigation? ",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      hint: {
-        text: "Hint text to go here? Check the... in NIRs/OLE."
-      },
-      items: [
-        {
-          value: "yes",
-          text: " Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ]
-    }) }}
+        <br>
+
+        <p class="govuk-body">You will need to check:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the COEG flag in NIRs (OLE)</li>
+          <li>that the LTB data has been updated</li>
+          <li>the State Pension award components</li>
+        </ul>
+
+        <br>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hmrcQuestion" name="hmrcQuestion" type="radio" value="yes" aria-describedby="hmrcQuestion-item-hint">
+            <label class="govuk-label govuk-radios__label" for="hmrcQuestion">
+              Yes
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hmrcQuestion-2" name="hmrcQuestion" type="radio" value="no" aria-describedby="hmrcQuestion-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="hmrcQuestion-2">
+              No
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
 
     <br><br><br>
 
