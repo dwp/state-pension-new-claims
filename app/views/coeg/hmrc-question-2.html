@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="dashboard-3">
+<form class="form" method="post" action="dashboard-2">
  
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -18,31 +18,44 @@
 
     <br><br>
 
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Has HMRC completed the COEG investigation?
+          </h1>
+        </legend>
 
-    {{ govukRadios({
-      name: "hmrcQuestion2",
-      fieldset: {
-        legend: {
-          text: "Has HMRC completed the investigation? ",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      hint: {
-        text: "Hint text to go here. Check the... in NIRs/OLE."
-      },
-      items: [
-        {
-          value: "yes",
-          text: " Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ]
-    }) }}
+        <br>
+
+        <p class="govuk-body">You will need to check:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the COEG flag in NIRs (OLE)</li>
+          <li>that the LTB data has been updated</li>
+          <li>the State Pension award components</li>
+        </ul>
+
+        <br>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hmrcQuestion2" name="hmrcQuestion2" type="radio" value="yes" aria-describedby="hmrcQuestion2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="hmrcQuestion2">
+              Yes
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hmrcQuestion2-2" name="hmrcQuestion2" type="radio" value="no" aria-describedby="hmrcQuestion2-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="hmrcQuestion2-2">
+              No
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
 
     <br><br><br>
 
