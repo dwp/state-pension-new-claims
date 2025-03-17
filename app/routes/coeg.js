@@ -2,7 +2,7 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 router.post('/coeg/check-nirs-routing', (req, res) => {
-  res.redirect('hmrc-question')
+  res.redirect('what-date-2')
 })
 
 router.post('/coeg/check-nirs-routing-3', (req, res) => {
