@@ -138,4 +138,24 @@ router.post('/edge-cases/LSI/final/which-year', function (req, res) {
   }
 })
 
+// LSI - Final-2
+
+router.post('/edge-cases/LSI/final-2/which-option', function (req, res) {
+
+  if (req.body['whichOption'] === 'esp') {
+    res.redirect('check-answers-2a')
+  } else {
+    res.redirect('which-year')
+  }
+})
+
+router.post('/edge-cases/LSI/final-2/which-year', function (req, res) {
+
+  if (req.body['whichYear'] === 'later') {
+    res.redirect('next-tax-year')
+  } else {
+    res.redirect('tax-rate')
+  }
+})
+
 module.exports = router

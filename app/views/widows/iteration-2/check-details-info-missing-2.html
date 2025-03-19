@@ -1,0 +1,331 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% include 'widows/iteration-2/_bar.html' %}
+
+  {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+    {% if data['dom'] === 'Verified' %}
+
+      <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+      <div class="govuk-notification-banner__header">
+        <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+          Success
+        </h2>
+      </div>
+      <div class="govuk-notification-banner__content">
+        <p class="govuk-notification-banner__heading">
+    All information completed and dates verified.
+        </p>
+      </div>
+    </div>
+
+    <h1 class="govuk-heading-l">Check for inheritable amounts</h1>
+
+    {% else %}
+    <h1 class="govuk-heading-l">Check the details and decide how to continue</h1>
+
+
+    <p>Complete the information and verify the dates, or choose another way to continue.</p>
+
+
+
+    {% endif %}
+
+  <br><br>
+
+          <h2 class="govuk-heading-m">Claimant</h2>
+
+
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+
+
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Address</th>
+                  <td class="govuk-table__cell">
+                    62 High Street<br>
+                    NORTH LONDON<br>
+                    N93 3KJ</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status</th>
+                  <td class="govuk-table__cell">Widowed</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+
+                <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of birth</th>
+              <td class="govuk-table__cell">25/07/1956</td>
+              <td class="govuk-table__cell"><span class="verified-badge verified">
+                <b></b>
+                <td class="govuk-table__cell" style="text-align: right">
+              </td>
+              </span> </td>
+
+            </tr>
+
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">State Pension date</th>
+                  <td class="govuk-table__cell">25/07/2022</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Age when widowed</th>
+                  <td class="govuk-table__cell">66</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+
+              </tbody>
+            </table>
+
+
+  <br>  <br>
+          <h2 class="govuk-heading-m">Late spouse or civil partner</h2>
+
+              <form method="post">
+
+
+                <table class="govuk-table">
+                  <tbody class="govuk-table__body">
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Full name </th>
+                      <td class="govuk-table__cell">Lilly Bennett</td>
+                      <td class="govuk-table__cell"></td>
+                      <td class="govuk-table__cell"></td>
+
+                    </tr>
+                    <tr class="govuk-table__row">
+                     <th scope="row" class="govuk-table__header" style="width: 40%">National Insurance number</th>
+                     <td class="govuk-table__cell" style="width: 30%">
+                       {% if data.nationalinsurancenumber %}
+                       {{data.nationalinsurancenumber}}
+                       {% else %}
+                       JS 12 34 56 D
+                       {% endif %}</td>
+                     <td class="govuk-table__cell"></td>
+                     <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                       <a class="govuk-link" href="nino">Change</a>
+                     </td>
+                   </tr>
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Gender</th>
+                      <td class="govuk-table__cell">
+                        {% if data.gender %}
+                        {{data.gender}}
+                        {% else %}
+
+                        {% endif %}</td>
+                      <td class="govuk-table__cell"> </td>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="gender">
+                                              {% if data.gender %}
+                                              Change
+                                              {% else %}
+                                              Add
+                                              {% endif %}</a>
+                      </td>
+                    </tr>
+
+                        <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Date of birth</th>
+                      <td class="govuk-table__cell">
+                        {% if data.dobd %}
+                        {{data.dobd}}/{{data.dobm}}/{{data.doby}}
+                        {% else %}
+                        25/04/1949
+                        {% endif %}</td>
+                      <td class="govuk-table__cell"><span class="verified-badge verified">
+                        <b>{% if data.dob %}
+                        {{data.dob}}
+                        {% else %}
+                        Verified
+                        {% endif %}</b>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="dob">Change</a>
+                      </td>
+                      </span> </td>
+
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">State Pension date</th>
+                      <td class="govuk-table__cell">14/07/2015</td>
+                      <td class="govuk-table__cell"></td>
+                      <td class="govuk-table__cell"></td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Date of death</th>
+                      <td class="govuk-table__cell">
+                        {% if data.dodd %}
+                        {{data.dodd}}/{{data.dodm}}/{{data.dody}}
+                        {% else %}
+                        9/04/2013
+                        {% endif %}</td>
+                      <td class="govuk-table__cell"><span class="verified-badge verified">
+                        <b>{% if data.dod %}
+                        {{data.dod}}
+                        {% else %}
+                        Verified
+                        {% endif %}</b>
+                      </span> </td>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="dod">Change</a>
+                      </td>
+                    </tr>
+
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Date of marriage or<br> civil partnership</th>
+                      <td class="govuk-table__cell">
+                        {% if data.domd %}
+                        {{data.domd}}/{{data.domm}}/{{data.domy}}
+                        {% else %}
+
+                        {% endif %}</td>
+                      <td class="govuk-table__cell"><span class="verified-badge verified">
+                        <b>{% if data.dom %}
+                        {{data.dom}}
+                        {% else %}
+
+                        {% endif %}</b>
+                      </span> </td>
+                      <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                              <a class="govuk-link" href="dom">{% if data.domd %}
+                                              Change
+                                              {% else %}
+                                              Add
+                                              {% endif %}</a>
+                      </td>
+                    </tr>
+
+
+
+
+                  </tbody>
+                </table>
+
+
+  <br>  <br>
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+        <h2 class="govuk-fieldset__heading">
+          How do you want to continue?
+        </h2>
+      </legend>
+
+    {% if data['dom'] === 'Verified' %}
+
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="inheritable-amounts">
+        <label class="govuk-label govuk-radios__label" for="decision">
+    Enter inheritable amounts </label>
+    </div>
+
+
+    {% else %}
+
+<!--        <div id="changed-name-hint" class="govuk-hint">To check for inheritable amounts, enter all missing information and verify all dates.</div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="more-info">
+            <label class="govuk-label govuk-radios__label" for="decision">
+Place task on hold for 14 days</label>
+      </div>-->
+    <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="more-info">
+        <label class="govuk-label govuk-radios__label" for="decision">
+Request more information</label>
+  </div>
+
+{% endif %}
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="nothing-to-inherit">
+      <label class="govuk-label govuk-radios__label" for="decision">
+Award State Pension - nothing to inherit</label>
+    </div>
+
+    <div class="govuk-radios__divider">or</div>
+
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="save-return">
+      <label class="govuk-label govuk-radios__label" for="decision">
+Return task to queue   </label>
+    </div></div>
+
+
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Save changes and continue
+      </button>
+    </div>
+
+
+    <p><a href="pscs" class="govuk-link govuk-link--no-visited-state">Remove from GySP</a></p>
+    <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+    <b>URL, errors and notes</b>
+    </span>
+    </summary>
+    <div class="govuk-details__text">
+    <b>URL:</b> use existing <br><br>
+
+
+    <b>Error messages:<br>
+    Nothing selected - </b> Select how you want to continue<br>
+
+    </div>
+    </details>
+
+  </div>
+
+
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
