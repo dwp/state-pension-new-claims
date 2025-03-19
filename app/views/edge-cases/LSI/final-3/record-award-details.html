@@ -1,0 +1,115 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <div>
+          <h1 class="govuk-heading-xl">
+           Hakim Umar
+            <span class="govuk-caption-l">QQ 12 34 56 X</span>
+            <strong class="govuk-tag govuk-tag--blue">
+              Receiving State Pension
+            </strong>
+          </h1>
+        </div>
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+        <br><br><br>
+
+        <h2 class="govuk-heading-m">Current State Pension award</h2>
+
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 45%">From</th>
+              <td class="govuk-table__cell" style="width: 55%">18 May 2024</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 45%">To</th>
+              <td class="govuk-table__cell" style="width: 55%"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Reason</th>
+              <td class="govuk-table__cell">First award</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="govuk-table">
+
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
+                <th class="govuk-table__header" scope="col" style="width: 50%">£254.32 a week</th>
+                <th class="govuk-table__header" scope="col"></th>
+              </tr>
+            </thead>
+
+            <tbody class="govuk-table__body">
+            
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">New State Pension</td>
+                <td class="govuk-table__cell">£254.32</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell" scope="row">Protected payment</td>
+                <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+              </tr>
+
+              <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+                  <td class="govuk-table__cell">£0.00</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <br><br><br>
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        {% from "timeline/macro.njk" import dwpTimeline %}
+
+        <h2 class="govuk-heading-m">Personal changes</h2>
+          {{
+          dwpTimeline({ 
+              items: [
+              {
+                title:  "State Pension awarded",
+                byline:  "agent",
+                date:  "14 May 2024 at 2:10pm"
+            },
+            {
+                title:  "Claim received",
+                byline:  "system",
+                date:  "11 May 2024 at 7:14pm"
+            }
+          ]
+          })
+          }}
+    
+      </div>
+
+    </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
