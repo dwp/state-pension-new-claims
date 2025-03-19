@@ -30,19 +30,19 @@
       <dl class="govuk-summary-list">
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
             Claimant choice
           </dt>
 
-          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          <dd class="govuk-summary-list__value govuk-!-width-one-third">
             {% if data['whichOption'] === 'lsi' %}
             Lump sum payment
             {% else %}
-            Extra State Pension
+            Extra State Pension (higher payments)
             {% endif %}
           </dd>
 
-          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+          <dd class="govuk-summary-list__actions govuk-!-width-one-third">
             <a class="govuk-link--no-visited-state" href="which-option">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
