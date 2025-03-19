@@ -1,0 +1,90 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    {{ govukBackLink({
+      text: "Back",
+      href: "javascript:history.go(-1)"
+      }) }}
+    
+    <br>
+    <br>
+
+    <h2 class="govuk-heading-l">Review award</h2>
+    
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header award_detail2" scope="col">Total</th>
+          <th class="govuk-table__header award_detail" scope="col">
+            {% if data['whichOption'] === 'esp' %}
+              £{{ (200.00 + data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
+            {% else %}
+              £200.00
+            {% endif %} per week	
+          </th>
+          <td class="govuk-table__cell award_detail">
+          </td>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" scope="row">New State Pension</td>
+          <td class="govuk-table__cell">£200.00 per week</td>
+          <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-amount">Change<span class="govuk-visually-hidden">change new State Pension</span></a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" scope="row">Protected payment</td>
+          <td class="govuk-table__cell">£0.00</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+          <td class="govuk-table__cell">£0.00</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+        {% if data['whichOption'] === 'esp' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+            <td class="govuk-table__cell">
+              {% if data['basicEsp'] %}
+                £{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
+              {% else %}
+                £0.00
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-inherited-esp">
+              {% if data['basicEsp'] %}
+                Change
+                {% else %}
+                Add
+              {% endif %}
+              <span class="govuk-visually-hidden">change Inherited extra State Pension</span></a></td>
+          </tr>
+        {% endif %}
+
+        <tr class="govuk-table__row">
+            <td class="govuk-table__header award_detail2" scope="row">Entitlement date</td>
+            <td class="govuk-table__cell award_detail">10 April 2023</td>
+            <td class="govuk-table__cell award_detail">
+              <a href="change-date">
+                Change<span class="govuk-visually-hidden">Change address</span>
+              </a></td>
+          </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
+
+{% endblock %}
