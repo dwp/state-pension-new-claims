@@ -1,0 +1,154 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post" action="claimant-options">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">
+      Lump sum inheritance
+    </h1>
+
+    <p>Use the information below and legacy systems to calculate the claimants options amounts.</p>
+
+    <p>You may need to apply an uprating to the amounts depending on the claimant's State Pension date.</p>
+
+    <div class="govuk-inset-text">
+      The required uprating year is <b>2023</b>.
+    </div>
+
+    <br>
+    
+    <h2 class="govuk-heading-m">Claimant</h2>
+
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Marital status</th>
+          <td class="govuk-table__cell">Widowed</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of birth</th>
+          <td class="govuk-table__cell">12/12/1949</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">State Pension date</th>
+          <td class="govuk-table__cell">13/07/2023</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Age when widowed</th>
+          <td class="govuk-table__cell">49</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br><br>
+
+    <h2 class="govuk-heading-m">Late spouse or civil partner</h2>
+
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Full name </th>
+              <td class="govuk-table__cell">Lilly Umar</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 40%">National Insurance number</th>
+              <td class="govuk-table__cell" style="width: 30%">XX123456X</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell" style="text-align: right" style="width: 5%">
+                                      <a class="govuk-link" href="nino"></a>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Gender</th>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell" style="text-align: right">
+                <a class="govuk-link" href="change-gender"></a>
+              </td>
+            </tr>
+
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of birth</th>
+              <td class="govuk-table__cell">23/06/1949</td>
+              <td class="govuk-table__cell"><span class="verified-badge verified">
+                <b>Verified</b>
+              </span> </td>
+              <td class="govuk-table__cell" style="text-align: right">
+                <a class="govuk-link" href="change-dob"></a>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of death</th>
+              <td class="govuk-table__cell">12/12/2020</td>
+              <td class="govuk-table__cell"><span class="verified-badge verified">
+                <b>Verified</b>
+              </span> </td>
+              <td class="govuk-table__cell" style="text-align: right">
+                <a class="govuk-link" href="change-dob"></a>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of marriage or civil partnership</th>
+              <td class="govuk-table__cell">
+                13/11/1978
+              </td>
+              <td class="govuk-table__cell">
+                <span class="verified-badge verified">
+                    <b>Verified</b>
+                </span>
+             </td>
+              <td class="govuk-table__cell" style="text-align: right">
+                <a class="govuk-link" href="dom">
+                <span class="govuk-visually-hidden"></span>
+               </a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      <br><br><br>
+
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+
+    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
+
+  </div>
+</div>
+
+{% endblock %}

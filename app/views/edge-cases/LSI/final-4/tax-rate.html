@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form method="post" action="check-answers-2a">
+
+  {% include './_bar.html' %}
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
+
+<br><br>
+
+<h1 class="govuk-heading-xl">Claimant's Income Tax rate</h1>
+
+<p>Ask the claimant for their Income Tax rate. (Could add some more information here)</p>
+
+<br>
+
+{{ govukRadios({
+  name: "taxRate",
+  fieldset: {
+    legend: {
+      text: "What is their Income Tax rate?",
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
+    }
+  },
+  items: [
+    {
+      value: "0",
+      text: "0%"
+    },
+    {
+      value: "20",
+      text: "20%"
+    },
+    {
+      value: "40",
+      text: "40%"
+    },
+    {
+      value: "45",
+      text: "45%"
+    }
+  ]
+}) }}
+
+<br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+   <br><br><br><br><br>
+
+  </div>
+</div>
+
+
+{% endblock %}
