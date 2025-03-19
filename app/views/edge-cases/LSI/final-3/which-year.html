@@ -17,13 +17,19 @@
 
 <br><br>
 
+<h1 class="govuk-heading-xl">Payment tax year</h1>
+
+<p>Find out when the claimant wants to be paid the lump sum.</p>
+
+<br>
+
 {{ govukRadios({
   name: "whichYear",
   fieldset: {
     legend: {
       text: "Which tax year do you want to be paid in?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
     }
   },
   items: [
