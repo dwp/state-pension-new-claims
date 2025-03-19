@@ -17,13 +17,19 @@
 
 <br><br>
 
+<h1 class="govuk-heading-xl">Claimant's Income Tax rate</h1>
+
+<p>Find out the claimant's Income Tax rate. (More information here?)</p>
+
+<br>
+
 {{ govukRadios({
   name: "taxRate",
   fieldset: {
     legend: {
       text: "What is your Income Tax rate?",
-      isPageHeading: true,
-      classes: "govuk-fieldset__legend--xl"
+      isPageHeading: false,
+      classes: "govuk-fieldset__legend--m"
     }
   },
   items: [
