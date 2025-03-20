@@ -15,9 +15,25 @@ router.post('/coeg/check-nirs-routing-2', (req, res) => {
 
 router.post('/coeg/hmrc-question', function (req, res) {
   if (req.body['hmrcQuestion'] === 'yes') {
-    res.redirect('dashboard')
+    res.redirect('award-calculated')
   } else {
     res.redirect('complete-bic1')
+  }
+})
+
+router.post('/coeg/hmrc-question-2', function (req, res) {
+  if (req.body['hmrcQuestion2'] === 'yes') {
+    res.redirect('award-calculated')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
+
+router.post('/coeg/hmrc-question-3', function (req, res) {
+  if (req.body['hmrcQuestion3'] === 'yes') {
+    res.redirect('award-calculated')
+  } else {
+    res.redirect('dashboard-3')
   }
 })
 
