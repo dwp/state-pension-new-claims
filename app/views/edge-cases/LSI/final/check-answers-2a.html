@@ -68,20 +68,20 @@
         {% else %}
         {% endif %}
 
-        {% if data['whichYear'] === 'now' %}
+        {% if data['whichYear'] === 'now' or data.taxRate or data.taxRate2 %}
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key govuk-!-width-one-half">
             Tax rate
           </dt>
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            {% if data['taxRate'] === '0' %}
+            {% if data['taxRate'] === '0' or data['taxRate2'] === '0' %}
             0%
-            {% elseif data['taxRate'] === '20' %}
+            {% elseif data['taxRate'] === '20' or data['taxRate2'] === '20' %}
             20%
-            {% elseif data['taxRate'] === '40' %}
+            {% elseif data['taxRate'] === '40' or data['taxRate2'] === '40' %}
             40%
-            {% elseif data['taxRate'] === '45' %}
+            {% elseif data['taxRate'] === '45' or data['taxRate2'] === '45' %}
             45%
             {% endif %}
           </dd>
@@ -105,15 +105,42 @@
       <h2 class="govuk-heading-m">
         3. Confirm
       </h2>
-      {% if data['whichOption'] === 'lsi' %}
 
-      <p>Tell the claimant that this payment will be made (within 3 days?)</p>
+      {% if data.taxRate2 %}
+
+        <p>This payment will be made (within 3 days?)</p>
+
+      {% elseif data['whichYear'] === 'later' %}
+
+        <p>A letter will be automatically sent to the claimant one month before the next tax year asking them to contact us again.</p>
+
+      {% elseif data.taxRate %}
+
+        <p>This payment will be made (within 3 days?)</p>
 
       {% else %}
 
-      <p>An updated weekly State Pension of <b>£300.25</b> will apply from <b>19 March 2025</b>.</p>
+        <table class="govuk-table">
+        
+          <tbody class="govuk-table__body">
 
-      <p>This will automatically pay any arrears and send an award letter to the claimant.</p>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Updated award</th>
+              <td class="govuk-table__cell">£300.25 per week</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">From</th>
+              <td class="govuk-table__cell">19 March 2025</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+        <div class="govuk-inset-text">
+          This will automatically pay any arrears and send an award letter to the claimant.
+        </div>
 
       {% endif %}
 
