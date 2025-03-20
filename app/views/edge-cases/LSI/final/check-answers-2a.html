@@ -18,7 +18,7 @@
       <br><br>
 
       <h1 class="govuk-heading-xl">
-        Complete LSI actions
+        Confirm claimant choice
       </h1>
 
       <br>
@@ -30,19 +30,19 @@
       <dl class="govuk-summary-list">
         
         <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+          <dt class="govuk-summary-list__key govuk-!-width-one-third">
             Claimant choice
           </dt>
 
-          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+          <dd class="govuk-summary-list__value govuk-!-width-one-third">
             {% if data['whichOption'] === 'lsi' %}
-            Lump sum inheritance
+            Lump sum payment
             {% else %}
-            Extra State Pension
+            Extra State Pension (higher payments)
             {% endif %}
           </dd>
 
-          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+          <dd class="govuk-summary-list__actions govuk-!-width-one-third">
             <a class="govuk-link--no-visited-state" href="which-option">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
           </dd>
         </div>
@@ -55,9 +55,9 @@
 
           <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
             {% if data['whichYear'] === 'now' %}
-            2024/2025
+            2024 to 2025
             {% else %}
-            2025/2026
+            2025 to 2026
             {% endif %}
           </dd>
 
@@ -97,12 +97,24 @@
       <br><br>
 
       <h2 class="govuk-heading-m">
-        2. Confirm
+        2. Upload the claimant choices proforma to DRS
+      </h2>
+
+      <br><br>
+
+      <h2 class="govuk-heading-m">
+        3. Confirm
       </h2>
       {% if data['whichOption'] === 'lsi' %}
-      <p>A letter will be automatically sent to the claimant to tell them about their payment.</p>
+
+      <p>Tell the claimant that this payment will be made (within 3 days?)</p>
+
       {% else %}
-      <p>An award letter will be automatically sent to the claimant.</p>
+
+      <p>An updated weekly State Pension of <b>£300.25</b> will apply from <b>19 March 2025</b>.</p>
+
+      <p>This will automatically pay any arrears and send an award letter to the claimant.</p>
+
       {% endif %}
 
       <br><br><br>
