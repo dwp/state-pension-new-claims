@@ -39,11 +39,13 @@
 
           <td class="govuk-table__cell">
             {% if data['debitAmount'] and data['creditAmount'] %}
-            £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+              £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
             {% elseif data['creditAmount'] %}
-            £{{ 200 + data.creditAmount | float }}.00
+              £{{ 200 + data.creditAmount | float }}.00
             {% elseif data['debitAmount']%}
-            £{{ 200 - data.debitAmount | float }}.00
+              £{{ 200 - data.debitAmount | float }}.00
+            {% else %}
+              £165.28
             {% endif %}</td>
           <td class="govuk-table__cell">28/12/2024</td>
         </tr>
