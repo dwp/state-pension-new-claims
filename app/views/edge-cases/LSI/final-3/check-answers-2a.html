@@ -105,15 +105,19 @@
       <h2 class="govuk-heading-m">
         3. Confirm
       </h2>
+    
+      {% if data['whichYear'] === 'later' %}
 
-      {% if data['whichOption'] === 'lsi' %}
+        <p>Tell the claimant that we will send them a letter by { } asking them to call us again with their Income Tax rate for {tax year}.</p>
 
-        <p>Tell the claimant that this payment will be made (within 3 days?)</p>
+      {% elseif data.taxRate %}
+
+        <p>This payment will be made (within 3 days?)</p>
 
       {% else %}
 
         <table class="govuk-table">
-          
+        
           <tbody class="govuk-table__body">
 
             <tr class="govuk-table__row">
@@ -130,14 +134,17 @@
 
         </table>
 
-        <p>This will automatically pay any arrears and send an award letter to the claimant.</p>
+        <div class="govuk-inset-text">
+          This will automatically pay any arrears and send an award letter to the claimant.
+        </div>
 
       {% endif %}
 
       <br><br><br>
 
+
       <button type="submit" class="govuk-button" data-module="govuk-button">
-        Confirm and send letter
+        End task
       </button>
 
       </form>
