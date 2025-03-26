@@ -92,22 +92,31 @@
 
       <div class="govuk-grid-column-one-third">
 
-        {% from "timeline/macro.njk" import dwpTimeline %}
+        <h3 class="govuk-heading-m">Personal changes</h3>
 
-      <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-      dwpTimeline({ 
-          items: [
-          {
-              title:  "Claim received",
-              byline:  "online",
-              date:  "11 May 2024 at 7:14pm"
-          }
-      ]
-      })
-      }}
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+  
+            {% if data['lsi'] %}
+  
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">22 Mar 2025 at 2:19pm</p>
+              <h2 class="dwp-timeline__heading">Late spouse deferral options letter sent to claimant</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
 
-    </div>
+            {% endif %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Claim received</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+  
+          </ol>
+        </div>
+
+      </div>
   </main>
 </div>
 
