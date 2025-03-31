@@ -5,24 +5,34 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="check-information">
+    <form method="post" action="start-routing"></form>
 
-      <h1 class="govuk-heading-xl">Check ANZaC information</h1>
-        
-      <p>Check the time the claimant lived or worked in Australia, New Zealand and Canada (ANZaC).</p>
-      <p>If the claimant's State Pension amount can be increased, send a CFN1282 letter to the claimant.</p>
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">Print and post the CFN1282 form</h1>
+      <span class="govuk-caption-m">Post the form to this address with a reply envelope.</span>
+
+      <div class="govuk-inset-text">
+        1 Park Lane<br>
+        LEEDS<br>
+        LS3 1EP
+      </div>
 
       <br><br><br>
 
-      <a href="check-information" button type="submit" class="govuk-button">
-          Start this task
-      </a>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm form sent
+      </button>
 
-      <a href="get-a-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
-        Return task to queue
-      </a>
-
-      <br><br><br><br><br>
+    <br><br><br><br><br>
 
   </div>
 </div>
