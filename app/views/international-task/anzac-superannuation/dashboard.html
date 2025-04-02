@@ -2,14 +2,14 @@
 
 {% block content %}
 
+<form method="post"></form>
+
 <div class="govuk-width-container">
   <main class="govuk-main-wrapper">
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-
-
-        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+        <!--{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
         {% set html %}
           <h3 class="govuk-notification-banner__heading">
@@ -20,109 +20,110 @@
         {{ govukNotificationBanner({
           html: html,
           type: "success"
-        }) }}
+        }) }}-->
         
 
-<h1 class="govuk-heading-xl">Tasks</h1>
+        <h1 class="govuk-heading-xl">Tasks</h1>
 
-{% include './_claims.html' %}
+        {% include './_claims.html' %}
 
-<br>
-        <form method="post">
-<br>
-          <h1 class="govuk-heading-l">International</h1>
+        <br><br>
 
-          </div>
-          </div>
+        <h1 class="govuk-heading-l">International</h1>
 
-          <br>
-          
-                    <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
-              <h1 class="govuk-heading-m">ANZaC
-              <p class="govuk-body-l"><a href="start" class="govuk-link"><b>Get next task</b></a></p></h1>
+      </div>
+    </div>
 
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-l">209
-                    <p class="govuk-body govuk-!-font-size-24">total tasks</p>
-                  </h3>
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-l">182
-                    <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
-                  </h3>
-            </div>
+    <br>
+        
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-one-half">
 
-          </div>
+        <h1 class="govuk-heading-m">ANZaC
 
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <br>
-
-
-          <div class="govuk-grid-row">
-          <div class="govuk-grid-column-one-half">
-            <h1 class="govuk-heading-m">EEA: Check for increase to award
-            <p class="govuk-body-l"><a href="#" class="govuk-link"><b>Get next task</b></a></p></h1>
+        <p class="govuk-body-l"><a href="start" class="govuk-link"><b>Get next task</b></a></p></h1>
 
           </div>
           <div class="govuk-grid-column-one-quarter">
-                <h3 class="govuk-heading-l">98
+                <h3 class="govuk-heading-l">209
                   <p class="govuk-body govuk-!-font-size-24">total tasks</p>
                 </h3>
           </div>
           <div class="govuk-grid-column-one-quarter">
-                <h3 class="govuk-heading-l">90
+                <h3 class="govuk-heading-l">182
+                  <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                </h3>
+          </div>
+
+        </div>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+          <br>
+
+
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+          <h1 class="govuk-heading-m">EEA: Check for increase to award
+          <p class="govuk-body-l"><a href="#" class="govuk-link"><b>Get next task</b></a></p></h1>
+
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+              <h3 class="govuk-heading-l">98
+                <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+              </h3>
+        </div>
+        <div class="govuk-grid-column-one-quarter">
+              <h3 class="govuk-heading-l">90
+                <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+              </h3>
+        </div>
+        </div>
+
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+          <br>
+
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h1 class="govuk-heading-m">EEA: Process claim for EEA pensions
+            <p class="govuk-body-l"><a href="security-check-task-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">103
+                  <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                </h3>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">88
                   <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
                 </h3>
           </div>
           </div>
 
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+          <br>
 
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <br>
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h1 class="govuk-heading-m">RA
+            <p class="govuk-body-l"><a href="start" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
 
-            <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
-              <h1 class="govuk-heading-m">EEA: Process claim for EEA pensions
-              <p class="govuk-body-l"><a href="security-check-task-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">62
+                  <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                </h3>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">37
+                  <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                </h3>
+          </div>
+          </div>
 
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-l">103
-                    <p class="govuk-body govuk-!-font-size-24">total tasks</p>
-                  </h3>
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-l">88
-                    <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
-                  </h3>
-            </div>
-            </div>
-
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <br>
-
-            <div class="govuk-grid-row">
-            <div class="govuk-grid-column-one-half">
-              <h1 class="govuk-heading-m">RA
-              <p class="govuk-body-l"><a href="start" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
-
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-l">62
-                    <p class="govuk-body govuk-!-font-size-24">total tasks</p>
-                  </h3>
-            </div>
-            <div class="govuk-grid-column-one-quarter">
-                  <h3 class="govuk-heading-l">37
-                    <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
-                  </h3>
-            </div>
-            </div>
-
-            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-            <br>
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+          <br>
 
         </div>
         
@@ -148,10 +149,12 @@
               </div>
             </details>
 
-            </div>
-  </div>
-
-</main>
       </div>
+
+    </div>
+
+  </main>
+
+</div>
 
 {% endblock %}

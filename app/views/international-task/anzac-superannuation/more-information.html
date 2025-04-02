@@ -7,20 +7,38 @@
 
     <form method="post"></form>
 
-    <h1 class="govuk-heading-xl">Find someone</h1>
-    <form method="post">
-      <div class="govuk-form-group">
-        <label class="govuk-label" for="nino">
-          National Insurance number
-        </label>
-        <input class="govuk-input govuk-!-width-two-thirds" id="nino" name="nino" type="nino" aria-describedby="nino-hint">
-      </div>
+      {% include './_bar.html' %}
 
-      <a href="find" button type="submit" class="govuk-button">
-        Find
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">More information needed</h1>
+
+      <br>
+
+      <p>Send a letter to the claimaint asking them to send in their:</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>certificate of marriage or civil partnership</li>
+        <li>spouse's birth certificate</li>
+        <li>spouse's death certificate</li>
+        <li>spouse's National Insurance number</li>
+      </ul>
+
+      <p>You can find the spouse or civil partner's gender on Searchlight.</p>
+
+      <p>This task will be placed on hold for 2 weeks.</p>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm letter sent
       </button>
-    </a>
-    </form>
 
     <br><br><br><br><br>
 
