@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post"></form>
+    <form method="post">
 
       {% include './_bar.html' %}
 
@@ -17,8 +17,9 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-l">Review time in New Zealand</h1>
-      <span class="govuk-caption-m">Use the time spent in NZ to determine if you need to contact WINZ</span>
+      <h1 class="govuk-heading-l">Check the claimant's time in New Zealand</h1>
+
+      <p>Consider if you can change the award/award maximum State Pension (award full State Pension amount) or if you need to request more information from WINZ.</p>
 
       <br><br>
 
@@ -54,16 +55,16 @@
           <div class="govuk-radios" data-module="govuk-radios">
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="contactWinz" name="contactWinz" type="radio" value="winz">
-              <label class="govuk-label govuk-radios__label" for="contactWinz">
-                Contact WINZ
+              <input class="govuk-radios__input" id="winz" name="winz" type="radio" value="winz">
+              <label class="govuk-label govuk-radios__label" for="winz">
+                Request more information from WINZ
               </label>
             </div>
 
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="contactWinz-3" name="contactWinz" type="radio" value="wales">
-              <label class="govuk-label govuk-radios__label" for="contactWinz-3">
-                Change award
+              <input class="govuk-radios__input" id="winz-2" name="winz" type="radio" value="award">
+              <label class="govuk-label govuk-radios__label" for="winz-2">
+                Award full State Pension amount
               </label>
             </div>
 

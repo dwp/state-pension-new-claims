@@ -161,4 +161,37 @@ router.post('/international-task/anzac-cfn1282-current/sp-increase', function (r
   }
 })
 
+// Superannuation
+
+router.post('/international-task/anzac-superannuation/check-information', function (req, res) {
+  if (req.body['spAmount'] === 'yes') {
+    res.redirect('post-cfn1282')
+  } else {
+    res.redirect('cannot-increase')
+  }
+})
+
+router.post('/international-task/anzac-superannuation/returned-cfn1282', function (req, res) {
+  if (req.body['cfn1282-returned'] === 'yes') {
+    res.redirect('nzsa-question')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
+
+router.post('/international-task/anzac-superannuation/nzsa-question', function (req, res) {
+  if (req.body['nzBenefit'] === 'yes') {
+    res.redirect('check-time')
+  } else {
+    res.redirect('need-rf1')
+  }
+})
+
+router.post('/international-task/anzac-superannuation/check-time', function (req, res) {
+  if (req.body['winz'] === 'winz') {
+    res.redirect('send-email')
+  } else {
+    res.redirect('need-rf1')
+  }
+})
 
