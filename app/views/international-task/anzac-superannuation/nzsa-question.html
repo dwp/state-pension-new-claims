@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post"></form>
+    <form method="post">
 
       {% include './_bar.html' %}
 
@@ -24,9 +24,15 @@
               Did the claimant get New Zealand Superannuation?
             </h1>
           </legend>
+
+          <br>
+
           <div id="nzBenefit-hint" class="govuk-hint">
             You can find this on their CFN1282.
           </div>
+
+          <br>
+
           <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="nzBenefit" name="nzBenefit" type="radio" value="yes">
