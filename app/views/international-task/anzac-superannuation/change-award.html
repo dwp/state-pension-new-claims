@@ -40,10 +40,13 @@
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th class="govuk-table__header award_detail2" scope="col">Total</th>
-            <th class="govuk-table__header award_detail" scope="col">{% if data.addsp1 and data.protectedPayment %}  
-              £{{ data.addsp1 | float + data.protectedPayment | float }} per week
+            <th class="govuk-table__header award_detail" scope="col">
+              {% if data.nsp and data.protectedPayment %}  
+                £{{ data.nsp | float + data.protectedPayment | float }} per week
+              {% elseif data.nsp %}
+                £{{data.nsp}} per week
               {% else %}
-              £203.85 per week
+                £203.85 per week
               {% endif %}	</th>
             <td class="govuk-table__cell award_detail">
             </td>
@@ -52,13 +55,13 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell" scope="row">New State Pension</td>
-            <td class="govuk-table__cell">{% if data.addsp1 %}
-              £{{data.addsp1}}
+            <td class="govuk-table__cell">{% if data.nsp %}
+              £{{data.nsp}}
               {% else %}
               £203.85
               {% endif %}</td>
             <td class="govuk-table__cell">
-              <a href="enter-nsp">
+              <a href="enter-nsp" class="govuk-link--no-visited-state">
                 Change<span class="govuk-visually-hidden">Change New State Pension</span>
               </a></td>
           </tr>
@@ -70,7 +73,7 @@
               £0.00
               {% endif %}</td>
             <td class="govuk-table__cell">
-              <a href="enter-nsp">
+              <a href="enter-pp" class="govuk-link--no-visited-state">
                 Change<span class="govuk-visually-hidden">Change Protected Payment</span>
               </a></td>
           </tr>
