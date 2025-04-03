@@ -41,13 +41,80 @@
         <hr class="govuk-section-break govuk-section-break--visible">
         <div class="govuk-!-padding-bottom-6"></div>
 
+        {% if data.change-award %}
+        
+        {% elseif data.winz === 'winz' %}
+
         <div class="govuk-warning-text">
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive">Warning</span>
-            Waiting for CFN1282 from the claimant.<br>  <a href="../../international-task/anzac-cfn1282-iteration-1/cfn-task.html" class="govuk-link">Confirm CFN1282 returned</a>.
+            <span class="govuk-warning-text__assistive"></span>
+            Waiting for information from WINZ.<br>  <a href="winz-received" class="govuk-link--no-visited-state">Confirm information received</a>.
           </strong>
         </div>
+
+        {% elseif data.spAmount === 'yes' %}
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            Waiting for CFN1282 from the claimant.<br>  <a href="returned-cfn1282" class="govuk-link--no-visited-state">Confirm CFN1282 returned</a>.
+          </strong>
+        </div>
+
+        {% endif %}
+
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">Australia</h2>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Lived
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Mar 2010 to Apr 2012
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    <span class="govuk-visually-hidden"> whether details are known</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Worked
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  Apr 2010 to Apr 2012
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    <span class="govuk-visually-hidden"> relationship to lead tenant</span>
+                  </a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Social security number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  123 456 789
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link" href="#">
+                    <span class="govuk-visually-hidden"> age</span>
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+        <br>
 
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
@@ -98,9 +165,7 @@
           </div>
         </div>
 
-        <br>
-        <br>
-        <br>
+        <br><br><br>
 
         <h2 class="govuk-heading-m">EEA</h2>
         <hr class="govuk-section-break govuk-section-break--visible">
@@ -170,42 +235,6 @@
           </div>
         </div>
 
-        <div class="govuk-summary-card">
-          <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Norway</h2>
-          </div>
-          <div class="govuk-summary-card__content">
-            <dl class="govuk-summary-list">
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Lived
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Jun 1984 to Mar 1988
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> whether details are known</span>
-                  </a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Worked
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  Jun 1984 to Mar 1988
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> relationship to lead tenant</span>
-                  </a>
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-
       </div>
 
       <div class="govuk-grid-column-one-third">
@@ -220,12 +249,6 @@
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">01 Mar 2025 at 11:42am</p>
                 <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Spain</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">22 Feb 2025 at 03:46pm</p>
-                <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Norway</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
 
