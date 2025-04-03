@@ -195,3 +195,19 @@ router.post('/international-task/anzac-superannuation/check-time', function (req
   }
 })
 
+router.post('/international-task/anzac-superannuation/need-rf1', function (req, res) {
+  if (req.body['rf1'] === 'yes') {
+    res.redirect('dashboard-2')
+  } else {
+    res.redirect('award-question')
+  }
+})
+
+router.post('/international-task/anzac-superannuation/award-question', function (req, res) {
+  if (req.body['change-award'] === 'yes') {
+    res.redirect('change-award')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
+
