@@ -189,7 +189,7 @@ router.post('/international-task/anzac-superannuation/nzsa-question', function (
 
 router.post('/international-task/anzac-superannuation/check-time', function (req, res) {
   if (req.body['winz'] === 'winz') {
-    res.redirect('send-email')
+    res.redirect('winz-request')
   } else {
     res.redirect('need-rf1')
   }
