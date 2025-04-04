@@ -220,3 +220,11 @@ router.post('/international-task/anzac-superannuation/rf1-send', function (req, 
     res.redirect('dashboard-2')
   }
 })
+
+router.post('/international-task/anzac-superannuation/winz-received', function (req, res) {
+  if (req.body['winzReceived'] === 'yes') {
+    res.redirect('upload')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
