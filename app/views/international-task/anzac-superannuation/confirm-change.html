@@ -29,11 +29,15 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Updated award</th>
-            <td class="govuk-table__cell"><b>{% if data.nsp and data.protectedPayment %}  
-              £{{ data.nsp | float + data.protectedPayment | float }} per week
+            <td class="govuk-table__cell"><b>
+              {% if data.nsp and data.protectedPayment %}  
+                £{{ data.nsp | float + data.protectedPayment | float }} per week
+              {% elseif  data.nsp %}
+                £{{data.nsp}}
               {% else %}
-              £{{data.nsp}}
-              {% endif %}	</th></b></td>
+                £203.15
+              {% endif %}	</th></b>
+            </td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">From</th>
