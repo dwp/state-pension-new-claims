@@ -191,7 +191,7 @@ router.post('/international-task/anzac-superannuation/check-time', function (req
   if (req.body['winz'] === 'winz') {
     res.redirect('winz-request')
   } else {
-    res.redirect('upload')
+    res.redirect('need-rf1')
   }
 })
 
