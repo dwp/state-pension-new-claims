@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="check-information">
+
+      <h1 class="govuk-heading-xl">Confirm Superannuation benefit type</h1>
+        
+      <p>Check the correspondence from WINZ to confirm whether the claimant's benefit is benefit under the Statutory provision or Reciprocal Agreement.</p>
+
+      <p class="govuk-body">You may then need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Request an RF1 from HMRC</li>
+          <li>Make a change to their State Pension award</li>
+        </ul>
+
+
+      <br><br><br>
+
+      <a href="returned-cfn1282" button type="submit" class="govuk-button">
+          Start this task
+      </a>
+
+      <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+        Return task to queue
+      </a>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}
