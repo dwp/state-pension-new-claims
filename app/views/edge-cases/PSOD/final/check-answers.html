@@ -106,7 +106,7 @@
             <td class="govuk-table__cell">
               <b>
              {% if data['debitAmount'] and data['creditAmount'] %}
-              £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+              £{{ (200 + data.creditAmount | float - data.debitAmount | float).toFixed(2) }}
              {% elseif data['creditAmount'] %}
               £{{ (200 + data.creditAmount | float).toFixed(2) }}
              {% elseif data['debitAmount']%}
@@ -117,23 +117,29 @@
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">New State Pension</th>
             <td class="govuk-table__cell">
-              {% if data['creditAmount'] %}
+              {% if data['debitAmount'] and data['creditAmount'] %}
+                £{{ (200 + data.creditAmount | float - data.debitAmount | float).toFixed(2) }}
+              {% elseif data['creditAmount'] %}
                 £203.85
               {% elseif data['debitAmount']%}
                 £{{ (200 - data.debitAmount | float).toFixed(2) }}
-             {% endif %}
+              {% endif %}
             </td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Protected payment</th>
             <td class="govuk-table__cell">
-             {% if data['creditAmount'] and data['debitAmount'] %}
-              £{{ (data.creditAmount | float - 3.85 | float - data.debitAmount | float).toFixed(2) }}
-             {% elseif data['creditAmount'] %}
-              £{{ (data.creditAmount - 3.85 | float).toFixed(2) }}
-             {% elseif data['debitAmount']%}
-              £0.00
-             {% endif %}
+              {% if data['creditAmount'] and data['debitAmount'] %}
+                {% if (data["creditAmount"] | float) > (data["debitAmount"] | float) %}
+                  £{{ (data.creditAmount | float - 3.85 - data.debitAmount | float).toFixed(2) }}
+                {% else %}  
+                  £0.00
+                {% endif %} 
+              {% elseif data['creditAmount'] %}
+                £{{ (data.creditAmount - 3.85 | float).toFixed(2) }}
+              {% elseif data['debitAmount']%}
+                £0.00
+              {% endif %}
             </td>
           </tr>
           <tr class="govuk-table__row">
