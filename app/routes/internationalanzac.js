@@ -228,3 +228,11 @@ router.post('/international-task/anzac-superannuation/winz-received', function (
     res.redirect('dashboard-3')
   }
 })
+
+router.post('/international-task/anzac-superannuation/received-information', function (req, res) {
+  if (req.body['receivedInfo'] === 'yes') {
+    res.redirect('change-award')
+  } else {
+    res.redirect('dashboard-3')
+  }
+})
