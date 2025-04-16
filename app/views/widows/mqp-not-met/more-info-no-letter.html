@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include 'includes/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include 'widows/iteration-2/_bar.html' %}
+
+{{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+  }}
+
+  <br><br>
+  <form method="post">
+
+      <div class="govuk-form-group">
+          <h1 class="govuk-heading-l">Awaiting more information</h1>
+          <br>
+<p>We have sent 2 letters to this claimant asking them to send in more information. You do not need to send another letter.</p>
+<p>This task will be placed on hold for 2 weeks.</p>
+
+      <br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        End task
+      </button>
+      <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+      <span class="govuk-details__summary-text">
+      <b>URL, errors and notes</b>
+      </span>
+      </summary>
+      <div class="govuk-details__text">
+      <p>  <b>URL:</b> /more-information<br></p>
+<p><b>Notes:</b> Dynamic content displayed if 'Request more information' radio is selected two or more times.</p>
+      </div>
+      </details>
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
