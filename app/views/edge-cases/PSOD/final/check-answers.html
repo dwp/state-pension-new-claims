@@ -97,7 +97,7 @@
         3. Confirm award
       </h2>
 
-      <p>A weekly State Pension award of £200.00 will apply from 23 September 2024.</p>
+      <!--<p>A weekly State Pension award of £200.00 will apply from 23 September 2023.</p>-->
       
       <table class="govuk-table">
         <tbody class="govuk-table__body">
@@ -144,7 +144,7 @@
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">From</th>
-            <td class="govuk-table__cell">28 December 2024</td>
+            <td class="govuk-table__cell">{{data['dateOfEffect-day']}} {{data['dateOfEffect-month'] | monthName }} {{data['dateOfEffect-year']}}</td>
           </tr>
         </tbody>
       </table>
