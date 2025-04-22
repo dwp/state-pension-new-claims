@@ -256,6 +256,28 @@
         <div class="dwp-timeline">
           <ol class="dwp-timeline__items">
 
+            {% if data.winz === 'winz' %}
+
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">09 Apr 2025 at 3:21pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+
+            {% enif %}
+
+            {% if data.receivedInfo === 'yes' %}
+
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Apr 2025 at 12:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Information received from WINZ</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+
+            {% enif %}
+
+              
+
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">01 Mar 2025 at 11:42am</p>
                 <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Spain</h2>
@@ -280,11 +302,11 @@
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
 
-            <li class="dwp-timeline__item">
-              <p class="dwp-timeline__datetime">10 Feb 2025 at 12:34pm</p>
-              <h2 class="dwp-timeline__heading">Claim received</h2>
-              <p class="dwp-timeline__by-line">by Online</p>
-            </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">10 Feb 2025 at 12:34pm</p>
+                <h2 class="dwp-timeline__heading">Claim received</h2>
+                <p class="dwp-timeline__by-line">by Online</p>
+              </li>
 
           </ol>
         </div>
