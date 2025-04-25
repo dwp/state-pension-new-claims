@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <br>
+
+    <form method="post">
+
+      <h1 class="govuk-heading-xl">Check ANZaC information</h1>
+        
+      <p>Check the time the claimant lived or worked in Australia, New Zealand and Canada (ANZaC).</p>
+      <p>If the claimant's State Pension amount can be increased, send a CFN1282 letter to the claimant.</p>
+
+      <br><br><br>
+
+      <a href="check-information" button type="submit" class="govuk-button">
+          Start this task
+      </a>
+
+      <a href="get-a-task" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+        Return task to queue
+      </a>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

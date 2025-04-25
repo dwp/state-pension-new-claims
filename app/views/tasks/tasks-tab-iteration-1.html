@@ -3,19 +3,10 @@
 {% block content %}
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
 
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+        {% include './_bar.html' %}
 
-          {% include './_bar-2.html' %}
-
-        {% else %}
-
-          {% include './_bar.html' %}
-
-        {% endif %}
-
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
@@ -46,32 +37,11 @@
           }]
         }) }}
 
-        {% else %}
-
-        {{ xGovukSecondaryNavigation({
-          visuallyHiddenTitle: "Secondary menu",
-          items: [{
-            text: "Personal",
-            href: "record-personal"
-          }, 
-          {
-            text: "Contact",
-            href: "record-contact"
-          }, 
-          {
-            text: "Tasks",
-            href: "record-tasks",
-            current: true
-          }]
-        }) }}
-
-        {% endif %}
-
       </div>
     </div>
 
     <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+      <div class="govuk-grid-column-full">
 
         <br>
 
@@ -93,22 +63,22 @@
               <ul class="dwp-side-navigation__list">
                 <li class="dwp-side-navigation__item">
                   <a id="s-item-1" href="#s-item-1" class="dwp-side-navigation__link">
-                    New Claims
+                    Category 1
                   </a>
                 </li>
                 <li class="dwp-side-navigation__item">
                   <a id="s-item-2" href="#s-item-2" class="dwp-side-navigation__link">
-                    Award changes
+                    Category 2
                   </a>
                 </li>
                 <li class="dwp-side-navigation__item">
                   <a id="s-item-3" href="#s-item-3" class="dwp-side-navigation__link">
-                    Bereavement
+                    Category 3 
                   </a>
                 </li>
                 <li class="dwp-side-navigation__item">
                   <a id="s-item-4" href="#s-item-4" class="dwp-side-navigation__link">
-                    International
+                    Category 4
                   </a>
                 </li>
               </ul>
@@ -117,24 +87,75 @@
 
           <div class="govuk-grid-column-three-quarters">
 
-            {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+            <h3 class="govuk-heading-s">Task 1</h3>
 
-            {% else %}
+            {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
 
-            <table class="govuk-table">
-              <tbody class="govuk-table__body">
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell govuk-!-width-three-quarters"></td>
-                  <td class="govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter"><a href="#"></a></td>
-                </tr>
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell govuk-!-width-three-quarters">COEG investigation task</td>
-                  <td class="govuk-table__cell govuk-table__cell--numeric govuk-!-width-one-quarter"><a class="govuk-body govuk-link--no-visited-state" href="check-nirs-2">View</a></td>
-                </tr>
-              </tbody>
-            </table>
+            {{ govukTaskList({
+              idPrefix: "new-claims",
+              items: [
+                {
+                  title: {
+                    text: "Step 1"
+                  },
+                  href: "#",
+                  status: {
+                    text: "Completed"
+                  }
+                },
+                {
+                  title: {
+                    text: "Step 2"
+                  },
+                  href: "#",
+                  status: {
+                    tag: {
+                      text: "In progress",
+                      classes: "govuk-tag--light-blue"
+                    }
+                  }
+                },
+                {
+                  title: {
+                    text: "Step 3"
+                  },
+                  hint: {
+                    text: "All of the steps above need to be completed before starting this step"
+                  },
+                  href: "#",
+                  status: {
+                    tag: {
+                      text: "Cannot start",
+                      classes: "govuk-tag--orange"
+                    }
+                  }
+                }
+              ]
+            }) }}
 
-            {% endif %}
+            <br><br>
+
+            <h3 class="govuk-heading-s">Task 2</h3>
+
+            {% from "govuk/components/task-list/macro.njk" import govukTaskList %}
+
+            {{ govukTaskList({
+              idPrefix: "new-claims",
+              items: [
+                {
+                  title: {
+                    text: "Step 1"
+                  },
+                  href: "#",
+                  status: {
+                    tag: {
+                    text: "In progress",
+                    classes: "govuk-tag--light-blue"
+                    }
+                  }
+                }
+              ]
+            }) }}
 
           </div>
         </div>
