@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="upload">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">Change award</h1>
+
+      <br>
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell" scope="row">State Pension date</th>
+            <td class="govuk-table__cell">30 June 2024</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__cell" scope="row">Uprating year for calculation</th>
+            <td class="govuk-table__cell">2024</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header award_detail2" scope="col">Total</th>
+            <th class="govuk-table__header award_detail" scope="col">
+              {% if data.nsp and data.protectedPayment %}  
+                £{{ data.nsp | float + data.protectedPayment | float }} per week
+              {% elseif data.nsp %}
+                £{{data.nsp}} per week
+              {% else %}
+                £156.78 per week
+              {% endif %}	</th>
+            <td class="govuk-table__cell award_detail">
+            </td>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">New State Pension</td>
+            <td class="govuk-table__cell">{% if data.nsp %}
+              £{{data.nsp}}
+              {% else %}
+              £156.78
+              {% endif %}</td>
+            <td class="govuk-table__cell">
+              <a href="enter-nsp" class="govuk-link--no-visited-state">
+                Change<span class="govuk-visually-hidden">Change New State Pension</span>
+              </a></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">Protected payment</td>
+            <td class="govuk-table__cell">{% if data.protectedPayment %}
+              £{{data.protectedPayment}}
+              {% else %}
+              £0.00
+              {% endif %}</td>
+            <td class="govuk-table__cell">
+              <a href="enter-pp" class="govuk-link--no-visited-state">
+                Change<span class="govuk-visually-hidden">Change Protected Payment</span>
+              </a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br><br>   
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+      </div>
+
+      <br>
+
+      <p><a href="postpone" class="govuk-link govuk-link--no-visited-state">Postpone task</a></p>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="dashboard-2">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">Confirm change to award</h2>
+
+      <p>The updated award includes any upratings, SRBs, ESPs and inheritance.
+        <br>It may be different to the amount you previously input.</br> 
+      </p>
+
+      <br><br>
+
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Updated award</th>
+            <td class="govuk-table__cell"><b>
+              {% if data.nsp and data.protectedPayment %}  
+                £{{ data.nsp | float + data.protectedPayment | float }} per week
+              {% elseif  data.nsp %}
+                £{{data.nsp}}
+              {% else %}
+                £156.78
+              {% endif %}	</th></b>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">From</th>
+            <td class="govuk-table__cell">13 September 2022</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div class="govuk-inset-text">
+      This will automatically pay any arrears and send an award letter to the claimant. 
+      </div>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button" href="/international-record/anzac-iteration-2/lived-worked-details-cfn1282-returned">
+        Confirm and send letter
+      </button>
+
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

@@ -236,3 +236,79 @@ router.post('/international-task/anzac-superannuation/received-information', fun
     res.redirect('dashboard-3')
   }
 })
+
+// Frozen rate
+
+router.post('/international-task/anzac-frozen-rate/check-information', function (req, res) {
+  if (req.body['spAmount'] === 'yes') {
+    res.redirect('post-cfn1282')
+  } else {
+    res.redirect('cannot-increase')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/returned-cfn1282', function (req, res) {
+  if (req.body['cfn1282-returned'] === 'yes') {
+    res.redirect('nzsa-question')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/nzsa-question', function (req, res) {
+  if (req.body['nzBenefit'] === 'yes') {
+    res.redirect('check-time')
+  } else {
+    res.redirect('need-rf1')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/check-time', function (req, res) {
+  if (req.body['winz'] === 'winz') {
+    res.redirect('winz-request')
+  } else {
+    res.redirect('need-rf1')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/need-rf1', function (req, res) {
+  if (req.body['needRf1'] === 'yes') {
+    res.redirect('rf1-send')
+  } else {
+    res.redirect('award-question')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/award-question', function (req, res) {
+  if (req.body['change-award'] === 'yes') {
+    res.redirect('change-award')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/rf1-send', function (req, res) {
+  if (req.body.rf1 === 'request') {
+    res.redirect('rf1-hmrc')
+  } else if (req.body.rf1 === 'received') {
+    res.redirect('award-question')
+  } else {
+    res.redirect('dashboard-2')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/winz-received', function (req, res) {
+  if (req.body['winzReceived'] === 'yes') {
+    res.redirect('upload')
+  } else {
+    res.redirect('dashboard-3')
+  }
+})
+
+router.post('/international-task/anzac-frozen-rate/received-information', function (req, res) {
+  if (req.body['receivedInfo'] === 'yes') {
+    res.redirect('change-award')
+  } else {
+    res.redirect('dashboard-3')
+  }
+})
