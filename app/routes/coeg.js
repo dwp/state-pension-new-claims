@@ -25,7 +25,7 @@ router.post('/coeg/hmrc-question-2', function (req, res) {
   if (req.body['hmrcQuestion2'] === 'yes') {
     res.redirect('award-calculated')
   } else {
-    res.redirect('dashboard-2')
+    res.redirect('do-not-send-2')
   }
 })
 
