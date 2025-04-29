@@ -1,6 +1,9 @@
 {% extends "govuk-prototype-kit/layouts/govuk-branded.njk" %}
 
 {% block header %}
+
+{% include "includes/remove-govuk-logo.html" %}
+
   {{ 
       govukHeader({
           homepageUrl: "/",
@@ -31,4 +34,5 @@
         ]
       })
 }}
+
 {% endblock %} 
