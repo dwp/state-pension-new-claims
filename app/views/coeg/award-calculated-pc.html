@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-<form method="post" action="dashboard-2">
+<form method="post" action="br403-part-a">
 
   {% include './_bar.html' %}
 
@@ -40,14 +40,14 @@
   <br>
 
   <div class="govuk-inset-text">
-    This will automatically pay any arrears and send an award letter to the claimant.
-  </div>  
-  
-   <br><br><br>
+    <p>This claimant gets Pension Credit. Further action needed before we can award State Pension.</p>
+  </div>
 
-    <button class="govuk-button" data-module="govuk-button">
-      End task
-    </button>
+  <br><br><br>
+
+  {{ govukButton({
+    text: "Confirm and continue"
+  }) }}
 
    <br><br><br><br><br>
 
@@ -75,9 +75,6 @@
           </li>
           <li>
             <a class="govuk-link" href="award-calculated-csp">Carer Support payment</a>
-          </li>
-          <li>
-            <a class="govuk-link" href="award-calculated-pc">Pension credit</a>
           </li>
           <li>
             <a class="govuk-link" href="award-calculated-wp">War pension</a>
