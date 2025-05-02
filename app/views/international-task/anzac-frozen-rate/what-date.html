@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="change-award">
+    <form method="post" action="what-date-routing">
 
       {% include './_bar.html' %}
 
@@ -17,38 +17,41 @@
       <br><br>
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="whenReturned-hint">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="whatDate-hint">
+
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
             <h1 class="govuk-fieldset__heading">
-              When did the claimant return to the UK?
+              What date did the claimant return to the UK?
             </h1>
           </legend>
-          <div id="whenReturned-hint" class="govuk-hint">
-            You can find this information on the CFN1282
+
+          <div id="whatDate-hint" class="govuk-hint">
+            You can find this on their CFN1282.
           </div>
-          <div class="govuk-date-input" id="whenReturned">
+
+          <div class="govuk-date-input" id="whatDate">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="whenReturned-day">
+                <label class="govuk-label govuk-date-input__label" for="whatDate-day">
                   Day
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="whenReturned-day" name="whenReturned-day" type="text" inputmode="numeric">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="whatDate-day" name="whatDate-day" type="text" inputmode="numeric">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="whenReturned-month">
+                <label class="govuk-label govuk-date-input__label" for="whatDate-month">
                   Month
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="whenReturned-month" name="whenReturned-month" type="text" inputmode="numeric">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="whatDate-month" name="whatDate-month" type="text" inputmode="numeric">
               </div>
             </div>
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="whenReturned-year">
+                <label class="govuk-label govuk-date-input__label" for="whatDate-year">
                   Year
                 </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="whenReturned-year" name="whenReturned-year" type="text" inputmode="numeric">
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="whatDate-year" name="whatDate-year" type="text" inputmode="numeric">
               </div>
             </div>
           </div>
@@ -58,7 +61,7 @@
       <br><br><br>
 
       <button class="govuk-button" data-module="govuk-button">
-        Confirm
+        Continue
       </button>
 
       <br><br><br>
@@ -70,14 +73,10 @@
       <details class="govuk-details" data-module="govuk-details">
         <summary class="govuk-details__summary">
           <span class="govuk-details__summary-text">
-          <b>URL, errors and notes</b>
+          <b>Notes</b>
           </span>
         </summary>
         <div class="govuk-details__text">
-          <b>URL:</b> <br>
-          <b>Error messages:</b> <br>
-          Less than current amount: Protected payment amount must be £8.50 or more [current amount + £0.01]<br>
-          Nothing selected: <br>
           <b>Notes:</b> None <br>
         </div>
       </details>

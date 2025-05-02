@@ -249,10 +249,14 @@ router.post('/international-task/anzac-frozen-rate/check-information', function 
 
 router.post('/international-task/anzac-frozen-rate/returned-cfn1282', function (req, res) {
   if (req.body['cfn1282-returned'] === 'yes') {
-    res.redirect('nzsa-question')
+    res.redirect('what-date')
   } else {
     res.redirect('dashboard-2')
   }
+})
+
+router.post('/international-task/anzac-frozen-rate/what-date-routing', function (req, res) {
+  res.redirect('need-rf1')
 })
 
 router.post('/international-task/anzac-frozen-rate/nzsa-question', function (req, res) {
