@@ -24,12 +24,14 @@
       <table class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th class="govuk-table__cell" scope="row">State Pension date</th>
-            <td class="govuk-table__cell">30 June 2024</td>
+            <th class="govuk-table__cell govuk-!-width-one-half" scope="row">State Pension date</th>
+            <td class="govuk-table__cell govuk-!-width-one-third">30 June 2024</td>
+            <td class="govuk-table__cell"></td>
           </tr>
           <tr class="govuk-table__row">
             <th class="govuk-table__cell" scope="row">Uprating year for calculation</th>
             <td class="govuk-table__cell">2024</td>
+            <td class="govuk-table__cell"></td>
           </tr>
         </tbody>
       </table>
@@ -39,15 +41,18 @@
       <table class="govuk-table">
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th class="govuk-table__header award_detail2" scope="col">Total</th>
-            <th class="govuk-table__header award_detail" scope="col">
+            <th class="govuk-table__header award_detail2 govuk-!-width-one-half" scope="col">
+              Total
+            </th>
+            <th class="govuk-table__header award_detail govuk-!-width-one-third" scope="col">
               {% if data.nsp and data.protectedPayment %}  
                 £{{ data.nsp | float + data.protectedPayment | float }} per week
               {% elseif data.nsp %}
                 £{{data.nsp}} per week
               {% else %}
                 £156.78 per week
-              {% endif %}	</th>
+              {% endif %}	
+            </th>
             <td class="govuk-table__cell award_detail">
             </td>
           </tr>
@@ -60,7 +65,7 @@
               {% else %}
               £156.78
               {% endif %}</td>
-            <td class="govuk-table__cell">
+            <td class="govuk-table__cell govuk-table__cell--numeric">
               <a href="enter-nsp" class="govuk-link--no-visited-state">
                 Change<span class="govuk-visually-hidden">Change New State Pension</span>
               </a></td>
@@ -72,7 +77,7 @@
               {% else %}
               £0.00
               {% endif %}</td>
-            <td class="govuk-table__cell">
+            <td class="govuk-table__cell govuk-table__cell--numeric">
               <a href="enter-pp" class="govuk-link--no-visited-state">
                 Change<span class="govuk-visually-hidden">Change Protected Payment</span>
               </a></td>
