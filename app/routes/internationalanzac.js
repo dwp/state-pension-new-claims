@@ -237,6 +237,14 @@ router.post('/international-task/anzac-superannuation/received-information', fun
   }
 })
 
+router.post('/international-task/anzac-superannuation/received-information-2', function (req, res) {
+  if (req.body['receivedInfo'] === 'yes') {
+    res.redirect('change-award')
+  } else {
+    res.redirect('winz-request-2')
+  }
+})
+
 // Frozen rate
 
 router.post('/international-task/anzac-frozen-rate/check-information', function (req, res) {
