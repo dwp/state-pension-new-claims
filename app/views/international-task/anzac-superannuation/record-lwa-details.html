@@ -264,10 +264,30 @@
               </li>
             {% endif %}
 
+            {% if data.receivedInfo2 === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">5 May 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZAC: Urgent email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data.receivedInfo2 === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">5 May 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Information received from WINZ</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
             {% if data.receivedInfo === 'yes' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">14 Apr 2025 at 2:47pm</p>
                 <h2 class="dwp-timeline__heading">ANZaC: Information received from WINZ</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data.receivedInfo === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Apr 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZAC: Urgent email sent to WINZ liaison</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% endif %}
