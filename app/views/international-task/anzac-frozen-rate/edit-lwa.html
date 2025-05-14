@@ -1,0 +1,222 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post"></form>
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">New Zealand</h1>
+
+      <br>
+
+      <div class="govuk-form-group">
+        <h2 class="govuk-heading-m">
+          What dates did the claimant live there?
+        </h2>
+      
+        <p style="margin-bottom: 1%"><b>From</b></p>
+        <div class="govuk-date-input" id="dob">
+
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month"
+                name="dob-month3" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year3"
+                type="text" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <p style="margin-bottom: 1%"><b>To</b></p>
+        <div class="govuk-date-input" id="dob">
+
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+      
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month"
+                name="dob-month4" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year4"
+                type="text" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+        <br>
+      
+      </div>
+      
+      
+      <br><br><br>
+      
+      
+      <div class="govuk-form-group">
+        <h2 class="govuk-heading-m">
+          What dates did the claimant work there?
+        </h2>
+      
+        <p style="margin-bottom: 1%"><b>From</b></p>
+        <div class="govuk-date-input" id="dob">
+
+        <div class="govuk-date-input" id="passport-issued">
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month"
+                name="dob-month3" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year3"
+                type="text" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+
+        <br><br>
+
+        <p style="margin-bottom: 1%"><b>To</b></p>
+        <div class="govuk-date-input" id="dob">
+
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                Day
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+            </div>
+          </div>
+      
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-month">
+                Month
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month"
+                name="dob-month4" type="text" autocomplete="bday-month" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="govuk-date-input__item">
+            <div class="govuk-form-group">
+              <label class="govuk-label govuk-date-input__label" for="dob-year">
+                Year
+              </label>
+              <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year4"
+                type="text" autocomplete="bday-year" pattern="[0-9]*" inputmode="numeric">
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <br><br><br>
+
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="event-name">
+            Social Security or National Insurance number
+          </label>
+        </h2>
+        <input class="govuk-input govuk-!-width-one-half" id="ssn" name="ssn" type="text">
+      </div>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm
+      </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}
