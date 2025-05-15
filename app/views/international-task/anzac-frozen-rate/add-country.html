@@ -1,0 +1,280 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<main class="govuk-main-wrapper " id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+        <form method="post">
+
+<div class="govuk-form-group">
+  <h1 class="govuk-label-wrapper">
+    <label class="govuk-label govuk-label--l" for="country">
+      Add a country
+    </label>
+  </h1>
+  <select class="govuk-select" id="country" name="country"
+    data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+    <option value="" selected disabled>Select an option</option>
+    <option value="Australia">Australia</option>
+    <option value="Canada">Canada</option>
+    <option value="New Zealand">New Zealand</option>
+  </select>
+</div>
+
+<br>
+
+<h2 class="govuk-heading-m">
+  What dates did the claimant live there?
+</h2>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="livedFrom-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        From
+      </h1>
+    </legend>
+    <div class="govuk-date-input" id="livedFrom">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="livedFrom-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedFrom-day" name="livedFrom-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="livedFrom-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedFrom-month" name="livedFrom-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="livedFrom-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="livedFrom-year" name="livedTo-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="livedTo-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        To
+      </h1>
+    </legend>
+    <div class="govuk-date-input" id="livedTo">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="livedTo-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedTo-day" name="livedTo-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="livedTo-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedTo-month" name="livedTo-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="livedTo-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="livedTo-year" name="livedTo-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<br><br>
+
+<h2 class="govuk-heading-m">
+  What dates did the claimant work there?
+</h2>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="workedFrom-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        From
+      </h1>
+    </legend>
+    <div class="govuk-date-input" id="workedFrom">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="workedFrom-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedFrom-day" name="workedFrom-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="workedFrom-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedFrom-month" name="workedFrom-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="workedFrom-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="workedFrom-year" name="workedFrom-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" role="group" aria-describedby="workedTo-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+      <h1 class="govuk-fieldset__heading">
+        To
+      </h1>
+    </legend>
+    <div class="govuk-date-input" id="workedTo">
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="workedTo-day">
+            Day
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedTo-day" name="workedTo-day" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="workedTo-month">
+            Month
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedTo-month" name="workedTo-month" type="text" inputmode="numeric">
+        </div>
+      </div>
+      <div class="govuk-date-input__item">
+        <div class="govuk-form-group">
+          <label class="govuk-label govuk-date-input__label" for="workedTo-year">
+            Year
+          </label>
+          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="workedTo-year" name="workedTo-year" type="text" inputmode="numeric">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<br><br>
+
+
+          <div class="govuk-form-group">
+            <h1 class="govuk-label-wrapper">
+              <label class="govuk-label govuk-label--m" for="event-name">
+                Social Security or National Insurance number
+              </label>
+            </h1>
+            <input class="govuk-input govuk-!-width-one-half" id="event-name" name="eventName" type="text">
+          </div>
+
+<br><br><br>
+
+
+      <button type="submit" class="govuk-button">
+        Continue
+      </button>
+
+      <br>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <b>URL: <br><br>
+            Error messages:<br><br>
+
+            <br>
+
+              Country</b><br>
+                Empty: Enter the country they lived or worked in<br><br>
+
+                <b>All dates empty:</b> Enter either the dates they lived or worked there<br>[Highlight all date fields]<br><br>
+
+<b>Dates they lived there</b><br>
+If any worked date entered and both lived dates are empty then ignore lived section.<br><br>
+
+            <b>  From</b><br>
+                Empty but 'to' date complete: Enter the date they lived there from<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Future: The date they lived there from must be in the past <br><br>
+
+          <b>To</b><br>
+                Empty but 'from' date complete: Enter the date they lived there to<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Sequence: The 'to' date must be after the 'from' date<br>
+                Future: The date they lived there to must be in the past
+
+                <br><br>
+
+                <b>Dates they worked there</b><br>
+                If any lived dated entered and both worked dates are empty then ignore worked section.<br><br>
+
+                                    <b>  From</b><br>
+                                        Empty but 'to' date complete: Enter the date they worked there from<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Future: The date they worked there from must be in the past <br><br>
+
+                                  <b>To</b><br>
+                                        Empty but 'from' date complete: Enter the date they worked there to<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Sequence: The 'to' date must be after the 'from' date<br>
+                                        Future: The date they worked there to must be in the past <br><br>
+
+                                  <b>Social Security or National Insurance number</b><br>
+                                    Length: Social Security or National Insurance number must have 24 characters or less<br>
+                                    Format: Enter a real Social Security or National Insurance number<br>
+
+
+          </div>
+          </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}
