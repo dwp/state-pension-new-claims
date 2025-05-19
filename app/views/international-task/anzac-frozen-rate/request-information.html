@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="confirm-change">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">Print and post the GSL form</h1>
+      <span class="govuk-caption-m">Post the form to this address with a reply envelope.</span>
+
+      <div class="govuk-inset-text">
+        1 Park Lane<br>
+        LEEDS<br>
+        LS3 1EP
+      </div>
+
+      <br><br><br>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm form sent
+      </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}
