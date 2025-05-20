@@ -17,7 +17,7 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-l">Review claimant information and enter date</h1>
+      <h1 class="govuk-heading-l">Claimant's confirmed lived or worked abroad details</h1>
 
       <br><br>
 
@@ -105,30 +105,69 @@
       
       <br><br><br>
 
-      <h2 class="govuk-heading-m">Do you have  all the information you need to decide what date you can apply the increase from?</h2>
-
-      <br>
-
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" aria-describedby="calculateDate-hint">
-          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="calculateDate" name="calculateDate" type="radio" value="yes">
-              <label class="govuk-label govuk-radios__label" for="calculateDate">
-                Yes
-              </label>
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              What date did the claimant return to the UK?
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            You can find this on their CFN1282.
+          </div>
+          <div class="govuk-date-input" id="passport-issued">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
+              </div>
             </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="calculateDate-2" name="calculateDate" type="radio" value="no">
-              <label class="govuk-label govuk-radios__label" for="calculateDate-2">
-                No
-              </label>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
+              </div>
             </div>
           </div>
         </fieldset>
-      </div>
 
-      <br>
+        <br><br><br>
+
+        <h2 class="govuk-heading-m">Do you have  all the information you need to decide what date you can apply the increase from?</h2>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="calculateDate-hint">
+            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="calculateDate" name="calculateDate" type="radio" value="yes">
+                <label class="govuk-label govuk-radios__label" for="calculateDate">
+                  Yes
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="calculateDate-2" name="calculateDate" type="radio" value="no">
+                <label class="govuk-label govuk-radios__label" for="calculateDate-2">
+                  No
+                </label>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+        <br><br><br>
+
       <button class="govuk-button" data-module="govuk-button">
         Continue
       </button>
