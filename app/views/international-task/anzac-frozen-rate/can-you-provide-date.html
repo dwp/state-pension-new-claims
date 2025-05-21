@@ -17,7 +17,7 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-l">Claimant's confirmed lived or worked abroad details</h1>
+      <h1 class="govuk-heading-l">Review claimant's confirmed lived or worked abroad details</h1>
 
       <br><br>
 
@@ -35,11 +35,11 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Lived</th>
-            <td class="govuk-table__cell">Jun 1992 to Dec 2006</td>
+            <td class="govuk-table__cell">1 Jun 1992 to 31 Dec 2006</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Worked</th>
-            <td class="govuk-table__cell">Jun 1992 to Nov 2006</td>
+            <td class="govuk-table__cell">1 Jun 1992 to 30 Nov 2006</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Social security number</th>
@@ -60,11 +60,11 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Lived</th>
-            <td class="govuk-table__cell">Mar 2010 to Feb 2023</td>
+            <td class="govuk-table__cell">1 Mar 2010 to 28 Feb 2023</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Worked</th>
-            <td class="govuk-table__cell">Apr 2010 to Feb 2023</td>
+            <td class="govuk-table__cell">1 Apr 2010 to 28 Feb 2023</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Social security number</th>
@@ -89,11 +89,11 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Lived</th>
-            <td class="govuk-table__cell">Jun 1988 to Dec 1991</td>
+            <td class="govuk-table__cell">1 Jun 1988 to 31 Dec 1991</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Worked</th>
-            <td class="govuk-table__cell">Jun 1988 to Dec 1991</td>
+            <td class="govuk-table__cell">1 Jun 1988 to 31 Dec 1991</td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Social security number</th>
@@ -102,71 +102,37 @@
         </tbody>
         
       </table>
-      
-      <br><br><br>
+
+      <br>
+
+      <div class="govuk-inset-text">
+        The claimant returned to the UK on 21 February, 2023.
+      </div>
+
+      <br>
+
+      <h2 class="govuk-heading-m">Do you have  all the information you need to decide what date you can apply the increase from?</h2>
 
       <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="passport-issued-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">
-              What date did the claimant return to the UK?
-            </h1>
-          </legend>
-          <div id="passport-issued-hint" class="govuk-hint">
-            You can find this on their CFN1282.
-          </div>
-          <div class="govuk-date-input" id="passport-issued">
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-day">
-                  Day
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-day" name="passport-issued-day" type="text" inputmode="numeric">
-              </div>
+        <fieldset class="govuk-fieldset" aria-describedby="calculateDate-hint">
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="calculateDate" name="calculateDate" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="calculateDate">
+                Yes
+              </label>
             </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-month">
-                  Month
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="passport-issued-month" name="passport-issued-month" type="text" inputmode="numeric">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="passport-issued-year">
-                  Year
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="passport-issued-year" name="passport-issued-year" type="text" inputmode="numeric">
-              </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="calculateDate-2" name="calculateDate" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="calculateDate-2">
+                No
+              </label>
             </div>
           </div>
         </fieldset>
+      </div>
 
-        <br><br><br>
-
-        <h2 class="govuk-heading-m">Do you have  all the information you need to decide what date you can apply the increase from?</h2>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" aria-describedby="calculateDate-hint">
-            <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="calculateDate" name="calculateDate" type="radio" value="yes">
-                <label class="govuk-label govuk-radios__label" for="calculateDate">
-                  Yes
-                </label>
-              </div>
-              <div class="govuk-radios__item">
-                <input class="govuk-radios__input" id="calculateDate-2" name="calculateDate" type="radio" value="no">
-                <label class="govuk-label govuk-radios__label" for="calculateDate-2">
-                  No
-                </label>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
-        <br><br><br>
+      <br><br><br>
 
       <button class="govuk-button" data-module="govuk-button">
         Continue
