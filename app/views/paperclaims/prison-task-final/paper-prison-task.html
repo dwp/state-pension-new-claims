@@ -20,11 +20,19 @@ GOV.UK Prototype Kit
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-              {% include './_bar.html' %}
+        {% include './_bar.html' %}
 
-        <form method="post" action="award-calculated">
+        {{ govukBackLink({
+            "text": "Back",
+            "href": "javascript: window.history.go(-1)"
+          })
+        }}
 
-          <h1 class="govuk-heading-xl">Request prison dates</h1>
+        <br><br><br>
+
+        <form method="post">
+
+          <h1 class="govuk-heading-xl">Contact the claimant and find out the missing information</h1>
 
           <h2 class="govuk-heading-l">1. Phone the claimant</h2>
 
@@ -84,132 +92,74 @@ GOV.UK Prototype Kit
 
           <br><br>
 
-        <h3 class="govuk-heading-l">3. Ask these questions</h3>
+          <h3 class="govuk-heading-l">3. Ask the claimant if they were found guilty of a criminal offence</h3>
 
-        <br>
+          <br>
 
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="prison-entered-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h3 class="govuk-fieldset__heading">
-                When did you go into prison?
-              </h3>
-            </legend>
-            <div id="prison-entered-hint" class="govuk-hint">
-              For example, 27 3 2007
-            </div>
-            <div class="govuk-date-input" id="prison-entered">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="prison-entered-day">
-                    Day
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                <h2 class="govuk-fieldset__heading">
+                  How did they answer?
+                </h2>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="needDates" name="needDates" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="needDates">
+                    Yes, they were found guilty of a criminal offence
                   </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-day" name="prison-entered-day" type="text" inputmode="numeric">
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="needDates-2" name="needDates" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="needDates-2">
+                    No, they were not found guilty of a criminal offence
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="needDates-3" name="needDates" type="radio" value="cannot">
+                  <label class="govuk-label govuk-radios__label" for="needDates-3">
+                    Cannot get information
+                  </label>
                 </div>
               </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="prison-entered-month">
-                    Month
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-entered-month" name="prison-entered-month" type="text" inputmode="numeric">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="prison-entered-year">
-                    Year
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="prison-entered-year" name="prison-entered-year" type="text" inputmode="numeric">
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
-        <br><br>
-
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="prison-left-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h3 class="govuk-fieldset__heading">
-                When did you leave prison?
-              </h3>
-            </legend>
-            <div id="prison-entered-hint" class="govuk-hint">
-              For example, 27 3 2007
-            </div>
-            <div class="govuk-date-input" id="prison-left">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="prison-left-day">
-                    Day
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-left-day" name="prison-left-day" type="text" inputmode="numeric">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="prison-left-month">
-                    Month
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="prison-left-month" name="prison-left-month" type="text" inputmode="numeric">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="prison-left-year">
-                    Year
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="prison-left-year" name="prison-left-year" type="text" inputmode="numeric">
-                </div>
-              </div>
-            </div>
-          </fieldset>
-        </div>
-
-
-              </div>
-
-
-
+            </fieldset>
           </div>
-<br><br><br>
 
-<div class="govuk-button-group">
-  <button class="govuk-button" data-module="govuk-button">
-  Confirm
-  </button>
-  <a href="could-not-get" button type="submit" class="govuk-button govuk-button--secondary">Cannot get dates</a>
-</div>
+          <br><br><br>
 
-<br><br><br>
+          <div class="govuk-button-group">
+            <button class="govuk-button" data-module="govuk-button">
+            Confirm
+            </button>
+          </div>
 
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
 
 
-    <details class="govuk-details" data-module="govuk-details">
-      <summary class="govuk-details__summary">
-        <span class="govuk-details__summary-text">
-        <b>URL, errors and notes</b>
-        </span>
-      </summary>
-      <div class="govuk-details__text">
-        <b>URL:</b> /ask-prison-dates <br>
-        <b>Error messages:<br><br>
-          Go into prison</b><br>
-          Nothing entered: Enter the date the claimant went into prison<br>
-          Invalid: Enter a real date, like 12 4 1993<br>
-        Today or future: Date the claimant went into prison must be in the past<br><br>
-        <b>
-          Go into prison</b><br>
-          Nothing entered: Enter the date the claimant left prison<br>
-          Invalid: Enter a real date, like 12 4 1993<br>
-        Before date went into prison: Date the claimant left prison must be after 22 4 2022 [date went in +1]<br>
-        Future: Date the claimant left prison must be today or in the past<br>
-        <b>Notes:</b> None <br>
-      </div>
-    </details>
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+              <b>URL, errors and notes</b>
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              <b>URL:</b> /ask-prison-dates <br>
+              <b>Error messages:<br><br>
+                Go into prison</b><br>
+                Nothing entered: Enter the date the claimant went into prison<br>
+                Invalid: Enter a real date, like 12 4 1993<br>
+              Today or future: Date the claimant went into prison must be in the past<br><br>
+              <b>
+                Go into prison</b><br>
+                Nothing entered: Enter the date the claimant left prison<br>
+                Invalid: Enter a real date, like 12 4 1993<br>
+              Before date went into prison: Date the claimant left prison must be after 22 4 2022 [date went in +1]<br>
+              Future: Date the claimant left prison must be today or in the past<br>
+              <b>Notes:</b> None <br>
+            </div>
+          </details>
 
         </div>
 
@@ -219,14 +169,5 @@ GOV.UK Prototype Kit
 
     </div>
 
-
-      {% endblock %}
-
-      {% block content %}
-      <div class="govuk-grid-row">
-        <div class="govuk-grid-column-two-thirds">
-
-        </div>
-      </div>
 
       {% endblock %}

@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="check-answers-1a">
+<form class="form" method="post">
 
   {% include './_bar.html' %}
 
@@ -17,12 +17,12 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-xl">
+      <h2 class="govuk-heading-xl">
         Claimant options amounts
-      </h1>
-
+      </h2>
+      
       <h2 class="govuk-heading-l">
-        Lump sum payment
+        Lump sum payment option
       </h2>
 
       <br>
@@ -49,54 +49,37 @@
 
       <br>
 
-      {% set yesHtml %}
-        {{ govukInput({
-          id: "preAmount",
-          name: "preAmount",
-          label: {
-            text: "Pre-2005 extra State Pension amount in pounds",
-            classes: "govuk-label--m",
-            isPageHeading: false
-          },
-          prefix: {
-            text: "£"
-          },
-          classes: "govuk-input--width-5",
-          hint: {
-            text: "For example 123.40"
-          },
-          spellcheck: false
-        }) }}
-      {% endset -%}
-
-      {{ govukRadios({
-        name: "pre2005",
-        fieldset: {
-          legend: {
-            text: "Is there any pre-2005 extra State Pension?",
-            isPageHeading: false,
-            classes: "govuk-fieldset__legend--m"
-          }
-        },
-        items: [
-          {
-            value: "no",
-            text: "No"
-          },
-          {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: yesHtml
-            }
-          }
-        ]
-      }) }}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="pre2005eSP-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h3 class="govuk-fieldset__heading">
+              Is there any pre-2005 extra State Pension?
+            </h3>
+          </legend>
+          <!--<div id="pre2005eSP-hint" class="govuk-hint">
+            This includes changing your last name or spelling your name differently
+          </div>-->
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pre2005eSP" name="pre2005eSP" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="pre2005eSP">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pre2005eSP-2" name="pre2005eSP" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="pre2005eSP-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
       <br><br>
 
       <h2 class="govuk-heading-l">
-        Inherited extra State Pension
+        Inherited extra State Pension (full period) option
       </h2>
 
       <br>
@@ -104,7 +87,7 @@
       <div class="govuk-form-group">
         <h2 class="govuk-label-wrapper">
           <label class="govuk-label govuk-label--m" for="cost">
-            Extra State Pension in pounds
+            Extra State Pension Basic State Pension in pounds
           </label>
         </h2>
         <div id="account-number-hint" class="govuk-hint">
@@ -147,6 +130,23 @@
         <div class="govuk-input__wrapper">
           <div class="govuk-input__prefix" aria-hidden="true">£</div>
           <input class="govuk-input govuk-input--width-5" id="grbAmount" name="grbAmount" type="text" spellcheck="false">
+        </div>
+      </div>
+
+      <br>
+
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Extra State Pension State Pension Top Up in pounds
+          </label>
+        </h2>
+        <div id="account-number-hint" class="govuk-hint">
+          For example 123.40
+        </div>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="topUp" name="topUp" type="text" spellcheck="false">
         </div>
       </div>
         

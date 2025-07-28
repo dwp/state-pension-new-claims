@@ -1,0 +1,360 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      {% if data.receivedGsl === 'yes' %}
+        <h1 class="govuk-heading-l">Date to apply change to award from</h1>
+
+        <h2 class="govuk-heading-m">ANZaC</h2>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+        {% if data['addCountry'] == "Australia" %}
+
+          <div style="display:inline-block;width:103%;">
+            <h2 class="govuk-heading-m" style="float:left;">Australia</h2>
+          </div>
+
+          <table class="govuk-table">
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                  {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+                </td>
+              </tr>
+              {% if data['workedFrom-day'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Worked</th>
+                  <td class="govuk-table__cell">
+                      {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+            
+          </table>
+
+          <br><br>
+
+        {% elseif data['removeAu'] == "yes" %}
+
+        {% elseif data['AUlivedFrom-day'] or data['AUlivedFrom-month'] or data['AUlivedFrom-year'] %}
+
+          <div style="display:inline-block;width:103%;">
+            <h2 class="govuk-heading-m" style="float:left;">Australia</h2>
+          </div>
+
+          <table class="govuk-table">
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                    {{data['AUlivedFrom-day']}} {{data['AUlivedFrom-month'] | monthName}} {{data['AUlivedFrom-year']}} to {{data['AUlivedTo-day']}} {{data['AUlivedTo-month'] | monthName}} {{data['AUlivedTo-year']}}
+                </td>
+              </tr>
+              {% if data['AUworkedFrom-day'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Worked</th>
+                  <td class="govuk-table__cell">
+                      {{data['AUworkedFrom-day']}} {{data['AUworkedFrom-month'] | monthName}} {{data['AUworkedFrom-year']}} to {{data['AUworkedTo-day']}} {{data['AUworkedTo-month'] | monthName}} {{data['AUworkedTo-year']}}
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+            
+          </table>
+
+          <br><br>
+
+        {% else %}
+
+          <div style="display:inline-block;width:103%;">
+            <h2 class="govuk-heading-m" style="float:left;">Australia</h2>
+          </div>
+
+          <table class="govuk-table">
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                  1 January 1990 to 31 December 1995
+                </td>
+              </tr>
+            </tbody>
+            
+          </table>
+
+          <br><br>
+
+        {% endif %}
+
+        {% if data['removeCa'] == "yes" %}
+
+        {% elseif data['addCountry'] == "Canada" %}
+
+          <div style="display:inline-block;width:103%;">
+            <h2 class="govuk-heading-m" style="float:left;">Canada</h2>
+          </div>
+
+          <table class="govuk-table">
+
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                  {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+                </td>
+              </tr>
+              {% if data['workedFrom-day'] %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">
+                  {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                </td>
+              </tr>
+              {% endif %}
+            </tbody>
+            
+          </table>
+
+          <br><br>
+
+        {% else %}
+
+        {% endif %}
+
+        {% if data['addCountry'] == "New Zealand" %}
+
+          <div style="display:inline-block;width:103%;">
+            <h2 class="govuk-heading-m" style="float:left;">New Zealand</h2>
+          </div>
+
+          <table class="govuk-table">
+            
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                  {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+                </td>
+              </tr>
+              {% if data['workedFrom-day'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Worked</th>
+                  <td class="govuk-table__cell">
+                      {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+
+          </table>
+
+          <br><br>
+
+        {% elseif data['removeNz'] == "yes" %}
+
+        {% elseif data['NZlivedFrom-day'] or data['NZlivedFrom-month'] or data['NZlivedFrom-year'] %}
+
+          <div style="display:inline-block;width:103%;">
+            <h2 class="govuk-heading-m" style="float:left;">New Zealand</h2>
+          </div>
+
+          <table class="govuk-table">
+            
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                    {{data['NZlivedFrom-day']}} {{data['NZlivedFrom-month'] | monthName}} {{data['NZlivedFrom-year']}} to {{data['NZlivedTo-day']}} {{data['NZlivedTo-month'] | monthName}} {{data['NZlivedTo-year']}}
+                </td>
+              </tr>
+              {% if data['NZworkedFrom-day'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Worked</th>
+                  <td class="govuk-table__cell">
+                      {{data['NZworkedFrom-day']}} {{data['NZworkedFrom-month'] | monthName}} {{data['NZworkedFrom-year']}} to {{data['NZworkedTo-day']}} {{data['NZworkedTo-month'] | monthName}} {{data['NZworkedTo-year']}}
+                  </td>
+                </tr>
+              {% endif %}
+            </tbody>
+
+          </table>
+
+          <br>
+
+        {% endif %}
+
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">EEA</h2>
+
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">Spain</h2>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">June 2024 to May 2025</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">June 2024 to May 2025</td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br>
+
+        <div class="govuk-inset-text">
+          The claimant returned to the UK on {{data['dateReturned-day']}} {{data['dateReturned-month'] | monthName }} {{data['dateReturned-year']}}.
+        </div>
+
+        <br><br>
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="dateApply-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                What date can we apply the change to award from?
+              </h1>
+            </legend>
+            <div id="dateApply-hint" class="govuk-hint">
+              For example, 27 3 2007.
+            </div>
+            <div class="govuk-date-input" id="dateApply">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dateApply-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateApply-day" name="dateApply-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dateApply-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateApply-month" name="dateApply-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dateApply-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateApply-year" name="dateApply-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      {% else %}
+
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="dateApply-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="govuk-fieldset__heading">
+                What date can we apply the change to award from?
+              </h1>
+            </legend>
+            <div id="dateApply-hint" class="govuk-hint">
+              For example, 27 3 2007.
+            </div>
+            <div class="govuk-date-input" id="dateApply">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dateApply-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateApply-day" name="dateApply-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dateApply-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dateApply-month" name="dateApply-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="dateApply-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dateApply-year" name="dateApply-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+
+      {% endif %}
+    
+      <br><br><br>
+      
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    <br><br><br><br><br>
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+    
+        <details class="govuk-details" data-module="govuk-details">
+    
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+            <b>Component guide</b>
+            </span>
+          </summary>
+    
+          <div class="govuk-details__text">
+            <p class="govuk-body">Date input id = dateApply</p>
+            <ul class="govuk-list govuk-list--bullet">
+              <li>dateApply-day</li>
+              <li>dateApply-month</li>
+              <li>dateApply-year</li>
+            </ul>
+          </div>
+    
+        </details>
+    
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

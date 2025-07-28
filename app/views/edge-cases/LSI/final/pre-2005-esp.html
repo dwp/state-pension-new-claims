@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h2 class="govuk-heading-xl">
+        Pre-2005 inherited extra State Pension
+      </h2>
+
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Basic State Pension extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="pre05basicEsp" name="pre05basicEsp" type="text" spellcheck="false">
+        </div>
+      </div>
+
+      <br>
+      
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Additional Pension extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="pre05apAmount" name="pre05apAmount" type="text" spellcheck="false">
+        </div>
+      </div>
+
+      <br>
+      
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Graduated Retirement Benefit extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="pre05grbAmount" name="pre05grbAmount" type="text" spellcheck="false">
+        </div>
+      </div>
+        
+      <br><br><br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

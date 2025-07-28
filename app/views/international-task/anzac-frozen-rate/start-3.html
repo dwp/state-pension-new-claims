@@ -1,0 +1,233 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+     
+      {% if data.calculateDate === 'no' and (data.winz === 'winz' or data.requestWinz === 'yes') and (data.rf1 === 'request' or data.rf1 === 'requested') %}
+
+      <h1 class="govuk-heading-xl">Check for information and change award</h1>
+        
+      <p>Check if we have received the information we are waiting for.</p>
+
+      <p>You may then need to make a change to their State Pension award.</p>  
+      
+      <!--<h1 class="govuk-heading-xl">Check for information and change award</h1>
+          
+        <p>Check if the claimant has given us enough information to decide what date we can apply the change to award from.</p>
+
+        <p class="govuk-body">You may then need to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>check we have received the information from WINZ</li>
+              <li>check if HMRC has returned the RF1</li>
+              <li>make a change to their State Pension award</li>
+          </ul>-->
+
+        <br><br><br>
+
+        <a href="received-gsl" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+      
+      {% elseif data.calculateDate === 'no' and (data.rf1 === 'request' or data.rf1 === 'requested') %}
+
+      <h1 class="govuk-heading-xl">Check for information and change award</h1>
+        
+      <p>Check if we have received the information we are waiting for.</p>
+
+      <p>You may then need to make a change to their State Pension award.</p>  
+      
+      <!--<h1 class="govuk-heading-xl">Check for information and change award</h1>
+          
+        <p>Check if the claimant has given us enough information to decide what date we can apply the change to award from.</p>
+
+        <p class="govuk-body">You may then need to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>check if HMRC has returned the RF1</li>
+              <li>make a change to their State Pension award</li>
+          </ul>-->
+
+        <br><br><br>
+
+        <a href="received-gsl" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+      {% elseif data.calculateDate === 'no' and (data.winz === 'winz' or data.requestWinz === 'yes') %}
+
+      <h1 class="govuk-heading-xl">Check for information and change award</h1>
+        
+      <p>Check if we have received the information we are waiting for.</p>
+
+      <p>You may then need to make a change to their State Pension award.</p>  
+      
+      <!--<h1 class="govuk-heading-xl">Check for information and change award</h1>
+            
+        <p>Check if the claimant has given us enough information to decide what date we can apply the change to award from.</p>
+
+        <p class="govuk-body">You may then need to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>check we have received the information from WINZ</li>
+              <li>make a change to their State Pension award</li>
+          </ul>-->
+
+        <br><br><br>
+
+        <a href="received-gsl" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+      {% elseif (data.winz === 'winz' or data.requestWinz === 'yes') and  (data.rf1 === 'request' or data.rf1 === 'requested') %}
+
+      <h1 class="govuk-heading-xl">Check for information and change award</h1>
+        
+      <p>Check if we have received the information we are waiting for.</p>
+
+      <p>You may then need to make a change to their State Pension award.</p>  
+      
+      <!--<h1 class="govuk-heading-xl">Check for information and change award</h1>
+              
+        <p>Check if we have received the information from WINZ.</p>
+
+        <p class="govuk-body">You may then need to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+              <li>check if HMRC has returned the RF1</li>
+              <li>make a change to their State Pension award</li>
+          </ul>-->
+
+        <br><br><br>
+
+        <a href="received-winz" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+      {% elseif data.calculateDate === 'no' %}
+
+      <h1 class="govuk-heading-xl">Check for information and change award</h1>
+              
+      <p>Check if the claimant has given us enough information to decide what date we can apply the change to award from.</p>
+
+      <p>You may then need to make a change to their State Pension award.</p>
+
+      <br><br><br>
+
+      <a href="received-gsl" button type="submit" class="govuk-button">
+          Start this task
+      </a>
+
+      <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+        Return task to queue
+      </a>
+
+      {% elseif (data.winz === 'winz' or data.requestWinz === 'yes') %}
+
+        <h1 class="govuk-heading-xl">Check for information and change award</h1>
+        
+        <p>Check if we have received the information from WINZ.</p>
+  
+        <p>You may then need to make a change to their State Pension award.</p>
+  
+        <br><br><br>
+  
+        <a href="received-winz" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+  
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+      {% elseif (data.rf1 === 'request' or data.rf1 === 'requested') %}
+
+        <h1 class="govuk-heading-xl">Check for information and change award</h1>
+        
+        <p>Check if HMRC has returned the RF1.</p>
+  
+        <p>You may then need to make a change to their State Pension award.</p>
+  
+        <br><br><br>
+  
+        <a href="rf1-task" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+  
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+      {% else %}
+
+        <h1 class="govuk-heading-xl">Check for increase to award</h1>
+          
+        <p>Check if the claimant has returned their CFN1282 form.</p>
+
+        <p class="govuk-body">You may then need to:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>update and complete the information we hold in GySP</li>
+            <li>request further information</li>
+            <li>request an RF1 from HMRC</li>
+            <li>make a change to their State Pension</li>
+          </ul>
+
+
+        <br><br><br>
+
+        <a href="returned-cfn1282" button type="submit" class="govuk-button">
+            Start this task
+        </a>
+
+        <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+          Return task to queue
+        </a>
+
+      {% endif %}
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

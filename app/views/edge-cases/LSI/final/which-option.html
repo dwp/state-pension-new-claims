@@ -17,26 +17,38 @@
 
     <br><br>
 
-    {{ govukRadios({
-      name: "whichOption",
-      fieldset: {
-        legend: {
-          text: "Which option did the claimant choose?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      items: [
-        {
-          value: "esp",
-          text: "Extra State Pension (higher/increased payments)"
-        },
-        {
-          value: "lsi",
-          text: "Lump sum payment"
-        }
-      ]
-    }) }}
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Which option did the claimant choose?
+          </h1>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whichOption" name="whichOption" type="radio" value="esp">
+            <label class="govuk-label govuk-radios__label" for="whichOption">
+              Extra State Pension (increased State Pension payments)
+            </label>
+          </div>
+          {% if data['pre2005eSP'] === 'yes' %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whichOption-2" name="whichOption" type="radio" value="lsiEsp">
+              <label class="govuk-label govuk-radios__label" for="whichOption-2">
+                Lump sum payment with pre-2005 extra State Pension
+              </label>
+            </div>
+          {% elseif data['pre2005eSP'] === 'no' %}
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="whichOption-2" name="whichOption" type="radio" value="lsi">
+              <label class="govuk-label govuk-radios__label" for="whichOption-2">
+                Lump sum payment 
+              </label>
+            </div>
+          {% endif %}
+        </div>
+      </fieldset>
+    </div>
 
     <br><br><br>
 
@@ -44,11 +56,7 @@
       Continue
     </button>
 
-    <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
-
-    <p class="govuk-body">
-      View an <a href="claimant-decision-1" class="govuk-link--no-visited-state">alternative journey for this step</a>.
-    </p>
+    <br><br><br><br><br>
 
   </div>
 </div>

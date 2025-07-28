@@ -26,11 +26,11 @@
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h2 class="govuk-fieldset__heading">
-              Do you still want to apply the change to award from xx/xx/xxxx?
+              Are you sure we can apply the change to award from {{data['dateApply-day']}} {{data['dateApply-month'] | monthName}} {{data['dateApply-year']}}?
             </h2>
           </legend>
 
-          <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
 
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="stillChange" name="stillChange" type="radio" value="yes">
@@ -64,25 +64,25 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
-    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
-    
-    <br>
-
     <details class="govuk-details" data-module="govuk-details">
+
       <summary class="govuk-details__summary">
         <span class="govuk-details__summary-text">
-        <b>URL and notes</b>
+        <b>Component guide</b>
         </span>
       </summary>
+
       <div class="govuk-details__text">
-        <b>URL:</b> <br>
-        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+        <p class="govuk-body">Radio button id = stillChange</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Yes = yes</li>
+          <li>No = no</li>
+        </ul>
       </div>
+
     </details>
 
-
   </div>
-
 </div>
 
 {% endblock %}

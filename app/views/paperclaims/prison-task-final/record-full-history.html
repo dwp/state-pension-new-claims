@@ -5,7 +5,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
+        {% if (data['needDates'] == 'no' or data['foundGuilty'] == 'no') or data['prison-left-day'] or data['prison-left-day-2'] %}
 
           {% include './_bar2.html' %}
 
@@ -17,7 +17,7 @@
 
         <br>
 
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
+        <!--{% if (data['needDates'] == 'no' or data['foundGuilty'] == 'no') or data['prison-left-day'] or data['prison-left-day-2'] %}
 
         {% else %}
 
@@ -25,15 +25,15 @@
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive"></span>
-            Waiting for the claimant's prison dates.<br> <a href="paper-prison-task-record" class="govuk-link govuk-link--no-visited-state">Enter dates</a>
+            Waiting for prison information from claimant.<br> <a href="paper-prison-task-record" class="govuk-link govuk-link--no-visited-state">Record information</a>
           </strong>
         </div>
 
         <br>
 
-        {% endif %}
+        {% endif %}-->
 
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
+        {% if (data['needDates'] == 'no' or data['foundGuilty'] == 'no') or data['prison-left-day'] or data['prison-left-day-2'] %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -131,6 +131,40 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">15 January 2025</td>
               <td class="govuk-table__cell"><a href="record-prison-details"class="govuk-link--no-visited-state govuk-!-font-size-19">Prison dates added<span class="govuk-visually-hidden"></span></a></td>
+              <td class="govuk-table__cell">Agent</td>
+            </tr>
+
+            {% elseif data['needDates'] == 'cannot' and data['foundGuilty'] == 'no' %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">24 January 2025</td>
+              <td class="govuk-table__cell">State Pension awarded</td>
+              <td class="govuk-table__cell">Agent</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">24 January 2025</td>
+              <td class="govuk-table__cell">Prison considered. No further action needed</td>
+              <td class="govuk-table__cell">Agent</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">15 January 2025</td>
+              <td class="govuk-table__cell">Cannot get prison dates. Notification sent to claimant</td>
+              <td class="govuk-table__cell">Agent</td>
+            </tr>
+          
+            {% elseif data['needDates'] == 'no' or data['foundGuilty'] == 'no' %}
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">15 January 2025</td>
+              <td class="govuk-table__cell">State Pension awarded</td>
+              <td class="govuk-table__cell">Agent</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">15 January 2025</td>
+              <td class="govuk-table__cell">Prison considered. No further action needed</td>
               <td class="govuk-table__cell">Agent</td>
             </tr>
 

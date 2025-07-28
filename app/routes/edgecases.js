@@ -120,6 +120,40 @@ router.post('/edge-cases/LSI/iteration-2/option-3/enter-lsi', function (req, res
 
 // LSI - Final
 
+router.post('/edge-cases/LSI/final/start', function (req, res) {
+  res.redirect('step-1-a')
+})
+
+router.post('/edge-cases/LSI/final/step-1-a', function (req, res) {
+  res.redirect('claimant-options-2')
+})
+
+router.post('/edge-cases/LSI/final/claimant-options-2', function (req, res) {
+
+  if (req.body['pre2005eSP'] === 'yes') {
+    res.redirect('pre-2005-esp')
+  } else {
+    res.redirect('claimant-options-3')
+  }
+})
+
+router.post('/edge-cases/LSI/final/pre-2005-esp', function (req, res) {
+  res.redirect('claimant-options-3')
+})
+
+router.post('/edge-cases/LSI/final/claimant-options-3', function (req, res) {
+  res.redirect('check-answers-1a')
+})
+
+router.post('/edge-cases/LSI/final/claimant-options', function (req, res) {
+
+  if (req.body['pre2005eSP'] === 'yes') {
+    res.redirect('pre-2005-esp')
+  } else {
+    res.redirect('check-answers-1a')
+  }
+})
+
 router.post('/edge-cases/LSI/final/which-option', function (req, res) {
 
   if (req.body['whichOption'] === 'esp') {

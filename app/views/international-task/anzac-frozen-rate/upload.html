@@ -17,13 +17,18 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-l">Upload documents into DRS</h1>
+      <h1 class="govuk-heading-l">Upload documents into ECMS (formerly DRS)</h1>
       
       <p class="govuk-body">You need to upload completed copies of the:</p>
       <ul class="govuk-list govuk-list--bullet">
         <li>VolNICs calculator</li>
         <li>IPC975 form</li>
-        <li>information from WINZ</li>
+        {% if data.winz === 'winz' or data.requestWinz === 'yes' %}
+          <li>information from WINZ</li>
+        {% endif %}
+        {% if data.calculateDate === 'no' %}
+          <li>GSL information from claimant</li>
+        {% endif %}
       </ul>
     
       <br><br><br>

@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br><br>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                <h2 class="govuk-fieldset__heading">
+                  Was the claimant found guilty of a criminal offence?
+                </h2>
+              </legend>
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="foundGuilty" name="foundGuilty" type="radio" value="yes">
+                  <label class="govuk-label govuk-radios__label" for="foundGuilty">
+                    Yes, they were found guilty of a criminal offence
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="foundGuilty-2" name="foundGuilty" type="radio" value="no">
+                  <label class="govuk-label govuk-radios__label" for="foundGuilty-2">
+                    No, they were not found guilty of a criminal offence
+                  </label>
+                </div>
+                <div class="govuk-radios__divider">or</div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="foundGuilty-3" name="foundGuilty" type="radio" value="cannot">
+                  <label class="govuk-label govuk-radios__label" for="foundGuilty-3">
+                    Cannot get information
+                  </label>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+      <br><br><br>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+        Confirm
+        </button>
+      </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

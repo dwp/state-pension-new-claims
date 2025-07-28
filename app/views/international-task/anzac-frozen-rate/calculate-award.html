@@ -1,0 +1,330 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">
+        Calculate the award
+      </h1>
+          
+      <p>
+        Use the VolNICs tool to calculate the claimant's award based on the time they spent in ANZaC countries. 
+      </p>
+
+      <p>
+        Record the information on the IPC975 form.
+      </p>
+
+      <p class="govuk-body">You may also need information from:</p>
+       <ul class="govuk-list govuk-list--bullet">
+        <li>OLE</li>
+        <li>the CFN1282</li>
+        <li>the RF1</li>
+       </ul>
+
+      <br>
+
+      <table class="govuk-table">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header award_detail2" scope="col">State Pension date</th>
+            <td class="govuk-table__cell award_detail">1 June 2023
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header award_detail2" scope="col">Uprating year for calculation</th>
+            <td class="govuk-table__cell award_detail">
+              {% if data['dateApply-year'] %}
+                {{data['dateApply-year']}}
+              {% elseif data['dateReturned-year'] %}
+                {{data['dateReturned-year']}}
+              {% else %}
+                2023
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header award_detail2" scope="col">Date change to award applies from</th>
+            <td class="govuk-table__cell award_detail">
+              {% if data['dateApply-day'] or data['dateApply-month'] or data['dateApply-year'] %}
+                {{data['dateApply-day']}} {{data['dateApply-month'] | monthName }} {{data['dateApply-year']}}
+              {% elseif data['dateReturned-day'] or data['dateReturned-month'] or data['dateReturned-year'] %}
+                {{data['dateReturned-day']}} {{data['dateReturned-month'] | monthName }} {{data['dateReturned-year']}}
+              {% endif %}    
+            </td>
+          </tr>
+        </thead>
+      </table>
+
+      <br><br>
+
+      <h2 class="govuk-heading-m">ANZaC</h2>
+
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+
+
+      {% if data['addCountry'] == "Australia" %}
+
+        <h2 class="govuk-heading-m">Australia</h2>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {% if data['livedFrom-day'] %}
+                  {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+                {% endif %}
+              </td>
+            </tr>
+            {% if data['workedFrom-day'] %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">
+                  {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                </td>
+              </tr>
+            {% else %}
+                  
+            {% endif %}
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% elseif data['removeAu'] == "yes" %}
+
+      {% elseif data['AUlivedFrom-day'] %}
+
+        <h2 class="govuk-heading-m">Australia</h2>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['AUlivedFrom-day']}} {{data['AUlivedFrom-month'] | monthName(truncate=true) }} {{data['AUlivedFrom-year']}} to {{data['AUlivedTo-day']}} {{data['AUlivedTo-month'] | monthName(truncate=true) }} {{data['AUlivedTo-year']}}
+              </td>
+            </tr>
+            {% if data['AUworkedFrom-day'] %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">
+                    {{data['AUworkedFrom-day']}} {{data['AUworkedFrom-month'] | monthName(truncate=true) }} {{data['AUworkedFrom-year']}} to {{data['AUworkedTo-day']}} {{data['AUworkedTo-month'] | monthName(truncate=true) }} {{data['AUworkedTo-year']}}
+                </td>
+              </tr>
+            {% else %}
+
+            {% endif %}
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% else %}
+
+        <h2 class="govuk-heading-m">Australia</h2>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                1 January to 31 December 1994
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% endif %}
+
+      {% if data['removeCa'] == "yes" %}
+
+      {% elseif data['addCountry'] == "Canada" %}
+
+        <h2 class="govuk-heading-m">Canada</h2>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {% if data['livedFrom-day'] %}
+                  {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+                {% endif %}
+              </td>
+            </tr>
+            {% if data['workedFrom-day'] %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">
+                  {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                </td>
+              </tr>
+            {% else %}
+                  
+            {% endif %}
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% else %}
+
+      {% endif %}
+
+      {% if data['addCountry'] == "New Zealand" %}
+
+        <h2 class="govuk-heading-m">New Zealand</h2>
+
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {% if data['livedFrom-day'] %}
+                  {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+                {% endif %}
+              </td>
+            </tr>
+            {% if data['workedFrom-day'] %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">
+                  {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                </td>
+              </tr>
+            {% else %}
+                  
+            {% endif %}
+          </tbody>
+
+        </table>
+
+        <br><br>
+
+      {% elseif data['removeNz'] == "yes" %}
+
+      {% elseif data['NZlivedFrom-day'] %}
+
+        <h2 class="govuk-heading-m">New Zealand</h2>
+
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Lived</th>
+                <td class="govuk-table__cell">
+                  {{data['NZlivedFrom-day']}} {{data['NZlivedFrom-month'] | monthName}} {{data['NZlivedFrom-year']}} to {{data['NZlivedTo-day']}} {{data['NZlivedTo-month'] | monthName}} {{data['NZlivedTo-year']}}
+                </td>
+              </tr>
+            {% if data['NZworkedFrom-day'] %}
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Worked</th>
+                <td class="govuk-table__cell">
+                  {{data['NZworkedFrom-day']}} {{data['NZworkedFrom-month'] | monthName}} {{data['NZworkedFrom-year']}} to {{data['NZworkedTo-day']}} {{data['NZworkedTo-month'] | monthName}} {{data['NZworkedTo-year']}}
+                </td>
+              </tr>
+            {% else %}
+
+            {% endif %}
+          </tbody>
+
+        </table>
+
+        <br>
+
+      {% else %}
+
+        <h2 class="govuk-heading-m">New Zealand</h2>
+
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                1 January 2000 to 31 May 2024
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                1 January 2000 to 31 May 2024
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                123 456 789
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <br>
+
+      {% endif %}
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm award calculated
+      </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

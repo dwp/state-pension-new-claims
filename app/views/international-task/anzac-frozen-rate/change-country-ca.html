@@ -1,0 +1,277 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<main class="govuk-main-wrapper " id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+  {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <form method="post">
+
+      <h1 class="govuk-heading-l">Change Canada information</h1>
+
+      <p>Use the details on the claimant's CFN1282 to complete the following.</p>
+
+      <p>If the claimant has only included a month and a year, check OLE for further information.</p>
+
+      <p>If there is no additional information in OLE, enter the  first of the month in the 'From' field and the last of the month in the 'To' field.</p>    
+      
+
+      <br>
+
+      <h2 class="govuk-heading-m">
+        What dates did the claimant live there?
+      </h2>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="CAlivedFrom-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              From
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="CAlivedFrom">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAlivedFrom-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAlivedFrom-day" name="CAlivedFrom-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAlivedFrom-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAlivedFrom-month" name="CAlivedFrom-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAlivedFrom-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="CAlivedFrom-year" name="CAlivedFrom-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="CAlivedTo-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              To
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="CAlivedTo">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAlivedTo-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAlivedTo-day" name="CAlivedTo-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAlivedTo-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAlivedTo-month" name="CAlivedTo-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAlivedTo-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="CAlivedTo-year" name="CAlivedTo-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br>
+
+      <h2 class="govuk-heading-m">
+        What dates did the claimant work there?
+      </h2>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="CAworkedFrom-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              From (optional)
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="CAworkedFrom">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAworkedFrom-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAworkedFrom-day" name="CAworkedFrom-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAworkedFrom-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAworkedFrom-month" name="CAworkedFrom-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAworkedFrom-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="CAworkedFrom-year" name="CAworkedFrom-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="CAworkedTo-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              To (optional)
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="CAworkedTo">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAworkedTo-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAworkedTo-day" name="CAworkedTo-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAworkedTo-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="CAworkedTo-month" name="CAworkedTo-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="CAworkedTo-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="CAworkedTo-year" name="CAworkedTo-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br>
+
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="CAssn">
+            What was their Social Security or National Insurance number?
+          </label>
+        </h1>
+        <label class="govuk-label" for="event-name">
+          (optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="NZssn" name="NZssn" type="text">
+      </div>
+
+      <br><br><br>
+
+
+            <button type="submit" class="govuk-button">
+              Continue
+            </button>
+
+      <br>
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <b>URL: <br><br>
+            Error messages:<br><br>
+
+            <br>
+
+              Country</b><br>
+                Empty: Enter the country they lived or worked in<br><br>
+
+                <b>All dates empty:</b> Enter either the dates they lived or worked there<br>[Highlight all date fields]<br><br>
+
+<b>Dates they lived there</b><br>
+If any worked date entered and both lived dates are empty then ignore lived section.<br><br>
+
+            <b>  From</b><br>
+                Empty but 'to' date complete: Enter the date they lived there from<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Future: The date they lived there from must be in the past <br><br>
+
+          <b>To</b><br>
+                Empty but 'from' date complete: Enter the date they lived there to<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Sequence: The 'to' date must be after the 'from' date<br>
+                Future: The date they lived there to must be in the past
+
+                <br><br>
+
+                <b>Dates they worked there</b><br>
+                If any lived dated entered and both worked dates are empty then ignore worked section.<br><br>
+
+                                    <b>  From</b><br>
+                                        Empty but 'to' date complete: Enter the date they worked there from<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Future: The date they worked there from must be in the past <br><br>
+
+                                  <b>To</b><br>
+                                        Empty but 'from' date complete: Enter the date they worked there to<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Sequence: The 'to' date must be after the 'from' date<br>
+                                        Future: The date they worked there to must be in the past <br><br>
+
+                                  <b>Social Security or National Insurance number</b><br>
+                                    Length: Social Security or National Insurance number must have 24 characters or less<br>
+                                    Format: Enter a real Social Security or National Insurance number<br>
+
+
+          </div>
+          </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

@@ -41,44 +41,52 @@
         <hr class="govuk-section-break govuk-section-break--visible">
         <div class="govuk-!-padding-bottom-6"></div>
 
-        {% if data['nsp'] %}
-        
-        {% elseif data.winz === 'winz' %}
+        {% if data['nsp'] or data.receivedGsl === 'yes' or data.rf1-returned === 'yes' %}
 
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            Waiting for information from WINZ.<br>  <a href="received-information" class="govuk-link--no-visited-state">Confirm information received</a>.
-          </strong>
-        </div>
-
-        {% elseif data.rf1 === 'request' %}
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            Waiting for RF1 from HMRC.<br>  <a href="winz-received" class="govuk-link--no-visited-state">Confirm RF1 returned</a>.
-          </strong>
-        </div>
-
+        {% elseif data.calculateDate === 'no' %}
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive"></span>
+              Waiting for GSL information from the claimant.<br>  <a href="received-gsl" class="govuk-link--no-visited-state">Confirm GSL information returned</a>.
+            </strong>
+          </div>
+        {% elseif data.rf1 === 'request' or data.rf1 === 'requested' %}
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive"></span>
+              Waiting for RF1 from HMRC.<br>  <a href="rf1-task" class="govuk-link--no-visited-state">Confirm RF1 returned</a>.
+            </strong>
+          </div>
         {% elseif data.spAmount === 'yes' %}
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            Waiting for CFN1282 from the claimant.<br>  <a href="returned-cfn1282" class="govuk-link--no-visited-state">Confirm CFN1282 returned</a>.
-          </strong>
-        </div>
-
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive"></span>
+              Waiting for CFN1282 from the claimant.<br>  <a href="returned-cfn1282" class="govuk-link--no-visited-state">Confirm CFN1282 returned</a>.
+            </strong>
+          </div>
+        {% else %}
+      
         {% endif %}
 
         <div class="govuk-summary-card">
+
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Australia</h2>
+            <h2 class="govuk-summary-card__title">
+              Australia
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
           </div>
+
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
@@ -86,12 +94,7 @@
                   Lived
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Mar 2010 to Feb 2023
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> whether details are known</span>
-                  </a>
+                  {{data['AUlivedFrom-day']}} {{data['AUlivedFrom-month'] | monthName}} {{data['AUlivedFrom-year']}} to {{data['AUlivedTo-day']}} {{data['AUlivedTo-month'] | monthName}} {{data['AUlivedTo-year']}}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -99,12 +102,10 @@
                   Worked
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Apr 2010 to Feb 2023
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> relationship to lead tenant</span>
-                  </a>
+                  {% if data['AUworkedFrom-day'] or data['AUworkedFrom-month'] or data['AUworkedFrom-year'] %}
+                    {{data['AUworkedFrom-day']}} {{data['AUworkedFrom-month'] | monthName}} {{data['AUworkedFrom-year']}} to {{data['AUworkedTo-day']}} {{data['AUworkedTo-month'] | monthName}} {{data['AUworkedTo-year']}}
+                  {% else %}
+                  {% endif %}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -113,11 +114,6 @@
                 </dt>
                 <dd class="govuk-summary-list__value">
                   123 456 789
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> age</span>
-                  </a>
                 </dd>
               </div>
             </dl>
@@ -127,9 +123,21 @@
         <br>
 
         <div class="govuk-summary-card">
+
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">New Zealand</h2>
+            <h2 class="govuk-summary-card__title">
+              New Zealand
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+            </ul>
           </div>
+
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
               <div class="govuk-summary-list__row">
@@ -137,12 +145,7 @@
                   Lived
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Jun 1992 to Dec 2006
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> whether details are known</span>
-                  </a>
+                  {{data['NZlivedFrom-day']}} {{data['NZlivedFrom-month'] | monthName}} {{data['NZlivedFrom-year']}} to {{data['NZlivedTo-day']}} {{data['NZlivedTo-month'] | monthName}} {{data['NZlivedTo-year']}}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -150,12 +153,7 @@
                   Worked
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Jun 1992 to Nov 2006
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> relationship to lead tenant</span>
-                  </a>
+                  {{data['NZworkedFrom-day']}} {{data['NZworkedFrom-month'] | monthName}} {{data['NZworkedFrom-year']}} to {{data['NZworkedTo-day']}} {{data['NZworkedTo-month'] | monthName}} {{data['NZworkedTo-year']}}
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -163,14 +161,26 @@
                   Social security number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  123 456 789
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> age</span>
-                  </a>
+                  {% if data['NZssn'] %}
+                    {{ (data.NZssn) }}
+                  {% else %}
+                    
+                  {% endif %}
                 </dd>
               </div>
+              {% if data.rf1-returned === 'yes' %}
+              {% elseif data.winz === 'winz' or data.requestWinz === 'yes' %}
+                <div class="govuk-summary-list__row">
+                  <dt class="govuk-summary-list__key">
+                    Outstanding task
+                  </dt>
+                  <dd class="govuk-summary-list__value">
+                    <a class="govuk-link--no-visited-state" href="received-winz">
+                      Confirm information from WINZ received<span class="govuk-visually-hidden"></span>
+                    </a>
+                  </dd>
+                </div>
+              {% endif %}
             </dl>
           </div>
         </div>
@@ -183,7 +193,17 @@
                             
         <div class="govuk-summary-card">
           <div class="govuk-summary-card__title-wrapper">
-            <h2 class="govuk-summary-card__title">Spain</h2>
+            <h2 class="govuk-summary-card__title">
+              Spain
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Spain</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Spain</span></a>
+              </li>
+            </ul>
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
@@ -192,12 +212,7 @@
                   Lived
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Jun 1988 to Dec 1992
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> whether details are known</span>
-                  </a>
+                  1 June 2024 to 31 May 2025
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -205,12 +220,7 @@
                   Worked
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  Jun 1988 to Dec 1992
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> relationship to lead tenant</span>
-                  </a>
+                  
                 </dd>
               </div>
               <div class="govuk-summary-list__row">
@@ -218,27 +228,7 @@
                   Social security number
                 </dt>
                 <dd class="govuk-summary-list__value">
-                  25 18735476 84
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                    <span class="govuk-visually-hidden"> age</span>
-                  </a>
-                </dd>
-              </div>
-              <div class="govuk-summary-list__row">
-                <dt class="govuk-summary-list__key">
-                  Outstanding task
-                </dt>
-                <dd class="govuk-summary-list__value">
-                  <a class="govuk-link" href="spain-record.html"> Confirm insurance records returned
-                    <span class="govuk-visually-hidden"> working situation</span>
-                    </a>
-                </dd>
-                <dd class="govuk-summary-list__actions">
-                  <a class="govuk-link" href="#">
-                  <span class="govuk-visually-hidden"> working situation</span>
-                  </a>
+                  25 18476 84
                 </dd>
               </div>
             </dl>
@@ -272,19 +262,51 @@
               </li>
             {% endif %}
 
-            {% if data.winz === 'winz' %}
+            {% if data['receivedGsl'] === 'yes'%}
               <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">16 Mar 2025 at 2:29pm</p>
-                <h2 class="dwp-timeline__heading">ANZaC: Email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Information about GSL received from claimant</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
+            {% endif %}
 
+            {% if data['rf1'] === 'request' or data['rf1'] === 'requested' %}
               <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">16 Mar 2025 at 2:17pm</p>
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">ANZaC: RF1 requested from HMRC</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data.winz === 'winz' or data['requestWinz'] === 'yes'%}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+            {% endif %}
+
+            {% if data['calculateDate'] === 'no'%}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Information about GSL requested from claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['cfn1282-returned'] === 'yes'%}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
                 <h2 class="dwp-timeline__heading">ANZaC: CFN1282 returned</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% endif %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">12 Mar 2025 at 9:21am</p>
+              <h2 class="dwp-timeline__heading">EEA: Insurance record received from Spain</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
 
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">01 Mar 2025 at 11:42am</p>

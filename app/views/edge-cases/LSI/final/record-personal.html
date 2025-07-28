@@ -45,6 +45,14 @@
 
         <br><br>
 
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
+          </strong>
+        </div>
+
         <h2 class="govuk-heading-m">Personal details</h2>
 
           <table class="govuk-table">
@@ -97,14 +105,65 @@
         <div class="dwp-timeline">
           <ol class="dwp-timeline__items">
   
+            {% if data['taxRate2'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+            {% if (data['whichOption'] === 'lsi' or data['whichOption'] === 'lsiEsp') and data['whichYear'] === 'later' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Letter sent to claimant asking them to contact us about their tax rate</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum for 2026 to 2027 tax year</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'lsi' and data['whichYear'] === 'now' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'lsiEsp' and data['whichYear'] === 'now' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Change to award and lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'esp' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Change to award letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose extra State Pension</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+            
             {% if data['lsi'] %}
-  
-            <li class="dwp-timeline__item">
-              <p class="dwp-timeline__datetime">22 Mar 2025 at 2:19pm</p>
-              <h2 class="dwp-timeline__heading">Late spouse deferral options letter sent to claimant</h2>
-              <p class="dwp-timeline__by-line">by Agent</p>
-            </li>
-
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Choices letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
             {% endif %}
 
             <li class="dwp-timeline__item">

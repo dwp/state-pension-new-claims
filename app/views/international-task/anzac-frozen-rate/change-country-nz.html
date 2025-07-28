@@ -1,0 +1,279 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<main class="govuk-main-wrapper " id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <form method="post">
+
+      <h1 class="govuk-heading-l">Change New Zealand information</h1>
+
+      <p>Use the details on the claimant's CFN1282 to complete the following.</p>
+
+      <p>If the claimant has only included a month and a year, check OLE for further information.</p>
+
+      <p>If there is no additional information in OLE, enter the  first of the month in the 'From' field and the last of the month in the 'To' field.</p>     
+
+      <br>
+
+      <h2 class="govuk-heading-m">
+        What dates did the claimant live there?
+      </h2>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="NZlivedFrom-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              From
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="NZlivedFrom">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZlivedFrom-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZlivedFrom-day" name="NZlivedFrom-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZlivedFrom-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZlivedFrom-month" name="NZlivedFrom-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZlivedFrom-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="NZlivedFrom-year" name="NZlivedFrom-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="NZlivedTo-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              To
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="NZlivedTo">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZlivedTo-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZlivedTo-day" name="NZlivedTo-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZlivedTo-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZlivedTo-month" name="NZlivedTo-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZlivedTo-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="NZlivedTo-year" name="NZlivedTo-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br>
+
+      <h2 class="govuk-heading-m">
+        What dates did the claimant work there?
+      </h2>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="NZworkedFrom-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              From (optional)
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="NZworkedFrom">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZworkedFrom-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZworkedFrom-day" name="NZworkedFrom-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZworkedFrom-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZworkedFrom-month" name="NZworkedFrom-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZworkedFrom-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="NZworkedFrom-year" name="NZworkedFrom-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="NZworkedTo-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              To (optional)
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="NZworkedTo">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZworkedTo-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZworkedTo-day" name="NZworkedTo-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZworkedTo-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="NZworkedTo-month" name="NZworkedTo-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="NZworkedTo-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="NZworkedTo-year" name="NZworkedTo-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br>
+
+
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="NZssn">
+            What was their Social Security or National Insurance number?
+          </label>
+        </h1>
+        <label class="govuk-label" for="event-name">
+          (optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="NZssn" name="NZssn" type="text">
+      </div>
+
+      <br><br><br>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+        <a class="govuk-link--no-visited-state  govuk-!-font-size-19" href="remove-country-nz">Remove New Zealand</a>
+      </div>
+
+      <br><br><br><br>
+
+      <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+          <details class="govuk-details" data-module="govuk-details">
+          <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+          <b>URL, errors and notes</b>
+          </span>
+          </summary>
+          <div class="govuk-details__text">
+          <b>URL: <br><br>
+            Error messages:<br><br>
+
+            <br>
+
+              Country</b><br>
+                Empty: Enter the country they lived or worked in<br><br>
+
+                <b>All dates empty:</b> Enter either the dates they lived or worked there<br>[Highlight all date fields]<br><br>
+
+<b>Dates they lived there</b><br>
+If any worked date entered and both lived dates are empty then ignore lived section.<br><br>
+
+            <b>  From</b><br>
+                Empty but 'to' date complete: Enter the date they lived there from<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Future: The date they lived there from must be in the past <br><br>
+
+          <b>To</b><br>
+                Empty but 'from' date complete: Enter the date they lived there to<br>
+                Format: Enter a real date as a month and a year, like 06 1983<br>
+                Sequence: The 'to' date must be after the 'from' date<br>
+                Future: The date they lived there to must be in the past
+
+                <br><br>
+
+                <b>Dates they worked there</b><br>
+                If any lived dated entered and both worked dates are empty then ignore worked section.<br><br>
+
+                                    <b>  From</b><br>
+                                        Empty but 'to' date complete: Enter the date they worked there from<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Future: The date they worked there from must be in the past <br><br>
+
+                                  <b>To</b><br>
+                                        Empty but 'from' date complete: Enter the date they worked there to<br>
+                                        Format: Enter a real date as a month and a year, like 06 1983<br>
+                                        Sequence: The 'to' date must be after the 'from' date<br>
+                                        Future: The date they worked there to must be in the past <br><br>
+
+                                  <b>Social Security or National Insurance number</b><br>
+                                    Length: Social Security or National Insurance number must have 24 characters or less<br>
+                                    Format: Enter a real Social Security or National Insurance number<br>
+
+
+          </div>
+          </details>
+
+  </div>
+
+
+ </form>
+
+
+
+</div>
+
+</main>
+</div>
+
+{% endblock %}

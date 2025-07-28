@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<form class="form" method="post" action="claimant-options">
+<form class="form" method="post">
 
   {% include './_bar.html' %}
 
@@ -18,10 +18,14 @@
     <br><br>
 
     <h1 class="govuk-heading-xl">
-      Late spouse deferral calculations
+      Inheritance options calculations
     </h1>
 
-    <p>Use the information below and legacy systems to calculate the claimant's options amounts.</p>
+    <p class="govuk-body">Use the information below, legacy systems, CIS and the timeline calculation to work out the:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>lump sum inheritance option plus any pre-2005 inherited extra State Pension (if relevant)</li>
+        <li>inherited extra State Pension option</li>
+      </ul>
 
     <p>You may need to apply an uprating to the amounts depending on the claimant's State Pension date.</p>
 
@@ -31,7 +35,7 @@
 
     <br>
     
-    <h2 class="govuk-heading-m">Claimant</h2>
+    <h2 class="govuk-heading-m">Claimant details</h2>
 
 
     <table class="govuk-table">
@@ -65,7 +69,7 @@
 
     <br><br>
 
-    <h2 class="govuk-heading-m">Late spouse or civil partner</h2>
+    <h2 class="govuk-heading-m">Late spouse or civil partner details</h2>
 
         <table class="govuk-table">
           <tbody class="govuk-table__body">
@@ -88,7 +92,7 @@
 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Gender</th>
-              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell">Female</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell" style="text-align: right">
                 <a class="govuk-link" href="change-gender"></a>
@@ -104,6 +108,17 @@
               </span> </td>
               <td class="govuk-table__cell" style="text-align: right">
                 <a class="govuk-link" href="change-dob"></a>
+              </td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">State Pension date</th>
+              <td class="govuk-table__cell">14/07/2015</td>
+              <td class="govuk-table__cell"><span class="verified-badge verified">
+                <b>Verified</b>
+              </span> </td>
+              <td class="govuk-table__cell" style="text-align: right">
+                <a class="govuk-link" href=""></a>
               </td>
             </tr>
 
@@ -143,10 +158,6 @@
     {{ govukButton({
       text: "Continue"
     }) }}
-
-    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
-      Return task to queue
-    </a>
 
   </div>
 </div>

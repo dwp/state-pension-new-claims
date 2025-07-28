@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="confirm-change">
+    <form method="post">
 
       {% include './_bar.html' %}
 
@@ -19,13 +19,32 @@
 
       <h1 class="govuk-heading-l">How many additional years is the change to award based on?</h1>
 
-      <p>The claimant has x qualifying years in the UK.</p>
+      <p>You can find the breakdown for pre-2016 and post-2016 years in the VolNICs tool.</p>
+
+      <div class="govuk-inset-text">
+        The claimant has 22 qualifying years in the UK.
+      </div>
 
       <br>
 
       <div class="govuk-form-group">
+        <label class="govuk-label" for="pre2016">
+          Number of pre-2016 additional years
+        </label>
         <div class="govuk-input__wrapper">
-          <input class="govuk-input govuk-input--width-2" id="cost-per-item" name="costPerItem" type="text" spellcheck="false">
+          <input class="govuk-input govuk-input--width-2" id="pre2016" name="pre2016" type="text" spellcheck="false">
+          <div class="govuk-input__suffix" aria-hidden="true">years</div>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="post2016">
+          Number of post-2016 additional years
+        </label>
+        <div class="govuk-input__wrapper">
+          <input class="govuk-input govuk-input--width-2" id="post2016" name="post2016" type="text" spellcheck="false">
           <div class="govuk-input__suffix" aria-hidden="true">years</div>
         </div>
       </div>

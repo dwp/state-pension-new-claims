@@ -1,0 +1,96 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <form method="post">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br><br>
+
+      <h3 class="govuk-heading-xl">Find out more about the claimant’s time in prison</h3>
+
+      <p>Ask the claimant if they were found guilty of a criminal offence so that we know whether we need to record the prison dates.</p>
+
+      <br>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h2 class="govuk-fieldset__heading">
+              What was the outcome of the conversation?
+            </h2>
+          </legend>
+          <div class="govuk-radios" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needDates" name="needDates" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="needDates">
+                We need to record the prison dates
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needDates-2" name="needDates" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="needDates-2">
+                We do not need to record the prison dates
+              </label>
+            </div>
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needDates-3" name="needDates" type="radio" value="cannot">
+              <label class="govuk-label govuk-radios__label" for="needDates-3">
+                Cannot get information
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br><br>
+
+      <div class="govuk-button-group">
+        <button class="govuk-button" data-module="govuk-button">
+        Confirm
+        </button>
+      </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

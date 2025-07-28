@@ -6,203 +6,214 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-  {% include './_bar.html' %}
+      {% include './_bar.html' %}
 
-        {{ govukBackLink({
-          "text": "Back",
-          "href": "javascript: window.history.go(-1)"
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
         })
       }}
 
       <br><br>
 
-        <form method="post">
+      <form method="post">
 
-<div class="govuk-form-group">
-  <h1 class="govuk-label-wrapper">
-    <label class="govuk-label govuk-label--l" for="country">
-      Add a country
-    </label>
-  </h1>
-  <select class="govuk-select" id="country" name="country"
-    data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
-    <option value="" selected disabled>Select an option</option>
-    <option value="Australia">Australia</option>
-    <option value="Canada">Canada</option>
-    <option value="New Zealand">New Zealand</option>
-  </select>
-</div>
+      <div class="govuk-form-group">
+        <h1 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--l" for="addCountry">
+            Add a country
+          </label>
+        </h1>
+        <select class="govuk-select" id="addCountry" name="addCountry"
+          data-module="autocomplete" data-autoselect="" data-display-menu="" data-min-length="" data-show-all-values="" data-show-no-options-found="">
+          <option value="" selected disabled>Select an option</option>
+          <option value="Australia">Australia</option>
+          <option value="Canada">Canada</option>
+          <option value="New Zealand">New Zealand</option>
+        </select>
+      </div>
 
-<br>
+      <br>
 
-<h2 class="govuk-heading-m">
-  What dates did the claimant live there?
-</h2>
+      <h2 class="govuk-heading-m">
+        What dates did the claimant live there?
+      </h2>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="livedFrom-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      <h1 class="govuk-fieldset__heading">
-        From
-      </h1>
-    </legend>
-    <div class="govuk-date-input" id="livedFrom">
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="livedFrom-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedFrom-day" name="livedFrom-day" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="livedFrom-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedFrom-month" name="livedFrom-month" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="livedFrom-year">
-            Year
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="livedFrom-year" name="livedTo-year" type="text" inputmode="numeric">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
+      <p>Use the details on the claimant's CFN1282 to complete the following.</p>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="livedTo-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      <h1 class="govuk-fieldset__heading">
-        To
-      </h1>
-    </legend>
-    <div class="govuk-date-input" id="livedTo">
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="livedTo-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedTo-day" name="livedTo-day" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="livedTo-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedTo-month" name="livedTo-month" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="livedTo-year">
-            Year
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="livedTo-year" name="livedTo-year" type="text" inputmode="numeric">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
+      <p>If the claimant has only included a month and a year, check OLE for further information.</p>
 
-<br><br>
+      <p>If there is no additional information in OLE, enter the  first of the month in the 'From' field and the last of the month in the 'To' field.</p>    
+      
 
-<h2 class="govuk-heading-m">
-  What dates did the claimant work there?
-</h2>
+      <br>
 
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="workedFrom-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      <h1 class="govuk-fieldset__heading">
-        From
-      </h1>
-    </legend>
-    <div class="govuk-date-input" id="workedFrom">
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="workedFrom-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedFrom-day" name="workedFrom-day" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="workedFrom-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedFrom-month" name="workedFrom-month" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="workedFrom-year">
-            Year
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="workedFrom-year" name="workedFrom-year" type="text" inputmode="numeric">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
-
-<div class="govuk-form-group">
-  <fieldset class="govuk-fieldset" role="group" aria-describedby="workedTo-hint">
-    <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-      <h1 class="govuk-fieldset__heading">
-        To
-      </h1>
-    </legend>
-    <div class="govuk-date-input" id="workedTo">
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="workedTo-day">
-            Day
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedTo-day" name="workedTo-day" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="workedTo-month">
-            Month
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedTo-month" name="workedTo-month" type="text" inputmode="numeric">
-        </div>
-      </div>
-      <div class="govuk-date-input__item">
-        <div class="govuk-form-group">
-          <label class="govuk-label govuk-date-input__label" for="workedTo-year">
-            Year
-          </label>
-          <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="workedTo-year" name="workedTo-year" type="text" inputmode="numeric">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-</div>
-
-<br><br>
-
-
-          <div class="govuk-form-group">
-            <h1 class="govuk-label-wrapper">
-              <label class="govuk-label govuk-label--m" for="event-name">
-                Social Security or National Insurance number
-              </label>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="livedFrom-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              From
             </h1>
-            <input class="govuk-input govuk-!-width-one-half" id="event-name" name="eventName" type="text">
+          </legend>
+          <div class="govuk-date-input" id="livedFrom">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="livedFrom-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedFrom-day" name="livedFrom-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="livedFrom-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedFrom-month" name="livedFrom-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="livedFrom-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="livedFrom-year" name="livedFrom-year" type="text" inputmode="numeric">
+              </div>
+            </div>
           </div>
+        </fieldset>
+      </div>
 
-<br><br><br>
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="livedTo-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              To
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="livedTo">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="livedTo-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedTo-day" name="livedTo-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="livedTo-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="livedTo-month" name="livedTo-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="livedTo-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="livedTo-year" name="livedTo-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
 
+      <br><br>
+
+      <h2 class="govuk-heading-m">
+        What dates did the claimant work there?
+      </h2>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="workedFrom-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              From (optional)
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="workedFrom">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="workedFrom-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedFrom-day" name="workedFrom-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="workedFrom-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedFrom-month" name="workedFrom-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="workedFrom-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="workedFrom-year" name="workedFrom-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="workedTo-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+            <h1 class="govuk-fieldset__heading">
+              To (optional)
+            </h1>
+          </legend>
+          <div class="govuk-date-input" id="workedTo">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="workedTo-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedTo-day" name="workedTo-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="workedTo-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="workedTo-month" name="workedTo-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="workedTo-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="workedTo-year" name="workedTo-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br>
+
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="ssn">
+            Social Security or National Insurance number
+          </label>
+        </h2>
+
+        <label class="govuk-label" for="event-name">
+          (optional)
+        </label>
+        <input class="govuk-input govuk-!-width-one-half" id="ssn" name="ssn" type="text">
+      </div>
+
+      <br><br><br>
 
       <button type="submit" class="govuk-button">
         Continue

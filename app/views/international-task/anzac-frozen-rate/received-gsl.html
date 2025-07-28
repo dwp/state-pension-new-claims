@@ -1,0 +1,80 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="receivedGsl-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Have we received enough information from the claimant to decide what date we can apply the change to award from?
+            </h1>
+          </legend>
+
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="receivedGsl" name="receivedGsl" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="receivedGsl">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="receivedGsl-2" name="receivedGsl" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="receivedGsl-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br><br>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <details class="govuk-details" data-module="govuk-details">
+
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>Component guide</b>
+        </span>
+      </summary>
+
+      <div class="govuk-details__text">
+        <p class="govuk-body">Radio button id = receivedGsl</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>Yes = yes</li>
+          <li>No = no</li>
+        </ul>
+      </div>
+
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

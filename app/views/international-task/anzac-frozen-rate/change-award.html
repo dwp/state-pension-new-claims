@@ -5,7 +5,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post" action="upload">
+    <form method="post">
 
       {% include './_bar.html' %}
 
@@ -21,29 +21,46 @@
 
       <br>
 
-      <div class="govuk-warning-text">
-        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-        <strong class="govuk-warning-text__text">
-          <span class="govuk-visually-hidden">Warning</span>
-          The claimant spent time outside the UK or EEA after their State Pension age.
-        </strong>
-      </div>
-
-      <br>
+      {% if data['dateReturned-day'] or data['dateApply-day'] %}
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            The claimant lived or worked outside the UK or EEA after their State Pension age.
+          </strong>
+        </div>
+      {% endif %}
 
       <table class="govuk-table">
-        <tbody class="govuk-table__body">
+        <thead class="govuk-table__head">
           <tr class="govuk-table__row">
-            <th class="govuk-table__cell govuk-!-width-one-half" scope="row">State Pension date</th>
-            <td class="govuk-table__cell govuk-!-width-one-third">30 June 2024</td>
-            <td class="govuk-table__cell"></td>
+            <th class="govuk-table__header award_detail2" scope="col">State Pension date</th>
+            <td class="govuk-table__cell award_detail">1 June 2023
+            </td>
           </tr>
           <tr class="govuk-table__row">
-            <th class="govuk-table__cell" scope="row">Uprating year for calculation</th>
-            <td class="govuk-table__cell">2024</td>
-            <td class="govuk-table__cell"></td>
+            <th class="govuk-table__header award_detail2" scope="col">Uprating year for calculation</th>
+            <td class="govuk-table__cell award_detail">
+              {% if data['dateApply-year'] %}
+                {{data['dateApply-year']}}
+              {% elseif data['dateReturned-year'] %}
+                {{data['dateReturned-year']}}
+              {% else %}
+                2023
+              {% endif %}
+            </td>
           </tr>
-        </tbody>
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header award_detail2" scope="col">Date change to award applies from</th>
+            <td class="govuk-table__cell award_detail">
+              {% if data['dateApply-day'] or data['dateApply-month'] or data['dateApply-year'] %}
+                {{data['dateApply-day']}} {{data['dateApply-month'] | monthName }} {{data['dateApply-year']}}
+              {% elseif data['dateReturned-day'] or data['dateReturned-month'] or data['dateReturned-year'] %}
+                {{data['dateReturned-day']}} {{data['dateReturned-month'] | monthName }} {{data['dateReturned-year']}}
+              {% endif %}    
+            </td>
+          </tr>
+        </thead>
       </table>
 
       <br>

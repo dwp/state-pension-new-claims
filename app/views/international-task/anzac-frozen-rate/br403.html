@@ -1,0 +1,79 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<main class="govuk-main-wrapper " id="main-content" role="main">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <form method="post">
+
+      <h1 class="govuk-heading-l">Complete part A of the BR403</h1>
+
+      <p>Use this information to complete part A of the BR403 and send it to the Pension Credit team.</p>
+
+      <br>
+
+      <h2 class="govuk-heading-m"></h2>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">State Pension revised award</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Reason</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Weekly amount</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Date from</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">ANZaC increase</td>
+            <td class="govuk-table__cell">£149.87</td>
+            <td class="govuk-table__cell">{{ "today" | govukDate }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Arrears currently being withheld</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header app-custom-class">Weekly amount</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Date from</th>
+            <th scope="col" class="govuk-table__header app-custom-class">Date to</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">£5.00</td>
+            <td class="govuk-table__cell">5 June 2023</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm BR403 sent
+      </button>
+
+    </div>
+
+  </div>
+
+</main>
+      
+{% endblock %}

@@ -7,7 +7,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        {% if data['prison-left-day'] or data['prison-left-day-2'] %}
+        {% if (data['needDates'] == 'no' or data['foundGuilty'] == 'no') or data['prison-left-day'] or data['prison-left-day-2'] %}
 
           {% include './_bar2.html' %}
 
@@ -19,23 +19,7 @@
 
         <br>
 
-        {% if data['prison-left-day'] or data['prison-left-day-2']%}
-
-        {% else %}
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            Waiting for the claimant's prison dates.<br> <a href="paper-prison-task-record" class="govuk-link--no-visited-state">Enter dates</a>.
-          </strong>
-        </div>
-
-        <br>
-
-        {% endif %}
-
-        {% if data['prison-left-day'] or data['prison-left-day-2']%}
+        {% if (data['needDates'] == 'no' or data['foundGuilty'] == 'no') or data['prison-left-day'] or data['prison-left-day-2']%}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -66,6 +50,8 @@
             }]
           }) }}
 
+          <br><br>
+
           {% else %}
 
           {{ xGovukSecondaryNavigation({
@@ -87,7 +73,22 @@
 
         {% endif %}
 
+        {% if (data['needDates'] == 'no' or data['foundGuilty'] == 'no') or data['prison-left-day'] or data['prison-left-day-2']%}
+
+        {% else %}
+
         <br><br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            Waiting for prison information from claimant.
+            <br> <a href="need-dates" class="govuk-link--no-visited-state">Record information</a>.
+          </strong>
+        </div>
+
+        {% endif %}
 
         <h2 class="govuk-heading-m">Personal details</h2>
 
@@ -145,7 +146,7 @@
       <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
 
-          {% if data['prison-left-day-2'] %}
+          {% if data['needDates'] == 'cannot' and data['prison-entered-day'] %}
 
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">24 Jan 2025 at 2:18pm</p>
@@ -162,7 +163,27 @@
 
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">15 Jan 2025 at 4:01pm</p>
-              <h2 class="dwp-timeline__heading">Cannot get prison dates. Notification sent to claimant</h2>
+              <h2 class="dwp-timeline__heading">Cannot get prison information. Notification send to claimant</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+          {% elseif data['needDates'] == 'cannot' and data['foundGuilty'] == 'no' %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">24 Jan 2025 at 2:18pm</p>
+              <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">24 Jan 2025 at 2:16pm</p>
+              <h2 class="dwp-timeline__heading">Prison considered. No further action needed</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">15 Jan 2025 at 4:01pm</p>
+              <h2 class="dwp-timeline__heading">Cannot get prison information. Notification send to claimant</h2>
               <p class="dwp-timeline__by-line">by Agent</p>
             </li>
           
@@ -181,11 +202,25 @@
               <a href="record-prison-details" class="dwp-timeline__link">Details<span class="govuk-visually-hidden">of prison dates added</span></a>
             </li>
 
-          {% else %}
+          {% elseif data['needDates'] == 'no' or data['foundGuilty'] == 'no'  %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">15 Jan 2025 at 4:04pm</p>
+              <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
 
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">15 Jan 2025 at 4:01pm</p>
-              <h2 class="dwp-timeline__heading">Cannot get prison dates. Notification sent to claimant</h2>
+              <h2 class="dwp-timeline__heading">Prison considered. No further action needed</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+            {% elseif data['needDates'] == 'cannot' or data['foundGuilty'] == 'cannot' %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">15 Jan 2025 at 4:01pm</p>
+              <h2 class="dwp-timeline__heading">Cannot get prison information. Notification send to claimant</h2>
               <p class="dwp-timeline__by-line">by Agent</p>
             </li>
 

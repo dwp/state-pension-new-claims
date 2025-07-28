@@ -1,0 +1,89 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h2 class="govuk-heading-xl">
+        Inherited extra State Pension (full period) option
+      </h2>
+      
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Basic State Pension extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="basicEsp" name="basicEsp" type="text" spellcheck="false">
+        </div>
+      </div>
+
+      <br>
+      
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Additional Pension extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="apAmount" name="apAmount" type="text" spellcheck="false">
+        </div>
+      </div>
+
+      <br>
+      
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            Graduated Retirement Benefit extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="grbAmount" name="grbAmount" type="text" spellcheck="false">
+        </div>
+      </div>
+
+      <br>
+
+      <div class="govuk-form-group">
+        <h2 class="govuk-label-wrapper">
+          <label class="govuk-label govuk-label--m" for="cost">
+            State Pension Top up Extra State Pension
+          </label>
+        </h2>
+        <div class="govuk-input__wrapper">
+          <div class="govuk-input__prefix" aria-hidden="true">£</div>
+          <input class="govuk-input govuk-input--width-5" id="topUp" name="topUp" type="text" spellcheck="false">
+        </div>
+      </div>
+        
+      <br><br><br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+      
+      <h2 class="govuk-heading-xl">
+        Lump sum inheritance option
+      </h2>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        id: "lsi",
+        name: "lsi",
+        label: {
+          text: "Lump sum inheritance amount in pounds",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-10",
+        spellcheck: false
+      }) }}
+
+      <br><br>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="pre2005eSP-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h3 class="govuk-fieldset__heading">
+              Is there any pre-2005 extra State Pension?
+            </h3>
+          </legend>
+          <!--<div id="pre2005eSP-hint" class="govuk-hint">
+            This includes changing your last name or spelling your name differently
+          </div>-->
+          <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pre2005eSP" name="pre2005eSP" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="pre2005eSP">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="pre2005eSP-2" name="pre2005eSP" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="pre2005eSP-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br><br><br>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

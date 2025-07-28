@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">Did the claimant get Superannuation under statutory domestic legislation?</h1>
+
+      <div class="govuk-form-group">
+
+
+      <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="statutory" name="statutory" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="statutory">
+              Yes
+            </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="statutory-2" name="statutory" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="statutory-2">
+              No
+            </label>
+        </div>
+      </div>
+
+      </div>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+      <br><br><br><br><br>
+
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-full">
+      
+          <details class="govuk-details" data-module="govuk-details">
+
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+              <b>Component guide</b>
+              </span>
+            </summary>
+
+            <div class="govuk-details__text">
+              <p class="govuk-body">Radio button id = statutory</p>
+              <ul class="govuk-list govuk-list--bullet">
+                <li>Yes = yes</li>
+                <li>No = no</li>
+              </ul>
+            </div>
+
+          </details>
+
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+{% endblock %}

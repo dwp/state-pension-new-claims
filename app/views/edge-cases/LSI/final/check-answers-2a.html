@@ -23,7 +23,7 @@
 
       <br>
 
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         1. Check your answers
       </h2>
 
@@ -34,89 +34,260 @@
             Claimant choice
           </dt>
 
-          <dd class="govuk-summary-list__value govuk-!-width-one-third">
-            {% if data['whichOption'] === 'lsi' %}
-            Lump sum payment
+          <dd class="govuk-summary-list__value govuk-!-width-one-half">
+            {% if data['whichOption'] === 'lsiEsp' %}
+              Lump sum payment with pre-2005 extra State Pension
+            {% elseif data['whichOption'] === 'lsi' %}
+              Lump sum payment
             {% else %}
-            Extra State Pension (higher payments)
+              Extra State Pension (increased State Pension payments)
             {% endif %}
           </dd>
 
-          <dd class="govuk-summary-list__actions govuk-!-width-one-third">
-            <a class="govuk-link--no-visited-state" href="which-option">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            {% if data.taxRate2 %}
+            {% else %}
+              <a class="govuk-link--no-visited-state" href="which-option">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            {% endif %}
           </dd>
         </div>
 
         {% if data['whichOption'] === 'lsi' %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Tax year to be paid
-          </dt>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Tax year to be paid
+            </dt>
 
-          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            {% if data['whichYear'] === 'now' %}
-            2024 to 2025
-            {% else %}
-            2025 to 2026
-            {% endif %}
-          </dd>
+            <dd class="govuk-summary-list__value">
+              {% if data['whichYear'] === 'now' %}
+              2025 to 2026
+              {% else %}
+              2026 to 2027
+              {% endif %}
+            </dd>
 
-          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link--no-visited-state" href="which-year">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
-          </dd>
-        </div>
+            <dd class="govuk-summary-list__actions">
+              {% if data.taxRate2 %}
+              {% else %}
+                <a class="govuk-link--no-visited-state" href="which-year">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+              {% endif %}
+            </dd>
+          </div>
         {% else %}
         {% endif %}
 
-        {% if data['whichYear'] === 'now' or data.taxRate or data.taxRate2 %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key govuk-!-width-one-half">
-            Tax rate
-          </dt>
+        {% if data['whichYear'] === 'later' and data.taxRate2 %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Tax rate
+            </dt>
 
-          <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
-            {% if data['taxRate'] === '0' or data['taxRate2'] === '0' %}
-            0%
-            {% elseif data['taxRate'] === '20' or data['taxRate2'] === '20' %}
-            20%
-            {% elseif data['taxRate'] === '40' or data['taxRate2'] === '40' %}
-            40%
-            {% elseif data['taxRate'] === '45' or data['taxRate2'] === '45' %}
-            45%
-            {% endif %}
-          </dd>
+            <dd class="govuk-summary-list__value govuk-!-width-one-half">
+              {% if data['taxRate2'] === '0' %}
+              0%
+              {% elseif data['taxRate2'] === '20' %}
+              20%
+              {% elseif data['taxRate2'] === '40' %}
+              40%
+              {% elseif data['taxRate2'] === '45' %}
+              45%
+              {% endif %}
+            </dd>
 
-          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
-            <a class="govuk-link--no-visited-state" href="tax-rate">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
-          </dd>
-        </div>
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link--no-visited-state" href="tax-rate">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            </dd>
+          </div>
+        {% elseif data['whichYear'] === 'later' %}
+        {% elseif data['whichYear'] === 'now' %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Tax rate
+            </dt>
+
+            <dd class="govuk-summary-list__value govuk-!-width-one-quarter">
+              {% if data['taxRate'] === '0' %}
+              0%
+              {% elseif data['taxRate'] === '20' %}
+              20%
+              {% elseif data['taxRate'] === '40' %}
+              40%
+              {% elseif data['taxRate'] === '45' %}
+              45%
+              {% endif %}
+            </dd>
+
+            <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+              <a class="govuk-link--no-visited-state" href="tax-rate">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+            </dd>
+          </div>
         {% else %}
         {% endif %}
       </dl>
 
       <br><br>
 
-      <h2 class="govuk-heading-m">
-        2. Upload the claimant choices proforma to DRS
+      <h2 class="govuk-heading-l">
+        2. Upload documents to ECMS (formerly DRS)
       </h2>
+
+      <p>Upload a copy of the claimant's choices proforma.</p>
 
       <br><br>
 
-      <h2 class="govuk-heading-m">
+      <h2 class="govuk-heading-l">
         3. Confirm
       </h2>
 
       {% if data.taxRate2 %}
 
-        <p>This payment will be made (within 3 days?)</p>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Lump sum payment</th>
+                <td class="govuk-table__cell">
+                  {% if data['taxRate2'] === '0' %}
+                    {{ (data.lsi | float) | currency }}
+                  {% elseif data['taxRate2'] === '20' %}
+                    {{ (data.lsi | float * 0.8) | currency }}
+                  {% elseif data['taxRate2'] === '40' %}
+                    {{ (data.lsi | float * 0.6) | currency }}
+                  {% elseif data['taxRate2'] === '45' %}
+                    {{ (data.lsi | float * 0.55) | currency }}
+                  {% endif %}
+                </td>
+              </tr>
+
+          </tbody>
+
+        </table>
+
+        <br>
+
+        <div class="govuk-inset-text">
+          <p>This will automatically send a letter to the claimant confirming the change to award and lump sum payment.</p>
+        </div>
 
       {% elseif data['whichYear'] === 'later' %}
 
-        <p>A letter will be automatically sent to the claimant one month before the next tax year asking them to contact us again.</p>
+        {% if data['pre2005eSP'] === 'yes' %}
+
+          <table class="govuk-table">
+                
+            <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header govuk-!-width-one-half">Updated award</th>
+                    <td class="govuk-table__cell govuk-!-width-one-half">
+                      {% if data['pre05basicEsp'] and data['pre05apAmount'] and data['pre05grbAmount'] %}
+                        {{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}</b>
+                      {% elseif data['pre05basicEsp'] and data['pre05apAmount'] %}
+                        {{ (data.pre05basicEsp | float + data.pre05apAmount | float + 100) | currency }}
+                      {% elseif data['pre05basicEsp'] and data['pre05grbAmount'] %}
+                        {{ (data.pre05basicEsp | float + data.pre05grbAmount | float + 100) | currency }}
+                      {% elseif data['pre05apAmount'] and data['pre05grbAmount'] %}
+                        {{ (data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}
+                      {% elseif data['pre05basicEsp'] %}
+                        {{ (data.pre05basicEsp | float + 100) | currency }}  
+                      {% elseif data['pre05apAmount'] %}
+                        {{ (data.pre05apAmount | float + 100) | currency }}
+                      {% elseif data['pre05grbAmount'] %}
+                        {{ (data.pre05grbAmount | float + 100) | currency }}
+                      {% endif %}
+                    </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">From</th>
+                  <td class="govuk-table__cell">19 March 2025</td>
+                </tr>
+
+            </tbody>
+
+          </table>
+
+        {% endif %}
+
+        <br>
+
+        <div class="govuk-inset-text">
+          <p>This will automatically pay any arrears and send a change to award letter to the claimant.</p>
+          <p>A letter will also be automatically sent to them one month before the next tax year asking them to contact us again.</p>
+        </div>
 
       {% elseif data.taxRate %}
 
-        <p>This payment will be made (within 3 days?)</p>
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Lump sum payment</th>
+                <td class="govuk-table__cell">
+                  {% if data['taxRate'] === '0' %}
+                    {{ (data.lsi | float) | currency }}
+                  {% elseif data['taxRate'] === '20' %}
+                    {{ (data.lsi | float * 0.8) | currency }}
+                  {% elseif data['taxRate'] === '40' %}
+                    {{ (data.lsi | float * 0.6) | currency }}
+                  {% elseif data['taxRate'] === '45' %}
+                    {{ (data.lsi | float * 0.55) | currency }}
+                  {% endif %}
+                </td>
+              </tr>
+
+          </tbody>
+
+        </table>
+
+        {% if data['pre2005eSP'] === 'yes' %}
+
+          <table class="govuk-table">
+                
+            <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header govuk-!-width-one-half">Updated award</th>
+                  <td class="govuk-table__cell govuk-!-width-one-half">
+                    {% if data['pre05basicEsp'] and data['pre05apAmount'] and data['pre05grbAmount'] %}
+                      {{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}</b>
+                    {% elseif data['pre05basicEsp'] and data['pre05apAmount'] %}
+                      {{ (data.pre05basicEsp | float + data.pre05apAmount | float + 100) | currency }}
+                    {% elseif data['pre05basicEsp'] and data['pre05grbAmount'] %}
+                      {{ (data.pre05basicEsp | float + data.pre05grbAmount | float + 100) | currency }}
+                    {% elseif data['pre05apAmount'] and data['pre05grbAmount'] %}
+                      {{ (data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}
+                    {% elseif data['pre05basicEsp'] %}
+                      {{ (data.pre05basicEsp | float + 100) | currency }}  
+                    {% elseif data['pre05apAmount'] %}
+                      {{ (data.pre05apAmount | float + 100) | currency }}
+                    {% elseif data['pre05grbAmount'] %}
+                      {{ (data.pre05grbAmount | float + 100) | currency }}
+                    {% endif %}
+                  </td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">From</th>
+                  <td class="govuk-table__cell">19 March 2025</td>
+                </tr>
+
+            </tbody>
+
+          </table>
+
+        {% endif %}
+
+        <br>
+        {% if data['pre2005eSP'] === 'yes' %}
+          <div class="govuk-inset-text">
+            <p>This will automatically send a letter to the claimant confirming the change to award and lump sum payment.</p>
+            <!--<p>The claimant gets Pension Credit. Further action is needed before we can apply the change to award.</p>-->
+          </div>
+        {% elseif data['pre2005eSP'] === 'no' %}
+          <div class="govuk-inset-text">
+            This will automatically send a letter to the claimant confirming the lump sum payment.
+          </div>
+        {% endif %}
 
       {% else %}
 
@@ -124,14 +295,14 @@
         
           <tbody class="govuk-table__body">
 
-            <tr class="govuk-table__row">
+            <tr class="govuk-table__row govuk-!-width-one-half">
               <th scope="row" class="govuk-table__header">Updated award</th>
-              <td class="govuk-table__cell">£300.25 per week</td>
+              <td class="govuk-table__cell">{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float + data.topUp | float + 100) | currency }}</td>
             </tr>
 
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">From</th>
-              <td class="govuk-table__cell">19 March 2025</td>
+              <td class="govuk-table__cell">{{ "today" | govukDate }}</td>
             </tr>
 
           </tbody>
@@ -139,7 +310,7 @@
         </table>
 
         <div class="govuk-inset-text">
-          This will automatically pay any arrears and send an award letter to the claimant.
+          This will automatically pay any arrears and send a change to award letter to the claimant.
         </div>
 
       {% endif %}
