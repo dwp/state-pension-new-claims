@@ -28,21 +28,21 @@
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="whichOption" name="whichOption" type="radio" value="esp">
             <label class="govuk-label govuk-radios__label" for="whichOption">
-              Extra State Pension (increased State Pension payments)
+              Inherited extra State Pension (increased State Pension payments)
             </label>
           </div>
           {% if data['pre2005eSP'] === 'yes' %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whichOption-2" name="whichOption" type="radio" value="lsiEsp">
               <label class="govuk-label govuk-radios__label" for="whichOption-2">
-                Lump sum payment with pre-2005 extra State Pension
+                Lump sum inheritance payment with pre-2005 inherited extra State Pension 
               </label>
             </div>
           {% elseif data['pre2005eSP'] === 'no' %}
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="whichOption-2" name="whichOption" type="radio" value="lsi">
               <label class="govuk-label govuk-radios__label" for="whichOption-2">
-                Lump sum payment 
+                Lump sum inheritance payment 
               </label>
             </div>
           {% endif %}

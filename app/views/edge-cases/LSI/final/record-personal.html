@@ -45,14 +45,6 @@
 
         <br><br>
 
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            Waiting for Pension Credit team to return part B of the BR403 form. <a href="../mixed-overlapping-benefits/pension-credit/pension-credit-decision-1" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
-          </strong>
-        </div>
-
         <h2 class="govuk-heading-m">Personal details</h2>
 
           <table class="govuk-table">
@@ -159,10 +151,22 @@
             {% endif %}
             
             {% if data['lsi'] %}
+              <!--<li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">No response to choices letter. Change to award and lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Choices letter reminder sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>-->
+            
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Choices letter sent to claimant</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
+                <p class="dwp-timeline__by-line">by System</p>
               </li>
             {% endif %}
 

@@ -36,11 +36,11 @@
 
           <dd class="govuk-summary-list__value govuk-!-width-one-half">
             {% if data['whichOption'] === 'lsiEsp' %}
-              Lump sum payment with pre-2005 extra State Pension
+              Lump sum inheritance payment with pre-2005 inherited extra State Pension 
             {% elseif data['whichOption'] === 'lsi' %}
-              Lump sum payment
+              Lump sum inheritance payment
             {% else %}
-              Extra State Pension (increased State Pension payments)
+              Inherited extra State Pension (increased State Pension payments)
             {% endif %}
           </dd>
 
@@ -52,10 +52,10 @@
           </dd>
         </div>
 
-        {% if data['whichOption'] === 'lsi' %}
+        {% if data['whichOption'] === 'lsi' or 'lsiEsp' %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Tax year to be paid
+              Tax year for payment
             </dt>
 
             <dd class="govuk-summary-list__value">
@@ -128,18 +128,18 @@
       <br><br>
 
       <h2 class="govuk-heading-l">
-        2. Upload documents to ECMS (formerly DRS)
+        2. Upload documents
       </h2>
 
-      <p>Upload a copy of the claimant's choices proforma.</p>
-
-      <br><br>
-
-      <h2 class="govuk-heading-l">
-        3. Confirm
-      </h2>
+      <p>Upload a copy of the claimant choices proforma into ECMS (formerly DRS).</p>
 
       {% if data.taxRate2 %}
+
+        <br><br>
+
+        <h2 class="govuk-heading-l">
+          3. Confirm
+        </h2>
 
         <table class="govuk-table">
           <tbody class="govuk-table__body">
@@ -172,6 +172,12 @@
       {% elseif data['whichYear'] === 'later' %}
 
         {% if data['pre2005eSP'] === 'yes' %}
+
+          <br><br>
+
+          <h2 class="govuk-heading-l">
+            3. Confirm
+          </h2>
 
           <table class="govuk-table">
                 
@@ -210,12 +216,24 @@
 
         <br>
 
-        <div class="govuk-inset-text">
-          <p>This will automatically pay any arrears and send a change to award letter to the claimant.</p>
-          <p>A letter will also be automatically sent to them one month before the next tax year asking them to contact us again.</p>
-        </div>
+        {% if data['pre2005eSP'] === 'yes' %}
+          <div class="govuk-inset-text">
+            <p>This will automatically pay any arrears and send a change to award letter to the claimant.</p>
+            <p>A letter will also be automatically sent to the claimant next March asking them to contact us again with their tax rate.</p>
+          </div>
+        {% elseif data['pre2005eSP'] === 'no' %}
+          <div class="govuk-inset-text">
+            <p>A letter will be automatically sent to the claimant next March asking them to contact us again with their tax rate.</p>
+          </div>
+        {% endif %}
 
       {% elseif data.taxRate %}
+
+        <br><br>
+
+        <h2 class="govuk-heading-l">
+          3. Confirm
+        </h2>
 
         <table class="govuk-table">
           
@@ -291,6 +309,12 @@
 
       {% else %}
 
+        <br><br>
+
+        <h2 class="govuk-heading-l">
+          3. Confirm
+        </h2>
+
         <table class="govuk-table">
         
           <tbody class="govuk-table__body">
@@ -319,7 +343,7 @@
 
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
-        Confirm and send letter
+        End task
       </button>
 
       </form>
