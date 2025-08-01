@@ -80,26 +80,6 @@
         {% endif %}
 
     </div>
-
-    <div class="govuk-grid-column-one-third">
-
-      {% from "timeline/macro.njk" import dwpTimeline %}
-
-      <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-          dwpTimeline({ 
-              items: [
-              {
-                  title:  "Claim received",
-                  byline:  "online",
-                  date:  "11 May 2024 at 7:14pm"
-              }
-          ]
-          })
-      }}
-
-    </div>
-
   </main>
 </div>
 

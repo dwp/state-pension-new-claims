@@ -65,48 +65,35 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
+
+        {% if data['whichOption'] === 'esp' or data['whichOption'] === 'lsiEsp' %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ "today" | govukDate }}</td>
+            <td class="govuk-table__cell">
+              {% if data['whichOption'] === 'esp' %}
+                {{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float + data.topUp | float + 100) | currency }}
+              {% elseif data['whichOption'] === 'lsiEsp' %}
+                {{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell">Yes</td>
+            <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="record-award-details.html">Details</a></td>
+          </tr>
+        {% endif %}
+
         <tr class="govuk-table__row">
-          <td class="govuk-table__cell">15 May 2024</td>
-          <td class="govuk-table__cell">
-            {% if data['whichOption'] === 'esp' %}
-              £{{ (200.00 + data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
-            {% else %}
-              £200.00
-            {% endif %}
-          </td>
+          <td class="govuk-table__cell">10 July 2025</td>
+          <td class="govuk-table__cell">£100.00</td>
           <td class="govuk-table__cell">Yes</td>
-          <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="record-award-details.html">Details</a></td>
+          <td class="govuk-table__cell"><a class="govuk-body govuk-link--no-visited-state" href="#">Details</a></td>
         </tr>
+
       </tbody>
     </table>
 
     <a href="record-award-review" class="govuk-link--no-visited-state govuk-!-font-size-19">Review award</a>
 
     <br><br><br>
-
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-
-    {% from "timeline/macro.njk" import dwpTimeline %}
-
-    <h2 class="govuk-heading-m">Personal changes</h2>
-      {{
-      dwpTimeline({ 
-          items: [
-          {
-            title:  "State Pension awarded",
-            byline:  "agent",
-            date:  "14 May 2024 at 2:10pm"
-        },
-        {
-            title:  "Claim received",
-            byline:  "system",
-            date:  "11 May 2024 at 7:14pm"
-        }
-      ]
-      })
-      }}
 
   </div>
 

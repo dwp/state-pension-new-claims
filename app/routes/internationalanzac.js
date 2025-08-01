@@ -422,23 +422,18 @@ router.post('/international-task/anzac-frozen-rate/date-apply-change', function 
 })
 
 router.post('/international-task/anzac-frozen-rate/check-date', function (req, res) {
-  if (req.session.data['receivedGsl'] === 'yes' && req.session.data['requestWinz'] === 'yes' || req.session.data['winz'] === 'winz' && req.body['stillChange'] === 'yes') {
-  res.redirect('received-winz')
-  } else if (req.session.data['statutory'] === 'no' && req.body['stillChange'] === 'yes') {
+  if (req.session.data['statutory'] === 'no' && req.body['stillChange'] === 'yes') {
   res.redirect('calculate-award')
-  }  else if (req.session.data['receivedGsl']=== 'yes' && req.session.data['requestWinz'] === 'yes' || req.session.data['winz'] === 'winz') {
-    res.redirect('received-winz')
-  } else if (req.session.data['receivedGsl'] === 'yes' && req.session.data['requestWinz'] === 'yes' || req.session.data['winz'] === 'winz' && req.body['stillChange'] === 'yes') {
-    res.redirect('received-winz')
+
   } else if (req.session.data['statutory'] === 'yes' && req.body['stillChange'] === 'yes') {
     res.redirect('change-award')
   } else if (req.session.data['receivedGsl'] === 'yes' && req.body['stillChange'] === 'yes') {
   res.redirect('calculate-award')
   } else if (req.session.data['receivedWinz'] === 'yes' && req.body['stillChange'] === 'yes') {
   res.redirect('calculate-award')
-  } else if (req.session.data['requestWinz'] === 'yes' || req.session.data['winz'] === 'winz' && req.body['stillChange'] === 'yes') {
+  } else if ((req.session.data['requestWinz'] === 'yes' || req.session.data['winz'] === 'winz') && req.body['stillChange'] === 'yes') {
    res.redirect('received-winz')
-  } else if (req.session.data['rf1'] === 'request' || req.session.data['rf1'] === 'requested' && req.body['stillChange'] === 'yes') {
+  } else if ((req.session.data['rf1'] === 'request' || req.session.data['rf1'] === 'requested') && req.body['stillChange'] === 'yes') {
     res.redirect('rf1-task')
   } else if (req.session.data['NZlivedTo-day'] && req.body['stillChange'] === 'yes') {
     res.redirect('nzsa-question')
@@ -589,6 +584,14 @@ router.post('/international-task/anzac-frozen-rate/remove-country-ca', function 
 
 router.post('/international-task/anzac-frozen-rate/remove-country-nz', function (req, res) {
   res.redirect('check-answers')
+})
+
+router.post('/international-task/anzac-frozen-rate/enter-nsp', function (req, res) {
+  res.redirect('change-award')
+})
+
+router.post('/international-task/anzac-frozen-rate/enter-pp', function (req, res) {
+  res.redirect('change-award')
 })
 
 router.post('/international-task/anzac-frozen-rate/received-gsl', function (req, res) {

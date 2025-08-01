@@ -24,10 +24,12 @@
           <th class="govuk-table__header award_detail2" scope="col">Total</th>
           <th class="govuk-table__header award_detail" scope="col">
             {% if data['whichOption'] === 'esp' %}
-              £{{ (200.00 + data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
-            {% else %}
-              £200.00
-            {% endif %} per week	
+              {{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float + data.topUp | float + 100) | currency }}
+            {% elseif data['whichOption'] === 'lsiEsp' %}
+              {{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}
+            {% else %}	
+              £100.00
+            {% endif %}	
           </th>
           <td class="govuk-table__cell award_detail">
           </td>
@@ -37,7 +39,7 @@
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
           <td class="govuk-table__cell" scope="row">New State Pension</td>
-          <td class="govuk-table__cell">£200.00 per week</td>
+          <td class="govuk-table__cell">£100.00 a week</td>
           <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-amount">Change<span class="govuk-visually-hidden">change new State Pension</span></a></td>
         </tr>
 
@@ -53,20 +55,22 @@
           <td class="govuk-table__cell"></td>
         </tr>
 
-        {% if data['whichOption'] === 'esp' %}
+        {% if data['whichOption'] === 'esp' or data['whichOption'] === 'lsiEsp' %}
           <tr class="govuk-table__row">
             <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
             <td class="govuk-table__cell">
-              {% if data['basicEsp'] %}
-                £{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float).toFixed(2) }}
+              {% if data['whichOption'] === 'esp' %}
+                {{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float + data.topUp | float) | currency }}</td>
+              {% elseif data['whichOption'] === 'lsiEsp' %}
+                {{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float) | currency }}</td>
               {% else %}
                 £0.00
               {% endif %}
             </td>
-            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="enter-inherited-esp">
-              {% if data['basicEsp'] %}
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="claimant-options-3">
+              {% if data['basicEsp'] or data['pre05basicEsp'] %}
                 Change
-                {% else %}
+              {% else %}
                 Add
               {% endif %}
               <span class="govuk-visually-hidden">change Inherited extra State Pension</span></a></td>
@@ -75,12 +79,13 @@
 
         <tr class="govuk-table__row">
             <td class="govuk-table__header award_detail2" scope="row">Entitlement date</td>
-            <td class="govuk-table__cell award_detail">10 April 2023</td>
+            <td class="govuk-table__cell award_detail">30 June 2025</td>
             <td class="govuk-table__cell award_detail">
               <a href="change-date">
                 Change<span class="govuk-visually-hidden">Change address</span>
               </a></td>
           </tr>
+          
       </tbody>
     </table>
 

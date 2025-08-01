@@ -101,14 +101,40 @@
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Lump sum payment letter sent to claimant</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
+                <p class="dwp-timeline__by-line">by System</p>
               </li>
             {% endif %}
-            {% if (data['whichOption'] === 'lsi' or data['whichOption'] === 'lsiEsp') and data['whichYear'] === 'later' %}
+            {% if data['whichOption'] === 'lsiEsp' and data['whichYear'] === 'later' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Letter sent to claimant asking them to contact us about their tax rate</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Change to award letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part B of BR403 returned</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum inheritance for 2026 to 2027 tax year with pre-2005 extra State Pension</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'lsi' and data['whichYear'] === 'later' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Letter sent to claimant asking them to contact us about their tax rate</h2>
+                <p class="dwp-timeline__by-line">by System</p>
               </li>
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
@@ -119,7 +145,7 @@
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Lump sum payment letter sent to claimant</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
+                <p class="dwp-timeline__by-line">by System</p>
               </li>
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
@@ -130,24 +156,44 @@
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Change to award and lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part B of BR403 returned</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
-                <h2 class="dwp-timeline__heading">Claimant chose lump sum</h2>
+                <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum inheritance with pre-2005 extra State Pension</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% elseif data['whichOption'] === 'esp' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Change to award letter sent to claimant</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
+                <p class="dwp-timeline__by-line">by System</p>
               </li>
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">(day month year) at (time)</p>
                 <h2 class="dwp-timeline__heading">Claimant chose extra State Pension</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
+              <!--<li class="dwp-timeline__item">
+                    <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                    <h2 class="dwp-timeline__heading">Part B of BR403 returned</h2>
+                    <p class="dwp-timeline__by-line">by Agent</p>
+                  </li>
+                  <li class="dwp-timeline__item">
+                    <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                    <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
+                    <p class="dwp-timeline__by-line">by Agent</p>
+                  </li>-->
             {% endif %}
             
             {% if data['lsi'] %}

@@ -145,7 +145,7 @@
           <tbody class="govuk-table__body">
 
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Lump sum payment</th>
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Lump sum amount</th>
                 <td class="govuk-table__cell">
                   {% if data['taxRate2'] === '0' %}
                     {{ (data.lsi | float) | currency }}
@@ -166,7 +166,7 @@
         <br>
 
         <div class="govuk-inset-text">
-          <p>This will automatically send a letter to the claimant confirming the change to award and lump sum payment.</p>
+          <p>This will automatically send a letter to the claimant confirming the lump sum payment.</p>
         </div>
 
       {% elseif data['whichYear'] === 'later' %}
@@ -240,7 +240,7 @@
           <tbody class="govuk-table__body">
 
               <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Lump sum payment</th>
+                <th scope="row" class="govuk-table__header govuk-!-width-one-half">Lump sum amount</th>
                 <td class="govuk-table__cell">
                   {% if data['taxRate'] === '0' %}
                     {{ (data.lsi | float) | currency }}
@@ -298,7 +298,7 @@
         <br>
         {% if data['pre2005eSP'] === 'yes' %}
           <div class="govuk-inset-text">
-            <p>This will automatically send a letter to the claimant confirming the change to award and lump sum payment.</p>
+            <p>This will automatically pay any arrears and send a letter to the claimant confirming the change to award and lump sum payment.</p>
             <!--<p>The claimant gets Pension Credit. Further action is needed before we can apply the change to award.</p>-->
           </div>
         {% elseif data['pre2005eSP'] === 'no' %}
@@ -343,7 +343,7 @@
 
 
       <button type="submit" class="govuk-button" data-module="govuk-button">
-        End task
+        Confirm and send letter
       </button>
 
       </form>

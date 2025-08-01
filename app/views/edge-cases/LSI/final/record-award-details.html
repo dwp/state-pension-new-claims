@@ -28,16 +28,16 @@
           <tbody class="govuk-table__body">
 
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header" style="width: 45%">From</th>
-              <td class="govuk-table__cell" style="width: 55%">18 May 2024</td>
+              <th scope="row" class="govuk-table__header" style="width: 50%">From</th>
+              <td class="govuk-table__cell" style="width: 50%">{{ "today" | govukDate }}</td>
             </tr>
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header" style="width: 45%">To</th>
-              <td class="govuk-table__cell" style="width: 55%"></td>
+              <th scope="row" class="govuk-table__header" style="width: 50%">To</th>
+              <td class="govuk-table__cell" style="width: 50%"></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Reason</th>
-              <td class="govuk-table__cell">First award</td>
+              <td class="govuk-table__cell">Inheritance</td>
             </tr>
           </tbody>
         </table>
@@ -47,7 +47,12 @@
             <thead class="govuk-table__head">
               <tr class="govuk-table__row">
                 <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
-                <th class="govuk-table__header" scope="col" style="width: 50%">£254.32 a week</th>
+                {% if data['whichOption'] === 'esp' %}
+                  <th class="govuk-table__header" scope="col" style="width: 50%">{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float + data.topUp | float + 100) | currency }} a week</th>
+                {% endif %}
+                {% if data['whichOption'] === 'lsiEsp' %}
+                  <th class="govuk-table__header" scope="col" style="width: 50%">{{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }} a week</th>
+                {% endif %}
                 <th class="govuk-table__header" scope="col"></th>
               </tr>
             </thead>
@@ -56,7 +61,7 @@
             
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell" scope="row">New State Pension</td>
-                <td class="govuk-table__cell">£254.32</td>
+                <td class="govuk-table__cell">£100.00</td>
                 <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
               </tr>
 
@@ -67,40 +72,62 @@
               </tr>
 
               <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" scope="row">Extra State Pension</td>
-                  <td class="govuk-table__cell">£0.00</td>
-                  <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+                <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+                <td class="govuk-table__cell">£0.00</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
               </tr>
 
+              {% if data['whichOption'] === 'esp' or data['whichOption'] === 'lsiEsp' %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+                  {% if data['whichOption'] === 'esp' %}
+                    <td class="govuk-table__cell">{{ (data.basicEsp | float + data.apAmount | float + data.grbAmount | float + data.topUp | float) | currency }}</td>
+                  {% endif %}
+                  {% if data['whichOption'] === 'lsiEsp' %}
+                    <td class="govuk-table__cell">{{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float) | currency }}</td>
+                  {% endif %}
+                    <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+                </tr>
+              {% endif %}
+              
+            </tbody>
+          </table>
+
+          <br><br>
+
+          <h2 class="govuk-heading-m">Inherited amounts</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              {% if data.basicEsp %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" style="width: 50%">Basic State Pension extra State Pension</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{ data.basicEsp | currency}}</td>
+                </tr>
+              {% endif %}
+              {% if data.apAmount %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" style="width: 50%">Additional Pension extra State Pension</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{ data.apAmount | currency }}</td>
+                </tr>
+              {% endif %}
+              {% if data.grbAmount %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{ data.grbAmount | currency }}</td>
+                </tr>
+              {% endif %}
+              {% if data.topUp %}
+                <tr class="govuk-table__row">
+                  <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
+                  <td class="govuk-table__cell" style="width: 50%">{{ data.topUp | currency }}</td>
+                </tr>
+              {% endif %}
             </tbody>
           </table>
 
           <br><br><br>
 
-      </div>
-
-      <div class="govuk-grid-column-one-third">
-
-        {% from "timeline/macro.njk" import dwpTimeline %}
-
-        <h2 class="govuk-heading-m">Personal changes</h2>
-          {{
-          dwpTimeline({ 
-              items: [
-              {
-                title:  "State Pension awarded",
-                byline:  "agent",
-                date:  "14 May 2024 at 2:10pm"
-            },
-            {
-                title:  "Claim received",
-                byline:  "system",
-                date:  "11 May 2024 at 7:14pm"
-            }
-          ]
-          })
-          }}
-    
       </div>
 
     </div>
