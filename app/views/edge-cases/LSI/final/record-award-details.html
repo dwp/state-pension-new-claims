@@ -95,36 +95,65 @@
 
           <br><br>
 
-          <h2 class="govuk-heading-m">Inherited amounts</h2>
+          {% if data['whichOption'] === 'esp' %}
+            <h2 class="govuk-heading-m">Inherited amounts</h2>
 
-          <table class="govuk-table">
-            <tbody class="govuk-table__body">
-              {% if data.basicEsp %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" style="width: 50%">Basic State Pension extra State Pension</th>
-                  <td class="govuk-table__cell" style="width: 50%">{{ data.basicEsp | currency}}</td>
-                </tr>
-              {% endif %}
-              {% if data.apAmount %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" style="width: 50%">Additional Pension extra State Pension</th>
-                  <td class="govuk-table__cell" style="width: 50%">{{ data.apAmount | currency }}</td>
-                </tr>
-              {% endif %}
-              {% if data.grbAmount %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
-                  <td class="govuk-table__cell" style="width: 50%">{{ data.grbAmount | currency }}</td>
-                </tr>
-              {% endif %}
-              {% if data.topUp %}
-                <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
-                  <td class="govuk-table__cell" style="width: 50%">{{ data.topUp | currency }}</td>
-                </tr>
-              {% endif %}
-            </tbody>
-          </table>
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                {% if data.basicEsp %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Basic State Pension extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.basicEsp | currency}}</td>
+                  </tr>
+                {% endif %}
+                {% if data.apAmount %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Additional Pension extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.apAmount | currency }}</td>
+                  </tr>
+                {% endif %}
+                {% if data.grbAmount %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.grbAmount | currency }}</td>
+                  </tr>
+                {% endif %}
+                {% if data.topUp %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.topUp | currency }}</td>
+                  </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          {% endif %}
+
+          {% if data['whichOption'] === 'lsiEsp' %}
+            <h2 class="govuk-heading-m">Pre-2005 inherited amounts</h2>
+
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                {% if data.pre05basicEsp %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Basic State Pension extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.pre05basicEsp | currency}}</td>
+                  </tr>
+                {% endif %}
+                {% if data.pre05apAmount %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Additional Pension extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.pre05apAmount | currency }}</td>
+                  </tr>
+                {% endif %}
+                {% if data.pre05grbAmount %}
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" style="width: 50%">Graduated Retirement Benefit extra State Pension</th>
+                    <td class="govuk-table__cell" style="width: 50%">{{ data.pre05grbAmount | currency }}</td>
+                  </tr>
+                {% endif %}
+              </tbody>
+            </table>
+          {% endif %}
 
           <br><br><br>
 
