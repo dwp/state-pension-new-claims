@@ -73,4 +73,16 @@ router.post('/widows/iteration-2/spouse-spa', function (req, res) {
   }
 })
 
+router.post('/widows/iteration-2/refer-case', function (req, res) {
+  if (req.body['sendSpouse'] === 'no') {
+    res.redirect('/widows/iteration-2/new-task')
+  } else {
+    res.redirect('/widows/iteration-2/get-a-task-2')
+  }
+})
+
+router.post('/widows/iteration-2/new-task', (req, res) => {
+  res.redirect('/widows/iteration-2/get-a-task-2')
+})
+
 module.exports = router
