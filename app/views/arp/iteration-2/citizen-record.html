@@ -7,46 +7,46 @@
 
         {% if data.maxwellQuestion === 'no' %}
 
-        <div>
-          <h1 class="govuk-heading-l">
-            Otto Kirch <br>
-            <span class="govuk-caption-xl">QQ 12 34 56 X</span>
-            <strong class="govuk-tag govuk-tag--blue">
-              Receiving State Pension
-            </strong>
-          </h1>
-        </div>
+          <div>
+            <h1 class="govuk-heading-l">
+              Otto Kirch <br>
+              <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+              <strong class="govuk-tag govuk-tag--blue">
+                Receiving State Pension
+              </strong>
+            </h1>
+          </div>
 
-        <br>
+          <br>
 
-        {{ xGovukSecondaryNavigation({
-          visuallyHiddenTitle: "Secondary menu",
-          items: [{
-            text: "Personal",
-            href: "#",
-            current: true
-          }, 
-          {
-            text: "Contact",
-            href: "#"
-          }, 
-          {
-            text: "Tasks",
-            href: "#"
-          },
-          {
-            text: "Award",
-            href: "citizen-award"
-          },
-          {
-            text: "Payment",
-            href: "citizen-payment"
-          }]
-        }) }}
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "#",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "#"
+            }, 
+            {
+              text: "Tasks",
+              href: "citizen-tasks"
+            },
+            {
+              text: "Award",
+              href: "citizen-award"
+            },
+            {
+              text: "Payment",
+              href: "citizen-payment"
+            }]
+          }) }}
 
-        <br><br>
+          <br><br>
 
-        <h2 class="govuk-heading-m">Personal details</h2>
+          <h2 class="govuk-heading-m">Personal details</h2>
 
           <table class="govuk-table">
             <tbody class="govuk-table__body">
@@ -89,42 +89,44 @@
 
             </tbody>
           </table>
-      </div>
 
-      <div class="govuk-grid-column-one-third">
+          </div>
 
-      {% from "timeline/macro.njk" import dwpTimeline %}
+          <div class="govuk-grid-column-one-third">
 
-      <h1 class="govuk-heading-m">Personal changes</h1>
-      {{
-          dwpTimeline({ 
-              items: [
-              {
-                title:  "State Pension awarded",
-                byline:  "system",
-                date:  "13 May 2024 at 1:16pm"
-              },    
-              {
-                      title:  "ARP check",
-                      byline:  "agent",
-                      link: {
-                        href: "arp-details-2",
-                        text: "Details",
-                        visuallyHiddenText: "related to the ARP check"
-                      },
-                      date:  "13 May 2024 at 1:04pm"
-                  },
-                
-                  {
-                      title:  "Claim received",
-                      byline:  "online",
-                      date:  "11 May 2024 at 7:14pm"
-                  }
-          ]
-          })
-      }}
+          {% from "timeline/macro.njk" import dwpTimeline %}
 
-          {% elseif data.maxwellQuestion === 'yes' %}
+          <h1 class="govuk-heading-m">Personal changes</h1>
+
+          {{
+            dwpTimeline({ 
+                items: [
+                {
+                  title:  "State Pension awarded",
+                  byline:  "system",
+                  date:  "13 May 2024 at 1:16pm"
+                },    
+                {
+                        title:  "ARP check",
+                        byline:  "agent",
+                        link: {
+                          href: "arp-details-2",
+                          text: "Details",
+                          visuallyHiddenText: "related to the ARP check"
+                        },
+                        date:  "13 May 2024 at 1:04pm"
+                    },
+                  
+                    {
+                        title:  "Claim received",
+                        byline:  "online",
+                        date:  "11 May 2024 at 7:14pm"
+                    }
+              ]
+              })
+          }}
+
+        {% elseif data.maxwellQuestion === 'yes' %}
 
           <div>
             <h1 class="govuk-heading-l">
@@ -137,15 +139,6 @@
           </div>
   
           <br>
-
-          <div class="govuk-warning-text">
-            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-            <strong class="govuk-warning-text__text">
-              <span class="govuk-visually-hidden">Warning</span>
-              Waiting for CA1741 from HMRC. 
-              <p><a href="ca1741-returned" class="govuk-link"><b>Confirm CA1741 returned</b></a>.</p>
-            </strong>
-          </div>
   
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -164,9 +157,18 @@
             }
             ]
           }) }}
-  
+
           <br><br>
-  
+
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden">Warning</span>
+              Waiting for CA1741 from HMRC. 
+              <p><a href="ca1741-returned" class="govuk-link--no-visited-state"><b>Confirm CA1741 returned.</b></a></p>
+            </strong>
+          </div>
+    
           <h2 class="govuk-heading-m">Personal details</h2>
   
             <table class="govuk-table">
@@ -210,35 +212,131 @@
   
               </tbody>
             </table>
-        </div>
-  
-        <div class="govuk-grid-column-one-third">
 
-        {% from "timeline/macro.njk" import dwpTimeline %}
+          </div>
+    
+          <div class="govuk-grid-column-one-third">
 
-      <h1 class="govuk-heading-m">Personal changes</h1>
-      {{
-          dwpTimeline({ 
-              items: [
-              {
-                      title:  "ARP check",
-                      byline:  "agent",
-                      link: {
-                        href: "arp-details-2",
-                        text: "Details",
-                        visuallyHiddenText: "related to the ARP check"
-                      },
-                      date:  "13 May 2024 at 1:04pm"
-                  },
-                
+          {% from "timeline/macro.njk" import dwpTimeline %}
+
+          <h1 class="govuk-heading-m">Personal changes</h1>
+          {{
+              dwpTimeline({ 
+                  items: [
                   {
-                      title:  "Claim received",
-                      byline:  "online",
-                      date:  "11 May 2024 at 7:14pm"
-                  }
-          ]
-          })
-      }}
+                          title:  "ARP check",
+                          byline:  "agent",
+                          link: {
+                            href: "arp-details-2",
+                            text: "Details",
+                            visuallyHiddenText: "related to the ARP check"
+                          },
+                          date:  "13 May 2024 at 1:04pm"
+                      },
+                    
+                      {
+                          title:  "Claim received",
+                          byline:  "online",
+                          date:  "11 May 2024 at 7:14pm"
+                      }
+              ]
+              })
+          }}
+
+        {% else %}
+
+          <div>
+            <h1 class="govuk-heading-l">
+              Otto Kirch <br>
+              <span class="govuk-caption-xl">QQ 12 34 56 X</span>
+              <strong class="govuk-tag govuk-tag--orange">
+                Task outstanding
+              </strong>               
+            </h1>
+          </div>
+
+          <br>
+
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "#",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "#"
+            }, 
+            {
+              text: "Tasks",
+              href: "citizen-tasks"
+            }
+            ]
+          }) }}
+
+          <br><br>
+
+          <h2 class="govuk-heading-m">Personal details</h2>
+
+            <table class="govuk-table">
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+                  <td class="govuk-table__cell" style="width: 50%">Otto Kirch</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+                    Change
+                  </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">National Insurance number</th>
+                  <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Date of birth</th>
+                  <td class="govuk-table__cell">12 December 1957</td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">State Pension date </th>
+                  <td class="govuk-table__cell">10 April 2023 </td>
+                  <td class="govuk-table__cell"></td>
+                </tr>
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status </th>
+                  <td class="govuk-table__cell">Never been married</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
+                      Details
+                    </a></td>
+                </tr>
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                    <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">Details</a></td>
+                  </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+    
+          <div class="govuk-grid-column-one-third">
+
+          {% from "timeline/macro.njk" import dwpTimeline %}
+
+          <h1 class="govuk-heading-m">Personal changes</h1>
+          {{
+              dwpTimeline({ 
+                  items: [
+                      {
+                          title:  "Claim received",
+                          byline:  "online",
+                          date:  "11 May 2024 at 7:14pm"
+                      }
+              ]
+              })
+          }}
 
         {% endif %}
 
