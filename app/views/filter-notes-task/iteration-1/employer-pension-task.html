@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+      <form method="post">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+          <br><br>
+
+          <div class="govuk-form-group">
+
+
+  <h2 class="govuk-heading-l">Send a BF215C to the claimant's private pension scheme</h2>
+
+  <dl class="govuk-summary-list">
+    <div class="govuk-summary-list__row">
+      <dt class="govuk-summary-list__key  govuk-!-width-one-half">
+        SCON or ECON number
+      </dt>
+      <dd class="govuk-summary-list__value">
+        0106026N
+      </dd>
+    </div>
+
+          <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+        Open tax years
+          </dt>
+          <dd class="govuk-summary-list__value">
+1998-1999<br>
+2021-2022<br>
+          </dd>
+          </div>
+
+          </dl>
+
+
+
+
+          <a href="get-a-task" button type="submit" class="govuk-button govuk-button">
+            Confirm BF215C sent and end task
+          </a>
+
+
+
+
+           </div>
+
+
+           <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+           <br>
+
+                   <details class="govuk-details" data-module="govuk-details">
+                     <summary class="govuk-details__summary">
+                       <span class="govuk-details__summary-text">
+                       <b>URL, errors and notes</b>
+                       </span>
+                     </summary>
+                     <div class="govuk-details__text">
+                       <b>URL:</b> <br>
+                       <b>Error messages:</b> <br>
+                       <b>Notes:</b> None <br>
+                     </div>
+                   </details>
+
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

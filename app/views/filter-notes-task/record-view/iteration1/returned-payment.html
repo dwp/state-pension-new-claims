@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './header/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+          <form method="post">
+
+            {{ govukBackLink({
+              text: "Back",
+              href: "javascript:history.go(-1)"
+                              }) }}
+
+                              
+            <br><br>
+            <div class="govuk-form-group">
+              <form method="post" class="form">
+              <h2 class="govuk-heading-xl">Do you want to mark the payment as returned?</h2>
+              <fieldset class="govuk-fieldset" aria-describedby="returned-hint">
+                <div id="more-detail-hint" class="govuk-hint">
+                  Marking the payment as returned will stop regular payments to this account
+                </div>
+
+
+                <div class="govuk-radios govuk-radios--inline">
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="returned-1" name="returned" type="radio" value="yes">
+                    <label class="govuk-label govuk-radios__label" for="returned">
+                      Yes
+                    </label>
+                  </div>
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="returned-2" name="returned" type="radio" value="no">
+                    <label class="govuk-label govuk-radios__label" for="returned-2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </fieldset>
+    <br>
+              <button class="govuk-button" data-module="govuk-button">
+                Confirm
+              </button>
+
+            </div>
+
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

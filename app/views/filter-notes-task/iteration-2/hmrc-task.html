@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+
+          <br><br>
+          {% include './_bar.html' %}
+
+      <form method="post">
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+          <br><br>
+
+          <div class="govuk-form-group">
+
+
+            <h2 class="govuk-heading-l">Complete a BIC1 form and send it to HMRC</h2>
+
+            <dl class="govuk-summary-list">
+
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Reason
+            </dt>
+            <dd class="govuk-summary-list__value">
+            280 erroneous contributions
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Tax years
+            </dt>
+            <dd class="govuk-summary-list__value">
+2018-2019<br>
+            2021-2022
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Contributions compliance and yield checked
+            </dt>
+            <dd class="govuk-summary-list__value">
+            Yes
+            </dd>
+            </div>
+            </dl>
+<br>
+
+            <h2 class="govuk-heading-m">Claimant details</h2>
+
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Address
+              </dt>
+              <dd class="govuk-summary-list__value">
+                55 Main Street
+                  <br> Guildford <br> GU79 6YW            </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+              Date of birth
+              </dt>
+              <dd class="govuk-summary-list__value">
+              22 June 1956
+              </dd>
+              </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Mobile phone
+            </dt>
+            <dd class="govuk-summary-list__value">
+            07123 456789
+            </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+            Home phone
+            </dt>
+            <dd class="govuk-summary-list__value">
+            01234 567891
+            </dd>
+            </div>
+
+
+            </dl>
+
+
+
+
+
+          <a href="get-a-task-2" button type="submit" class="govuk-button govuk-button">
+            Confirm BIC1 sent and end task
+          </a>
+
+
+
+
+           </div>
+
+
+           <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+           <br>
+
+                   <details class="govuk-details" data-module="govuk-details">
+                     <summary class="govuk-details__summary">
+                       <span class="govuk-details__summary-text">
+                       <b>URL, errors and notes</b>
+                       </span>
+                     </summary>
+                     <div class="govuk-details__text">
+                       <b>URL:</b> <br>
+                       <b>Error messages:</b> <br>
+                       <b>Notes:</b> None <br>
+                     </div>
+                   </details>
+
+      </div>
+    </main>
+
+  </form>
+</div>
+</div>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

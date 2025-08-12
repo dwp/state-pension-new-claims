@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include '../_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include '../_bar.html' %}
+
+        <form method="post" action="get-a-task-complete">
+
+
+          <h2 class="govuk-heading-l">Fix filter notes issue</h2>
+        <p>blah blah blah.</p>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+      Note number & description
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      SCON/ECON number
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Tax year
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of payment
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Late paid indicator (flag)
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of death
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Contributions compliance and yield checked (flag)
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>
+</dl>
+
+
+
+
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm</button>
+
+
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+              <b>URL, errors and notes</b>
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+
+              <strong>URL:</strong> /api-issue <br>
+              <b>Error messages:<br>
+              Nothing selected - </b> Select how you want to continue<br>
+              <b>Notes:</b> None <br>
+            </div>
+          </details>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+<script>
+    nextPageRoutes = {
+        'keep': '/filter-notes-task/keep-address.html',
+        'change': '/filter-notes-task/change-address3.html',
+        'exit': '/filter-notes-task/personal.html',
+        }
+</script>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

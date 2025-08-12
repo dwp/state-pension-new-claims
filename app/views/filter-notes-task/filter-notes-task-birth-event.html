@@ -1,0 +1,135 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_bar.html' %}
+
+        <form method="post" action="get-a-task-complete">
+
+
+          <h2 class="govuk-heading-l">Complete the API issue</h2>
+
+<dl class="govuk-summary-list">
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+Error name    </dt>
+    <dd class="govuk-summary-list__value">
+    Birth event   </dd>
+  </div>
+
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+Invite key    </dt>
+    <dd class="govuk-summary-list__value">
+      AB1234567A
+    </dd>
+  </div>
+
+
+</dl>
+
+
+<!--
+
+<table class="govuk-table">
+  <caption class="govuk-table__caption govuk-table__caption--m"></caption>
+  <thead class="govuk-table__head">
+    <tr class="govuk-table__row">
+      <th scope="col" class="govuk-table__header govuk-!-width-two-thirds">Error name</th>
+      <th scope="col" class="govuk-table__header">Invitation code</th>
+    </tr>
+  </thead>
+  <tbody class="govuk-table__body">
+    <tr class="govuk-table__row">
+      <td scope="row" class="govuk-table__cell">Overseas addresses</td>
+      <td class="govuk-table__cell">12345</td>
+    </tr>
+
+  </tbody>
+</table>
+
+-->
+<!--
+
+        <p>Use this information to fix the error.</p>
+
+            <div class="govuk-inset-text">
+              <p>The error name is Overseas address</p>
+              <p>The invitation code is 12345</p>
+</div>
+
+-->
+
+              </div>
+
+
+
+          </div>
+<br><br>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm task completed</button>
+
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+              <b>URL, errors and notes</b>
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+
+              <strong>URL:</strong> /api-issue <br>
+              <b>Error messages:</b> None<br>
+              <b>Notes:</b> None <br>
+            </div>
+          </details>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+<script>
+    nextPageRoutes = {
+        'keep': '/filter-notes-task/keep-address.html',
+        'change': '/filter-notes-task/change-address3.html',
+        'exit': '/filter-notes-task/personal.html',
+        }
+</script>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}

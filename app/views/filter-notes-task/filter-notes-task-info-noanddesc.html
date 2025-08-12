@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+              {% include './_bar.html' %}
+
+        <form method="post" action="get-a-task-complete">
+
+
+          <h2 class="govuk-heading-l">Fix HMRC note issue</h2>
+        <p>Complete the BIC (1) form and email it to HMRC.</p>
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key govuk-!-width-one-half">
+      Note number and description
+    </dt>
+    <dd class="govuk-summary-list__value">
+      280
+    </dd>
+  </div>
+  <!--<div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      SCON/ECON number
+    </dt>
+    <dd class="govuk-summary-list__value">
+      tbc
+    </dd>
+  </div>-->
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Tax year
+    </dt>
+    <dd class="govuk-summary-list__value">
+      2021-2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of payment
+    </dt>
+    <dd class="govuk-summary-list__value">
+      16th November 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Late paid indicator
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Yes
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Date of death
+    </dt>
+    <dd class="govuk-summary-list__value">
+      22 December 2022
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Contributions compliance and yield checked
+    </dt>
+    <dd class="govuk-summary-list__value">
+      No
+    </dd>
+  </div>
+</dl>
+
+
+
+
+
+          <button class="govuk-button" data-module="govuk-button">
+            Confirm and end task</button>
+
+
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+              <b>URL, errors and notes</b>
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+
+              <strong>URL:</strong> /hmrc-note <br>
+              <!--<b>Error messages:<br>
+              Nothing selected - </b> Select how you want to continue<br>-->
+              <b>Notes:</b> Page changes dynamically depending on data available. See /filter-notes-task/filter-notes-task-info for SCON/ECON version.  <br>
+            </div>
+          </details>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    </div>
+
+<script>
+    nextPageRoutes = {
+        'keep': '/filter-notes-task/keep-address.html',
+        'change': '/filter-notes-task/change-address3.html',
+        'exit': '/filter-notes-task/personal.html',
+        }
+</script>
+
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
