@@ -187,7 +187,7 @@
               <p class="dwp-timeline__by-line">by Agent</p>
             </li>
           
-          {% elseif data['prison-entered-day'] %}
+          {% elseif data['needDates'] == 'yes' and data['prison-entered-day'] %}
 
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">15 Jan 2025 at 4:04pm</p>
