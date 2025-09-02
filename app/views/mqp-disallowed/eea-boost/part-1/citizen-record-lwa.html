@@ -26,69 +26,80 @@
           
             <h2 class="govuk-heading-m">EEA</h2>
 
-            <hr class="govuk-section-break govuk-section-break--visible">
+            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
 
-            <div class="govuk-!-padding-bottom-6"></div>
+            {% if data.901needed === 'yes' %}
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  Waiting for CFN901 from the claimant.<br>
+                  <a href="/international-record/ra-iteration-2/rf1-returned" class="govuk-link--no-visited-state">Confirm CFN901 returned</a>.
+                </strong>
+              </div> 
+            {% elseif data.901needed === 'no' %}
 
-            <div class="govuk-warning-text">
-              <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-              <strong class="govuk-warning-text__text">
-                Waiting for CFN901 from the claimant.<br>
-                <a href="/international-record/ra-iteration-2/rf1-returned" class="govuk-link govuk-link--no-visited-state">Confirm CFN901 returned</a>.
-              </strong>
-            </div> 
+            {% else %}
+              <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                  Start of MQP EEA task description<br>
+                  <a href="start" class="govuk-link--no-visited-state">MQP EEA task action</a>.
+                </strong>
+              </div> 
+            {% endif %}
                               
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Norway</h2>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Lived
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Aug 1982 to Mar 1986
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Worked
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Aug 1982 to Mar 1986
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Social security number
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        8745STV23
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Austria</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Lived
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Aug 1982 to Mar 1986
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Worked
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Aug 1982 to Mar 1986
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Social security number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      8745STV23
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  {% if data.mqpMet === 'yes' %}
                     <div class="govuk-summary-list__row">
                       <dt class="govuk-summary-list__key">
                         Task
                       </dt>
                       <dd class="govuk-summary-list__value">
-                        <a class="govuk-link" href="#">Confirm insurance records returned</a>
+                        <a class="govuk-link" href="#">Confirm insurance records returned for Austria</a>
                       </dd>
                       <dd class="govuk-summary-list__actions">
                         <a class="govuk-link" href="#">
@@ -96,127 +107,145 @@
                         </a>
                       </dd>
                     </div>
-                  </dl>
-                </div>
+                  {% endif %}
+                </dl>
               </div>
-
-              <br>
-    
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Croatia</h2>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Lived
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Mar 1986 to Sept 1993
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Worked
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Mar 1986 to Aug 1993
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Social security number
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        GEV98732
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Task
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        <a class="govuk-link" href="#">Confirm insurance records returned</a>
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-
-              <br>
-
-              <div class="govuk-summary-card">
-                <div class="govuk-summary-card__title-wrapper">
-                  <h2 class="govuk-summary-card__title">Switzerland</h2>
-                </div>
-                <div class="govuk-summary-card__content">
-                  <dl class="govuk-summary-list">
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Lived
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Feb 1994 to Apr 1996
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Worked
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        Feb 1994 to Apr 1996
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                    <div class="govuk-summary-list__row">
-                      <dt class="govuk-summary-list__key">
-                        Social security number
-                      </dt>
-                      <dd class="govuk-summary-list__value">
-                        SWI123TZ45
-                      </dd>
-                      <dd class="govuk-summary-list__actions">
-                        <a class="govuk-link" href="#">
-                          <span class="govuk-visually-hidden"></span>
-                        </a>
-                      </dd>
-                    </div>
-                  </dl>
-                </div>
-              </div>
-    
             </div>
+
+            <br>
+  
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Belgium</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Lived
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Mar 1986 to Sept 1993
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Worked
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Mar 1986 to Aug 1993
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Social security number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      GEV98732
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  {% if data.mqpMet === 'yes' %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Task
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <a class="govuk-link" href="#">Confirm insurance records returned for Belgium</a>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          <span class="govuk-visually-hidden"></span>
+                        </a>
+                      </dd>
+                    </div>
+                  {% endif %}
+                </dl>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="govuk-summary-card">
+              <div class="govuk-summary-card__title-wrapper">
+                <h2 class="govuk-summary-card__title">Cyprus</h2>
+              </div>
+              <div class="govuk-summary-card__content">
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Lived
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Feb 1994 to Apr 1996
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Worked
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      Feb 1994 to Apr 1996
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">
+                      Social security number
+                    </dt>
+                    <dd class="govuk-summary-list__value">
+                      SWI123TZ45
+                    </dd>
+                    <dd class="govuk-summary-list__actions">
+                      <a class="govuk-link" href="#">
+                        <span class="govuk-visually-hidden"></span>
+                      </a>
+                    </dd>
+                  </div>
+                  {% if data.mqpMet === 'yes' %}
+                    <div class="govuk-summary-list__row">
+                      <dt class="govuk-summary-list__key">
+                        Task
+                      </dt>
+                      <dd class="govuk-summary-list__value">
+                        <a class="govuk-link" href="#">Confirm insurance records returned for Cyprus</a>
+                      </dd>
+                      <dd class="govuk-summary-list__actions">
+                        <a class="govuk-link" href="#">
+                          <span class="govuk-visually-hidden"></span>
+                        </a>
+                      </dd>
+                    </div>
+                  {% endif %}
+                </dl>
+              </div>
+            </div>
+  
           </div>
+        </div>
     
     
     </div>
@@ -228,54 +257,52 @@
 
       <br>
 
-      <div class="dwp-timeline">
+      <h3 class="govuk-heading-m">Lived or worked abroad changes</h3>
 
-        <ol class="dwp-timeline__events">
-          
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record received from Switzerland</h2>
-            <p class="govuk-caption-m">29 July 2023</p>
-          </li>
-          
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Claim sent for pension</h2>
-            <p class="govuk-caption-m">22 June 2023</p>
-          </li>
-          
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: RF1 requested from HMRC</h2>
-            <p class="govuk-caption-m">16 May 2023</p>
-          </li>
-          
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Norway</h2>
-            <p class="govuk-caption-m">20 March 2023</p>
-          </li>
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
 
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Croatia</h2>
-            <p class="govuk-caption-m">20 March 2023</p>
-          </li>
+            {% if data.mqpMet === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(date month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Cyprus</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
 
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Switzerland</h2>
-            <p class="govuk-caption-m">20 March 2023</p>
-          </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(date month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Belguim</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
 
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: CFN901 form sent to claimant</h2>
-            <p class="govuk-caption-m">20 March 2023</p>
-          </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(date month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Austria</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data.mqpMet === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(date month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">EEA: Time spent in EEA checked. Cannot reach 10 qualifying years. Claim unsuccessful</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+            {% if data.901needed === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(date month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">EEA: CFN901 form sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
 
-        </ol>
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">(date month year) at (time)</p>
+              <h2 class="dwp-timeline__heading">Claim received</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
 
-      </div> 
-
-      
-
-      </ol>
-
-    </div>
+          </ol>
+        </div>
 
 </div>
 
