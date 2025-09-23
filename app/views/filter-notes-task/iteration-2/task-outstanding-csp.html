@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+GOV.UK Prototype Kit
+{% endblock %}
+
+{% block header %}
+{% include "includes/cookie-banner.html" %}
+{# Set serviceName in config.js. #}
+
+{% include './navigation/_header-nav-unselected.html' %}
+
+{% block headEnd %}
+{% endblock %}
+
+
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <h1 class="govuk-heading-xl">Carer Support Payment information outstanding
+        </h1>
+
+        <p class="govuk-body">State Pension cannot be awarded until we have received information from the Carer Support Payment team.</p>
+
+
+        <form method="post">
+
+
+<br>
+<a href="hmrc-task" button type="submit" class="govuk-button govuk-button">
+  End task
+</a>
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+</main>
+      </div>
+
+      {% endblock %}
+
+      {% block content %}
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+
+        </div>
+      </div>
+
+      {% endblock %}
