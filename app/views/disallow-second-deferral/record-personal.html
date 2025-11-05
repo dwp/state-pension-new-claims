@@ -1,0 +1,125 @@
+
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar-2.html' %}
+
+        <br>
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal",
+            current: true
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact"
+          }, 
+          {
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Payment",
+            href: "record-payment"
+          },
+          {
+            text: "Tasks",
+            href: "record-tasks"
+          },
+          {
+            text: "Full history",
+            href: "record-full-history"
+          }]
+        }) }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+                <td class="govuk-table__cell" style="width: 50%">Robert Crumb</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="change-name">Change</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">National Insurance number</th>
+                <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Date of birth</th>
+                <td class="govuk-table__cell">12 January 1966</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">State Pension date </th>
+                <td class="govuk-table__cell">10 April 2023 </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status </th>
+                  <td class="govuk-table__cell">Divorced</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
+                      Change
+                    </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                    <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
+                       Details
+                      </a></td>
+                  </tr>
+
+            </tbody>
+          </table>
+
+          <a class="govuk-link govuk-!-font-size-19" href="#">Stop State Pension</a>
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+
+      <h3 class="govuk-heading-m">Personal changes</h3>
+
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__items">
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">1 Sept 2025 at 12:18am</p>
+            <h2 class="dwp-timeline__heading">State Pension resumed</h2>
+            <p class="dwp-timeline__by-line">by System</p>
+          </li>
+          
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">1 Dec 2024 at 9:34am</p>
+            <h2 class="dwp-timeline__heading">State Pension deferred</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">13 Nov 2024 at 10:22am</p>
+            <h2 class="dwp-timeline__heading">Claim received</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>
+
+        </ol>
+      </div>
+      <a class="govuk-link govuk-!-font-size-19" href="record-full-history">Full history</a>
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

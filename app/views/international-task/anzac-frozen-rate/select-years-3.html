@@ -1,0 +1,132 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">H2 goes here</h2>
+
+      <p>Paragraph text could go here, if needed.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">NZ superannuation</caption>
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Received</th>
+            <td class="govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Type</th>
+            <td class="govuk-table__cell">Reciprocal</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+
+      <h3 class="govuk-heading-m">Select the time periods you want to use</h3>
+
+      <table class="govuk-table" data-module="moj-multi-select" data-multi-select-checkbox="#select-all">
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" id="select-all"></th>
+            <th class="govuk-table__header" scope="col">Country</th>
+            <th class="govuk-table__header" scope="col">Lived</th>
+            <th class="govuk-table__header" scope="col">Worked</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row govuk-table__row--selected">
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input" id="mountain-aconcagua">
+                <label class="govuk-label govuk-checkboxes__label" for="mountain-aconcagua">
+                  <span class="govuk-visually-hidden">Select Australia</span>
+                </label>
+              </div>
+            </td>
+            <td class="govuk-table__cell">Australia</td>
+            <td class="govuk-table__cell">1 January 1990 to <br>31 December 1995</td>
+            <td class="govuk-table__cell">1 January 1990 to <br>31 December 1995</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input" id="mountain-denali" value="denali">
+                <label class="govuk-label govuk-checkboxes__label" for="mountain-denali">
+                  <span class="govuk-visually-hidden">Select Canada</span>
+                </label>
+              </div>
+            </td>
+            </td>
+            <td class="govuk-table__cell">Canada</td>
+            <td class="govuk-table__cell">1 January 1996 to <br>31 December 2000</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">
+              <div class="govuk-checkboxes__item govuk-checkboxes--small moj-multi-select__checkbox">
+                <input type="checkbox" class="govuk-checkboxes__input" id="mountain-elbrus" value="elbrus">
+                <label class="govuk-label govuk-checkboxes__label" for="mountain-elbrus">
+                  <span class="govuk-visually-hidden">Select New Zealand</span>
+                </label>
+              </div>
+            </td>
+            <td class="govuk-table__cell">New Zealand</td>
+            <td class="govuk-table__cell">1 January 2001 to <br>31 December 2005</td>
+            <td class="govuk-table__cell">1 January 2001 to <br>31 December 2005</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button>
+
+      <br><br><br><br><br>
+
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+  </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

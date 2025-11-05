@@ -1,0 +1,62 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post" action="check-information">
+
+      <h1 class="govuk-heading-xl">Check if claimant can reach 10 qualifying years</h1>
+        
+      <p>Check if the claimant has returned their CFN1282.</p>
+
+      <p class="govuk-body">You may then need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>update and complete the information we hold in GySP</li>
+          <li>request further information</li>
+          <li>request an RF1 from HMRC</li>
+          <li>confirm how many valid foreign years they have</li>
+        </ul>
+
+
+      <br><br><br>
+
+      <a href="returned-cfn1282" button type="submit" class="govuk-button">
+          Start this task
+      </a>
+
+      <a href="dashboard-2" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+        Return task to queue
+      </a>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

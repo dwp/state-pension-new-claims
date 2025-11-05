@@ -1,0 +1,160 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+          {% include './_bar-2.html' %}
+
+        {% else %}
+
+          {% include './_bar.html' %}
+
+        {% endif %}
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+          }) }}
+
+        <br><br><br>
+
+        <h2 class="govuk-heading-m">Payment details</h2>
+
+            <div class="govuk-form-group">
+
+                {% if data['pcAmount'] and data['caAmount'] %}
+
+                  <div class="govuk-inset-text">
+                    Payment was reduced by £{{ data.pcAmount | float + data.caAmount | float }}. This is due to:
+                    <ul class="govuk-list govuk-list--bullet">
+                      <li>a Carer's Allowance adjustment of £{{data.caAmount}}</li>
+                      <li>a Pension Credit adjustment of £{{data.pcAmount}}</li>
+                    </ul>
+                  </div> 
+
+                {% elseif data['pcAmount'] %}
+
+                  <div class="govuk-inset-text">
+                    Payment was reduced due to a Pension Credit adjustment of £{{data.pcAmount}}
+                  </div> 
+
+                {% elseif data['caAmount'] %}
+                
+                  <div class="govuk-inset-text">
+                    Payment was reduced due to a Carer's Allowance adjustment of £{{data.caAmount}}
+                  </div> 
+
+                {% endif %}
+                
+              <table class="govuk-table">
+
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                  <tr class="govuk-table__row">
+                  <tr class="govuk-table__row" style="width: 20%"></tr>
+                  <th class="govuk-table__header" scope="col" style="width: 40%">Total</th>
+                  <th class="govuk-table__header" scope="col" style="width: 30%">
+                    {% if data['taxRate'] %}
+                      {% if data['taxRate'] === '0' %}
+                        {{ (data.lsi | float) | currency }}
+                      {% elseif data['taxRate'] === '20' %}
+                        {{ (data.lsi | float * 0.8) | currency }}
+                      {% elseif data['taxRate'] === '40' %}
+                        {{ (data.lsi | float * 0.6) | currency }}
+                      {% elseif data['taxRate'] === '45' %}
+                        {{ (data.lsi | float * 0.55) | currency }}
+                      {% endif %}
+                    {% endif %}
+                    
+                    {% if data['taxRate2'] %}
+                      {% if data['taxRate2'] === '0' %}
+                        {{ (data.lsi | float) | currency }}
+                      {% elseif data['taxRate2'] === '20' %}
+                        {{ (data.lsi | float * 0.8) | currency }}
+                      {% elseif data['taxRate2'] === '40' %}
+                        {{ (data.lsi | float * 0.6) | currency }}
+                      {% elseif data['taxRate2'] === '45' %}
+                        {{ (data.lsi | float * 0.55) | currency }}
+                      {% endif %}
+                    {% endif %}
+                  </th>
+                  <th class="govuk-table__header" scope="col" style="width: 30%"></th>
+                </thead>
+
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Period</td>
+                    <td class="govuk-table__cell">	One time payment<br>on {{ "today" | govukDate("truncate") }}</td>
+                    <th class="govuk-table__header" scope="col"></th>
+                  </tr>
+
+                  <tr class="govuk-table__row">
+                    <td class="govuk-table__cell" scope="row">Status</td>
+                    <td class="govuk-table__cell">Sent</td>
+                    <td class="govuk-table__cell"> <a href=#>Recall payment</a>
+                    </td>
+                  </tr>
+                </tbody>
+
+              </table>
+
+              <br><br>
+
+              <h2 class="govuk-heading-m">Account the payment was sent to</h2>
+              <dl class="app-check-your-answers app-check-your-answers--short">
+                  <table class="govuk-table">
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row" style="width: 40%">Account holder </td>
+                        <td class="govuk-table__cell">Mr Hakim Umar</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row" style="width: 30%">Sort code</td>
+                        <td class="govuk-table__cell">54 76 98</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row" style="width: 30%">Account number</td>
+                        <td class="govuk-table__cell">98765409</td>
+                      </tr>
+                      <tr class="govuk-table__row">
+                        <td class="govuk-table__cell" scope="row" style="width: 30%">Roll number</td>
+                        <td class="govuk-table__cell">09876543</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+      </div>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+      <h2 class="govuk-heading-m">Payment status</h2>
+
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__items">
+
+          {% if data['whichOption'] === 'lsi' or 'lsiEsp' %}
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">{{ "now" | govukDateTime }}</p>
+              <h2 class="dwp-timeline__heading">Sent</h2>
+              <p class="dwp-timeline__by-line">by System</p>
+            </li>
+          {% else %}
+            <li class="dwp-timeline__item">
+              <h2 class="dwp-timeline__heading">No changes made</h2>
+            </li>
+          {% endif %}
+          
+        </ol>
+      </div>
+
+    </div>
+      
+  </main>
+</div>
+
+{% endblock %}

@@ -9,7 +9,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <!--{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
         {% set html %}
           <h3 class="govuk-notification-banner__heading">
@@ -20,7 +20,7 @@
         {{ govukNotificationBanner({
           html: html,
           type: "success"
-        }) }}-->
+        }) }}
         
 
         <h1 class="govuk-heading-xl">Tasks</h1>
@@ -59,6 +59,31 @@
 
           <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
           <br>
+
+        <div class="govuk-grid-row">
+        <div class="govuk-grid-column-one-half">
+
+          <h1 class="govuk-heading-m">ANZaC with MQP not met
+
+          <p class="govuk-body-l"><a href="start" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+              <h3 class="govuk-heading-l">37
+                <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+              </h3>
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+              <h3 class="govuk-heading-l">24
+                <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+              </h3>
+            </div>
+
+        </div>
+
+        <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+        
+        <br>
 
 
         <div class="govuk-grid-row">

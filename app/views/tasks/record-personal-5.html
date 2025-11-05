@@ -1,0 +1,210 @@
+{% from "timeline/macro.njk" import dwpTimeline %}
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        <details class="govuk-details">
+          <summary class="govuk-details__summary">
+            <span class="govuk-details__summary-text">
+              There are outstanding tasks
+            </span>
+          </summary>
+          <div class="govuk-details__text">
+            <ul class="govuk-task-list">
+              <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint govuk-!-width-one-third">
+                  <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-2-status">
+                    Task type 1
+                  </a>
+                </div>
+                <div class="govuk-task-list__status" id="company-details-2-status">
+                  <strong class="govuk-tag govuk-tag--green">
+                    In progress
+                  </strong>
+                </div>
+              </li>
+              <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                  <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-3-hint company-details-3-status">
+                    Task 2
+                  </a>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint">
+                    All task 1 subtasks must be completed before starting
+                  </div>
+                </div>
+                <div class="govuk-task-list__status" id="company-details-3-status">
+                  <strong class="govuk-tag govuk-tag--red">
+                    Cannot start
+                  </strong>
+                </div>
+              </li>
+              <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                  <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-4-status">
+                    Task type 3
+                  </a>
+                  <div id="company-details-3-hint" class="govuk-task-list__hint">
+                    Task 2 must be completed before starting
+                  </div>
+                </div>
+                <div class="govuk-task-list__status" id="company-details-3-status">
+                  <strong class="govuk-tag govuk-tag--red">
+                    Cannot start
+                  </strong>
+                </div>
+              </li>
+              <li class="govuk-task-list__item govuk-task-list__item--with-link">
+                <div class="govuk-task-list__name-and-hint">
+                  <a class="govuk-link govuk-task-list__link" href="#" aria-describedby="company-details-5-status">
+                    Task type 4
+                  </a>
+                </div>
+                <div class="govuk-task-list__status" id="company-details-5-status">
+                  <strong class="govuk-tag govuk-tag--yellow">
+                    Sleeping
+                  </strong>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </details>
+
+        <br>
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal-1",
+            current: true
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact",
+            current: false
+          }, 
+          {
+            text: "Award",
+            href: "record-award",
+            current: false
+          },
+          {
+            text: "Payment",
+            href: "record-payment",
+            current: false
+          },
+          {
+            text: "Full history",
+            href: "record-full-history",
+            current: false
+          }]
+        }) }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+                <td class="govuk-table__cell" style="width: 50%">Hakim Umar</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+                  <!--Change-->
+                </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">National Insurance number</th>
+                <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Date of birth</th>
+                <td class="govuk-table__cell">12 January 1966</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">State Pension date </th>
+                <td class="govuk-table__cell">10 April 2023 </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status </th>
+                  <td class="govuk-table__cell">Married</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
+                      <!--Details-->
+                    </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                    <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
+                        <!--Details-->
+                      </a></td>
+                  </tr>
+
+            </tbody>
+          </table>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        <h3 class="govuk-heading-m">Personal changes</h3>
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Timeline event</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Timeline event</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Timeline event</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Timeline event</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Timeline event</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Timeline event</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+          </ol>
+        </div>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Full history</a>
+        </p>
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

@@ -1,0 +1,241 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% if data['creditAmount'] or data['debitAmount'] %}
+
+      {% include './_bar-2.html' %}
+
+    {% else %}
+
+      {% include './_bar.html' %}
+
+    {% endif %}
+
+    {{ xGovukSecondaryNavigation({
+      visuallyHiddenTitle: "Secondary menu",
+      items: [{
+        text: "Personal",
+        href: "record-personal-1",
+        current: false
+      }, 
+      {
+        text: "Contact",
+        href: "record-contact",
+        current: false
+      }, 
+      {
+        text: "Tasks",
+        href: "record-tasks",
+        current: false
+      },
+      {
+        text: "Award",
+        href: "record-award",
+        current: false
+      },
+      {
+        text: "Payment",
+        href: "record-payment",
+        current: true
+      },
+      {
+        text: "Full history",
+        href: "record-full-history",
+        current: false
+      }]
+    }) }}
+
+    
+    <br><br>
+
+    <h2 class="govuk-heading-m">Bank or building society account details</h2>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" style="width: 45%">Account holder</th>
+          <td class="govuk-table__cell" style="width: 45%">Mr Hakim Umar</td>
+          <td class="govuk-table__cell" style="width: 10%"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Sort code </th>
+          <td class="govuk-table__cell">54 76 98 </td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Account number</th>
+          <td class="govuk-table__cell">98765409</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link--no-visited-state">Change bank or building society account details</a>
+    </p>
+
+    <br>
+
+    <h2 class="govuk-heading-m">Payment details</h2>
+
+    <br>
+    
+    <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 45%"> Payment frequency</th>
+            <td class="govuk-table__cell" style="width: 45%">Weekly</td>
+            <td class="govuk-table__cell" style="width: 10%"><a class="govuk-body govuk-link--no-visited-state" href="change-frequency">
+                <span class="govuk-link govuk-!-font-size-19">Change</span>
+              </a></td>
+          </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Next payment date</th>
+              <td class="govuk-table__cell">1 Aug 2025</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Next payment amount</th>
+                <td class="govuk-table__cell">
+                  {% if data['whichOption'] === 'lsiEsp' %}
+                    {{ (data.pre05basicEsp | float + data.pre05apAmount | float + data.pre05grbAmount | float + 100) | currency }}
+                  {% else %}
+                    £100.00
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+        </tbody>
+      </table>
+
+  </div>
+
+
+  <div class="govuk-grid-column-one-third">
+
+    <h1 class="govuk-heading-m">Payment changes</h1>
+
+    <div class="dwp-timeline">
+      <ol class="dwp-timeline__items">
+  
+        {% if data['taxRate'] or data['taxRate2'] %}
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">{{ "now" | govukDateTime }}</p>
+            <h2 class="dwp-timeline__heading">Lump sum inheritance payment made</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>
+        {% else %}
+          <li class="dwp-timeline__item">
+            <h2 class="dwp-timeline__heading">No changes made</h2>
+          </li>
+        {% endif %}
+  
+      </ol>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-column-full">
+
+    <br>
+
+    <h2 class="govuk-heading-m">Payment history</h2>
+
+    <br>
+
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col" style="width: 10%">Payment date</th>
+          <th class="govuk-table__header" scope="col" style="width:25%">Period</th>
+          <th class="govuk-table__header" scope="col" style="width: 15%">Amount</th>
+          <th class="govuk-table__header" scope="col" style="width: 5%">Status</th>
+          <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        {% if data['taxRate'] or data['taxRate2'] %}
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">{{ "today" | govukDate("truncate") }}</td>
+            <td class="govuk-table__cell">Lump sum inheritance payment</td>
+            <td class="govuk-table__cell">
+              {% if data['taxRate'] %}
+                {% if data['taxRate'] === '0' %}
+                  {{ (data.lsi | float) | currency }}
+                {% elseif data['taxRate'] === '20' %}
+                  {{ (data.lsi | float * 0.8) | currency }}
+                {% elseif data['taxRate'] === '40' %}
+                  {{ (data.lsi | float * 0.6) | currency }}
+                {% elseif data['taxRate'] === '45' %}
+                  {{ (data.lsi | float * 0.55) | currency }}
+                {% endif %}
+              {% endif %}
+              
+              {% if data['taxRate2'] %}
+                {% if data['taxRate2'] === '0' %}
+                  {{ (data.lsi | float) | currency }}
+                {% elseif data['taxRate2'] === '20' %}
+                  {{ (data.lsi | float * 0.8) | currency }}
+                {% elseif data['taxRate2'] === '40' %}
+                  {{ (data.lsi | float * 0.6) | currency }}
+                {% elseif data['taxRate2'] === '45' %}
+                  {{ (data.lsi | float * 0.55) | currency }}
+                {% endif %}
+              {% endif %}
+            </td>
+            <td class="govuk-table__cell" class="govuk-orange">Sent
+            </td>
+            <td class="govuk-table__cell" style="text-align: right;"><a class="govuk-body govuk-link--no-visited-state" href="record-payment-details">Details</a></td>
+          </tr>
+        {% endif %}
+        
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">25 Jul 2025</td>
+          <td class="govuk-table__cell">18 Jul 2025 to 25 Jul 2025</td>
+          <td class="govuk-table__cell">£100.00</td>
+          <td class="govuk-table__cell" class="govuk-orange">Paid
+          </td>
+          <td class="govuk-table__cell" style="text-align: right;"><a class="govuk-body govuk-link--no-visited-state" href="#">Details</a></td>
+        </tr>
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">17 Jul 2025</td>
+          <td class="govuk-table__cell">11 Jul 2025 to 17 Jul 2025</td>
+          <td class="govuk-table__cell">£100.00</td>
+          <td class="govuk-table__cell" class="govuk-orange">Paid
+          </td>
+          <td class="govuk-table__cell" style="text-align: right;"><a class="govuk-body govuk-link--no-visited-state" href="#">Details</a></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+    <br><br><br>
+
+  </div>
+
+
+</div>
+</div>
+</main>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}

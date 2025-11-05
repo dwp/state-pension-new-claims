@@ -1,0 +1,226 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+        {% include './_bar-2.html' %}
+
+        {% else %}
+
+        {% include './_bar.html' %}
+
+        {% endif %}
+
+        <br>
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal"
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact"
+          },
+          {
+            text: "Pre award",
+            href: "record-pre-award",
+            current: true
+          }]
+        }) }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-m">Summary of pre State Pension award</h2>
+
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Total
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              £{{ 200 + data.creditAmount | float }}.00
+             {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}.00
+             {% else %}
+             £200.00
+             {% endif %}
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              New State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              £203.85
+              {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}
+              {% else %}
+              £200.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-amount"><span class="govuk-visually-hidden">New State Pension</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Protected payment
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              £{{ data.creditAmount - 3.85 | float }}
+              {% elseif data['debitAmount']%}
+              £0.00
+              {% else %}
+              £0.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden">Protected payment</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Extra State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+    
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PSOD credit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['creditAmount'] %}
+              {{data['creditAmount']}}
+              {% else %}
+              £0.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-psod-credit">
+                {% if data['creditAmount'] %}
+                Change
+                {% elseif data['debitAmount'] %}
+                {% else %}
+                Add
+                {% endif %}<span class="govuk-visually-hidden">PSOD debit</span></a><span class="govuk-visually-hidden">PSOD credit</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              PSOD debit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {% if data['debitAmount'] %}
+              £{{data['debitAmount']}}
+              {% else %}
+              £0.00
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="enter-psod-debit">
+                {% if data['debitAmount'] %}
+                Change
+                {% elseif data['creditAmount'] %}
+                {% else %}
+                Add
+                {% endif %}<span class="govuk-visually-hidden">PSOD debit</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row govuk-summary-list__row--no-actions">
+            <dt class="govuk-summary-list__key">
+              Inherited extra State Pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Additional pension
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pension</span></a>
+            </dd>
+          </div>
+
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Extra State Pension Graduated Retirement Benefit
+            </dt>
+            <dd class="govuk-summary-list__value">
+              
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> Additional pension</span></a>
+            </dd>
+          </div>
+
+        </dl>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+      <h3 class="govuk-heading-m">Personal changes</h3>
+
+      <div class="dwp-timeline">
+      <ol class="dwp-timeline__items">
+
+        {% if data['creditAmount'] or data['debitAmount'] %}
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+          <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+          <p class="dwp-timeline__by-line">by Agent</p>
+        </li>
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">28 Dec 2024 at 2:19pm</p>
+          <h2 class="dwp-timeline__heading">PSOD actions complete</h2>
+          <p class="dwp-timeline__by-line">by Agent</p>
+        </li>
+
+        {% endif %}
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">1 Dec 2024 at 9:34am</p>
+          <h2 class="dwp-timeline__heading">Email sent to Future Pension Centre</h2>
+          <p class="dwp-timeline__by-line">by System</p>
+        </li>
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">13 Nov 2024 at 10:22am</p>
+          <h2 class="dwp-timeline__heading">Claim received</h2>
+          <p class="dwp-timeline__by-line">by Agent</p>
+        </li>
+
+      </ol>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

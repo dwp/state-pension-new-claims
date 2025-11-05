@@ -1,0 +1,112 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+                          }) }}
+
+        <br><br>
+
+    <h2 class="govuk-heading-l">Outstanding tasks</h2>
+
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Task name</th>
+          <th scope="col" class="govuk-table__header">Agent group</th>
+          <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Status</th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="record-task-details-1">Really really long task name</a></td>
+          <td class="govuk-table__cell">International</td>
+          <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--light-blue">
+                In progress
+              </strong>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell"><a class="govuk-link" href="#">Task 2</a></td>
+          <td class="govuk-table__cell">G4S</td>
+          <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--blue">
+                To do
+              </strong>
+          </td>
+        </tr>
+        <tr class="govuk-table__row">
+          <td scope="row" class="govuk-table__cell">Task 3</td>
+          <td class="govuk-table__cell">Specialist agent</td>
+          <td class="govuk-table__cell">
+            Cannot start yet
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+    <div class="govuk-grid-column-one-third">
+
+        <h3 class="govuk-heading-m">Outstanding tasks</h3>
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Really really long task name</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Task 2</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Task 3</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Completed task</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+              <a href="#" class="dwp-timeline__link--no-visited-state">Details<span class="govuk-visually-hidden"> of the long task name</span></a>
+
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Other completed task</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+              <a href="#" class="dwp-timeline__link--no-visited-state">Details<span class="govuk-visually-hidden"> of the long task name</span></a>
+            </li>
+
+          </ol>
+        </div>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link--no-visited-state">Full history</a>
+        </p>
+
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

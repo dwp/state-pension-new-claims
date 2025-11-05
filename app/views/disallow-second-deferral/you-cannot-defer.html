@@ -1,0 +1,109 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar-2.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">You cannot defer this claimant's State Pension again</h1>
+
+    <p>This claimant has already deferred their State Pension once. If the claimant wants to stop their State Pension for another reason, you can continue. Otherwise, return to the claimant's record.</p>
+
+    <!--<br>
+    
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h1 class="govuk-fieldset__heading">
+            Do you want to stop for another reason?
+          </h1>
+        </legend>
+        <div class="govuk-radios--inline" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbQuestion" name="srbQuestion" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbQuestion-2" name="srbQuestion" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br>
+    
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h1 class="govuk-fieldset__heading">
+            How do you want to proceed?
+          </h1>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbQuestion" name="srbQuestion" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Go back
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbQuestion-2" name="srbQuestion" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              Stop for another reason
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>-->
+      
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+{% endblock %}

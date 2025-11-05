@@ -1,0 +1,429 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      <!--<p>Use the details on their CFN1282 to correct any of this information.</p>
+
+      <p>You must also update each date to include a day.</p>-->
+
+      <br>
+
+      {% if data['addCountry'] == "Australia" %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">Australia</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-au">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-au">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn'] %}
+                  {{ (data.ssn) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% elseif data['removeAu'] == "yes" %}
+
+      {% elseif data['AUlivedFrom-day'] or data['AUlivedFrom-month'] or data['AUlivedFrom-year'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">Australia</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-au">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-au">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                  {{data['AUlivedFrom-day']}} {{data['AUlivedFrom-month'] | monthName}} {{data['AUlivedFrom-year']}} to {{data['AUlivedTo-day']}} {{data['AUlivedTo-month'] | monthName}} {{data['AUlivedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {% if data['AUworkedFrom-day'] or data['AUworkedFrom-month'] or data['AUworkedFrom-year'] %}
+                  {{data['AUworkedFrom-day']}} {{data['AUworkedFrom-month'] | monthName}} {{data['AUworkedFrom-year']}} to {{data['AUworkedTo-day']}} {{data['AUworkedTo-month'] | monthName}} {{data['AUworkedTo-year']}}
+                {% else %}
+                {% endif %}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['AUssn'] %}
+                  {{ (data.AUssn) }}
+                {% else %}
+                
+                {% endif %}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Included in calculation</th>
+              <td class="govuk-table__cell">Yes</td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% else %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">Australia</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-au">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-au">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                1 January 1990 to 31 December 1995
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% endif %}
+
+      {% if data['removeCa'] == "yes" %}
+
+      {% elseif data['addCountry'] == "Canada" %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">Canada</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-ca">Change<span class="govuk-visually-hidden"> Canada</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-ca">Remove<span class="govuk-visually-hidden"> Canada</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn'] %}
+                  {{ (data.ssn) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+      {% else %}
+
+      {% endif %}
+
+      {% if data['addCountry'] == "New Zealand" %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">New Zealand</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-nz">Change<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-nz">Remove<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['NZlivedTo-month'] | monthName}} {{data['livedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {% if data['workedFrom-day'] %}
+                  {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+                {% else %}
+                
+                {% endif %}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn'] %}
+                  {{ (data.ssn) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <br><br>
+
+      {% elseif data['removeNz'] == "yes" %}
+
+      {% elseif data['NZlivedFrom-day'] or data['NZlivedFrom-month'] or data['NZlivedFrom-year'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">New Zealand</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-nz">Change<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-nz">Remove<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                  {{data['NZlivedFrom-day']}} {{data['NZlivedFrom-month'] | monthName(truncate=true) }} {{data['NZlivedFrom-year']}} to {{data['NZlivedTo-day']}} {{data['NZlivedTo-month'] | monthName(truncate=true) }} {{data['NZlivedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {% if data['NZworkedFrom-day'] %}
+                  {{data['NZworkedFrom-day']}} {{data['NZworkedFrom-month'] | monthName(truncate=true) }} {{data['NZworkedFrom-year']}} to {{data['NZworkedTo-day']}} {{data['NZworkedTo-month'] | monthName(truncate=true) }} {{data['NZworkedTo-year']}}
+                {% else %}
+                
+                {% endif %}
+                </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['NZssn'] %}
+                  {{ (data.NZssn) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+             <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Included in calculation</th>
+              <td class="govuk-table__cell">No</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <br>
+
+      {% else %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">New Zealand</h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="change-country-nz">Change<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-nz">Remove<span class="govuk-visually-hidden"> New Zealand</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+          
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                1 January 2000 to 31 December 2020
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                1 January 2000 to 31 December 2020
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                123 456 789
+              </td>
+            </tr>
+          </tbody>
+
+        </table>
+
+        <br>
+
+      {% endif %}
+
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-country">
+        Add another ANZaC period<span class="govuk-visually-hidden"></span>
+      </a>
+      
+      <br><br><br><br>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button>
+
+      <br><br><br><br><br>
+
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+  </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

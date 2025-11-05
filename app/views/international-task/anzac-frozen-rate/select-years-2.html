@@ -1,0 +1,170 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">H2 goes here</h1>
+
+      <p>Paragraph text could go here, if needed.</p>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">NZ superannuation</caption>
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Received</th>
+            <td class="govuk-table__cell">Yes</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Type</th>
+            <td class="govuk-table__cell">Reciprocal</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Include in calculation
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <br><br>
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Australia</caption>
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Lived</th>
+            <td class="govuk-table__cell">1 January 1990 to 31 December 1995</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Worked</th>
+            <td class="govuk-table__cell">1 January 1990 to 31 December 1995</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Include in calculation
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <br><br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Canada</caption>
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Lived</th>
+            <td class="govuk-table__cell">1 January 1996 to 31 December 2000</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Worked</th>
+            <td class="govuk-table__cell">1 January 1996 to 31 December 2000</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Include in calculation
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <br><br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">New Zealand</caption>
+        
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Lived</th>
+            <td class="govuk-table__cell">1 January 2001 to 31 December 2005</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Worked</th>
+            <td class="govuk-table__cell">1 January 2001 to 31 December 2005</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="govuk-form-group">
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="waste" name="waste" type="checkbox" value="carcasses">
+              <label class="govuk-label govuk-checkboxes__label" for="waste">
+                Include in calculation
+              </label>
+            </div>
+          </div>
+      </div>
+
+      <br><br>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button>
+
+      <br><br><br><br><br>
+
+    </div>
+  </div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> <br>
+        <b>Notes:</b> If citizen is claiming post SPa, the agent will be prompted to <a href="srb-question" class="govuk-link">check for SRBs in place</a><br>
+      </div>
+    </details>
+
+  </form>
+
+  </div>
+
+</div>
+
+{% endblock %}

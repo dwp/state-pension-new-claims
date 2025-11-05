@@ -1,0 +1,248 @@
+{% from "timeline/macro.njk" import dwpTimeline %}
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-visually-hidden">Warning</span>
+            There are tasks outstanding <br>
+            <a href="record-tasks" class="govuk-link--no-visited-state">View tasks</a>
+          </strong>
+        </div>
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal-1",
+            current: true
+          }, 
+          {
+            text: "Contact",
+            href: "record-contact",
+            current: false
+          }, 
+          {
+            text: "Award",
+            href: "record-award",
+            current: false
+          },
+          {
+            text: "Payment",
+            href: "record-payment",
+            current: false
+          },
+          {
+            text: "Full history",
+            href: "record-full-history",
+            current: false
+          }]
+        }) }}
+
+        <br><br>
+
+        <!--<div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            Waiting for Pension Credit team to return part B of the BR403 form. <a href="#" class="govuk-link govuk-link--no-visited-state">Get this task now.</a>
+          </strong>
+        </div>-->
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+                <td class="govuk-table__cell" style="width: 50%">Hakim Umar</td>
+                <td class="govuk-table__cell"><a class="govuk-link" href="change-name">
+                  <!--Change-->
+                </a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">National Insurance number</th>
+                <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Date of birth</th>
+                <td class="govuk-table__cell">12 January 1966</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">State Pension date </th>
+                <td class="govuk-table__cell">10 April 2023 </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status </th>
+                  <td class="govuk-table__cell">Married</td>
+                  <td class="govuk-table__cell"><a class="govuk-link" href=change-maritalstatus>
+                      <!--Details-->
+                    </a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                    <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
+                        <!--Details-->
+                      </a></td>
+                  </tr>
+
+            </tbody>
+          </table>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        <h3 class="govuk-heading-m">Personal changes</h3>
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+  
+            {% if data['taxRate2'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+            {% endif %}
+            {% if data['whichOption'] === 'lsiEsp' and data['whichYear'] === 'later' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Letter sent to claimant asking them to contact us about their tax rate</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Change to award letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <!--<li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part B of BR403 returned</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>-->
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum inheritance for 2026 to 2027 tax year with pre-2005 extra State Pension</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'lsi' and data['whichYear'] === 'later' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Letter sent to claimant asking them to contact us about their tax rate</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum inheritance for 2026 to 2027 tax year</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'lsi' and data['whichYear'] === 'now' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum inheritance</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'lsiEsp' and data['whichYear'] === 'now' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Change to award and lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <!--<li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part B of BR403 returned</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>-->
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose lump sum inheritance with pre-2005 extra State Pension</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['whichOption'] === 'esp' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Change to award letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <!--<li class="dwp-timeline__item">
+                    <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                    <h2 class="dwp-timeline__heading">Part B of BR403 returned</h2>
+                    <p class="dwp-timeline__by-line">by Agent</p>
+                  </li>
+                  <li class="dwp-timeline__item">
+                    <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                    <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
+                    <p class="dwp-timeline__by-line">by Agent</p>
+                  </li>-->
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Claimant chose inherited extra State Pension</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+            
+            {% if data['lsi'] %}
+              <!--<li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">No response to choices letter. Change to award and lump sum payment letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Choices letter reminder sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>-->
+            
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">(day month year) at (time)</p>
+                <h2 class="dwp-timeline__heading">Choices letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+            {% endif %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">13 Mar 2025 at 10:22am</p>
+              <h2 class="dwp-timeline__heading">Claim received</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+  
+          </ol>
+        </div>
+
+        <p class="govuk-body">
+          <a href="#" class="govuk-link">Full history</a>
+        </p>
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}
