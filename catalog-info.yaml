@@ -3,8 +3,7 @@ kind: Component
 metadata:
   name: state.pension.new.claims
   title: State-Pension-New-Claims
-  description: A blank prototype to use for testing things.
-    TODO: add description for state-pension-new-claims-prototype.
+  description: A blank prototype to use for testing state-pension-new-claims-prototype things.
 
   annotations:
     gitlab.com/project-slug: dwp/user-centred-design/state-pension-new-claims
@@ -13,7 +12,7 @@ metadata:
     dwp.gov.uk/version: 1.0.0
     dwp.gov.uk/license: unknown
 
-    dwp.gov.uk/last-verified.by: Kit Rosenberg
+    dwp.gov.uk/last-verified.by: kit.rosenberg
     dwp.gov.uk/last-verified.on: 2025-11-07
 
     dwp.gov.uk/open-source.approved: "false"
