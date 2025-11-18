@@ -1,5 +1,3 @@
-
-
 {% extends "layouts/main-2.html" %}
 
 {% block content %}
@@ -7,9 +5,6 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-<<<<<<< HEAD:app/views/disallow-second-deferral/record-personal.html
-        {% include './_bar-2.html' %}
-=======
         {% if data['whyStopping'] == 'died' %}
           <div class="govuk-notification-banner govuk-notification-banner--success" role="alert" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
             <div class="govuk-notification-banner__header">
@@ -51,12 +46,7 @@
           </div>
         {% endif %}
 
-        {% if data['whyStopping'] == 'died' %}
-          {% include './_bar-3.html' %}
-        {% else %}
-          {% include './_bar-2.html' %}
-        {% endif %}
->>>>>>> 824efe4 (disallow diferral et all):app/views/disallow-second-deferral/record-personal-2a.html
+        {% include './_bar-2.html' %}
 
         <br>
 
@@ -133,7 +123,7 @@
             </tbody>
           </table>
 
-          <a class="govuk-link govuk-!-font-size-19" href="#">Stop State Pension</a>
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="why-stopping-3">Stop State Pension</a>
 
       </div>
 
@@ -144,7 +134,7 @@
 
       <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
-          
+
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">1 Sept 2025 at 12:18am</p>
             <h2 class="dwp-timeline__heading">State Pension resumed</h2>

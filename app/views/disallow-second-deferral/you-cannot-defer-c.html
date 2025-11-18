@@ -1,0 +1,37 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar-2.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">You cannot stop this claimant's State Pension to defer again</h1>
+
+    <p>
+      This claimant has already deferred their State Pension once. 
+      You can tell the claimant that they have already deferred their State Pension once, and it is not possible to defer it again. 
+      Their payments will continue as normal.
+    </p>
+      
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Button text
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

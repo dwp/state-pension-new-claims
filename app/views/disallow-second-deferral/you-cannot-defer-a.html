@@ -1,4 +1,4 @@
-{% extends "layouts/main.html" %}
+{% extends "layouts/main-2.html" %}
 
 {% block content %}
 
@@ -9,25 +9,26 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    {{ govukBackLink({
+    <!--{{ govukBackLink({
       "text": "Back",
       "href": "javascript: window.history.go(-1)"
     })
     }}
 
-    <br><br>
+    <br><br>-->
 
     <h1 class="govuk-heading-l">You cannot stop this claimant's State Pension to defer again</h1>
 
     <p>
       This claimant has already deferred their State Pension once. 
-      If they want to stop their State Pension for another reason, you can continue. 
-      Otherwise, return to the claimant's record card.
+      Claimants can only defer their State Pension one time.
     </p>
 
-    <!--<br>
+    <p>You can stop their State Pension for other reasons.</p>
+
+    <br>
     
-    <div class="govuk-form-group">
+    <!--<div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
           <h1 class="govuk-fieldset__heading">
@@ -51,43 +52,37 @@
       </fieldset>
     </div>
 
-    <br>
+    <br>-->
     
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
           <h1 class="govuk-fieldset__heading">
-            How do you want to proceed?
+            Do you want to stop the claimant's State Pension for another reason?
           </h1>
         </legend>
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="srbQuestion" name="srbQuestion" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-              Go back
+            <input class="govuk-radios__input" id="howcontinue-2" name="howcontinue" type="radio" value="stopSp">
+            <label class="govuk-label govuk-radios__label" for="howcontinue-2">
+              Yes - I want to stop the State Pension for another reason
             </label>
           </div>
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="srbQuestion-2" name="srbQuestion" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
-              Stop for another reason
+            <input class="govuk-radios__input" id="howcontinue" name="howcontinue" type="radio" value="goBack">
+            <label class="govuk-label govuk-radios__label" for="howcontinue">
+              No - the claimant wanted to defer their State Pension again
             </label>
           </div>
         </div>
       </fieldset>
-    </div>-->
+    </div>
       
     <br><br>
 
     <button class="govuk-button" data-module="govuk-button">
       Continue
     </button>
-
-    <br><br>
-
-    <p class="govuk-body">
-      <a href="record-personal-2b" class="govuk-link--no-visited-state">Return to claimant's record card</a>
-    </p>
 
   </div>
 </div>

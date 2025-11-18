@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Select the option you want to view
+          </h1>
+        </legend>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="selectOption" name="selectOption" type="radio" value="1a">
+            <label class="govuk-label govuk-radios__label" for="selectOption">
+              Option 1A
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="selectOption-2" name="selectOption" type="radio" value="1b">
+            <label class="govuk-label govuk-radios__label" for="selectOption-2">
+              Option 1B
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="selectOption-3" name="selectOption" type="radio" value="2a">
+            <label class="govuk-label govuk-radios__label" for="selectOption-3">
+              Option 2A
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="selectOption-4" name="selectOption" type="radio" value="2b">
+            <label class="govuk-label govuk-radios__label" for="selectOption-4">
+              Option 2B
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="selectOption-5" name="selectOption" type="radio" value="3">
+            <label class="govuk-label govuk-radios__label" for="selectOption-5">
+              Option 3
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}

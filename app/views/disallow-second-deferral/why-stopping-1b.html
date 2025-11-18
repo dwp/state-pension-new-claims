@@ -1,0 +1,71 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar-2.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading">
+            Why are you stopping the claimant's State Pension?
+          </h1>
+        </legend>
+
+        <br>
+
+        <p>
+          This claimant has already deferred their State Pension once. 
+          Claimants can only defer their State Pension one time.
+        </p>
+
+        <p>You can stop their State Pension for other reasons.</p>
+
+        <br>
+
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whyStopping" name="whyStopping" type="radio" value="died">
+            <label class="govuk-label govuk-radios__label" for="whyStopping">
+              Claimant has died
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whyStopping-3" name="whyStopping" type="radio" value="prison">
+            <label class="govuk-label govuk-radios__label" for="whyStopping-3">
+              Claimant is in prison
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="whyStopping-4" name="whyStopping" type="radio" value="suspension">
+            <label class="govuk-label govuk-radios__label" for="whyStopping-4">
+              Temporary suspension pending investigation
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

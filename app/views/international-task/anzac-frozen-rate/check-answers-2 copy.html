@@ -1,0 +1,124 @@
+{% extends "layouts/main.html" %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+{% block content %}
+
+<form class="form" method="post" action="step-1-complete">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+       Check your answers
+      </h1>
+
+      <h3 class="govuk-heading-m"></h3>
+
+      <dl class="govuk-summary-list">
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            UK qualifying years
+          </dt>
+
+          <dd class="govuk-summary-list__value--numeric govuk-!-width-one-quarter">
+            6
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp"> <span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Pre-2016 valid EEA years
+          </dt>
+          <dd class="govuk-summary-list__value--numeric govuk-!-width-one-quarter">
+              2
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key govuk-!-width-one-half">
+            Post-2016 valid EEA years
+          </dt>
+          <dd class="govuk-summary-list__value--numeric govuk-!-width-one-quarter">
+              1
+          </dd>
+
+          <dd class="govuk-summary-list__actions govuk-!-width-one-quarter">
+            <a class="govuk-link--no-visited-state" href="enter-inherited-esp">Change<span class="govuk-visually-hidden">Inherited extra State Pension amount</span></a>
+          </dd>
+        </div>
+
+      </dl>
+
+      <br><br>
+
+
+
+      <p>We are still waiting for insurance records from some countries. You will need to send a reminder.</p>
+
+      <br><br>
+
+         <!--<h2 class="govuk-heading-l">
+       Award calculated
+      </h2>
+
+   <p>Based on the insurance records received, the claimant cannot reach 10 qualifying years.</p>
+
+      <p>We are still waiting for insurance records from some countries.</p>
+
+      <p>A letter will be automatically sent to the claimant to tell them that they can send us their own copies.</p>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row govuk-!-width-one-half">
+              <th scope="row" class="govuk-table__header">State Pension award</th>
+              <td class="govuk-table__cell">132.88</td>
+            </tr>
+
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">From</th>
+              <td class="govuk-table__cell">{{ "today" | govukDate }}</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      <div class="govuk-inset-text">
+        This will automatically pay any arrears and send an award letter to the claimant.
+      </div>-->
+
+      <br><br><br>
+
+      
+        {{ govukButton({
+          text: "Confirm and continue"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
