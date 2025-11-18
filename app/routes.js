@@ -1,16 +1,7 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.post('*', function (req, res, next) {
-  console.log(req.body)
 
-  if (req.body['next-page']) {
-    let page = req.body['next-page']
-    res.redirect(page)
-  } else {
-    next()
-  }
-})
 
 // copy the const name and the file path to new version
 const newclaims = require('./routes/newclaims')
