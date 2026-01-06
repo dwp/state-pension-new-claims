@@ -17,8 +17,12 @@ router.post('/coeg/hmrc-question', function (req, res) {
   if (req.body['hmrcQuestion'] === 'yes') {
     res.redirect('award-calculated')
   } else {
-    res.redirect('complete-bic1')
+    res.redirect('remove-claim')
   }
+})
+
+router.post('/coeg/remove-claim', (req, res) => {
+  res.redirect('record-personal')
 })
 
 router.post('/coeg/hmrc-question-2', function (req, res) {

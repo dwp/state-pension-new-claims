@@ -71,9 +71,7 @@
 
         <br>
 
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
-
-        {% elseif data.hmrcQuestion2 === 'no' %}
+        {% if data['whatDay-day'] or data['whatDay-month'] or data['whatDay-year'] %}
 
         <br>
 
@@ -81,21 +79,11 @@
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive"></span>
-            COEG investigation outstanding.<br> <a href="hmrc-question-3" class="govuk-link--no-visited-state">Check if HMRC has completed the investigation</a>.
+            COEG investigation outstanding.<br> <a href="hmrc-question" class="govuk-link--no-visited-state">Confirm COEG investigation status</a>.
           </strong>
         </div>
 
-        {% elseif data.hmrcQuestion === 'no' %}
-
-        <br>
-
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            COEG investigation outstanding.<br> <a href="hmrc-question-2" class="govuk-link--no-visited-state">Check if HMRC has completed the investigation</a>.
-          </strong>
-        </div>
+        {% elseif data.hmrcQuestion %}
 
         {% else %}
 
@@ -105,7 +93,7 @@
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive"></span>
-            COEG investigation outstanding.<br> <a href="hmrc-question" class="govuk-link--no-visited-state">Check if HMRC has completed the investigation</a>.
+            COEG investigation outstanding.<br> <a href="what-date-2" class="govuk-link--no-visited-state">Enter COEG investigation start date</a>.
           </strong>
         </div>
 
