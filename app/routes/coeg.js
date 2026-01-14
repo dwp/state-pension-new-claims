@@ -21,6 +21,10 @@ router.post('/coeg/hmrc-question', function (req, res) {
   }
 })
 
+router.post('/coeg/award-calculated', (req, res) => {
+  res.redirect('record-personal')
+})
+
 router.post('/coeg/remove-claim', (req, res) => {
   res.redirect('record-personal')
 })

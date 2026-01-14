@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<form class="form" method="post">
- 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post" action="record-personal">
 
     {% include './_bar.html' %}
 
@@ -22,33 +22,36 @@
       <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
         <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
           <h1 class="govuk-fieldset__heading">
-            Has HMRC completed the COEG investigation?
+            Do you need to issue an award at the safe rate?
           </h1>
         </legend>
 
-        <br>
+        <!--<br>
 
-        <p class="govuk-body">You will need to check:</p>
+        <p class="govuk-body">You may need to:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>the COEG flag in NIRs (OLE)</li>
-          <li>that the LTB data has been updated</li>
-          <li>the State Pension award components</li>
+          <li>remove this claim from GySP</li>
+          <li>rebuild this claim in CAM</li>
         </ul>
 
-        <br>
+        <br>-->
+
+        <div id="changedName-hint" class="govuk-hint">
+          If the claimant is experiencing finincial hardship, you can rebuild their claim in CAM and issue them an award at the safe rate. Only do this if absolutely necessary.
+        </div>
 
         <div class="govuk-radios--inline" data-module="govuk-radios">
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="hmrcQuestion3" name="hmrcQuestion3" type="radio" value="yes" aria-describedby="hmrcQuestion3-item-hint">
-            <label class="govuk-label govuk-radios__label" for="hmrcQuestion3">
+            <input class="govuk-radios__input" id="removeClaim" name="removeClaim" type="radio" value="yes" aria-describedby="removeClaim-item-hint">
+            <label class="govuk-label govuk-radios__label" for="removeClaim">
               Yes
             </label>
           </div>
 
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="hmrcQuestion3-2" name="hmrcQuestion3" type="radio" value="no" aria-describedby="hmrcQuestion3-2-item-hint">
-            <label class="govuk-label govuk-radios__label" for="hmrcQuestion3-2">
+            <input class="govuk-radios__input" id="removeClaim-2" name="removeClaim" type="radio" value="no" aria-describedby="removeClaim-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="removeClaim-2">
               No
             </label>
           </div>
@@ -60,14 +63,12 @@
     <br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-    Continue
+      Continue
     </button>
 
     <br><br><br>
 
   </div>
 </div>
-
-</form>
 
 {% endblock %}

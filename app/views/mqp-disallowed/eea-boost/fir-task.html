@@ -8,8 +8,6 @@ GOV.UK Prototype Kit
 {% include "includes/cookie-banner.html" %}
 {# Set serviceName in config.js. #}
 
-{% include './navigation/_header-nav-unselected.html' %}
-
 {% block headEnd %}
 {% endblock %}
 
@@ -34,14 +32,16 @@ GOV.UK Prototype Kit
 <h1 class="govuk-heading-l">Check for insurance records</h1>
 
 <div id="hint" class="govuk-hint">
-You can find these in RINA or CAMlite.   </div>
+  You can find these in RINA or ECMS.
+</div>
+
 <br>
 
   <div class="govuk-form-group">
     <fieldset class="govuk-fieldset" aria-describedby="norway-records-hint">
       <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
         <h2 class="govuk-fieldset__heading">
-          Have we received the records from Norway?
+          Have we received the records from Austria?
         </h2>
       </legend>
       <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
@@ -65,7 +65,31 @@ You can find these in RINA or CAMlite.   </div>
   <fieldset class="govuk-fieldset" aria-describedby="spain-records-hint">
     <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
       <h2 class="govuk-fieldset__heading">
-          Have we received the records from Spain?
+          Have we received the records from Belguim?
+      </h2>
+    </legend>
+    <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="spainRecords" name="spainRecords" type="radio" value="yes">
+        <label class="govuk-label govuk-radios__label" for="spainRecords">
+          Yes
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="spainRecords" name="spainRecords" type="radio" value="no">
+        <label class="govuk-label govuk-radios__label" for="spainRecords">
+          No
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset" aria-describedby="spain-records-hint">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+          Have we received the records from Cyprus?
       </h2>
     </legend>
     <div class="govuk-radios govuk-radios--inline" data-module="govuk-radios">

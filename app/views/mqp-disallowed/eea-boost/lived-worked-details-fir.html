@@ -1,17 +1,6 @@
-{% extends "layout.html" %}
+{% extends "layouts/main.html" %}
 
-{% block pageTitle %}
-GOV.UK Prototype Kit
-{% endblock %}
-
-{% block header %}
-{% include "includes/cookie-banner.html" %}
-{# Set serviceName in config.js. #}
-
-{% include './navigation/_header-nav-unselected.html' %}
-
-{% block headEnd %}
-{% endblock %}
+{% block content %}
 
 
 <div class="govuk-width-container">
@@ -47,7 +36,7 @@ GOV.UK Prototype Kit
               <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
               <strong class="govuk-warning-text__text">
                 <span class="govuk-warning-text__assistive"></span>
-                Waiting for CFN901 from the claimant.<br>  <a href="../../international-task/eea-cfn901-iteration-1/cfn-task.html" class="govuk-link">Confirm CFN901 returned</a>
+                Information needed from EEA countries to check if we can increase their award. <a href="../../international-task/eea-cfn901-iteration-1/cfn-task.html" class="govuk-link">Request EEA information</a>.
               </strong>
             </div>
 
@@ -89,7 +78,7 @@ GOV.UK Prototype Kit
                                
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Norway</h2>
+                <h2 class="govuk-summary-card__title">Germany</h2>
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
@@ -132,28 +121,13 @@ GOV.UK Prototype Kit
                       </a>
                     </dd>
                   </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Outstanding task
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="fir-task.html"> Confirm insurance records returned
-                        <span class="govuk-visually-hidden"> working situation</span>
-                        </a>
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
-                      <span class="govuk-visually-hidden"> working situation</span>
-                      </a>
-                    </dd>
-                  </div>
                 </dl>
               </div>
             </div>
 
             <div class="govuk-summary-card">
               <div class="govuk-summary-card__title-wrapper">
-                <h2 class="govuk-summary-card__title">Spain</h2>
+                <h2 class="govuk-summary-card__title">Germany</h2>
               </div>
               <div class="govuk-summary-card__content">
                 <dl class="govuk-summary-list">
@@ -183,21 +157,6 @@ GOV.UK Prototype Kit
                       </a>
                     </dd>
                   </div>
-                  <div class="govuk-summary-list__row">
-                    <dt class="govuk-summary-list__key">
-                      Outstanding task
-                    </dt>
-                    <dd class="govuk-summary-list__value">
-                      <a class="govuk-link" href="fir-task.html"> Confirm insurance records returned
-                        <span class="govuk-visually-hidden"> working situation</span>
-                        </a>
-                    </dd>
-                    <dd class="govuk-summary-list__actions">
-                      <a class="govuk-link" href="#">
-                      <span class="govuk-visually-hidden"> working situation</span>
-                      </a>
-                    </dd>
-                  </div>
                 </dl>
               </div>
             </div>
@@ -208,43 +167,71 @@ GOV.UK Prototype Kit
       </div>
     </div>
            
-          {% endblock %}
-          
-    {% block content %}
     <div class="govuk-grid-row">
     
         <div class="govuk-grid-column-one-third">
-    
-          <br>
-    
-          <div class="dwp-timeline">
-            <ol class="dwp-timeline__events">
-            <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record returned from Germany</h2>
-                <p class="govuk-caption-m">08 February 202</p>
-            </li>
-            <li class="dwp-timeline__events--entry">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Spain</h2>
-              <p class="govuk-caption-m">14 December 2022</p>
-          </li>
-            <li class="dwp-timeline__events--entry">
-              <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Norway</h2>
-              <p class="govuk-caption-m">14 December 2022</p>
-          </li>
-          <li class="dwp-timeline__events--entry">
-            <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: Insurance record requested from Germany</h2>
-            <p class="govuk-caption-m">14 December 2022</p>
-        </li>
-            <li class="dwp-timeline__events--entry">
-                <h2 class="govuk-heading-s govuk-!-margin-bottom-1">EEA: CFN901 form sent to claimant</h2>
-                <p class="govuk-caption-m">17 November 2022</p>
-          </li>
-            </ol>
-            </div> 
-    
-          
-    
-          </ol>
+
+          <h1 class="govuk-heading-l">Events</h1>
+            <div class="dwp-timeline">
+              <ol class="dwp-timeline__items">
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">16 June 2024 at 1:00am</p>
+                  <h2 class="dwp-timeline__heading">Completed ‘DP224JP’ form received</h2>
+                  <p class="dwp-timeline__by-line">by System</p>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">1 June 2024 at 7:14am</p>
+                  <h2 class="dwp-timeline__heading">Summary of report including recommendations, suppliers and costs sent to claimant</h2>
+                  <p class="dwp-timeline__by-line">by John Goldsmith</p>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">15 May 2024 at 4:01pm</p>
+                  <h2 class="dwp-timeline__heading">Workplace assessment report</h2>
+                  <p class="dwp-timeline__by-line">by John Goldsmith</p>
+                  <a href="#" class="dwp-timeline__link">View details<span class="govuk-visually-hidden"> of the event on 15 May 2024 at 4:01pm</span></a>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">26 April 2024 at 12:42pm</p>
+                  <h2 class="dwp-timeline__heading">Workplace assessment</h2>
+                  <p class="dwp-timeline__by-line">by John Goldsmith</p>
+                  <p class="dwp-timeline__content">Agreed with the claimant that a workplace assessment is required and confirmed assessor visit on 5 May 2024 at 9:45am – confirmation letter sent</p>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">21 April 2024 at 1:12pm</p>
+                  <h2 class="dwp-timeline__heading">Update to: Health condition or disability</h2>
+                  <p class="dwp-timeline__by-line">by Jane Doe</p>
+                  <a href="#" class="dwp-timeline__link">View details<span class="govuk-visually-hidden"> of the event on 21 April 2024 at 1:12pm</span></a>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">21 April 2024 at 10:15am</p>
+                  <h2 class="dwp-timeline__heading">Telephone call made</h2>
+                  <p class="dwp-timeline__by-line">by Jane Doe</p>
+                  <p class="dwp-timeline__content">A telephone call was made to the claimant requesting further information to support the claim</p>
+                  <a href="#" class="dwp-timeline__link">View details<span class="govuk-visually-hidden"> of the event on 21 April 2024 at 10:15am</span></a>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">19 April 2024 at 10:58am</p>
+                  <h2 class="dwp-timeline__heading">Text message (SMS) sent</h2>
+                  <p class="dwp-timeline__by-line">by Jane Doe</p>
+                  <p class="dwp-timeline__content">SMS was sent to the claimant to inform them that we require further information and will be in contact on 21 April 2024</p>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">16 April 2024 at 9:00am</p>
+                  <h2 class="dwp-timeline__heading">Health condition or disability </h2>
+                  <p class="dwp-timeline__by-line">by Jane Doe</p>
+                  <p class="dwp-timeline__content">Contact needed for more information</p>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">28 March 2024 at 9:12am</p>
+                  <h2 class="dwp-timeline__heading">Check personal details and add National Insurance number task</h2>
+                  <p class="dwp-timeline__by-line">by Jane Doe</p>
+                </li>
+                <li class="dwp-timeline__item">
+                  <p class="dwp-timeline__datetime">12 March 2024 at 3:00pm</p>
+                  <h2 class="dwp-timeline__heading">Application received</h2>
+                </li>
+              </ol>
+            </div>
 
     </div>
 
