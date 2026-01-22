@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% include './_bar.html' %}
+
+<form method="post">
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
+
+<br><br>
+
+<h1 class="govuk-heading-xl">Remove claim from GySP</h1>
+
+   <p>If this claim does not meet the criteria for the Get your State Pension service, you can send it to PSCS.</p>
+
+   <br>
+
+   {% from "govuk/components/warning-text/macro.njk" import govukWarningText %}
+
+   {{ govukWarningText({
+     text: "This action cannot be undone",
+     iconFallbackText: "Warning"
+   }) }}
+
+<br><br>
+
+<button type="submit" class="govuk-button govuk-button--warning" data-module="govuk-button">
+  Send to PSCS
+</button>
+
+   <br><br><br><br><br>
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b> /confirm-award <br>
+        <b>Notes:</b> None <br>
+      </div>
+    </details>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+      </div>
+
+{% endblock %}
