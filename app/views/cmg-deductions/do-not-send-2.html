@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post" action="dashboard-3">
+
+    {% include './_bar.html' %}
+
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">
+      Do not send a BIC1 form
+    </h1>
+
+    <p>We have already sent a BIC1 (eBIC) form to HMRC.</p>
+
+    <p>This task will return to the queue in 7 days.</p>
+
+    <p>It will also be available on the claimant's record card.</p>
+
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      End task
+    </button>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}
