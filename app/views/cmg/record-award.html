@@ -30,7 +30,20 @@
 
     <br>
 
-    <h2 class="govuk-heading-m">Current award</h2>
+    <style>
+      .current-award-heading {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+    </style>
+
+    <div class="current-award-heading">
+      <h2 class="govuk-heading-m">Current award</h2>
+      <p><a href="./adjustment">Make an adjustment</a></p>
+    </div>
 
     <style>
       /* Make key 'column' wider than 30% default */
@@ -89,8 +102,6 @@
         } if cmgAmount
       ]
     }) }}
-
-    <p><a href="./adjustment">Make an adjustment</a></p>
 
     <br><br>
 
