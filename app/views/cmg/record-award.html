@@ -32,13 +32,6 @@
 
     <h2 class="govuk-heading-m">Current award</h2>
 
-    {% if data['adjustmentAmount'] == 'other' %}
-      {% set cmgAmount = "£" + data['otherAmount'] %}
-    {% elif data['adjustmentAmount'] == 'default' %}
-      {% set cmgAmount = "£8.40" %}
-    {% endif %}
-
-    {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
     <style>
       /* Make key 'column' wider than 30% default */
       @media (min-width: 40.0625em) {
@@ -49,6 +42,16 @@
         padding-top: 2em;
       }
     </style>
+
+    {% if data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed' %}
+      {% set cmgAmount = "£0.00" %}
+    {% elif data['adjustmentAmount'] == 'other' %}
+      {% set cmgAmount = "£" + data['otherAmount'] %}
+    {% elif data['adjustmentAmount'] == 'default' %}
+      {% set cmgAmount = "£8.40" %}
+    {% else %}
+      {% set cmgAmount = undefined %}
+    {% endif %}
 
     {{ govukSummaryList({
       rows: [

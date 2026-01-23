@@ -22,14 +22,14 @@
     {{ govukSummaryList({
       rows: [
         {
-          key: { text: "Deduction amount" },
+          key: { text: "New deduction amount" },
           value: { text: amountChosen },
           actions: {
             items: [
               {
-                href: "/cmg/cmg-add-amount",
+                href: "/cmg/cmg-change",
                 text: "Change",
-                visuallyHiddenText: "deduction amount"
+                visuallyHiddenText: "new deduction amount"
               }
             ]
           }

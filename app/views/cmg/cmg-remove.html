@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/cmg/adjustment">
+    <form class="form" method="post" action="/cmg/cmg-remove">
 
       {% include './_person.html' %}
 
@@ -14,22 +14,22 @@
       }) }}
 
       {{ govukRadios({
-        name: "whatAdjustment",
+        name: "confirmRemoval",
         fieldset: {
           legend: {
-            text: "What is the adjustment?",
+            text: "Are you sure you want to remove the Child Maintenance deduction?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "debt-recovery",
-            text: "Debt recovery"
+            value: "yes",
+            text: "Yes"
           },
           {
-            value: "cmg-deduction",
-            text: "Child Maintenance deduction"
+            value: "no",
+            text: "No"
           }
         ]
       }) }}
