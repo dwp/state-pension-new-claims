@@ -56,27 +56,32 @@
       }
     </style>
 
+    {% set originalWeeklyAmount = "£155.27" %}
+    {% set cmgDefaultAmount = "£8.40" %}
+    {% set cmgDefaultAdjusted = "£146.87" %}
+    {% set cmgCustomAdjusted = "£151.07" %}
+    {% set cmgZero = "£0.00" %}
+
     {% if data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed' %}
-      {% set cmgAmount = "£0.00" %}
+      {% set cmgAmount = cmgZero %}
     {% elif data['adjustmentAmount'] == 'other' %}
       {% set cmgAmount = "£" + data['otherAmount'] %}
     {% elif data['adjustmentAmount'] == 'default' %}
-      {% set cmgAmount = "£8.40" %}
+      {% set cmgAmount = cmgDefaultAmount %}
     {% else %}
       {% set cmgAmount = undefined %}
     {% endif %}
 
-    {% set originalWeeklyAmount = "£155.27" %}
     {% set cmgDeductionDate = "26 Jan 2026" %}
 
     {% if cmgAmount == undefined %}
       {% set newWeeklyAmount = originalWeeklyAmount %}
-    {% elif cmgAmount == "£8.40" %}
-      {% set newWeeklyAmount = "£146.87" %}
-    {% elif cmgAmount == "£0.00" %}
+    {% elif cmgAmount == cmgDefaultAmount %}
+      {% set newWeeklyAmount = cmgDefaultAdjusted %}
+    {% elif cmgAmount == cmgZero %}
       {% set newWeeklyAmount = originalWeeklyAmount %}
     {% else %}
-      {% set newWeeklyAmount = "£151.07" %}
+      {% set newWeeklyAmount = cmgCustomAdjusted %}
     {% endif %}
 
     {{ govukSummaryList({
@@ -118,6 +123,8 @@
 
     <br><br>
 
+    {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
+
     {{ govukTable({
       caption: "Award history",
       captionClasses: "govuk-table__caption--m",
@@ -132,8 +139,15 @@
         [
           { text: cmgDeductionDate },
           { text: "N/A" },
-          { text: newWeeklyAmount },
-          { text: cmgAmount },
+          { text: originalWeeklyAmount },
+          { text: "Removed" },
+          { html: '<a href="#">Details</a>' }
+        ] if isRemoved,
+        [
+          { text: cmgDeductionDate },
+          { text: (cmgDeductionDate if isRemoved else "N/A") },
+          { text: (cmgDefaultAdjusted if isRemoved else newWeeklyAmount) },
+          { text: (cmgDefaultAmount if isRemoved else cmgAmount) },
           { html: '<a href="#">Details</a>' }
         ] if cmgAmount,
         [
