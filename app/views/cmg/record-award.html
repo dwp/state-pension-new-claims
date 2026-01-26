@@ -66,6 +66,19 @@
       {% set cmgAmount = undefined %}
     {% endif %}
 
+    {% set originalWeeklyAmount = "£155.27" %}
+    {% set cmgDeductionDate = "26 Jan 2026" %}
+
+    {% if cmgAmount == undefined %}
+      {% set newWeeklyAmount = originalWeeklyAmount %}
+    {% elif cmgAmount == "£8.40" %}
+      {% set newWeeklyAmount = "£146.87" %}
+    {% elif cmgAmount == "£0.00" %}
+      {% set newWeeklyAmount = originalWeeklyAmount %}
+    {% else %}
+      {% set newWeeklyAmount = "£151.07" %}
+    {% endif %}
+
     {{ govukSummaryList({
       rows: [
         {
@@ -78,11 +91,11 @@
         },
         {
           key: { text: "Total" },
-          value: { text: "£156.28" }
+          value: { text: originalWeeklyAmount }
         },
         {
           key: { text: "New State Pension" },
-          value: { text: "£164.68" }
+          value: { text: newWeeklyAmount }
         },
         {
           key: { text: "Protected payment" },
@@ -117,17 +130,17 @@
       ],
       rows: [
         [
-          { text: "8 Apr 2022" },
-          { text: "9 Apr 2023" },
-          { text: "£160.34" },
-          { text: "£10" },
+          { text: cmgDeductionDate },
+          { text: "N/A" },
+          { text: newWeeklyAmount },
+          { text: cmgAmount },
           { html: '<a href="#">Details</a>' }
-        ],
+        ] if cmgAmount,
         [
           { text: "15 Jun 2021" },
-          { text: "7 Apr 2022" },
-          { text: "£155.27" },
-          { text: "£10" },
+          { text: (cmgDeductionDate if cmgAmount else "N/A") },
+          { text: originalWeeklyAmount },
+          { text: "N/A" },
           { html: '<a href="#">Details</a>' }
         ]
       ]
@@ -139,8 +152,6 @@
 
   <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">Award changes</h2>
-
-    {% from "timeline/macro.njk" import dwpTimeline %}
 
     {{ dwpTimeline({
       items: [
