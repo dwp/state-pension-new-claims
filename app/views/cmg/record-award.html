@@ -167,27 +167,28 @@
   <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">Award changes</h2>
 
+
     {{ dwpTimeline({
       items: [
         {
-          title:  "Completed ‘DP224JP’ form received",
-          byline:  "System",
-          date:  "16 June 2024 at 1:00am"
-        },
+          title:  "Child Maintenance deduction removed",
+          byline:  "Alex Forbes",
+          date:  cmgDeductionDate + " at 1:34pm"
+        } if isRemoved,
         {
-          title:  "Summary of report",
-          byline:  "John Goldsmith",
-          date:  "1 June 2024 at 7:14am"
-        },
+          title:  "Child Maintenance deduction added",
+          byline:  "Tarquin Alexander",
+          date:  cmgDeductionDate + " at 11:14am"
+        } if cmgAmount,
         {
-          title:  "Workplace assessment report",
-          byline:  "John Goldsmith",
+          title:  "Claim received",
+          byline:  "Online",
           link: {
             href: "#",
             text: "View details",
-            visuallyHiddenText: "of the event on 15 May 2024 at 4:01pm"
+            visuallyHiddenText: "of the event on 15 June 2021 at 4:01pm"
           },
-          date:  "15 May 2024 at 4:01pm"
+          date:  "15 June 2021 at 4:01pm"
         }
       ]
     }) }}
