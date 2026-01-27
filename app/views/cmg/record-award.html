@@ -124,6 +124,7 @@
     <br><br>
 
     {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
+    {% set isChanged = data['removeOrChange'] == 'changeCmg' %}
 
     {{ govukTable({
       caption: "Award history",
@@ -167,31 +168,47 @@
   <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">Award changes</h2>
 
+    {% set timelineItems = [] %}
+
+    {% if isRemoved %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance deduction removed",
+        byline: "Alex Forbes",
+        date: cmgDeductionDate + " at 1:34pm"
+      }), timelineItems) %}
+    {% endif %}
+
+    {% if isChanged %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance deduction changed",
+        byline: "Alex Forbes",
+        date: cmgDeductionDate + " at 12:40pm"
+      }), timelineItems) %}
+    {% endif %}
+
+    {% if cmgAmount %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance deduction applied",
+        byline: "Tarquin Alexander",
+        date: cmgDeductionDate + " at 11:14am"
+      }), timelineItems) %}
+    {% endif %}
+
+    {% set timelineItems = (timelineItems.push({
+      title: "Claim received",
+      byline: "Online",
+      link: {
+        href: "#",
+        text: "View details",
+        visuallyHiddenText: "of the event on 15 June 2021 at 4:01pm"
+      },
+      date: "15 June 2021 at 4:01pm"
+    }), timelineItems) %}
 
     {{ dwpTimeline({
-      items: [
-        {
-          title:  "Child Maintenance deduction removed",
-          byline:  "Alex Forbes",
-          date:  cmgDeductionDate + " at 1:34pm"
-        } if isRemoved,
-        {
-          title:  "Child Maintenance deduction applied",
-          byline:  "Tarquin Alexander",
-          date:  cmgDeductionDate + " at 11:14am"
-        } if cmgAmount,
-        {
-          title:  "Claim received",
-          byline:  "Online",
-          link: {
-            href: "#",
-            text: "View details",
-            visuallyHiddenText: "of the event on 15 June 2021 at 4:01pm"
-          },
-          date:  "15 June 2021 at 4:01pm"
-        }
-      ]
+      items: timelineItems
     }) }}
+
   </div>
 
 </div>
