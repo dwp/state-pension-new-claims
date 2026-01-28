@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/cmg/cmg-add-amount">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {% set otherHtml %}
+        {{ govukInput({
+          id: "other-amount",
+          name: "otherAmount",
+          classes: "govuk-!-width-one-third",
+          value: data['otherAmount'],
+          label: {
+            text: "What is the amount?"
+          },
+          prefix: {
+            text: "£"
+          },
+          spellcheck: false
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "adjustmentAmount",
+        value: data['adjustmentAmount'],
+        fieldset: {
+          legend: {
+            text: "How much is the Child Maintenance deduction?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "The deduction will apply from the next payment date"
+        },
+        items: [
+          {
+            value: "default",
+            text: "£8.40"
+          },
+          {
+            value: "other",
+            text: "Another amount",
+            conditional: {
+              html: otherHtml
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+
+{% endblock %}

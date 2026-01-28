@@ -1,0 +1,195 @@
+
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        
+        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+
+          {% include './_bar-2.html' %}
+
+        {% else %}
+
+          {% include './_bar.html' %}
+
+        {% endif %}
+
+        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "record-personal",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "record-contact"
+            }, 
+            {
+              text: "Award",
+              href: "record-award"
+            },
+            {
+              text: "Payment",
+              href: "record-payment"
+            },
+            {
+              text: "Tasks",
+              href: "record-tasks"
+            },
+            {
+              text: "Full history",
+              href: "record-full-history"
+            }]
+          }) }}
+
+          {% else %}
+
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "record-personal",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "record-contact"
+            }, 
+            {
+              text: "Tasks",
+              href: "record-tasks"
+            }]
+          }) }}
+
+        {% endif %}
+
+        <br>
+
+        {% if data.hmrcQuestion %}
+
+        {% elseif data['whatDay-day'] or data['whatDay-month'] or data['whatDay-year'] %}
+
+        <br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            COEG investigation outstanding.<br> <a href="hmrc-question" class="govuk-link--no-visited-state">Check COEG investigation status</a>.
+          </strong>
+        </div>
+
+        {% else %}
+
+        <br>
+
+        <div class="govuk-warning-text">
+          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+          <strong class="govuk-warning-text__text">
+            <span class="govuk-warning-text__assistive"></span>
+            COEG investigation outstanding.<br> <a href="what-date-2" class="govuk-link--no-visited-state">Enter COEG investigation start date</a>.
+          </strong>
+        </div>
+
+        {% endif %}
+
+        <br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+          <table class="govuk-table">
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+                <td class="govuk-table__cell" style="width: 50%">Leon Hibbert</td>
+                <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="change-name">Change</a></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">National Insurance number</th>
+                <td class="govuk-table__cell">QQ 12 34 56 X</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Date of birth</th>
+                <td class="govuk-table__cell">22 June 1956</td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">State Pension date </th>
+                <td class="govuk-table__cell">01 March 2025 </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">State Pension started </th>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+              <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Marital status </th>
+                  <td class="govuk-table__cell">Married</td>
+                  <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-maritalstatus>Change</a></td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                    <td class="govuk-table__cell">No</td>
+                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
+                        <!--Details-->
+                      </a></td>
+                  </tr>
+
+            </tbody>
+          </table>
+
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Stop State Pension</a>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+
+      <h3 class="govuk-heading-m">Personal changes</h3>
+
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__items">
+
+          <!--<li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">31 Mar 2025 at 2:09pm</p>
+            <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>-->
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">28 Mar 2025 at 09:17am</p>
+            <h2 class="dwp-timeline__heading">Email sent to HMRC for COEG investigation</h2>
+            <p class="dwp-timeline__by-line">by System</p>
+          </li>
+
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">19 Feb 2025 at 10:27am</p>
+            <h2 class="dwp-timeline__heading">COEG investigation started 14 February 2025</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li>
+
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">10 Feb 2025 at 12:34pm</p>
+          <h2 class="dwp-timeline__heading">Claim received</h2>
+          <p class="dwp-timeline__by-line">by Online</p>
+        </li>
+
+        </ol>
+      </div>
+
+      <br>
+
+      <!--<a class="govuk-link--no-visited-state govuk-!-font-size-19" href="record-full-history">Full history</a> -->
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

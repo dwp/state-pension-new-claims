@@ -76,6 +76,7 @@ const mixedoverlappingbenefits = require('./routes/mixedoverlappingbenefits')
 const edgecases = require('./routes/edgecases')
 const coeg = require('./routes/coeg')
 const srbpreaward = require('./routes/srbpreaward')
+const cmg = require('./routes/cmg')
 // copy the router use and update the sprint version
 router.use(newclaims)
 router.use(bpviteration)
@@ -149,4 +150,5 @@ router.use(mixedoverlappingbenefits)
 router.use(edgecases)
 router.use(coeg)
 router.use(srbpreaward)
+router.use(cmg)
 module.exports = router

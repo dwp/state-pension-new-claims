@@ -1,0 +1,40 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/cmg/cmg-change">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukInput({
+        id: "cmgChange",
+        value: data['otherAmount'] if data['showExistingAmount'] != 'no',
+        name: "otherAmount",
+        label: {
+          text: "How much is the new Child Maintenance deduction?",
+          classes: "govuk-label--l",
+          isPageHeading: true
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
