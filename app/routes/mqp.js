@@ -192,7 +192,6 @@ router.post('/mqp-disallowed/eea-boost/part-2/can-claimant-qualify-3', function 
 })
 
 router.post('/mqp-disallowed/eea-boost/part-2/calculate-award', function (req, res) {
-
   if (req.body['addsp1'] === '185.15') {
     res.redirect('enter-protected-payment')
   } else {

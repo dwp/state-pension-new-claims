@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Is there a payment date in OLE?
+          </h1>
+        </legend>
+        <div id="changedName-hint" class="govuk-hint">
+          Check OLE for details.
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="paymentDate" name="paymentDate" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="paymentDate">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="paymentDate-2" name="paymentDate" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="paymentDate-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+      
+    <br>
+
+    <button class="govuk-button" data-module="govuk-button">
+     Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

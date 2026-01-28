@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">An email will be automatically sent to HMRC</h1>
+
+    <p>Paragraph text could go here.</p>
+
+    <br><br>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      End task
+    </button>
+
+      
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

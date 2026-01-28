@@ -1,5 +1,5 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
-const router = govukPrototypeKit.requests.setupRouter()
+const router = govukPrototypeKit.requests.setupRouter();
 
 
 
@@ -75,7 +75,7 @@ const arp = require('./routes/arp')
 const mixedoverlappingbenefits = require('./routes/mixedoverlappingbenefits')
 const edgecases = require('./routes/edgecases')
 const coeg = require('./routes/coeg')
-const cmg = require('./routes/cmg')
+const srbpreaward = require('./routes/srbpreaward')
 // copy the router use and update the sprint version
 router.use(newclaims)
 router.use(bpviteration)
@@ -148,5 +148,5 @@ router.use(arp)
 router.use(mixedoverlappingbenefits)
 router.use(edgecases)
 router.use(coeg)
-router.use(cmg)
+router.use(srbpreaward)
 module.exports = router

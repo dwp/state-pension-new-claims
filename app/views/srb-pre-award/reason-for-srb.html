@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Why has there been an SRB?
+          </h1>
+        </legend>
+        <div id="changedName-hint" class="govuk-hint">
+          Check OLE for details.
+        </div>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbReason" name="srbReason" type="radio" value="3a">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Class 3a - Voluntary contributions
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbReason-2" name="srbReason" type="radio" value="2a">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              Class 2a - Self employed
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="srbReason-2" name="srbReason" type="radio" value="niCredit">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              National Insurance credits
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+      
+      <br>
+
+        <button class="govuk-button" data-module="govuk-button">
+        Continue
+        </button>
+
+      <br><br><br><br><br>
+
+  </div>
+</div>
+
+
+{% endblock %}

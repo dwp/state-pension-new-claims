@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Consider a State Pension claim</h1>
+
+    <p>A citizen has claimed after the date they reached State Pension age.</p>
+
+    <p>Check if an SRB has been issued since then.</p>
+
+    <!--<h1 class="govuk-heading-xl">Check HMRC has returned payment date</h1>
+
+    <p>Paragraph text could go here.</p>
+
+    <p class="govuk-body">You may need to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>Postpone the task</li>
+        <li>Confirm payment date </li>
+        <li>Calculate an award</li>
+      </ul>-->
+
+    <br><br>
+
+    <a href="srb-question" button type="submit" class="govuk-button govuk-button">
+      Start this task
+    </a>
+
+    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
