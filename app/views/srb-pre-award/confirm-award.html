@@ -1,0 +1,159 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">Confirm award</h1>
+
+      <br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Revision 1</caption>
+       
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">New State Pension</th>
+            <td class="govuk-table__cell">
+              {% if data.enterSP %}
+              {{data.enterSP | currency}}
+              {% else %}
+                £0.00
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Protected payment</th>
+            <td class="govuk-table__cell">
+              {% if data.ppAmount %}
+                {{data.ppAmount | currency}}
+              {% else %}
+                £0.00
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">From</th>
+            <td class="govuk-table__cell">
+              {% if data['entitlement-day'] or data['entitlement-month'] or data['entitlement-year'] %}
+                {{data['entitlement-day']}} {{data['entitlement-month'] | monthName}} {{data['entitlement-year']}}
+              {% else %}
+                Not needed
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total</th>
+            <td class="govuk-table__cell">
+              {% if data.enterSP and data.ppAmount %}  
+                <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
+              {% else %}
+                {{data.enterSP | currency}}
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+      
+      {% if data.enterSP2 %}
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Revision 2</caption>
+       
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">New State Pension</th>
+            <td class="govuk-table__cell">
+              {% if data.enterSP2 %}
+              {{data.enterSP2 | currency}}
+              {% else %}
+                £0.00
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Protected payment</th>
+            <td class="govuk-table__cell">
+              {% if data.ppAmoun2t %}
+                {{data.ppAmount2 | currency}}
+              {% else %}
+                £0.00
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">From</th>
+            <td class="govuk-table__cell">
+              {% if data['entitlement2-day'] or data['entitlement2-month'] or data['entitlement2-year'] %}
+                {{data['entitlement2-day']}} {{data['entitlement2-month'] | monthName}} {{data['entitlement2-year']}}
+              {% else %}
+                Not needed
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Total</th>
+            <td class="govuk-table__cell">
+              {% if data.enterSP2 and data.ppAmount2 %}  
+                <b>£{{ data.enterSP2 | float + data.ppAmount2 | float }}</b>
+              {% else %}
+                {{data.enterSP2 | currency}}
+              {% endif %}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+      {% endif %}
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Arrears payment</caption>
+       
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Amount</th>
+            <td class="govuk-table__cell">
+              £104.25
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Period</th>
+            <td class="govuk-table__cell">
+              Day Month Year to <br>
+              Day Month Year
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <div class="govuk-inset-text">
+        A letter will automatically be sent...
+      </div>
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and send letter
+      </button>
+
+    </div>
+</div>
+
+{% endblock %}

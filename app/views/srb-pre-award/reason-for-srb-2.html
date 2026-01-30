@@ -1,0 +1,65 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="srb-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Why has there been an SRB?
+          </h1>
+        </legend>
+        <div id="srb-hint" class="govuk-hint">
+          You can select more than one reason.
+        </div>
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="srb" name="srb" type="checkbox" value="3a">
+            <label class="govuk-label govuk-checkboxes__label" for="srb">
+              Class 3a - Voluntary contributions
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="srb-2" name="srb" type="checkbox" value="2a">
+            <label class="govuk-label govuk-checkboxes__label" for="srb-2">
+              Class 2a - Self employed
+            </label>
+          </div>
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="srb-3" name="srb" type="checkbox" value="niCredits">
+            <label class="govuk-label govuk-checkboxes__label" for="srb-3">
+              National Insurance credits
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+      
+    <br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+
+{% endblock %}
