@@ -210,29 +210,71 @@
   <div class="govuk-grid-column-one-third">
     <h2 class="govuk-heading-m">Award changes</h2>
 
+    <style>
+      .dwp-timeline__item {
+        display: flex;
+        flex-direction: column;
+      }
+      .dwp-timeline__heading,
+      .dwp-timeline__by-line,
+      .dwp-timeline__datetime {
+        font-size: 19px;
+        line-height: 25px;
+      }
+      .dwp-timeline__heading {
+        order: 1;
+        margin-bottom: 0;
+      }
+      .dwp-timeline__by-line {
+        order: 2;
+        margin-bottom: 0;
+      }
+      .dwp-timeline__datetime {
+        order: 4;
+        color: #505a5f;
+      }
+      .dwp-timeline__link {
+        order: 3;
+      }
+    </style>
     {% set timelineItems = [] %}
 
     {% if isRemoved %}
       {% set timelineItems = (timelineItems.push({
+        title: "Letter sent: Child Maintenance deduction removed",
+        byline: "System",
+        date: cmgDeductionDate
+      }), timelineItems) %}
+      {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction removed",
         byline: "Agent",
-        date: cmgDeductionDate + " at 1:34pm"
+        date: cmgDeductionDate
       }), timelineItems) %}
     {% endif %}
 
     {% if isChanged %}
       {% set timelineItems = (timelineItems.push({
+        title: "Letter sent: Child Maintenance deduction changed",
+        byline: "System",
+        date: cmgDeductionDate
+      }), timelineItems) %}
+      {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction changed",
         byline: "Agent",
-        date: cmgDeductionDate + " at 12:40pm"
+        date: cmgDeductionDate
       }), timelineItems) %}
     {% endif %}
 
-    {% if cmgAmount %}
+    {% if cmgAdded %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Letter sent: Child Maintenance deduction applied",
+        byline: "System",
+        date: cmgDeductionDate
+      }), timelineItems) %}
       {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction applied",
         byline: "Agent",
-        date: cmgDeductionDate + " at 11:14am"
+        date: cmgDeductionDate
       }), timelineItems) %}
     {% endif %}
 
@@ -244,13 +286,21 @@
         text: "View details",
         visuallyHiddenText: "of the event on 15 June 2021 at 4:01pm"
       },
-      date: "15 June 2021 at 4:01pm"
+      date: "20 September 2022"
     }), timelineItems) %}
 
     {{ dwpTimeline({
       items: timelineItems
     }) }}
 
+    <script>
+      document.querySelectorAll('.dwp-timeline__by-line')
+      .forEach(element => {
+        element.textContent = element.textContent.replace('by ', '');
+      });
+    </script>
+
+    <p><a href="#">Full history</a></p>
   </div>
 
 </div>
