@@ -2,6 +2,59 @@
 
 {% block content %}
 
+    {% set originalWeeklyAmount = "£155.27" %}
+    {% set cmgDefaultAmount = "£8.40" %}
+    {% set cmgDefaultAdjusted = "£146.87" %}
+    {% set cmgCustomAdjusted = "£151.07" %}
+    {% set cmgZero = "£0.00" %}
+
+    {% if data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed' %}
+      {% set cmgAmount = cmgZero %}
+    {% elif data['adjustmentAmount'] == 'other' %}
+      {% set cmgAmount = "£" + data['otherAmount'] %}
+    {% elif data['adjustmentAmount'] == 'default' %}
+      {% set cmgAmount = cmgDefaultAmount %}
+    {% else %}
+      {% set cmgAmount = undefined %}
+    {% endif %}
+
+    {% set cmgDeductionDate = "26 Jan 2026" %}
+
+    {% if cmgAmount == undefined %}
+      {% set newWeeklyAmount = originalWeeklyAmount %}
+    {% elif cmgAmount == cmgDefaultAmount %}
+      {% set newWeeklyAmount = cmgDefaultAdjusted %}
+    {% elif cmgAmount == cmgZero %}
+      {% set newWeeklyAmount = originalWeeklyAmount %}
+    {% else %}
+      {% set newWeeklyAmount = cmgCustomAdjusted %}
+    {% endif %}
+
+    {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
+    {% set isChanged = data['removeOrChange'] == 'changeCmg' %}
+
+    {% if isRemoved %}
+      {% set showCmgBanner = true %}
+    {% elif isChanged %}
+      {% set showCmgBanner = true %}
+    {% elif (cmgAmount == cmgDefaultAmount) or (cmgAmount == cmgDefaultAdjusted) %}
+      {% set showCmgBanner = true %}
+    {% endif %}
+
+    {% set html %}
+      <h3 class="govuk-notification-banner__heading">
+        Child Maintenance deduction applied
+      </h3>
+      <p class="govuk-body">This will apply to the current award from the next payment date.</p>
+    {% endset %}
+
+    {% if showCmgBanner %}
+      {{ govukNotificationBanner({
+        html: html,
+        type: "success"
+      }) }}
+    {% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -56,34 +109,6 @@
       }
     </style>
 
-    {% set originalWeeklyAmount = "£155.27" %}
-    {% set cmgDefaultAmount = "£8.40" %}
-    {% set cmgDefaultAdjusted = "£146.87" %}
-    {% set cmgCustomAdjusted = "£151.07" %}
-    {% set cmgZero = "£0.00" %}
-
-    {% if data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed' %}
-      {% set cmgAmount = cmgZero %}
-    {% elif data['adjustmentAmount'] == 'other' %}
-      {% set cmgAmount = "£" + data['otherAmount'] %}
-    {% elif data['adjustmentAmount'] == 'default' %}
-      {% set cmgAmount = cmgDefaultAmount %}
-    {% else %}
-      {% set cmgAmount = undefined %}
-    {% endif %}
-
-    {% set cmgDeductionDate = "26 Jan 2026" %}
-
-    {% if cmgAmount == undefined %}
-      {% set newWeeklyAmount = originalWeeklyAmount %}
-    {% elif cmgAmount == cmgDefaultAmount %}
-      {% set newWeeklyAmount = cmgDefaultAdjusted %}
-    {% elif cmgAmount == cmgZero %}
-      {% set newWeeklyAmount = originalWeeklyAmount %}
-    {% else %}
-      {% set newWeeklyAmount = cmgCustomAdjusted %}
-    {% endif %}
-
     {{ govukSummaryList({
       rows: [
         {
@@ -122,9 +147,6 @@
     }) }}
 
     <br><br>
-
-    {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
-    {% set isChanged = data['removeOrChange'] == 'changeCmg' %}
 
     {{ govukTable({
       caption: "Award history",
@@ -173,7 +195,7 @@
     {% if isRemoved %}
       {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction removed",
-        byline: "Alex Forbes",
+        byline: "Agent",
         date: cmgDeductionDate + " at 1:34pm"
       }), timelineItems) %}
     {% endif %}
@@ -181,7 +203,7 @@
     {% if isChanged %}
       {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction changed",
-        byline: "Alex Forbes",
+        byline: "Agent",
         date: cmgDeductionDate + " at 12:40pm"
       }), timelineItems) %}
     {% endif %}
@@ -189,7 +211,7 @@
     {% if cmgAmount %}
       {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction applied",
-        byline: "Tarquin Alexander",
+        byline: "Agent",
         date: cmgDeductionDate + " at 11:14am"
       }), timelineItems) %}
     {% endif %}
