@@ -2,38 +2,31 @@
 
 {% block content %}
 
-    {% set originalWeeklyAmount = "£155.27" %}
-    {% set cmgDefaultAmount = "£8.40" %}
-    {% set cmgDefaultAdjusted = "£146.87" %}
-    {% set cmgCustomAdjusted = "£151.07" %}
-    {% set cmgZero = "£0.00" %}
+    {% set originalWeeklyAmount = 202.93 %}
+    {% set cmgDefaultAmount = 8.40 %}
+    {% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
+    {% set cmgDeductionDate = "26 January 2026" %}
 
-    {% if data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed' %}
-      {% set cmgAmount = cmgZero %}
-    {% elif data['adjustmentAmount'] == 'other' %}
-      {% set cmgAmount = "£" + data['otherAmount'] %}
-    {% elif data['adjustmentAmount'] == 'default' %}
-      {% set cmgAmount = cmgDefaultAmount %}
+    {% if data['adjustmentAmountType'] == "other" %}
+      {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
     {% else %}
-      {% set cmgAmount = undefined %}
+      {% set cmgAmount = cmgDefaultAdjusted %}
     {% endif %}
 
-    {% set cmgDeductionDate = "26 Jan 2026" %}
-
-    {% if cmgAmount == undefined %}
-      {% set newWeeklyAmount = originalWeeklyAmount %}
-    {% elif cmgAmount == cmgDefaultAmount %}
-      {% set newWeeklyAmount = cmgDefaultAdjusted %}
-    {% elif cmgAmount == cmgZero %}
-      {% set newWeeklyAmount = originalWeeklyAmount %}
-    {% else %}
-      {% set newWeeklyAmount = cmgCustomAdjusted %}
+    {% if data['adjustmentAmountType'] %}
+      {% set cmgAdded = true %}
     {% endif %}
+
+    {% set isChanged = data['changedAmount'] %}
 
     {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
-    {% set isChanged = data['removeOrChange'] == 'changeCmg' %}
 
-    {% if isRemoved %}
+    {% if isChanged %}
+      {% set cmgChangedAmount = "£" + (originalWeeklyAmount - data['changedAmount']) %}
+    {% endif %}
+
+
+    {# {% if isRemoved %}
       {% set showCmgBanner = true %}
     {% elif isChanged %}
       {% set showCmgBanner = true %}
@@ -53,7 +46,7 @@
         html: html,
         type: "success"
       }) }}
-    {% endif %}
+    {% endif %} #}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -78,6 +71,14 @@
       {
         text: "Payment",
         href: "record-payment"
+      },
+      {
+        text: "Tasks",
+        href: "tasks"
+      },
+      {
+        text: "Full history",
+        href: "Full-history"
       }]
     }) }}
 
@@ -94,11 +95,11 @@
     </style>
 
     <div class="current-award-heading">
-      <h2 class="govuk-heading-m">Current award</h2>
+      <h1 id="statePensionAwardsHeading" class="govuk-heading-m">State pension awards</h1>
       <p><a href="./adjustment">Make an adjustment</a></p>
     </div>
 
-    <style>
+    {# <style>
       /* Make key 'column' wider than 30% default */
       @media (min-width: 40.0625em) {
         .govuk-summary-list__key { width: 50%; }
@@ -146,14 +147,12 @@
       ]
     }) }}
 
-    <br><br>
+    <br><br> #}
 
     {{ govukTable({
-      caption: "Award history",
-      captionClasses: "govuk-table__caption--m",
+      attributes: 'aria-labelledby="statePensionAwardsHeading"',
       head: [
         { text: "From" },
-        { text: "To" },
         { text: "Weekly amount" },
         { text: "Adjustment" },
         { text: "" }
@@ -161,23 +160,44 @@
       rows: [
         [
           { text: cmgDeductionDate },
-          { text: "N/A" },
-          { text: originalWeeklyAmount },
-          { text: "Removed" },
+          { text: "£" + originalWeeklyAmount },
+          { text: "" },
           { html: '<a href="#">Details</a>' }
         ] if isRemoved,
         [
           { text: cmgDeductionDate },
-          { text: (cmgDeductionDate if isRemoved else "N/A") },
-          { text: (cmgDefaultAdjusted if isRemoved else newWeeklyAmount) },
-          { text: (cmgDefaultAmount if isRemoved else cmgAmount) },
+          { text: cmgChangedAmount },
+          { text: "Yes" },
           { html: '<a href="#">Details</a>' }
-        ] if cmgAmount,
+        ] if isChanged,
         [
-          { text: "15 Jun 2021" },
-          { text: (cmgDeductionDate if cmgAmount else "N/A") },
-          { text: originalWeeklyAmount },
-          { text: "N/A" },
+          { text: cmgDeductionDate },
+          { text: "£" + cmgAmount },
+          { text: "Yes" },
+          { html: '<a href="#">Details</a>' }
+        ] if cmgAdded,
+        [
+          { text: "10 April 2025" },
+          { text: "£" + originalWeeklyAmount },
+          { text: "" },
+          { html: '<a href="#">Details</a>' }
+        ],
+        [
+          { text: "11 April 2024" },
+          { text: "£" + 194.95 },
+          { text: "" },
+          { html: '<a href="#">Details</a>' }
+        ],
+        [
+          { text: "13 April 2023" },
+          { text: "£" + 179.66 },
+          { text: "" },
+          { html: '<a href="#">Details</a>' }
+        ],
+        [
+          { text: "20 September 2022" },
+          { text: "£" + 163.18 },
+          { text: "" },
           { html: '<a href="#">Details</a>' }
         ]
       ]

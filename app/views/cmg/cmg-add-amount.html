@@ -13,12 +13,19 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
+      {# When changing from CYA, only outputs the non-defaul amount if 'Another amount' was chosen #}
+      {% if data['adjustmentAmountType'] == 'other' %}
+        {% set amountChosen = data['otherAmount'] %}
+      {% else %}
+        {% set amountChosen = "" %}
+      {% endif %}
+
       {% set otherHtml %}
         {{ govukInput({
           id: "other-amount",
           name: "otherAmount",
           classes: "govuk-!-width-one-third",
-          value: data['otherAmount'],
+          value: amountChosen,
           label: {
             text: "What is the amount?"
           },
@@ -30,8 +37,8 @@
       {% endset -%}
 
       {{ govukRadios({
-        name: "adjustmentAmount",
-        value: data['adjustmentAmount'],
+        name: "adjustmentAmountType",
+        value: data['adjustmentAmountType'],
         fieldset: {
           legend: {
             text: "How much is the Child Maintenance deduction?",

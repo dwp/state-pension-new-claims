@@ -13,7 +13,7 @@
 
     <h2 class="govuk-heading-l">Check your answers</h2>
 
-    {% if data['adjustmentAmount'] == 'other' %}
+    {% if data['adjustmentAmountType'] == 'other' %}
       {% set amountChosen = "£" + data['otherAmount'] %}
     {% else %}
       {% set amountChosen = "£8.40" %}

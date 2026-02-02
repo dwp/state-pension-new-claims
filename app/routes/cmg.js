@@ -3,11 +3,13 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 router.post('/cmg/adjustment', (req, res) => {
   const whatAdjustment = req.session.data['whatAdjustment']
-  const adjustmentAmount = req.session.data['adjustmentAmount']
+  const adjustmentAmountType = req.session.data['adjustmentAmountType']
+  const confirmRemoval = req.session.data['confirmRemoval']
+
   if (whatAdjustment === 'debt-recovery') {
     res.redirect('debt')
   } else {
-    if (!adjustmentAmount || adjustmentAmount === 'removed') {
+    if (!adjustmentAmountType || confirmRemoval === 'yes') {
       res.redirect('cmg-add-amount')
     } else {
       res.redirect('cmg-remove-or-change')
@@ -22,7 +24,6 @@ router.post('/cmg/cmg-add-amount', (req, res) => {
 
 router.post('/cmg/cmg-remove-or-change', (req, res) => {
   if (req.session.data['removeOrChange'] === 'changeCmg') {
-    req.session.data['showExistingAmount'] = 'no'
     res.redirect('cmg-change')
   } else {
     res.redirect('cmg-remove')
@@ -30,19 +31,11 @@ router.post('/cmg/cmg-remove-or-change', (req, res) => {
 })
 
 router.post('/cmg/cmg-change', (req, res) => {
-  req.session.data['adjustmentAmount'] = 'other'
-  req.session.data['showExistingAmount'] = 'yes'
   res.redirect('cmg-change-cya')
 })
 
 router.post('/cmg/cmg-remove', (req, res) => {
-  const confirm = req.session.data['confirmRemoval']
-  if (confirm === 'yes') {
-    req.session.data['adjustmentAmount'] = 'removed'
-    res.redirect('record-award')
-  } else {
-    res.redirect('record-award')
-  }
+  res.redirect('record-award')
 })
 
 module.exports = router

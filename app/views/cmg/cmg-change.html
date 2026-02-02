@@ -15,8 +15,8 @@
 
       {{ govukInput({
         id: "cmgChange",
-        value: data['otherAmount'] if data['showExistingAmount'] != 'no',
-        name: "otherAmount",
+        value: data['changedAmount'],
+        name: "changedAmount",
         label: {
           text: "How much is the new Child Maintenance deduction?",
           classes: "govuk-label--l",

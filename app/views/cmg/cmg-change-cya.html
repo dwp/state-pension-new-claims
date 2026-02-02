@@ -13,17 +13,11 @@
 
     <h2 class="govuk-heading-l">Check your answers</h2>
 
-    {% if data['adjustmentAmount'] == 'other' %}
-      {% set amountChosen = "£" + data['otherAmount'] %}
-    {% else %}
-      {% set amountChosen = "£8.40" %}
-    {% endif %}
-
     {{ govukSummaryList({
       rows: [
         {
           key: { text: "New deduction amount" },
-          value: { text: amountChosen },
+          value: { text: "£" + data['changedAmount'] },
           actions: {
             items: [
               {
