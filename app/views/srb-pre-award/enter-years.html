@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">Review 1</span>
+        Enter the year or years that the claimant paid VNICs
+      </h1>
+
+      <p>Supporting paragraph text could go here if needed.</p>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pd1">
+          Paid year 1
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="pd1" name="pd1" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pd2">
+          Paid year 2
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="pd2" name="pd2" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pd3">
+          Paid year 3
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="pd3" name="pd3" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pd4">
+          Paid year 4
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="pd4" name="pd4" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pd5">
+          Paid year 5
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="pd5" name="pd5" type="text">
+      </div>
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="pd6">
+          Paid year 6
+        </label>
+        <input class="govuk-input govuk-input--width-5" id="pd6" name="pd6" type="text">
+      </div>
+
+      <br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+</div>
+
+{% endblock %}

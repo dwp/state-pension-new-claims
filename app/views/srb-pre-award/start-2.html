@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Review a State Pension pre-award</h1>
+
+    <p>Check if HMRC has confirmed the late paid dates.</p>
+
+    <p>You may then need to complete the review and update the award.</p>
+
+    <br><br>
+
+    <a href="enter-date" button type="submit" class="govuk-button govuk-button">
+      Start this task
+    </a>
+
+    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

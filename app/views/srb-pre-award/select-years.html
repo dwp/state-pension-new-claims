@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="vnics-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              <span class="govuk-caption-xl">Review 1</span>
+              Select the years that the claimant paid VNICs
+            </h1>
+          </legend>
+          <div id="vnics-hint" class="govuk-hint">
+            Hint text could go here 
+          </div>
+          <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics" name="vnics" type="checkbox" value="2026">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics">
+                2026
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics-2" name="vnics" type="checkbox" value="2025">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics-2">
+                2025
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics-3" name="vnics" type="checkbox" value="2024">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics-3">
+                2024
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics-4" name="vnics" type="checkbox" value="2023">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics-4">
+                2023
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics-5" name="vnics" type="checkbox" value="2022">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics-5">
+                2022
+              </label>
+            </div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics-6" name="vnics" type="checkbox" value="2021">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics-6">
+                2021
+              </label>
+            </div>
+            <div class="govuk-checkboxes__divider">or</div>
+            <div class="govuk-checkboxes__item">
+              <input class="govuk-checkboxes__input" id="vnics-7" name="vnics" type="checkbox" value="other" data-behaviour="exclusive">
+              <label class="govuk-label govuk-checkboxes__label" for="vnics-7">
+                Other year
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -1,33 +1,65 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.post('/srb-pre-award/srb-question', function (req, res) {
-  if (req.body['srbQuestion'] === 'yes') {
-    res.redirect('payment-date')
-  } else {
-    res.redirect('dashboard')
+router.post('/srb-pre-award/which-journey', function (req, res) {
+  if (req.body['journey'] === 'a' || req.body['journey'] === 'b' || req.body['journey'] === 'c') {
+    res.redirect('task-queue')
   }
 })
 
-router.post('/srb-pre-award/payment-date', function (req, res) {
-  if (req.body['paymentDate'] === 'yes') {
-    res.redirect('enter-date')
-  } else if (req.body['paymentDate'] === 'no') {
-    res.redirect('send-email')
+router.post('/srb-pre-award/do-you-have-date', function (req, res) {
+  if (req.session.data['journey'] === 'a' && req.body['haveDate'] === 'yes') {
+    res.redirect('date-needed-3')
+  } else if (req.session.data['journey'] === 'b' && req.body['haveDate'] === 'yes') {
+  res.redirect('date-needed-4')
+  } else if (req.session.data['journey'] === 'c' && req.body['haveDate'] === 'yes') {
+  res.redirect('date-needed-2')
   } else {
-    res.redirect('calculate-award')
+    res.redirect('send-email')
+  }
+})
+
+router.post('/srb-pre-award/date-needed-3', function (req, res) {
+  if (req.body['dateNeeded3'] === 'yes') {
+    res.redirect('sp-amount')
+  } else {
+    res.redirect('enter-date-3')
+  }
+})
+
+
+
+router.post('/srb-pre-award/date-needed-2', function (req, res) {
+  if (req.body['dateNeeded2'] === 'spDate') {
+    res.redirect('sp-amount')
+  } else {
+    res.redirect('enter-date-4')
+  }
+})
+
+router.post('/srb-pre-award/date-needed-4', function (req, res) {
+  if (req.body['whatDate'] === 'SPa' || req.body['another-year']) {
+    res.redirect('sp-amount')
   }
 })
 
 router.post('/srb-pre-award/send-email', (req, res) => {
-  res.redirect('dashboard')
+  res.redirect('task-queue')
 })
 
 router.post('/srb-pre-award/enter-date', (req, res) => {
-  res.redirect('calculate-award')
+  res.redirect('sp-amount')
 })
 
-router.post('/srb-pre-award/calculate-award', function (req, res) {
+router.post('/srb-pre-award/enter-date-3', (req, res) => {
+  res.redirect('sp-amount')
+})
+
+router.post('/srb-pre-award/enter-date-4', (req, res) => {
+  res.redirect('sp-amount')
+})
+
+router.post('/srb-pre-award/sp-amount', function (req, res) {
   if (req.body['enterSP'] === '230.25') {
     res.redirect('enter-pp')
   } else {
@@ -39,21 +71,19 @@ router.post('/srb-pre-award/enter-pp', (req, res) => {
   res.redirect('check-answers')
 })
 
-router.post('/srb-pre-award/payment-date-2', function (req, res) {
-  if (req.body['paymentDate2'] === 'yes') {
+router.post('/srb-pre-award/date-needed-2', function (req, res) {
+  if (req.body['dateNeeded2'] === 'yes') {
     res.redirect('enter-date-2')
-  } else if (req.body['paymentDate2'] === 'no') {
-    res.redirect('send-email')
   } else {
-    res.redirect('calculate-award-2')
+    res.redirect('sp-amount-2')
   }
 })
 
 router.post('/srb-pre-award/enter-date-2', (req, res) => {
-  res.redirect('calculate-award-2')
+  res.redirect('sp-amount-2')
 })
 
-router.post('/srb-pre-award/calculate-award-2', function (req, res) {
+router.post('/srb-pre-award/sp-amount-2', function (req, res) {
   if (req.body['enterSP2'] === '230.25') {
     res.redirect('enter-pp-2')
   } else {
@@ -70,7 +100,7 @@ router.post('/srb-pre-award/check-answers', (req, res) => {
 })
 
 router.post('/srb-pre-award/confirm-award', (req, res) => {
-  res.redirect('dashboard')
+  res.redirect('task-queue')
 })
 
 module.exports = router

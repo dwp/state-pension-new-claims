@@ -17,13 +17,11 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-xl">Confirm award</h1>
+      <h1 class="govuk-heading-xl">New award</h1>
 
       <br>
 
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Revision 1</caption>
-       
+      <table class="govuk-table">       
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header govuk-!-width-one-half">New State Pension</th>
@@ -48,8 +46,10 @@
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">From</th>
             <td class="govuk-table__cell">
-              {% if data['entitlement-day'] or data['entitlement-month'] or data['entitlement-year'] %}
-                {{data['entitlement-day']}} {{data['entitlement-month'] | monthName}} {{data['entitlement-year']}}
+              {% if data['latePaid-day'] or data['latePaid-month'] or data['latePaid-year'] %}
+                {{data['latePaid-day']}} {{data['latePaid-month'] | monthName}} {{data['latePaid-year']}}
+              {% elseif data['another-day'] or data['another-month'] or data['another-year'] %}
+                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
               {% else %}
                 Not needed
               {% endif %}
@@ -63,79 +63,6 @@
               {% else %}
                 {{data.enterSP | currency}}
               {% endif %}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <br><br>
-      
-      {% if data.enterSP2 %}
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Revision 2</caption>
-       
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header govuk-!-width-one-half">New State Pension</th>
-            <td class="govuk-table__cell">
-              {% if data.enterSP2 %}
-              {{data.enterSP2 | currency}}
-              {% else %}
-                £0.00
-              {% endif %}
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Protected payment</th>
-            <td class="govuk-table__cell">
-              {% if data.ppAmoun2t %}
-                {{data.ppAmount2 | currency}}
-              {% else %}
-                £0.00
-              {% endif %}
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">From</th>
-            <td class="govuk-table__cell">
-              {% if data['entitlement2-day'] or data['entitlement2-month'] or data['entitlement2-year'] %}
-                {{data['entitlement2-day']}} {{data['entitlement2-month'] | monthName}} {{data['entitlement2-year']}}
-              {% else %}
-                Not needed
-              {% endif %}
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Total</th>
-            <td class="govuk-table__cell">
-              {% if data.enterSP2 and data.ppAmount2 %}  
-                <b>£{{ data.enterSP2 | float + data.ppAmount2 | float }}</b>
-              {% else %}
-                {{data.enterSP2 | currency}}
-              {% endif %}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <br><br>
-      {% endif %}
-
-      <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">Arrears payment</caption>
-       
-        <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Amount</th>
-            <td class="govuk-table__cell">
-              £104.25
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Period</th>
-            <td class="govuk-table__cell">
-              Day Month Year to <br>
-              Day Month Year
             </td>
           </tr>
         </tbody>

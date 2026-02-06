@@ -22,7 +22,7 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Review 1
+            Revision 1
           </h2>
         </div>
         <div class="govuk-summary-card__content">
@@ -39,7 +39,7 @@
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="sp-amount">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
+                <a class="govuk-link--no-visited-state" href="calculate-award">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -61,34 +61,19 @@
                 {% endif %}
               </dd>
             </div>
-            <!--<div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key govuk-!-width-one-third">
-                Number of additional years
-              </dt>
-              <dd class="govuk-summary-list__value-numeric">
-                {% if data.years %}
-                  {{data.years }}
-                {% endif %}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="sp-amount">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
-              </dd>
-            </div>-->
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                From
+                Entitlement date
               </dt>
               <dd class="govuk-summary-list__value-numeric">
-                {% if data['latePaid-day'] or data['latePaid-month'] or data['latePaid-year'] %}
-                  {{data['latePaid-day']}} {{data['latePaid-month'] | monthName}} {{data['latePaid-year']}}
-                {% elseif data['another-day'] or data['another-month'] or data['another-year'] %}
-                  {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+                {% if data['entitlement-day'] or data['entitlement-month'] or data['entitlement-year'] %}
+                  {{data['entitlement-day']}} {{data['entitlement-month'] | monthName}} {{data['entitlement-year']}}
                 {% else %}
                   Not needed
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+                <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">entitlement date</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -115,7 +100,7 @@
       <div class="govuk-summary-card">
         <div class="govuk-summary-card__title-wrapper">
           <h2 class="govuk-summary-card__title">
-            Review 2
+            Revision 2
           </h2>
         </div>
         <div class="govuk-summary-card__content">
@@ -132,7 +117,7 @@
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="sp-amount-2">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
+                <a class="govuk-link--no-visited-state" href="calculate-award">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -155,17 +140,17 @@
             </div>
             <div class="govuk-summary-list__row">
               <dt class="govuk-summary-list__key">
-                From
+                Entitlement date
               </dt>
               <dd class="govuk-summary-list__value-numeric">
-                {% if data['latePaid2-day'] or data['latePaid2-month'] or data['latePaid2-year'] %}
-                  {{data['latePaid2-day']}} {{data['latePaid2-month'] | monthName}} {{data['latePaid2-year']}}
+                {% if data['entitlement2-day'] or data['entitlement2-month'] or data['entitlement2-year'] %}
+                  {{data['entitlement2-day']}} {{data['entitlement2-month'] | monthName}} {{data['entitlement2-year']}}
                 {% else %}
                   Not needed
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+                <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">entitlement date</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
@@ -190,7 +175,7 @@
       {% endif %}
 
       <p class="govuk-body">
-        <a href="date-needed-2" class="govuk-link--no-visited-state">Add another review</a>
+        <a href="date-needed-2" class="govuk-link--no-visited-state">Add another revision</a>
       </p>
 
       <br><br>
