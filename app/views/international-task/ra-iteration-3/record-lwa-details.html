@@ -1,0 +1,163 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+  <form method="post">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        <br><br>
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+          }) 
+        }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-l">Lived or worked abroad</h2>
+
+        <h2 class="govuk-heading-m">RA</h2>
+        <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        {% if data['rf1Returned'] === 'yes' %}
+        {% elseif data['rf1Needed'] === 'yes' %}
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden"></span>
+              Awaiting RF1 from HMRC. <br>
+              <a href="returned-rf1" class="govuk-link">Confirm RF1 returned</a>.
+            </strong>
+          </div>
+        {% else %}
+        {% endif%}
+                            
+        <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Guernsey
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Barbados</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Barbados</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Lived
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1 Jan 1971 to 1 May 1972
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Worked
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1 Jan 1971 to 1 May 1972
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Social security number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  WorkedCountry1SS
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+                <div class="govuk-summary-card">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Jersey
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Jamacia</span></a>
+              </li>
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Jamacia</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Lived
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1 Jan 1972 to 1 May 1973
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Worked
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  1 Feb 2003 to 1 May 2004
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Social security number
+                </dt>
+                <dd class="govuk-summary-list__value">
+                  WorkedCountry2SS
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        <br>
+
+        <h3 class="govuk-heading-m">Lived or worked abroad changes</h3>
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+
+            {% if data['rf1Needed'] === 'no' or data['rf1Returned'] === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: RA liaison application complete</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['rf1Needed'] === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
+                <h2 class="dwp-timeline__heading">RA: RF1 requested from HMRC</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+          </ol>
+        </div>
+  
+      </div>
+
+    </div>
+
+{% endblock %}

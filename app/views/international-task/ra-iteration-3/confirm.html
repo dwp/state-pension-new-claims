@@ -1,0 +1,113 @@
+
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">1. Complete Channel Islands liaison application</h1>
+        
+      <br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Claimant information</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of birth</th>
+            <td class="govuk-table__cell">18 February 1957</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Gender</th>
+            <td class="govuk-table__cell">Male</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">UK State Pension start date</th>
+            <td class="govuk-table__cell">18 February 1957</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Address</th>
+            <td class="govuk-table__cell">
+              1 PARK LANE<br>
+              LEEDS<br>
+              LS3 1EP
+            </td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Correspondance address</th>
+            <td class="govuk-table__cell">
+              1 NAWORTH DRIVE<br>
+              NEWCASTLE UPON TYNE<br>
+              NE5 5PT
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Marital status</th>
+            <td class="govuk-table__cell">Married</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of marriage</th>
+            <td class="govuk-table__cell">4 September 2025</td>
+            <td class="govuk-table__cell">
+              <strong class="govuk-tag govuk-tag--grey">
+                Verified
+              </strong>
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Claim received</th>
+            <td class="govuk-table__cell">25 November 2022</td>
+            <td class="govuk-table__cell"></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">Country information</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Guernsey</th>
+            <td class="govuk-table__cell">WorkedCountry1SS</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Jersey</th>
+            <td class="govuk-table__cell">WorkedCountry2SS</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+
+      <h2 class="govuk-heading-l">2. Print and send application</h2>
+        
+      <p>Print and send the completed application to the foreign authority. Upload the completed form to ECMS (formerly DRS).</p>
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm all actions completed
+      </button>
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

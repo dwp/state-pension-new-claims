@@ -1,0 +1,36 @@
+
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">Request RF1 from HMRC</h1>
+
+      <p>Use the HMRC RF1 request tool. You will need the claimant's name and National Insurance number (NINO).</p>
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm RF1 requested
+      </button>
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

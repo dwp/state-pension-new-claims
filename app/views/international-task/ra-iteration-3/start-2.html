@@ -1,0 +1,32 @@
+
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">Complete Channel Islands liaison application</h1>
+
+      <p>Check if HMRC has returned the RF1.</p>
+
+      <p>You may then need to complete the Channel Islands liaison application.</p>
+
+      <br><br>
+
+      <a href="returned-rf1" button type="submit" class="govuk-button govuk-button">
+        Start this task
+      </a>
+
+      <a href="task-queue" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+        Return task to queue
+      </a>
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}

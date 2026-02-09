@@ -45,4 +45,30 @@ router.post('/international-record/ra-iteration-2/rf1-returned', function (req, 
   }
 })
 
+// Iteration 3
+
+router.post('/international-task/ra-iteration-3/did-claimant-join', function (req, res) {
+  if (req.body['rf1Needed'] === 'yes') {
+    res.redirect('request-rf1')
+  } else {
+    res.redirect('confirm')
+  }
+})
+
+router.post('/international-task/ra-iteration-3/confirm', (req, res) => {
+  res.redirect('task-queue')
+})
+
+router.post('/international-task/ra-iteration-3/request-rf1', (req, res) => {
+  res.redirect('task-queue')
+})
+
+router.post('/international-task/ra-iteration-3/returned-rf1', function (req, res) {
+  if (req.body['rf1Returned'] === 'yes') {
+    res.redirect('confirm')
+  } else {
+    res.redirect('task-queue')
+  }
+})
+
 module.exports = router
