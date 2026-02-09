@@ -2,51 +2,53 @@
 
 {% block content %}
 
-    {% set originalWeeklyAmount = 202.93 %}
-    {% set cmgDefaultAmount = 8.40 %}
-    {% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
-    {% set cmgDeductionDate = "26 January 2026" %}
+{% set originalWeeklyAmount = 202.93 %}
+{% set cmgDefaultAmount = 8.40 %}
+{% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
+{% set cmgDeductionDate = "26 January 2026" %}
+{% set cmgAmendmentDate = "27 January 2026" %}
+{% set cmgRemovalDate = "28 January 2026" %}
 
-    {% if data['adjustmentAmountType'] == "other" %}
-      {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
-    {% else %}
-      {% set cmgAmount = cmgDefaultAdjusted %}
-    {% endif %}
+{% if data['adjustmentAmountType'] == "other" %}
+  {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
+{% else %}
+  {% set cmgAmount = cmgDefaultAdjusted %}
+{% endif %}
 
-    {% if data['adjustmentAmountType'] %}
-      {% set cmgAdded = true %}
-    {% endif %}
+{% if data['adjustmentAmountType'] %}
+  {% set cmgAdded = true %}
+{% endif %}
 
-    {% set isChanged = data['changedAmount'] %}
+{% set isChanged = data['changedAmount'] %}
 
-    {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
+{% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
 
-    {% if isChanged %}
-      {% set cmgChangedAmount = "£" + (originalWeeklyAmount - data['changedAmount']) %}
-    {% endif %}
+{% if isChanged %}
+  {% set cmgChangedAmount = "£" + (originalWeeklyAmount - data['changedAmount']) %}
+{% endif %}
 
 
-    {# {% if isRemoved %}
-      {% set showCmgBanner = true %}
-    {% elif isChanged %}
-      {% set showCmgBanner = true %}
-    {% elif (cmgAmount == cmgDefaultAmount) or (cmgAmount == cmgDefaultAdjusted) %}
-      {% set showCmgBanner = true %}
-    {% endif %}
+{# {% if isRemoved %}
+  {% set showCmgBanner = true %}
+{% elif isChanged %}
+  {% set showCmgBanner = true %}
+{% elif (cmgAmount == cmgDefaultAmount) or (cmgAmount == cmgDefaultAdjusted) %}
+  {% set showCmgBanner = true %}
+{% endif %}
 
-    {% set html %}
-      <h3 class="govuk-notification-banner__heading">
-        Child Maintenance deduction applied
-      </h3>
-      <p class="govuk-body">This will apply to the current award from the next payment date.</p>
-    {% endset %}
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    Child Maintenance deduction applied
+  </h3>
+  <p class="govuk-body">This will apply to the current award from the next payment date.</p>
+{% endset %}
 
-    {% if showCmgBanner %}
-      {{ govukNotificationBanner({
-        html: html,
-        type: "success"
-      }) }}
-    {% endif %} #}
+{% if showCmgBanner %}
+  {{ govukNotificationBanner({
+    html: html,
+    type: "success"
+  }) }}
+{% endif %} #}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
@@ -99,55 +101,15 @@
       <p><a href="./adjustment">Make an adjustment</a></p>
     </div>
 
-    {# <style>
-      /* Make key 'column' wider than 30% default */
-      @media (min-width: 40.0625em) {
-        .govuk-summary-list__key { width: 50%; }
-      }
-      /* Distance top two list items from one another */
-      .govuk-summary-list__row:nth-of-type(3) > * {
-        padding-top: 2em;
-      }
-    </style>
-
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: { text: "From" },
-          value: { text: "10 April 2023" }
-        },
-        {
-          key: { text: "Reason" },
-          value: { text: "Uprating" }
-        },
-        {
-          key: { text: "Total" },
-          value: { text: newWeeklyAmount }
-        },
-        {
-          key: { text: "New State Pension" },
-          value: { text: originalWeeklyAmount }
-        },
-        {
-          key: { text: "Protected payment" },
-          value: { text: "£0.00" }
-        },
-        {
-          key: { text: "Extra State Pension" },
-          value: { text: "£0.00" }
-        },
-        {
-          key: { text: "Inherited extra State Pension" },
-          value: { text: "£0.00" }
-        },
-        {
-          key: { text: "Child Maintenance deduction" },
-          value: { text: cmgAmount }
-        } if cmgAmount
-      ]
-    }) }}
-
-    <br><br> #}
+    {% if isRemoved %}
+      {% set weeklyAmount = "£" + originalWeeklyAmount %}
+    {% elif isChanged %}
+      {% set weeklyAmount = cmgChangedAmount %}
+    {% elif cmgAdded %}
+      {% set weeklyAmount = "£" + cmgAmount %}
+    {% else %}
+      {% set weeklyAmount = "£" + originalWeeklyAmount %}
+    {% endif %}
 
     {{ govukTable({
       attributes: 'aria-labelledby="statePensionAwardsHeading"',
@@ -159,28 +121,10 @@
       ],
       rows: [
         [
-          { text: cmgDeductionDate },
-          { text: "£" + originalWeeklyAmount },
-          { text: "" },
-          { html: '<a href="#">Details</a>' }
-        ] if isRemoved,
-        [
-          { text: cmgDeductionDate },
-          { text: cmgChangedAmount },
-          { text: "Yes" },
-          { html: '<a href="#">Details</a>' }
-        ] if isChanged,
-        [
-          { text: cmgDeductionDate },
-          { text: "£" + cmgAmount },
-          { text: "Yes" },
-          { html: '<a href="#">Details</a>' }
-        ] if cmgAdded,
-        [
-          { text: "10 April 2025" },
-          { text: "£" + originalWeeklyAmount },
-          { text: "" },
-          { html: '<a href="#">Details</a>' }
+          { text: "10 April 2025 "},
+          { text: weeklyAmount },
+          { text: "Yes" if isRemoved or isChanged or cmgAdded else "" },
+          { html: '<a href="award">Details</a>' }
         ],
         [
           { text: "11 April 2024" },
@@ -278,16 +222,11 @@
       }), timelineItems) %}
     {% endif %}
 
-    {% set timelineItems = (timelineItems.push({
-      title: "Claim received",
-      byline: "Online",
-      link: {
-        href: "#",
-        text: "View details",
-        visuallyHiddenText: "of the event on 15 June 2021 at 4:01pm"
-      },
-      date: "20 September 2022"
-    }), timelineItems) %}
+    {% if not cmgAdded %}
+      {% set timelineItems = (timelineItems.push({
+        title: "No changes made"
+      }), timelineItems) %}
+    {% endif %}
 
     {{ dwpTimeline({
       items: timelineItems

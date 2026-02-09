@@ -1,0 +1,140 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+{% set originalWeeklyAmount = 202.93 %}
+{% set cmgDefaultAmount = 8.40 %}
+{% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
+{% set cmgDeductionDate = "26 January 2026" %}
+{% set cmgAmendmentDate = "27 January 2026" %}
+{% set cmgRemovalDate = "28 January 2026" %}
+
+{% if data['adjustmentAmountType'] == "other" %}
+  {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
+{% else %}
+  {% set cmgAmount = cmgDefaultAdjusted %}
+{% endif %}
+
+{% if data['adjustmentAmountType'] %}
+  {% set cmgAdded = true %}
+{% endif %}
+
+{% set isChanged = data['changedAmount'] %}
+
+{% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
+
+{% if isChanged %}
+  {% set cmgChangedAmount = "£" + (originalWeeklyAmount - data['changedAmount']) %}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      Current State Pension award
+    </h1>
+
+    <style>
+      /* Make key 'column' wider than 30% default */
+      @media (min-width: 40.0625em) {
+        .govuk-summary-list__key { width: 50%; }
+      }
+    </style>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "From" },
+          value: { text: "10 April 2025" }
+        },
+        {
+          key: { text: "Reason" },
+          value: { text: "Uprating" }
+        }
+      ]
+    }) }}
+
+    <style>
+      .award-breakdown div:first-of-type dd {
+        font-weight: bold;
+      }
+      .award-breakdown div:not(:first-of-type) dt {
+        font-weight: normal;
+      }
+    </style>
+
+    {{ govukSummaryList({
+      classes: "award-breakdown",
+      rows: [
+        {
+          key: { text: "Total" },
+          value: { text: "£" + originalWeeklyAmount + " a week"}
+        },
+        {
+          key: { text: "New State Pension" },
+          value: { text: "£" + originalWeeklyAmount }
+        },
+        {
+          key: { text: "Protected payment" },
+          value: { text: "£0.00" }
+        },
+        {
+          key: { text: "Extra State Pension" },
+          value: { text: "£0.00" }
+        },
+        {
+          key: { text: "Inherited extra State Pension" },
+          value: { text: "£0.00" }
+        }
+      ]
+    }) }}
+
+    <br><br><br>
+  </div>
+</div>
+
+{% if data['adjustmentAmountType'] %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    {{ govukTable({
+      caption: "Witheld amounts",
+      captionClasses: "govuk-table__caption--m",
+      head: [
+        { text: "Weekly amount" },
+        { text: "Reason" },
+        { text: "Date from" },
+        { text: "Date to" },
+        { text: "" }
+      ],
+      rows: [
+        [
+          { text: "£" + data['changedAmount'] },
+          { text: "Child Maintenance deduction" },
+          { text: cmgAmendmentDate },
+          { text: (cmgRemovalDate if isRemoved else "N/A") },
+          { html: ('<a href="./cmg-remove-or-change">Edit</a>' if not isRemoved else "") }
+        ] if isChanged,
+        [
+          { text: "£" + (data['otherAmount'] if data['otherAmount'] else cmgDefaultAmount.toFixed(2)) },
+          { text: "Child Maintenance deduction" },
+          { text: cmgDeductionDate },
+          { text: (cmgAmendmentDate if isChanged or isRemoved else "N/A" ) },
+          { html: ('<a href="./cmg-remove-or-change">Edit</a>' if not isChanged else "" ) }
+        ]
+      ]
+    }) }}
+
+    <br><br><br>
+  </div>
+</div>
+{% endif %}
+
+{% endblock %}
