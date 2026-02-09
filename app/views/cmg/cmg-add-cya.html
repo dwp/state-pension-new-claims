@@ -37,10 +37,11 @@
       ]
     }) }}
 
-    {{ govukButton({
-      text: "Confirm",
-      href: "record-award"
-    }) }}
+    <form class="form" method="post" action="/cmg/cmg-add-cya">
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+    </form>
 
   </div>
 </div>

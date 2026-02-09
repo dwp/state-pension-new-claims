@@ -28,27 +28,28 @@
 {% endif %}
 
 
-{# {% if isRemoved %}
-  {% set showCmgBanner = true %}
+{% if isRemoved %}
+  {% set bannerType = 'removed' %}
 {% elif isChanged %}
-  {% set showCmgBanner = true %}
+  {% set bannerType = 'changed' %}
 {% elif (cmgAmount == cmgDefaultAmount) or (cmgAmount == cmgDefaultAdjusted) %}
-  {% set showCmgBanner = true %}
+  {% set bannerType = 'applied' %}
 {% endif %}
+
 
 {% set html %}
   <h3 class="govuk-notification-banner__heading">
-    Child Maintenance deduction applied
+    Child Maintenance deduction {{ bannerType }}
   </h3>
   <p class="govuk-body">This will apply to the current award from the next payment date.</p>
 {% endset %}
 
-{% if showCmgBanner %}
+{% if data['showBanner'] === "yes" %}
   {{ govukNotificationBanner({
     html: html,
     type: "success"
   }) }}
-{% endif %} #}
+{% endif %}
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

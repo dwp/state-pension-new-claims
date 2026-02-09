@@ -34,8 +34,27 @@ router.post('/cmg/cmg-change', (req, res) => {
   res.redirect('cmg-change-cya')
 })
 
-router.post('/cmg/cmg-remove', (req, res) => {
+router.use((req, res, next) => {
+  if (req.path !== '/cmg/record-award') {
+    req.session.data['showBanner'] = 'no'
+  }
+  next()
+})
+
+router.post('/cmg/cmg-add-cya', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
   res.redirect('record-award')
 })
+
+router.post('/cmg/cmg-change-cya', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  res.redirect('record-award')
+})
+
+router.post('/cmg/cmg-remove', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  res.redirect('record-award')
+})
+
 
 module.exports = router
