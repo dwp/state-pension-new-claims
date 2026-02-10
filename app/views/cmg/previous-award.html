@@ -6,9 +6,8 @@
 {% set cmgDefaultAmount = 8.40 %}
 {% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
 {% set cmgDeductionDate = "26 January 2026" %}
-{% set cmgPreAmendmentDate = "27 January 2026" %}
-{% set cmgAmendmentDate = "28 January 2026" %}
-{% set cmgRemovalDate = "29 January 2026" %}
+{% set cmgAmendmentDate = "27 January 2026" %}
+{% set cmgRemovalDate = "28 January 2026" %}
 
 {% if data['adjustmentAmountType'] == "other" %}
   {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
@@ -39,7 +38,7 @@
     }) }}
 
     <h1 class="govuk-heading-l">
-      Current State Pension award
+      Previous State Pension award
     </h1>
 
     <style>
@@ -53,11 +52,11 @@
       rows: [
         {
           key: { text: "From" },
-          value: { text: "10 April 2025" }
+          value: { text: "11 April 2024" }
         },
         {
           key: { text: "To" },
-          value: { text: "9 April 2026" }
+          value: { text: "9 April 2025" }
         },
         {
           key: { text: "Reason" },
@@ -80,11 +79,11 @@
       rows: [
         {
           key: { text: "Total" },
-          value: { text: "£" + originalWeeklyAmount + " a week"}
+          value: { text: "£194.95 a week"}
         },
         {
           key: { text: "New State Pension" },
-          value: { text: "£" + originalWeeklyAmount }
+          value: { text: "£194.95" }
         },
         {
           key: { text: "Protected payment" },
@@ -101,45 +100,6 @@
       ]
     }) }}
 
-
-{% if data['adjustmentAmountType'] %}
-
-    <br><br><br>
-  </div>
-</div>
-
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-full">
-
-    {{ govukTable({
-      caption: "Witheld amounts",
-      captionClasses: "govuk-table__caption--m",
-      head: [
-        { text: "Weekly amount" },
-        { text: "Reason" },
-        { text: "Date from" },
-        { text: "Date to" },
-        { text: "" }
-      ],
-      rows: [
-        [
-          { text: "£" + data['changedAmount'] },
-          { text: "Child Maintenance deduction" },
-          { text: cmgAmendmentDate },
-          { text: (cmgRemovalDate if isRemoved else "None") },
-          { html: ('<a href="./cmg-remove-or-change">Edit</a>' if not isRemoved else "") }
-        ] if isChanged,
-        [
-          { text: "£" + (data['otherAmount'] if (data['adjustmentAmountType'] == "other") else cmgDefaultAmount.toFixed(2)) },
-          { text: "Child Maintenance deduction" },
-          { text: cmgDeductionDate },
-          { text: (cmgPreAmendmentDate if isChanged or isRemoved else "None" ) },
-          { html: ('<a href="./cmg-remove-or-change">Edit</a>' if not isChanged else "" ) }
-        ]
-      ]
-    }) }}
-{% endif %}
-
     {{ govukButton({
       text: "Back to state pension awards",
       href: "record-award"
@@ -148,4 +108,5 @@
     <br><br><br>
   </div>
 </div>
+
 {% endblock %}

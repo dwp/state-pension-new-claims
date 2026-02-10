@@ -4,20 +4,15 @@
 
 {% set originalWeeklyAmount = 202.93 %}
 {% set cmgDefaultAmount = 8.40 %}
-{% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
 {% set cmgDeductionDate = "26 January 2026" %}
 {% set cmgAmendmentDate = "27 January 2026" %}
 {% set cmgRemovalDate = "28 January 2026" %}
 
-{% if data['adjustmentAmountType'] == "other" %}
-  {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
-{% else %}
-  {% set cmgAmount = cmgDefaultAdjusted %}
-{% endif %}
-
 {% if data['adjustmentAmountType'] %}
   {% set cmgAdded = true %}
 {% endif %}
+
+{% set isApplied = data['adjustmentAmountType'] %}
 
 {% set isChanged = data['changedAmount'] %}
 
@@ -27,12 +22,11 @@
   {% set cmgChangedAmount = "£" + (originalWeeklyAmount - data['changedAmount']) %}
 {% endif %}
 
-
 {% if isRemoved %}
   {% set bannerType = 'removed' %}
 {% elif isChanged %}
   {% set bannerType = 'changed' %}
-{% elif (cmgAmount == cmgDefaultAmount) or (cmgAmount == cmgDefaultAdjusted) %}
+{% elif isApplied %}
   {% set bannerType = 'applied' %}
 {% endif %}
 
@@ -41,7 +35,7 @@
   <h3 class="govuk-notification-banner__heading">
     Child Maintenance deduction {{ bannerType }}
   </h3>
-  <p class="govuk-body">This will apply to the current award from the next payment date.</p>
+  <p class="govuk-body">A letter will automatically be sent to confirm the change to their State Pension amount.</p>
 {% endset %}
 
 {% if data['showBanner'] === "yes" %}
@@ -102,16 +96,6 @@
       <p><a href="./adjustment">Make an adjustment</a></p>
     </div>
 
-    {% if isRemoved %}
-      {% set weeklyAmount = "£" + originalWeeklyAmount %}
-    {% elif isChanged %}
-      {% set weeklyAmount = cmgChangedAmount %}
-    {% elif cmgAdded %}
-      {% set weeklyAmount = "£" + cmgAmount %}
-    {% else %}
-      {% set weeklyAmount = "£" + originalWeeklyAmount %}
-    {% endif %}
-
     {{ govukTable({
       attributes: 'aria-labelledby="statePensionAwardsHeading"',
       head: [
@@ -123,7 +107,7 @@
       rows: [
         [
           { text: "10 April 2025 "},
-          { text: weeklyAmount },
+          { text: "£" + originalWeeklyAmount },
           { text: "Yes" if isRemoved or isChanged or cmgAdded else "" },
           { html: '<a href="award">Details</a>' }
         ],
@@ -131,19 +115,19 @@
           { text: "11 April 2024" },
           { text: "£" + 194.95 },
           { text: "" },
-          { html: '<a href="#">Details</a>' }
+          { html: '<a href="previous-award">Details</a>' }
         ],
         [
           { text: "13 April 2023" },
           { text: "£" + 179.66 },
-          { text: "" },
-          { html: '<a href="#">Details</a>' }
+          { text: "Yes" },
+          { html: '<a href="previous-award-adjusted">Details</a>' }
         ],
         [
           { text: "20 September 2022" },
           { text: "£" + 163.18 },
           { text: "" },
-          { html: '<a href="#">Details</a>' }
+          { html: '<a href="previous-award-first">Details</a>' }
         ]
       ]
     }) }}

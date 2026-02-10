@@ -39,7 +39,7 @@
     }) }}
 
     <h1 class="govuk-heading-l">
-      Current State Pension award
+      Previous State Pension award
     </h1>
 
     <style>
@@ -53,11 +53,11 @@
       rows: [
         {
           key: { text: "From" },
-          value: { text: "10 April 2025" }
+          value: { text: "13 April 2023" }
         },
         {
           key: { text: "To" },
-          value: { text: "9 April 2026" }
+          value: { text: "10 April 2024" }
         },
         {
           key: { text: "Reason" },
@@ -80,11 +80,11 @@
       rows: [
         {
           key: { text: "Total" },
-          value: { text: "£" + originalWeeklyAmount + " a week"}
+          value: { text: "£179.66 a week"}
         },
         {
           key: { text: "New State Pension" },
-          value: { text: "£" + originalWeeklyAmount }
+          value: { text: "£179.66" }
         },
         {
           key: { text: "Protected payment" },
@@ -101,13 +101,11 @@
       ]
     }) }}
 
-
-{% if data['adjustmentAmountType'] %}
-
     <br><br><br>
   </div>
 </div>
 
+{% if data['adjustmentAmountType'] %}
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-full">
 
@@ -123,22 +121,28 @@
       ],
       rows: [
         [
-          { text: "£" + data['changedAmount'] },
+          { text: "£8.40" },
           { text: "Child Maintenance deduction" },
-          { text: cmgAmendmentDate },
-          { text: (cmgRemovalDate if isRemoved else "None") },
-          { html: ('<a href="./cmg-remove-or-change">Edit</a>' if not isRemoved else "") }
-        ] if isChanged,
+          { text: "1 October 2023" },
+          { text: "31 January 2024" },
+          { html: "" }
+        ],
         [
-          { text: "£" + (data['otherAmount'] if (data['adjustmentAmountType'] == "other") else cmgDefaultAmount.toFixed(2)) },
+          { text: "£66.66" },
+          { text: "Debt deduction" },
+          { text: "3 August 2023" },
+          { text: "6 September 2023" },
+          { html: "" }
+        ],
+        [
+          { text: "£4.20" },
           { text: "Child Maintenance deduction" },
-          { text: cmgDeductionDate },
-          { text: (cmgPreAmendmentDate if isChanged or isRemoved else "None" ) },
-          { html: ('<a href="./cmg-remove-or-change">Edit</a>' if not isChanged else "" ) }
+          { text: "17 May 2023" },
+          { text: "30 September 2023" },
+          { html: "" }
         ]
       ]
     }) }}
-{% endif %}
 
     {{ govukButton({
       text: "Back to state pension awards",
@@ -148,4 +152,6 @@
     <br><br><br>
   </div>
 </div>
+{% endif %}
+
 {% endblock %}
