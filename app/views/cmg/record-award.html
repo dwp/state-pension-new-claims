@@ -3,24 +3,10 @@
 {% block content %}
 
 {% set originalWeeklyAmount = 202.93 %}
-{% set cmgDefaultAmount = 8.40 %}
-{% set cmgDeductionDate = "26 January 2026" %}
-{% set cmgAmendmentDate = "27 January 2026" %}
-{% set cmgRemovalDate = "28 January 2026" %}
-
-{% if data['adjustmentAmountType'] %}
-  {% set cmgAdded = true %}
-{% endif %}
 
 {% set isApplied = data['adjustmentAmountType'] %}
-
 {% set isChanged = data['changedAmount'] %}
-
 {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
-
-{% if isChanged %}
-  {% set cmgChangedAmount = "£" + (originalWeeklyAmount - data['changedAmount']) %}
-{% endif %}
 
 {% if isRemoved %}
   {% set bannerType = 'removed' %}
@@ -29,7 +15,6 @@
 {% elif isApplied %}
   {% set bannerType = 'applied' %}
 {% endif %}
-
 
 {% set html %}
   <h3 class="govuk-notification-banner__heading">
@@ -108,7 +93,7 @@
         [
           { text: "10 April 2025 "},
           { text: "£" + originalWeeklyAmount },
-          { text: "Yes" if isRemoved or isChanged or cmgAdded else "" },
+          { text: "Yes" if isRemoved or isChanged or isApplied else "" },
           { html: '<a href="award">Details</a>' }
         ],
         [
@@ -194,7 +179,7 @@
       }), timelineItems) %}
     {% endif %}
 
-    {% if cmgAdded %}
+    {% if isApplied %}
       {% set timelineItems = (timelineItems.push({
         title: "Letter sent: Child Maintenance deduction applied",
         byline: "System",
@@ -207,7 +192,7 @@
       }), timelineItems) %}
     {% endif %}
 
-    {% if not cmgAdded %}
+    {% if not isApplied %}
       {% set timelineItems = (timelineItems.push({
         title: "No changes made"
       }), timelineItems) %}

@@ -4,24 +4,12 @@
 
 {% set originalWeeklyAmount = 202.93 %}
 {% set cmgDefaultAmount = 8.40 %}
-{% set cmgDefaultAdjusted = originalWeeklyAmount - cmgDefaultAmount %}
 {% set cmgDeductionDate = "26 January 2026" %}
 {% set cmgPreAmendmentDate = "27 January 2026" %}
 {% set cmgAmendmentDate = "28 January 2026" %}
 {% set cmgRemovalDate = "29 January 2026" %}
 
-{% if data['adjustmentAmountType'] == "other" %}
-  {% set cmgAmount = (originalWeeklyAmount - data['otherAmount']) %}
-{% else %}
-  {% set cmgAmount = cmgDefaultAdjusted %}
-{% endif %}
-
-{% if data['adjustmentAmountType'] %}
-  {% set cmgAdded = true %}
-{% endif %}
-
 {% set isChanged = data['changedAmount'] %}
-
 {% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
 
 {% if isChanged %}
