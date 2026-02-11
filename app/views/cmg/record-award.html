@@ -3,6 +3,10 @@
 {% block content %}
 
 {% set originalWeeklyAmount = 202.93 %}
+{% set cmgDeductionDate = "26 January 2026" %}
+{% set cmgPreAmendmentDate = "27 January 2026" %}
+{% set cmgAmendmentDate = "28 January 2026" %}
+{% set cmgRemovalDate = "29 January 2026" %}
 
 {% set isApplied = data['adjustmentAmountType'] %}
 {% set isChanged = data['changedAmount'] %}
@@ -155,33 +159,33 @@
 
     {% if isRemoved %}
       {% set timelineItems = (timelineItems.push({
-        title: "Letter sent: Child Maintenance deduction removed",
+        title: "Child Maintenance change of award letter sent",
         byline: "System",
-        date: cmgDeductionDate
+        date: cmgRemovalDate
       }), timelineItems) %}
       {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction removed",
         byline: "Agent",
-        date: cmgDeductionDate
+        date: cmgRemovalDate
       }), timelineItems) %}
     {% endif %}
 
     {% if isChanged %}
       {% set timelineItems = (timelineItems.push({
-        title: "Letter sent: Child Maintenance deduction changed",
+        title: "Child Maintenance change of award letter sent",
         byline: "System",
-        date: cmgDeductionDate
+        date: cmgAmendmentDate
       }), timelineItems) %}
       {% set timelineItems = (timelineItems.push({
         title: "Child Maintenance deduction changed",
         byline: "Agent",
-        date: cmgDeductionDate
+        date: cmgAmendmentDate
       }), timelineItems) %}
     {% endif %}
 
     {% if isApplied %}
       {% set timelineItems = (timelineItems.push({
-        title: "Letter sent: Child Maintenance deduction applied",
+        title: "Child Maintenance change of award letter sent",
         byline: "System",
         date: cmgDeductionDate
       }), timelineItems) %}
