@@ -7,8 +7,6 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        <br><br>
-
         {% include './_bar.html' %}
 
         {{ govukBackLink({
@@ -35,7 +33,16 @@
               <a href="returned-rf1" class="govuk-link">Confirm RF1 returned</a>.
             </strong>
           </div>
+        {% elseif data['rf1Needed'] === 'no' %}
         {% else %}
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-visually-hidden"></span>
+              Channel Islands liaison outstanding.<br>
+              <a href="did-claimant-join" class="govuk-link--no-visited-state">Send application</a>.
+            </strong>
+          </div>
         {% endif%}
                             
         <div class="govuk-summary-card">
@@ -137,19 +144,36 @@
         <div class="dwp-timeline">
           <ol class="dwp-timeline__items">
 
-            {% if data['rf1Needed'] === 'no' or data['rf1Returned'] === 'yes' %}
+            {% if data['rf1Returned'] === 'yes' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">date - year - time</p>
-                <h2 class="dwp-timeline__heading">RA: RA liaison application complete</h2>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
+                <h2 class="dwp-timeline__heading">RA: RF1 returned</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% endif %}
-
+            
             {% if data['rf1Needed'] === 'yes' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
                 <h2 class="dwp-timeline__heading">RA: RF1 requested from HMRC</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['rf1Needed'] === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% else %}  
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime"></p>
+                <h2 class="dwp-timeline__heading">No changes</h2>
+                <p class="dwp-timeline__by-line"></p>
               </li>
             {% endif %}
 

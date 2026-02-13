@@ -59,6 +59,8 @@
       </div>
     {% endset -%}
 
+    <span class="govuk-caption-xl">SRB 1</span>
+
     {{ govukRadios({
       name: "whatDate",
       fieldset: {
@@ -74,7 +76,7 @@
       items: [
         {
           value: "SPa",
-          text: "State Pension date (or pull date in)",
+          text: "State Pension date",
           conditional: {
             html: emailHtml
           }

@@ -7,7 +7,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+        {% if data['haveDate'] === 'yes' %}
 
           {% include './_bar-2.html' %}
 
@@ -17,7 +17,7 @@
 
         {% endif %}
 
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+        {% if data['haveDate'] === 'yes' %}
 
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
@@ -71,19 +71,19 @@
 
         <br>
 
-        {% if data.hmrcQuestion %}
+        {% if data['haveDate'] === 'no' %}
 
-        {% elseif data['whatDay-day'] or data['whatDay-month'] or data['whatDay-year'] %}
+          <br>
 
-        <br>
+          <div class="govuk-warning-text">
+            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+            <strong class="govuk-warning-text__text">
+              <span class="govuk-warning-text__assistive"></span>
+              Waiting for date information from HMRC.<br> <a href="do-you-have-date" class="govuk-link--no-visited-state">Task link goes here</a>.
+            </strong>
+          </div>
 
-        <div class="govuk-warning-text">
-          <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
-          <strong class="govuk-warning-text__text">
-            <span class="govuk-warning-text__assistive"></span>
-            SRB task outstanding.<br> <a href="hmrc-question" class="govuk-link--no-visited-state">Task link goes here</a>.
-          </strong>
-        </div>
+        {% elseif data['haveDate'] === 'yes' %}
 
         {% else %}
 
@@ -93,7 +93,7 @@
           <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
           <strong class="govuk-warning-text__text">
             <span class="govuk-warning-text__assistive"></span>
-            SRB task outstanding.<br> <a href="what-date-2" class="govuk-link--no-visited-state">Task link goes here</a>.
+            An SRB has been issued since State Pension date.<br> <a href="do-you-have-date" class="govuk-link--no-visited-state">Review this award</a>.
           </strong>
         </div>
 
@@ -107,7 +107,7 @@
             <tbody class="govuk-table__body">
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
-                <td class="govuk-table__cell" style="width: 50%">Leon Hibbert</td>
+                <td class="govuk-table__cell" style="width: 50%">Beth Fisher</td>
                 <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="change-name">Change</a></td>
               </tr>
               <tr class="govuk-table__row">
@@ -138,11 +138,8 @@
                 <tr class="govuk-table__row">
                     <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
                     <td class="govuk-table__cell">No</td>
-                    <td class="govuk-table__cell"><a class="govuk-link" href="lived-worked-details">
-                        <!--Details-->
-                      </a></td>
+                    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="lived-worked-details">Change</a></td>
                   </tr>
-
             </tbody>
           </table>
 
@@ -186,7 +183,7 @@
 
       <br>
 
-      <!--<a class="govuk-link--no-visited-state govuk-!-font-size-19" href="record-full-history">Full history</a> -->
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="record-full-history">Full history</a>
 
     </div>
   </main>

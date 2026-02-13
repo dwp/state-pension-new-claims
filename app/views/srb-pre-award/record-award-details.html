@@ -2,94 +2,92 @@
 
 {% block content %}
 
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+      {% include './_bar-2.html' %}
 
-          {% include './_bar-2.html' %}
+      {{ govukBackLink({
+        text: "Back",
+        href: "javascript:history.go(-1)"
+                        }) }}
 
-        {% else %}
+      <br><br><br>
 
-          {% include './_bar.html' %}
-
-        {% endif %}
-
-        {{ govukBackLink({
-          text: "Back",
-          href: "javascript:history.go(-1)"
-                          }) }}
-
-        <br><br><br>
-
-        <h2 class="govuk-heading-m">Current State Pension award</h2>
+      <h2 class="govuk-heading-m">Current State Pension award</h2>
 
 
-        <table class="govuk-table">
-          <tbody class="govuk-table__body">
+      <table class="govuk-table">
+        <tbody class="govuk-table__body">
 
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header" style="width: 50%">From</th>
-              <td class="govuk-table__cell" style="width: 50%">28 Dec 2024</td>
-            </tr>
-      
-            <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header">Reason</th>
-              <td class="govuk-table__cell">First award</td>
-            </tr>
-          </tbody>
-        </table>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 50%">From</th>
+            <td class="govuk-table__cell" style="width: 50%">28 Dec 2024</td>
+          </tr>
+    
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Reason</th>
+            <td class="govuk-table__cell">First award</td>
+          </tr>
+        </tbody>
+      </table>
 
-        <table class="govuk-table">
+      <table class="govuk-table">
 
-            <thead class="govuk-table__head">
-              <tr class="govuk-table__row">
-                <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
-                <th class="govuk-table__header" scope="col" style="width: 50%">
-                  £270.56
-                </th>
-                <th class="govuk-table__header" scope="col"></th>
-              </tr>
-            </thead>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th class="govuk-table__header" scope="col" style="width: 50%">Total</th>
+            <th class="govuk-table__header" scope="col" style="width: 50%">
+              £270.56
+            </th>
+            <th class="govuk-table__header" scope="col"></th>
+          </tr>
+        </thead>
 
-            <tbody class="govuk-table__body">
-            
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">New State Pension</td>
-                <td class="govuk-table__cell">
-                  £270.56
-                </td>
-                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
-              </tr>
+        <tbody class="govuk-table__body">
+        
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">New State Pension</td>
+            <td class="govuk-table__cell">
+              £270.56
+            </td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+          </tr>
 
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Protected payment</td>
-                <td class="govuk-table__cell">
-                  £0.00
-                </td>
-                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
-              </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">Protected payment</td>
+            <td class="govuk-table__cell">
+              £0.00
+            </td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+          </tr>
 
-              <tr class="govuk-table__row">
-                  <td class="govuk-table__cell" scope="row">Extra State Pension</td>
-                  <td class="govuk-table__cell">£0.00</td>
-                  <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
-              </tr>
+          <tr class="govuk-table__row">
+              <td class="govuk-table__cell" scope="row">Extra State Pension</td>
+              <td class="govuk-table__cell">£0.00</td>
+              <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+          </tr>
 
-              <tr class="govuk-table__row">
-                <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
-                <td class="govuk-table__cell">£0.00</td>
-                <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
-              </tr>
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell" scope="row">Inherited extra State Pension</td>
+            <td class="govuk-table__cell">£0.00</td>
+            <td class="govuk-table__cell"><a class="govuk-link" href="#"></a></td>
+          </tr>
 
-            </tbody>
-          </table>
+        </tbody>
 
-          <br><br><br>
+      </table>
 
+      <div class="govuk-inset-text">
+        This award uses the rate from the claimant's State Pension date. <br>
+        The claimant lived in a frozen rate country, so increases do not apply. 
       </div>
 
+      <br><br><br>
+
     </div>
+
+  </div>
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">

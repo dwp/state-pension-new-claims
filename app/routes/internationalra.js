@@ -45,9 +45,9 @@ router.post('/international-record/ra-iteration-2/rf1-returned', function (req, 
   }
 })
 
-// Iteration 3
+// Channel Islands
 
-router.post('/international-task/ra-iteration-3/did-claimant-join', function (req, res) {
+router.post('/international-task/ra-channel-islands/did-claimant-join', function (req, res) {
   if (req.body['rf1Needed'] === 'yes') {
     res.redirect('request-rf1')
   } else {
@@ -55,15 +55,15 @@ router.post('/international-task/ra-iteration-3/did-claimant-join', function (re
   }
 })
 
-router.post('/international-task/ra-iteration-3/confirm', (req, res) => {
+router.post('/international-task/ra-channel-islands/confirm', (req, res) => {
   res.redirect('task-queue')
 })
 
-router.post('/international-task/ra-iteration-3/request-rf1', (req, res) => {
+router.post('/international-task/ra-channel-islands/request-rf1', (req, res) => {
   res.redirect('task-queue')
 })
 
-router.post('/international-task/ra-iteration-3/returned-rf1', function (req, res) {
+router.post('/international-task/ra-channel-islands/returned-rf1', function (req, res) {
   if (req.body['rf1Returned'] === 'yes') {
     res.redirect('confirm')
   } else {

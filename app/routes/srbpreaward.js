@@ -96,10 +96,10 @@ router.post('/srb-pre-award/enter-pp-2', (req, res) => {
 })
 
 router.post('/srb-pre-award/check-answers', (req, res) => {
-  res.redirect('confirm-award')
+  res.redirect('new-award')
 })
 
-router.post('/srb-pre-award/confirm-award', (req, res) => {
+router.post('/srb-pre-award/new-award', (req, res) => {
   res.redirect('task-queue')
 })
 
