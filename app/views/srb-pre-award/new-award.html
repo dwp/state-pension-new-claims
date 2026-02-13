@@ -24,6 +24,16 @@
       <table class="govuk-table">       
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Updated award</th>
+            <td class="govuk-table__cell">
+              {% if data.enterSP and data.ppAmount %}  
+                <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
+              {% else %}
+                {{data.enterSP | currency}}
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header govuk-!-width-one-half">New State Pension</th>
             <td class="govuk-table__cell">
               {% if data.enterSP %}
@@ -51,17 +61,7 @@
               {% elseif data['another-day'] or data['another-month'] or data['another-year'] %}
                 {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
               {% else %}
-                Not needed
-              {% endif %}
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Total</th>
-            <td class="govuk-table__cell">
-              {% if data.enterSP and data.ppAmount %}  
-                <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
-              {% else %}
-                {{data.enterSP | currency}}
+                State Pension date
               {% endif %}
             </td>
           </tr>
