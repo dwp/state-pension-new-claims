@@ -29,6 +29,20 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Updated amount
+            </dt>
+            <dd class="govuk-summary-list__value-numeric">
+              {% if data.enterSP and data.ppAmount %}  
+                <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
+              {% else %}
+                <b>{{data.enterSP | currency}}</b>
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
               New State Pension
             </dt>
             <dd class="govuk-summary-list__value-numeric">
@@ -84,25 +98,11 @@
               {% elseif data['another-day'] or data['another-month'] or data['another-year'] %}
                 {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
               {% else %}
-                Not needed
+                State Pension date
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Total
-            </dt>
-            <dd class="govuk-summary-list__value-numeric">
-              {% if data.enterSP and data.ppAmount %}  
-                <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
-              {% else %}
-                <b>{{data.enterSP | currency}}</b>
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
             </dd>
           </div>
         </dl>
@@ -122,13 +122,27 @@
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Updated amount
+            </dt>
+            <dd class="govuk-summary-list__value-numeric">
+              {% if data.enterSP2 and data.ppAmount2 %}  
+                <b>£{{ data.enterSP2 | float + data.ppAmount2 | float }}</b>
+              {% else %}
+                <b>{{data.enterSP2 | currency}}</b>
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
               New State Pension
             </dt>
             <dd class="govuk-summary-list__value-numeric">
               {% if data.enterSP2 %}
                 {{data.enterSP2 | currency}}
               {% else %}
-                £0.00
+                £211.62
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
@@ -161,25 +175,11 @@
               {% if data['latePaid2-day'] or data['latePaid2-month'] or data['latePaid2-year'] %}
                 {{data['latePaid2-day']}} {{data['latePaid2-month'] | monthName}} {{data['latePaid2-year']}}
               {% else %}
-                Not needed
+                State Pension Date
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Total
-            </dt>
-            <dd class="govuk-summary-list__value-numeric">
-              {% if data.enterSP2 and data.ppAmount2 %}  
-                <b>£{{ data.enterSP2 | float + data.ppAmount2 | float }}</b>
-              {% else %}
-                <b>{{data.enterSP2 | currency}}</b>
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
             </dd>
           </div>
         </dl>

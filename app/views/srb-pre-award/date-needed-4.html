@@ -24,11 +24,14 @@
     {% set anotherDate %}
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" role="group" aria-describedby="another-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
             <h1 class="govuk-fieldset__heading">
-              Date the review applies from
+              Date the SRB applies from
             </h1>
           </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            This is the late paid date in OLE.
+          </div>
           <div class="govuk-date-input" id="another">
             <div class="govuk-date-input__item">
               <div class="govuk-form-group">
@@ -65,13 +68,13 @@
       name: "whatDate",
       fieldset: {
         legend: {
-          text: "What date does this review apply from?",
+          text: "What date does this SRB apply from?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl"
         }
       },
       hint: {
-        text: "Check OLE for details"
+        text: "Check OLE for details."
       },
       items: [
         {

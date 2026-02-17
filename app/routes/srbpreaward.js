@@ -15,7 +15,7 @@ router.post('/srb-pre-award/do-you-have-date', function (req, res) {
   } else if (req.session.data['journey'] === 'c' && req.body['haveDate'] === 'yes') {
   res.redirect('date-needed-2')
   } else {
-    res.redirect('send-email')
+    res.redirect('complete-proforma')
   }
 })
 
@@ -43,7 +43,7 @@ router.post('/srb-pre-award/date-needed-4', function (req, res) {
   }
 })
 
-router.post('/srb-pre-award/send-email', (req, res) => {
+router.post('/srb-pre-award/complete-proforma', (req, res) => {
   res.redirect('task-queue')
 })
 
@@ -96,10 +96,10 @@ router.post('/srb-pre-award/enter-pp-2', (req, res) => {
 })
 
 router.post('/srb-pre-award/check-answers', (req, res) => {
-  res.redirect('new-award')
+  res.redirect('review-award')
 })
 
-router.post('/srb-pre-award/new-award', (req, res) => {
+router.post('/srb-pre-award/review-award', (req, res) => {
   res.redirect('task-queue')
 })
 
