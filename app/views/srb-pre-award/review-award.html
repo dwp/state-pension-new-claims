@@ -29,7 +29,7 @@
               {% if data.enterSP and data.ppAmount %}  
                 <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
               {% else %}
-                {{data.enterSP | currency}}
+                <b>{{data.enterSP | currency}}<b>
               {% endif %}
             </td>
           </tr>

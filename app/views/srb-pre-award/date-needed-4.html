@@ -21,43 +21,24 @@
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-    {% if data['whatDate'] == 'SPa' or data['whatDate'] == 'anotherDate' %}
-    
-      {% set anotherDate2 %}
-        <div class="govuk-form-group">
-          <fieldset class="govuk-fieldset" role="group" aria-describedby="another2-hint">
-            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-              <h1 class="govuk-fieldset__heading">
-                Date the SRB applies from
-              </h1>
-            </legend>
-            <div id="passport-issued-hint" class="govuk-hint">
-              This is the late paid date in OLE.
-            </div>
-            <div class="govuk-date-input" id="another2">
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="another2-day">
-                    Day
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another2-day" name="another2-day" type="text" inputmode="numeric">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="another2-month">
-                    Month
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another2-month" name="another2-month" type="text" inputmode="numeric">
-                </div>
-              </div>
-              <div class="govuk-date-input__item">
-                <div class="govuk-form-group">
-                  <label class="govuk-label govuk-date-input__label" for="another2-year">
-                    Year
-                  </label>
-                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="another2-year" name="another2-year" type="text" inputmode="numeric">
-                </div>
+    {% set anotherDate %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="another-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Date the SRB applies from
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            This is the late paid date in OLE.
+          </div>
+          <div class="govuk-date-input" id="another">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-day" name="another-day" type="text" inputmode="numeric">
               </div>
             </div>
           </fieldset>
