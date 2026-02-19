@@ -21,78 +21,157 @@
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-    {% set anotherDate %}
-      <div class="govuk-form-group">
-        <fieldset class="govuk-fieldset" role="group" aria-describedby="another-hint">
-          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-            <h1 class="govuk-fieldset__heading">
-              Date the SRB applies from
-            </h1>
-          </legend>
-          <div id="passport-issued-hint" class="govuk-hint">
-            This is the late paid date in OLE.
-          </div>
-          <div class="govuk-date-input" id="another">
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="another-day">
-                  Day
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-day" name="another-day" type="text" inputmode="numeric">
+    {% if data['whatDate'] == 'SPa' or data['whatDate'] == 'anotherDate' %}
+    
+      {% set anotherDate2 %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="another2-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Date the SRB applies from
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              This is the late paid date in OLE.
+            </div>
+            <div class="govuk-date-input" id="another2">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="another2-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another2-day" name="another2-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="another2-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another2-month" name="another2-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="another2-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="another2-year" name="another2-year" type="text" inputmode="numeric">
+                </div>
               </div>
             </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="another-month">
-                  Month
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-month" name="another-month" type="text" inputmode="numeric">
-              </div>
-            </div>
-            <div class="govuk-date-input__item">
-              <div class="govuk-form-group">
-                <label class="govuk-label govuk-date-input__label" for="another-year">
-                  Year
-                </label>
-                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="another-year" name="another-year" type="text" inputmode="numeric">
-              </div>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    {% endset -%}
+          </fieldset>
+        </div>
+      {% endset -%}
 
-    <span class="govuk-caption-xl">SRB 1</span>
+      <span class="govuk-caption-xl">SRB 2</span>
 
-    {{ govukRadios({
-      name: "whatDate",
-      fieldset: {
-        legend: {
-          text: "What date does this SRB apply from?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      hint: {
-        text: "Check OLE for details."
-      },
-      items: [
-        {
-          value: "SPa",
-          text: "State Pension date",
-          conditional: {
-            html: emailHtml
+      {{ govukRadios({
+        name: "whatDate2",
+        fieldset: {
+          legend: {
+            text: "What date does this SRB apply from?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
           }
         },
-        {
-          value: "anotherDate",
-          text: "Another date",
-          conditional: {
-            html: anotherDate
+        hint: {
+          text: "Check OLE for details."
+        },
+        items: [
+          {
+            value: "SPa2",
+            text: "State Pension date",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "anotherDate2",
+            text: "Another date",
+            conditional: {
+              html: anotherDate2
+            }
           }
-        }
-      ]
-    }) }}
+        ]
+      }) }}
+
+    {% else %}
+
+      {% set anotherDate %}
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" role="group" aria-describedby="another-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+              <h1 class="govuk-fieldset__heading">
+                Date the SRB applies from
+              </h1>
+            </legend>
+            <div id="passport-issued-hint" class="govuk-hint">
+              This is the late paid date in OLE.
+            </div>
+            <div class="govuk-date-input" id="another">
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="another-day">
+                    Day
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-day" name="another-day" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="another-month">
+                    Month
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-month" name="another-month" type="text" inputmode="numeric">
+                </div>
+              </div>
+              <div class="govuk-date-input__item">
+                <div class="govuk-form-group">
+                  <label class="govuk-label govuk-date-input__label" for="another-year">
+                    Year
+                  </label>
+                  <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="another-year" name="another-year" type="text" inputmode="numeric">
+                </div>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      {% endset -%}
+
+      <span class="govuk-caption-xl">SRB 1</span>
+
+      {{ govukRadios({
+        name: "whatDate",
+        fieldset: {
+          legend: {
+            text: "What date does this SRB apply from?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "Check OLE for details."
+        },
+        items: [
+          {
+            value: "SPa",
+            text: "State Pension date",
+            conditional: {
+              html: emailHtml
+            }
+          },
+          {
+            value: "anotherDate",
+            text: "Another date",
+            conditional: {
+              html: anotherDate
+            }
+          }
+        ]
+      }) }}
+
+    {% endif %}
       
     <br>
 

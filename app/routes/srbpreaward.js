@@ -7,10 +7,18 @@ router.post('/srb-pre-award/which-journey', function (req, res) {
   }
 })
 
+router.post('/srb-pre-award/start', (req, res) => {
+  res.redirect('do-you-have-date')
+})
+
+router.post('/srb-pre-award/start-2', (req, res) => {
+  res.redirect('do-you-have-date')
+})
+
 router.post('/srb-pre-award/do-you-have-date', function (req, res) {
   if (req.session.data['journey'] === 'a' && req.body['haveDate'] === 'yes') {
     res.redirect('date-needed-3')
-  } else if (req.session.data['journey'] === 'b' && req.body['haveDate'] === 'yes') {
+  } else if (req.session.data['journey'] === 'b' && (req.body['haveDate'] === 'yes' || req.body['haveDate2'] === 'yes')) {
   res.redirect('date-needed-4')
   } else if (req.session.data['journey'] === 'c' && req.body['haveDate'] === 'yes') {
   res.redirect('date-needed-2')
@@ -27,8 +35,6 @@ router.post('/srb-pre-award/date-needed-3', function (req, res) {
   }
 })
 
-
-
 router.post('/srb-pre-award/date-needed-2', function (req, res) {
   if (req.body['dateNeeded2'] === 'spDate') {
     res.redirect('sp-amount')
@@ -37,10 +43,8 @@ router.post('/srb-pre-award/date-needed-2', function (req, res) {
   }
 })
 
-router.post('/srb-pre-award/date-needed-4', function (req, res) {
-  if (req.body['whatDate'] === 'SPa' || req.body['another-year']) {
-    res.redirect('sp-amount')
-  }
+router.post('/srb-pre-award/date-needed-4', (req, res) => {
+  res.redirect('sp-amount')
 })
 
 router.post('/srb-pre-award/complete-proforma', (req, res) => {

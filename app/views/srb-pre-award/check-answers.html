@@ -27,7 +27,7 @@
       </div>
       <div class="govuk-summary-card__content">
         <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
+          <!--<div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key govuk-!-width-one-third">
               Updated amount
             </dt>
@@ -74,28 +74,13 @@
                 <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> protected payment amount</span></a>
               {% endif %}
             </dd>
-          </div>
-          <!--<div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-third">
-              Number of additional years
-            </dt>
-            <dd class="govuk-summary-list__value-numeric">
-              {% if data.years %}
-                {{data.years }}
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="sp-amount">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
-            </dd>
           </div>-->
           <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              From
+            <dt class="govuk-summary-list__key govuk-!-width-one-half">
+              Date SRB applies from
             </dt>
             <dd class="govuk-summary-list__value-numeric">
-              {% if data['latePaid-day'] or data['latePaid-month'] or data['latePaid-year'] %}
-                {{data['latePaid-day']}} {{data['latePaid-month'] | monthName}} {{data['latePaid-year']}}
-              {% elseif data['another-day'] or data['another-month'] or data['another-year'] %}
+              {% if data['another-day'] or data['another-month'] or data['another-year'] %}
                 {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
               {% else %}
                 State Pension date
@@ -105,81 +90,17 @@
               <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
             </dd>
           </div>
-        </dl>
-      </div>
-    </div>
-
-    <br>
-
-    {% if data.enterSP2 %}
-    <div class="govuk-summary-card">
-      <div class="govuk-summary-card__title-wrapper">
-        <h2 class="govuk-summary-card__title">
-          SRB 2
-        </h2>
-      </div>
-      <div class="govuk-summary-card__content">
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-third">
-              Updated amount
-            </dt>
-            <dd class="govuk-summary-list__value-numeric">
-              {% if data.enterSP2 and data.ppAmount2 %}  
-                <b>£{{ data.enterSP2 | float + data.ppAmount2 | float }}</b>
-              {% else %}
-                <b>{{data.enterSP2 | currency}}</b>
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key govuk-!-width-one-third">
-              New State Pension
-            </dt>
-            <dd class="govuk-summary-list__value-numeric">
-              {% if data.enterSP2 %}
-                {{data.enterSP2 | currency}}
-              {% else %}
-                £211.62
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="sp-amount-2">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
-            </dd>
-          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Protected payment
+              Number of addtional years
             </dt>
             <dd class="govuk-summary-list__value-numeric">
-              {% if data.ppAmount2 %}
-                {{data.ppAmount2 | currency}}
-              {% else %}
-                £0.00
+              {% if data.years %}
+                {{data.years }}
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              {% if data.ppAmount2 %}
-                <a class="govuk-link--no-visited-state" href="enter-pp">Change<span class="govuk-visually-hidden"> protected payment amount</span></a>
-              {% else %}
-              {% endif %}
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              From
-            </dt>
-            <dd class="govuk-summary-list__value-numeric">
-              {% if data['latePaid2-day'] or data['latePaid2-month'] or data['latePaid2-year'] %}
-                {{data['latePaid2-day']}} {{data['latePaid2-month'] | monthName}} {{data['latePaid2-year']}}
-              {% else %}
-                State Pension Date
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              <a class="govuk-link--no-visited-state" href="sp-amount">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
             </dd>
           </div>
         </dl>
@@ -187,10 +108,102 @@
     </div>
 
     <br>
+
+    {% if data['whatDate2'] == 'SPa2' or data['whatDate2'] == 'anotherDate2'%}
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            SRB 2
+          </h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <!--<div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                Updated amount
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data.enterSP and data.ppAmount %}  
+                  <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
+                {% else %}
+                  <b>{{data.enterSP | currency}}</b>
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                New State Pension
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data.enterSP %}
+                  {{data.enterSP | currency}}
+                {% else %}
+                  £0.00
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="sp-amount">Change<span class="govuk-visually-hidden">New State Pension amount</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Protected payment
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data.ppAmount %}
+                  {{data.ppAmount | currency}}
+                {% else %}
+                  £0.00
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                {% if data.ppAmount %}
+                  <a class="govuk-link--no-visited-state" href="enter-pp">Change<span class="govuk-visually-hidden"> protected payment amount</span></a>
+                {% else %}
+                  <a class="govuk-link" href="#"><span class="govuk-visually-hidden"> protected payment amount</span></a>
+                {% endif %}
+              </dd>
+            </div>-->
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-half">
+                Date SRB applies from
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['another2-day'] or data['another2-month'] or data['another2-year'] %}
+                  {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
+                {% else %}
+                  State Pension date
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of addtional years
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data.years2 %}
+                  {{data.years2 }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="sp-amount">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
     {% endif %}
 
+    <br>
+    
     <p class="govuk-body">
-      <a href="date-needed-2" class="govuk-link--no-visited-state">Add another SRB</a>
+      <a href="date-needed-4" class="govuk-link--no-visited-state">Add another SRB</a>
     </p>
 
     <br><br>

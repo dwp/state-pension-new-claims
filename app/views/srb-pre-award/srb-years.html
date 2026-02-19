@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+    })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">SRB details</h1>
+    
+    {% if data.years2 %}
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">SRB 1</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Date SRB applies from</th>
+            <td class="govuk-table__cell">
+              {% if data['another-day'] or data['another-month'] or data['another-year'] %}
+                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+              {% else %}
+                State Pension date
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of additional years</th>
+            <td class="govuk-table__cell">{{data.years}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">SRB 2</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header govuk-!-width-one-half">Date SRB applies from</th>
+            <td class="govuk-table__cell">
+              {% if data['another2-day'] or data['another2-month'] or data['another2-year'] %}
+                {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
+              {% else %}
+                State Pension date
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of additional years</th>
+            <td class="govuk-table__cell">{{data.years2}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    {% elseif data.years %}
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">SRB 1</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date SRB applies from</th>
+            <td class="govuk-table__cell">
+              {% if data['another-day'] or data['another-month'] or data['another-year'] %}
+                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+              {% else %}
+                State Pension date
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of additional years</th>
+            <td class="govuk-table__cell">{{data.years}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    {% endif %}
+
+  </div>
+</div>
+
+{% endblock %}

@@ -17,33 +17,82 @@
 
     <br><br>
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h1 class="govuk-fieldset__heading">
-            <span class="govuk-caption-xl">Review 1</span>
-            Do you need to enter a late paid date for this review?
-          </h1>
-        </legend>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-        <p>Check OLE for details.</p>
-        
-        <div class="govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="dateNeeded" name="dateNeeded" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="dateNeeded">
-              Yes
-            </label>
+    {% set anotherDate %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="another-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+            <h1 class="govuk-fieldset__heading">
+              Date the SRB applies from
+            </h1>
+          </legend>
+          <div id="passport-issued-hint" class="govuk-hint">
+            This is the late paid date in OLE.
           </div>
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="dateNeeded-2" name="dateNeeded" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="dateNeeded-2">
-              No
-            </label>
+          <div class="govuk-date-input" id="another">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-day" name="another-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-month" name="another-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="another-year" name="another-year" type="text" inputmode="numeric">
+              </div>
+            </div>
           </div>
-        </div>
-      </fieldset>
-    </div>
+        </fieldset>
+      </div>
+    {% endset -%}
+
+    <span class="govuk-caption-xl">SRB 2</span>
+
+    {{ govukRadios({
+      name: "whatDate",
+      fieldset: {
+        legend: {
+          text: "What date does this SRB apply from?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      hint: {
+        text: "Check OLE for details."
+      },
+      items: [
+        {
+          value: "SPa",
+          text: "State Pension date",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "anotherDate",
+          text: "Another date",
+          conditional: {
+            html: anotherDate
+          }
+        }
+      ]
+    }) }}
       
     <br>
 
