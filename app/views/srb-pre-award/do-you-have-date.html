@@ -17,22 +17,16 @@
 
     <br><br>
 
-    <div class="govuk-form-group">
-      <fieldset class="govuk-fieldset">
-        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
-          <h1 class="govuk-fieldset__heading">
-            Do you have the date you need for each SRB?
-          </h1>
-        </legend>
-        <div id="changedName-hint" class="govuk-hint">
-          If there is more than one SRB, check each one before you start. You can find details in OLE.
-        </div>
-        <div class="govuk-radios" data-module="govuk-radios">
-          <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="haveDate" name="haveDate" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
-              Yes
-            </label>
+    {% if data['haveDate'] === 'no' %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Do you have the date needed to complete the SRB?
+            </h1>
+          </legend>
+          <div id="haveDate2-hint" class="govuk-hint">
+            If there is more than one SRB, check each one before you start. You can find details in OLE.
           </div>
           <div class="govuk-radios" data-module="govuk-radios">
             <div class="govuk-radios__item">

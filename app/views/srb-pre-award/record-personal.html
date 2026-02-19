@@ -160,7 +160,7 @@
       <div class="dwp-timeline">
         <ol class="dwp-timeline__items">
 
-          {% if data['haveDate'] === 'no' and data['haveDate'] === 'yes' %}
+          {% if data['haveDate2'] === 'yes' %}
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">28 Mar 2025 at 09:18am</p>
               <h2 class="dwp-timeline__heading">State Pension awarded</h2>
@@ -170,6 +170,9 @@
               <p class="dwp-timeline__datetime">28 Mar 2025 at 09:17am</p>
               <h2 class="dwp-timeline__heading">SRBs checked and award reviewed</h2>
               <p class="dwp-timeline__by-line">by Agent</p>
+              {% if data.years %}
+                <a class="govuk-link--no-visited-state" href="srb-years">Details</a>
+              {% endif %}
             </li>
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">19 Feb 2025 at 10:27am</p>
@@ -186,6 +189,9 @@
               <p class="dwp-timeline__datetime">28 Mar 2025 at 09:17am</p>
               <h2 class="dwp-timeline__heading">SRBs checked and award reviewed</h2>
               <p class="dwp-timeline__by-line">by Agent</p>
+              {% if data.years %}
+                <a class="govuk-link--no-visited-state" href="srb-years">Details</a>
+              {% endif %}
             </li>
           {% elseif data['haveDate'] === 'no' %}
             <li class="dwp-timeline__item">
