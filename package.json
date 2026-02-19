@@ -9,6 +9,7 @@
   },
   "name": "state-pension-new-claims",
   "dependencies": {
+    "minimatch": "10.2.1",
     "@dwp/dwp-frontend": "3.3.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@govuk-prototype-kit/step-by-step": "2.2.3",
@@ -29,6 +30,9 @@
     "body-parser": {
       "qs": "6.14.2"
     },
-    "minimatch": "10.2.1"
+    "minimatch": "10.2.1",
+    "**": {
+      "minimatch": "10.2.1"
+    }
   }
 }
