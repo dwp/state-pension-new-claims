@@ -1,0 +1,38 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post" action="record-personal">
+
+    {% include './_bar.html' %}
+
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">
+      Do not send a BIC1 form
+    </h1>
+
+    <p>We cannot send a BIC1 (eBIC) form yet.</p>
+
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      End task
+    </button>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}

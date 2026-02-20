@@ -1,0 +1,223 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+{% set originalWeeklyAmount = 202.93 %}
+{% set cmgDeductionDate = "26 January 2026" %}
+{% set cmgPreAmendmentDate = "27 January 2026" %}
+{% set cmgAmendmentDate = "28 January 2026" %}
+{% set cmgRemovalDate = "29 January 2026" %}
+
+{% set isApplied = data['adjustmentAmountType'] %}
+{% set isChanged = data['changedAmount'] %}
+{% set isRemoved = (data['confirmRemoval'] == 'yes' or data['adjustmentAmount'] == 'removed') %}
+
+{% if isRemoved %}
+  {% set bannerType = 'removed' %}
+{% elif isChanged %}
+  {% set bannerType = 'changed' %}
+{% elif isApplied %}
+  {% set bannerType = 'applied' %}
+{% endif %}
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    Child Maintenance deduction {{ bannerType }}
+  </h3>
+  <p class="govuk-body">A letter will automatically be sent to confirm the change to their State Pension amount.</p>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: html,
+    type: "success"
+  }) }}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ xGovukSecondaryNavigation({
+      visuallyHiddenTitle: "Secondary menu",
+      items: [{
+        text: "Personal",
+        href: "record-personal"
+      },
+      {
+        text: "Contact",
+        href: "record-contact"
+      },
+      {
+        text: "Award",
+        href: "record-award",
+        current: true
+      },
+      {
+        text: "Payment",
+        href: "record-payment"
+      },
+      {
+        text: "Tasks",
+        href: "tasks"
+      },
+      {
+        text: "Full history",
+        href: "Full-history"
+      }]
+    }) }}
+
+    <br>
+
+    <style>
+      .current-award-heading {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+    </style>
+
+    <div class="current-award-heading">
+      <h1 id="statePensionAwardsHeading" class="govuk-heading-m">State pension awards</h1>
+      <p><a href="./adjustment">Make an adjustment</a></p>
+    </div>
+
+    {{ govukTable({
+      attributes: 'aria-labelledby="statePensionAwardsHeading"',
+      head: [
+        { text: "From" },
+        { text: "Weekly amount" },
+        { text: "Adjustment" },
+        { text: "" }
+      ],
+      rows: [
+        [
+          { text: "10 April 2025 "},
+          { text: "£" + originalWeeklyAmount },
+          { text: "Yes" if isRemoved or isChanged or isApplied else "" },
+          { html: '<a href="award">Details</a>' }
+        ],
+        [
+          { text: "11 April 2024" },
+          { text: "£" + 194.95 },
+          { text: "" },
+          { html: '<a href="previous-award">Details</a>' }
+        ],
+        [
+          { text: "13 April 2023" },
+          { text: "£" + 179.66 },
+          { text: "Yes" },
+          { html: '<a href="previous-award-adjusted">Details</a>' }
+        ],
+        [
+          { text: "20 September 2022" },
+          { text: "£" + 163.18 },
+          { text: "" },
+          { html: '<a href="previous-award-first">Details</a>' }
+        ]
+      ]
+    }) }}
+
+    <br><br><br>
+
+  </div>
+
+  <div class="govuk-grid-column-one-third">
+    <h2 class="govuk-heading-m">Award changes</h2>
+
+    <style>
+      .dwp-timeline__item {
+        display: flex;
+        flex-direction: column;
+      }
+      .dwp-timeline__heading,
+      .dwp-timeline__by-line,
+      .dwp-timeline__datetime {
+        font-size: 19px;
+        line-height: 25px;
+      }
+      .dwp-timeline__heading {
+        order: 1;
+        margin-bottom: 0;
+      }
+      .dwp-timeline__by-line {
+        order: 2;
+        margin-bottom: 0;
+      }
+      .dwp-timeline__datetime {
+        order: 4;
+        color: #505a5f;
+      }
+      .dwp-timeline__link {
+        order: 3;
+      }
+    </style>
+    {% set timelineItems = [] %}
+
+    {% if isRemoved %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance change of award letter sent",
+        byline: "System",
+        date: cmgRemovalDate
+      }), timelineItems) %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance deduction removed",
+        byline: "Agent",
+        date: cmgRemovalDate
+      }), timelineItems) %}
+    {% endif %}
+
+    {% if isChanged %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance change of award letter sent",
+        byline: "System",
+        date: cmgAmendmentDate
+      }), timelineItems) %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance deduction changed",
+        byline: "Agent",
+        date: cmgAmendmentDate
+      }), timelineItems) %}
+    {% endif %}
+
+    {% if isApplied %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance change of award letter sent",
+        byline: "System",
+        date: cmgDeductionDate
+      }), timelineItems) %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Child Maintenance deduction applied",
+        byline: "Agent",
+        date: cmgDeductionDate
+      }), timelineItems) %}
+    {% endif %}
+
+    {% if not isApplied %}
+      {% set timelineItems = (timelineItems.push({
+        title: "No changes made"
+      }), timelineItems) %}
+    {% endif %}
+
+    {{ dwpTimeline({
+      items: timelineItems
+    }) }}
+
+    <script>
+      document.querySelectorAll('.dwp-timeline__by-line')
+      .forEach(element => {
+        element.textContent = element.textContent.replace('by ', '');
+      });
+    </script>
+
+    <p><a href="#">Full history</a></p>
+  </div>
+
+</div>
+
+
+
+{% endblock %}

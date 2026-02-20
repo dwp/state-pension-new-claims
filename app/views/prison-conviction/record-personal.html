@@ -1,0 +1,205 @@
+
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+
+          {% include './_bar-2.html' %}
+
+        {% else %}
+
+          {% include './_bar.html' %}
+
+        {% endif %}
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal",
+            current: true
+          },
+          {
+            text: "Contact",
+            href: "record-contact"
+          },
+          {
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Payment",
+            href: "record-payment"
+          },
+          {
+            text: "Tasks",
+            href: "record-tasks"
+          },
+          {
+            text: "Full history",
+            href: "record-full-history"
+          }]
+        }) }}
+
+
+
+        <br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Full name"
+              },
+              value: {
+                text: "Leon Hibbert"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "National Insurance number"
+              },
+              value: {
+                text: "QQ 12 34 56 X"
+              }
+            },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "22 June 1956"
+              }
+            },
+            {
+              key: {
+                text: "State Pension date"
+              },
+              value: {
+                text: "01 March 2025"
+              }
+            },
+            {
+              key: {
+                text: "Marital status"
+              },
+              value: {
+                text: "Married"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "contact details"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Lived or worked abroad"
+              },
+              value: {
+                text: "No"
+              }
+            }
+          ]
+        }) }}
+
+        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Stop State Pension</a>
+        <br />
+        <br />
+        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Lock record</a>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+
+      <h3 class="govuk-heading-m">Personal changes</h3>
+
+    <style>
+      .dwp-timeline__item {
+        display: flex;
+        flex-direction: column;
+      }
+      .dwp-timeline__heading,
+      .dwp-timeline__by-line,
+      .dwp-timeline__datetime {
+        font-size: 19px;
+        line-height: 25px;
+      }
+      .dwp-timeline__heading {
+        order: 1;
+        margin-bottom: 0;
+      }
+      .dwp-timeline__by-line {
+        order: 2;
+        margin-bottom: 0;
+      }
+      .dwp-timeline__datetime {
+        order: 4;
+        color: #505a5f;
+      }
+      .dwp-timeline__link {
+        order: 3;
+      }
+    </style>
+    {% set timelineItems = [] %}
+
+    {% set dateSuspended = "14 February 2025" %}
+
+    {% if isSuspended %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Payment suspended letter sent",
+        byline: "System",
+        date: dateSuspended
+      }), timelineItems) %}
+      {% set timelineItems = (timelineItems.push({
+        title: "Date entered prison added",
+        byline: "Agent",
+        date: dateSuspended
+      }), timelineItems) %}
+    {% endif %}
+
+
+    {% if not isSuspended %}
+      {% set timelineItems = (timelineItems.push({
+        title: "No changes made"
+      }), timelineItems) %}
+    {% endif %}
+
+    {{ dwpTimeline({
+      items: timelineItems
+    }) }}
+
+    <script>
+      document.querySelectorAll('.dwp-timeline__by-line')
+      .forEach(element => {
+        element.textContent = element.textContent.replace('by ', '');
+      });
+    </script>
+
+    <p><a href="#">Full history</a></p>
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}
