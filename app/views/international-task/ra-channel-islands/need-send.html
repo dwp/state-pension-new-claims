@@ -1,0 +1,59 @@
+
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+            <h1 class="govuk-fieldset__heading">
+              Do you need to send the Channel Islands liaison application?
+            </h1>
+          </legend>
+          <div id="needSend-hint" class="govuk-hint">
+            Check [system] for completed applications.
+          </div>
+          <div class="govuk-radios--inline" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needSend" name="needSend" type="radio" value="yes">
+              <label class="govuk-label govuk-radios__label" for="needSend">
+                Yes
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="needSend-2" name="needSend" type="radio" value="no">
+              <label class="govuk-label govuk-radios__label" for="needSend-2">
+                No
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+        
+      <br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+  </div>
+
+</form>
+
+{% endblock %}
