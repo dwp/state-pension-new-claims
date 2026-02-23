@@ -20,6 +20,36 @@
     {{ govukSummaryList({
       rows: [
         {
+          key: { text: "Type of case" },
+          value: {
+            text: data['prisonType'] | capitalize
+          },
+          actions: {
+            items: [
+              {
+                href: "/prison-conviction/prison-type?change=true",
+                text: "Change",
+                visuallyHiddenText: "prison case type"
+              }
+            ]
+          }
+        },
+        {
+          key: { text: "Suspend payment" },
+          value: {
+            text: data['prisonSuspend'] | capitalize
+          },
+          actions: {
+            items: [
+              {
+                href: "/prison-conviction/prison-suspend?change=true",
+                text: "Change",
+                visuallyHiddenText: "prison suspend"
+              }
+            ]
+          }
+        } if data['prisonSuspend'] and (data['prisonType'] === "Unknown"),
+        {
           key: { text: "Entered prison" },
           value: {
             text: prisonEntryDay + " " + prisonEntryMonth + " " + prisonEntryYear
@@ -27,9 +57,9 @@
           actions: {
             items: [
               {
-                href: "/prison-conviction/prison-entry-date",
+                href: "/prison-conviction/prison-entry-date?change=true",
                 text: "Change",
-                visuallyHiddenText: "prison leave date"
+                visuallyHiddenText: "prison entry date"
               }
             ]
           }

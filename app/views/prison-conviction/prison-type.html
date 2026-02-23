@@ -24,16 +24,19 @@
         },
         items: [
           {
-            value: "prisonTypeCriminal",
-            text: "Criminal"
+            value: "criminal",
+            text: "Criminal",
+            checked: data['prisonType'] == "criminal"
           },
           {
-            value: "prisonTypeCivil",
-            text: "Civil"
+            value: "civil",
+            text: "Civil",
+            checked: data['prisonType'] == "civil"
           },
           {
-            value: "prisonTypeUnknown",
-            text: "I don't know"
+            value: "unknown",
+            text: "I don't know",
+            checked: data['prisonType'] == "unknown"
           }
         ]
       }) }}

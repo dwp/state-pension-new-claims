@@ -12,9 +12,9 @@ router.post('/prison-conviction/stop-state-pension', (req, res) => {
 router.post('/prison-conviction/prison-type', (req, res) => {
   const prisonType = req.session.data['prisonType']
 
-  if (prisonType === 'prisonTypeCriminal') {
+  if (prisonType === 'criminal') {
     res.redirect('prison-entry-date')
-  } else if (prisonType === 'prisonTypeCivil') {
+  } else if (prisonType === 'civil') {
     res.redirect('prison-type-civil')
   } else {
     res.redirect('prison-suspend')
@@ -32,7 +32,12 @@ router.post('/prison-conviction/prison-suspend', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-entry-date', (req, res) => {
-  res.redirect('prison-entry-cya')
+  const isChanging = req.query.change === 'true'
+  if (isChanging) {
+    res.redirect('prison-entry-cya')
+  } else {
+    res.redirect('prison-entry-cya')
+  }
 })
 
 router.post('/prison-conviction/prison-entry-cya', (req, res) => {
