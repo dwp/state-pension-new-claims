@@ -33,6 +33,21 @@
               }
             ]
           }
+        },
+        {
+          key: { text: "Convicted of a criminal offence" },
+          value: {
+            text: data['prisonConvicted'] | capitalize
+          },
+          actions: {
+            items: [
+              {
+                href: "/prison-conviction/prison-conviction",
+                text: "Change",
+                visuallyHiddenText: "conviction status"
+              }
+            ]
+          }
         }
       ]
     }) }}
