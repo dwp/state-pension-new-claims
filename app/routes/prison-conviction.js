@@ -45,4 +45,41 @@ router.post('/prison-conviction/prison-type-civil', (req, res) => {
   res.redirect('record-personal')
 })
 
+router.post('/prison-conviction/prison-leave-date', (req, res) => {
+  res.redirect('prison-conviction')
+})
+
+router.post('/prison-conviction/prison-conviction', (req, res) => {
+  res.redirect('prison-leave-cya')
+})
+
+router.post('/prison-conviction/prison-leave-cya', (req, res) => {
+  req.session.data['isRestarted'] = 'yes'
+  const prisonConvicted = req.session.data['prisonConvicted']
+
+  if (prisonConvicted === 'yes') {
+    res.redirect('prison-overpayment')
+  } else {
+    res.redirect('prison-refund')
+  }
+})
+
+router.post('/prison-conviction/prison-refund', (req, res) => {
+  res.redirect('record-personal')
+})
+
+router.post('/prison-conviction/prison-overpayment', (req, res) => {
+  const prisonOverpay = req.session.data['prisonOverpay']
+
+  if (prisonOverpay === 'yes') {
+    res.redirect('prison-overpayment-info')
+  } else {
+    res.redirect('record-personal')
+  }
+})
+
+router.post('/prison-conviction/prison-overpayment-info', (req, res) => {
+  res.redirect('record-personal')
+})
+
 module.exports = router

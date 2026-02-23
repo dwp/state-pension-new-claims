@@ -8,6 +8,17 @@
       <div class="govuk-grid-column-two-thirds">
         {% include './_person.html' %}
 
+        {% set isSuspended = data['isSuspended'] %}
+        {% set isCivil = data['isCivil'] %}
+        {% set isRestarted = data['isRestarted'] %}
+
+        {% if isSuspended and not isRestarted %}
+          {{ govukWarningText({
+            html: '<p>If the claimant has left prison, and all their details are up to date, you can <a href="./prison-leave-date">restart their State Pension</a>.</p>',
+            iconFallbackText: "Warning"
+          }) }}
+        {% endif %}
+
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
@@ -131,8 +142,7 @@
           ]
         }) }}
 
-        {% set isSuspended = data['isSuspended'] %}
-        {% if isSuspended === 'yes' %}
+        {% if isSuspended and not isRestarted %}
           <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Record date of death</a>
         {% else %}
           <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="./stop-state-pension">Stop State Pension</a>
@@ -176,7 +186,23 @@
       </style>
       {% set timelineItems = [] %}
       {% set dateSuspended = "14 February 2025" %}
-      {% set isCivil = data['isCivil'] %}
+
+      {% if isRestarted === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Payment restarted letter sent",
+          byline: "System",
+          date: dateSuspended
+        }), timelineItems) %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date left prison added",
+          byline: "Agent",
+          date: dateSuspended,
+          link: {
+            text: "Details",
+            href: "/prison-details"
+          }
+        }), timelineItems) %}
+      {% endif %}
 
       {% if isSuspended === 'yes' %}
         {% set timelineItems = (timelineItems.push({

@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/prison-conviction/prison-type">
+    <form class="form" method="post" action="/prison-conviction/prison-conviction">
 
       {% include './_person.html' %}
 
@@ -14,26 +14,22 @@
       }) }}
 
       {{ govukRadios({
-        name: "prisonType",
+        name: "prisonConvicted",
         fieldset: {
           legend: {
-            text: "What type of case is it?",
+            text: "Were they convicted of a criminal offence?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "prisonTypeCriminal",
-            text: "Criminal"
+            value: "yes",
+            text: "Yes"
           },
           {
-            value: "prisonTypeCivil",
-            text: "Civil"
-          },
-          {
-            value: "prisonTypeUnknown",
-            text: "I don't know"
+            value: "no",
+            text: "No"
           }
         ]
       }) }}

@@ -1,7 +1,9 @@
 <div class="govuk-heading-xl">
   Leon Hibbert
   <span class="govuk-caption-l">QQ 12 34 56 X</span>
-  {% if data['isSuspended'] === 'yes' %}
+  {% set isSuspended = data['isSuspended'] === 'yes' %}
+  {% set isRestarted = data['isRestarted'] === 'yes' %}
+  {% if isSuspended and not isRestarted %}
     <strong class="govuk-tag govuk-tag--orange">
       Claimant in prison
     </strong>

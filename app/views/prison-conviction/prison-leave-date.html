@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/prison-conviction/prison-entry-date">
+    <form class="form" method="post" action="/prison-conviction/prison-leave-date">
 
       {% include './_person.html' %}
 
@@ -14,11 +14,11 @@
       }) }}
 
       {{ govukDateInput({
-        name: "prisonEntryDate",
-        namePrefix: "prisonEntry",
+        name: "prisonLeaveDate",
+        namePrefix: "prisonLeave",
         fieldset: {
           legend: {
-            text: "What date did the claimant enter prison?",
+            text: "What date did the claimant leave prison?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -30,17 +30,17 @@
           {
             name: "day",
             classes: "govuk-input--width-2",
-            value: data['prisonEntry-day']
+            value: data['prisonLeave-day']
           },
           {
             name: "month",
             classes: "govuk-input--width-2",
-            value: data['prisonEntry-month']
+            value: data['prisonLeave-month']
           },
           {
             name: "year",
             classes: "govuk-input--width-4",
-            value: data['prisonEntry-year']
+            value: data['prisonLeave-year']
           }
         ]
       }) }}
