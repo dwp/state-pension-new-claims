@@ -1,0 +1,53 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/prison-conviction/stop-state-pension">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukRadios({
+        name: "stopReason",
+        fieldset: {
+          legend: {
+            text: "Why are you stopping the claimant's State Pension?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "stopDied",
+            text: "Claimant has died"
+          },
+          {
+            value: "stopDeferred",
+            text: "Claimant has deferred their State Pension"
+          },
+          {
+            value: "stopPrison",
+            text: "Claimant is in prison"
+          },
+          {
+            value: "StopTemporary",
+            text: "Temporary suspension pending investigation"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

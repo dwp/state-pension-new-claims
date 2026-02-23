@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h1 class="govuk-heading-l">Check your answers</h1>
+
+    {% set prisonEntryDay = data['prisonEntry-day'] %}
+    {% set prisonEntryMonth = data['prisonEntry-month'] | monthName %}
+    {% set prisonEntryYear = data['prisonEntry-year']%}
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Entered prison" },
+          value: {
+            text: prisonEntryDay + " " + prisonEntryMonth + " " + prisonEntryYear
+          },
+          actions: {
+            items: [
+              {
+                href: "/prison-conviction/prison-entry-date",
+                text: "Change",
+                visuallyHiddenText: "prison entry date"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <form class="form" method="post" action="/prison-conviction/prison-entry-cya">
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/prison-conviction/prison-entry-date">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukDateInput({
+        name: "prisonEntryDate",
+        namePrefix: "prisonEntry",
+        fieldset: {
+          legend: {
+            text: "What date did the claimant enter prison?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        }
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

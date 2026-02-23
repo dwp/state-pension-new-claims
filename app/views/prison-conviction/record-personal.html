@@ -6,16 +6,7 @@
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
-
-          {% include './_bar-2.html' %}
-
-        {% else %}
-
-          {% include './_bar.html' %}
-
-        {% endif %}
+        {% include './_person.html' %}
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
@@ -52,6 +43,15 @@
 
         <h2 class="govuk-heading-m">Personal details</h2>
 
+        {% set prisonEntryDay = data['prisonEntry-day'] %}
+        {% set prisonEntryMonth = data['prisonEntry-month'] %}
+        {% set prisonEntryYear = data['prisonEntry-year']%}
+
+        <style>
+          .govuk-summary-list__key {
+            width: 45%;
+          }
+        </style>
         {{ govukSummaryList({
           rows: [
             {
@@ -114,6 +114,14 @@
             },
             {
               key: {
+                text: "Date entered prison"
+              },
+              value: {
+                text: prisonEntryDay + " " + (prisonEntryMonth | monthName ) + " " + prisonEntryYear
+              }
+            } if prisonEntryDay,
+            {
+              key: {
                 text: "Lived or worked abroad"
               },
               value: {
@@ -123,7 +131,12 @@
           ]
         }) }}
 
-        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Stop State Pension</a>
+        {% set isSuspended = data['isSuspended'] %}
+        {% if isSuspended === 'yes' %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Record date of death</a>
+        {% else %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="./stop-state-pension">Stop State Pension</a>
+        {% endif %}
         <br />
         <br />
         <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Lock record</a>
@@ -134,69 +147,80 @@
 
       <h3 class="govuk-heading-m">Personal changes</h3>
 
-    <style>
-      .dwp-timeline__item {
-        display: flex;
-        flex-direction: column;
-      }
-      .dwp-timeline__heading,
-      .dwp-timeline__by-line,
-      .dwp-timeline__datetime {
-        font-size: 19px;
-        line-height: 25px;
-      }
-      .dwp-timeline__heading {
-        order: 1;
-        margin-bottom: 0;
-      }
-      .dwp-timeline__by-line {
-        order: 2;
-        margin-bottom: 0;
-      }
-      .dwp-timeline__datetime {
-        order: 4;
-        color: #505a5f;
-      }
-      .dwp-timeline__link {
-        order: 3;
-      }
-    </style>
-    {% set timelineItems = [] %}
+      <style>
+        .dwp-timeline__item {
+          display: flex;
+          flex-direction: column;
+        }
+        .dwp-timeline__heading,
+        .dwp-timeline__by-line,
+        .dwp-timeline__datetime {
+          font-size: 19px;
+          line-height: 25px;
+        }
+        .dwp-timeline__heading {
+          order: 1;
+          margin-bottom: 0;
+        }
+        .dwp-timeline__by-line {
+          order: 2;
+          margin-bottom: 0;
+        }
+        .dwp-timeline__datetime {
+          order: 4;
+          color: #505a5f;
+        }
+        .dwp-timeline__link {
+          order: 3;
+        }
+      </style>
+      {% set timelineItems = [] %}
+      {% set dateSuspended = "14 February 2025" %}
+      {% set isCivil = data['isCivil'] %}
 
-    {% set dateSuspended = "14 February 2025" %}
+      {% if isSuspended === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Payment suspended letter sent",
+          byline: "System",
+          date: dateSuspended
+        }), timelineItems) %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date entered prison added",
+          byline: "Agent",
+          date: dateSuspended,
+          link: {
+            text: "Details",
+            href: "/prison-details"
+          }
+        }), timelineItems) %}
+      {% endif %}
 
-    {% if isSuspended %}
-      {% set timelineItems = (timelineItems.push({
-        title: "Payment suspended letter sent",
-        byline: "System",
-        date: dateSuspended
-      }), timelineItems) %}
-      {% set timelineItems = (timelineItems.push({
-        title: "Date entered prison added",
-        byline: "Agent",
-        date: dateSuspended
-      }), timelineItems) %}
-    {% endif %}
+      {% if isCivil === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Entered prison for civil case",
+          byline: "Agent",
+          date: dateSuspended
+        }), timelineItems) %}
+      {% endif %}
 
+      {% if not isSuspended and not isCivil %}
+        {% set timelineItems = (timelineItems.push({
+          title: "No changes made"
+        }), timelineItems) %}
+      {% endif %}
 
-    {% if not isSuspended %}
-      {% set timelineItems = (timelineItems.push({
-        title: "No changes made"
-      }), timelineItems) %}
-    {% endif %}
+      {{ dwpTimeline({
+        items: timelineItems
+      }) }}
 
-    {{ dwpTimeline({
-      items: timelineItems
-    }) }}
+      <script>
+        document.querySelectorAll('.dwp-timeline__by-line')
+        .forEach(element => {
+          element.textContent = element.textContent.replace('by ', '');
+        });
+      </script>
 
-    <script>
-      document.querySelectorAll('.dwp-timeline__by-line')
-      .forEach(element => {
-        element.textContent = element.textContent.replace('by ', '');
-      });
-    </script>
-
-    <p><a href="#">Full history</a></p>
+      <p><a href="#">Full history</a></p>
 
     </div>
   </main>

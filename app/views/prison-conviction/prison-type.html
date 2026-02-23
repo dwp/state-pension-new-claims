@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/prison-conviction/prison-type">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukRadios({
+        name: "prisonType",
+        fieldset: {
+          legend: {
+            text: "What type of case is it??",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Any changes will apply from the next payment date"
+        },
+        items: [
+          {
+            value: "prisonTypeCriminal",
+            text: "Criminal"
+          },
+          {
+            value: "prisonTypeCivil",
+            text: "Civil"
+          },
+          {
+            value: "prisonTypeUnknown",
+            text: "I don't know"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
