@@ -33,6 +33,7 @@ router.post('/prison-conviction/prison-suspend', (req, res) => {
 
 router.post('/prison-conviction/prison-entry-date', (req, res) => {
   const isChanging = req.query.change === 'true'
+
   if (isChanging) {
     res.redirect('prison-entry-cya')
   } else {
@@ -40,8 +41,16 @@ router.post('/prison-conviction/prison-entry-date', (req, res) => {
   }
 })
 
+router.use((req, res, next) => {
+  if (req.path !== '/prison-conviction/record-personal') {
+    req.session.data['showBanner'] = 'no'
+  }
+  next()
+})
+
 router.post('/prison-conviction/prison-entry-cya', (req, res) => {
   req.session.data['isSuspended'] = 'yes'
+  req.session.data['showBanner'] = 'yes'
   res.redirect('record-personal')
 })
 
@@ -60,6 +69,7 @@ router.post('/prison-conviction/prison-conviction', (req, res) => {
 
 router.post('/prison-conviction/prison-leave-cya', (req, res) => {
   req.session.data['isRestarted'] = 'yes'
+
   const prisonConvicted = req.session.data['prisonConvicted']
 
   if (prisonConvicted === 'yes') {
@@ -70,6 +80,7 @@ router.post('/prison-conviction/prison-leave-cya', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-refund', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
   res.redirect('record-personal')
 })
 
@@ -84,6 +95,7 @@ router.post('/prison-conviction/prison-overpayment', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-overpayment-info', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
   res.redirect('record-personal')
 })
 

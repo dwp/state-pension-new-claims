@@ -2,15 +2,44 @@
 
 {% extends "layouts/main-2.html" %}
 
+
 {% block content %}
+
+{% set isSuspended = data['isSuspended'] %}
+{% set isCivil = data['isCivil'] %}
+{% set isRestarted = data['isRestarted'] %}
+
+{% if isRestarted === 'yes' %}
+  {% set bannerType = 'left' %}
+{% elif isSuspended === 'yes' %}
+  {% set bannerType = 'entered' %}
+{% endif %}
+
+
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    Date {{ bannerType }} prison added
+  </h3>
+  <p class="govuk-body">
+    {% if isSuspended === 'yes' %}
+      A letter will automatically be sent to confirm their State Pension payment has been restarted.
+    {% else %}
+      A letter will automatically be sent to confirm the suspension of their State Pension payment.
+    {% endif %}
+  </p>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: html,
+    type: "success"
+  }) }}
+{% endif %}
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         {% include './_person.html' %}
-
-        {% set isSuspended = data['isSuspended'] %}
-        {% set isCivil = data['isCivil'] %}
-        {% set isRestarted = data['isRestarted'] %}
 
         {% if isSuspended and not isRestarted %}
           {{ govukWarningText({
