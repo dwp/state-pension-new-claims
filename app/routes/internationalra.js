@@ -47,6 +47,24 @@ router.post('/international-record/ra-iteration-2/rf1-returned', function (req, 
 
 // Channel Islands
 
+router.post('/international-task/ra-channel-islands/need-send', function (req, res) {
+  if (req.body['needSend'] === 'yes') {
+    res.redirect('did-claimant-join')
+  } else {
+    res.redirect('task-queue')
+  }
+})
+
+router.post('/international-task/ra-channel-islands/which-countries', function(request, response) {
+
+	var whichCountry = request.session.data['whichCountry']
+	if (whichCountry.includes("none")){
+		response.redirect("/international-task/ra-channel-islands/task-queue")
+	} else {
+		response.redirect("/international-task/ra-channel-islands/did-claimant-join")
+	}
+})
+
 router.post('/international-task/ra-channel-islands/did-claimant-join', function (req, res) {
   if (req.body['rf1Needed'] === 'yes') {
     res.redirect('request-rf1')

@@ -17,40 +17,20 @@
 
       <br><br>
 
-      <h1 class="govuk-heading-xl">Review award</h1>
+      <h1 class="govuk-heading-xl">Award calculated</h1>
 
       <br>
 
       <table class="govuk-table">       
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Updated award</th>
+            <th scope="row" class="govuk-table__header">State Pension award</th>
             <td class="govuk-table__cell">
               {% if data.enterSP and data.ppAmount %}  
                 <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
               {% else %}
                 <!--<b>{{data.enterSP | currency}}<b>-->
                 <b>£227.89</b>
-              {% endif %}
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header govuk-!-width-one-half">New State Pension</th>
-            <td class="govuk-table__cell">
-              {% if data.enterSP %}
-              {{data.enterSP | currency}}
-              {% else %}
-                £227.89
-              {% endif %}
-            </td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Protected payment</th>
-            <td class="govuk-table__cell">
-              {% if data.ppAmount %}
-                {{data.ppAmount | currency}}
-              {% else %}
-                £0.00
               {% endif %}
             </td>
           </tr>

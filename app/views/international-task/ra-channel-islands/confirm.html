@@ -82,14 +82,18 @@
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">Country information</caption>
         <tbody class="govuk-table__body">
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Guernsey</th>
-            <td class="govuk-table__cell">WorkedCountry1SS</td>
-          </tr>
+          {% if 'guernsey' in (data['whichCountry']) or data['needSend'] === 'yes'%}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Guernsey</th>
+              <td class="govuk-table__cell">WorkedCountry1SS</td>
+            </tr>
+          {% endif %}
+          {% if 'jersey' in (data['whichCountry']) %}
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Jersey</th>
             <td class="govuk-table__cell">WorkedCountry2SS</td>
           </tr>
+        {% endif %}
         </tbody>
       </table>
 

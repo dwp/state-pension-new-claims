@@ -1,0 +1,55 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Are you sure you want to remove this SRB?
+          </h1>
+        </legend>
+        <div class="govuk-radios" data-module="govuk-radios">
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="remove" name="remove" type="radio" value="yes">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+              Yes
+            </label>
+          </div>
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="remove-2" name="remove" type="radio" value="no">
+            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+              No
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </div>
+
+    <br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Confirm
+    </button>
+
+    <br><br><br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}
