@@ -5,15 +5,7 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
-
-          {% include './_bar-2.html' %}
-
-        {% else %}
-
-          {% include './_bar.html' %}
-
-        {% endif %}
+        {% include './_bar.html' %}
 
         {{ govukBackLink({
           text: "Back",
@@ -84,6 +76,13 @@
 
             </tbody>
           </table>
+
+          <div class="govuk-inset-text">
+            <p>This claimant is a member of a Maxwell scheme.</p>
+            <p>This award uses the rate from the claimant’s state pension date.<br>
+               The claimant lived in a frozen rate country after their State Pension date, so increases do not apply for that time.
+            </p>
+          </div>
 
           <br><br><br>
 

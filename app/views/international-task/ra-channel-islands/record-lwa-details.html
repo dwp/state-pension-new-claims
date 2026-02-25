@@ -34,6 +34,7 @@
             </strong>
           </div>
         {% elseif data['rf1Needed'] === 'no' %}
+        {% elseif 'none' in (data['whichCountry']) %}
         {% else %}
           <div class="govuk-warning-text">
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
@@ -50,14 +51,6 @@
             <h2 class="govuk-summary-card__title">
               Guernsey
             </h2>
-            <!--<ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Barbados</span></a>
-              </li>
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Barbados</span></a>
-              </li>
-            </ul>-->
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
@@ -94,14 +87,6 @@
             <h2 class="govuk-summary-card__title">
               Jersey
             </h2>
-            <!--<ul class="govuk-summary-card__actions">
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Remove<span class="govuk-visually-hidden"> Jamacia</span></a>
-              </li>
-              <li class="govuk-summary-card__action">
-                <a class="govuk-link" href="#">Change<span class="govuk-visually-hidden"> Jamacia</span></a>
-              </li>
-            </ul>-->
           </div>
           <div class="govuk-summary-card__content">
             <dl class="govuk-summary-list">
@@ -144,10 +129,42 @@
         <div class="dwp-timeline">
           <ol class="dwp-timeline__items">
 
-            {% if data['rf1Returned'] === 'yes' %}
+            {% if (('guernsey' in (data['whichCountry']) and 'jersey' in (data['whichCountry']))) and data['rf1Returned'] === 'yes' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">date - year - time</p>
-                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete</h2>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
+                <h2 class="dwp-timeline__heading">RA: RF1 returned</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data['needSend'] === 'no' and data['rf1Returned'] === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
+                <h2 class="dwp-timeline__heading">RA: RF1 returned</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif ('jersey' in (data['whichCountry']) or data['needSend'] === 'no') and data['rf1Returned'] === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Jersey</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
               <li class="dwp-timeline__item">
@@ -157,23 +174,92 @@
               </li>
             {% endif %}
             
-            {% if data['rf1Needed'] === 'yes' %}
+            {% if ('guernsey' in (data['whichCountry']) and 'jersey' in (data['whichCountry'])) and data['rf1Needed'] === 'yes' %}
               <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
+                <p class="dwp-timeline__datetime">date - year - time</p>
                 <h2 class="dwp-timeline__heading">RA: RF1 requested from HMRC</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
-            {% elseif data['rf1Needed'] === 'no' %}
+            {% elseif 'guernsey' in (data['whichCountry']) and data['rf1Needed'] === 'yes' %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">date - year - time</p>
-                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete</h2>
+                <h2 class="dwp-timeline__heading">RA: RF1 requested from HMRC</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
-            {% else %}  
               <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime"></p>
-                <h2 class="dwp-timeline__heading">No changes</h2>
-                <p class="dwp-timeline__by-line"></p>
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif 'jersey' in (data['whichCountry']) and data['rf1Needed'] === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: RF1 requested from HMRC</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if ('guernsey' in (data['whichCountry']) and 'jersey' in (data['whichCountry'])) and data['rf1Needed'] === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif 'guernsey' in (data['whichCountry']) and data['rf1Needed'] === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif 'jersey' in (data['whichCountry']) and data['rf1Needed'] === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['needSend'] === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif 'none' in (data['whichCountry']) %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Guernsey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date - year - time</p>
+                <h2 class="dwp-timeline__heading">RA: Channel Islands liaison application already complete for Jersey</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% endif %}
 

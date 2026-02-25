@@ -16,8 +16,34 @@
     <br><br>
 
     <h1 class="govuk-heading-l">SRB details</h1>
+
+    {% if data['remove'] == 'yes' %}
+
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">SRB 1</caption>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date SRB applies from</th>
+            <td class="govuk-table__cell">
+              {% if data['another-day'] or data['another-month'] or data['another-year'] %}
+                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+              {% else %}
+                State Pension date
+              {% endif %}
+            </td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of post 2016 years used</th>
+            <td class="govuk-table__cell">{{data.post2016}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of NSP qualifying years</th>
+            <td class="govuk-table__cell">{{data.nspQual}}</td>
+          </tr>
+        </tbody>
+      </table>
     
-    {% if data.years2 %}
+    {% elseif data.post20162 %}
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">SRB 1</caption>
@@ -33,8 +59,12 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Number of additional years</th>
-            <td class="govuk-table__cell">{{data.years}}</td>
+            <th scope="row" class="govuk-table__header">Number of post 2016 years used</th>
+            <td class="govuk-table__cell">{{data.post2016}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of NSP qualifying years</th>
+            <td class="govuk-table__cell">{{data.nspQual}}</td>
           </tr>
         </tbody>
       </table>
@@ -55,13 +85,17 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Number of additional years</th>
-            <td class="govuk-table__cell">{{data.years2}}</td>
+            <th scope="row" class="govuk-table__header">Number of post 2016 years used</th>
+            <td class="govuk-table__cell">{{data.post20162}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of NSP qualifying years</th>
+            <td class="govuk-table__cell">{{data.nspQual2}}</td>
           </tr>
         </tbody>
       </table>
 
-    {% elseif data.years %}
+    {% elseif data.post2016 %}
 
       <table class="govuk-table">
         <caption class="govuk-table__caption govuk-table__caption--m">SRB 1</caption>
@@ -77,8 +111,12 @@
             </td>
           </tr>
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Number of additional years</th>
-            <td class="govuk-table__cell">{{data.years}}</td>
+            <th scope="row" class="govuk-table__header">Number of post 2016 years used</th>
+            <td class="govuk-table__cell">{{data.post2016}}</td>
+          </tr>
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Number of NSP qualifying years</th>
+            <td class="govuk-table__cell">{{data.nspQual}}</td>
           </tr>
         </tbody>
       </table>
