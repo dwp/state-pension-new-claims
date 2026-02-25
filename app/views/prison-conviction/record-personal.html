@@ -22,9 +22,9 @@
     Date {{ bannerType }} prison added
   </h3>
   <p class="govuk-body">
-    {% if isSuspended === 'yes' %}
+    {% if isRestarted === 'yes' %}
       A letter will automatically be sent to confirm their State Pension payment has been restarted.
-    {% else %}
+    {% elif isSuspended === 'yes' %}
       A letter will automatically be sent to confirm the suspension of their State Pension payment.
     {% endif %}
   </p>
@@ -159,7 +159,7 @@
               value: {
                 text: prisonEntryDay + " " + (prisonEntryMonth | monthName ) + " " + prisonEntryYear
               }
-            } if isSuspended,
+            } if isSuspended and not isRestarted,
             {
               key: {
                 text: "Lived or worked abroad"
