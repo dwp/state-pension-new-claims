@@ -25,34 +25,25 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">State Pension award</th>
-            <td class="govuk-table__cell">
-              {% if data.enterSP and data.ppAmount %}  
-                <b>£{{ data.enterSP | float + data.ppAmount | float }}</b>
-              {% else %}
-                <!--<b>{{data.enterSP | currency}}<b>-->
-                <b>£227.89</b>
-              {% endif %}
-            </td>
+            <td class="govuk-table__cell"><b>£227.89</b></td>
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">From</th>
             <td class="govuk-table__cell">
-              {% if data['latePaid-day'] or data['latePaid-month'] or data['latePaid-year'] %}
-                {{data['latePaid-day']}} {{data['latePaid-month'] | monthName}} {{data['latePaid-year']}}
-              {% elseif data['another-day'] or data['another-month'] or data['another-year'] %}
+              {% if data['another2-year'] %}
+                {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
+              {% elseif data['another-year'] %}
                 {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
               {% else %}
-                State Pension date
+                1 March 2025
               {% endif %}
             </td>
           </tr>
         </tbody>
       </table>
 
-      <br>
-
       <div class="govuk-inset-text">
-        A letter will automatically be sent...
+        This will automatically pay any arrears and send an award letter to the claimant.
       </div>
 
       <br><br>

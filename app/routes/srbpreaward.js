@@ -16,12 +16,8 @@ router.post('/srb-pre-award/start-2', (req, res) => {
 })
 
 router.post('/srb-pre-award/do-you-have-date', function (req, res) {
-  if (req.session.data['journey'] === 'a' && req.body['haveDate'] === 'yes') {
-    res.redirect('date-needed-3')
-  } else if (req.session.data['journey'] === 'b' && (req.body['haveDate'] === 'yes' || req.body['haveDate2'] === 'yes')) {
-  res.redirect('date-needed-4')
-  } else if (req.session.data['journey'] === 'c' && req.body['haveDate'] === 'yes') {
-  res.redirect('date-needed-2')
+  if (req.body['haveDate'] === 'yes' || req.body['haveDate2'] === 'yes') {
+    res.redirect('date-needed-4')
   } else {
     res.redirect('complete-proforma')
   }

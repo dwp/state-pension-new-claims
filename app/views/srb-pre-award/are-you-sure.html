@@ -24,16 +24,44 @@
             Are you sure you want to remove this SRB?
           </h1>
         </legend>
+
+        <table class="govuk-table">       
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date SRB applies from</th>
+              <td class="govuk-table__cell">
+                {% if data['another2-day'] or data['another2-month'] or data['another2-year'] %}
+                  {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
+                {% else %}
+                  1 March 2025
+                {% endif %}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number of post 2016 years used</th>
+              <td class="govuk-table__cell">
+                {{data.post20162 }}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Number of NSP qualifying years</th>
+              <td class="govuk-table__cell">
+                {{data.nspQual2 }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
         <div class="govuk-radios" data-module="govuk-radios">
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="remove" name="remove" type="radio" value="yes">
-            <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+            <label class="govuk-label govuk-radios__label" for="remove">
               Yes
             </label>
           </div>
           <div class="govuk-radios__item">
             <input class="govuk-radios__input" id="remove-2" name="remove" type="radio" value="no">
-            <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+            <label class="govuk-label govuk-radios__label" for="remove-2">
               No
             </label>
           </div>

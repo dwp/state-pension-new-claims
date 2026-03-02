@@ -18,13 +18,17 @@
     <br><br>
 
     {% if data['whatDate2'] == 'SPa2' or data['whatDate2'] == 'anotherDate2' %}
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-l">SRB 2</span>
-        How many qualifying years are recorded in OLE for this SRB?
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">SRB 2</span>
+          How many qualifying years are recorded for this SRB?
+        <div id="account-number-hint" class="govuk-hint">
+          Enter the years from the NSP calculation screen in OLE.
+        </div>
       </h1>
+
       
       <div class="govuk-form-group">
-      <label class="govuk-label" for="post20162">
+      <label class="govuk-label govuk-label--m" for="post20162">
         Number of post 2016 years used
       </label>
       <div class="govuk-input__wrapper">
@@ -35,7 +39,7 @@
       <br><br>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="nspQual2">
+        <label class="govuk-label govuk-label--m" for="nspQual2">
           Number of NSP qualifying years
         </label>
         <div class="govuk-input__wrapper">
@@ -45,12 +49,16 @@
       </div>
 
     {% elseif data['whatDate'] == 'SPa' or data['whatDate'] == 'anotherDate' %}
-      <h1 class="govuk-heading-l">
-        <span class="govuk-caption-l">SRB 1</span>
-        How many qualifying years are recorded for this SRB?
+      <h1 class="govuk-heading-xl">
+        <span class="govuk-caption-xl">SRB 1</span>
+          How many qualifying years are recorded for this SRB?
+        <div id="account-number-hint" class="govuk-hint">
+          Enter the years from the NSP calculation screen in OLE.
+        </div>
       </h1>
+
       <div class="govuk-form-group">
-      <label class="govuk-label" for="post2016">
+      <label class="govuk-label govuk-label--m" for="post2016">
         Number of post 2016 years used
       </label>
       <div class="govuk-input__wrapper">
@@ -61,7 +69,7 @@
       <br><br>
 
       <div class="govuk-form-group">
-        <label class="govuk-label" for="nspQual">
+        <label class="govuk-label govuk-label--m" for="nspQual">
           Number of NSP qualifying years
         </label>
         <div class="govuk-input__wrapper">

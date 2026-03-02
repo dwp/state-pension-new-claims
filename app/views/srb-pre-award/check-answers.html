@@ -19,6 +19,13 @@
 
     <h1 class="govuk-heading-xl">Check your answers</h1>
 
+    {% if data['remove'] == 'yes' %}
+    {% elseif data['whatDate2'] == 'SPa2' or data['whatDate2'] == 'anotherDate2'%}
+      <p>You have added <b>2 SRBs</b>.</p>
+    {% endif %}  
+
+    <br>
+
     <div class="govuk-summary-card">
       <div class="govuk-summary-card__title-wrapper">
         <h2 class="govuk-summary-card__title">
@@ -40,11 +47,11 @@
               {% if data['another-day'] or data['another-month'] or data['another-year'] %}
                 {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
               {% else %}
-                State Pension date
+                1 March 2025
               {% endif %}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              <a class="govuk-link--no-visited-state" href="date-needed-4">Change<span class="govuk-visually-hidden">latePaid date</span></a>
             </dd>
           </div>
           <div class="govuk-summary-list__row">
@@ -99,11 +106,11 @@
                 {% if data['another2-day'] or data['another2-month'] or data['another2-year'] %}
                   {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
                 {% else %}
-                  State Pension date
+                  1 March 2025
                 {% endif %}
               </dd>
               <dd class="govuk-summary-list__actions">
-                <a class="govuk-link--no-visited-state" href="enter-date">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+                <a class="govuk-link--no-visited-state" href="date-needed-4">Change<span class="govuk-visually-hidden">latePaid date</span></a>
               </dd>
             </div>
             <div class="govuk-summary-list__row">
