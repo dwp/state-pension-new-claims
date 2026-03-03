@@ -1,0 +1,87 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+<form method="post">
+
+  {% include './_bar.html' %}
+
+  {{ govukBackLink({
+    "text": "Back",
+    "href": "javascript: window.history.go(-1)"
+  })
+}}
+
+<br><br>
+
+<h1 class="govuk-heading-l">COEG investigation is ongoing</h1>
+
+<p>HMRC is still working on the COEG investigation. An award cannot be issued on GySP until the investigation is complete.</p>
+
+<p>Notify your team leader if the claimant is experiencing financial hardship.</p>
+
+<br>
+
+<div class="govuk-form-group">
+  <fieldset class="govuk-fieldset">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h1 class="govuk-fieldset__heading">
+        What do you want to do?
+      </h1>
+    </legend>
+    <div class="govuk-radios" data-module="govuk-radios">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive" name="whereDoYouLive" type="radio" value="england">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive">
+          Wait for HMRC to finish the investigation
+        </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="whereDoYouLive-2" name="whereDoYouLive" type="radio" value="scotland">
+        <label class="govuk-label govuk-radios__label" for="whereDoYouLive-2">
+          Pass this claim to my team lead
+        </label>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<br>
+
+  <button class="govuk-button" data-module="govuk-button">
+  Continue
+  </button>
+
+   <br><br><br><br><br>
+
+  </div>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+
+    <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+    
+    <br>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+        <b>URL and notes</b>
+        </span>
+      </summary>
+      <div class="govuk-details__text">
+        <b>URL:</b>#<br>
+        <b>Notes:</b> If citizen has pension credit, the agent will be prompted to <a href="br403-part-a.html" class="govuk-link">complete Part A of the BR403</a><br> <br>
+      </div>
+    </details>
+
+
+  </div>
+
+</div>
+
+{% endblock %}

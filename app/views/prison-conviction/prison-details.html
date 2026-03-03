@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "./record-personal"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      Prison details
+    </h1>
+
+    {% set isSuspended = data['isSuspended'] %}
+    {% set isRestarted = data['isRestarted'] %}
+
+    {% if data['prisonEntry-month'] %}
+      {% set prisonEntryDate = data['prisonEntry-day'] + " " + (data['prisonEntry-month'] | monthName) + " " + data['prisonEntry-year'] %}
+    {% else %}
+      {% set prisonEntryDate = "Not provided" %}
+    {% endif %}
+
+    {% if data['prisonLeave-month'] %}
+      {% set prisonLeaveDate = data['prisonLeave-day'] + " " + (data['prisonLeave-month'] | monthName) + " " + data['prisonLeave-year'] %}
+    {% else %}
+      {% set prisonLeaveDate = "Not provided" %}
+    {% endif %}
+
+{#
+
+    {% set prisonEntryDay = data['prisonEntry-day'] %}
+    {% set prisonEntryMonth = data['prisonEntry-month'] %}
+    {% set prisonEntryYear = data['prisonEntry-year' ]%}
+    {% set prisonEntryDate = prisonEntryDay + " " + (prisonEntryMonth | monthName) + " " + prisonEntryYear %}
+
+    {% set prisonLeaveDay = data['prisonLeave-day'] %}
+    {% set prisonLeaveMonth = data['prisonLeave-month'] %}
+    {% set prisonLeaveYear = data['prisonLeave-year'] %}
+    {% set prisonLeaveDate = prisonLeaveDay + " " + (prisonLeaveMonth | monthName)+ " " + prisonLeaveYear %}
+ #}
+
+    <style>
+      .govuk-summary-list__key {
+        width: 45%;
+      }
+    </style>
+
+
+{% set summaryRows = [] %}
+
+{% if isRestarted === 'yes' %}
+  {% set summaryRows = (summaryRows.push({
+    key: { text: "Left prison" },
+    value: { text: prisonLeaveDate }
+  }), summaryRows) %}
+{% endif %}
+
+{% if isSuspended === 'yes' %}
+  {% set summaryRows = (summaryRows.push({
+    key: { text: "Entered prison" },
+    value: { text: prisonEntryDate }
+  }), summaryRows) %}
+{% endif %}
+
+{{ govukSummaryList({
+  rows: summaryRows
+}) }}
+
+{#
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Left prison" },
+          value: { text: prisonEntryDate }
+        } if isRestarted === 'yes',
+        {
+          key: { text: "Entered prison" },
+          value: { text: prisonLeaveDate }
+        } if isSuspended === 'yes'
+      ]
+    }) }} #}
+
+  </div>
+</div>
+
+{% endblock %}
