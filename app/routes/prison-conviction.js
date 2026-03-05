@@ -59,6 +59,10 @@ router.post('/prison-conviction/prison-type-civil', (req, res) => {
   res.redirect('record-personal')
 })
 
+router.post('/prison-conviction/prison-details-check', (req, res) => {
+  res.redirect('prison-leave-date')
+})
+
 router.post('/prison-conviction/prison-leave-date', (req, res) => {
   res.redirect('prison-conviction')
 })

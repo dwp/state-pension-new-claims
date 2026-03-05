@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      Check their contact and payment details
+    </h1>
+
+    <p>Before you restart their Start Pension, check that all their details are correct and up to date:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>Address</li>
+      <li>Bank details</li>
+      <li>Payment frequency</li>
+    </ul>
+
+    <form class="form" method="post" action="/prison-conviction/prison-details-check">
+      {{ govukButton({
+        text: "Confirm and continue"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

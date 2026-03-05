@@ -43,7 +43,7 @@
 
         {% if isSuspended and not isRestarted %}
           {{ govukWarningText({
-            html: '<p>If the claimant has left prison, and all their details are up to date, you can <a href="./prison-leave-date">restart their State Pension</a>.</p>',
+            html: '<p>If the claimant has left prison, you can <a href="./prison-details-check">restart their State Pension</a>.</p>',
             iconFallbackText: "Warning"
           }) }}
         {% endif %}
