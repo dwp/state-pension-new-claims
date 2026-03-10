@@ -15,19 +15,10 @@
   {% set bannerType = 'entered' %}
 {% endif %}
 
-
-
 {% set html %}
   <h3 class="govuk-notification-banner__heading">
     Date {{ bannerType }} prison added
   </h3>
-  <p class="govuk-body">
-    {% if isRestarted === 'yes' %}
-      A letter will automatically be sent to confirm their State Pension payment has been restarted.
-    {% elif isSuspended === 'yes' %}
-      A letter will automatically be sent to confirm the suspension of their State Pension payment.
-    {% endif %}
-  </p>
 {% endset %}
 
 {% if data['showBanner'] === "yes" %}
