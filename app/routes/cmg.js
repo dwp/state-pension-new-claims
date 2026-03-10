@@ -52,7 +52,13 @@ router.post('/cmg/cmg-change-cya', (req, res) => {
 })
 
 router.post('/cmg/cmg-remove', (req, res) => {
-  req.session.data['showBanner'] = 'yes'
+  const confirmRemoval = req.session.data['confirmRemoval']
+  if (confirmRemoval === 'yes') {
+    req.session.data['showBanner'] = 'yes'
+  } else {
+    req.session.data['showBanner'] = 'no'
+  }
+
   res.redirect('record-award')
 })
 
