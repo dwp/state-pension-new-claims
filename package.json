@@ -8,7 +8,7 @@
   "engines": {
     "node": "20.x"
   },
-  "name": "state-pension-new-claims",
+  "name": "state-pension-new-claims-prototype",
   "dependencies": {
     "@dwp/dwp-frontend": "3.3.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
