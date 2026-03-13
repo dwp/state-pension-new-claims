@@ -2,8 +2,7 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start",
-    "heroku-prebuild": "rm -rf package-lock.json"
+    "start": "govuk-prototype-kit start"
   },
   "engines": {
     "node": "20.x"
