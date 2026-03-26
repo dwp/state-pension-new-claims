@@ -72,7 +72,6 @@ router.post('/prison-conviction/prison-conviction', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-leave-cya', (req, res) => {
-  req.session.data['isRestarted'] = 'yes'
 
   const prisonConvicted = req.session.data['prisonConvicted']
 
@@ -84,6 +83,7 @@ router.post('/prison-conviction/prison-leave-cya', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-refund', (req, res) => {
+  req.session.data['isRestarted'] = 'yes'
   req.session.data['showBanner'] = 'yes'
   res.redirect('record-personal')
 })
@@ -99,7 +99,9 @@ router.post('/prison-conviction/prison-overpayment', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-overpayment-info', (req, res) => {
+  req.session.data['isRestarted'] = 'yes'
   req.session.data['showBanner'] = 'yes'
+
   res.redirect('record-personal')
 })
 
