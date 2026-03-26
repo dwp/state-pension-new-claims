@@ -1,0 +1,43 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h2 class="govuk-heading-l">Check your answers</h2>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "New Child Maintenance deduction amount" },
+          value: { text: "£" + data['changedAmount'] },
+          actions: {
+            items: [
+              {
+                href: "/cmg/cmg-change",
+                text: "Change",
+                visuallyHiddenText: "new deduction amount"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <form class="form" method="post" action="/cmg/cmg-change-cya">
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

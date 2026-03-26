@@ -100,7 +100,6 @@ router.post('/prison-conviction/prison-overpayment', (req, res) => {
 
 router.post('/prison-conviction/prison-overpayment-info', (req, res) => {
   req.session.data['showBanner'] = 'yes'
-
   res.redirect('record-personal')
 })
 

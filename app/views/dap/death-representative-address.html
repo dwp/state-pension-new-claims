@@ -1,0 +1,46 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-representative-address">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      <h1 class="govuk-heading-l">Address of the person dealing with Leon's estate</h1>
+
+      {{ govukInput({
+        label: {
+          text: "Property number or name"
+        },
+        classes: "govuk-input--width-10",
+        id: "representative-property",
+        name: "representativeProperty",
+        value: data['representativeProperty']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "UK postcode"
+        },
+        classes: "govuk-input--width-5",
+        id: "representative-postcode",
+        name: "representativePostcode",
+        value: data['representativePostcode']
+      }) }}
+
+      {{ govukButton({
+        text: "Find address"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

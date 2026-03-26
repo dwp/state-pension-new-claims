@@ -17,21 +17,6 @@
 
     <br><br>
 
-    <!--<div class="govuk-error-summary" data-module="govuk-error-summary">
-      <div role="alert">
-        <h2 class="govuk-error-summary__title">
-          There is a problem
-        </h2>
-        <div class="govuk-error-summary__body">
-          <ul class="govuk-list govuk-error-summary__list">
-            <li>
-              <a href="#">The date the SRB applies from must be on or after {dd/mm/yyyy}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>-->
-
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
     {% from "govuk/components/input/macro.njk" import govukInput %}
     {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
@@ -39,40 +24,6 @@
     {% if data['whatDate'] == 'SPa' or data['whatDate'] == 'anotherDate' %}
     
       {% set anotherDate2 %}
-        <!--{{ govukDateInput({
-          fieldset: {
-            legend: {
-              text: "Date the SRB applies from",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          hint: {
-            text: "This is the late paid date in OLE."
-          },
-          errorMessage: {
-            text: "The date the SRB applies from must be on or after {dd/mm/yyyy}"
-          },
-          id: "passport-issued",
-          namePrefix: "passport-issued",
-          items: [
-            {
-              classes: "govuk-input--width-2 govuk-input--error",
-              name: "day",
-              value: "6"
-            },
-            {
-              classes: "govuk-input--width-2 govuk-input--error",
-              name: "month",
-              value: "3"
-            },
-            {
-              classes: "govuk-input--width-4 govuk-input--error",
-              name: "year",
-              value: "2024"
-            }
-          ]
-        }) }}-->
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" role="group" aria-describedby="another2-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -125,7 +76,7 @@
           }
         },
         hint: {
-          html: '<p class="govuk-body">Check OLE for details. If you are applying more than one SRB, you must add them in the correct order with the earliest SRB first.</p>'
+          text: "Check OLE for details."
         },
         items: [
           {
@@ -200,7 +151,7 @@
           }
         },
         hint: {
-          html: '<p class="govuk-body">Check OLE for details. If you are applying more than one SRB, you must add them in the correct order with the earliest SRB first.</p>'
+          text: "Check OLE for details."
         },
         items: [
           {

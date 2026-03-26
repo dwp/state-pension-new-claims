@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-representative-address-found">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      <h1 class="govuk-heading-l" id="address-heading">Address of the person dealing with Leon's estate</h1>
+
+      <p>1 address found for <b>{{ data['representativeProperty'] }}</b> and <b>{{ data['representativePostcode'] }}</b> <a href="death-representative-address">Change</a></p>
+
+
+      {{ govukRadios({
+        name: "representativeAddress",
+        attributes: {
+          "aria-labelledby": "address-heading"
+        },
+        items: [
+          {
+            value: "address",
+            text: "1 High Street, Newcastle upon Tyne, NE1 4UR",
+            checked: data['representativeAddress'] == "address"
+          },
+          {
+            divider: "or"
+          },
+          {
+            value: "notFound",
+            text: "Address not found",
+            checked: data['representativeAddress'] == "notFound"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/cmg/cmg-remove">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukRadios({
+        name: "confirmRemoval",
+        fieldset: {
+          legend: {
+            text: "Are you sure you want to remove the Child Maintenance deduction?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes"
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

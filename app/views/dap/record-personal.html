@@ -1,0 +1,277 @@
+
+
+{% extends "layouts/main-2.html" %}
+
+
+{% block content %}
+
+{% set isSuspended = data['isSuspended'] %}
+{% set isCivil = data['isCivil'] %}
+{% set isRestarted = data['isRestarted'] %}
+
+{% if isRestarted === 'yes' %}
+  {% set bannerType = 'left' %}
+{% elif isSuspended === 'yes' %}
+  {% set bannerType = 'entered' %}
+{% endif %}
+
+{% set html %}
+  <h3 class="govuk-notification-banner__heading">
+    Date {{ bannerType }} prison added
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: html,
+    type: "success"
+  }) }}
+{% endif %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        {% include './_person.html' %}
+
+        {% if isSuspended and not isRestarted %}
+          {{ govukWarningText({
+            html: '<p>If the claimant has left prison, you can <a href="./prison-details-check">restart their State Pension</a>.</p>',
+            iconFallbackText: "Warning"
+          }) }}
+        {% endif %}
+
+        {{ xGovukSecondaryNavigation({
+          visuallyHiddenTitle: "Secondary menu",
+          items: [{
+            text: "Personal",
+            href: "record-personal",
+            current: true
+          },
+          {
+            text: "Contact",
+            href: "record-contact"
+          },
+          {
+            text: "Award",
+            href: "record-award"
+          },
+          {
+            text: "Payment",
+            href: "record-payment"
+          },
+          {
+            text: "Tasks",
+            href: "record-tasks"
+          },
+          {
+            text: "Full history",
+            href: "record-full-history"
+          }]
+        }) }}
+
+
+
+        <br>
+
+        <h2 class="govuk-heading-m">Personal details</h2>
+
+        {% set prisonEntryDay = data['prisonEntry-day'] %}
+        {% set prisonEntryMonth = data['prisonEntry-month'] %}
+        {% set prisonEntryYear = data['prisonEntry-year']%}
+
+        <style>
+          .govuk-summary-list__key {
+            width: 45%;
+          }
+        </style>
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Full name"
+              },
+              value: {
+                text: "Leon Hibbert"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "National Insurance number"
+              },
+              value: {
+                text: "QQ 12 34 56 X"
+              }
+            },
+            {
+              key: {
+                text: "Date of birth"
+              },
+              value: {
+                text: "22 June 1956"
+              }
+            },
+            {
+              key: {
+                text: "State Pension date"
+              },
+              value: {
+                text: "01 March 2025"
+              }
+            },
+            {
+              key: {
+                text: "Marital status"
+              },
+              value: {
+                text: "Married"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "contact details"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Date entered prison"
+              },
+              value: {
+                text: prisonEntryDay + " " + (prisonEntryMonth | monthName ) + " " + prisonEntryYear
+              }
+            } if isSuspended and not isRestarted,
+            {
+              key: {
+                text: "Lived or worked abroad"
+              },
+              value: {
+                text: "No"
+              }
+            }
+          ]
+        }) }}
+
+        {% set isDead = data['deathDateVerified'] === 'verified' %}
+        {% if isDead %}
+        {% elif isSuspended and not isRestarted %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Record date of death</a>
+        {% else %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="./stop-state-pension">Stop State Pension</a>
+        {% endif %}
+        <br />
+        <br />
+        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Lock record</a>
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+
+      <h3 class="govuk-heading-m">Personal changes</h3>
+
+      <style>
+        .dwp-timeline__item {
+          display: flex;
+          flex-direction: column;
+        }
+        .dwp-timeline__heading,
+        .dwp-timeline__by-line,
+        .dwp-timeline__datetime {
+          font-size: 19px;
+          line-height: 25px;
+        }
+        .dwp-timeline__heading {
+          order: 1;
+          margin-bottom: 0;
+        }
+        .dwp-timeline__by-line {
+          order: 2;
+          margin-bottom: 0;
+        }
+        .dwp-timeline__datetime {
+          order: 4;
+          color: #505a5f;
+        }
+        .dwp-timeline__link {
+          order: 3;
+        }
+      </style>
+      {% set timelineItems = [] %}
+      {% set dateSuspended = "14 February 2025" %}
+
+      {% if isRestarted === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Payment restarted letter sent",
+          byline: "System",
+          date: dateSuspended
+        }), timelineItems) %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date left prison added",
+          byline: "Agent",
+          date: dateSuspended,
+          link: {
+            text: "Details",
+            href: "./prison-details"
+          }
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if isSuspended === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Payment suspended letter sent",
+          byline: "System",
+          date: dateSuspended
+        }), timelineItems) %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date entered prison added",
+          byline: "Agent",
+          date: dateSuspended,
+          link: {
+            text: "Details",
+            href: "./prison-details"
+          }
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if isCivil === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Entered prison for civil case",
+          byline: "Agent",
+          date: dateSuspended
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if not isSuspended and not isCivil %}
+        {% set timelineItems = (timelineItems.push({
+          title: "No changes made"
+        }), timelineItems) %}
+      {% endif %}
+
+      {{ dwpTimeline({
+        items: timelineItems
+      }) }}
+
+      <script>
+        document.querySelectorAll('.dwp-timeline__by-line')
+        .forEach(element => {
+          element.textContent = element.textContent.replace('by ', '');
+        });
+      </script>
+
+      <p><a href="#">Full history</a></p>
+
+    </div>
+  </main>
+</div>
+
+{% endblock %}

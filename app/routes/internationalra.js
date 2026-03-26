@@ -51,15 +51,7 @@ router.post('/international-task/ra-channel-islands/need-send', function (req, r
   if (req.body['needSend'] === 'yes') {
     res.redirect('did-claimant-join')
   } else {
-    res.redirect('are-you-sure')
-  }
-})
-
-router.post('/international-task/ra-channel-islands/are-you-sure', function (req, res) {
-  if (req.body['sure'] === 'yes') {
     res.redirect('task-queue')
-  } else {
-    res.redirect('need-send')
   }
 })
 
@@ -67,7 +59,7 @@ router.post('/international-task/ra-channel-islands/which-countries', function(r
 
 	var whichCountry = request.session.data['whichCountry']
 	if (whichCountry.includes("none")){
-		response.redirect("/international-task/ra-channel-islands/are-you-sure")
+		response.redirect("/international-task/ra-channel-islands/task-queue")
 	} else {
 		response.redirect("/international-task/ra-channel-islands/did-claimant-join")
 	}
