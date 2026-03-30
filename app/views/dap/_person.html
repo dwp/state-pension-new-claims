@@ -3,10 +3,16 @@
   <span class="govuk-caption-l">QQ 12 34 56 X</span>
   {% set isSuspended = data['isSuspended'] === 'yes' %}
   {% set isRestarted = data['isRestarted'] === 'yes' %}
-  {% set isDead = data['deathDateVerified'] === 'verified' %}
-  {% if isDead %}
+  {% set deathDateVerified = data['deathDateVerified'] === 'verified' %}
+  {% set deathDatenotVerified = data['deathDateVerified']  === 'notVerified' %}
+
+  {% if deathDateVerified %}
     <strong class="govuk-tag govuk-tag--grey">
       Dead
+    </strong>
+  {% elif deathDatenotVerified %}
+    <strong class="govuk-tag govuk-tag--grey">
+      Dead - not verified
     </strong>
   {% elif isSuspended and not isRestarted %}
     <strong class="govuk-tag govuk-tag--orange">

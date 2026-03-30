@@ -34,7 +34,33 @@ router.post('/dap/death-final', (req, res) => {
 })
 
 router.post('/dap/death-representative-cya', (req, res) => {
+  req.session.data['representativeDetailsCollected'] = 'yes'
   res.redirect('record-personal')
+})
+
+router.post('/dap/death-verify', (req, res) => {
+  const verifyDateOfDeath = req.session.data['verifyDateOfDeath']
+
+  if (verifyDateOfDeath === 'yes') {
+    res.redirect('death-verify-suggested')
+  } else {
+    res.redirect('record-personal')
+  }
+})
+
+router.post('/dap/death-verify-suggested', (req, res) => {
+  const verifyDateOfDeathSuggestion = req.session.data['verifyDateOfDeathSuggestion']
+
+  if (verifyDateOfDeathSuggestion === 'yes') {
+    req.session.data['deathDateVerified'] = 'verified'
+    res.redirect('record-personal')
+  } else {
+    res.redirect('death-verify-date')
+  }
+})
+
+router.post('/dap/death-verify-date', (req, res) => {
+  res.redirect('death-representative-name')
 })
 
 
@@ -50,15 +76,6 @@ router.post('/dap/death-representative-cya', (req, res) => {
 //   }
 // })
 
-// router.post('/dap/prison-suspend', (req, res) => {
-//   const prisonSuspend = req.session.data['prisonSuspend']
-
-//   if (prisonSuspend === 'yes') {
-//     res.redirect('prison-entry-date')
-//   } else {
-//     res.redirect('record-personal')
-//   }
-// })
 
 // router.post('/dap/prison-entry-date', (req, res) => {
 //   const isChanging = req.query.change === 'true'
