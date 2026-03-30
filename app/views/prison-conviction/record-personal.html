@@ -39,6 +39,15 @@
           }) }}
         {% endif %}
 
+        {% set tasksLinkHtml %}
+          Tasks
+          {% if data['prisonOverpay'] == "no" %}
+            {{ hmrcNotificationBadge({
+              text: "1"
+            }) }}
+          {% endif %}
+        {% endset %}
+
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
           items: [{
@@ -59,7 +68,7 @@
             href: "record-payment"
           },
           {
-            text: "Tasks",
+            text: tasksLinkHtml | safe,
             href: "record-tasks"
           },
           {
