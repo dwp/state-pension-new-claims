@@ -1,0 +1,78 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">Enter the information from the Veterans Agency/relevant team</h1>
+
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+      {{ govukDateInput({
+        id: "from",
+        namePrefix: "from",
+        fieldset: {
+          legend: {
+            text: "From date",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        }
+      }) }}
+
+      <br>
+
+      {{ govukDateInput({
+        id: "to",
+        namePrefix: "to",
+        fieldset: {
+          legend: {
+            text: "To date",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--m"
+          }
+        }
+      }) }}
+
+      <br>
+
+      {% from "govuk/components/input/macro.njk" import govukInput %}
+
+      {{ govukInput({
+        id: "weeklyAmount",
+        name: "weeklyAmount",
+        label: {
+          text: "Weekly amount of Unemployability Supplement / deductable payments",
+          classes: "govuk-label--m",
+          isPageHeading: false
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+</div>
+
+{% endblock %}
