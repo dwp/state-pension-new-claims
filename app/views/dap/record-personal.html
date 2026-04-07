@@ -1,5 +1,3 @@
-
-
 {% extends "layouts/main-2.html" %}
 
 
@@ -83,7 +81,7 @@
         {% set prisonEntryYear = data['prisonEntry-year'] %}
 
         {% set deathDateDay = data['deathDate-day'] %}
-        {% set deathDateMonth = data['deathDate-month'] | monthName %}
+        {% set deathDateMonth = data['deathDate-month'] %}
         {% set deathDateYear = data['deathDate-year'] %}
 
         <style>
@@ -158,7 +156,7 @@
                 text: "Date of death"
               },
               value: {
-                text: deathDateDay + " " + deathDateMonth + " " + deathDateYear
+                text: deathDateDay + " " + (deathDateMonth | monthName ) + " " + deathDateYear
               },
               actions: {
                 items: [
