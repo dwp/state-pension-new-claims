@@ -264,6 +264,48 @@
         }
       </style>
       {% set timelineItems = [] %}
+      {% set dateDeathEntered = "7 April 2025" %}
+
+      {% if data['deathDateVerifiedLater'] === 'yes' %}
+        {% set dateDeathVerifiedLater = "8 April 2025" %}
+      {% elif data['deathDateVerified'] === 'verified' and not data['deathDateVerifiedLater'] %}
+        {% set dateDeathVerifiedLater = dateDeathEntered %}
+      {% endif %}
+
+      {% if data['deathDateVerified'] === 'verified' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Arrears calculated - awaiting payee details",
+          byline: "Agent",
+          date: dateDeathVerifiedLater
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if data['deathDateVerified'] === 'verified' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date of death - verified",
+          byline: "Agent",
+          date: dateDeathVerifiedLater
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if (data['deathDateVerified'] === 'notVerified' or data['deathDateVerifiedLater'] === 'yes') and data['representativeName'] %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Recorded details of person dealing with the estate",
+          byline: "Agent",
+          date: dateDeathEntered
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if data['deathDateVerified'] === 'notVerified' or data['deathDateVerifiedLater'] === 'yes' %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date of death - not verified",
+          byline: "Agent",
+          date: dateDeathEntered
+        }), timelineItems) %}
+      {% endif %}
+
+
+
       {% set dateSuspended = "14 February 2025" %}
 
       {% if isRestarted === 'yes' %}
@@ -308,7 +350,7 @@
         }), timelineItems) %}
       {% endif %}
 
-      {% if not isSuspended and not isCivil %}
+      {% if not isSuspended and not isCivil and not data['deathDateVerified'] %}
         {% set timelineItems = (timelineItems.push({
           title: "No changes made"
         }), timelineItems) %}

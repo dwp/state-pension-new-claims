@@ -52,6 +52,7 @@ router.post('/dap/death-verify-suggested', (req, res) => {
   const verifyDateOfDeathSuggestion = req.session.data['verifyDateOfDeathSuggestion']
 
   if (verifyDateOfDeathSuggestion === 'yes') {
+    req.session.data['deathDateVerifiedLater'] = 'yes'
     req.session.data['deathDateVerified'] = 'verified'
     res.redirect('record-personal')
   } else {

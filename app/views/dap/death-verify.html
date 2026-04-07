@@ -14,7 +14,7 @@
       }) }}
 
       {{ govukRadios({
-        name: "verifyDateOfDeath",
+        name: "deathDateVerified",
         classes: "govuk-radios--inline",
         fieldset: {
           legend: {
@@ -25,11 +25,11 @@
         },
         items: [
           {
-            value: "yes",
+            value: "verifyerified",
             text: "Yes"
           },
           {
-            value: "no",
+            value: "notVerified",
             text: "No"
           }
         ]
