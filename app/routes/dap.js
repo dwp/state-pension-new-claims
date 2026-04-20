@@ -17,6 +17,12 @@ router.post('/dap/death-representative-name', (req, res) => {
   res.redirect('death-representative-phone')
 })
 
+router.post('/dap/set-details-unknown', function (req, res) {
+  // Lives on /dap/death-representative-name
+  req.session.data['deathFirstPassDone'] = 'yes'
+  res.redirect('/dap/record-personal')
+})
+
 router.post('/dap/death-representative-phone', (req, res) => {
   res.redirect('death-representative-address')
 })
@@ -35,17 +41,25 @@ router.post('/dap/death-final', (req, res) => {
 
 router.post('/dap/death-representative-cya', (req, res) => {
   req.session.data['representativeDetailsCollected'] = 'yes'
+  req.session.data['deathFirstPassDone'] = 'yes'
   res.redirect('record-personal')
 })
 
 router.post('/dap/death-verify', (req, res) => {
-  const verifyDateOfDeath = req.session.data['verifyDateOfDeath']
+  const deathDateVerified = req.session.data['deathDateVerified']
 
-  if (verifyDateOfDeath === 'yes') {
+
+   if (deathDateVerified === 'verified') {
     res.redirect('death-verify-suggested')
   } else {
     res.redirect('record-personal')
   }
+
+  // if (verifyDateOfDeath === 'yes') {
+  //   res.redirect('death-verify-suggested')
+  // } else {
+  //   res.redirect('record-personal')
+  // }
 })
 
 router.post('/dap/death-verify-suggested', (req, res) => {

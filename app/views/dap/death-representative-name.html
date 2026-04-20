@@ -23,19 +23,22 @@
         name: "representativeName"
       }) }}
 
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-        {{ govukButton({
-          text: "Details not known",
-          href: "record-personal",
-          classes: "govuk-button--secondary"
-        }) }}
-      </div>
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          style: "float: left; margin-right: 15px;"
+        }
+      }) }}
 
     </form>
+
+    <form method="post" action="/dap/set-details-unknown">
+      {{ govukButton({
+        text: "Details not known",
+        classes: "govuk-button--secondary"
+      }) }}
+    </form>
+
   </div>
 </div>
 

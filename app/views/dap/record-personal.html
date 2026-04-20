@@ -7,21 +7,25 @@
 {% set isCivil = data['isCivil'] %}
 {% set isRestarted = data['isRestarted'] %}
 
-{% if isRestarted === 'yes' %}
-  {% set bannerType = 'left' %}
-{% elif isSuspended === 'yes' %}
-  {% set bannerType = 'entered' %}
+{% if deathDateNotVerified === 'yes' %}
+  {% set bannerMessage = 'Date of death - not verified' %}
+{% elif deathDateVerified === 'yes' %}
+  {% set bannerMessage = 'Date of death - verified' %}
+{% elif deathRepEntered === 'yes' %}
+  {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
+{% elif deathRepEntered === 'yes' and deathDateVerified === 'yes' %}
+  {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
 {% endif %}
 
-{% set html %}
+{% set bannerHtml %}
   <h3 class="govuk-notification-banner__heading">
-    Date {{ bannerType }} prison added
+    {{ bannerMessage }}
   </h3>
 {% endset %}
 
 {% if data['showBanner'] === "yes" %}
   {{ govukNotificationBanner({
-    html: html,
+    html: bannerHtml,
     type: "success"
   }) }}
 {% endif %}
