@@ -2,6 +2,36 @@
 
 {% block content %}
 
+
+{% set awaitingBannerType = data['awaitingBannerType'] %}
+
+{% if awaitingBannerType === 'name' %}
+  {% set bannerMessage = 'full name changed' %}
+{% elif awaitingBannerType === 'phone' %}
+  {% set bannerMessage = 'phone number changed' %}
+{% elif awaitingBannerType === 'address' %}
+  {% set bannerMessage = 'address changed' %}
+{% endif %}
+
+{#
+  2 more messages to add:
+  - phone number removed
+  - phone number added
+#}
+
+{% set bannerHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    Death arrears payee {{ bannerMessage }}
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: bannerHtml,
+    type: "success"
+  }) }}
+{% endif %}
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -9,11 +39,11 @@
 
     {{ govukBackLink({
       "text": "Back",
-      "href": "javascript: window.history.go(-1)"
+      "href": "record-personal"
     }) }}
 
     <h1 class="govuk-heading-l">
-      Check details and send BR330 form
+      Death arrears payee (DAP) details
     </h1>
 
     {{ govukSummaryList({
@@ -28,7 +58,7 @@
           actions: {
             items: [
               {
-                href: "death-representative-name",
+                href: "death-representative-awaiting-name",
                 text: "Change",
                 visuallyHiddenText: "name"
               }
@@ -45,7 +75,7 @@
           actions: {
             items: [
               {
-                href: "death-representative-phone",
+                href: "death-representative-awaiting-phone",
                 text: "Change" if data['representativePhone'] else "Add",
                 visuallyHiddenText: "phone"
               }
@@ -57,14 +87,17 @@
             text: "Address"
           },
           value: {
-            html: "1 High Street<br />
-                   Newcastle upon Tyne<br />
-                   NE1 4UR"
+            html: ("1 Big Avenue<br />
+                    Newcastle upon Tyne<br />
+                    NE1 8UR") if data['updatedAddress'] == 'yes' else
+                  ("1 High Street<br />
+                    Newcastle upon Tyne<br />
+                    NE1 4UR")
           },
           actions: {
             items: [
               {
-                href: "death-representative-address",
+                href: "death-representative-awaiting-address",
                 text: "Change",
                 visuallyHiddenText: "address"
               }
@@ -73,14 +106,6 @@
         }
       ]
     }) }}
-
-    <p>To confirm who we need to pay arrears to, send this person a BR330 form to complete.</p>
-
-    <form class="form" method="post" action="/dap/death-representative-cya">
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-    </form>
 
   </div>
 </div>

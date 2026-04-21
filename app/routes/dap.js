@@ -54,12 +54,6 @@ router.post('/dap/death-verify', (req, res) => {
   } else {
     res.redirect('record-personal')
   }
-
-  // if (verifyDateOfDeath === 'yes') {
-  //   res.redirect('death-verify-suggested')
-  // } else {
-  //   res.redirect('record-personal')
-  // }
 })
 
 router.post('/dap/death-verify-suggested', (req, res) => {
@@ -76,6 +70,36 @@ router.post('/dap/death-verify-suggested', (req, res) => {
 
 router.post('/dap/death-verify-date', (req, res) => {
   res.redirect('death-representative-name')
+})
+
+router.post('/dap/death-representative-awaiting-name', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  req.session.data['awaitingBannerType'] = 'name'
+  res.redirect('death-representative-details')
+})
+
+router.post('/dap/death-representative-awaiting-phone', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  req.session.data['awaitingBannerType'] = 'phone'
+  res.redirect('death-representative-details')
+})
+
+router.post('/dap/death-representative-awaiting-address', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  req.session.data['awaitingBannerType'] = 'address'
+  res.redirect('death-representative-awaiting-address-found')
+})
+
+router.post('/dap/death-representative-awaiting-address-found', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  req.session.data['awaitingBannerType'] = 'address'
+  req.session.data['updatedAddress'] = 'yes'
+  res.redirect('death-representative-details')
+})
+
+router.post('/dap/death-representative-details', (req, res) => {
+  req.session.data['showBanner'] = 'no  '
+  req.session.data['awaitingBannerType'] = 'none'
 })
 
 
