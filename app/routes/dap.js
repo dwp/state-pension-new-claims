@@ -136,6 +136,7 @@ router.post('/dap/death-payee-address', (req, res) => {
 })
 
 router.post('/dap/death-payee-address-found', (req, res) => {
+  req.session.data['updatedAddress'] = 'yes'
   res.redirect('death-payee-details')
 })
 

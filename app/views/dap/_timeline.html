@@ -83,7 +83,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerification === 'verified' %}
+{% if deathDateVerification === 'verified' and representativeDetailsCollected !== 'yes' %}
   {% set timelineItems = (timelineItems.push({
     title: "Date of death - verified",
     byline: "Agent",
