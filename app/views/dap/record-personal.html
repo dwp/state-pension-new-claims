@@ -7,14 +7,18 @@
 {% set isCivil = data['isCivil'] %}
 {% set isRestarted = data['isRestarted'] %}
 
-{% if deathDateNotVerified === 'yes' %}
-  {% set bannerMessage = 'Date of death - not verified' %}
-{% elif deathDateVerified === 'yes' %}
-  {% set bannerMessage = 'Date of death - verified' %}
-{% elif deathRepEntered === 'yes' %}
+
+{% set deathDateVerification = data['deathDateVerified'] %}
+{% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
+
+{% if representativeDetailsCollected === "yes" and deathDateVerification === 'notVerified' %}
   {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
-{% elif deathRepEntered === 'yes' and deathDateVerified === 'yes' %}
+{% elif representativeDetailsCollected === "yes" and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
+{% elif deathDateVerification === 'notVerified' %}
+  {% set bannerMessage = 'Date of death - not verified' %}
+{% elif deathDateVerification === 'verified' %}
+  {% set bannerMessage = 'Date of death - verified' %}
 {% endif %}
 
 {% set bannerHtml %}
@@ -276,7 +280,7 @@
         {% set dateDeathVerifiedLater = dateDeathEntered %}
       {% endif %}
 
-      {% if data['deathDateVerified'] === 'verified' %}
+      {% if data['deathDateVerified'] === 'verified' and data['representativeDetailsCollected'] === 'yes' %}
         {% set timelineItems = (timelineItems.push({
           title: "Arrears calculated - awaiting payee details",
           byline: "Agent",

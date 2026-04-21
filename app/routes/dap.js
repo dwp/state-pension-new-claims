@@ -1,6 +1,13 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+router.use((req, res, next) => {
+  if (req.path !== '/dap/record-personal') {
+    req.session.data['showBanner'] = 'no'
+  }
+  next()
+})
+
 router.post('/dap/stop-state-pension', (req, res) => {
   if (req.session.data['stopReason'] === 'stopDied') {
     res.redirect('death-date')
@@ -20,6 +27,7 @@ router.post('/dap/death-representative-name', (req, res) => {
 router.post('/dap/set-details-unknown', function (req, res) {
   // Lives on /dap/death-representative-name
   req.session.data['deathFirstPassDone'] = 'yes'
+  req.session.data['showBanner'] = 'yes'
   res.redirect('/dap/record-personal')
 })
 
@@ -42,6 +50,7 @@ router.post('/dap/death-final', (req, res) => {
 router.post('/dap/death-representative-cya', (req, res) => {
   req.session.data['representativeDetailsCollected'] = 'yes'
   req.session.data['deathFirstPassDone'] = 'yes'
+  req.session.data['showBanner'] = 'yes'
   res.redirect('record-personal')
 })
 
@@ -62,6 +71,7 @@ router.post('/dap/death-verify-suggested', (req, res) => {
   if (verifyDateOfDeathSuggestion === 'yes') {
     req.session.data['deathDateVerifiedLater'] = 'yes'
     req.session.data['deathDateVerified'] = 'verified'
+    req.session.data['showBanner'] = 'yes'
     res.redirect('record-personal')
   } else {
     res.redirect('death-verify-date')
@@ -69,7 +79,17 @@ router.post('/dap/death-verify-suggested', (req, res) => {
 })
 
 router.post('/dap/death-verify-date', (req, res) => {
-  res.redirect('death-representative-name')
+  const representativeDetailsCollected = req.session.data['representativeDetailsCollected']
+
+  if (representativeDetailsCollected === 'yes') {
+    req.session.data['deathDateVerifiedLater'] = 'yes'
+    req.session.data['deathDateVerified'] = 'verified'
+    req.session.data['showBanner'] = 'yes'
+    res.redirect('record-personal')
+  } else {
+    res.redirect('death-representative-name')
+  }
+
 })
 
 router.post('/dap/death-representative-awaiting-name', (req, res) => {
@@ -126,12 +146,6 @@ router.post('/dap/death-representative-details', (req, res) => {
 //   }
 // })
 
-// router.use((req, res, next) => {
-//   if (req.path !== '/dap/record-personal') {
-//     req.session.data['showBanner'] = 'no'
-//   }
-//   next()
-// })
 
 // router.post('/dap/prison-entry-cya', (req, res) => {
 //   req.session.data['isSuspended'] = 'yes'
