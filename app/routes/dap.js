@@ -95,24 +95,25 @@ router.post('/dap/death-verify-date', (req, res) => {
 router.post('/dap/death-representative-awaiting-name', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'name'
+  req.session.data['representativeNameChanged'] = 'yes'
   res.redirect('death-representative-details')
 })
 
 router.post('/dap/death-representative-awaiting-phone', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'phone'
+  req.session.data['representativePhoneChanged'] = 'yes'
   res.redirect('death-representative-details')
 })
 
 router.post('/dap/death-representative-awaiting-address', (req, res) => {
-  req.session.data['showBanner'] = 'yes'
-  req.session.data['awaitingBannerType'] = 'address'
   res.redirect('death-representative-awaiting-address-found')
 })
 
 router.post('/dap/death-representative-awaiting-address-found', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'address'
+  req.session.data['representativeAddressChanged'] = 'yes'
   req.session.data['updatedAddress'] = 'yes'
   res.redirect('death-representative-details')
 })
