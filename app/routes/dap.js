@@ -122,6 +122,35 @@ router.post('/dap/death-representative-details', (req, res) => {
   req.session.data['awaitingBannerType'] = 'none'
 })
 
+router.post('/dap/death-payee-name', (req, res) => {
+  res.redirect('death-payee-phone')
+})
+
+router.post('/dap/death-payee-phone', (req, res) => {
+  res.redirect('death-payee-address')
+})
+
+router.post('/dap/death-payee-address', (req, res) => {
+  res.redirect('death-payee-address-found')
+})
+
+router.post('/dap/death-payee-address-found', (req, res) => {
+  res.redirect('death-payee-details')
+})
+
+router.post('/dap/death-payee-details', (req, res) => {
+  res.redirect('death-payee-bank')
+})
+
+router.post('/dap/death-payee-bank', (req, res) => {
+  req.session.data['paymentDetailsCollected'] = 'yes'
+  res.redirect('death-payment')
+})
+
+router.post('/dap/death-payment', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  res.redirect('record-personal')
+})
 
 // router.post('/dap/prison-type', (req, res) => {
 //   const prisonType = req.session.data['prisonType']

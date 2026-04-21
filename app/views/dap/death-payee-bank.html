@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-payee-bank">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+
+      <h1 class="govuk-heading-l">Payee bank or building society account details</h1>
+
+
+      {{ govukInput({
+        label: {
+          text: "Account holder name",
+          classes: "govuk-label--m"
+        },
+        id: "account-holder-name",
+        name: "accountHolderName"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Sort code",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-5",
+        id: "account-sort-code",
+        name: "accountHolderSortCode"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Account number",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10",
+        id: "account-account-number",
+        name: "accountHolderAccountNumber"
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Roll number",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10",
+        id: "account-roll-number",
+        name: "accountHolderRollNumber"
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          style: "float: left; margin-right: 15px;"
+        }
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

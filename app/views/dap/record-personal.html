@@ -10,8 +10,11 @@
 
 {% set deathDateVerification = data['deathDateVerified'] %}
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
+{% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
 
-{% if representativeDetailsCollected === "yes" and deathDateVerification === 'notVerified' %}
+{% if paymentDetailsCollected === "yes" %}
+  {% set bannerMessage = 'Arrears payment sent - account closed' %}
+{% elif representativeDetailsCollected === "yes" and deathDateVerification === 'notVerified' %}
   {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
 {% elif representativeDetailsCollected === "yes" and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
@@ -278,6 +281,14 @@
         {% set dateDeathVerifiedLater = "8 April 2025" %}
       {% elif data['deathDateVerified'] === 'verified' and not data['deathDateVerifiedLater'] %}
         {% set dateDeathVerifiedLater = dateDeathEntered %}
+      {% endif %}
+
+      {% if paymentDetailsCollected === "yes" %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Arrears paid - account closed",
+          byline: "Agent",
+          date: dateDeathVerifiedLater
+        }), timelineItems) %}
       {% endif %}
 
       {% if data['deathDateVerified'] === 'verified' and data['representativeDetailsCollected'] === 'yes' %}

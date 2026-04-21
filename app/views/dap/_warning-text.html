@@ -22,7 +22,7 @@
   {% set warningLinkText = "Verify date of death" %}
 {% endif %}
 
-{% if data['deathDateVerified'] %}
+{% if data['deathDateVerified'] and not data['paymentDetailsCollected'] === "yes" %}
   {{ govukWarningText({
     html: warningText +
           '<br />' +
