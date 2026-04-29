@@ -24,10 +24,14 @@ router.post('/marital-status/widowed/late-spouse-dod', function (req, res) {
 
 router.post('/marital-status/widowed/spouse-sp-in-payment', function (req, res) {
   if (req.body['spousesp'] === 'spinpayment') {
-    res.redirect('check-details-info-missing-new')
+    res.redirect('check-details-info-missing')
   } else {
-    res.redirect('check-details-info-missing-conversion')
+    res.redirect('create-widows-task')
   }
+})
+
+router.post('/marital-status/widowed/create-widows-task', function (req, res) {
+  res.redirect('personal-widowed')
 })
 
 module.exports = router

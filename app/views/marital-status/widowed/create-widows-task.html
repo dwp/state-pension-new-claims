@@ -1,0 +1,68 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+          {% include './_bar.html' %}
+
+  {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">Create widows inheritance task</h1>
+        <br>
+        <p>As Deborah Rooney's State Pension is not in payment a widows inheritance task will be created.</p>
+
+
+              <br>
+              <form class="form" method="post">
+
+              <button class="govuk-button" data-module="govuk-button">
+              Confirm
+              </button></form>
+
+    <details class="govuk-details" data-module="govuk-details">
+    <summary class="govuk-details__summary">
+    <span class="govuk-details__summary-text">
+    <b>URL, errors and notes</b>
+    </span>
+    </summary>
+    <div class="govuk-details__text">
+    <b>URL:</b> <br><br>
+
+
+    <b>Error messages:<br>
+
+    </div>
+    </details>
+
+  </div>
+
+
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
