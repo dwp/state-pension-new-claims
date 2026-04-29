@@ -22,7 +22,7 @@ router.post('/marital-status/widowed/late-spouse-dod', function (req, res) {
   res.redirect('partner-sp-in-payment')
 })
 
-router.post('/marital-status/widowed/partner-sp-in-payment', function (req, res) {
+router.post('/marital-status/widowed/spouse-sp-in-payment', function (req, res) {
   if (req.body['spousesp'] === 'spinpayment') {
     res.redirect('check-details-info-missing-new')
   } else {
