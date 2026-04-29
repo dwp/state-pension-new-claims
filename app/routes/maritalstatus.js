@@ -19,7 +19,7 @@ if (req.body['maritalstatus'] === 'widowed') {
 })
 
 router.post('/marital-status/widowed/late-spouse-dod', function (req, res) {
-  res.redirect('partner-sp-in-payment')
+  res.redirect('spouse-sp-in-payment')
 })
 
 router.post('/marital-status/widowed/spouse-sp-in-payment', function (req, res) {
