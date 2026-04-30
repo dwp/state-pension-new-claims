@@ -31,7 +31,7 @@ router.post('/marital-status/widowed/spouse-sp-in-payment', function (req, res) 
 })
 
 router.post('/marital-status/widowed/create-widows-task', function (req, res) {
-  res.redirect('personal-widowed')
+  res.redirect('personal-widowed-task')
 })
 
 module.exports = router
