@@ -1,0 +1,55 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+          {% include './_bar.html' %}
+
+  {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+        <h1 class="govuk-heading-l">Start bereavement conversion task</h1>
+        <br>
+        <p>Check the record of the claimant's late spouse or partner to see if this changes their State Pension entitlement.</p>
+
+
+              <br>
+              <form class="form" method="post">
+
+              <button class="govuk-button" data-module="govuk-button">
+              Start this task
+              </button></form>
+
+    
+
+  </div>
+
+
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
