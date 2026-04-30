@@ -1,0 +1,113 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+
+{% set awaitingBannerType = data['awaitingBannerType'] %}
+
+{% if awaitingBannerType === 'name' %}
+  {% set bannerMessage = 'full name changed' %}
+{% elif awaitingBannerType === 'phone' %}
+  {% set bannerMessage = 'phone number changed' %}
+{% elif awaitingBannerType === 'address' %}
+  {% set bannerMessage = 'address changed' %}
+{% endif %}
+
+{#
+  2 more messages to add:
+  - phone number removed
+  - phone number added
+#}
+
+{% set bannerHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    Death arrears payee {{ bannerMessage }}
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: bannerHtml,
+    type: "success"
+  }) }}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "record-personal"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      Death arrears payee (DAP) details
+    </h1>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: data['representativeName']
+          },
+          actions: {
+            items: [
+              {
+                href: "death-representative-awaiting-name",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Phone number"
+          },
+          value: {
+            text: data['representativePhone']
+          },
+          actions: {
+            items: [
+              {
+                href: "death-representative-awaiting-phone",
+                text: "Change" if data['representativePhone'] else "Add",
+                visuallyHiddenText: "phone"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: ("1 Big Avenue<br />
+                    Newcastle upon Tyne<br />
+                    NE1 8UR") if data['updatedAddress'] == 'yes' else
+                  ("1 High Street<br />
+                    Newcastle upon Tyne<br />
+                    NE1 4UR")
+          },
+          actions: {
+            items: [
+              {
+                href: "death-representative-awaiting-address",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

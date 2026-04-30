@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+
+{% set awaitingBannerType = data['awaitingBannerType'] %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "record-personal"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      Check payee details
+    </h1>
+
+    <p style="text-align: right; margin-bottom: 0;"><a href="death-payee-name">Change</a></p>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: data['representativeName']
+          }
+        },
+        {
+          key: {
+            text: "Phone number"
+          },
+          value: {
+            text: data['representativePhone']
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: ("1 Big Avenue<br />
+                    Newcastle upon Tyne<br />
+                    NE1 8UR") if data['updatedAddress'] == 'yes' else
+                  ("1 High Street<br />
+                    Newcastle upon Tyne<br />
+                    NE1 4UR")
+          }
+        }
+      ]
+    }) }}
+
+    <form class="form" method="post" action="/dap/death-payee-details">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
