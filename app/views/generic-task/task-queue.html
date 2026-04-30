@@ -1,0 +1,156 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+  <main class="govuk-main-wrapper">
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+
+        <h1 class="govuk-heading-xl">Tasks</h1>
+
+        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+        {% set html %}
+          <h3 class="govuk-notification-banner__heading">
+            Task complete.
+          </h3>
+        {% endset %}
+
+        {{ govukNotificationBanner({
+          html: html,
+          type: "success"
+        }) }}
+
+        {% include './_claims.html' %}
+
+        <form method="post">
+
+        <br><br><br>
+
+        <h1 class="govuk-heading-l">Other</h1>
+
+          </div>
+          </div>
+
+          <br>
+          
+                    <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-half">
+              <h1 class="govuk-heading-m">Pension sharing on divorce (PSOD)
+              <p class="govuk-body-l"><a href="check-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                  <h3 class="govuk-heading-l">4
+                    <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                  </h3>
+            </div>
+            <div class="govuk-grid-column-one-quarter">
+                  <h3 class="govuk-heading-l">3
+                    <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                  </h3>
+            </div>
+
+          </div>
+
+            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+            <br>
+
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-one-half">
+                <h1 class="govuk-heading-m">Reduced rate election (RRE)
+                <p class="govuk-body-l"><a href="check-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                    <h3 class="govuk-heading-l">1
+                      <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                    </h3>
+              </div>
+
+              <div class="govuk-grid-column-one-quarter">
+                    <h3 class="govuk-heading-l">1
+                      <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                    </h3>
+              </div>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+            <br>
+
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h1 class="govuk-heading-m">Severe disability allowance (SDA)
+            <p class="govuk-body-l"><a href="check-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">9
+                  <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                </h3>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">6
+                  <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                </h3>
+          </div>
+          </div>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+            <br>
+
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h1 class="govuk-heading-m">State Pension interest
+            <p class="govuk-body-l">
+              <a href="check-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">25
+                  <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                </h3>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">17
+                  <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                </h3>
+          </div>
+          </div>
+
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+          <br>
+
+          <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-half">
+            <h1 class="govuk-heading-m">War Pension and Unemployment Support Payment (Unsup)
+            <p class="govuk-body-l"><a href="check-details" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">10
+                  <p class="govuk-body govuk-!-font-size-24">total tasks</p>
+                </h3>
+          </div>
+          <div class="govuk-grid-column-one-quarter">
+                <h3 class="govuk-heading-l">6
+                  <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
+                </h3>
+          </div>
+          </div>
+
+          <hr class="govuk-section-break govuk-section-break--s govuk-section-break--visible">
+
+          <br><br><br><br>
+
+          <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="record-personal">View citizen record</a>
+
+      </div>
+  </div>
+
+</main>
+</div>
+
+{% endblock %}

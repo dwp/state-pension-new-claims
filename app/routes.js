@@ -79,6 +79,9 @@ const coeg = require('./routes/coeg')
 const srbpreaward = require('./routes/srbpreaward')
 const cmg = require('./routes/cmg')
 const dap = require('./routes/dap')
+const generic = require('./routes/generic')
+const maritalstatus = require('./routes/maritalstatus')
+
 // copy the router use and update the sprint version
 router.use(newclaims)
 router.use(bpviteration)
@@ -155,4 +158,7 @@ router.use(coeg)
 router.use(srbpreaward)
 router.use(cmg)
 router.use(dap)
+router.use(generic)
+router.use(maritalstatus)
+
 module.exports = router

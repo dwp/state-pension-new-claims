@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    {% set anotherDate %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="another-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <div class="govuk-date-input" id="another">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-day" name="another-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="another-month" name="another-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="another-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="another-year" name="another-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    {% endset -%}
+
+    {{ govukRadios({
+      name: "whatDate",
+      fieldset: {
+        legend: {
+          text: "What date does this change to award apply from?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "SPa",
+          text: "State Pension date",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "anotherDate",
+          text: "Another date",
+          conditional: {
+            html: anotherDate
+          }
+        }
+      ]
+    }) }}
+      
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+     Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

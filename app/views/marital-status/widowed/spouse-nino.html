@@ -1,0 +1,60 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+
+<div class="govuk-width-container">
+  <div class="govuk-grid-column-two-thirds">
+
+    <main id="content" role="main">
+      <div class="grid-row">
+        <div class="column-full">
+
+          {% include './_bar.html' %}
+
+  {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+        <br>
+        <form method="post">
+
+      <div class="govuk-form-group">
+          <h1 class="govuk-heading-l">Spouse's National Insurance number</h1>
+
+          <div class="govuk-form-group">
+    <label class="govuk-label" for="nationalinsurancenumber">
+      National Insurance number
+    </label>
+    <input class="govuk-input govuk-input--width-10" id="nationalinsurancenumber3" name="nationalinsurancenumber" type="text" spellcheck="false" aria-describedby="national-insurance-number-hint">
+  </div>
+      </div>
+
+      <br>
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+        </form>
+
+
+
+      </div>
+
+    </div>
+
+</div>
+
+</div>
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+  </div>
+</div>
+
+{% endblock %}
