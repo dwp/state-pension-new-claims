@@ -11,6 +11,7 @@
 {% set deathDateVerification = data['deathDateVerified'] %}
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
+{% set deathConfirmed = data['deathConfirmed'] %}
 
 {% if paymentDetailsCollected === "yes" %}
   {% set bannerMessage = 'Arrears payment sent - account closed' %}
@@ -18,9 +19,9 @@
   {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
 {% elif representativeDetailsCollected === "yes" and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
-{% elif deathDateVerification === 'notVerified' %}
+{% elif deathConfirmed === "yes" and deathDateVerification === 'notVerified' %}
   {% set bannerMessage = 'Date of death - not verified' %}
-{% elif deathDateVerification === 'verified' %}
+{% elif deathConfirmed === "yes" and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'Date of death - verified' %}
 {% endif %}
 

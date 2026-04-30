@@ -1,0 +1,31 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-date-awaiting-verification">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+
+      <h1 class="govuk-heading-l">Awaiting verification of death</h1>
+
+      <p>The final payment cannot be calculated yet because the date of death has not been verified.</p>
+      <p>Once verification of death has been received, you will be able to calculate the final payment.</p>
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

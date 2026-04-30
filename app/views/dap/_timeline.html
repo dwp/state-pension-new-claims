@@ -31,6 +31,7 @@
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
 {% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
+{% set br330Sent = data['br330Sent'] %}
 
 {% if deathDateVerifiedLater %}
   {% set dateDeathVerifiedLater = "8 April 2025" %}
@@ -70,6 +71,14 @@
 {% if representativeNameChanged %}
   {% set timelineItems = (timelineItems.push({
     title: "Death arrears payee full name changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if br330Sent === 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "BR330 sent",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}

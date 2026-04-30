@@ -3,6 +3,7 @@
 {% set deathDateVerified = data['deathDateVerified'] === 'verified' %}
 {% set deathDatenotVerified = data['deathDateVerified']  === 'notVerified' %}
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] === 'yes' %}
+{% set deathConfirmed = data['deathConfirmed']  === 'yes' %}
 
 {% if deathDateVerified and not representativeDetailsCollected %}
   {% set warningText = "Awaiting details of the person dealing with the estate" %}
@@ -10,7 +11,7 @@
   {% set warningLinkText = "Update details" %}
 {% elif deathDatenotVerified and not representativeDetailsCollected %}
   {% set warningText = "Awaiting verification of death and details of the person dealing with the estate" %}
-  {% set warningLink = "death-verify" %}
+  {% set warningLink = "death-date-verification" %}
   {% set warningLinkText = "Update details" %}
 {% elif deathDateVerified and representativeDetailsCollected %}
   {% set warningText = "£12,097.35 arrears payment due for the period 18 December 2024 to 1 January 2026" %}

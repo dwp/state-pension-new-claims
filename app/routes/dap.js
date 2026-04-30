@@ -17,18 +17,66 @@ router.post('/dap/stop-state-pension', (req, res) => {
 })
 
 router.post('/dap/death-date', (req, res) => {
-  res.redirect('death-representative-name')
+
+  const verifyDateOfDeathSuggestion = req.session.data['verifyDateOfDeathSuggestion']
+
+  if (verifyDateOfDeathSuggestion) {
+    res.redirect('death-date-cya')
+  } else {
+    res.redirect('death-date-verification')
+  }
 })
+
+router.post('/dap/death-date-verification', (req, res) => {
+  const representativeDetails = req.session.data['representativeDetails']
+
+  if (representativeDetails === 'no') {
+    const deathDateVerified = req.session.data['deathDateVerified']
+
+    if (deathDateVerified === 'verified') {
+      res.redirect('death-date-suggested')
+    } else {
+      res.redirect('death-representative-name')
+    }
+  } else {
+    res.redirect('death-date-cya')
+  }
+})
+
+router.post('/dap/death-date-cya', (req, res) => {
+  req.session.data['deathConfirmed'] = 'yes'
+
+  const deathDateVerified = req.session.data['deathDateVerified']
+
+  if (deathDateVerified === 'verified') {
+    res.redirect('death-final')
+  } else {
+    res.redirect('death-representative-have-details')
+  }
+})
+
+router.post('/dap/death-final', (req, res) => {
+  res.redirect('death-representative-have-details')
+})
+
+router.post('/dap/death-representative-have-details', (req, res) => {
+  const representativeDetails = req.session.data['representativeDetails']
+
+  if (representativeDetails === 'yes') {
+    res.redirect('death-representative-name')
+  } else {
+    req.session.data['showBanner'] = 'yes'
+    res.redirect('record-personal')
+  }
+})
+
 
 router.post('/dap/death-representative-name', (req, res) => {
-  res.redirect('death-representative-phone')
+  res.redirect('death-representative-reference')
 })
 
-router.post('/dap/set-details-unknown', function (req, res) {
-  // Lives on /dap/death-representative-name
-  req.session.data['deathFirstPassDone'] = 'yes'
-  req.session.data['showBanner'] = 'yes'
-  res.redirect('/dap/record-personal')
+router.post('/dap/death-representative-reference', (req, res) => {
+  res.redirect('death-representative-phone')
 })
 
 router.post('/dap/death-representative-phone', (req, res) => {
@@ -40,10 +88,6 @@ router.post('/dap/death-representative-address', (req, res) => {
 })
 
 router.post('/dap/death-representative-address-found', (req, res) => {
-  res.redirect('death-final')
-})
-
-router.post('/dap/death-final', (req, res) => {
   res.redirect('death-representative-cya')
 })
 
@@ -51,12 +95,34 @@ router.post('/dap/death-representative-cya', (req, res) => {
   req.session.data['representativeDetailsCollected'] = 'yes'
   req.session.data['deathFirstPassDone'] = 'yes'
   req.session.data['showBanner'] = 'yes'
+
+  const deathDateVerified = req.session.data['deathDateVerified']
+
+  if (deathDateVerified === 'verified') {
+    res.redirect('death-br330-send')
+  } else {
+    res.redirect('death-date-awaiting-verification')
+  }
+})
+
+router.post('/dap/death-br330-send', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+
+  const sendBr3330 = req.session.data['sendBr3330']
+  if (sendBr3330 === 'yes') {
+    req.session.data['br330Sent'] = 'yes'
+  }
+
   res.redirect('record-personal')
 })
 
+router.post('/dap/death-date-awaiting-verification', (req, res) => {
+  res.redirect('record-personal')
+})
+
+
 router.post('/dap/death-verify', (req, res) => {
   const deathDateVerified = req.session.data['deathDateVerified']
-
 
    if (deathDateVerified === 'verified') {
     res.redirect('death-verify-suggested')
@@ -65,16 +131,16 @@ router.post('/dap/death-verify', (req, res) => {
   }
 })
 
-router.post('/dap/death-verify-suggested', (req, res) => {
+router.post('/dap/death-date-suggested', (req, res) => {
   const verifyDateOfDeathSuggestion = req.session.data['verifyDateOfDeathSuggestion']
 
   if (verifyDateOfDeathSuggestion === 'yes') {
     req.session.data['deathDateVerifiedLater'] = 'yes'
     req.session.data['deathDateVerified'] = 'verified'
     req.session.data['showBanner'] = 'yes'
-    res.redirect('record-personal')
+    res.redirect('death-date-cya')
   } else {
-    res.redirect('death-verify-date')
+    res.redirect('death-date')
   }
 })
 
@@ -153,86 +219,5 @@ router.post('/dap/death-payment', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   res.redirect('record-personal')
 })
-
-// router.post('/dap/prison-type', (req, res) => {
-//   const prisonType = req.session.data['prisonType']
-
-//   if (prisonType === 'criminal') {
-//     res.redirect('prison-entry-date')
-//   } else if (prisonType === 'civil') {
-//     res.redirect('prison-type-civil')
-//   } else {
-//     res.redirect('prison-suspend')
-//   }
-// })
-
-
-// router.post('/dap/prison-entry-date', (req, res) => {
-//   const isChanging = req.query.change === 'true'
-
-//   if (isChanging) {
-//     res.redirect('prison-entry-cya')
-//   } else {
-//     res.redirect('prison-entry-cya')
-//   }
-// })
-
-
-// router.post('/dap/prison-entry-cya', (req, res) => {
-//   req.session.data['isSuspended'] = 'yes'
-//   req.session.data['showBanner'] = 'yes'
-//   res.redirect('record-personal')
-// })
-
-// router.post('/dap/prison-type-civil', (req, res) => {
-//   req.session.data['isCivil'] = 'yes'
-//   res.redirect('record-personal')
-// })
-
-// router.post('/dap/prison-details-check', (req, res) => {
-//   res.redirect('prison-leave-date')
-// })
-
-// router.post('/dap/prison-leave-date', (req, res) => {
-//   res.redirect('dap')
-// })
-
-// router.post('/dap/dap', (req, res) => {
-//   res.redirect('prison-leave-cya')
-// })
-
-// router.post('/dap/prison-leave-cya', (req, res) => {
-
-//   const prisonConvicted = req.session.data['prisonConvicted']
-
-//   if (prisonConvicted === 'yes') {
-//     res.redirect('prison-overpayment')
-//   } else {
-//     res.redirect('prison-refund')
-//   }
-// })
-
-// router.post('/dap/prison-refund', (req, res) => {
-//   req.session.data['isRestarted'] = 'yes'
-//   req.session.data['showBanner'] = 'yes'
-//   res.redirect('record-personal')
-// })
-
-// router.post('/dap/prison-overpayment', (req, res) => {
-//   const prisonOverpay = req.session.data['prisonOverpay']
-
-//   if (prisonOverpay === 'yes') {
-//     res.redirect('prison-overpayment-info')
-//   } else {
-//     res.redirect('record-personal')
-//   }
-// })
-
-// router.post('/dap/prison-overpayment-info', (req, res) => {
-//   req.session.data['isRestarted'] = 'yes'
-//   req.session.data['showBanner'] = 'yes'
-
-//   res.redirect('record-personal')
-// })
 
 module.exports = router

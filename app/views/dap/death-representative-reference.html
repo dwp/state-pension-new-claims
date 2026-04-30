@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/dap/death-representative-phone">
+    <form class="form" method="post" action="/dap/death-representative-reference">
 
       {% include './_person.html' %}
 
@@ -13,25 +13,26 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      {% set phoneNumberInput %}
+      {% set solicitorsReferenceInput %}
         {{ govukInput({
-          id: "representative-phone",
-          name: "representativePhone",
+          id: "solicitors-reference",
+          name: "solicitorsReference",
           classes: "govuk-input--width-20",
-          value: data['representativePhone'] if data['hasRepresentativePhone'] === "yes",
+          value: data['solicitorsReference'],
+          value: data['solicitorsReference'] if data['hasSolicitorsReference'] === "yes",
           label: {
-            text: "Phone number"
+            text: "Solicitors reference"
           },
           spellcheck: false
         }) }}
       {% endset -%}
 
       {{ govukRadios({
-        name: "hasRepresentativePhone",
-        value: data['hasRepresentativePhone'],
+        name: "hasSolicitorsReference",
+        value: data['hasSolicitorsReference'],
         fieldset: {
           legend: {
-            text: "Do you have the phone number of the person dealing with Leon's estate?",
+            text: "Do you have a solicitor's reference??",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -41,7 +42,7 @@
             value: "yes",
             text: "Yes",
             conditional: {
-              html: phoneNumberInput
+              html: solicitorsReferenceInput
             }
           },
           {

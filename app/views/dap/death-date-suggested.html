@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/dap/death-verify-date">
+    <form class="form" method="post" action="/dap/death-date-suggested">
 
       {% include './_person.html' %}
 
@@ -13,28 +13,27 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      {{ govukDateInput({
-        name: "deathDate",
-        namePrefix: "deathDate",
+      {% set deathDateDay = data['deathDate-day'] %}
+      {% set deathDateMonth = data['deathDate-month'] | monthName %}
+      {% set deathDateYear = data['deathDate-year']%}
+
+      {{ govukRadios({
+        name: "verifyDateOfDeathSuggestion",
         fieldset: {
           legend: {
-            text: "Date of death",
+            text: "Is the date of death" + " " + deathDateDay + " " + deathDateMonth + " " + deathDateYear + "?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            name: "day",
-            classes: "govuk-input--width-2"
+            value: "yes",
+            text: "Yes"
           },
           {
-            name: "month",
-            classes: "govuk-input--width-2"
-          },
-          {
-            name: "year",
-            classes: "govuk-input--width-4"
+            value: "no",
+            text: "No"
           }
         ]
       }) }}
