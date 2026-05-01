@@ -33,7 +33,7 @@ router.post('/marital-status/widowed/spouse-sp-in-payment', function (req, res) 
 
 
 router.post('/marital-status/widowed/create-conversion-task', function (req, res) {
-  res.redirect('check-details-info-missing')
+  res.redirect('personal-conversion-task')
 })
 
 router.post('/marital-status/widowed/create-widows-task', function (req, res) {
