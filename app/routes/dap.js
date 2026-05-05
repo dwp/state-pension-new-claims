@@ -2,7 +2,9 @@ const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
 router.use((req, res, next) => {
-  if (req.path !== '/dap/record-personal') {
+  const pagesWithBanners = ['/dap/record-personal', '/dap/death-representative-details'];
+
+  if (!pagesWithBanners.includes(req.path)) {
     req.session.data['showBanner'] = 'no'
   }
   next()
@@ -165,6 +167,13 @@ router.post('/dap/death-representative-awaiting-name', (req, res) => {
   res.redirect('death-representative-details')
 })
 
+router.post('/dap/death-representative-awaiting-reference', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  req.session.data['awaitingBannerType'] = 'reference'
+  req.session.data['solicitorsReferenceChanged'] = 'yes'
+  res.redirect('death-representative-details')
+})
+
 router.post('/dap/death-representative-awaiting-phone', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'phone'
@@ -184,9 +193,17 @@ router.post('/dap/death-representative-awaiting-address-found', (req, res) => {
   res.redirect('death-representative-details')
 })
 
-router.post('/dap/death-representative-details', (req, res) => {
-  req.session.data['showBanner'] = 'no  '
-  req.session.data['awaitingBannerType'] = 'none'
+router.post('/dap/death-br330-send-new', (req, res) => {
+
+  const sendNewBr330 = req.session.data['sendNewBr330']
+  if (sendNewBr330 === 'yes') {
+    req.session.data['showBanner'] = 'yes'
+    req.session.data['awaitingBannerType'] = 'br330'
+    req.session.data['br330Sent'] = 'yes'
+    req.session.data['newBr330Sent'] = 'yes'
+  }
+
+  res.redirect('death-representative-details')
 })
 
 router.post('/dap/death-payee-name', (req, res) => {

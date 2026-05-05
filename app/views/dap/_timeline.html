@@ -51,6 +51,15 @@
 {% set representativeNameChanged = data['representativeNameChanged'] === 'yes' %}
 {% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
 {% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
+{% set newBr330Sent = data['newBr330Sent'] === 'yes' %}
+
+{% if newBr330Sent %}
+  {% set timelineItems = (timelineItems.push({
+    title: "New BR330 sent",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
