@@ -13,7 +13,13 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      <h1 class="govuk-heading-l" id="address-heading">Address Leon Hibbert</h1>
+      {% if data['paymentDetailsCollected'] === 'yes' %}
+        {% set repOrPayee = "Death arrears payee" %}
+      {% else %}
+        {% set repOrPayee = "the person dealing with Leon's estate" %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">Address of {{ repOrPayee }}</h1>
 
       <p>1 address found for <b>{{ data['representativeProperty'] }}</b> and <b>{{ data['representativePostcode'] }}</b> <a href="death-representative-awaiting-address">Change</a></p>
 

@@ -6,15 +6,15 @@
 {% set awaitingBannerType = data['awaitingBannerType'] %}
 
 {% if awaitingBannerType === 'name' %}
-  {% set bannerMessage = 'Death arrears payee full name changed' %}
+  {% set bannerMessage = 'Full name of the person dealing with the estate changed' %}
 {% elif awaitingBannerType === 'phone' %}
-  {% set bannerMessage = 'Death arrears payee phone number changed' %}
+  {% set bannerMessage = 'Phone number of the person dealing with the estate changed' %}
 {% elif awaitingBannerType === 'reference' %}
   {% set bannerMessage = "Solicitor's reference changed" %}
 {% elif awaitingBannerType === 'br330' %}
   {% set bannerMessage = "New BR330 sent" %}
 {% elif awaitingBannerType === 'address' %}
-  {% set bannerMessage = 'Death arrears payee address changed' %}
+  {% set bannerMessage = 'Address of the person dealing with the estate changed' %}
 {% endif %}
 
 {#
@@ -51,7 +51,7 @@
     {% if data['paymentDetailsCollected'] === 'yes' %}
       {% set repOrPayee = "Death arrears payee (DAP) details" %}
     {% else %}
-      {% set repOrPayee = "Person dealing with the estate's details" %}
+      {% set repOrPayee = "Details of the person dealing with Leon's estate" %}
     {% endif %}
 
     <h1 class="govuk-heading-l">

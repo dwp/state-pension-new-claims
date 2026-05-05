@@ -14,12 +14,12 @@
       }) }}
 
       {% if data['paymentDetailsCollected'] === 'yes' %}
-        {% set repOrPayee = "Death arrears payee (DAP) " %}
+        {% set repOrPayee = "Death arrears payee" %}
       {% else %}
-        {% set repOrPayee = "Person dealing with the estate's " %}
+        {% set repOrPayee = "the person dealing with Leon's estate" %}
       {% endif %}
 
-      <h1 class="govuk-heading-l">{{ repOrPayee }} Address</h1>
+      <h1 class="govuk-heading-l">Address of {{ repOrPayee }}</h1>
 
       {{ govukInput({
         label: {

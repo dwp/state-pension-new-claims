@@ -16,12 +16,12 @@
       {% if data['paymentDetailsCollected'] === 'yes' %}
         {% set repOrPayee = "Death arrears payee (DAP) " %}
       {% else %}
-        {% set repOrPayee = "Person dealing with the estate's " %}
+        {% set repOrPayee = " the person dealing with Leon's estate" %}
       {% endif %}
 
       {{ govukInput({
         label: {
-          text: repOrPayee + "phone number",
+          text: "Phone number of" + repOrPayee,
           classes: "govuk-label--l",
           isPageHeading: true
         },

@@ -14,14 +14,14 @@
       }) }}
 
       {% if data['paymentDetailsCollected'] === 'yes' %}
-        {% set repOrPayee = "Death arrears payee (DAP) " %}
+        {% set repOrPayee = " death arrears payee" %}
       {% else %}
-        {% set repOrPayee = "Person dealing with the estate's " %}
+        {% set repOrPayee = " the person dealing with Leon's estate" %}
       {% endif %}
 
       {{ govukInput({
         label: {
-          text: repOrPayee + "name",
+          text: "Name of" + repOrPayee,
           classes: "govuk-label--l",
           isPageHeading: true
         },

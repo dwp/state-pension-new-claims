@@ -110,8 +110,8 @@ router.post('/dap/death-representative-cya', (req, res) => {
 router.post('/dap/death-br330-send', (req, res) => {
   req.session.data['showBanner'] = 'yes'
 
-  const sendBr3330 = req.session.data['sendBr3330']
-  if (sendBr3330 === 'yes') {
+  const sendBr330 = req.session.data['sendBr330']
+  if (sendBr330 === 'yes') {
     req.session.data['br330Sent'] = 'yes'
   }
 
@@ -171,6 +171,7 @@ router.post('/dap/death-representative-awaiting-reference', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'reference'
   req.session.data['solicitorsReferenceChanged'] = 'yes'
+  req.session.data['hasSolicitorsReference'] = 'yes'
   res.redirect('death-representative-details')
 })
 
@@ -229,6 +230,7 @@ router.post('/dap/death-payee-address-found', (req, res) => {
 })
 
 router.post('/dap/death-payee-cya', (req, res) => {
+  req.session.data['representativeChanged'] = 'yes'
   res.redirect('death-payee-bank')
 })
 
