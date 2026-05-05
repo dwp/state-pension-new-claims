@@ -13,7 +13,13 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      <h1 class="govuk-heading-l">Address Leon Hibbert</h1>
+      {% if data['paymentDetailsCollected'] === 'yes' %}
+        {% set repOrPayee = "Death arrears payee (DAP) " %}
+      {% else %}
+        {% set repOrPayee = "Person dealing with the estate's " %}
+      {% endif %}
+
+      <h1 class="govuk-heading-l">{{ repOrPayee }} Address</h1>
 
       {{ govukInput({
         label: {

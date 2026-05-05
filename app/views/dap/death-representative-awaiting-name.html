@@ -13,9 +13,15 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
+      {% if data['paymentDetailsCollected'] === 'yes' %}
+        {% set repOrPayee = "Death arrears payee (DAP) " %}
+      {% else %}
+        {% set repOrPayee = "Person dealing with the estate's " %}
+      {% endif %}
+
       {{ govukInput({
         label: {
-          text: "Death arrears payee name",
+          text: repOrPayee + "name",
           classes: "govuk-label--l",
           isPageHeading: true
         },

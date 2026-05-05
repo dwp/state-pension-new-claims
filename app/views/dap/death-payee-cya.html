@@ -13,7 +13,7 @@
     }) }}
 
     <h1 class="govuk-heading-l">
-      Check details of the person dealing with Leon's estate
+      Check details of death arrears payee
     </h1>
 
     {{ govukSummaryList({
@@ -28,7 +28,7 @@
           actions: {
             items: [
               {
-                href: "death-representative-name",
+                href: "death-payee-name",
                 text: "Change",
                 visuallyHiddenText: "name"
               }
@@ -45,7 +45,7 @@
           actions: {
             items: [
               {
-                href: "death-representative-reference",
+                href: "death-payee-reference",
                 text: "Change" if data['hasSolicitorsReference'] === "yes" else "Add",
                 visuallyHiddenText: "solicior's reference"
               }
@@ -62,7 +62,7 @@
           actions: {
             items: [
               {
-                href: "death-representative-phone",
+                href: "death-payee-phone",
                 text: "Change" if data['hasRepresentativePhone'] === "yes" else "Add",
                 visuallyHiddenText: "phone"
               }
@@ -74,14 +74,14 @@
             text: "Address"
           },
           value: {
-            html: "1 High Street<br />
+            html: "1 Big Avenue<br />
                    Newcastle upon Tyne<br />
-                   NE1 4UR"
+                   NE1 8UR"
           },
           actions: {
             items: [
               {
-                href: "death-representative-address",
+                href: "death-payee-address",
                 text: "Change",
                 visuallyHiddenText: "address"
               }
@@ -91,7 +91,7 @@
       ]
     }) }}
 
-    <form class="form" method="post" action="/dap/death-representative-cya">
+    <form class="form" method="post" action="/dap/death-payee-cya">
       {{ govukButton({
         text: "Confirm"
       }) }}

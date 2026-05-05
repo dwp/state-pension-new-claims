@@ -23,7 +23,8 @@
           classes: "govuk-label--m"
         },
         id: "account-holder-name",
-        name: "accountHolderName"
+        name: "accountHolderName",
+        value: data['accountHolderName']
       }) }}
 
       {{ govukInput({
@@ -33,7 +34,8 @@
         },
         classes: "govuk-input--width-5",
         id: "account-sort-code",
-        name: "accountHolderSortCode"
+        name: "accountHolderSortCode",
+        value: data['accountHolderSortCode']
       }) }}
 
       {{ govukInput({
@@ -43,7 +45,8 @@
         },
         classes: "govuk-input--width-10",
         id: "account-account-number",
-        name: "accountHolderAccountNumber"
+        name: "accountHolderAccountNumber",
+        value: data['accountHolderAccountNumber']
       }) }}
 
       {{ govukInput({
@@ -53,7 +56,8 @@
         },
         classes: "govuk-input--width-10",
         id: "account-roll-number",
-        name: "accountHolderRollNumber"
+        name: "accountHolderRollNumber",
+        value: data['accountHolderRollNumber']
       }) }}
 
       {{ govukButton({

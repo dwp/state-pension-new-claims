@@ -207,6 +207,10 @@ router.post('/dap/death-br330-send-new', (req, res) => {
 })
 
 router.post('/dap/death-payee-name', (req, res) => {
+  res.redirect('death-payee-reference')
+})
+
+router.post('/dap/death-payee-reference', (req, res) => {
   res.redirect('death-payee-phone')
 })
 
@@ -220,14 +224,19 @@ router.post('/dap/death-payee-address', (req, res) => {
 
 router.post('/dap/death-payee-address-found', (req, res) => {
   req.session.data['updatedAddress'] = 'yes'
-  res.redirect('death-payee-details')
+  req.session.data['newDapEntered'] = 'yes'
+  res.redirect('death-payee-cya')
 })
 
-router.post('/dap/death-payee-details', (req, res) => {
+router.post('/dap/death-payee-cya', (req, res) => {
   res.redirect('death-payee-bank')
 })
 
 router.post('/dap/death-payee-bank', (req, res) => {
+  res.redirect('death-payee-bank-cya')
+})
+
+router.post('/dap/death-payee-bank-cya', (req, res) => {
   req.session.data['paymentDetailsCollected'] = 'yes'
   res.redirect('death-payment')
 })

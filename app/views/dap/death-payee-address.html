@@ -21,7 +21,8 @@
         },
         classes: "govuk-input--width-10",
         id: "representative-property",
-        name: "representativeProperty"
+        name: "representativeProperty",
+        value: data['representativeProperty'] if data['newDapEntered'] === "yes"
       }) }}
 
       {{ govukInput({
@@ -30,7 +31,8 @@
         },
         classes: "govuk-input--width-5",
         id: "representative-postcode",
-        name: "representativePostcode"
+        name: "representativePostcode",
+        value: data['representativePostcode'] if data['newDapEntered'] === "yes"
       }) }}
 
       {{ govukButton({

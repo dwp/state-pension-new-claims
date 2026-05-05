@@ -48,8 +48,14 @@
       "href": "javascript: window.history.go(-1)"
     }) }}
 
+    {% if data['paymentDetailsCollected'] === 'yes' %}
+      {% set repOrPayee = "Death arrears payee (DAP) details" %}
+    {% else %}
+      {% set repOrPayee = "Person dealing with the estate's details" %}
+    {% endif %}
+
     <h1 class="govuk-heading-l">
-      Death arrears payee (DAP) details
+      {{ repOrPayee }}
     </h1>
 
     {{ govukSummaryList({
@@ -69,7 +75,7 @@
                 visuallyHiddenText: "name"
               }
             ]
-          }
+          } if not data['paymentDetailsCollected']
         },
         {
           key: {
@@ -86,7 +92,7 @@
                 visuallyHiddenText: "solicior's reference"
               }
             ]
-          }
+          } if not data['paymentDetailsCollected']
         },
         {
           key: {
@@ -103,7 +109,7 @@
                 visuallyHiddenText: "phone"
               }
             ]
-          }
+          } if not data['paymentDetailsCollected']
         },
         {
           key: {
@@ -125,7 +131,7 @@
                 visuallyHiddenText: "address"
               }
             ]
-          }
+          } if not data['paymentDetailsCollected']
         },
         {
           key: {
@@ -142,7 +148,7 @@
                 visuallyHiddenText: "name"
               }
             ]
-          }
+          } if not data['paymentDetailsCollected']
         }
       ]
     }) }}

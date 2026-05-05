@@ -20,7 +20,8 @@
           isPageHeading: true
         },
         id: "representative-name",
-        name: "representativeName"
+        name: "representativeName",
+        value: data['representativeName'] if data['newDapEntered'] === "yes"
       }) }}
 
       {{ govukButton({

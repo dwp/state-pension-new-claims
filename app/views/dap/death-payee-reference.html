@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/dap/death-representative-reference">
+    <form class="form" method="post" action="/dap/death-payee-reference">
 
       {% include './_person.html' %}
 
@@ -18,7 +18,7 @@
           id: "solicitors-reference",
           name: "solicitorsReference",
           classes: "govuk-input--width-20",
-          value: data['solicitorsReference'] if data['hasSolicitorsReference'] === "yes",
+          value: data['solicitorsReference'] if data['newDapEntered'] === "yes",
           label: {
             text: "Solicitors reference"
           },
@@ -28,10 +28,10 @@
 
       {{ govukRadios({
         name: "hasSolicitorsReference",
-        value: data['hasSolicitorsReference'],
+        value: data['hasSolicitorsReference'] if data['newDapEntered'] === "yes",
         fieldset: {
           legend: {
-            text: "Do you have a solicitor's reference?",
+            text: "Do you have a solicitor's reference??",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -56,7 +56,6 @@
       }) }}
 
     </form>
-
   </div>
 </div>
 

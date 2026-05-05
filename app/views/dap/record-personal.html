@@ -183,7 +183,7 @@
             } if data['deathDateVerified'],
             {
               key: {
-                text: "Death arrears payee"
+                text: "Death arrears payee" if data['paymentDetailsCollected'] === 'yes' else "Person dealing with the estate"
               },
               value: {
                 text: data['representativeName']

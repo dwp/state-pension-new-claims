@@ -27,7 +27,7 @@
           {
             value: "address",
             text: "1 Big Avenue, Newcastle upon Tyne, NE1 8UR",
-            checked: data['representativeAddress'] == "address"
+            checked: data['representativeAddress'] == "address" if data['newDapEntered'] === "yes"
           },
           {
             divider: "or"
@@ -35,7 +35,7 @@
           {
             value: "notFound",
             text: "Address not found",
-            checked: data['representativeAddress'] == "notFound"
+            checked: data['representativeAddress'] == "notFound" if data['newDapEntered'] === "yes"
           }
         ]
       }) }}
