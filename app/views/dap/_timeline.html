@@ -65,14 +65,14 @@
 {% if newBr330Sent %}
   {% set timelineItems = (timelineItems.push({
     title: "New BR330 sent",
-    byline: "Agent",
+    byline: "System",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee address changed",
+    title: "Person dealing with the estate address changed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -80,7 +80,7 @@
 
 {% if representativePhoneChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee full phone number changed",
+    title: "Person dealing with the estate phone number changed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -88,7 +88,7 @@
 
 {% if representativeNameChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee full name changed",
+    title: "Person dealing with the estate full name changed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -97,7 +97,7 @@
 {% if br330Sent === 'yes' %}
   {% set timelineItems = (timelineItems.push({
     title: "BR330 sent",
-    byline: "Agent",
+    byline: "System",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
