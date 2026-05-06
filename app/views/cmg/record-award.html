@@ -72,16 +72,39 @@
     <style>
       .current-award-heading {
         display: flex;
-        flex-wrap: wrap;
         gap: 1em;
         justify-content: space-between;
         align-items: baseline;
       }
+
+      .current-award-heading h1 {
+        flex-shrink: 0;
+        white-space: nowrap;
+      }
+
+      .current-award-heading p {
+        text-align: right;
+        display: flex;
+        flex-direction: column;
+        gap: .5em;
+        flex-grow: 1;
+      }
     </style>
+
+    {% if isApplied and not isRemoved %}
+      {% set cmgLink = 'cmg-remove-or-change' %}
+      {% set cmgLinkText = 'Remove or change' %}
+    {% else %}
+      {% set cmgLink = 'cmg-add-amount' %}
+      {% set cmgLinkText = 'Add' %}
+    {% endif %}
 
     <div class="current-award-heading">
       <h1 id="statePensionAwardsHeading" class="govuk-heading-m">State pension awards</h1>
-      <p><a href="./adjustment">Make an adjustment</a></p>
+      <p>
+        <a href="#">Review award</a>
+        <a href="./{{ cmgLink }}">{{ cmgLinkText }} a Child Maintenance deduction</a>
+      </p>
     </div>
 
     {{ govukTable({
