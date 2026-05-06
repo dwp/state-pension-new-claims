@@ -207,6 +207,10 @@ router.post('/dap/death-br330-send-new', (req, res) => {
   res.redirect('death-representative-details')
 })
 
+router.post('/dap/death-payee-details', (req, res) => {
+  res.redirect('death-payee-bank')
+})
+
 router.post('/dap/death-payee-name', (req, res) => {
   res.redirect('death-payee-reference')
 })
