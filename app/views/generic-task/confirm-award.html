@@ -27,7 +27,13 @@
           </tr>
           <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">From</th>
-            <td class="govuk-table__cell">1 March 2025</td>
+            <td class="govuk-table__cell">
+              {% if data['another-year'] %}
+                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+              {% else %}
+                1 March 2026
+              {% endif %}  
+            </td>
           </tr>
         </tbody>
       </table>

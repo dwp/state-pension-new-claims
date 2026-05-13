@@ -1,0 +1,25 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-xl">Postpone task</h1>
+
+    <p>This task will be postponed until {selected date}.</p>
+
+    <br><br>
+
+    <a href="check-details" button type="submit" class="govuk-button govuk-button">
+      Confirm and continue
+    </a>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

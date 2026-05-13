@@ -1,0 +1,170 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+
+    {% include './_bar.html' %}
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Check the details and decide how to continue</h1>
+
+
+    <p>Complete the information and verify the dates, or choose another way to continue.</p>
+
+    <br><br>
+
+    <h2 class="govuk-heading-m">Claimant</h2>
+
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Address</th>
+            <td class="govuk-table__cell">
+            62 High Street<br>
+            North London<br>
+            N93 3KJ</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Marital status</th>
+            <td class="govuk-table__cell">Widowed</td>
+            <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Date of birth</th>
+            <td class="govuk-table__cell">25/07/1956</td>
+            <td class="govuk-table__cell"><span class="verified-badge verified">
+            <b></b>
+            <td class="govuk-table__cell" style="text-align: right">
+            </td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">State Pension date</th>
+            <td class="govuk-table__cell">25/07/2022</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Age when widowed</th>
+            <td class="govuk-table__cell">66</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <br><br>
+
+    {% from "govuk/components/table/macro.njk" import govukTable %}
+
+    {{ govukTable({
+      caption: "Task history",
+      captionClasses: "govuk-table__caption--m",
+      firstCellIsHeader: false,
+      head: [
+        {
+          text: "Date"
+        },
+        {
+          text: "Event"
+        },
+        {
+          text: "Notification"
+        },
+        {
+          text: "By"
+        }
+      ],
+      rows: [
+      [
+        {
+          text: "8/5/2026"
+        },
+        {
+          text: "COEG: Reminder email sent to HMRC"
+        },
+        {
+          text: "Sent"
+        },
+        {
+          text: "Agent"
+        }
+      ],
+      [
+        {
+          text: "1/5/2026"
+        },
+        {
+          text: "COEG: Email sent to HMRC"
+        },
+        {
+          text: "Sent"
+        },
+        {
+          text: "Agent"
+        }
+      ]
+      ]
+    }) }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            How do you want to continue?
+          </h2>
+        </legend>
+
+      <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="award">
+          <label class="govuk-label govuk-radios__label" for="decision">
+            Award State Pension
+          </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="postpone">
+          <label class="govuk-label govuk-radios__label" for="decision">
+            Postpone the task
+          </label>
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="govuk-button-group">
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </div>
+
+    <br><br>
+
+    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-2">View page variation</a>
+
+  </div>
+
+</div>
+
+</div>
+
+</main>
+</div>
+
+
+{% endblock %}

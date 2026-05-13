@@ -13,15 +13,27 @@ router.post('/generic-task/check-details', function (req, res) {
   }
 })
 
+router.post('/generic-task/check-details-2', function (req, res) {
+  if (req.body['decision2'] === 'more-info2') {
+    res.redirect('request-info')
+  } else if (req.body['decision2'] === 'adjust-award2') {
+    res.redirect('adjust-sp')
+  } else if (req.body['decision2'] === 'award-sp2') {
+    res.redirect('confirm-award')
+  } else if (req.body['decision2'] === 'claim-unsuccessful2') {
+    res.redirect('claim-unsuccessful')
+  }
+})
+
 router.post('/generic-task/request-info', (req, res) => {
   res.redirect('task-queue')
 })
 
-router.post('/generic-task/adjust-sp', function (req, res) {
-  if (req.body['credit'] === '30.25') {
-    res.redirect('enter-pp')
+router.post('/generic-task/select-option', function (req, res) {
+  if (req.body['option'] === 'one') {
+    res.redirect('check-details')
   } else {
-    res.redirect('date-needed')
+    res.redirect('check-details-2')
   }
 })
 
@@ -29,7 +41,7 @@ router.post('/generic-task/confirm-award', (req, res) => {
   res.redirect('task-queue')
 })
 
-router.post('/generic-task/enter-pp', (req, res) => {
+router.post('/generic-task/adjust-sp', (req, res) => {
   res.redirect('date-needed')
 })
 
