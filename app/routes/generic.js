@@ -3,7 +3,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 router.post('/generic-task/check-details', function (req, res) {
   if (req.body['decision'] === 'more-info') {
-    res.redirect('request-info')
+    res.redirect('request-info-2')
   } else if (req.body['decision'] === 'adjust-award') {
     res.redirect('adjust-sp')
   } else if (req.body['decision'] === 'award-sp') {
@@ -15,7 +15,7 @@ router.post('/generic-task/check-details', function (req, res) {
 
 router.post('/generic-task/check-details-2', function (req, res) {
   if (req.body['decision2'] === 'more-info2') {
-    res.redirect('request-info')
+    res.redirect('request-info-2')
   } else if (req.body['decision2'] === 'adjust-award2') {
     res.redirect('adjust-sp')
   } else if (req.body['decision2'] === 'award-sp2') {
@@ -26,6 +26,14 @@ router.post('/generic-task/check-details-2', function (req, res) {
 })
 
 router.post('/generic-task/request-info', (req, res) => {
+  res.redirect('task-queue')
+})
+
+router.post('/generic-task/request-info-2', (req, res) => {
+  res.redirect('postpone')
+})
+
+router.post('/generic-task/postpone', (req, res) => {
   res.redirect('task-queue')
 })
 

@@ -7,15 +7,36 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-xl">Postpone task</h1>
+    {% include './_bar.html' %}
 
-    <p>This task will be postponed until {selected date}.</p>
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+      })
+    }}
 
     <br><br>
 
-    <a href="check-details" button type="submit" class="govuk-button govuk-button">
-      Confirm and continue
-    </a>
+    <h1 class="govuk-heading-xl">Postpone task</h1>
+
+    <p>This task will be postponed
+      {% if data['postpone'] == "1" %}
+        for 1 week.
+      {% elseif data['postpone'] == "2" %}
+        for 2 weeks.
+      {% elseif data['postpone'] == "4" %}
+        for 4 weeks. 
+      {% elseif data['postpone'] == "8" %}
+        for 8 weeks.   
+      {% elseif data['add-day'] %}
+        until {{data['add-day']}} {{data['add-month'] | monthName}} {{data['add-year']}}.
+      {% endif %}</p>
+
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+     Confirm and continue
+    </button>
 
     </form>
 
