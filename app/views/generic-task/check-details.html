@@ -94,7 +94,7 @@
             <td class="govuk-table__cell">Agent</td>
           </tr>
         {% endif %}  
-        {% if (data['decision'] === 'more-info') or (data['decision2'] === 'more-info2') %} 
+        {% if (data['postpone']) %} 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">date month year</td>
             <td class="govuk-table__cell">Email or letter sent for lean task</td>
@@ -124,7 +124,7 @@
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="more-info">
           <label class="govuk-label govuk-radios__label" for="decision">
-            Postpone 
+            Postpone task
           </label>
       </div>
       <div class="govuk-radios__item">
