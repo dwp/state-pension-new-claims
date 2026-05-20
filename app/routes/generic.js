@@ -65,4 +65,110 @@ router.post('/generic-task/complete-task', (req, res) => {
   res.redirect('confirm-award')
 })
 
+// COEG
+
+router.post('/generic-task/coeg/select-option-coeg', function (req, res) {
+  if (req.body['option'] === 'one') {
+    res.redirect('check-details-coeg')
+  } else {
+    res.redirect('check-details-coeg-2')
+  }
+})
+
+router.post('/generic-task/coeg/check-details-coeg-1a', function (req, res) {
+  if (req.body['decisionCOEG'] === 'awardCOEG') {
+    res.redirect('award-calculated-coeg')
+  } else if (req.body['decisionCOEG'] === 'postponeCOEG') {
+    res.redirect('how-long-coeg')  
+  } else if (req.body['decisionCOEG'] === 'sendCOEG') {
+    res.redirect('send-letter-coeg')    
+  }
+})
+
+router.post('/generic-task/coeg/check-details-coeg-1b', function (req, res) {
+  if (req.body['decisionCOEG2'] === 'awardCOEG') {
+    res.redirect('award-calculated-coeg')
+  } else if (req.body['decisionCOEG2'] === 'postponeCOEG') {
+    res.redirect('how-long-coeg-2')  
+  } else if (req.body['decisionCOEG2'] === 'sendCOEG') {
+    res.redirect('send-letter-coeg-2')    
+  }
+})
+
+router.post('/generic-task/coeg/check-details-coeg-2a', function (req, res) {
+  if (req.body['decisionCOEG3'] === 'awardCOEG') {
+    res.redirect('award-calculated-coeg')
+  } else if (req.body['decisionCOEG3'] === 'postponeCOEG') {
+    res.redirect('how-long-coeg')  
+  } else if (req.body['decisionCOEG3'] === 'sendCOEG') {
+    res.redirect('send-letter-coeg')    
+  }
+})
+
+router.post('/generic-task/coeg/check-details-coeg-2b', function (req, res) {
+  if (req.body['decisionCOEG4'] === 'awardCOEG') {
+    res.redirect('award-calculated-coeg')
+  } else if (req.body['decisionCOEG4'] === 'postponeCOEG') {
+    res.redirect('how-long-coeg-2')  
+  } else if (req.body['decisionCOEG4'] === 'sendCOEG') {
+    res.redirect('send-letter-coeg-2')    
+  }
+})
+
+router.post('/generic-task/coeg/send-letter-coeg', function (req, res) {
+  if (req.body['COEGpostpone'] === 'yes') {
+    res.redirect('how-long-coeg')
+  } else {
+    res.redirect('task-queue-coeg-2')
+  }
+})
+
+router.post('/generic-task/coeg/send-letter-coeg-2', function (req, res) {
+  if (req.body['COEGpostpone2'] === 'yes') {
+    res.redirect('how-long-coeg-2')
+  } else {
+    res.redirect('task-queue-coeg-2')
+  }
+})
+
+router.post('/generic-task/coeg/award-calculated-coeg', (req, res) => {
+  res.redirect('award-confirmed-coeg')
+})
+
+router.post('/generic-task/coeg/award-confirmed-coeg', (req, res) => {
+  res.redirect('task-queue-coeg')
+})
+
+router.post('/generic-task/coeg/cannot-award', (req, res) => {
+  res.redirect('check-details-coeg')
+})
+
+router.post('/generic-task/coeg/award-successful-coeg', (req, res) => {
+  res.redirect('task-queue-coeg')
+})
+
+router.post('/generic-task/coeg/more-info-pc', (req, res) => {
+  res.redirect('complete-br403')
+})
+
+router.post('/generic-task/coeg/complete-br403', (req, res) => {
+  res.redirect('task-queue-coeg')
+})
+
+router.post('/generic-task/coeg/more-info-generic', (req, res) => {
+  res.redirect('task-queue-coeg')
+})
+
+router.post('/generic-task/coeg/how-long-coeg', (req, res) => {
+  res.redirect('postpone-coeg')
+})
+
+router.post('/generic-task/coeg/how-long-coeg-2', (req, res) => {
+  res.redirect('postpone-coeg')
+})
+
+router.post('/generic-task/coeg/postpone-coeg', (req, res) => {
+  res.redirect('task-queue-coeg')
+})
+
 module.exports = router

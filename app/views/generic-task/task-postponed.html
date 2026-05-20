@@ -17,7 +17,7 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Postpone task</h1>
+    <h1 class="govuk-heading-xl">Task postponed</h1>
 
     <p>This task will be postponed
       {% if data['postpone'] == "1" %}
@@ -30,12 +30,14 @@
         for 8 weeks.   
       {% elseif data['add-day'] %}
         until {{data['add-day']}} {{data['add-month'] | monthName}} {{data['add-year']}}.
+      {% else %}
+        until {the date you selected}.  
       {% endif %}</p>
 
     <br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-     Confirm and continue
+     Confirm and end task
     </button>
 
     </form>

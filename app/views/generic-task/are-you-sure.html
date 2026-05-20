@@ -17,15 +17,36 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Claim unsuccessful</h1>
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-    <p>A letter will be automatically sent to the claimant telling them we cannot award them State Pension.</p>
+    {{ govukRadios({
+      name: "sure",
+      fieldset: {
+        legend: {
+          text: "Are you sure?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
 
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Confirm and send letter
+      Continue
     </button>
+
+      
 
     </form>
 

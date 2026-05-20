@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Closing the case</h1>
+
+    <p>You must only close the case if we have already attempted to request information 3 times from the claimant.</p>
+
+    <p>If you close the case, the claimant will need to claim again to get their State Pension.</p>
+
+    <br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "close",
+      fieldset: {
+        legend: {
+          text: "Are you sure you want to close the case?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes"
+        },
+        {
+          value: "no",
+          text: "No"
+        }
+      ]
+    }) }}
+
+    <br><br>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+      
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

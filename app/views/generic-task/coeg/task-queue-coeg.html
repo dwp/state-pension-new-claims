@@ -11,7 +11,7 @@
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-        {% if (data['decision'] or data['decision2']) %}
+        {% if (data['decisionCOEG'] or data['decisionCOEG2'] or data['decisionCOEG3'] or data['decisionCOEG4']) %}
           {% set html %}
             <h3 class="govuk-notification-banner__heading">
               Task complete.
@@ -41,7 +41,7 @@
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-half">
             <h1 class="govuk-heading-m">Contracted out employment group (COEG)
-            <p class="govuk-body-l"><a href="/generic-task/coeg/select-option-coeg" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+            <p class="govuk-body-l"><a href="check-details-coeg-1b" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
 
           </div>
           <div class="govuk-grid-column-one-quarter">
@@ -239,7 +239,7 @@
 
         <br><br><br><br>
 
-        <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="record-personal">View citizen record</a>
+        <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="record-personal-coeg">View citizen record</a>
 
       </div>
   </div>

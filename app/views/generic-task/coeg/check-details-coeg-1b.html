@@ -39,7 +39,7 @@
         </tr>
         <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Marital status</th>
-            <td class="govuk-table__cell">Widowed</td>
+            <td class="govuk-table__cell">Married</td>
             <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
             <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
         </tr>
@@ -60,7 +60,7 @@
         </tr>
         <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Age when widowed</th>
-            <td class="govuk-table__cell">66</td>
+            <td class="govuk-table__cell"></td>
             <td class="govuk-table__cell"></td>
             <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
@@ -69,59 +69,43 @@
 
     <br><br>
 
-    <!--{% from "govuk/components/table/macro.njk" import govukTable %}
+    <table class="govuk-table">
+      <caption class="govuk-table__caption govuk-table__caption--m">Task history</caption>
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th scope="col" class="govuk-table__header">Date</th>
+          <th scope="col" class="govuk-table__header">Event</th>
+          <th scope="col" class="govuk-table__header">Notification</th>
+          <th scope="col" class="govuk-table__header">By</th>
+        </tr>
+      </thead>
+      <tbody class="govuk-table__body">
+        {% if (data['BFcoeg2']) %} 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">date month year</td>
+            <td class="govuk-table__cell">COEG: Reminder email sent to HMRC</td>
+            <td class="govuk-table__cell">Sent</td>
+            <td class="govuk-table__cell">Agent</td>
+          </tr>
+        {% endif %}  
+        {% if (data['BFcoeg']) %} 
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">date month year</td>
+            <td class="govuk-table__cell">COEG: Email sent to HMRC</td>
+            <td class="govuk-table__cell">Sent</td>
+            <td class="govuk-table__cell">Agent</td>
+          </tr>
+        {% endif %}  
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">date month year</td>
+          <td class="govuk-table__cell">Claim received</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell">System</td>
+        </tr>
+      </tbody>
+    </table>
 
-    {{ govukTable({
-      caption: "Task history",
-      captionClasses: "govuk-table__caption--m",
-      firstCellIsHeader: false,
-      head: [
-        {
-          text: "Date"
-        },
-        {
-          text: "Event"
-        },
-        {
-          text: "Notification"
-        },
-        {
-          text: "By"
-        }
-      ],
-      rows: [
-      [
-        {
-          text: "8/5/2026"
-        },
-        {
-          text: "COEG: Reminder email sent to HMRC"
-        },
-        {
-          text: "Sent"
-        },
-        {
-          text: "Agent"
-        }
-      ],
-      [
-        {
-          text: "1/5/2026"
-        },
-        {
-          text: "COEG: Email sent to HMRC"
-        },
-        {
-          text: "Sent"
-        },
-        {
-          text: "Agent"
-        }
-      ]
-      ]
-    }) }}
-
-    <br><br>-->
+    <br><br>
 
     <div class="govuk-form-group">
       <fieldset class="govuk-fieldset">
@@ -132,15 +116,21 @@
         </legend>
 
       <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="award">
-          <label class="govuk-label govuk-radios__label" for="decision">
+          <input class="govuk-radios__input" id="decisionCOEG2" name="decisionCOEG2" type="radio" value="awardCOEG">
+          <label class="govuk-label govuk-radios__label" for="decisionCOEG2">
             Award State Pension
           </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="decision" name="decision" type="radio" value="postpone">
-          <label class="govuk-label govuk-radios__label" for="decision">
+        <input class="govuk-radios__input" id="decisionCOEG2" name="decisionCOEG2" type="radio" value="postponeCOEG">
+          <label class="govuk-label govuk-radios__label" for="decisionCOEG2">
             Postpone the task
+          </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="decisionCOEG2" name="decisionCOEG2" type="radio" value="sendCOEG">
+          <label class="govuk-label govuk-radios__label" for="decisionCOEG2">
+            Send a letter
           </label>
       </div>
     </div>
@@ -155,40 +145,7 @@
 
     <br><br>
 
-    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-2">View page variation</a>
-
-  </div>
-
-  <div class="govuk-grid-column-one-third">
-
-    <h3 class="govuk-heading-m">Personal changes</h3>
-
-    <div class="dwp-timeline">
-      <ol class="dwp-timeline__items">
-        {% if (data['decision'] === 'adjust-award' or data['decision'] === 'award-sp') %}
-          
-        {% endif %}
-        <li class="dwp-timeline__item">
-          <p class="dwp-timeline__datetime">8/5/2026 at 12:00</p>
-          <h2 class="dwp-timeline__heading">COEG: Reminder email sent to HMRC</h2>
-          <p class="dwp-timeline__by-line">by Agent</p>
-        </li>
-        <li class="dwp-timeline__item">
-          <p class="dwp-timeline__datetime">1/5/2026 at 12:00</p>
-          <h2 class="dwp-timeline__heading">COEG: Email sent to HMRC</h2>
-          <p class="dwp-timeline__by-line">by Agent</p>
-          <p class="dwp-timeline__by-line"><a class="govuk-link--no-visited-state" href=record-task-details>Details</a></td></p>
-        </li>
-        <li class="dwp-timeline__item">
-          <p class="dwp-timeline__datetime">28/4/2026 at 12:00</p>
-          <h2 class="dwp-timeline__heading">Claim received</h2>
-          <p class="dwp-timeline__by-line">by Online</p>
-        </li>
-
-      </ol>
-    </div>
-
-    <!--<a class="govuk-link--no-visited-state govuk-!-font-size-19" href="record-full-history">Full history</a>-->
+    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-coeg-2b">View page variation</a>
 
   </div>
 

@@ -20,7 +20,7 @@
     <h1 class="govuk-heading-xl">Check the details and decide how to continue</h1>
 
 
-    <p>Complete the information and verify the dates, or choose another way to continue.</p>
+    <!--<p>Complete the information and verify the dates, or choose another way to continue.</p>-->
 
     <br><br>
 
@@ -41,7 +41,7 @@
             <th scope="row" class="govuk-table__header">Marital status</th>
             <td class="govuk-table__cell">Married</td>
             <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
-            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="">Change</a></td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
         </tr>
         <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Date of birth</th>
@@ -80,24 +80,18 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% if (data['decision'] === 'adjust-award' or data['decision'] === 'award-sp') or (data['decision2'] === 'adjust-award2' or data['decision2'] === 'award-sp2') %} 
+        {% if (data['BFcoeg2']) %} 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">date month year</td>
-            <td class="govuk-table__cell">State Pension Awarded</td>
+            <td class="govuk-table__cell">COEG: Reminder email sent to HMRC</td>
             <td class="govuk-table__cell">Sent</td>
             <td class="govuk-table__cell">Agent</td>
           </tr>
-          <tr class="govuk-table__row">
-            <td class="govuk-table__cell">date month year</td>
-            <td class="govuk-table__cell">Lean task complete</td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell">Agent</td>
-          </tr>
         {% endif %}  
-        {% if (data['BF']) %} 
+        {% if (data['BFcoeg']) %} 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">date month year</td>
-            <td class="govuk-table__cell">Email or letter sent for lean task</td>
+            <td class="govuk-table__cell">COEG: Email sent to HMRC</td>
             <td class="govuk-table__cell">Sent</td>
             <td class="govuk-table__cell">Agent</td>
           </tr>
@@ -122,45 +116,21 @@
         </legend>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="adjust">
-          <label class="govuk-label govuk-radios__label" for="continue">
-            Adjust the State Pension award
-          </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="award">
-          <label class="govuk-label govuk-radios__label" for="continue">
+          <input class="govuk-radios__input" id="decisionCOEG" name="decisionCOEG" type="radio" value="awardCOEG">
+          <label class="govuk-label govuk-radios__label" for="decisionCOEG">
             Award State Pension
           </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="close">
-          <label class="govuk-label govuk-radios__label" for="continue">
-            Close the case
-          </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="postpone">
-          <label class="govuk-label govuk-radios__label" for="continue">
+        <input class="govuk-radios__input" id="decisionCOEG" name="decisionCOEG" type="radio" value="postponeCOEG">
+          <label class="govuk-label govuk-radios__label" for="decisionCOEG">
             Postpone the task
           </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="remove">
-          <label class="govuk-label govuk-radios__label" for="continue">
-            Remove the case
-          </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="unsuccessful">
-          <label class="govuk-label govuk-radios__label" for="continue">
-            Send claim unsuccessful letter
-          </label>
-      </div>
-      <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue2" name="continue2" type="radio" value="sendInfo">
-          <label class="govuk-label govuk-radios__label" for="continue2">
-            Send or request information
+        <input class="govuk-radios__input" id="decisionCOEG" name="decisionCOEG" type="radio" value="sendCOEG">
+          <label class="govuk-label govuk-radios__label" for="decisionCOEG">
+            Send a letter
           </label>
       </div>
     </div>
@@ -169,17 +139,13 @@
 
     <div class="govuk-button-group">
       <button class="govuk-button" data-module="govuk-button">
-        Save changes and continue
+        Continue
       </button>
     </div>
 
     <br><br>
 
-    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details">View page variation</a>
-
-  </div>
-
-  
+    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-coeg-2a">View page variation</a>
 
   </div>
 
