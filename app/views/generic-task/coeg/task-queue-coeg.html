@@ -11,7 +11,7 @@
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-        {% if (data['decisionCOEG'] or data['decisionCOEG2'] or data['decisionCOEG3'] or data['decisionCOEG4']) %}
+        {% if (data['decisionCOEG'] or data['decisionCOEG2'] or data['decisionCOEG3'] or data['decisionCOEG4'] or data['COEGpostpone'] == "no" or data['COEGpostpone2'] == "no") %}
           {% set html %}
             <h3 class="govuk-notification-banner__heading">
               Task complete.

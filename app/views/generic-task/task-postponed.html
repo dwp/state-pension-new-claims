@@ -20,16 +20,26 @@
     <h1 class="govuk-heading-xl">Task postponed</h1>
 
     <p>This task will be postponed
-      {% if data['postpone'] == "1" %}
+      {% if data['whatDate2'] == "one" or data['whatDate2'] == "one" %}
         for 1 week.
-      {% elseif data['postpone'] == "2" %}
+      {% elseif data['whatDate2'] == "two" or data['whatDate2'] == "two" %}
         for 2 weeks.
-      {% elseif data['postpone'] == "4" %}
+      {% elseif data['whatDate2'] == "four" or data['whatDate2'] == "four" %}
         for 4 weeks. 
-      {% elseif data['postpone'] == "8" %}
+      {% elseif data['whatDate2'] == "eight" or data['whatDate2'] == "eight" %}
+        for 8 weeks.
+      {% elseif data['whatDate'] == "one" or data['whatDate2'] == "one" %}
+        for 1 week.
+      {% elseif data['whatDate'] == "two" or data['whatDate2'] == "two" %}
+        for 2 weeks.
+      {% elseif data['whatDate'] == "four" or data['whatDate2'] == "four" %}
+        for 4 weeks. 
+      {% elseif data['whatDate'] == "eight" or data['whatDate2'] == "eight" %}
         for 8 weeks.   
-      {% elseif data['add-day'] %}
-        until {{data['add-day']}} {{data['add-month'] | monthName}} {{data['add-year']}}.
+      {% elseif data['another-day'] %}
+        until {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}.
+      {% elseif data['another-day2'] %}
+        until {{data['another-day2']}} {{data['another-month2'] | monthName}} {{data['another-year2']}}.
       {% else %}
         until {the date you selected}.  
       {% endif %}</p>

@@ -20,7 +20,7 @@
     <h1 class="govuk-heading-xl">Check the details and decide how to continue</h1>
 
 
-    <!--<p>Complete the information and verify the dates, or choose another way to continue.</p>-->
+    <p>Complete the information and verify the dates, or choose another way to continue.</p>
 
     <br><br>
 
@@ -41,7 +41,7 @@
             <th scope="row" class="govuk-table__header">Marital status</th>
             <td class="govuk-table__cell">Married</td>
             <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
-            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="">Change</a></td>
         </tr>
         <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Date of birth</th>
@@ -55,6 +55,12 @@
         <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">State Pension date</th>
             <td class="govuk-table__cell">25/07/2022</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+        </tr>
+        <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header">Age when widowed</th>
+            <td class="govuk-table__cell"></td>
             <td class="govuk-table__cell"></td>
             <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
@@ -74,18 +80,18 @@
         </tr>
       </thead>
       <tbody class="govuk-table__body">
-        {% if (data['BFcoeg2']) %} 
+        {% if (data['generalPostpone2']) %} 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">date month year</td>
-            <td class="govuk-table__cell">COEG: Reminder email sent to HMRC</td>
+            <td class="govuk-table__cell">Reminder email or letter sent for lean task</td>
             <td class="govuk-table__cell">Sent</td>
             <td class="govuk-table__cell">Agent</td>
           </tr>
         {% endif %}  
-        {% if (data['BFcoeg']) %} 
+        {% if (data['generalPostpone']) %} 
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">date month year</td>
-            <td class="govuk-table__cell">COEG: Email sent to HMRC</td>
+            <td class="govuk-table__cell">Email or letter sent for lean task</td>
             <td class="govuk-table__cell">Sent</td>
             <td class="govuk-table__cell">Agent</td>
           </tr>
@@ -94,7 +100,7 @@
           <td class="govuk-table__cell">date month year</td>
           <td class="govuk-table__cell">Claim received</td>
           <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell">System</td>
+          <td class="govuk-table__cell">Online</td>
         </tr>
       </tbody>
     </table>
@@ -110,21 +116,45 @@
         </legend>
 
       <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="decisionCOEG" name="decisionCOEG" type="radio" value="awardCOEG">
-          <label class="govuk-label govuk-radios__label" for="decisionCOEG">
+        <input class="govuk-radios__input" id="continue2-1" name="continue2" type="radio" value="adjust">
+          <label class="govuk-label govuk-radios__label" for="continue2">
+            Adjust the State Pension award
+          </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="continue2-2" name="continue2" type="radio" value="award">
+          <label class="govuk-label govuk-radios__label" for="continue2">
             Award State Pension
           </label>
       </div>
-      <!--<div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="decisionCOEG" name="decisionCOEG" type="radio" value="postponeCOEG">
-          <label class="govuk-label govuk-radios__label" for="decisionCOEG">
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="continue2-3" name="continue2" type="radio" value="close">
+          <label class="govuk-label govuk-radios__label" for="continue2">
+            Close the claim
+          </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="continue2-4" name="continue2" type="radio" value="postpone">
+          <label class="govuk-label govuk-radios__label" for="continue2">
             Postpone the task
           </label>
-      </div>-->
+      </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="decisionCOEG" name="decisionCOEG" type="radio" value="sendCOEG">
-          <label class="govuk-label govuk-radios__label" for="decisionCOEG">
-            Send a notification
+        <input class="govuk-radios__input" id="continue2-5" name="continue2" type="radio" value="remove">
+          <label class="govuk-label govuk-radios__label" for="continue2">
+            Remove the claim
+          </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="continue2-6" name="continue2" type="radio" value="unsuccessful">
+          <label class="govuk-label govuk-radios__label" for="continue2">
+            Send claim unsuccessful letter
+          </label>
+      </div>
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="continue2-7" name="continue2" type="radio" value="info">
+          <label class="govuk-label govuk-radios__label" for="continue2">
+            Send or request information
           </label>
       </div>
     </div>
@@ -133,13 +163,17 @@
 
     <div class="govuk-button-group">
       <button class="govuk-button" data-module="govuk-button">
-        Continue
+        Save changes and continue
       </button>
     </div>
 
     <br><br>
 
-    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-coeg-2a">View page variation</a>
+    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-2b">View page variation</a>
+
+  </div>
+
+  
 
   </div>
 

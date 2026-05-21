@@ -17,19 +17,19 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Send notification</h1>
+    <h1 class="govuk-heading-xl">Request or send information</h1>
 
-    <p>Send a notification to the correct person or agency asking them to supply the information you need.</p>
+    <p>Complete the action needed to progress this task. You can now choose if you need to postpone the task.</p>
 
     <br>
 
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "COEGpostpone",
+      name: "generalPostpone2",
       fieldset: {
         legend: {
-          text: "Do you need to postpone this task?",
+          text: "Do you need to postpone the task?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }

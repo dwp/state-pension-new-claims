@@ -1,15 +1,39 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.post('/generic-task/check-details', function (req, res) {
-  if (req.body['decision'] === 'more-info') {
-    res.redirect('request-info-2')
-  } else if (req.body['decision'] === 'adjust-award') {
+router.post('/generic-task/check-details-1a', function (req, res) {
+  if (req.body['continue'] === 'adjust') {
     res.redirect('adjust-sp')
-  } else if (req.body['decision'] === 'award-sp') {
-    res.redirect('confirm-award')
-  } else if (req.body['decision'] === 'claim-unsuccessful') {
-    res.redirect('claim-unsuccessful')
+  } else if (req.body['continue'] === 'award') {
+    res.redirect('award-calculated')
+  } else if (req.body['continue'] === 'close') {
+    res.redirect('close')
+  } else if (req.body['continue'] === 'postpone') {
+    res.redirect('how-long')
+  } else if (req.body['continue'] === 'remove') {
+    res.redirect('remove')
+  } else if (req.body['continue'] === 'unsuccessful') {
+    res.redirect('unsuccessful')
+  } else if (req.body['continue'] === 'info') {
+    res.redirect('request')      
+  }
+})
+
+router.post('/generic-task/check-details-1b', function (req, res) {
+  if (req.body['continue2'] === 'adjust') {
+    res.redirect('adjust-sp')
+  } else if (req.body['continue2'] === 'award') {
+    res.redirect('award-calculated')
+  } else if (req.body['continue2'] === 'close') {
+    res.redirect('close')
+  } else if (req.body['continue2'] === 'postpone') {
+    res.redirect('how-long-2')
+  } else if (req.body['continue2'] === 'remove') {
+    res.redirect('remove')
+  } else if (req.body['continue2'] === 'unsuccessful') {
+    res.redirect('unsuccessful')
+  } else if (req.body['continue2'] === 'info') {
+    res.redirect('request-2')      
   }
 })
 
@@ -25,6 +49,14 @@ router.post('/generic-task/check-details-2', function (req, res) {
   }
 })
 
+router.post('/generic-task/how-long', (req, res) => {
+  res.redirect('task-postponed')
+})
+
+router.post('/generic-task/how-long-2', (req, res) => {
+  res.redirect('task-postponed')
+})
+
 router.post('/generic-task/request-info', (req, res) => {
   res.redirect('task-queue')
 })
@@ -33,8 +65,44 @@ router.post('/generic-task/request-info-2', (req, res) => {
   res.redirect('postpone')
 })
 
-router.post('/generic-task/postpone', (req, res) => {
-  res.redirect('task-queue')
+router.post('/generic-task/task-postponed', (req, res) => {
+  res.redirect('task-queue-2')
+})
+
+router.post('/generic-task/remove', function (req, res) {
+  if (req.body['remove'] === 'yes') {
+    res.redirect('claim-removed')
+  } else {
+    res.redirect('check-details-1b')
+  }
+})
+
+router.post('/generic-task/unsuccessful', function (req, res) {
+  if (req.body['unsuccessful'] === 'yes') {
+    res.redirect('claim-unsuccessful')
+  } else {
+    res.redirect('check-details-1b')
+  }
+})
+
+router.post('/generic-task/claim-unsuccessful', (req, res) => {
+  res.redirect('task-queue-2')
+})
+
+router.post('/generic-task/request', function (req, res) {
+  if (req.body['generalPostpone'] === 'yes') {
+    res.redirect('how-long')
+  } else {
+    res.redirect('check-details-1b')
+  }
+})
+
+router.post('/generic-task/request-2', function (req, res) {
+  if (req.body['generalPostpone2'] === 'yes') {
+    res.redirect('how-long-2')
+  } else {
+    res.redirect('check-details-1b')
+  }
 })
 
 router.post('/generic-task/select-option', function (req, res) {
@@ -45,24 +113,48 @@ router.post('/generic-task/select-option', function (req, res) {
   }
 })
 
+router.post('/generic-task/claim-removed', (req, res) => {
+  res.redirect('task-queue-2')
+})
+
 router.post('/generic-task/confirm-award', (req, res) => {
   res.redirect('task-queue')
 })
 
 router.post('/generic-task/adjust-sp', (req, res) => {
-  res.redirect('date-needed')
+  res.redirect('what-date')
 })
 
 router.post('/generic-task/claim-unsuccessful', (req, res) => {
   res.redirect('task-queue')
 })
 
-router.post('/generic-task/date-needed', (req, res) => {
+router.post('/generic-task/what-date', (req, res) => {
   res.redirect('complete-task')
 })
 
 router.post('/generic-task/complete-task', (req, res) => {
-  res.redirect('confirm-award')
+  res.redirect('award-calculated')
+})
+
+router.post('/generic-task/award-calculated', (req, res) => {
+  res.redirect('award-confirmed')
+})
+
+router.post('/generic-task/award-confirmed', (req, res) => {
+  res.redirect('task-queue-2')
+})
+
+router.post('/generic-task/close', function (req, res) {
+  if (req.body['close'] === 'yes') {
+    res.redirect('claim-closed')
+  } else {
+    res.redirect('check-details-1a')
+  }
+})
+
+router.post('/generic-task/claim-closed', (req, res) => {
+  res.redirect('task-queue-2')
 })
 
 // COEG
