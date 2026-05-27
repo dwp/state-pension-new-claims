@@ -28,7 +28,7 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Credit
+            Increase amount
           </dt>
           <dd class="govuk-summary-list__value--numeric">
               {{data['credit'] | currency}}
@@ -39,7 +39,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Debit
+            Decrease amount
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {{data['debit'] | currency}}
@@ -69,11 +69,11 @@
             {% if data['another-year'] %}
               {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
             {% else %}
-              1 March 2025
+              1 March 2026
             {% endif %}  
           </dd>
           <dd class="govuk-summary-list__actions">
-          <a class="govuk-link--no-visited-state" href="date-needed">Change<span class="govuk-visually-hidden"> transaction type</span></a>
+          <a class="govuk-link--no-visited-state" href="what-date">Change<span class="govuk-visually-hidden"> transaction type</span></a>
           </dd>
         </div>
       </dl>
@@ -87,7 +87,7 @@
       <br><br>
 
       <button class="govuk-button" data-module="govuk-button">
-        Continue
+        Confirm and continue
       </button>
 
     </div>

@@ -13,15 +13,42 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      {{ govukInput({
-        label: {
-          text: "Phone number of the person dealing with Leon's estate",
-          classes: "govuk-label--l",
-          isPageHeading: true
+      {% set phoneNumberInput %}
+        {{ govukInput({
+          id: "representative-phone",
+          name: "representativePhone",
+          classes: "govuk-input--width-20",
+          value: data['representativePhone'] if data['hasRepresentativePhone'] === "yes",
+          label: {
+            text: "Phone number"
+          },
+          spellcheck: false
+        }) }}
+      {% endset -%}
+
+      {{ govukRadios({
+        name: "hasRepresentativePhone",
+        value: data['hasRepresentativePhone'],
+        fieldset: {
+          legend: {
+            text: "Do you have the phone number of the person dealing with Leon's estate?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
-        id: "representative-phone",
-        name: "representativePhone",
-        value: data['representativePhone']
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            conditional: {
+              html: phoneNumberInput
+            }
+          },
+          {
+            value: "no",
+            text: "No"
+          }
+        ]
       }) }}
 
       {{ govukButton({
@@ -30,8 +57,6 @@
 
     </form>
 
-
-    <p><a href="death-representative-address">No phone number provided</a></p>
   </div>
 </div>
 

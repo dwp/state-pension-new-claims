@@ -1,0 +1,59 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">Complete part A of the BR403</h1>
+
+      <p>Use this information to complete part A of the BR403 and send it to the Pension Credit team.</p>
+
+      <br><br>
+      
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">State Pension revised award</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Weekly amount</th>
+            <th scope="col" class="govuk-table__header">Date from</th>
+          </tr>
+        </thead>
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">£109.80</td>
+            <td class="govuk-table__cell">1 March 2026</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm BR403 sent and end task
+      </button>
+
+      <br><br>
+
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="award-confirmed-coeg">If award confirmed</a>
+
+      <br><br>
+
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="more-info-generic">If overlapping task or benefit</a>
+
+    </div>
+</div>
+
+{% endblock %}

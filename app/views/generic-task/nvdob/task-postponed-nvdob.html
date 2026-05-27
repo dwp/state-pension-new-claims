@@ -1,0 +1,50 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Task postponed</h1>
+
+    <p>This task will be postponed
+      {% if data['whatDate'] == "one" or data['whatDate2'] == "one" %}
+        for 7 days.
+      {% elseif data['whatDate'] == "two" or data['whatDate2'] == "two" %}
+        for 14 days.
+      {% elseif data['whatDate'] == "four" or data['whatDate2'] == "four" %}
+        for 28 days. 
+      {% elseif data['whatDate'] == "eight" or data['whatDate2'] == "eight" %}
+        for 8 weeks.   
+      {% elseif data['another-day'] %}
+        until {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}.
+      {% elseif data['another-day2'] %}
+        until {{data['another-day2']}} {{data['another-month2'] | monthName}} {{data['another-year2']}}.
+      {% else %}
+        until {the date you selected}.  
+      {% endif %}</p>
+
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+     End task
+    </button>
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

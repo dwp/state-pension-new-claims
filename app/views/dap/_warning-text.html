@@ -3,26 +3,27 @@
 {% set deathDateVerified = data['deathDateVerified'] === 'verified' %}
 {% set deathDatenotVerified = data['deathDateVerified']  === 'notVerified' %}
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] === 'yes' %}
+{% set deathConfirmed = data['deathConfirmed']  === 'yes' %}
 
 {% if deathDateVerified and not representativeDetailsCollected %}
-  {% set warningText = "Awaiting details of the person dealing with the estate" %}
+  {% set warningText = "£12,097.35 arrears payment due for the period 18 December 2024 to 1 January 2026." %}
   {% set warningLink = "death-representative-name" %}
-  {% set warningLinkText = "Update details" %}
+  {% set warningLinkText = "Enter details of the person dealing with the estate" %}
 {% elif deathDatenotVerified and not representativeDetailsCollected %}
   {% set warningText = "Awaiting verification of death and details of the person dealing with the estate" %}
-  {% set warningLink = "death-verify" %}
+  {% set warningLink = "death-date-verification" %}
   {% set warningLinkText = "Update details" %}
 {% elif deathDateVerified and representativeDetailsCollected %}
   {% set warningText = "£12,097.35 arrears payment due for the period 18 December 2024 to 1 January 2026" %}
-  {% set warningLink = "death-payee-details" %}
+  {% set warningLink = "death-payee-details?postBr330=yes" %}
   {% set warningLinkText = "Enter payee details and send payment" %}
 {% elif deathDatenotVerified and representativeDetailsCollected %}
   {% set warningText = "Date of death awating verification" %}
-  {% set warningLink = "death-verify-suggested" %}
+  {% set warningLink = "death-date-suggested?deathDateVerified=verified" %}
   {% set warningLinkText = "Verify date of death" %}
 {% endif %}
 
-{% if data['deathDateVerified'] and data['paymentDetailsCollected'] !== "yes" %}
+{% if (deathDateVerified or deathDatenotVerified) and data['paymentDetailsCollected'] !== "yes" %}
   {{ govukWarningText({
     html: warningText +
           '<br />' +
@@ -32,7 +33,6 @@
     iconFallbackText: "Warning"
   }) }}
 {% endif %}
-
 
 {# Prison #}
 

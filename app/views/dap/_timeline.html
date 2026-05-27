@@ -31,6 +31,7 @@
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
 {% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
+{% set br330Sent = data['br330Sent'] %}
 
 {% if deathDateVerifiedLater %}
   {% set dateDeathVerifiedLater = "8 April 2025" %}
@@ -48,8 +49,29 @@
 
 
 {% set representativeNameChanged = data['representativeNameChanged'] === 'yes' %}
+{% set solicitorsReferenceAdded = data['solicitorsReferenceAdded'] === 'yes' %}
+{% set solicitorsReferenceChanged = data['solicitorsReferenceChanged'] === 'yes' %}
+{% set representativePhoneAdded = data['representativePhoneAdded'] === 'yes' %}
 {% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
 {% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
+{% set newBr330Sent = data['newBr330Sent'] === 'yes' %}
+{% set representativeChanged = data['representativeChanged'] === 'yes' %}
+
+{% if representativeChanged %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee details updated",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if newBr330Sent %}
+  {% set timelineItems = (timelineItems.push({
+    title: "BR330 sent",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
@@ -61,7 +83,31 @@
 
 {% if representativePhoneChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee full phone number changed",
+    title: "Death arrears payee phone number changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if representativePhoneAdded %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee phone number added",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if solicitorsReferenceChanged %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee solicitor's reference changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if solicitorsReferenceAdded %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee solicitor's reference added",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -75,6 +121,14 @@
   }), timelineItems) %}
 {% endif %}
 
+{% if br330Sent === 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "BR330 sent",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
 {% if deathDateVerification === 'verified' and representativeDetailsCollected === 'yes' %}
   {% set timelineItems = (timelineItems.push({
     title: "Arrears calculated - awaiting payee details",
@@ -83,7 +137,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerification === 'verified' and representativeDetailsCollected !== 'yes' %}
+{% if deathDateVerification === 'verified' or deathDateVerifiedLater %}
   {% set timelineItems = (timelineItems.push({
     title: "Date of death - verified",
     byline: "Agent",

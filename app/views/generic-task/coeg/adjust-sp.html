@@ -1,0 +1,61 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+    })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Adjust the State Pension amount</h1>
+
+    <p>Do the calculations you need to do and enter the amount to credit or debit.</p>
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="credit">
+          What is the credit amount, in pounds?
+        </label>
+      </h1>
+      <div class="govuk-input__wrapper">
+        <div class="govuk-input__prefix" aria-hidden="true">£</div>
+        <input class="govuk-input govuk-input--width-5" id="credit" name="credit" type="text" spellcheck="false">
+      </div>
+    </div>
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <h1 class="govuk-label-wrapper">
+        <label class="govuk-label govuk-label--m" for="debit">
+          What is the debit amount, in pounds?
+        </label>
+      </h1>
+      <div class="govuk-input__wrapper">
+        <div class="govuk-input__prefix" aria-hidden="true">£</div>
+        <input class="govuk-input govuk-input--width-5" id="debit" name="debit" type="text" spellcheck="false">
+      </div>
+    </div>
+
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    })
+    }}
+
+    <br><br>
+
+    {% set specificDate %}
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="coeg-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <div class="govuk-date-input" id="coeg">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="coeg-day2">
+                  day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="coeg-day2" name="coeg-day2" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="coeg-month2">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="coeg-month2" name="coeg-month2" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="coeg-year2">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="coeg-year2" name="coeg-year2" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    {% endset -%}
+
+    <br><br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "BFcoeg2",
+      fieldset: {
+        legend: {
+          text: "How long do you want to postpone the task for?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "1",
+          text: "7 days"
+        },
+        {
+          value: "2",
+          text: "14 days"
+        },
+        {
+          value: "4",
+          text: "28 days"
+        },
+        {
+          value: "6",
+          text: "6 weeks"
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "specific",
+          text: "Add specific date",
+          conditional: {
+            html: specificDate
+          }
+        }
+      ]
+    }) }}
+
+    <br><br>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

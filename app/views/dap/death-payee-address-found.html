@@ -13,7 +13,7 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      <h1 class="govuk-heading-l" id="address-heading">Payee address</h1>
+      <h1 class="govuk-heading-l" id="address-heading">Address of payee</h1>
 
       <p>1 address found for <b>{{ data['representativeProperty'] }}</b> and <b>{{ data['representativePostcode'] }}</b> <a href="death-representative-awaiting-address">Change</a></p>
 
@@ -27,7 +27,7 @@
           {
             value: "address",
             text: "1 Big Avenue, Newcastle upon Tyne, NE1 8UR",
-            checked: data['representativeAddress'] == "address"
+            checked: data['representativeAddress'] == "address" if data['newDapEntered'] === "yes"
           },
           {
             divider: "or"
@@ -35,13 +35,13 @@
           {
             value: "notFound",
             text: "Address not found",
-            checked: data['representativeAddress'] == "notFound"
+            checked: data['representativeAddress'] == "notFound" if data['newDapEntered'] === "yes"
           }
         ]
       }) }}
 
       {{ govukButton({
-        text: "Continue"
+        text: "Confirm"
       }) }}
 
     </form>

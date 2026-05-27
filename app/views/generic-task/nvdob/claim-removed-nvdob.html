@@ -1,0 +1,37 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Claim removed</h1>
+
+    <p>This claim will be sent to PSCS.</p>
+
+    <br><br>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Send to PSCS and end task
+    </button>
+
+      
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
