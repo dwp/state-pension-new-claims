@@ -38,22 +38,25 @@
             <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Marital status</th>
-          <td class="govuk-table__cell">Married</td>
-          <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
-          <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
+            <th scope="row" class="govuk-table__header">Marital status</th>
+            <td class="govuk-table__cell">Married</td>
+            <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
+            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">Date of birth</th>
-          <td class="govuk-table__cell">25/07/1956</td>
-          <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
-          <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+            <th scope="row" class="govuk-table__header">Date of birth</th>
+            <td class="govuk-table__cell">25/07/1956</td>
+            <td class="govuk-table__cell"><span class="verified-badge verified">
+            <b></b>
+            <td class="govuk-table__cell" style="text-align: right">
+            </td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
         <tr class="govuk-table__row">
-          <th scope="row" class="govuk-table__header">State Pension date</th>
-          <td class="govuk-table__cell">25/07/2022</td>
-          <td class="govuk-table__cell"></td>
-          <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+            <th scope="row" class="govuk-table__header">State Pension date</th>
+            <td class="govuk-table__cell">25/07/2022</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
       </tbody>
     </table>
@@ -104,60 +107,29 @@
 
   <div class="govuk-grid-column-one-third">
 
-    <h3 class="govuk-heading-m">COEG task changes</h3>
+    <h3 class="govuk-heading-m">Personal changes</h3>
 
     <div class="dwp-timeline">
       <ol class="dwp-timeline__items">
         {% if (data['BFcoeg2']) %} 
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">date month time</p>
-            <h2 class="dwp-timeline__heading">COEG: Task postponed  
-              {% if data['BFcoeg2'] == "1" %}
-                for 7 days
-              {% elseif data['BFcoeg2'] == "2" %}
-                for 14 days
-              {% elseif data['BFcoeg2'] == "4" %}
-                for 28 days
-              {% elseif data['BFcoeg2'] == "6" %}
-                for 6 weeks
-              {% elseif data['coeg-day2'] %}
-                until {{data['coeg-day2']}} {{data['coeg-month2'] | monthName}} {{data['coeg-year2']}}. 
-              {% endif %}</h2>
-            <p class="dwp-timeline__by-line">by Agent</p>
-          </li> 
-          <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">date month time</p>
             <h2 class="dwp-timeline__heading">COEG: Reminder email sent to HMRC</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
           </li> 
-        {% endif %}  
+        {% endif %}
         {% if (data['BFcoeg']) %} 
-          <li class="dwp-timeline__item">
-            <p class="dwp-timeline__datetime">date month time</p>
-            <h2 class="dwp-timeline__heading">COEG: Task postponed 
-              {% if data['BFcoeg'] == "1" %}
-                for 7 days
-              {% elseif data['BFcoeg'] == "2" %}
-                for 14 days
-              {% elseif data['BFcoeg'] == "4" %}
-                for 28 days
-              {% elseif data['BFcoeg'] == "6" %}
-                for 6 weeks
-              {% elseif data['coeg-day'] %}
-                until {{data['coeg-day']}} {{data['coeg-month'] | monthName}} {{data['coeg-year']}}.
-              {% endif %}</h2>
-            <p class="dwp-timeline__by-line">by Agent</p>
-          </li> 
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">date month time</p>
             <h2 class="dwp-timeline__heading">COEG: Email sent to HMRC</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
           </li> 
-        {% else %}
-          <li class="dwp-timeline__item">
-            <h2 class="dwp-timeline__heading">No changes yet</h2>
-          </li>
         {% endif %}
+        <li class="dwp-timeline__item">
+          <p class="dwp-timeline__datetime">date month time</p>
+          <h2 class="dwp-timeline__heading">Claim received</h2>
+          <p class="dwp-timeline__by-line">by Online</p>
+        </li>
       </ol>
     </div>
 

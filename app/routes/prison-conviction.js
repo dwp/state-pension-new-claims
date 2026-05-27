@@ -32,13 +32,7 @@ router.post('/prison-conviction/prison-suspend', (req, res) => {
 })
 
 router.post('/prison-conviction/prison-entry-date', (req, res) => {
-  const isChanging = req.query.change === 'true'
-
-  if (isChanging) {
     res.redirect('prison-entry-cya')
-  } else {
-    res.redirect('prison-entry-cya')
-  }
 })
 
 router.use((req, res, next) => {
@@ -51,6 +45,11 @@ router.use((req, res, next) => {
 router.post('/prison-conviction/prison-entry-cya', (req, res) => {
   req.session.data['isSuspended'] = 'yes'
   req.session.data['showBanner'] = 'yes'
+
+  if (req.session.data['prisonChangeOrRestart'] === 'change') {
+    req.session.data['prisonDateChanged'] = 'yes'
+  }
+
   res.redirect('record-personal')
 })
 
@@ -78,6 +77,36 @@ router.post('/prison-conviction/prison-leave-cya', (req, res) => {
 
   if (prisonConvicted === 'yes') {
     res.redirect('prison-overpayment')
+  } else {
+    res.redirect('prison-refund')
+  }
+})
+
+router.post('/prison-conviction/prison-change-or-restart', (req, res) => {
+  const prisonChangeOrRestart = req.session.data['prisonChangeOrRestart']
+
+  if (prisonChangeOrRestart === 'change') {
+    res.redirect('prison-entry-date')
+  } else {
+    res.redirect('prison-restart-reason')
+  }
+})
+
+router.post('/prison-conviction/prison-restart-reason', (req, res) => {
+  const prisonRestartReason = req.session.data['prisonRestartReason']
+
+  if (prisonRestartReason === 'not') {
+    res.redirect('prison-remove')
+  } else {
+    res.redirect('prison-details-check')
+  }
+})
+
+router.post('/prison-conviction/prison-remove', (req, res) => {
+  const prisonRemove = req.session.data['prisonRemove']
+
+  if (prisonRemove === 'no') {
+    res.redirect('record-personal')
   } else {
     res.redirect('prison-refund')
   }

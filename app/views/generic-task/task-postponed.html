@@ -20,12 +20,20 @@
     <h1 class="govuk-heading-xl">Task postponed</h1>
 
     <p>This task will be postponed
-      {% if data['whatDate'] == "one" or data['whatDate2'] == "one" %}
-        for 7 days.
+      {% if data['whatDate2'] == "one" or data['whatDate2'] == "one" %}
+        for 1 week.
+      {% elseif data['whatDate2'] == "two" or data['whatDate2'] == "two" %}
+        for 2 weeks.
+      {% elseif data['whatDate2'] == "four" or data['whatDate2'] == "four" %}
+        for 4 weeks. 
+      {% elseif data['whatDate2'] == "eight" or data['whatDate2'] == "eight" %}
+        for 8 weeks.
+      {% elseif data['whatDate'] == "one" or data['whatDate2'] == "one" %}
+        for 1 week.
       {% elseif data['whatDate'] == "two" or data['whatDate2'] == "two" %}
-        for 14 days.
+        for 2 weeks.
       {% elseif data['whatDate'] == "four" or data['whatDate2'] == "four" %}
-        for 28 days. 
+        for 4 weeks. 
       {% elseif data['whatDate'] == "eight" or data['whatDate2'] == "eight" %}
         for 8 weeks.   
       {% elseif data['another-day'] %}
@@ -39,7 +47,7 @@
     <br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-     End task
+     Confirm and end task
     </button>
 
     </form>

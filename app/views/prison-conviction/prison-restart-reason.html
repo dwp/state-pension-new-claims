@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/prison-conviction/prison-restart-reason">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukRadios({
+        name: "prisonRestartReason",
+        fieldset: {
+          legend: {
+            text: "Why do you want to restart their State Pension?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "not",
+            text: "They were not in prison",
+            checked: data['prisonRestartReason'] == "not" and data['prisonRemove'] != "no"
+          },
+          {
+            value: "left",
+            text: "They have left prison",
+            checked: data['prisonRestartReason'] == "left"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

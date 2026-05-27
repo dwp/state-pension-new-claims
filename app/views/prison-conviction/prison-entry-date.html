@@ -30,17 +30,17 @@
           {
             name: "day",
             classes: "govuk-input--width-2",
-            value: data['prisonEntry-day']
+            value: data['prisonEntry-day'] if not data['prisonChangeOrRestart']
           },
           {
             name: "month",
             classes: "govuk-input--width-2",
-            value: data['prisonEntry-month']
+            value: data['prisonEntry-month'] if not data['prisonChangeOrRestart']
           },
           {
             name: "year",
             classes: "govuk-input--width-4",
-            value: data['prisonEntry-year']
+            value: data['prisonEntry-year'] if not data['prisonChangeOrRestart']
           }
         ]
       }) }}

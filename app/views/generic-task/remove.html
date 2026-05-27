@@ -19,9 +19,7 @@
 
     <h1 class="govuk-heading-xl">Removing the claim</h1>
 
-    <p>We can only remove the claim if you are sure we cannot award State Pension on this system.</p>
-
-    <p>The claim will be removed and sent to PSCS.</p>
+    <p>You must only remove this claim if you are sure we cannot award State Pension on this system and you need to send it to PSCS.</p>
 
     <br>
 
@@ -31,7 +29,7 @@
       name: "remove",
       fieldset: {
         legend: {
-          text: "Are you sure you want the claim removed?",
+          text: "Are you sure you want to remove the claim?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -39,11 +37,11 @@
       items: [
         {
           value: "yes",
-          text: "Yes, remove the claim"
+          text: "Yes"
         },
         {
           value: "no",
-          text: "No, I want to choose another way to continue"
+          text: "No"
         }
       ]
     }) }}
@@ -51,7 +49,7 @@
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Confirm
+      Continue
     </button>
 
       

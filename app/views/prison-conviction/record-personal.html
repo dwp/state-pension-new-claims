@@ -6,18 +6,23 @@
 {% block content %}
 
 {% set isSuspended = data['isSuspended'] %}
-{% set isCivil = data['isCivil'] %}
 {% set isRestarted = data['isRestarted'] %}
+{% set dateChanged = data['prisonDateChanged'] === 'yes' %}
+{% set prisonRemoved = data['prisonRemove'] === 'yes' %}
 
-{% if isRestarted === 'yes' %}
-  {% set bannerType = 'left' %}
+{% if prisonRemoved %}
+  {% set bannerMessage = 'Prison date removed' %}
+{% elif isRestarted === 'yes' %}
+  {% set bannerMessage = 'Date left prison added' %}
+{% elif dateChanged %}
+  {% set bannerMessage = 'Date entered prison changed' %}
 {% elif isSuspended === 'yes' %}
-  {% set bannerType = 'entered' %}
+  {% set bannerMessage = 'Date entered prison added' %}
 {% endif %}
 
 {% set html %}
   <h3 class="govuk-notification-banner__heading">
-    Date {{ bannerType }} prison added
+    {{ bannerMessage }}
   </h3>
 {% endset %}
 
@@ -34,7 +39,7 @@
 
         {% if isSuspended and not isRestarted %}
           {{ govukWarningText({
-            html: '<p>If the claimant has left prison, you can <a href="./prison-details-check">restart their State Pension</a>.</p>',
+            html: '<p>This person is in prison. You can <a class="govuk-body govuk-link--no-visited-state" href="./prison-change-or-restart">change their prison entry date or restart their State Pension</a>.</p>',
             iconFallbackText: "Warning"
           }) }}
         {% endif %}
@@ -215,6 +220,7 @@
       </style>
       {% set timelineItems = [] %}
       {% set dateSuspended = "14 February 2025" %}
+      {% set dateChanged = data['prisonDateChanged'] === 'yes' %}
 
       {% if isRestarted === 'yes' %}
         {% set timelineItems = (timelineItems.push({
@@ -224,6 +230,31 @@
         }), timelineItems) %}
         {% set timelineItems = (timelineItems.push({
           title: "Date left prison added",
+          byline: "Agent",
+          date: dateSuspended,
+          link: {
+            text: "Details",
+            href: "./prison-details"
+          }
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if prisonRemoved %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Payment restarted letter sent",
+          byline: "System",
+          date: dateSuspended
+        }), timelineItems) %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Prison date removed",
+          byline: "Agent",
+          date: dateSuspended
+        }), timelineItems) %}
+      {% endif %}
+
+      {% if dateChanged %}
+        {% set timelineItems = (timelineItems.push({
+          title: "Date entered prison changed",
           byline: "Agent",
           date: dateSuspended,
           link: {

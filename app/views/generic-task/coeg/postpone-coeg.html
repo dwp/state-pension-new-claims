@@ -21,11 +21,11 @@
 
     <p>This task will be postponed
       {% if data['BFcoeg2'] == "1" or data['BFcoeg'] == "1" %}
-        for 7 days.
+        for 1 week.
       {% elseif data['BFcoeg2'] == "2" or data['BFcoeg'] == "2" %}
-        for 14 days.
+        for 2 weeks.
       {% elseif data['BFcoeg2'] == "4" or data['BFcoeg'] == "4" %}
-        for 28 days. 
+        for 4 weeks. 
       {% elseif data['BFcoeg2'] == "6" or data['BFcoeg'] == "6" %}
         for 6 weeks.
       {% elseif data['coeg-day2'] %}
@@ -37,7 +37,7 @@
     <br><br>
 
     <button class="govuk-button" data-module="govuk-button">
-     End task
+     Confirm and end task
     </button>
 
     </form>

@@ -3,7 +3,8 @@
   <span class="govuk-caption-l">QQ 12 34 56 X</span>
   {% set isSuspended = data['isSuspended'] === 'yes' %}
   {% set isRestarted = data['isRestarted'] === 'yes' %}
-  {% if isSuspended and not isRestarted %}
+  {% set prisonRemoved = data['prisonRemove'] === 'yes' %}
+  {% if isSuspended and not isRestarted and not prisonRemoved %}
     <strong class="govuk-tag govuk-tag--orange">
       Claimant in prison
     </strong>

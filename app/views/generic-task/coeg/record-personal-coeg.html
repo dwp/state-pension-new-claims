@@ -62,7 +62,7 @@
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
               <span class="govuk-warning-text__assistive"></span>
-              COEG investigation outstanding.<br> <a href="check-details-coeg-2b" class="govuk-link--no-visited-state">Check COEG investigation status</a>.
+              COEG investigation outstanding.<br> <a href="check-details-coeg-1b" class="govuk-link--no-visited-state">Check COEG investigation status</a>.
             </strong>
           </div>
         {% else %}
@@ -70,7 +70,7 @@
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
               <span class="govuk-warning-text__assistive"></span>
-              COEG investigation outstanding.<br> <a href="check-details-coeg-2a" class="govuk-link--no-visited-state">Check COEG investigation status</a>.
+              COEG investigation outstanding.<br> <a href="check-details-coeg-1a" class="govuk-link--no-visited-state">Check COEG investigation status</a>.
             </strong>
           </div>  
         {% endif %}
@@ -146,43 +146,11 @@
             {% if (data['BFcoeg2']) %} 
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">date month time</p>
-                <h2 class="dwp-timeline__heading">COEG: Task postponed  
-                  {% if data['BFcoeg2'] == "1" %}
-                    for 7 days
-                  {% elseif data['BFcoeg2'] == "2" %}
-                    for 14 days
-                  {% elseif data['BFcoeg2'] == "4" %}
-                    for 28 days
-                  {% elseif data['BFcoeg2'] == "6" %}
-                    for 6 weeks
-                  {% elseif data['coeg-day2'] %}
-                    until {{data['coeg-day2']}} {{data['coeg-month2'] | monthName}} {{data['coeg-year2']}}. 
-                  {% endif %}</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li> 
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">date month time</p>
                 <h2 class="dwp-timeline__heading">COEG: Reminder email sent to HMRC</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li> 
             {% endif %}  
             {% if (data['BFcoeg']) %} 
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">date month time</p>
-                <h2 class="dwp-timeline__heading">COEG: Task postponed 
-                  {% if data['BFcoeg'] == "1" %}
-                    for 7 days
-                  {% elseif data['BFcoeg'] == "2" %}
-                    for 14 days
-                  {% elseif data['BFcoeg'] == "4" %}
-                    for 28 days
-                  {% elseif data['BFcoeg'] == "6" %}
-                    for 6 weeks
-                  {% elseif data['coeg-day'] %}
-                    until {{data['coeg-day']}} {{data['coeg-month'] | monthName}} {{data['coeg-year']}}.
-                  {% endif %}</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li> 
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">date month time</p>
                 <h2 class="dwp-timeline__heading">COEG: Email sent to HMRC</h2>

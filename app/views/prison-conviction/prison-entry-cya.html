@@ -33,7 +33,7 @@
               }
             ]
           }
-        },
+        } if not data['prisonChangeOrRestart'],
         {
           key: { text: "Suspend payment" },
           value: {
@@ -48,7 +48,7 @@
               }
             ]
           }
-        } if data['prisonSuspend'] and (data['prisonType'] === "unknown"),
+        } if data['prisonSuspend'] and (data['prisonType'] === "unknown") and not data['prisonChangeOrRestart'],
         {
           key: { text: "Entered prison" },
           value: {

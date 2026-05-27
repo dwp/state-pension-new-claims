@@ -19,9 +19,9 @@
 
     <h1 class="govuk-heading-xl">Closing the claim</h1>
 
-    <p>We can only close the claim if we have already attempted to request information 3 times from the claimant.</p>
+    <p>You can only close the claim if we have already requested information 3 times from the claimant.</p>
 
-    <p>We will automatically send a letter to the claimant telling them we have closed their claim. They will need to claim again to get their State Pension.</p>
+    <p>If you close this claim, they will need to claim agin to get their State Pension.</p>
 
     <br>
 
@@ -31,7 +31,7 @@
       name: "close",
       fieldset: {
         legend: {
-          text: "Are you sure you want the claim closed?",
+          text: "Are you sure you want to close the claim?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -39,11 +39,11 @@
       items: [
         {
           value: "yes",
-          text: "Yes, close the claim and send a letter"
+          text: "Yes"
         },
         {
           value: "no",
-          text: "No, I want to choose another way to continue"
+          text: "No"
         }
       ]
     }) }}
@@ -51,7 +51,7 @@
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Confirm
+      Continue
     </button>
 
       
