@@ -13,13 +13,7 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      {% if data['paymentDetailsCollected'] === 'yes' %}
-        {% set repOrPayee = "Death arrears payee" %}
-      {% else %}
-        {% set repOrPayee = "the person dealing with Leon's estate" %}
-      {% endif %}
-
-      <h1 class="govuk-heading-l">Address of {{ repOrPayee }}</h1>
+      <h1 class="govuk-heading-l">Address Leon Hibbert</h1>
 
       {{ govukInput({
         label: {

@@ -13,7 +13,7 @@
     }) }}
 
     <h1 class="govuk-heading-l">
-      Check details of the person dealing with Leon's estate
+      Check details and send BR330 form
     </h1>
 
     {{ govukSummaryList({
@@ -37,33 +37,16 @@
         },
         {
           key: {
-            text: "Solicitor's reference"
-          },
-          value: {
-            text: data['solicitorsReference'] if data['hasSolicitorsReference'] === "yes"
-          },
-          actions: {
-            items: [
-              {
-                href: "death-representative-reference",
-                text: "Change" if data['hasSolicitorsReference'] === "yes" else "Add",
-                visuallyHiddenText: "solicior's reference"
-              }
-            ]
-          }
-        },
-        {
-          key: {
             text: "Phone number"
           },
           value: {
-            text: data['representativePhone'] if data['hasRepresentativePhone'] === "yes"
+            text: data['representativePhone']
           },
           actions: {
             items: [
               {
                 href: "death-representative-phone",
-                text: "Change" if data['hasRepresentativePhone'] === "yes" else "Add",
+                text: "Change" if data['representativePhone'] else "Add",
                 visuallyHiddenText: "phone"
               }
             ]
@@ -91,9 +74,11 @@
       ]
     }) }}
 
+    <p>To confirm who we need to pay arrears to, send this person a BR330 form to complete.</p>
+
     <form class="form" method="post" action="/dap/death-representative-cya">
       {{ govukButton({
-        text: "Confirm"
+        text: "Continue"
       }) }}
     </form>
 

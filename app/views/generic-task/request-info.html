@@ -17,33 +17,16 @@
 
     <br><br>
 
-    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    <h1 class="govuk-heading-xl">Request more information</h1>
 
-    {{ govukRadios({
-      name: "sure",
-      fieldset: {
-        legend: {
-          text: "Are you sure?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--xl"
-        }
-      },
-      items: [
-        {
-          value: "yes",
-          text: "Yes"
-        },
-        {
-          value: "no",
-          text: "No"
-        }
-      ]
-    }) }}
+    <p>Send a letter to the correct person or agency asking them to supply the information you need.</p>
+
+    <p>The task will be postponed for 2 weeks.</p>
 
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Continue
+      Confirm letter sent
     </button>
 
       

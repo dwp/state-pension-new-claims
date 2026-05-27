@@ -6,30 +6,27 @@
 
   {% include './_bar.html' %}
 
-<div class="govuk-grid-row">
-  <div class="govuk-grid-column-two-thirds"> 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-    {{ govukBackLink({
-        "text": "Back",
-        "href": "javascript: window.history.go(-1)"
-      })
-    }}
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
 
-    <br><br>
+        <h1 class="govuk-heading-xl">Claim unsuccessful</h1>
+                
+        <p>We cannot award State Pension based on what we know.</p>
 
-    <h1 class="govuk-heading-xl">Claim unsuccessful</h1>
+        <p>A letter will be automatically sent to the claimant to tell them something.</p>
 
-    <p>A letter will be automatically sent to the claimant telling them we cannot award them State Pension.</p>
+        <br><br>
 
-    <br><br>
-
-    <button type="submit" class="govuk-button" data-module="govuk-button">
-      Confirm and send letter
-    </button>
-
-    </form>
-
+        <button class="govuk-button" data-module="govuk-button">Confirm and send letter</button>
+    </div>
   </div>
-</div>
+
+</form>
 
 {% endblock %}

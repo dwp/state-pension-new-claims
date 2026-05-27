@@ -5,13 +5,13 @@
   {% set isRestarted = data['isRestarted'] === 'yes' %}
   {% set deathDateVerified = data['deathDateVerified'] === 'verified' %}
   {% set deathDatenotVerified = data['deathDateVerified']  === 'notVerified' %}
-  {% set deathConfirmed = data['deathConfirmed']  === 'yes' %}
+  {% set deathFirstPassDone = data['deathFirstPassDone'] %}
 
-  {% if deathConfirmed and deathDateVerified %}
+  {% if deathDateVerified and deathFirstPassDone %}
     <strong class="govuk-tag govuk-tag--grey">
       Dead
     </strong>
-  {% elif deathConfirmed and deathDatenotVerified %}
+  {% elif deathDatenotVerified and deathFirstPassDone %}
     <strong class="govuk-tag govuk-tag--grey">
       Dead - not verified
     </strong>

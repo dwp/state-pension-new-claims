@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/dap/death-representative-have-details">
+    <form class="form" method="post" action="/dap/death-verify-suggested">
 
       {% include './_person.html' %}
 
@@ -13,11 +13,16 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
+      {% set deathDateDay = data['deathDate-day'] %}
+      {% set deathDateMonth = data['deathDate-month'] | monthName %}
+      {% set deathDateYear = data['deathDate-year']%}
+
       {{ govukRadios({
-        name: "representativeDetails",
+        name: "verifyDateOfDeathSuggestion",
+        classes: "govuk-radios--inline",
         fieldset: {
           legend: {
-            text: "Do you have the details of the person dealing with the estate?",
+            text: "Is the date of death" + " " + deathDateDay + " " + deathDateMonth + " " + deathDateYear + "?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
@@ -25,26 +30,20 @@
         items: [
           {
             value: "yes",
-            text: "Yes",
-            checked: (data['representativeDetails'] == "yes") and not data['verifyDateOfDeathSuggestion']
+            text: "Yes"
           },
           {
             value: "no",
-            text: "No",
-            checked: (data['representativeDetails'] == "no") and not data['verifyDateOfDeathSuggestion']
+            text: "No"
           }
         ]
       }) }}
 
       {{ govukButton({
-        text: "Continue",
-        attributes: {
-          style: "float: left; margin-right: 15px;"
-        }
+        text: "Continue"
       }) }}
 
     </form>
-
   </div>
 </div>
 

@@ -15,13 +15,12 @@
 
       {{ govukInput({
         label: {
-          text: "Name of payee",
+          text: "Payee name",
           classes: "govuk-label--l",
           isPageHeading: true
         },
         id: "representative-name",
-        name: "representativeName",
-        value: data['representativeName'] if data['newDapEntered'] === "yes"
+        name: "representativeName"
       }) }}
 
       {{ govukButton({

@@ -31,7 +31,6 @@
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
 {% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
-{% set br330Sent = data['br330Sent'] %}
 
 {% if deathDateVerifiedLater %}
   {% set dateDeathVerifiedLater = "8 April 2025" %}
@@ -51,28 +50,10 @@
 {% set representativeNameChanged = data['representativeNameChanged'] === 'yes' %}
 {% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
 {% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
-{% set newBr330Sent = data['newBr330Sent'] === 'yes' %}
-{% set representativeChanged = data['representativeChanged'] === 'yes' %}
-
-{% if representativeChanged %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee details updated",
-    byline: "Agent",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
-
-{% if newBr330Sent %}
-  {% set timelineItems = (timelineItems.push({
-    title: "New BR330 sent",
-    byline: "System",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Address of person dealing with estate changed",
+    title: "Death arrears payee address changed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -80,7 +61,7 @@
 
 {% if representativePhoneChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Phone number of person dealing with estate changed",
+    title: "Death arrears payee full phone number changed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -88,16 +69,8 @@
 
 {% if representativeNameChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Full name changed of person dealing with estate changed",
+    title: "Death arrears payee full name changed",
     byline: "Agent",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
-
-{% if br330Sent === 'yes' %}
-  {% set timelineItems = (timelineItems.push({
-    title: "BR330 sent",
-    byline: "System",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}

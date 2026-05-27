@@ -6,28 +6,22 @@
 {% set awaitingBannerType = data['awaitingBannerType'] %}
 
 {% if awaitingBannerType === 'name' %}
-  {% set bannerMessage = 'Full name of the person dealing with the estate changed' %}
+  {% set bannerMessage = 'full name changed' %}
 {% elif awaitingBannerType === 'phone' %}
-  {% set bannerMessage = 'Phone number of the person dealing with the estate changed' %}
-{% elif awaitingBannerType === 'reference' %}
-  {% set bannerMessage = "Solicitor's reference changed" %}
-{% elif awaitingBannerType === 'br330' %}
-  {% set bannerMessage = "New BR330 sent" %}
+  {% set bannerMessage = 'phone number changed' %}
 {% elif awaitingBannerType === 'address' %}
-  {% set bannerMessage = 'Address of the person dealing with the estate changed' %}
+  {% set bannerMessage = 'address changed' %}
 {% endif %}
 
 {#
-  4 more messages to add:
-  - solicitor's reference removed
-  - solicitor's reference added
+  2 more messages to add:
   - phone number removed
   - phone number added
 #}
 
 {% set bannerHtml %}
   <h3 class="govuk-notification-banner__heading">
-    {{ bannerMessage }}
+    Death arrears payee {{ bannerMessage }}
   </h3>
 {% endset %}
 
@@ -45,17 +39,11 @@
 
     {{ govukBackLink({
       "text": "Back",
-      "href": "javascript: window.history.go(-1)"
+      "href": "record-personal"
     }) }}
 
-    {% if data['paymentDetailsCollected'] === 'yes' %}
-      {% set repOrPayee = "Death arrears payee (DAP) details" %}
-    {% else %}
-      {% set repOrPayee = "Details of the person dealing with Leon's estate" %}
-    {% endif %}
-
     <h1 class="govuk-heading-l">
-      {{ repOrPayee }}
+      Death arrears payee (DAP) details
     </h1>
 
     {{ govukSummaryList({
@@ -75,24 +63,7 @@
                 visuallyHiddenText: "name"
               }
             ]
-          } if not data['paymentDetailsCollected']
-        },
-        {
-          key: {
-            text: "Solicitor's reference"
-          },
-          value: {
-            text: data['solicitorsReference'] if data['hasSolicitorsReference'] === "yes"
-          },
-          actions: {
-            items: [
-              {
-                href: "death-representative-awaiting-reference",
-                text: "Change" if data['hasSolicitorsReference'] === "yes" else "Add",
-                visuallyHiddenText: "solicior's reference"
-              }
-            ]
-          } if not data['paymentDetailsCollected']
+          }
         },
         {
           key: {
@@ -109,7 +80,7 @@
                 visuallyHiddenText: "phone"
               }
             ]
-          } if not data['paymentDetailsCollected']
+          }
         },
         {
           key: {
@@ -131,31 +102,9 @@
                 visuallyHiddenText: "address"
               }
             ]
-          } if not data['paymentDetailsCollected']
-        },
-        {
-          key: {
-            text: "BR330 sent"
-          },
-          value: {
-            text: "No" if not data['br330Sent'] else "Yes"
-          },
-          actions: {
-            items: [
-              {
-                href: "death-br330-send-new",
-                text: "Send" if not data['br330Sent'] else "Send new",
-                visuallyHiddenText: "name"
-              }
-            ]
-          } if not data['paymentDetailsCollected']
+          }
         }
       ]
-    }) }}
-
-    {{ govukButton({
-      "text": "Go to Personal details",
-      "href": "record-personal"
     }) }}
 
   </div>

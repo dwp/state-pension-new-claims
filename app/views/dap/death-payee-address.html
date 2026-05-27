@@ -13,7 +13,7 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      <h1 class="govuk-heading-l">Address of payee</h1>
+      <h1 class="govuk-heading-l">Payee address</h1>
 
       {{ govukInput({
         label: {
@@ -21,8 +21,7 @@
         },
         classes: "govuk-input--width-10",
         id: "representative-property",
-        name: "representativeProperty",
-        value: data['representativeProperty'] if data['newDapEntered'] === "yes"
+        name: "representativeProperty"
       }) }}
 
       {{ govukInput({
@@ -31,8 +30,7 @@
         },
         classes: "govuk-input--width-5",
         id: "representative-postcode",
-        name: "representativePostcode",
-        value: data['representativePostcode'] if data['newDapEntered'] === "yes"
+        name: "representativePostcode"
       }) }}
 
       {{ govukButton({

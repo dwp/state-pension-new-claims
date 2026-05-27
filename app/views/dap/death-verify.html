@@ -4,7 +4,7 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/dap/death-br330-send-new">
+    <form class="form" method="post" action="/dap/death-verify">
 
       {% include './_person.html' %}
 
@@ -14,21 +14,22 @@
       }) }}
 
       {{ govukRadios({
-        name: "sendNewBr330",
+        name: "deathDateVerified",
+        classes: "govuk-radios--inline",
         fieldset: {
           legend: {
-            text: "Do you want to send a new BR330 automatically?",
+            text: "Are you able to verify the date of death?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--l"
           }
         },
         items: [
           {
-            value: "yes",
+            value: "verified",
             text: "Yes"
           },
           {
-            value: "no",
+            value: "notVerified",
             text: "No"
           }
         ]

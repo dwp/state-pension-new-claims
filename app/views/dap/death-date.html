@@ -23,27 +23,42 @@
             classes: "govuk-fieldset__legend--l"
           }
         },
-        hint: {
-          text: "For example, 27 3 2007"
-        },
         items: [
           {
             name: "day",
             classes: "govuk-input--width-2",
-            value: data['deathDate-day'] if data['verifyDateOfDeathSuggestion'] != "no"
+            value: data['deathDate-day']
           },
           {
             name: "month",
             classes: "govuk-input--width-2",
-            value: data['deathDate-month'] if data['verifyDateOfDeathSuggestion'] != "no"
+            value: data['deathDate-month']
           },
           {
             name: "year",
             classes: "govuk-input--width-4",
-            value: data['deathDate-year'] if data['verifyDateOfDeathSuggestion'] != "no"
+            value: data['deathDate-year']
           }
         ]
       }) }}
+
+      {{ govukRadios({
+        classes: "govuk-radios--inline",
+        name: "deathDateVerified",
+        items: [
+          {
+            value: "verified",
+            text: "Verified",
+            checked: data['deathDateVerified'] == "verified"
+          },
+          {
+            value: "notVerified",
+            text: "Not verified",
+            checked: data['deathDateVerified'] == "notVerified"
+          }
+        ]
+      }) }}
+
 
       {{ govukButton({
         text: "Continue"

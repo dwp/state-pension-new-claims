@@ -13,42 +13,14 @@
         "href": "javascript: window.history.go(-1)"
       }) }}
 
-      {% set phoneNumberInput %}
-        {{ govukInput({
-          id: "representative-phone",
-          name: "representativePhone",
-          classes: "govuk-input--width-20",
-          value: data['representativePhone'] if data['newDapEntered'] === "yes",
-          label: {
-            text: "Phone number"
-          },
-          spellcheck: false
-        }) }}
-      {% endset -%}
-
-      {{ govukRadios({
-        name: "hasRepresentativePhone",
-        value: data['hasRepresentativePhone'] if data['newDapEntered'] === "yes",
-        fieldset: {
-          legend: {
-            text: "Do you have the phone number of the payee?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
+      {{ govukInput({
+        label: {
+          text: "Payee phone number",
+          classes: "govuk-label--l",
+          isPageHeading: true
         },
-        items: [
-          {
-            value: "yes",
-            text: "Yes",
-            conditional: {
-              html: phoneNumberInput
-            }
-          },
-          {
-            value: "no",
-            text: "No"
-          }
-        ]
+        id: "representative-phone",
+        name: "representativePhone"
       }) }}
 
       {{ govukButton({
