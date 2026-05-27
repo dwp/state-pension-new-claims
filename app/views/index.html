@@ -242,7 +242,7 @@ GOV.UK Prototype Kit
                   </a>
                 </li>
                 <li>
-                  <a href="/cmg/record-award?showBanner=no&adjustmentAmountType=default&otherAmount-day=&confirmRemoval=no">
+                  <a class="govuk-body govuk-link--no-visited-state" href="/cmg/record-award?showBanner=no&adjustmentAmountType=default&otherAmount-day=&confirmRemoval=no">
                     Start Child Maintenance journey when CMG deduction has been applied
                   </a>
                 </li>
@@ -1090,6 +1090,8 @@ GOV.UK Prototype Kit
               <p>The Prison journeys cover:</p>
               <ul class="govuk-list govuk-list--bullet">
                 <li>Adding a prison entry date</li>
+                <li>Amending the entered prison entry date</li>
+                <li>Removing the entered prison date</li>
                 <li>Adding a prison leaving date</li>
               </ul>
 
@@ -1102,11 +1104,13 @@ GOV.UK Prototype Kit
                     <li>an unknown type of case</li>
                   </ul>
                 </li>
+                <li>Changing the prison entry date</li>
                 <li>Restarting a suspended State Pension:
                   <ul class="govuk-list govuk-list--bullet">
                     <li>after a civil case</li>
                     <li>when not convicted</li>
                     <li>when convicted of a criminal case</li>
+                    <li>because the person was not in prison</li>
                   </ul>
                 </li>
               </ul>
@@ -1115,8 +1119,8 @@ GOV.UK Prototype Kit
               <ul class="govuk-list govuk-list--bullet">
                 <li><a class="govuk-body govuk-link--no-visited-state" href="/prison-conviction/record-personal">Start Prison journey</a></li>
                 <li>
-                  <a href="/prison-conviction/record-personal?showBanner=no&stopReason=stopPrison&prisonType=criminal&prisonEntry-day=1&prisonEntry-month=1&prisonEntry-year=2026&isSuspended=yes">
-                    In prison
+                  <a class="govuk-body govuk-link--no-visited-state" href="/prison-conviction/record-personal?showBanner=no&stopReason=stopPrison&prisonType=criminal&prisonEntry-day=1&prisonEntry-month=1&prisonEntry-year=2026&isSuspended=yes">
+                    Start from 'In prison'
                   </a>
                 </li>
               </ul>
