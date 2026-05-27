@@ -188,19 +188,11 @@ router.post('/generic-task/coeg/check-details-coeg-2b', function (req, res) {
 })
 
 router.post('/generic-task/coeg/send-letter-coeg', function (req, res) {
-  if (req.body['COEGpostpone'] === 'yes') {
-    res.redirect('how-long-coeg')
-  } else {
-    res.redirect('task-queue-coeg-2')
-  }
+  res.redirect('how-long-coeg')
 })
 
 router.post('/generic-task/coeg/send-letter-coeg-2', function (req, res) {
-  if (req.body['COEGpostpone2'] === 'yes') {
-    res.redirect('how-long-coeg-2')
-  } else {
-    res.redirect('task-queue-coeg-2')
-  }
+  res.redirect('how-long-coeg-2')
 })
 
 router.post('/generic-task/coeg/award-calculated-coeg', (req, res) => {
