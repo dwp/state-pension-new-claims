@@ -18,7 +18,7 @@
     "del": "^8.0.1",
     "glob": "^13.0.0",
     "govuk-frontend": "5.8.0",
-    "govuk-prototype-kit": "13.19.0",
+    "govuk-prototype-kit": "13.20.1",
     "hmrc-frontend": "6.59.0",
     "jquery": "3.7.1",
     "nodemon": "^3.1.11",

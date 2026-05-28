@@ -11,18 +11,44 @@
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-        {% if (data['decisionCOEG'] or data['decisionCOEG2'] or data['decisionCOEG3'] or data['decisionCOEG4'] or data['COEGpostpone'] == "no" or data['COEGpostpone2'] == "no") %}
+        {% if (data['decisionCOEG'] == "awardCOEG" or data['decisionCOEG2'] == "awardCOEG" or data['decisionCOEG3'] == "awardCOEG" or data['decisionCOEG4'] == "awardCOEG" or data['COEGpostpone'] == "no" or data['COEGpostpone2'] == "no") %}
           {% set html %}
-            <h3 class="govuk-notification-banner__heading">
-              Task complete.
-            </h3>
-          {% endset %}
+              <h3 class="govuk-notification-banner__heading">
+                Task complete.
+              </h3>
+            {% endset %}
 
-          {{ govukNotificationBanner({
-            html: html,
-            type: "success"
-          }) }}
-        {% else %}
+            {{ govukNotificationBanner({
+              html: html,
+              type: "success"
+            }) }}
+        {% elseif data['BFcoeg'] or data['BFcoeg2'] %}
+          <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Important
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-notification-banner__heading">
+                Task postponed  
+                {% if data['BFcoeg2'] == "1" or data['BFcoeg'] == "1" %}
+                  for 7 days.
+                {% elseif data['BFcoeg2'] == "2" or data['BFcoeg'] == "2" %}
+                  for 14 days.
+                {% elseif data['BFcoeg2'] == "4" or data['BFcoeg'] == "4" %}
+                  for 28 days. 
+                {% elseif data['BFcoeg2'] == "6" or data['BFcoeg'] == "6" %}
+                  for 6 weeks.
+                {% elseif data['coeg-day2'] %}
+                  until {{data['coeg-day2']}} {{data['coeg-month2'] | monthName}} {{data['coeg-year2']}}. 
+                {% elseif data['coeg-day'] %}
+                  until {{data['coeg-day']}} {{data['coeg-month'] | monthName}} {{data['coeg-year']}}.
+                {% endif %}
+              </p>
+            </div>
+          </div>
+        {% else %}  
         {% endif %}
 
         {% include './_claims.html' %}
@@ -41,7 +67,7 @@
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-half">
             <h1 class="govuk-heading-m">Contracted out employment group (COEG)
-            <p class="govuk-body-l"><a href="check-details-coeg-1b" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+            <p class="govuk-body-l"><a href="check-details-coeg-2b" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
 
           </div>
           <div class="govuk-grid-column-one-quarter">

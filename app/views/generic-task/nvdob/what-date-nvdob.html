@@ -55,46 +55,22 @@
       name: "whatDate",
       fieldset: {
         legend: {
-          text: "How long do you want to postpone the task for?",
+          text: "What date does this adjustment apply from?",
           isPageHeading: true,
           classes: "govuk-fieldset__legend--xl"
         }
       },
       items: [
         {
-          value: "one",
-          text: "7 days",
+          value: "SPa",
+          text: "State Pension date",
           conditional: {
             html: emailHtml
           }
-        },
-        {
-          value: "two",
-          text: "14 days",
-          conditional: {
-            html: emailHtml
-          }
-        },
-        {
-          value: "four",
-          text: "28 days",
-          conditional: {
-            html: emailHtml
-          }
-        },
-        {
-          value: "eight",
-          text: "8 weeks",
-          conditional: {
-            html: emailHtml
-          }
-        },
-        {
-          divider: "or"
         },
         {
           value: "anotherDate",
-          text: "Add a specific date",
+          text: "Another date",
           conditional: {
             html: anotherDate
           }

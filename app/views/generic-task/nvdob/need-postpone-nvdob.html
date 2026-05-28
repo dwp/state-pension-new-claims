@@ -17,21 +17,15 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Send notification</h1>
-
-    <p>Send any notifications needed to progress this task.</p>
-
-    <br><br>
-
-    <!--{% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "COEGpostpone",
+      name: "generalPostpone",
       fieldset: {
         legend: {
           text: "Do you need to postpone this task?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
         }
       },
       items: [
@@ -44,10 +38,12 @@
           text: "No"
         }
       ]
-    }) }}-->
+    }) }}
+
+    <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Confirm notification sent
+      Continue
     </button>
 
       

@@ -17,33 +17,39 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Removing the claim</h1>
+    <h1 class="govuk-heading-xl">Send a notification</h1>
 
-    <p>We can only remove the claim if you are sure we cannot award State Pension on this system.</p>
-
-    <p>The claim will be removed and sent to PSCS.</p>
+    <p>Send the notification needed to progress this task. You can then choose if you need to postpone the task.</p>
 
     <br>
 
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "remove",
+      name: "generalPostpone",
       fieldset: {
         legend: {
-          text: "Are you sure you want the claim removed?",
+          text: "Which notification do you need to send?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
       },
       items: [
         {
-          value: "yes",
-          text: "Yes, remove the claim"
+          value: "1",
+          text: "Task specific notification 1"
         },
         {
-          value: "no",
-          text: "No, I want to choose another way to continue"
+          value: "2",
+          text: "Task specific notification 2"
+        },
+        {
+          value: "3",
+          text: "Task specific notification 3"
+        },
+        {
+          value: "4",
+          text: "Task specific notification 4"
         }
       ]
     }) }}
@@ -51,7 +57,7 @@
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Confirm
+      Continue
     </button>
 
       
