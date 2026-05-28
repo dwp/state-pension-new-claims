@@ -9,5 +9,5 @@
     "local>dwp/secure-development/renovate-bot//shared-configs/datasources/pypi",
     "local>dwp/secure-development/renovate-bot//shared-configs/datasources/terraform",
     "local>dwp/secure-development/renovate-bot//shared-configs/terraform-provider-registry-tofu-override"
-  ],
+  ]
 }
