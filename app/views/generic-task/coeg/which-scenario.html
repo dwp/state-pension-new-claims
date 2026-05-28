@@ -20,22 +20,30 @@
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
       {{ govukRadios({
-        name: "whereDoYouLive",
+        name: "whichScenario",
         fieldset: {
           legend: {
-            text: "Has the claimant received any Unemployability Supplement / deductable payments since [SPa]?",
+            text: "Which scenario do you want to choose?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
         },
         items: [
           {
-            value: "yes",
-            text: "Yes"
+            value: "flag",
+            text: "COEG flag still present in OLE"
           },
           {
-            value: "no",
-            text: "No"
+            value: "award",
+            text: "Award State Pension"
+          },
+          {
+            value: "further",
+            text: "There are additional tasks that need to be actioned"
+          },
+          {
+            value: "pensionCredit",
+            text: "The claimant receives Pension Credit"
           }
         ]
       }) }}
@@ -43,7 +51,7 @@
       <br><br>
 
       <button class="govuk-button" data-module="govuk-button">
-        Confirm
+        Continue
       </button>
 
     </div>

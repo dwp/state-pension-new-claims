@@ -169,7 +169,7 @@ router.post('/generic-task/coeg/select-option-coeg', function (req, res) {
 
 router.post('/generic-task/coeg/check-details-coeg-2a', function (req, res) {
   if (req.body['decisionCOEG3'] === 'awardCOEG') {
-    res.redirect('award-calculated-coeg')
+    res.redirect('which-scenario')
   } else if (req.body['decisionCOEG3'] === 'postponeCOEG') {
     res.redirect('how-long-coeg')  
   } else if (req.body['decisionCOEG3'] === 'sendCOEG') {
@@ -179,11 +179,23 @@ router.post('/generic-task/coeg/check-details-coeg-2a', function (req, res) {
 
 router.post('/generic-task/coeg/check-details-coeg-2b', function (req, res) {
   if (req.body['decisionCOEG4'] === 'awardCOEG') {
-    res.redirect('award-calculated-coeg')
+    res.redirect('which-scenario')
   } else if (req.body['decisionCOEG4'] === 'postponeCOEG') {
     res.redirect('how-long-coeg-2')  
   } else if (req.body['decisionCOEG4'] === 'sendCOEG') {
     res.redirect('send-letter-coeg-2')    
+  }
+})
+
+router.post('/generic-task/coeg/which-scenario', function (req, res) {
+  if (req.body['whichScenario'] === 'flag') {
+    res.redirect('cannot-award')
+  } else if (req.body['whichScenario'] === 'award') {
+    res.redirect('award-calculated-coeg')  
+  } else if (req.body['whichScenario'] === 'further') {
+    res.redirect('more-info-generic')  
+  } else if (req.body['whichScenario'] === 'pensionCredit') {
+    res.redirect('complete-br403')    
   }
 })
 
