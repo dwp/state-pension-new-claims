@@ -30,3 +30,10 @@ include:
     ref: 6.0.7
     file:
       - functions/base-mr.gitlab-ci.yml
+
+
+install-dependencies:
+  image: node:18
+  stage: build
+  script:
+    - npm install
