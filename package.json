@@ -24,7 +24,7 @@
     "notifications-node-client": "8.2.1",
     "resp-modifier": "^6.0.2",
     "rimraf": "^6.1.3",
-    "@dwp-govuk/govuk-prototype-kit": "latest"
+    "govuk-prototype-kit": "npm:@dwp-govuk/govuk-prototype-kit@latest"
   },
   "overrides": {
     "minimatch": "10.2.4",
