@@ -46,7 +46,7 @@
       }), summaryRows) %}
     {% endif %}
 
-    {% if isSuspended === 'yes' %}
+    {% if isSuspended === 'yes' and data['prisonRemove'] != 'yes' %}
       {% set summaryRows = (summaryRows.push({
         key: { text: "Entered prison" },
         value: { text: prisonEntryDate }

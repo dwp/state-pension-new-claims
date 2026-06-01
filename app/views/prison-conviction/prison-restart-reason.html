@@ -24,14 +24,14 @@
         },
         items: [
           {
-            value: "not",
-            text: "They were not in prison",
-            checked: data['prisonRestartReason'] == "not" and data['prisonRemove'] != "no"
-          },
-          {
             value: "left",
             text: "They have left prison",
             checked: data['prisonRestartReason'] == "left"
+          },
+          {
+            value: "not",
+            text: "They were not in prison",
+            checked: data['prisonRestartReason'] == "not" and data['prisonRemove'] != "no"
           }
         ]
       }) }}
