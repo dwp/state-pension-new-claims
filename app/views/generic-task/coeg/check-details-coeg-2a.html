@@ -24,7 +24,7 @@
 
     <br><br>
 
-    <h2 class="govuk-heading-m">Claimant</h2>
+    <h2 class="govuk-heading-m">Personal details</h2>
 
     <table class="govuk-table">
       <tbody class="govuk-table__body">
@@ -74,12 +74,12 @@
             Award State Pension
           </label>
       </div>
-      <!--<div class="govuk-radios__item">
+      <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="decisionCOEG3" name="decisionCOEG3" type="radio" value="postponeCOEG">
           <label class="govuk-label govuk-radios__label" for="decisionCOEG3">
             Postpone the task
           </label>
-      </div>-->
+      </div>
       <div class="govuk-radios__item">
         <input class="govuk-radios__input" id="decisionCOEG3" name="decisionCOEG3" type="radio" value="sendCOEG">
           <label class="govuk-label govuk-radios__label" for="decisionCOEG3">
@@ -98,8 +98,6 @@
 
     <br><br>
 
-    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-coeg-1a">View page variation</a>
-
   </div>
 
   <div class="govuk-grid-column-one-third">
@@ -108,10 +106,33 @@
 
     <div class="dwp-timeline">
       <ol class="dwp-timeline__items">
+        {% if (data['BFcoeg3']) %} 
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">date month time</p>
+            <h2 class="dwp-timeline__heading">COEG task postponed  
+              {% if data['BFcoeg3'] == "1" %}
+                for 7 days
+              {% elseif data['BFcoeg3'] == "2" %}
+                for 14 days
+              {% elseif data['BFcoeg3'] == "4" %}
+                for 28 days
+              {% elseif data['BFcoeg3'] == "6" %}
+                for 6 weeks
+              {% elseif data['coeg-day3'] %}
+                until {{data['coeg-day3']}} {{data['coeg-month3'] | monthName}} {{data['coeg-year3']}}
+              {% endif %}</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li> 
+          <li class="dwp-timeline__item">
+            <p class="dwp-timeline__datetime">date month time</p>
+            <h2 class="dwp-timeline__heading">COEG reminder email sent to HMRC</h2>
+            <p class="dwp-timeline__by-line">by Agent</p>
+          </li> 
+        {% endif %}
         {% if (data['BFcoeg2']) %} 
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">date month time</p>
-            <h2 class="dwp-timeline__heading">COEG: Task postponed  
+            <h2 class="dwp-timeline__heading">COEG task postponed  
               {% if data['BFcoeg2'] == "1" %}
                 for 7 days
               {% elseif data['BFcoeg2'] == "2" %}
@@ -121,20 +142,20 @@
               {% elseif data['BFcoeg2'] == "6" %}
                 for 6 weeks
               {% elseif data['coeg-day2'] %}
-                until {{data['coeg-day2']}} {{data['coeg-month2'] | monthName}} {{data['coeg-year2']}}. 
+                until {{data['coeg-day2']}} {{data['coeg-month2'] | monthName}} {{data['coeg-year2']}}
               {% endif %}</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
           </li> 
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">date month time</p>
-            <h2 class="dwp-timeline__heading">COEG: Reminder email sent to HMRC</h2>
+            <h2 class="dwp-timeline__heading">COEG BIC1 sent to HMRC</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
           </li> 
-        {% endif %}  
+        {% endif %}    
         {% if (data['BFcoeg']) %} 
           <li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">date month time</p>
-            <h2 class="dwp-timeline__heading">COEG: Task postponed 
+            <h2 class="dwp-timeline__heading">COEG task postponed 
               {% if data['BFcoeg'] == "1" %}
                 for 7 days
               {% elseif data['BFcoeg'] == "2" %}
@@ -144,15 +165,15 @@
               {% elseif data['BFcoeg'] == "6" %}
                 for 6 weeks
               {% elseif data['coeg-day'] %}
-                until {{data['coeg-day']}} {{data['coeg-month'] | monthName}} {{data['coeg-year']}}.
+                until {{data['coeg-day']}} {{data['coeg-month'] | monthName}} {{data['coeg-year']}}
               {% endif %}</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
           </li> 
-          <li class="dwp-timeline__item">
+          <!--<li class="dwp-timeline__item">
             <p class="dwp-timeline__datetime">date month time</p>
             <h2 class="dwp-timeline__heading">COEG: Email sent to HMRC</h2>
             <p class="dwp-timeline__by-line">by Agent</p>
-          </li> 
+          </li>-->
         {% else %}
           <li class="dwp-timeline__item">
             <h2 class="dwp-timeline__heading">No changes yet</h2>

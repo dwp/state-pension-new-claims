@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+      {{ govukCheckboxes({
+        name: "evidence",
+        fieldset: {
+          legend: {
+            text: "What evidence did you use?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--xl"
+          }
+        },
+        hint: {
+          text: "Select all that apply"
+        },
+        items: [
+          {
+            value: "admissable evidence 1",
+            text: "admissable evidence 1"
+          },
+          {
+            value: "admissable evidence 2",
+            text: "admissable evidence 2"
+          },
+          {
+            value: "admissable evidence 3",
+            text: "admissable evidence 3"
+          },
+          {
+            value: "admissable evidence 4",
+            text: "admissable evidence 4"
+          },
+          {
+            value: "admissable evidence 5",
+            text: "admissable evidence 5"
+          }
+        ]
+      }) }}
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </div>
+</div>
+
+{% endblock %}

@@ -187,6 +187,16 @@ router.post('/generic-task/coeg/check-details-coeg-2b', function (req, res) {
   }
 })
 
+router.post('/generic-task/coeg/check-details-coeg-2c', function (req, res) {
+  if (req.body['decisionCOEG5'] === 'awardCOEG') {
+    res.redirect('which-scenario')
+  } else if (req.body['decisionCOEG5'] === 'postponeCOEG') {
+    res.redirect('how-long-coeg-3')  
+  } else if (req.body['decisionCOEG5'] === 'sendCOEG') {
+    res.redirect('send-letter-coeg-3')    
+  }
+})
+
 router.post('/generic-task/coeg/which-scenario', function (req, res) {
   if (req.body['whichScenario'] === 'flag') {
     res.redirect('cannot-award')
@@ -207,12 +217,16 @@ router.post('/generic-task/coeg/send-letter-coeg-2', function (req, res) {
   res.redirect('how-long-coeg-2')
 })
 
+router.post('/generic-task/coeg/send-letter-coeg-3', function (req, res) {
+  res.redirect('how-long-coeg-3')
+})
+
 router.post('/generic-task/coeg/award-calculated-coeg', (req, res) => {
   res.redirect('award-confirmed-coeg')
 })
 
 router.post('/generic-task/coeg/award-confirmed-coeg', (req, res) => {
-  res.redirect('task-queue-coeg')
+  res.redirect('task-queue-coeg-2')
 })
 
 router.post('/generic-task/coeg/cannot-award', (req, res) => {
@@ -220,7 +234,7 @@ router.post('/generic-task/coeg/cannot-award', (req, res) => {
 })
 
 router.post('/generic-task/coeg/award-successful-coeg', (req, res) => {
-  res.redirect('task-queue-coeg')
+  res.redirect('task-queue-coeg-2')
 })
 
 router.post('/generic-task/coeg/more-info-pc', (req, res) => {
@@ -228,19 +242,23 @@ router.post('/generic-task/coeg/more-info-pc', (req, res) => {
 })
 
 router.post('/generic-task/coeg/complete-br403', (req, res) => {
-  res.redirect('task-queue-coeg')
+  res.redirect('task-queue-coeg-2')
 })
 
 router.post('/generic-task/coeg/more-info-generic', (req, res) => {
-  res.redirect('task-queue-coeg')
+  res.redirect('task-queue-coeg-2')
 })
 
 router.post('/generic-task/coeg/how-long-coeg', (req, res) => {
-  res.redirect('postpone-coeg')
+  res.redirect('task-queue-coeg')
 })
 
 router.post('/generic-task/coeg/how-long-coeg-2', (req, res) => {
-  res.redirect('postpone-coeg')
+  res.redirect('task-queue-coeg-2')
+})
+
+router.post('/generic-task/coeg/how-long-coeg-3', (req, res) => {
+  res.redirect('task-queue-coeg-2')
 })
 
 router.post('/generic-task/coeg/postpone-coeg', (req, res) => {
@@ -249,6 +267,52 @@ router.post('/generic-task/coeg/postpone-coeg', (req, res) => {
 
 // NVDOB
 
+router.post('/generic-task/nvdob/check-details-1-nvdob', function (req, res) {
+  if (req.body['continue'] === 'closeNVDOB') {
+    res.redirect('close-nvdob')
+  } else if (req.body['continue'] === 'postponeNVDOB') {
+    res.redirect('how-long-nvdob')  
+  } else if (req.body['continue'] === 'sendNVDOB') {
+    res.redirect('send-nvdob')    
+  }
+})
 
+router.post('/generic-task/nvdob/check-details-2-nvdob', function (req, res) {
+  if (req.body['continue2'] === 'closeNVDOB') {
+    res.redirect('close-nvdob')
+  } else if (req.body['continue2'] === 'postponeNVDOB') {
+    res.redirect('how-long-nvdob-2')  
+  } else if (req.body['continue2'] === 'sendNVDOB') {
+    res.redirect('send-nvdob-2')    
+  }
+})
+
+router.post('/generic-task/nvdob/close-nvdob', function (req, res) {
+  if (req.body['closeNVDOB'] === 'yes') {
+    res.redirect('task-queue-nvdob')
+  } else {
+    res.redirect('check-details-2-nvdob')
+  }
+})
+
+router.post('/generic-task/nvdob/claimant-dob', (req, res) => {
+  res.redirect('what-evidence')
+})
+
+router.post('/generic-task/nvdob/what-evidence', (req, res) => {
+  res.redirect('check-answers')
+})
+
+router.post('/generic-task/nvdob/check-answers', (req, res) => {
+  res.redirect('award-calculated-nvdob')
+})
+
+router.post('/generic-task/nvdob/award-calculated-nvdob', (req, res) => {
+  res.redirect('award-confirmed-nvdob')
+})
+
+router.post('/generic-task/nvdob/award-confirmed-nvdob', (req, res) => {
+  res.redirect('task-queue-nvdob')
+})
 
 module.exports = router

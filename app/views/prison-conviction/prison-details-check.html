@@ -13,7 +13,7 @@
     }) }}
 
     <h1 class="govuk-heading-l">
-      Check their details
+      Check contact and payment details
     </h1>
 
     <p>Before proceeding, check Leon's:</p>
@@ -23,18 +23,10 @@
       <li>bank or building society account details</li>
     </ul>
 
-    <form class="form govuk-!-display-inline-block"  method="post" action="/prison-conviction/prison-details-check">
-      <div class="govuk-button-group">
-        {{ govukButton({
-          text: "Continue"
-        }) }}
-
-        {{ govukButton({
-          text: "Return to personal details",
-          classes: "govuk-button--secondary",
-          href: "/prison-conviction/record-personal"
-        }) }}
-      </div>
+    <form class="form" method="post" action="/prison-conviction/prison-details-check">
+      {{ govukButton({
+        text: "Confirm and continue"
+      }) }}
     </form>
 
   </div>

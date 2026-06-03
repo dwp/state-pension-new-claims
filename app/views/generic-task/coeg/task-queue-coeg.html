@@ -22,7 +22,7 @@
               html: html,
               type: "success"
             }) }}
-        {% elseif data['BFcoeg'] or data['BFcoeg2'] %}
+        {% elseif data['BFcoeg'] or data['BFcoeg2'] or data['BFcoeg3'] %}
           <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
             <div class="govuk-notification-banner__header">
               <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -31,20 +31,7 @@
             </div>
             <div class="govuk-notification-banner__content">
               <p class="govuk-notification-banner__heading">
-                Task postponed  
-                {% if data['BFcoeg2'] == "1" or data['BFcoeg'] == "1" %}
-                  for 7 days.
-                {% elseif data['BFcoeg2'] == "2" or data['BFcoeg'] == "2" %}
-                  for 14 days.
-                {% elseif data['BFcoeg2'] == "4" or data['BFcoeg'] == "4" %}
-                  for 28 days. 
-                {% elseif data['BFcoeg2'] == "6" or data['BFcoeg'] == "6" %}
-                  for 6 weeks.
-                {% elseif data['coeg-day2'] %}
-                  until {{data['coeg-day2']}} {{data['coeg-month2'] | monthName}} {{data['coeg-year2']}}. 
-                {% elseif data['coeg-day'] %}
-                  until {{data['coeg-day']}} {{data['coeg-month'] | monthName}} {{data['coeg-year']}}.
-                {% endif %}
+                Task postponed.
               </p>
             </div>
           </div>

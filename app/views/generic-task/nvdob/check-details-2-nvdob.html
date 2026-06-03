@@ -24,36 +24,45 @@
 
     <br><br>
 
-    <h2 class="govuk-heading-m">Claimant</h2>
+    <h2 class="govuk-heading-m">Personal details</h2>
 
     <table class="govuk-table">
       <tbody class="govuk-table__body">
         <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Address</th>
-            <td class="govuk-table__cell">
+          <th scope="row" class="govuk-table__header">Address</th>
+          <td class="govuk-table__cell">
             62 High Street<br>
             North London<br>
-            N93 3KJ</td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+            N93 3KJ
+          </td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
-        <tr class="govuk-table__row">
+        <!--<tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Marital status</th>
             <td class="govuk-table__cell">Married</td>
-            <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
+            <td class="govuk-table__cell"><span class="govuk-hint">
+              <span class="govuk-!-font-weight-bold gysp-secondary-text-colour gysp-status govuk-!-padding-left-2 gysp-status--active">
+                Verified
+              </span>
+            </td>
             <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
+        </tr>-->
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Date of birth</th>
+          <td class="govuk-table__cell">25/07/1956</td>
+          <td class="govuk-table__cell"><span class="govuk-hint">
+            <span class="govuk-!-font-weight-bold gysp-secondary-text-colour gysp-status govuk-!-padding-left-2 gysp-status--inactive">
+              Not verified
+            </span>
+          </td>
+          <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="claimant-dob">Change</a></td>
         </tr>
         <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">Date of birth</th>
-            <td class="govuk-table__cell">25/07/1956</td>
-            <td class="govuk-table__cell"><span class="govuk-hint"><b>Unverified</b></td>
-            <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="claimant-dob">Change</a></td>
-        </tr>
-        <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">State Pension date</th>
-            <td class="govuk-table__cell">25/07/2022</td>
-            <td class="govuk-table__cell"></td>
-            <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
+          <th scope="row" class="govuk-table__header">State Pension date</th>
+          <td class="govuk-table__cell">25/07/2022</td>
+          <td class="govuk-table__cell"></td>
+          <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
       </tbody>
     </table>
@@ -69,20 +78,20 @@
       </legend>
 
       <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="close">
-            <label class="govuk-label govuk-radios__label" for="continue">
+          <input class="govuk-radios__input" id="continue2" name="continue2" type="radio" value="closeNVDOB">
+            <label class="govuk-label govuk-radios__label" for="continue2">
               Close the claim
             </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="postpone">
-            <label class="govuk-label govuk-radios__label" for="continue">
+          <input class="govuk-radios__input" id="continue2" name="continue2" type="radio" value="postponeNVDOB">
+            <label class="govuk-label govuk-radios__label" for="continue2">
               Postpone the task
             </label>
         </div>
         <div class="govuk-radios__item">
-          <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="info">
-            <label class="govuk-label govuk-radios__label" for="continue">
+          <input class="govuk-radios__input" id="continue2" name="continue2" type="radio" value="sendNVDOB">
+            <label class="govuk-label govuk-radios__label" for="continue2">
               Send a notification
             </label>
         </div>
@@ -92,7 +101,7 @@
 
     <div class="govuk-button-group">
       <button class="govuk-button" data-module="govuk-button">
-        Save changes and continue
+        Continue
       </button>
     </div>
 
@@ -102,7 +111,7 @@
 
   <div class="govuk-grid-column-one-third">
 
-    <h3 class="govuk-heading-m">Task specific changes</h3>
+    <h3 class="govuk-heading-m">TNVDOB changes</h3>
 
     <div class="dwp-timeline">
       <ol class="dwp-timeline__items">

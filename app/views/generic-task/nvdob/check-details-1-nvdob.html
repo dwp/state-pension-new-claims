@@ -24,7 +24,7 @@
 
     <br><br>
 
-    <h2 class="govuk-heading-m">Claimant</h2>
+    <h2 class="govuk-heading-m">Personal details</h2>
 
     <table class="govuk-table">
       <tbody class="govuk-table__body">
@@ -37,16 +37,24 @@
             <td class="govuk-table__cell"></td>
             <td class="govuk-table__cell"><a class="govuk-link" href=""></a></td>
         </tr>
-        <tr class="govuk-table__row">
+        <!--<tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Marital status</th>
             <td class="govuk-table__cell">Married</td>
-            <td class="govuk-table__cell"><span class="govuk-hint"><b>Verified</b></td>
+            <td class="govuk-table__cell"><span class="govuk-hint">
+              <span class="govuk-!-font-weight-bold gysp-secondary-text-colour gysp-status govuk-!-padding-left-2 gysp-status--active">
+                Verified
+              </span>
+            </td>
             <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=""></a></td>
-        </tr>
+        </tr>-->
         <tr class="govuk-table__row">
             <th scope="row" class="govuk-table__header">Date of birth</th>
             <td class="govuk-table__cell">25/07/1956</td>
-            <td class="govuk-table__cell"><span class="govuk-hint"><b>Unverified</b></td>
+            <td class="govuk-table__cell"><span class="govuk-hint">
+              <span class="govuk-!-font-weight-bold gysp-secondary-text-colour gysp-status govuk-!-padding-left-2 gysp-status--inactive">
+                Not verified
+              </span>
+            </td>
             <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="claimant-dob">Change</a></td>
         </tr>
         <tr class="govuk-table__row">
@@ -69,19 +77,19 @@
       </legend>
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="close">
+        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="closeNVDOB">
           <label class="govuk-label govuk-radios__label" for="continue">
             Close the claim
           </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="postpone">
+        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="postponeNVDOB">
           <label class="govuk-label govuk-radios__label" for="continue">
             Postpone the task
           </label>
       </div>
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="info">
+        <input class="govuk-radios__input" id="continue" name="continue" type="radio" value="sendNVDOB">
           <label class="govuk-label govuk-radios__label" for="continue">
             Send a notification
           </label>
@@ -92,21 +100,17 @@
 
     <div class="govuk-button-group">
       <button class="govuk-button" data-module="govuk-button">
-        Save changes and continue
+        Continue
       </button>
     </div>
 
     <br><br>
 
-    <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="check-details-1a">View page variation</a>
-
-
   </div>
 
   <div class="govuk-grid-column-one-third">
 
-
-    <h3 class="govuk-heading-m">Task specific changes</h3>
+    <h3 class="govuk-heading-m">NVDOB changes</h3>
 
     <div class="dwp-timeline">
       <ol class="dwp-timeline__items">
