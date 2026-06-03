@@ -37,9 +37,9 @@
       <div class="govuk-grid-column-two-thirds">
         {% include './_person.html' %}
 
-        {% if isSuspended and not isRestarted %}
+        {% if isSuspended and not isRestarted and not prisonRemoved %}
           {{ govukWarningText({
-            html: '<p>This person is in prison. You can <a class="govuk-body govuk-link--no-visited-state" href="./prison-change-or-restart">change their prison entry date or restart their State Pension</a>.</p>',
+            html: '<p>This person is in prison. You can <a class="govuk-body govuk-link--no-visited-state" href="./prison-change-or-restart">change the prison entry date or restart their State Pension</a>.</p>',
             iconFallbackText: "Warning"
           }) }}
         {% endif %}
@@ -164,7 +164,7 @@
               value: {
                 text: prisonEntryDay + " " + (prisonEntryMonth | monthName ) + " " + prisonEntryYear
               }
-            } if isSuspended and not isRestarted,
+            } if isSuspended and not isRestarted and not prisonRemoved,
             {
               key: {
                 text: "Lived or worked abroad"
@@ -221,6 +221,7 @@
       {% set timelineItems = [] %}
       {% set dateSuspended = "14 February 2025" %}
       {% set dateChanged = data['prisonDateChanged'] === 'yes' %}
+      {% set isCivil = data['prisonType'] === 'civil' %}
 
       {% if isRestarted === 'yes' %}
         {% set timelineItems = (timelineItems.push({
@@ -281,7 +282,7 @@
         }), timelineItems) %}
       {% endif %}
 
-      {% if isCivil === 'yes' %}
+      {% if isCivil %}
         {% set timelineItems = (timelineItems.push({
           title: "Entered prison for civil case",
           byline: "Agent",
