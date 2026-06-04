@@ -1,16 +1,6 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
-router.post('/generic-task/which-task', function (req, res) {
-  if (req.body['whichTask'] === 'coeg') {
-    res.redirect('/generic-task/coeg/record-personal-coeg')
-  } else if (req.body['whichTask'] === 'nvdob') {
-    res.redirect('/generic-task/nvdob/record-personal-nvdob')
-  } else if (req.body['whichTask'] === 'general') {
-    res.redirect('record-personal')
-  }  
-})
-
 router.post('/generic-task/check-details-2a', function (req, res) {
   if (req.body['continue'] === 'adjust') {
     res.redirect('adjust-sp')
@@ -323,66 +313,6 @@ router.post('/generic-task/nvdob/award-calculated-nvdob', (req, res) => {
 
 router.post('/generic-task/nvdob/award-confirmed-nvdob', (req, res) => {
   res.redirect('task-queue-nvdob')
-})
-
-// SP interest
-
-router.post('/generic-task/duplicate-claims/check-details-1-duplicate', function (req, res) {
-  if (req.body['continueDupe'] === 'awardDupe') {
-    res.redirect('which-scenario')
-  } else if (req.body['continueDupe'] === 'postponeDupe') {
-    res.redirect('how-long-duplicate')  
-  } else if (req.body['continueDupe'] === 'removeDupe') {
-    res.redirect('remove-duplicate')
-    } else if (req.body['continueDupe'] === 'sendDupe') {
-    res.redirect('send-duplicate')    
-  }
-})
-
-router.post('/generic-task/duplicate-claims/which-scenario', function (req, res) {
-  if (req.body['whichScenario'] === 'award') {
-    res.redirect('award-calculated-duplicate')
-  } else if (req.body['whichScenario'] === 'further') {
-    res.redirect('additional-tasks')  
-  } else if (req.body['whichScenario'] === 'pensionCredit') {
-    res.redirect('complete-br403')
-  }
-})
-
-router.post('/generic-task/duplicate-claims/award-calculated-duplicate', (req, res) => {
-  res.redirect('award-confirmed-duplicate')
-})
-
-router.post('/generic-task/duplicate-claims/additional-tasks', (req, res) => {
-  res.redirect('task-queue-duplicate')
-})
-
-router.post('/generic-task/duplicate-claims/complete-br403', (req, res) => {
-  res.redirect('task-queue-duplicate')
-})
-
-router.post('/generic-task/duplicate-claims/award-confirmed-duplicate', (req, res) => {
-  res.redirect('task-queue-duplicate')
-})
-
-router.post('/generic-task/duplicate-claims/how-long-duplicate', (req, res) => {
-  res.redirect('task-queue-duplicate')
-})
-
-router.post('/generic-task/duplicate-claims/remove-duplicate', function (req, res) {
-  if (req.body['remove'] === 'yes') {
-    res.redirect('task-queue-duplicate')
-    } else {
-    res.redirect('check-details-1-duplicate')    
-  }
-})
-
-router.post('/generic-task/duplicate-claims/send-duplicate', (req, res) => {
-  res.redirect('which-notification')
-})
-
-router.post('/generic-task/duplicate-claims/which-notification', (req, res) => {
-  res.redirect('how-long-duplicate')
 })
 
 module.exports = router

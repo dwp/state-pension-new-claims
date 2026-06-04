@@ -46,7 +46,7 @@ router.post('/prison-conviction/prison-entry-cya', (req, res) => {
   req.session.data['isSuspended'] = 'yes'
   req.session.data['showBanner'] = 'yes'
 
-  if (req.session.data['prisonChangeOrRestart'] === 'change') {
+  if (req.session.data['prisonDateChange'] === 'yes') {
     req.session.data['prisonDateChanged'] = 'yes'
   }
 

@@ -39,7 +39,7 @@
 
         {% if isSuspended and not isRestarted and not prisonRemoved %}
           {{ govukWarningText({
-            html: '<p>This person is in prison. You can <a class="govuk-body govuk-link--no-visited-state" href="./prison-change-or-restart">change the prison entry date or restart their State Pension</a>.</p>',
+            html: '<p>If the claimant has left prison, you can <a class="govuk-body govuk-link--no-visited-state" href="./prison-details-check">restart their State Pension</a>.</p>',
             iconFallbackText: "Warning"
           }) }}
         {% endif %}
@@ -95,6 +95,9 @@
         <style>
           .govuk-summary-list__key {
             width: 45%;
+          }
+          .govuk-summary-list__actions {
+            width: auto;
           }
         </style>
         {{ govukSummaryList({
@@ -163,6 +166,22 @@
               },
               value: {
                 text: prisonEntryDay + " " + (prisonEntryMonth | monthName ) + " " + prisonEntryYear
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./prison-entry-date?prisonDateChange=yes",
+                    text: "Change",
+                    visuallyHiddenText: "Date entered prison",
+                    classes: "govuk-link--no-visited-state"
+                  },
+                  {
+                    href: "./prison-remove",
+                    text: "Remove",
+                    visuallyHiddenText: "Date entered prison",
+                    classes: "govuk-link--no-visited-state"
+                  }
+                ]
               }
             } if isSuspended and not isRestarted and not prisonRemoved,
             {
