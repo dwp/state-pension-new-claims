@@ -21,23 +21,18 @@
 
       <br>
 
-      <table class="govuk-table">       
+      <table class="govuk-table">
+        <caption class="govuk-table__caption govuk-table__caption--m">State Pension award</caption>
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header">Weekly amount</th>
+            <th scope="col" class="govuk-table__header">Date from</th>
+          </tr>
+        </thead>
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">State Pension award</th>
-            <td class="govuk-table__cell"><b>£227.89</b></td>
-          </tr>
-          <tr class="govuk-table__row">
-            <th scope="row" class="govuk-table__header">From</th>
-            <td class="govuk-table__cell">
-              {% if data['another2-year'] %}
-                {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
-              {% elseif data['another-year'] %}
-                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
-              {% else %}
-                1 March 2025
-              {% endif %}
-            </td>
+            <td class="govuk-table__cell">£109.80</td>
+            <td class="govuk-table__cell">1 March 2025</td>
           </tr>
         </tbody>
       </table>
