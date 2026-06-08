@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Removing the claim</h1>
+
+    <p>We can only remove the claim if you are sure we cannot award State Pension on this system.</p>
+
+    <p>The claim will be removed and processed in PSCS.</p>
+
+    <br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "remove",
+      fieldset: {
+        legend: {
+          text: "Are you sure you want the claim removed?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
+        }
+      },
+      items: [
+        {
+          value: "yes",
+          text: "Yes, remove the claim"
+        },
+        {
+          value: "no",
+          text: "No, I want to choose another way to continue"
+        }
+      ]
+    }) }}
+
+    <br><br>
+
+    <button type="submit" class="govuk-button" data-module="govuk-button">
+      Confirm
+    </button>
+
+      
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    {% set other %}
+      <div class="govuk-form-group">
+        <div id="event-name-hint" class="govuk-hint">
+          Which notification did you send?
+        </div>
+        <input class="govuk-input" id="notification-name" name="notificationName" type="text" aria-describedby="notification-name-hint">
+      </div>
+    {% endset -%}
+
+    {{ govukRadios({
+      name: "whichNotification",
+      fieldset: {
+        legend: {
+          text: "Which notification did you send?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "1",
+          text: "Notification 1",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          value: "2",
+          text: "Notification 2",
+          conditional: {
+            html: emailHtml
+          }
+        },
+        {
+          divider: "or"
+        },
+        {
+          value: "other",
+          text: "Other",
+          conditional: {
+            html: other
+          }
+        }
+      ]
+    }) }}
+      
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+     Continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}
