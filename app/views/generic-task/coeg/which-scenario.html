@@ -4,57 +4,67 @@
 
 <form class="form" method="post">
 
-{% include './_bar.html' %}
-
 <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  <div class="govuk-grid-column-two-thirds">
 
-      {{ govukBackLink({
-          "text": "Back",
-          "href": "javascript: window.history.go(-1)"
-      })
-      }}
+    {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-      <br><br>
+    {% set html %}
+      <p class="govuk-notification-banner__heading">
+        This screen will NOT be part of the developed journey. It is to illustrate the different possible outcomes after 'Award State Pension' is selected on the previous screen.
+      </p>
+    {% endset %}
 
-      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+    {{ govukNotificationBanner({
+      html: html
+    }) }}
 
-      {{ govukRadios({
-        name: "whichScenario",
-        fieldset: {
-          legend: {
-            text: "Which scenario do you want to choose?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--xl"
-          }
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+    })
+    }}
+
+    <br><br>
+
+    {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+    {{ govukRadios({
+      name: "whichScenario",
+      fieldset: {
+        legend: {
+          text: "Which scenario do you want to choose?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      items: [
+        {
+          value: "flag",
+          text: "COEG flag still present in OLE"
         },
-        items: [
-          {
-            value: "flag",
-            text: "COEG flag still present in OLE"
-          },
-          {
-            value: "award",
-            text: "Award State Pension"
-          },
-          {
-            value: "further",
-            text: "There are additional tasks that need to be actioned"
-          },
-          {
-            value: "pensionCredit",
-            text: "The claimant receives Pension Credit"
-          }
-        ]
-      }) }}
+        {
+          value: "award",
+          text: "Award State Pension"
+        },
+        {
+          value: "further",
+          text: "There are additional tasks that need to be actioned"
+        },
+        {
+          value: "pensionCredit",
+          text: "The claimant receives Pension Credit"
+        }
+      ]
+    }) }}
 
-      <br><br>
+    <br><br>
 
-      <button class="govuk-button" data-module="govuk-button">
-        Continue
-      </button>
+    <button class="govuk-button" data-module="govuk-button">
+      Continue
+    </button>
 
-    </div>
+  </div>
 </div>
 
 {% endblock %}

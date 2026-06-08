@@ -80,6 +80,10 @@
             {
               text: "Contact",
               href: "record-contact"
+            },
+            {
+              text: "Full history",
+              href: "record-full-history"
             }]
           }) }}
         {% endif %}
@@ -102,51 +106,65 @@
 
         <h2 class="govuk-heading-m">Personal details</h2>
 
-          <table class="govuk-table">
-            <tbody class="govuk-table__body">
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
-                <td class="govuk-table__cell" style="width: 50%">Milly Olson</td>
-                <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="change-name">Change</a></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">National Insurance number</th>
-                <td class="govuk-table__cell">QQ 12 34 56 X</td>
-                <td class="govuk-table__cell"></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">Date of birth</th>
-                <td class="govuk-table__cell">22 June 1956</td>
-                <td class="govuk-table__cell"></td>
-              </tr>
-              <tr class="govuk-table__row">
-                <th scope="row" class="govuk-table__header">State Pension date</th>
-                <td class="govuk-table__cell">01 March 2026</td>
-                <td class="govuk-table__cell"></td>
-              </tr>
+        <table class="govuk-table">
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header" style="width: 50%" >Full name</th>
+              <td class="govuk-table__cell" style="width: 50%">Milly Olson</td>
+              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="change-name">
+                {% if (data['decisionCOEG3'] === 'awardCOEG') or (data['decisionCOEG4'] === 'awardCOEG') or (data['decisionCOEG5'] === 'awardCOEG') %}
+                  Change
+                {% endif %}</a>
+              </td>
+              </a></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">National Insurance number</th>
+              <td class="govuk-table__cell">QQ 12 34 56 X</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Date of birth</th>
+              <td class="govuk-table__cell">22 June 1956</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">State Pension date</th>
+              <td class="govuk-table__cell">01 March 2026</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+            {% if (data['decisionCOEG3'] === 'awardCOEG') or (data['decisionCOEG4'] === 'awardCOEG') or (data['decisionCOEG5'] === 'awardCOEG') %}
               <tr class="govuk-table__row">
                 <th scope="row" class="govuk-table__header">State Pension started </th>
                 <td class="govuk-table__cell"></td>
                 <td class="govuk-table__cell"></td>
               </tr>
+            {% endif %}
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Marital status </th>
+              <td class="govuk-table__cell">Married</td>
+              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-maritalstatus>
+                {% if (data['decisionCOEG3'] === 'awardCOEG') or (data['decisionCOEG4'] === 'awardCOEG') or (data['decisionCOEG5'] === 'awardCOEG') %}
+                  Change
+                {% endif %}</a>
+              </td>
+            </tr>
+            {% if (data['decisionCOEG3'] === 'awardCOEG') or (data['decisionCOEG4'] === 'awardCOEG') or (data['decisionCOEG5'] === 'awardCOEG') %}
               <tr class="govuk-table__row">
-                  <th scope="row" class="govuk-table__header">Marital status </th>
-                  <td class="govuk-table__cell">Married</td>
-                  <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-maritalstatus>Change</a></td>
-                </tr>
-                <tr class="govuk-table__row">
-                    <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
-                    <td class="govuk-table__cell">No</td>
-                    <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="lived-worked-details">Change</a></td>
-                  </tr>
-            </tbody>
-          </table>
+                <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
+                <td class="govuk-table__cell">No</td>
+                <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="lived-worked-details"></a></td>
+              </tr>
+            {% endif %}  
+          </tbody>
+        </table>
 
-          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Stop State Pension</a>
+        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Record date of death</a>
 
-          <br><br><br><br>
+        <br><br><br><br>
 
-          <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="task-queue">View task queue</a>
+        <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="task-queue-2">View task queue</a>
+
       </div>
 
       <div class="govuk-grid-column-one-third">

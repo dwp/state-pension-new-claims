@@ -1,6 +1,16 @@
 const govukPrototypeKit = require('govuk-prototype-kit')
 const router = govukPrototypeKit.requests.setupRouter()
 
+router.post('/generic-task/which-task', function (req, res) {
+  if (req.body['whichTask'] === 'coeg') {
+    res.redirect('/generic-task/coeg/record-personal-coeg')
+  } else if (req.body['whichTask'] === 'nvdob') {
+    res.redirect('/generic-task/nvdob/record-personal-nvdob')
+  } else if (req.body['whichTask'] === 'general') {
+    res.redirect('record-personal')
+  }  
+})
+
 router.post('/generic-task/check-details-2a', function (req, res) {
   if (req.body['continue'] === 'adjust') {
     res.redirect('adjust-sp')
