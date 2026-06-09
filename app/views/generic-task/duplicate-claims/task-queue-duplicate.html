@@ -11,7 +11,7 @@
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-        {% if (data['continue'] or data['continue2'] or data['continue3'] or data['continue4']) %}
+        {% if (data['decision'] or data['decision2']) %}
           {% set html %}
             <h3 class="govuk-notification-banner__heading">
               Task complete.
@@ -22,10 +22,23 @@
             html: html,
             type: "success"
           }) }}
-        {% else %}
+        {% elseif data['BFcoeg'] or data['BFcoeg2'] %}
+          <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+            <div class="govuk-notification-banner__header">
+              <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                Important
+              </h2>
+            </div>
+            <div class="govuk-notification-banner__content">
+              <p class="govuk-notification-banner__heading">
+                Task postponed.
+              </p>
+            </div>
+          </div>
+        {% else %}  
         {% endif %}
 
-        {% include './_claims-2.html' %}
+        {% include './_claims.html' %}
 
         <form method="post">
 
@@ -81,7 +94,7 @@
         <div class="govuk-grid-row">
           <div class="govuk-grid-column-one-half">
             <h1 class="govuk-heading-m">SP interest
-            <p class="govuk-body-l"><a href="/generic-task/duplicate-claims/check-details-1-duplicate" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+            <p class="govuk-body-l"><a href="/generic-task/duplicate-claims/check-details-2-duplicate" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
           </div>
           <div class="govuk-grid-column-one-quarter">
             <h3 class="govuk-heading-l">98
@@ -102,15 +115,15 @@
           <div class="govuk-grid-column-one-half">
             <h1 class="govuk-heading-m">Non verified date of birth (NVDOB) 
               <p class="govuk-body-l">
-                <a href="/generic-task/nvdob/check-details-1-nvdob" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
+                <a href="/generic-task/nvdob/check-details-2-nvdob" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
           </div>
           <div class="govuk-grid-column-one-quarter">
-            <h3 class="govuk-heading-l">170
+            <h3 class="govuk-heading-l">103
               <p class="govuk-body govuk-!-font-size-24">total tasks</p>
             </h3>
           </div>
           <div class="govuk-grid-column-one-quarter">
-            <h3 class="govuk-heading-l">146
+            <h3 class="govuk-heading-l">46
               <p class="govuk-body govuk-!-font-size-24">tasks ready to work</p>
             </h3>
           </div>
@@ -180,7 +193,7 @@
 
         <br><br><br><br>
 
-        <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="which-task">View citizen record</a>
+        <a class="govuk-link--no-visited-state govuk-link--no-underline govuk-!-font-size-27" href="record-personal">View citizen record</a>
 
       </div>
   </div>
