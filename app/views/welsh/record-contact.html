@@ -2,6 +2,34 @@
 
 {% block content %}
 
+  {% set contactPrefSpoken = data['contactPrefSpoken'] | capitalize if data['contactPrefSpoken'] else "English" %}
+  {% set contactPrefWritten = data['contactPrefWritten'] | capitalize if data['contactPrefWritten'] else "English" %}
+
+  {% set altFormatRaw = data['altFormat'] %}
+  {% set altFormatFormatted = (altFormatRaw | replace("-", " ") | replace("cd", "CD") | replace("mp3", "MP3")) if altFormatRaw and altFormatRaw != 'none' else "None" %}
+
+  {% if data['lastChanged'] === 'spoken' %}
+    {% set bannerMessage = 'Spoken language changed to ' + contactPrefSpoken %}
+  {% elif data['lastChanged'] === 'written' %}
+    {% set bannerMessage = 'Written language changed to ' + contactPrefWritten %}
+  {% elif data['lastChanged'] === 'altFormat' %}
+    {% set bannerMessage = 'Alternative format changed to ' + altFormatFormatted %}
+  {% endif %}
+
+  {% set html %}
+    <h3 class="govuk-notification-banner__heading">
+      {{ bannerMessage }}
+    </h3>
+  {% endset %}
+
+  {% if data['showBanner'] === "yes" and bannerMessage %}
+    {{ govukNotificationBanner({
+      html: html,
+      type: "success"
+    }) }}
+  {% endif %}
+
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 

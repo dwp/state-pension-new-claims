@@ -4,7 +4,6 @@
 
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
-    <form class="form" method="post" action="/welsh/contact-pref-written">
 
       {% include './_person.html' %}
 
@@ -38,35 +37,36 @@
         }) }}
 
       {% else %}
-        {{ govukRadios({
-          name: "contactPrefWritten",
-          fieldset: {
-            legend: {
-              text: "Written language",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "english",
-              text: "English",
-              checked: data['contactPrefWritten'] == "english"
+        <form class="form" method="post" action="/welsh/contact-pref-written">
+          {{ govukRadios({
+            name: "contactPrefWritten",
+            fieldset: {
+              legend: {
+                text: "Written language",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
             },
-            {
-              value: "welsh",
-              text: "Welsh",
-              checked: data['contactPrefWritten'] == "welsh"
-            }
-          ]
-        }) }}
+            items: [
+              {
+                value: "english",
+                text: "English",
+                checked: data['contactPrefWritten'] == "english"
+              },
+              {
+                value: "welsh",
+                text: "Welsh",
+                checked: data['contactPrefWritten'] == "welsh"
+              }
+            ]
+          }) }}
 
-        {{ govukButton({
-          text: "Continue"
-        }) }}
+          {{ govukButton({
+            text: "Continue"
+          }) }}
 
+        </form>
       {% endif %}
-    </form>
   </div>
 </div>
 
