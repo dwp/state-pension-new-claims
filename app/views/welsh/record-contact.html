@@ -6,7 +6,7 @@
   {% set contactPrefWritten = data['contactPrefWritten'] | capitalize if data['contactPrefWritten'] else "English" %}
 
   {% set altFormatRaw = data['altFormat'] %}
-  {% set altFormatFormatted = (altFormatRaw | replace("-", " ") | replace("cd", "CD") | replace("mp3", "MP3")) if altFormatRaw and altFormatRaw != 'none' else "None" %}
+  {% set altFormatFormatted = (altFormatRaw | replace("-", " ") | replace("cd", "CD") | replace("mp3", "MP3")) if altFormatRaw and altFormatRaw != 'none' else "none" %}
 
   {% if data['lastChanged'] === 'spoken' %}
     {% set bannerMessage = 'Spoken language changed to ' + contactPrefSpoken %}
@@ -238,21 +238,10 @@
       </div>
 
       <div class="govuk-grid-column-one-third">
-
-      <h3 class="govuk-heading-m">Contact changes</h3>
-
-      <div class="dwp-timeline">
-        <ol class="dwp-timeline__items">
-
-            <li class="dwp-timeline__item">
-              <h2 class="dwp-timeline__heading">No changes made</h2>
-            </li>
-
-        </ol>
+        <h3 class="govuk-heading-m">Contact changes</h3>
+        {% include './_timeline.html' %}
+        <p><a class="govuk-body govuk-link--no-visited-state" href="#">Full history</a></p>
       </div>
-
-      </div>
-
     </div>
   </main>
 </div>

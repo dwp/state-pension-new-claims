@@ -1,0 +1,67 @@
+<style>
+  .dwp-timeline__item {
+    display: flex;
+    flex-direction: column;
+  }
+  .dwp-timeline__heading,
+  .dwp-timeline__by-line,
+  .dwp-timeline__datetime {
+    font-size: 19px;
+    line-height: 25px;
+  }
+  .dwp-timeline__heading {
+    order: 1;
+    margin-bottom: 0;
+  }
+  .dwp-timeline__by-line {
+    order: 2;
+    margin-bottom: 0;
+  }
+  .dwp-timeline__datetime {
+    order: 4;
+    color: #505a5f;
+  }
+  .dwp-timeline__link {
+    order: 3;
+  }
+</style>
+
+{% set timelineItems = [] %}
+{% set dateChanged = "14 June 2025" %}
+
+{% for item in data['timelineHistory'] %}
+
+  {% if item.type === 'spoken' %}
+    {% set titleText = "Spoken language changed to " + (item.value | capitalize if item.value else "English") %}
+  {% elif item.type === 'written' %}
+    {% set titleText = "Written language changed to " + (item.value | capitalize if item.value else "English") %}
+  {% elif item.type === 'altFormat' %}
+    {% set formattedAlt = (item.value | replace("-", " ") | replace("cd", "CD") | replace("mp3", "MP3")) if item.value and item.value != 'none' else "none" %}
+    {% set titleText = "Alternative format changed to " + formattedAlt %}
+  {% endif %}
+
+  {% set timelineItem = {
+    title: titleText,
+    byline: "Agent",
+    date: dateChanged
+  } %}
+
+  {% set timelineItems = (timelineItems.push(timelineItem), timelineItems) %}
+{% endfor %}
+
+{% if timelineItems.length === 0 %}
+  {% set timelineItems = (timelineItems.push({
+    title: "No changes made"
+  }), timelineItems) %}
+{% endif %}
+
+{{ dwpTimeline({
+  items: timelineItems | reverse
+}) }}
+
+<script>
+  document.querySelectorAll('.dwp-timeline__by-line')
+  .forEach(element => {
+    element.textContent = element.textContent.replace('by ', '');
+  });
+</script>
