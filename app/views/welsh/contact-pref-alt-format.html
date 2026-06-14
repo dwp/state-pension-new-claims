@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/welsh/contact-pref-alt-format">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {% set writtenWelsh = data['contactPrefWritten'] == "welsh" %}
+
+      {{ govukRadios({
+        name: "altFormat",
+        fieldset: {
+          legend: {
+            text: "Alternative format for letters",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "Harold gets their letters in Welsh. Large print is the only alternative format that we offer in Welsh."
+        } if writtenWelsh,
+        items: [
+          {
+            value: "audio-cassette",
+            text: "Audio cassette",
+            checked: data['altFormat'] == "audio-cassette"
+          } if not writtenWelsh,
+          {
+            value: "audio-cd",
+            text: "Audio CD",
+            checked: data['altFormat'] == "audio-cd"
+          } if not writtenWelsh,
+          {
+            value: "audio-mp3",
+            text: "Audio MP3",
+            checked: data['altFormat'] == "audio-mp3"
+          } if not writtenWelsh,
+          {
+            value: "braille",
+            text: "Braille",
+            checked: data['altFormat'] == "braille"
+          } if not writtenWelsh,
+          {
+            value: "large-print",
+            text: "Large print",
+            checked: data['altFormat'] == "large-print"
+          },
+          {
+            divider: "or"
+          } if not writtenWelsh,
+          {
+            value: "none",
+            text: "None",
+            checked: data['altFormat'] == "none"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

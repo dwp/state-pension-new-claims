@@ -156,12 +156,12 @@
             {
               key: { text: "Spoken language" },
               value: {
-                text: "English"
+                text: "Welsh" if data['contactPrefSpoken'] === 'welsh' else "English"
               },
               actions: {
                 items: [
                   {
-                    href: "#",
+                    href: "contact-pref-spoken",
                     text: "Change",
                     visuallyHiddenText: "spoken language"
                   }
@@ -171,12 +171,12 @@
             {
               key: { text: "Written language" },
               value: {
-                text: "English"
+                text: "Welsh" if data['contactPrefWritten'] === 'welsh' else "English"
               },
               actions: {
                 items: [
                   {
-                    href: "#",
+                    href: "contact-pref-written",
                     text: "Change",
                     visuallyHiddenText: "written language"
                   }
@@ -186,12 +186,18 @@
             {
               key: { text: "Alternative format for letters" },
               value: {
-                text: "None"
+                text: (
+                  data['altFormat']
+                  | replace("-", " ")
+                  | capitalize
+                  | replace("cd", "CD")
+                  | replace("mp3", "MP3")
+                ) if data['altFormat'] and data['altFormat'] != 'none' else "None"
               },
               actions: {
                 items: [
                   {
-                    href: "#",
+                    href: "contact-pref-alt-format",
                     text: "Change",
                     visuallyHiddenText: "alternative format for letters"
                   }

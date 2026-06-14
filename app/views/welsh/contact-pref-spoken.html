@@ -1,0 +1,47 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/welsh/contact-pref-spoken">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukRadios({
+        name: "contactPrefSpoken",
+        fieldset: {
+          legend: {
+            text: "Spoken language",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "english",
+            text: "English",
+            checked: data['contactPrefSpoken'] == "english"
+          },
+          {
+            value: "welsh",
+            text: "Welsh",
+            checked: data['contactPrefSpoken'] == "welsh"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}
