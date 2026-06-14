@@ -1,0 +1,35 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h1 class="govuk-heading-l">
+      There will be an automatic payment for money owed
+    </h1>
+
+    <p>State Pension payments are paid in arrears if:</p>
+    <ul class="govuk-list govuk-list--bullet">
+      <li>the case is civil</li>
+      <li>the case is criminal with no conviction</li>
+      <li>the person was not in prison</li>
+    </ul>
+
+    <form class="form" method="post" action="/prison-conviction/prison-refund">
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

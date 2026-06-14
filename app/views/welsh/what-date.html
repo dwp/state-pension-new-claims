@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" method="post" action="dashboard-2">
+
+      {% include './_bar.html' %}
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" role="group" aria-describedby="whatDay-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              What date did HMRC start the COEG investigation?
+            </h1>
+          </legend>
+          <div id="whatDay-hint" class="govuk-hint">
+            You can find this in NIRS (OLE). Enter a date like 25 10 2024.
+          </div>
+          <div class="govuk-date-input" id="whatDay">
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="whatDay-day">
+                  Day
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="whatDay-day" name="whatDay-day" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="whatDay-month">
+                  Month
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="whatDay-month" name="whatDay-month" type="text" inputmode="numeric">
+              </div>
+            </div>
+            <div class="govuk-date-input__item">
+              <div class="govuk-form-group">
+                <label class="govuk-label govuk-date-input__label" for="whatDay-year">
+                  Year
+                </label>
+                <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="whatDay-year" name="whatDay-year" type="text" inputmode="numeric">
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+      Confirm and end task
+    </button>
+
+    <a href="dashboard" button type="submit" style="margin-left: 2%" class="govuk-button govuk-button--secondary">
+      Return task to queue
+    </a>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}
