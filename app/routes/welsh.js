@@ -3,7 +3,6 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 function addTimelineEvent(req, eventData) {
   req.session.data['timelineHistory'] = req.session.data['timelineHistory'] || []
-
   req.session.data['timelineHistory'].push(eventData)
 
   if (req.session.data['timelineHistory'].length > 10) {
@@ -11,38 +10,78 @@ function addTimelineEvent(req, eventData) {
   }
 }
 
-router.post('/welsh/contact-pref-spoken', (req, res) => {
-  req.session.data['showBanner'] = 'yes'
-  req.session.data['lastChanged'] = 'spoken'
+router.use((req, res, next) => {
+  if (req.session.data['savedSpokenLanguage'] === undefined) {
+    req.session.data['savedSpokenLanguage'] = 'english'
+  }
+  if (req.session.data['savedWrittenLanguage'] === undefined) {
+    req.session.data['savedWrittenLanguage'] = 'english'
+  }
+  if (req.session.data['savedAltFormat'] === undefined) {
+    req.session.data['savedAltFormat'] = 'none'
+  }
+  next()
+})
 
-  addTimelineEvent(req, {
-    type: 'spoken',
-    value: req.session.data['contactPrefSpoken']
-  })
+router.post('/welsh/contact-pref-spoken', (req, res) => {
+  const oldValue = req.session.data['savedSpokenLanguage']
+  const newValue = req.body['contactPrefSpoken']
+
+  if (oldValue !== newValue) {
+    req.session.data['showBanner'] = 'yes'
+    req.session.data['lastChanged'] = 'spoken'
+
+    addTimelineEvent(req, {
+      type: 'spoken',
+      value: newValue
+    })
+
+    req.session.data['savedSpokenLanguage'] = newValue
+  } else {
+    req.session.data['showBanner'] = 'no'
+  }
 
   res.redirect('record-contact')
 })
 
 router.post('/welsh/contact-pref-written', (req, res) => {
-  req.session.data['showBanner'] = 'yes'
-  req.session.data['lastChanged'] = 'written'
+  const oldValue = req.session.data['savedWrittenLanguage']
+  const newValue = req.body['contactPrefWritten']
 
-  addTimelineEvent(req, {
-    type: 'written',
-    value: req.session.data['contactPrefWritten']
-  })
+  if (oldValue !== newValue) {
+    req.session.data['showBanner'] = 'yes'
+    req.session.data['lastChanged'] = 'written'
+
+    addTimelineEvent(req, {
+      type: 'written',
+      value: newValue
+    })
+
+    req.session.data['savedWrittenLanguage'] = newValue
+  } else {
+    req.session.data['showBanner'] = 'no'
+  }
 
   res.redirect('record-contact')
 })
 
 router.post('/welsh/contact-pref-alt-format', (req, res) => {
-  req.session.data['showBanner'] = 'yes'
-  req.session.data['lastChanged'] = 'altFormat'
+  const oldValue = req.session.data['savedAltFormat']
+  const newValue = req.body['altFormat']
 
-  addTimelineEvent(req, {
-    type: 'altFormat',
-    value: req.session.data['altFormat']
-  })
+  if (oldValue !== newValue) {
+    req.session.data['showBanner'] = 'yes'
+    req.session.data['lastChanged'] = 'altFormat'
+
+    addTimelineEvent(req, {
+      type: 'altFormat',
+      value: newValue
+    })
+
+    req.session.data['savedAltFormat'] = newValue
+  } else {
+    req.session.data['showBanner'] = 'no'
+  }
 
   res.redirect('record-contact')
 })
