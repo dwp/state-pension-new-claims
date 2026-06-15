@@ -30,36 +30,30 @@
         items: [
           {
             value: "audio-cassette",
-            text: "Audio cassette",
-            checked: data['altFormat'] == "audio-cassette"
+            text: "Audio cassette"
           } if not writtenWelsh,
           {
             value: "audio-cd",
-            text: "Audio CD",
-            checked: data['altFormat'] == "audio-cd"
+            text: "Audio CD"
           } if not writtenWelsh,
           {
             value: "audio-mp3",
-            text: "Audio MP3",
-            checked: data['altFormat'] == "audio-mp3"
+            text: "Audio MP3"
           } if not writtenWelsh,
           {
             value: "braille",
-            text: "Braille",
-            checked: data['altFormat'] == "braille"
+            text: "Braille"
           } if not writtenWelsh,
           {
             value: "large-print",
-            text: "Large print",
-            checked: data['altFormat'] == "large-print"
+            text: "Large print"
           },
           {
             divider: "or"
           } if not writtenWelsh,
           {
             value: "none",
-            text: "None",
-            checked: data['altFormat'] == "none"
+            text: "None"
           }
         ]
       }) }}
