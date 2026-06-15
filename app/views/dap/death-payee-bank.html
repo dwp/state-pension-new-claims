@@ -27,19 +27,21 @@
         value: data['accountHolderName']
       }) }}
 
-      {{ govukInput({
-        label: {
-          text: "Payment reference",
-          classes: "govuk-label--m"
-        },
-        hint: {
-          text: "This is the solicitor's reference."
-        },
-        classes: "govuk-input--width-20",
-        id: "solicitors-reference",
-        name: "solicitorsReference",
-        value: data['solicitorsReference']
-      }) }}
+      {% if data['hasSolicitorsReference'] === "yes" %}
+        {{ govukInput({
+          label: {
+            text: "Payment reference",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "This is the solicitor's reference."
+          },
+          classes: "govuk-input--width-20",
+          id: "solicitors-reference",
+          name: "solicitorsReference",
+          value: data['solicitorsReference']
+        }) }}
+      {% endif %}
 
       {{ govukInput({
         label: {
@@ -65,7 +67,7 @@
 
       {{ govukInput({
         label: {
-          text: "Roll number",
+          text: "Building society roll number",
           classes: "govuk-label--m"
         },
         classes: "govuk-input--width-10",

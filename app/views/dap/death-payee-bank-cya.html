@@ -35,7 +35,7 @@
           value: {
             text: data['solicitorsReference']
           }
-        },
+        } if data['hasSolicitorsReference'] === "yes",
         {
           key: {
             text: "Sort code"
@@ -54,7 +54,7 @@
         },
         {
           key: {
-            text: "Roll number"
+            text: "Building society roll number"
           },
           value: {
             text: data['accountHolderRollNumber']
