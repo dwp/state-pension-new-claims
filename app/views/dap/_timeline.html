@@ -66,7 +66,6 @@
   }), timelineItems) %}
 {% endif %}
 
-
 {% set representativeNameChanged = data['representativeNameChanged'] === 'yes' %}
 {% set solicitorsReferenceAdded = data['solicitorsReferenceAdded'] === 'yes' %}
 {% set solicitorsReferenceChanged = data['solicitorsReferenceChanged'] === 'yes' %}
@@ -81,7 +80,6 @@
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
-
 {% if representativePhoneChanged %}
   {% set timelineItems = (timelineItems.push({
     title: "Death arrears payee phone number changed",
@@ -89,7 +87,6 @@
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
-
 {% if representativePhoneAdded %}
   {% set timelineItems = (timelineItems.push({
     title: "Death arrears payee phone number added",
@@ -97,7 +94,6 @@
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
-
 {% if solicitorsReferenceChanged %}
   {% set timelineItems = (timelineItems.push({
     title: "Solicitor's reference changed",
@@ -105,7 +101,6 @@
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
-
 {% if solicitorsReferenceAdded %}
   {% set timelineItems = (timelineItems.push({
     title: "Solicitor's reference added",
@@ -113,7 +108,6 @@
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
-
 {% if representativeNameChanged %}
   {% set timelineItems = (timelineItems.push({
     title: "Death arrears payee full name changed",
@@ -138,15 +132,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerifiedLater %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Date of death - verified",
-    byline: "Agent",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
-
-{% if representativeDetailsCollected %}
+{% if data['dapCollectedLater'] === 'yes' %}
   {% set timelineItems = (timelineItems.push({
     title: "Recorded details of person dealing with the estate",
     byline: "Agent",
@@ -162,7 +148,15 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerification === 'notVerified' or deathDateVerifiedLater %}
+{% if representativeDetailsCollected and data['dapCollectedLater'] !== 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Recorded details of person dealing with the estate",
+    byline: "Agent",
+    date: dateDeathEntered
+  }), timelineItems) %}
+{% endif %}
+
+{% if deathDateVerification === 'notVerified' or data['startedAsNotVerified'] === 'yes' %}
   {% set timelineItems = (timelineItems.push({
     title: "Date of death - not verified",
     byline: "Agent",
@@ -170,55 +164,11 @@
   }), timelineItems) %}
 {% endif %}
 
-
-
-{% set dateSuspended = "14 February 2025" %}
-
-{% if isRestarted === 'yes' %}
+{% if timelineItems.length === 0 %}
   {% set timelineItems = (timelineItems.push({
-    title: "Payment restarted letter sent",
+    title: "No changes made",
     byline: "System",
-    date: dateSuspended
-  }), timelineItems) %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Date left prison added",
-    byline: "Agent",
-    date: dateSuspended,
-    link: {
-      text: "Details",
-      href: "./prison-details"
-    }
-  }), timelineItems) %}
-{% endif %}
-
-{% if isSuspended === 'yes' %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Payment suspended letter sent",
-    byline: "System",
-    date: dateSuspended
-  }), timelineItems) %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Date entered prison added",
-    byline: "Agent",
-    date: dateSuspended,
-    link: {
-      text: "Details",
-      href: "./prison-details"
-    }
-  }), timelineItems) %}
-{% endif %}
-
-{% if isCivil === 'yes' %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Entered prison for civil case",
-    byline: "Agent",
-    date: dateSuspended
-  }), timelineItems) %}
-{% endif %}
-
-{% if not isSuspended and not isCivil and not deathDateVerification %}
-  {% set timelineItems = (timelineItems.push({
-    title: "No changes made"
+    date: "Today"
   }), timelineItems) %}
 {% endif %}
 

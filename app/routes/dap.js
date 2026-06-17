@@ -36,6 +36,11 @@ router.post('/dap/death-date', (req, res) => {
 
 router.post('/dap/death-date-verification', (req, res) => {
   const representativeDetails = req.session.data['representativeDetails']
+  const deathDateVerified = req.session.data['deathDateVerified']
+
+  if (deathDateVerified !== 'verified') {
+    req.session.data['startedAsNotVerified'] = 'yes'
+  }
 
   if (representativeDetails === 'no') {
     const deathDateVerified = req.session.data['deathDateVerified']
@@ -157,6 +162,7 @@ router.post('/dap/death-representative-cya', (req, res) => {
 
   if (deathDateVerified === 'verified') {
     req.session.data['deathStatus'] = 'verified'
+    req.session.data['dapCollectedLater'] = 'yes'
 
     if (noArrearsOwed) {
       res.redirect('record-personal')
