@@ -42,6 +42,11 @@
 
 {% if paymentDetailsCollected %}
   {% set timelineItems = (timelineItems.push({
+    title: "Letter sent - arrears paid",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+  {% set timelineItems = (timelineItems.push({
     title: "Arrears paid - account closed",
     byline: "Agent",
     date: dateDeathVerifiedLater
@@ -68,24 +73,6 @@
 {% set representativePhoneAdded = data['representativePhoneAdded'] === 'yes' %}
 {% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
 {% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
-{% set newBr330Sent = data['newBr330Sent'] === 'yes' %}
-{% set representativeChanged = data['representativeChanged'] === 'yes' %}
-
-{% if representativeChanged %}
-  {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee details updated",
-    byline: "Agent",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
-
-{% if newBr330Sent %}
-  {% set timelineItems = (timelineItems.push({
-    title: "BR330 sent",
-    byline: "System",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
@@ -113,7 +100,7 @@
 
 {% if solicitorsReferenceChanged %}
   {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee solicitor's reference changed",
+    title: "Solicitor's reference changed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -121,7 +108,7 @@
 
 {% if solicitorsReferenceAdded %}
   {% set timelineItems = (timelineItems.push({
-    title: "Death arrears payee solicitor's reference added",
+    title: "Solicitor's reference added",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -143,7 +130,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerification === 'verified' and representativeDetailsCollected === 'yes' %}
+{% if deathDateVerification === 'verified' and representativeDetailsCollected %}
   {% set timelineItems = (timelineItems.push({
     title: "Arrears calculated - awaiting payee details",
     byline: "Agent",
@@ -151,7 +138,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerification === 'verified' or deathDateVerifiedLater %}
+{% if deathDateVerifiedLater %}
   {% set timelineItems = (timelineItems.push({
     title: "Date of death - verified",
     byline: "Agent",
@@ -159,11 +146,19 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if (deathDateVerification === 'notVerified' or deathDateVerifiedLater) and data['representativeName'] %}
+{% if representativeDetailsCollected %}
   {% set timelineItems = (timelineItems.push({
     title: "Recorded details of person dealing with the estate",
     byline: "Agent",
     date: dateDeathEntered
+  }), timelineItems) %}
+{% endif %}
+
+{% if deathDateVerification === 'verified' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Date of death - verified",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
 
