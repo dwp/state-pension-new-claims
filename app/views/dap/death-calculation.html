@@ -12,32 +12,63 @@
       "href": "javascript: window.history.go(-1)"
     }) }}
 
-    <h1 class="govuk-heading-l">
-      There is a final State Pension payment due
-    </h1>
+    {% set finalPayment = data['finalPayment'] %}
+    {% if finalPayment == "overpayment" %}
+      {% set calculationHeading = "There has been an overpayment of State Pension" %}
+    {% elif finalPayment == "nothing-due" %}
+      {% set calculationHeading = "All payments are up to date" %}
+    {% else %}
+      {% set calculationHeading = "There is a final State Pension payment due" %}
+    {% endif %}
+    <h1 class="govuk-heading-l">{{ calculationHeading }}</h1>
 
-    <p style="font-weight: bold;">Arrears payment amount</p>
-
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: {
-            text: "Total"
+    {% if finalPayment == "overpayment" %}
+      <p style="font-weight: bold;">Overpayment payment amount</p>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Total"
+            },
+            value: {
+              text: "£12,097.35"
+            }
           },
-          value: {
-            text: "£12,097.35"
+          {
+            key: {
+              text: "Period"
+            },
+            value: {
+              text: "18 December 2024 to 1 January 2026"
+            }
           }
-        },
-        {
-          key: {
-            text: "Period"
+        ]
+      }) }}
+    {% elif finalPayment == "nothing-due" %}
+      <p>There has been no overpayment and there are no more State Pension payments due.</p>
+    {% else %}
+      <p style="font-weight: bold;">Arrears payment amount</p>
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Total"
+            },
+            value: {
+              text: "£12,097.35"
+            }
           },
-          value: {
-            text: "18 December 2024 to 1 January 2026"
+          {
+            key: {
+              text: "Period"
+            },
+            value: {
+              text: "18 December 2024 to 1 January 2026"
+            }
           }
-        }
-      ]
-    }) }}
+        ]
+      }) }}
+    {% endif %}
 
     <form class="form" method="post" action="/dap/death-calculation">
       {{ govukButton({

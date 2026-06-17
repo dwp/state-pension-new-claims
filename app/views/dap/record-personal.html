@@ -6,43 +6,12 @@
 {% set isSuspended = data['isSuspended'] %}
 {% set isCivil = data['isCivil'] %}
 {% set isRestarted = data['isRestarted'] %}
-
-
-{% set deathDateVerification = data['deathDateVerified'] %}
-{% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
-{% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
-{% set deathConfirmed = data['deathConfirmed'] %}
-
-{% if paymentDetailsCollected === "yes" %}
-  {% set bannerMessage = 'Arrears payment sent - account closed' %}
-{% elif representativeDetailsCollected === "yes" and deathDateVerification === 'notVerified' %}
-  {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
-{% elif representativeDetailsCollected === "yes" and deathDateVerification === 'verified' %}
-  {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
-{% elif deathConfirmed === "yes" and deathDateVerification === 'notVerified' %}
-  {% set bannerMessage = 'Date of death - not verified' %}
-{% elif deathConfirmed === "yes" and deathDateVerification === 'verified' %}
-  {% set bannerMessage = 'Date of death - verified' %}
-{% endif %}
-
-{% set bannerHtml %}
-  <h3 class="govuk-notification-banner__heading">
-    {{ bannerMessage }}
-  </h3>
-{% endset %}
-
-{% if data['showBanner'] === "yes" %}
-  {{ govukNotificationBanner({
-    html: bannerHtml,
-    type: "success"
-  }) }}
-{% endif %}
+{% include './_success.html' %}
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
         {% include './_person.html' %}
-
-        {% include './_warning-text.html' %}
+        {% include './_task-on-record.html' %}
 
         {% set tasksLinkHtml %}
           Tasks
@@ -98,6 +67,15 @@
         <style>
           .govuk-summary-list__key {
             width: 45%;
+          }
+          .govuk-summary-list__actions a {
+            color: #1d70b8;
+          }
+          .govuk-summary-list__actions a:visited {
+            color: #1d70b8;
+          }
+          .govuk-summary-list__actions a:hover {
+            color: #003078;
           }
         </style>
         {{ govukSummaryList({
@@ -245,7 +223,7 @@
 
       <h3 class="govuk-heading-m">Personal changes</h3>
       {% include './_timeline.html' %}
-      <p><a href="#">Full history</a></p>
+      <p><a href="#" class="govuk-body govuk-link--no-visited-state">Full history</a></p>
 
     </div>
   </main>

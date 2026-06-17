@@ -354,24 +354,70 @@ GOV.UK Prototype Kit
 
               <p>The DAP journeys cover:</p>
               <ul class="govuk-list govuk-list--bullet">
-                <li>Enter a date of death and the details of the person who is dealing with the estate, and sending the BR330 form</li>
-                <li>Entering the payee and payment details, having received the BR330 form</li>
-                <li>Amending or removing a date of death</li>
+                <li>Entering a date of death</li>
+                <li>Entering the details of the person who is dealing with the estate</li>
+                <li>Sending a BR330 form automatically</li>
+                <li>Amending the Death Arrears Payee details</li>
+                <li>Entering payment details, having received the BR330 form</li>
               </ul>
             </td>
             <td scope="row" class="govuk-table__cell ">
+              Agent-entered death journey where:
               <ul>
                 <li>
                   <a class="govuk-body govuk-link--no-visited-state" href="/dap/record-personal">
-                    Start DAP journey
+                    Arrears are owed (most common)
                   </a>
                 </li>
                 <li>
-                  <a href="/dap/death-representative-cya?showBanner=no&stopReason=stopDied&deathDate-day=1&deathDate-month=1&deathDate-year=2026&deathDateVerified=verified&representativeName=Harold+Hill&representativePhone=07123456789&representativeProperty=1&representativePostcode=NE1+4UR&representativeAddress=address">
-                    Start from verified greylog
+                  <a class="govuk-body govuk-link--no-visited-state" href="/dap/record-personal?finalPayment=overpayment">
+                    An overpayment has been made
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="/dap/record-personal?finalPayment=nothing-due">
+                    A zero balance (no arrears, no overpayment)
                   </a>
                 </li>
               </ul>
+            {#
+              A CIS-entered death journey:
+              <ul>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="#">
+                    Date of death received and State Pension suspended
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="#">
+                    Verified date of death received
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="#">
+                    Unverified date of death received
+                  </a>
+                </li>
+              </ul>
+              A TUO-entered death journey:
+              <ul>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="#">
+                    Date of death received and State Pension suspended
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="#">
+                    Verified date of death received
+                  </a>
+                </li>
+                <li>
+                  <a class="govuk-body govuk-link--no-visited-state" href="#">
+                    Unverified date of death received
+                  </a>
+                </li>
+              </ul>
+              #}
             </td>
           </tr>
         </tbody>

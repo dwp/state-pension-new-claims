@@ -28,10 +28,11 @@
 {% set timelineItems = [] %}
 {% set dateDeathEntered = "7 April 2025" %}
 {% set deathDateVerification = data['deathDateVerified'] %}
-{% set representativeDetailsCollected = data['representativeDetailsCollected'] %}
+{% set representativeDetailsCollected = data['representativeDetailsCollected'] === "yes" %}
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
 {% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
 {% set br330Sent = data['br330Sent'] %}
+{% set debtOrNothingOwed = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
 
 {% if deathDateVerifiedLater %}
   {% set dateDeathVerifiedLater = "8 April 2025" %}
@@ -39,9 +40,22 @@
   {% set dateDeathVerifiedLater = dateDeathEntered %}
 {% endif %}
 
-{% if paymentDetailsCollected === "yes" %}
+{% if paymentDetailsCollected %}
   {% set timelineItems = (timelineItems.push({
     title: "Arrears paid - account closed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if debtOrNothingOwed and representativeDetailsCollected %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Letter sent - no arrears",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+  {% set timelineItems = (timelineItems.push({
+    title: "No arrears - account closed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}

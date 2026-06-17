@@ -52,11 +52,21 @@ router.post('/dap/death-date-verification', (req, res) => {
 
 router.post('/dap/death-date-cya', (req, res) => {
   const deathDateVerified = req.session.data['deathDateVerified']
+  const finalPayment = req.session.data['finalPayment']
+  const noArrearsOwed = finalPayment === 'nothing-due' || finalPayment === 'overpayment'
+  const representativeDetailsCollected = req.session.data['representativeDetailsCollected'] === 'yes'
+
   req.session.data['deathConfirmed'] = 'yes'
 
   if (deathDateVerified === 'verified') {
     req.session.data['deathStatus'] = 'verified'
-    res.redirect('death-calculation')
+
+    if (noArrearsOwed && representativeDetailsCollected) {
+      req.session.data['showBanner'] = 'yes'
+      res.redirect('record-personal')
+    } else {
+      res.redirect('death-calculation')
+    }
   } else {
     req.session.data['deathStatus'] = 'not-verified'
     res.redirect('death-representative-have-details')
@@ -68,15 +78,12 @@ router.post('/dap/death-date-cya', (req, res) => {
   const deathDateVerified = req.session.data['deathDateVerified']
   req.session.data['deathConfirmed'] = 'yes'
 
-  // Double-check your exact terminal console to see what this outputs when you submit:
   console.log('Value of deathDateVerified on CYA submit:', deathDateVerified)
 
-  // Explicitly check for 'verified'. If it fails, let's see if it's because it's undefined or another string.
   if (deathDateVerified === 'verified') {
     req.session.data['deathStatus'] = 'verified'
     res.redirect('death-calculation')
   } else {
-    // TEMPORARY SAFETNET: If they came back to verify, but the session variable name changed
     if (req.session.data['changedToVerified'] === 'yes' || deathDateVerified === 'yes') {
       req.session.data['deathStatus'] = 'verified'
       res.redirect('death-calculation')
@@ -109,7 +116,6 @@ router.post('/dap/death-representative-have-details', (req, res) => {
     res.redirect('record-personal')
   }
 })
-
 
 router.post('/dap/death-representative-name', (req, res) => {
   res.redirect('death-representative-reference')
@@ -146,13 +152,23 @@ router.post('/dap/death-representative-cya', (req, res) => {
   req.session.data['showBanner'] = 'yes'
 
   const deathDateVerified = req.session.data['deathDateVerified']
+  const finalPayment = req.session.data['finalPayment']
+    const noArrearsOwed = finalPayment === 'nothing-due' || finalPayment === 'overpayment'
 
   if (deathDateVerified === 'verified') {
-    res.redirect('death-br330-send')
+    req.session.data['deathStatus'] = 'verified'
+
+    if (noArrearsOwed) {
+      res.redirect('record-personal')
+    } else {
+      res.redirect('death-br330-send')
+    }
   } else {
+    req.session.data['deathStatus'] = 'not-verified'
     res.redirect('death-date-awaiting-verification')
   }
 })
+
 
 router.post('/dap/death-br330-send', (req, res) => {
   req.session.data['showBanner'] = 'yes'
