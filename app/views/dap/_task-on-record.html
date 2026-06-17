@@ -4,9 +4,9 @@
 {% set deathDatenotVerified = data['deathDateVerified']  === 'notVerified' %}
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] === 'yes' %}
 {% set deathConfirmed = data['deathConfirmed']  === 'yes' %}
-{% set debtOrNothingOwed = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+{% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
 
-{% if debtOrNothingOwed and deathDateVerified and not representativeDetailsCollected %}
+{% if noArrears and deathDateVerified and not representativeDetailsCollected %}
   {% set warningText = "Awaiting details of the person dealing with the estate." %}
   {% set warningLink = "death-representative-name" %}
   {% set warningLinkText = "Enter details" %}
@@ -30,7 +30,7 @@
 
 
 {% if (deathDateVerified or deathDatenotVerified) and data['paymentDetailsCollected'] !== "yes" %}
-  {% if not (debtOrNothingOwed and representativeDetailsCollected) %}
+  {% if not (noArrears and representativeDetailsCollected) %}
 
     {{ govukWarningText({
       html: warningText +

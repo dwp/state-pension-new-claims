@@ -2,11 +2,11 @@
 {% set representativeDetailsCollected = data['representativeDetailsCollected'] === "yes" %}
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] === "yes" %}
 {% set deathConfirmed = data['deathConfirmed'] === "yes" %}
-{% set debtOrNothingOwed = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+{% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
 
 {% if paymentDetailsCollected %}
   {% set bannerMessage = 'Arrears payment sent - account closed' %}
-{% elif debtOrNothingOwed and representativeDetailsCollected %}
+{% elif noArrears and representativeDetailsCollected %}
   {% set bannerMessage = 'No arrears - account closed' %}
 {% elif representativeDetailsCollected and deathDateVerification === 'notVerified' %}
   {% set bannerMessage = 'Recorded details of person dealing with the estate' %}

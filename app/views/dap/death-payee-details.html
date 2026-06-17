@@ -68,7 +68,7 @@
       {{ headingText }}
     </h1>
 
-    {% set debtOrNothingOwed = data['finalPayment'] == "overpayment" or finalPayment == "nothing-due" %}
+    {% set noArrears = data['finalPayment'] == "overpayment" or finalPayment == "nothing-due" %}
     {% set representativeDetailsCollected = data['representativeDetailsCollected'] === 'yes' %}
 
     {{ govukSummaryList({
@@ -88,7 +88,7 @@
                 visuallyHiddenText: "name"
               }
             ]
-          } if not (data['paymentDetailsCollected'] or (debtOrNothingOwed and representativeDetailsCollected))
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected))
         },
         {
           key: {
@@ -105,7 +105,7 @@
                 visuallyHiddenText: "solicior's reference"
               }
             ]
-          } if not (data['paymentDetailsCollected'] or (debtOrNothingOwed and representativeDetailsCollected))
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected))
         },
         {
           key: {
@@ -122,7 +122,7 @@
                 visuallyHiddenText: "phone"
               }
             ]
-          } if not (data['paymentDetailsCollected'] or (debtOrNothingOwed and representativeDetailsCollected))
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected))
         },
         {
           key: {
@@ -144,7 +144,7 @@
                 visuallyHiddenText: "address"
               }
             ]
-          } if not (data['paymentDetailsCollected'] or (debtOrNothingOwed and representativeDetailsCollected))
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected))
         }
       ]
     }) }}

@@ -32,7 +32,7 @@
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
 {% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
 {% set br330Sent = data['br330Sent'] %}
-{% set debtOrNothingOwed = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+{% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
 
 {% if deathDateVerifiedLater %}
   {% set dateDeathVerifiedLater = "8 April 2025" %}
@@ -48,7 +48,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if debtOrNothingOwed and representativeDetailsCollected %}
+{% if noArrears and representativeDetailsCollected %}
   {% set timelineItems = (timelineItems.push({
     title: "Letter sent - no arrears",
     byline: "System",
