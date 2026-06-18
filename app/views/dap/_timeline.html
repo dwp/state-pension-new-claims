@@ -53,7 +53,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if noArrears and representativeDetailsCollected %}
+{% if deathDateVerification === 'verified' and noArrears and representativeDetailsCollected %}
   {% set timelineItems = (timelineItems.push({
     title: "Letter sent - no arrears",
     byline: "System",
@@ -124,7 +124,7 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if deathDateVerification === 'verified' and representativeDetailsCollected %}
+{% if deathDateVerification === 'verified' and representativeDetailsCollected and not noArrears %}
   {% set timelineItems = (timelineItems.push({
     title: "Arrears calculated - awaiting payee details",
     byline: "Agent",

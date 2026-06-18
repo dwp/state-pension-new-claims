@@ -60,13 +60,16 @@ router.post('/dap/death-date-cya', (req, res) => {
   const finalPayment = req.session.data['finalPayment']
   const noArrearsOwed = finalPayment === 'nothing-due' || finalPayment === 'overpayment'
   const representativeDetailsCollected = req.session.data['representativeDetailsCollected'] === 'yes'
+  const hasStartedAsNotVerified = req.session.data['startedAsNotVerified'] === 'yes'
 
   req.session.data['deathConfirmed'] = 'yes'
 
   if (deathDateVerified === 'verified') {
     req.session.data['deathStatus'] = 'verified'
 
-    if (noArrearsOwed && representativeDetailsCollected) {
+    if (hasStartedAsNotVerified) {
+      res.redirect('death-calculation')
+    } else if (noArrearsOwed && representativeDetailsCollected) {
       req.session.data['showBanner'] = 'yes'
       res.redirect('record-personal')
     } else {
@@ -78,34 +81,18 @@ router.post('/dap/death-date-cya', (req, res) => {
   }
 })
 
-
-router.post('/dap/death-date-cya', (req, res) => {
-  const deathDateVerified = req.session.data['deathDateVerified']
-  req.session.data['deathConfirmed'] = 'yes'
-
-  console.log('Value of deathDateVerified on CYA submit:', deathDateVerified)
-
-  if (deathDateVerified === 'verified') {
-    req.session.data['deathStatus'] = 'verified'
-    res.redirect('death-calculation')
-  } else {
-    if (req.session.data['changedToVerified'] === 'yes' || deathDateVerified === 'yes') {
-      req.session.data['deathStatus'] = 'verified'
-      res.redirect('death-calculation')
-      return
-    }
-
-    req.session.data['deathStatus'] = 'not-verified'
-    res.redirect('death-representative-have-details')
-  }
-})
-
-
 router.post('/dap/death-calculation', (req, res) => {
   const representativeDetailsCollected = req.session.data['representativeDetailsCollected'] === 'yes'
+  const finalPayment = req.session.data['finalPayment']
+  const noArrearsOwed = finalPayment === 'nothing-due' || finalPayment === 'overpayment'
 
   if (representativeDetailsCollected) {
-    res.redirect('death-br330-send')
+    if (noArrearsOwed) {
+      req.session.data['showBanner'] = 'yes'
+      res.redirect('record-personal')
+    } else {
+      res.redirect('death-br330-send')
+    }
   } else {
     res.redirect('death-representative-have-details')
   }

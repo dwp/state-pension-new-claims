@@ -30,7 +30,7 @@
 
 
 {% if (deathDateVerified or deathDatenotVerified) and data['paymentDetailsCollected'] !== "yes" %}
-  {% if not (noArrears and representativeDetailsCollected) %}
+  {% if not (noArrears and representativeDetailsCollected and deathDateVerified) %}
 
     {{ govukWarningText({
       html: warningText +
