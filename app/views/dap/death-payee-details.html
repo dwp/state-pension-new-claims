@@ -6,18 +6,24 @@
 {% set awaitingBannerType = data['awaitingBannerType'] %}
 
 {% set phoneChanged = data['representativePhoneChanged'] === 'yes' %}
+{% set phoneRemoved = data['representativePhoneRemoved'] === 'yes' %}
 {% set refChanged = data['solicitorsReferenceChanged'] === 'yes' %}
+{% set refRemoved = data['solicitorsReferenceRemoved'] === 'yes' %}
 
 {% if awaitingBannerType === 'name' %}
   {% set bannerMessage = 'Death arrears payee full name changed' %}
 {% elif awaitingBannerType === 'phone' %}
-  {% if phoneChanged %}
+  {% if phoneRemoved %}
+    {% set bannerMessage = 'Death arrears payee phone number removed' %}
+  {% elif phoneChanged %}
     {% set bannerMessage = 'Death arrears payee phone number changed' %}
   {% else %}
     {% set bannerMessage = 'Death arrears payee phone number added' %}
   {% endif %}
 {% elif awaitingBannerType === 'reference' %}
-  {% if refChanged %}
+  {% if refRemoved %}
+    {% set bannerMessage = "Solicitor's reference removed" %}
+  {% elif refChanged %}
     {% set bannerMessage = "Solicitor's reference changed" %}
   {% else %}
     {% set bannerMessage = "Solicitor's reference added" %}

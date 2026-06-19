@@ -227,15 +227,23 @@ router.post('/dap/death-payee-reference', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'reference'
 
-  if (req.session.data['hasSolicitorsReference'] === 'no') {
+  const referenceInput = req.session.data['solicitorsReference']
+
+  if (!referenceInput || referenceInput.trim() === '') {
+    req.session.data['solicitorsReference'] = ''
+    req.session.data['hasSolicitorsReference'] = 'no'
+    req.session.data['solicitorsReferenceRemoved'] = 'yes'
+  }
+  else if (req.session.data['hasSolicitorsReference'] === 'no') {
     req.session.data['solicitorsReferenceAdded'] = 'yes'
-  } else {
+    req.session.data['hasSolicitorsReference'] = 'yes'
+  }
+  else {
     req.session.data['solicitorsReferenceChanged'] = 'yes'
+    req.session.data['hasSolicitorsReference'] = 'yes'
   }
 
-  req.session.data['hasSolicitorsReference'] = 'yes'
   req.session.data['representativeRefSet'] = 'yes'
-
   res.redirect('death-payee-details')
 })
 
@@ -243,15 +251,23 @@ router.post('/dap/death-payee-phone', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'phone'
 
-  if (req.session.data['hasRepresentativePhone'] === 'no') {
+  const phoneInput = req.session.data['representativePhone']
+
+  if (!phoneInput || phoneInput.trim() === '') {
+    req.session.data['representativePhone'] = ''
+    req.session.data['hasRepresentativePhone'] = 'no'
+    req.session.data['representativePhoneRemoved'] = 'yes'
+  }
+  else if (req.session.data['hasRepresentativePhone'] === 'no') {
     req.session.data['representativePhoneAdded'] = 'yes'
-  } else {
+    req.session.data['hasRepresentativePhone'] = 'yes'
+  }
+  else {
     req.session.data['representativePhoneChanged'] = 'yes'
+    req.session.data['hasRepresentativePhone'] = 'yes'
   }
 
-  req.session.data['hasRepresentativePhone'] = 'yes'
   req.session.data['representativePhoneSet'] = 'yes'
-
   res.redirect('death-payee-details')
 })
 

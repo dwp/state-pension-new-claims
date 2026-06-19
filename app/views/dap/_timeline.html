@@ -69,13 +69,22 @@
 {% set representativeNameChanged = data['representativeNameChanged'] === 'yes' %}
 {% set solicitorsReferenceAdded = data['solicitorsReferenceAdded'] === 'yes' %}
 {% set solicitorsReferenceChanged = data['solicitorsReferenceChanged'] === 'yes' %}
+{% set solicitorsReferenceRemoved = data['solicitorsReferenceRemoved'] === 'yes' %}
 {% set representativePhoneAdded = data['representativePhoneAdded'] === 'yes' %}
 {% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
+{% set representativePhoneRemoved = data['representativePhoneRemoved'] === 'yes' %}
 {% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
     title: "Death arrears payee address changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if representativePhoneRemoved %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee phone number removed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
@@ -90,6 +99,13 @@
 {% if representativePhoneAdded %}
   {% set timelineItems = (timelineItems.push({
     title: "Death arrears payee phone number added",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if solicitorsReferenceRemoved %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Solicitor's reference removed",
     byline: "Agent",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
