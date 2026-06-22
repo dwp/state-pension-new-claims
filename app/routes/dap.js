@@ -227,14 +227,24 @@ router.post('/dap/death-payee-reference', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'reference'
 
-  const referenceInput = req.session.data['solicitorsReference']
-
-  if (!referenceInput || referenceInput.trim() === '') {
-    req.session.data['solicitorsReference'] = ''
-    req.session.data['hasSolicitorsReference'] = 'no'
-    req.session.data['solicitorsReferenceRemoved'] = 'yes'
+  if (req.session.data['hasSolicitorsReference'] === 'no' || !req.session.data['hasSolicitorsReference']) {
+    req.session.data['solicitorsReferenceAdded'] = 'yes'
+    req.session.data['hasSolicitorsReference'] = 'yes'
   }
-  else if (req.session.data['hasSolicitorsReference'] === 'no') {
+  else {
+    req.session.data['solicitorsReferenceChanged'] = 'yes'
+    req.session.data['hasSolicitorsReference'] = 'yes'
+  }
+
+  req.session.data['representativeRefSet'] = 'yes'
+  res.redirect('death-payee-details')
+})
+
+router.post('/dap/death-payee-reference', (req, res) => {
+  req.session.data['showBanner'] = 'yes'
+  req.session.data['awaitingBannerType'] = 'reference'
+
+  if (req.session.data['hasSolicitorsReference'] === 'no' || !req.session.data['hasSolicitorsReference']) {
     req.session.data['solicitorsReferenceAdded'] = 'yes'
     req.session.data['hasSolicitorsReference'] = 'yes'
   }
@@ -251,14 +261,7 @@ router.post('/dap/death-payee-phone', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'phone'
 
-  const phoneInput = req.session.data['representativePhone']
-
-  if (!phoneInput || phoneInput.trim() === '') {
-    req.session.data['representativePhone'] = ''
-    req.session.data['hasRepresentativePhone'] = 'no'
-    req.session.data['representativePhoneRemoved'] = 'yes'
-  }
-  else if (req.session.data['hasRepresentativePhone'] === 'no') {
+  if (req.session.data['hasRepresentativePhone'] === 'no' || !req.session.data['hasRepresentativePhone']) {
     req.session.data['representativePhoneAdded'] = 'yes'
     req.session.data['hasRepresentativePhone'] = 'yes'
   }
