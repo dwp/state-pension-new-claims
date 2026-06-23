@@ -35,7 +35,7 @@
     {{ govukWarningText({
       html: warningText +
             '<br />' +
-            '<a href="./' + warningLink + '">' +
+            '<a class="govuk-link--no-visited-state" href="./' + warningLink + '">' +
               warningLinkText
             + '</a>',
       iconFallbackText: "Warning"
@@ -55,7 +55,7 @@
 
   {{ govukWarningText({
     html: warningText + ' ' +
-          '<a href="./' + warningLink + '">' +
+          '<a class="govuk-link--no-visited-state" href="./' + warningLink + '">' +
             warningLinkText
           + '</a>.',
     iconFallbackText: "Warning"
