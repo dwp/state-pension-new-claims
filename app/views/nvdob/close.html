@@ -28,7 +28,7 @@
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "closeNVDOB",
+      name: "close",
       fieldset: {
         legend: {
           text: "Are you sure you want the claim closed?",
@@ -39,11 +39,11 @@
       items: [
         {
           value: "yes",
-          text: "Yes, close the claim and send a letter"
+          text: "Yes"
         },
         {
           value: "no",
-          text: "No, I want to choose another way to continue"
+          text: "No"
         }
       ]
     }) }}
