@@ -34,13 +34,6 @@
   {% set bannerMessage = 'Death arrears payee address changed' %}
 {% endif %}
 
-
-{#
-  2 more messages to add:
-  - solicitor's reference removed
-  - phone number removed
-#}
-
 {% set bannerHtml %}
   <h3 class="govuk-notification-banner__heading">
     {{ bannerMessage }}
@@ -78,6 +71,50 @@
     {% set representativeDetailsCollected = data['representativeDetailsCollected'] === 'yes' %}
     {% set deathDateVerified = data['deathDateVerified'] === 'verified' %}
 
+    <style>
+      .govuk-summary-list__actions {
+        width: 30%;
+      }
+      .govuk-summary-list__actions a {
+        color: #1d70b8;
+      }
+      .govuk-summary-list__actions a:visited {
+        color: #1d70b8;
+      }
+      .govuk-summary-list__actions a:hover {
+        color: #003078;
+      }
+    </style>
+
+    {% set refActions = [] %}
+    {% if data['solicitorsReference'] %}
+      {% set refActions = (refActions.push({
+        href: "death-payee-reference-remove",
+        text: "Remove",
+        visuallyHiddenText: "phone"
+      }), refActions) %}
+    {% endif %}
+    {% set refActions = (refActions.push({
+      href: "death-payee-reference",
+      text: "Change" if data['solicitorsReference'] else "Add",
+      visuallyHiddenText: "phone"
+    }), refActions) %}
+
+
+    {% set phoneActions = [] %}
+    {% if data['representativePhone'] %}
+      {% set phoneActions = (phoneActions.push({
+        href: "death-payee-phone-remove",
+        text: "Remove",
+        visuallyHiddenText: "phone"
+      }), phoneActions) %}
+    {% endif %}
+    {% set phoneActions = (phoneActions.push({
+      href: "death-payee-phone",
+      text: "Change" if data['representativePhone'] else "Add",
+      visuallyHiddenText: "phone"
+    }), phoneActions) %}
+
     {{ govukSummaryList({
       rows: [
         {
@@ -105,13 +142,7 @@
             text: data['solicitorsReference'] if data['hasSolicitorsReference'] === "yes"
           },
           actions: {
-            items: [
-              {
-                href: "death-payee-reference",
-                text: "Change" if data['hasSolicitorsReference'] === "yes" else "Add",
-                visuallyHiddenText: "solicior's reference"
-              }
-            ]
+            items: refActions
           } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected and deathDateVerified))
         },
         {
@@ -122,13 +153,7 @@
             text: data['representativePhone']
           },
           actions: {
-            items: [
-              {
-                href: "death-payee-phone",
-                text: "Change" if data['representativePhone'] else "Add",
-                visuallyHiddenText: "phone"
-              }
-            ]
+            items: phoneActions
           } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected and deathDateVerified))
         },
         {

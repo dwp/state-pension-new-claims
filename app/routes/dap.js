@@ -257,6 +257,21 @@ router.post('/dap/death-payee-reference', (req, res) => {
   res.redirect('death-payee-details')
 })
 
+  router.post('/dap/death-payee-reference-remove', (req, res) => {
+  const representativeRefRemove = req.session.data['representativeRefRemove']
+
+  if (representativeRefRemove === 'yes') {
+    req.session.data['solicitorsReference'] = ''
+    req.session.data['hasSolicitorsReference'] = 'no'
+    req.session.data['solicitorsReferenceRemoved'] = 'yes'
+    req.session.data['showBanner'] = 'yes'
+    req.session.data['awaitingBannerType'] = 'reference'
+  }
+
+  res.redirect('death-payee-details')
+})
+
+
 router.post('/dap/death-payee-phone', (req, res) => {
   req.session.data['showBanner'] = 'yes'
   req.session.data['awaitingBannerType'] = 'phone'
@@ -271,6 +286,21 @@ router.post('/dap/death-payee-phone', (req, res) => {
   }
 
   req.session.data['representativePhoneSet'] = 'yes'
+  res.redirect('death-payee-details')
+})
+
+
+router.post('/dap/death-payee-phone-remove', (req, res) => {
+  const representativePhoneRemove = req.session.data['representativePhoneRemove']
+
+  if (representativePhoneRemove === 'yes') {
+    req.session.data['representativePhone'] = ''
+    req.session.data['hasRepresentativePhone'] = 'no'
+    req.session.data['representativePhoneRemoved'] = 'yes'
+    req.session.data['showBanner'] = 'yes'
+    req.session.data['awaitingBannerType'] = 'phone'
+  }
+
   res.redirect('death-payee-details')
 })
 
