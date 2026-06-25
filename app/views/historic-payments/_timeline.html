@@ -1,0 +1,200 @@
+<style>
+  .dwp-timeline__item {
+    display: flex;
+    flex-direction: column;
+  }
+  .dwp-timeline__heading,
+  .dwp-timeline__by-line,
+  .dwp-timeline__datetime {
+    font-size: 19px;
+    line-height: 25px;
+  }
+  .dwp-timeline__heading {
+    order: 1;
+    margin-bottom: 0;
+  }
+  .dwp-timeline__by-line {
+    order: 2;
+    margin-bottom: 0;
+  }
+  .dwp-timeline__datetime {
+    order: 4;
+    color: #505a5f;
+  }
+  .dwp-timeline__link {
+    order: 3;
+  }
+</style>
+{% set timelineItems = [] %}
+{% set dateDeathEntered = "7 April 2025" %}
+{% set deathDateVerification = data['deathDateVerified'] %}
+{% set representativeDetailsCollected = data['representativeDetailsCollected'] === "yes" %}
+{% set paymentDetailsCollected = data['paymentDetailsCollected'] %}
+{% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
+{% set br330Sent = data['br330Sent'] %}
+{% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+
+{% if deathDateVerifiedLater %}
+  {% set dateDeathVerifiedLater = "8 April 2025" %}
+{% elif deathDateVerification === 'verified' and not data['deathDateVerifiedLater'] %}
+  {% set dateDeathVerifiedLater = dateDeathEntered %}
+{% endif %}
+
+{% if paymentDetailsCollected %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Letter sent - arrears paid",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Arrears paid - account closed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if deathDateVerification === 'verified' and noArrears and representativeDetailsCollected %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Letter sent - no arrears",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+  {% set timelineItems = (timelineItems.push({
+    title: "No arrears - account closed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% set representativeNameChanged = data['representativeNameChanged'] === 'yes' %}
+{% set solicitorsReferenceAdded = data['solicitorsReferenceAdded'] === 'yes' %}
+{% set solicitorsReferenceChanged = data['solicitorsReferenceChanged'] === 'yes' %}
+{% set solicitorsReferenceRemoved = data['solicitorsReferenceRemoved'] === 'yes' %}
+{% set representativePhoneAdded = data['representativePhoneAdded'] === 'yes' %}
+{% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
+{% set representativePhoneRemoved = data['representativePhoneRemoved'] === 'yes' %}
+{% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
+
+{% if representativeAddressChanged %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee address changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if representativePhoneRemoved %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee phone number removed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if representativePhoneChanged %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee phone number changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if representativePhoneAdded %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee phone number added",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if solicitorsReferenceRemoved %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Solicitor's reference removed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if solicitorsReferenceChanged %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Solicitor's reference changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if solicitorsReferenceAdded %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Solicitor's reference added",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+{% if representativeNameChanged %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Death arrears payee full name changed",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if br330Sent === 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "BR330 sent",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if deathDateVerification === 'verified' and representativeDetailsCollected and not noArrears %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Arrears calculated - awaiting payee details",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if data['dapCollectedLater'] === 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Recorded details of person dealing with the estate",
+    byline: "Agent",
+    date: dateDeathEntered
+  }), timelineItems) %}
+{% endif %}
+
+{% if deathDateVerification === 'verified' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Date of death - verified",
+    byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if representativeDetailsCollected and data['dapCollectedLater'] !== 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Recorded details of person dealing with the estate",
+    byline: "Agent",
+    date: dateDeathEntered
+  }), timelineItems) %}
+{% endif %}
+
+{% if deathDateVerification === 'notVerified' or data['startedAsNotVerified'] === 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "Date of death - not verified",
+    byline: "Agent",
+    date: dateDeathEntered
+  }), timelineItems) %}
+{% endif %}
+
+{% if timelineItems.length === 0 %}
+  {% set timelineItems = (timelineItems.push({
+    title: "No changes made",
+    byline: "System",
+    date: "Today"
+  }), timelineItems) %}
+{% endif %}
+
+{{ dwpTimeline({
+  items: timelineItems
+}) }}
+
+<script>
+  document.querySelectorAll('.dwp-timeline__by-line')
+  .forEach(element => {
+    element.textContent = element.textContent.replace('by ', '');
+  });
+</script>

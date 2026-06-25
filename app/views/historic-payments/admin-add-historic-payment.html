@@ -1,0 +1,184 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/historic-payments/admin-add-historic-payment">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      <h2 class="govuk-heading-l">Add historic payment</h2>
+      <p>Schedule status will be set to PAID.</p>
+
+      <h3 class="govuk-heading-m">Payment period</h3>
+
+      {{ govukDateInput({
+        name: "startDate",
+        namePrefix: "startDate",
+        fieldset: {
+          legend: {
+            text: "Start date",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            name: "day",
+            classes: "govuk-input--width-2",
+            value: data['startDate-day'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data['startDate-month'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data['startDate-year'] if data['verifyDateOfDeathSuggestion'] != "no"
+          }
+        ]
+      }) }}
+
+      {{ govukDateInput({
+        name: "endDate",
+        namePrefix: "endDate",
+        fieldset: {
+          legend: {
+            text: "End date",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            name: "day",
+            classes: "govuk-input--width-2",
+            value: data['endDate-day'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data['endDate-month'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data['endDate-year'] if data['verifyDateOfDeathSuggestion'] != "no"
+          }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m">Payment dates</h3>
+
+      {{ govukDateInput({
+        name: "sentDate",
+        namePrefix: "sentDate",
+        fieldset: {
+          legend: {
+            text: "Date the payment was sent",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            name: "day",
+            classes: "govuk-input--width-2",
+            value: data['sentDate-day'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data['sentDate-month'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data['sentDate-year'] if data['verifyDateOfDeathSuggestion'] != "no"
+          }
+        ]
+      }) }}
+
+      {{ govukDateInput({
+        name: "paidDate",
+        namePrefix: "paidDate",
+        fieldset: {
+          legend: {
+            text: "Date the payment was made",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--s"
+          }
+        },
+        items: [
+          {
+            name: "day",
+            classes: "govuk-input--width-2",
+            value: data['paidDate-day'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data['paidDate-month'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data['paidDate-year'] if data['verifyDateOfDeathSuggestion'] != "no"
+          }
+        ]
+      }) }}
+
+     {{ govukInput({
+        id: "paymentAmount",
+        value: data['paymentAmount'],
+        name: "paymentAmount",
+        label: {
+          text: "Payment amount",
+          classes: "govuk-label--m"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+
+      {{ govukRadios({
+        name: "changeWeeklyDetails",
+        fieldset: {
+          legend: {
+            text: "Do you want to change the weekly details?",
+            classes: "govuk-fieldset__legend--m"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: (data['changeWeeklyDetails'] == "yes") and not data['verifyDateOfDeathSuggestion']
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: (data['changeWeeklyDetails'] == "no") and not data['verifyDateOfDeathSuggestion']
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% set deathDateVerification = data['deathDateVerified'] %}
+{% set representativeDetailsCollected = data['representativeDetailsCollected'] === "yes" %}
+{% set paymentDetailsCollected = data['paymentDetailsCollected'] === "yes" %}
+{% set deathConfirmed = data['deathConfirmed'] === "yes" %}
+{% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+
+{% if paymentDetailsCollected %}
+  {% set bannerMessage = 'Arrears payment sent - account closed' %}
+{% elif noArrears and representativeDetailsCollected and deathDateVerification === 'verified' %}
+  {% set bannerMessage = 'No arrears - account closed' %}
+{% elif representativeDetailsCollected and deathDateVerification === 'notVerified' %}
+  {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
+{% elif representativeDetailsCollected and deathDateVerification === 'verified' %}
+  {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
+{% elif deathConfirmed and deathDateVerification === 'notVerified' %}
+  {% set bannerMessage = 'Date of death - not verified' %}
+{% elif deathConfirmed and deathDateVerification === 'verified' %}
+  {% set bannerMessage = 'Date of death - verified' %}
+{% endif %}
+
+{% set bannerHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    {{ bannerMessage }}
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: bannerHtml,
+    type: "success"
+  }) }}
+{% endif %}

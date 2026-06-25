@@ -1,0 +1,180 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+
+{% set awaitingBannerType = data['awaitingBannerType'] %}
+
+{% set phoneChanged = data['representativePhoneChanged'] === 'yes' %}
+{% set phoneRemoved = data['representativePhoneRemoved'] === 'yes' %}
+{% set refChanged = data['solicitorsReferenceChanged'] === 'yes' %}
+{% set refRemoved = data['solicitorsReferenceRemoved'] === 'yes' %}
+
+{% if awaitingBannerType === 'name' %}
+  {% set bannerMessage = 'Death arrears payee full name changed' %}
+{% elif awaitingBannerType === 'phone' %}
+  {% if phoneRemoved %}
+    {% set bannerMessage = 'Death arrears payee phone number removed' %}
+  {% elif phoneChanged %}
+    {% set bannerMessage = 'Death arrears payee phone number changed' %}
+  {% else %}
+    {% set bannerMessage = 'Death arrears payee phone number added' %}
+  {% endif %}
+{% elif awaitingBannerType === 'reference' %}
+  {% if refRemoved %}
+    {% set bannerMessage = "Solicitor's reference removed" %}
+  {% elif refChanged %}
+    {% set bannerMessage = "Solicitor's reference changed" %}
+  {% else %}
+    {% set bannerMessage = "Solicitor's reference added" %}
+  {% endif %}
+{% elif awaitingBannerType === 'br330' %}
+  {% set bannerMessage = "BR330 sent" %}
+{% elif awaitingBannerType === 'address' %}
+  {% set bannerMessage = 'Death arrears payee address changed' %}
+{% endif %}
+
+
+{#
+  2 more messages to add:
+  - solicitor's reference removed
+  - phone number removed
+#}
+
+{% set bannerHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    {{ bannerMessage }}
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: bannerHtml,
+    type: "success"
+  }) }}
+{% endif %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    {% if data['postBr330'] == "no" %}
+      {% set headingText = "Death arrears payee (DAP) details" %}
+    {% else %}
+      {% set headingText = "Check payee details" %}
+    {% endif %}
+
+    <h1 class="govuk-heading-l">
+      {{ headingText }}
+    </h1>
+
+    {% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+    {% set representativeDetailsCollected = data['representativeDetailsCollected'] === 'yes' %}
+    {% set deathDateVerified = data['deathDateVerified'] === 'verified' %}
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: data['representativeName']
+          },
+          actions: {
+            items: [
+              {
+                href: "death-payee-name",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected and deathDateVerified))
+        },
+        {
+          key: {
+            text: "Solicitor's reference"
+          },
+          value: {
+            text: data['solicitorsReference'] if data['hasSolicitorsReference'] === "yes"
+          },
+          actions: {
+            items: [
+              {
+                href: "death-payee-reference",
+                text: "Change" if data['hasSolicitorsReference'] === "yes" else "Add",
+                visuallyHiddenText: "solicior's reference"
+              }
+            ]
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected and deathDateVerified))
+        },
+        {
+          key: {
+            text: "Phone number"
+          },
+          value: {
+            text: data['representativePhone']
+          },
+          actions: {
+            items: [
+              {
+                href: "death-payee-phone",
+                text: "Change" if data['representativePhone'] else "Add",
+                visuallyHiddenText: "phone"
+              }
+            ]
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected and deathDateVerified))
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: ("1 Big Avenue<br />
+                    Newcastle upon Tyne<br />
+                    NE1 8UR") if data['updatedAddress'] == 'yes' else
+                  ("1 High Street<br />
+                    Newcastle upon Tyne<br />
+                    NE1 4UR")
+          },
+          actions: {
+            items: [
+              {
+                href: "death-payee-address",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          } if not (data['paymentDetailsCollected'] or (noArrears and representativeDetailsCollected and deathDateVerified))
+        }
+      ]
+    }) }}
+
+    {% if data['br330Sent'] and data['postBr330'] != "yes" and not data['paymentDetailsCollected']%}
+      <p><a href="death-br330-send-new">Send a BR330</a></p>
+      <br />
+    {% endif %}
+
+    {% if data['postBr330'] == "yes" %}
+      {% set buttonText = "Confirm and continue" %}
+      {% set buttonHref = "death-payee-bank" %}
+    {% else %}
+      {% set buttonText = "Go to Personal details" %}
+      {% set buttonHref = "record-personal" %}
+    {% endif %}
+
+    {{ govukButton({
+      "text": buttonText,
+      "href": buttonHref
+    }) }}
+
+  </div>
+</div>
+
+{% endblock %}

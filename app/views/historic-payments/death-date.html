@@ -1,0 +1,56 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-date">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukDateInput({
+        name: "deathDate",
+        namePrefix: "deathDate",
+        fieldset: {
+          legend: {
+            text: "Date of death",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 27 3 2007"
+        },
+        items: [
+          {
+            name: "day",
+            classes: "govuk-input--width-2",
+            value: data['deathDate-day'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            value: data['deathDate-month'] if data['verifyDateOfDeathSuggestion'] != "no"
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            value: data['deathDate-year'] if data['verifyDateOfDeathSuggestion'] != "no"
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

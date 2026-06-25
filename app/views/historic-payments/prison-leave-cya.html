@@ -1,0 +1,64 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h1 class="govuk-heading-l">Check your answers</h1>
+
+    {% set prisonLeaveDay = data['prisonLeave-day'] %}
+    {% set prisonLeaveMonth = data['prisonLeave-month'] | monthName %}
+    {% set prisonLeaveYear = data['prisonLeave-year']%}
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Left prison" },
+          value: {
+            text: prisonLeaveDay + " " + prisonLeaveMonth + " " + prisonLeaveYear
+          },
+          actions: {
+            items: [
+              {
+                href: "/prison-conviction/prison-leave-date",
+                text: "Change",
+                visuallyHiddenText: "prison leave date"
+              }
+            ]
+          }
+        },
+        {
+          key: { text: "Convicted of a criminal offence" },
+          value: {
+            text: data['prisonConvicted'] | capitalize
+          },
+          actions: {
+            items: [
+              {
+                href: "/prison-conviction/prison-conviction",
+                text: "Change",
+                visuallyHiddenText: "conviction status"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    <form class="form" method="post" action="/prison-conviction/prison-leave-cya">
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

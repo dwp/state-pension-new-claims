@@ -1,0 +1,51 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-representative-have-details">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      {{ govukRadios({
+        name: "representativeDetails",
+        fieldset: {
+          legend: {
+            text: "Do you have the details of the person dealing with the estate?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            value: "yes",
+            text: "Yes",
+            checked: (data['representativeDetails'] == "yes") and not data['verifyDateOfDeathSuggestion']
+          },
+          {
+            value: "no",
+            text: "No",
+            checked: (data['representativeDetails'] == "no") and not data['verifyDateOfDeathSuggestion']
+          }
+        ]
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          style: "float: left; margin-right: 15px;"
+        }
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

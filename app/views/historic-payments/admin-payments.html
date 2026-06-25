@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+
+
+{% set historicPaymentAdded = data['historicPaymentAdded'] === "yes" %}
+
+{% if historicPaymentAdded %}
+  {% set bannerMessage = 'Historic payment added' %}
+{% endif %}
+
+{% set bannerHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    {{ bannerMessage }}
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: bannerHtml,
+    type: "success"
+  }) }}
+{% endif %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h2 class="govuk-heading-l">Payments</h2>
+
+    <ol class="govuk-list govuk-list--number">
+      <li>
+        <a class="govuk-body govuk-link--no-visited-state" href="./admin-add-historic-payment">Add historic payment</a>
+      </li>
+    </ol>
+
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/historic-payments/admin-change-weekly-details">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+      <h2 class="govuk-heading-l">Weekly details</h2>
+
+      {{ govukInput({
+        id: "statePensionAmount",
+        value: data['statePensionAmount'],
+        name: "statePensionAmount",
+        label: {
+          text: "State Pension amount",
+          classes: "govuk-label--m"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+      {{ govukInput({
+        id: "protectedPaymentAmount",
+        value: data['protectedPaymentAmount'],
+        name: "protectedPaymentAmount",
+        label: {
+          text: "Protected payment amount",
+          classes: "govuk-label--m"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+      {{ govukInput({
+        id: "extraStatePensionAmount",
+        value: data['extraStatePensionAmount'],
+        name: "extraStatePensionAmount",
+        label: {
+          text: "Extra State Pension amount",
+          classes: "govuk-label--m"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+      {{ govukInput({
+        id: "inheritedStatePensionAmount",
+        value: data['inheritedStatePensionAmount'],
+        name: "inheritedStatePensionAmount",
+        label: {
+          text: "Inherited State Pension amount",
+          classes: "govuk-label--m"
+        },
+        prefix: {
+          text: "£"
+        },
+        classes: "govuk-input--width-5",
+        spellcheck: false
+      }) }}
+
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

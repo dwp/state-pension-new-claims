@@ -1,0 +1,91 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post" action="/dap/death-payee-bank">
+
+      {% include './_person.html' %}
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      }) }}
+
+
+      <h1 class="govuk-heading-l">Payee bank or building society account details</h1>
+
+
+      {{ govukInput({
+        label: {
+          text: "Account holder name",
+          classes: "govuk-label--m"
+        },
+        id: "account-holder-name",
+        name: "accountHolderName",
+        value: data['accountHolderName']
+      }) }}
+
+      {% if data['hasSolicitorsReference'] === "yes" %}
+        {{ govukInput({
+          label: {
+            text: "Payment reference",
+            classes: "govuk-label--m"
+          },
+          hint: {
+            text: "This is the solicitor's reference."
+          },
+          classes: "govuk-input--width-20",
+          id: "solicitors-reference",
+          name: "solicitorsReference",
+          value: data['solicitorsReference']
+        }) }}
+      {% endif %}
+
+      {{ govukInput({
+        label: {
+          text: "Sort code",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-5",
+        id: "account-sort-code",
+        name: "accountHolderSortCode",
+        value: data['accountHolderSortCode']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Account number",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10",
+        id: "account-account-number",
+        name: "accountHolderAccountNumber",
+        value: data['accountHolderAccountNumber']
+      }) }}
+
+      {{ govukInput({
+        label: {
+          text: "Building society roll number",
+          classes: "govuk-label--m"
+        },
+        classes: "govuk-input--width-10",
+        id: "account-roll-number",
+        name: "accountHolderRollNumber",
+        value: data['accountHolderRollNumber']
+      }) }}
+
+      {{ govukButton({
+        text: "Continue",
+        attributes: {
+          style: "float: left; margin-right: 15px;"
+        }
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

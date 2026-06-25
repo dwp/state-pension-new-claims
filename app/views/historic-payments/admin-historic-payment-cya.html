@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    {% include './_person.html' %}
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+    }) }}
+
+    <h2 class="govuk-heading-l">Check your answers for historic payment</h2>
+
+    <p style="text-align: right; margin-bottom: 0; padding-bottom: 0.5em; border-bottom: 1px solid #b1b4b6;"><a href="./admin-add-historic-payment">Change</a></p>
+
+    {% set startDateDay = data['startDate-day'] %}
+    {% set startDateMonth = data['startDate-month'] | monthName %}
+    {% set startDateYear = data['startDate-year']%}
+    {% set endDateDay = data['endDate-day'] %}
+    {% set endDateMonth = data['endDate-month'] | monthName %}
+    {% set endDateYear = data['endDate-year']%}
+    {% set sentDateDay = data['sentDate-day'] %}
+    {% set sentDateMonth = data['sentDate-month'] | monthName %}
+    {% set sentDateYear = data['sentDate-year']%}
+    {% set paidDateDay = data['paidDate-day'] %}
+    {% set paidDateMonth = data['paidDate-month'] | monthName %}
+    {% set paidDateYear = data['paidDate-year']%}
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: { text: "Start date" },
+          value: {
+            text: startDateDay + " " + startDateMonth + " " + startDateYear
+          }
+        },
+        {
+          key: { text: "End date" },
+          value: {
+            text: endDateDay + " " + endDateMonth + " " + endDateYear
+          }
+        },
+        {
+          key: { text: "Sent date" },
+          value: {
+            text: sentDateDay + " " + sentDateMonth + " " + sentDateYear
+          }
+        },
+        {
+          key: { text: "Paid date" },
+          value: {
+            text: paidDateDay + " " + paidDateMonth + " " + paidDateYear
+          }
+        },
+        {
+          key: { text: "Amount" },
+          value: { text: "£" + data['paymentAmount'] }
+        }
+      ]
+    }) }}
+
+
+    {% if data['changeWeeklyDetails'] == "yes" %}
+      <h2 class="govuk-heading-m">Payment period</h2>
+
+      <p style="text-align: right; margin-bottom: 0; padding-bottom: 0.5em; border-bottom: 1px solid #b1b4b6;"><a href="./admin-change-weekly-details">Change</a></p>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: { text: "State Pension" },
+            value: { text: "£" + (((data['statePensionAmount'] or 0) | float).toFixed(2)) }
+          },
+          {
+            key: { text: "Protected payment" },
+            value: { text: "£" + (((data['protectedPaymentAmount'] or 0) | float).toFixed(2)) }
+          },
+          {
+            key: { text: "Extra State Pension" },
+            value: { text: "£" + (((data['extraStatePensionAmount'] or 0) | float).toFixed(2)) }
+          },
+          {
+            key: { text: "Inherited State Pension" },
+            value: { text: "£" + (((data['inheritedStatePensionAmount'] or 0) | float).toFixed(2)) }
+          }
+        ]
+      }) }}
+    {% endif %}
+
+    <form class="form" method="post" action="/historic-payments/admin-historic-payment-cya">
+      {{ govukButton({
+        text: "Confirm"
+      }) }}
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

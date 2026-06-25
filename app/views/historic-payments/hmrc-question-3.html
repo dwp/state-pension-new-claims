@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+ 
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {% include './_bar.html' %}
+
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <div class="govuk-form-group">
+      <fieldset class="govuk-fieldset" aria-describedby="signIn-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+          <h1 class="govuk-fieldset__heading">
+            Has HMRC completed the COEG investigation?
+          </h1>
+        </legend>
+
+        <br>
+
+        <p class="govuk-body">You will need to check:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>the COEG flag in NIRs (OLE)</li>
+          <li>that the LTB data has been updated</li>
+          <li>the State Pension award components</li>
+        </ul>
+
+        <br>
+
+        <div class="govuk-radios--inline" data-module="govuk-radios">
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hmrcQuestion3" name="hmrcQuestion3" type="radio" value="yes" aria-describedby="hmrcQuestion3-item-hint">
+            <label class="govuk-label govuk-radios__label" for="hmrcQuestion3">
+              Yes
+            </label>
+          </div>
+
+          <div class="govuk-radios__item">
+            <input class="govuk-radios__input" id="hmrcQuestion3-2" name="hmrcQuestion3" type="radio" value="no" aria-describedby="hmrcQuestion3-2-item-hint">
+            <label class="govuk-label govuk-radios__label" for="hmrcQuestion3-2">
+              No
+            </label>
+          </div>
+
+        </div>
+      </fieldset>
+    </div>
+
+    <br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+</form>
+
+{% endblock %}
