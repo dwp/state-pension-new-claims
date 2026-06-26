@@ -33,6 +33,7 @@
 {% set deathDateVerifiedLater = data['deathDateVerifiedLater'] === 'yes' %}
 {% set br330Sent = data['br330Sent'] %}
 {% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+{% set newBr330Sent = data['sendNewBr330'] == 'yes' %}
 
 {% if deathDateVerifiedLater %}
   {% set dateDeathVerifiedLater = "8 April 2025" %}
@@ -74,6 +75,14 @@
 {% set representativePhoneChanged = data['representativePhoneChanged'] === 'yes' %}
 {% set representativePhoneRemoved = data['representativePhoneRemoved'] === 'yes' %}
 {% set representativeAddressChanged = data['representativeAddressChanged'] === 'yes' %}
+
+{% if newBr330Sent %}
+  {% set timelineItems = (timelineItems.push({
+    title: "BR330 sent",
+    byline: "System",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
 
 {% if representativeAddressChanged %}
   {% set timelineItems = (timelineItems.push({
