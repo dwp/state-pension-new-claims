@@ -132,18 +132,18 @@
   }), timelineItems) %}
 {% endif %}
 
-{% if br330Sent === 'yes' %}
-  {% set timelineItems = (timelineItems.push({
-    title: "BR330 sent",
-    byline: "System",
-    date: dateDeathVerifiedLater
-  }), timelineItems) %}
-{% endif %}
-
 {% if deathDateVerification === 'verified' and representativeDetailsCollected and not noArrears %}
   {% set timelineItems = (timelineItems.push({
     title: "Arrears calculated - awaiting payee details",
     byline: "Agent",
+    date: dateDeathVerifiedLater
+  }), timelineItems) %}
+{% endif %}
+
+{% if br330Sent === 'yes' %}
+  {% set timelineItems = (timelineItems.push({
+    title: "BR330 sent",
+    byline: "System",
     date: dateDeathVerifiedLater
   }), timelineItems) %}
 {% endif %}
