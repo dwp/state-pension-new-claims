@@ -17,28 +17,33 @@
 
     <br><br>
 
+    <h1 class="govuk-heading-xl">Closing the claim</h1>
+
+    <p>We can only close the claim if we have already attempted to request information 3 times from the claimant.</p>
+
+    <p>We will automatically send a letter to the claimant telling them we have closed their claim. They will need to claim again to get their State Pension.</p>
+
+    <br>
+
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "evidence3",
+      name: "closeNVDOB",
       fieldset: {
         legend: {
-          text: "Can you verify their date of birth?",
-          isPageHeading: true,
-          classes: "govuk-fieldset__legend--xl"
+          text: "Are you sure you want the claim closed?",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--m"
         }
-      },
-      hint: {
-        text: "Additional hint text or paragraph text could go here, if needed."
       },
       items: [
         {
           value: "yes",
-          text: "Yes"
+          text: "Yes, close the claim and send a letter"
         },
         {
           value: "no",
-          text: "No"
+          text: "No, I want to choose another way to continue"
         }
       ]
     }) }}
@@ -46,7 +51,7 @@
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Continue
+      Confirm
     </button>
 
       

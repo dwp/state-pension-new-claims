@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds"> 
+
+    {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-xl">Are you sure you want to send a claim unsuccessful letter?</h1>
+
+    <p>You must only send a claim unsuccessful letter if you are sure we cannot award any State Pension.</p>
+
+    <p>If you continue, we will mark this as a claim unsuccessful case.</p>
+
+    <br><br>
+
+    <div class="govuk-button-group">
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+      <a class="govuk-link--no-visited-state" href="check-details">Back</a>
+    </div>
+
+      
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

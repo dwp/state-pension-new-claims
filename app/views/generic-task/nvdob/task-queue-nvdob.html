@@ -11,7 +11,7 @@
 
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-        {% if (data['scenario'] or data['close'] == "yes") %}
+        {% if (data['decision'] or data['decision2']) %}
           {% set html %}
             <h3 class="govuk-notification-banner__heading">
               Task complete.
@@ -22,7 +22,7 @@
             html: html,
             type: "success"
           }) }}
-        {% elseif data['evidence'] == "no" %}
+        {% elseif data['BFcoeg'] or data['BFcoeg2'] %}
           <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
             <div class="govuk-notification-banner__header">
               <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
@@ -115,17 +115,7 @@
           <div class="govuk-grid-column-one-half">
             <h1 class="govuk-heading-m">Non verified date of birth (NVDOB) 
               <p class="govuk-body-l">
-                {% if data['evidence3'] == "no" %}
-                  <a href="/nvdob/close" class="govuk-link--no-visited-state"><b>Get next task</b></a>
-                {% elseif data['evidence2'] == "no" %}
-                  <a href="/nvdob/received-evidence-3" class="govuk-link--no-visited-state"><b>Get next task</b></a>
-                {% elseif data['evidence'] == "no" %}
-                  <a href="/nvdob/received-evidence-2" class="govuk-link--no-visited-state"><b>Get next task</b></a> 
-                {% else %}
-                  <a href="/nvdob/received-evidence" class="govuk-link--no-visited-state"><b>Get next task</b></a> 
-                {% endif %}      
-              </p>
-            </h1>
+                <a href="/generic-task/nvdob/check-details-2-nvdob" class="govuk-link--no-visited-state"><b>Get next task</b></a></p></h1>
           </div>
           <div class="govuk-grid-column-one-quarter">
             <h3 class="govuk-heading-l">103

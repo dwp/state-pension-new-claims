@@ -9,6 +9,14 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
       <h1 class="govuk-heading-xl">Complete part A of the BR403</h1>
 
       <p>Use this information to complete part A of the BR403 and send it to the Pension Credit team.</p>
