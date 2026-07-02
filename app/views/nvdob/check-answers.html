@@ -24,7 +24,7 @@
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Evidence submitted by claimant
+            Document provided
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {% if data['provide'] == "birth" %}
@@ -47,7 +47,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Verified date of birth
+            Date of birth
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {{data['verifiedDOB-day']}} {{data['verifiedDOB-month'] | monthName}} {{data['verifiedDOB-year']}}

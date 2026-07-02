@@ -9,7 +9,7 @@
 
         {% if (data['close'] == "yes") %}
           {% include './_bar-3.html' %}
-        {% elseif (data['scenario']) %}
+        {% elseif (data['scenario'] === 'award') %}
           {% include './_bar-2.html' %}
         {% else %}
           {% include './_bar.html' %}
@@ -47,7 +47,7 @@
 
         {% if (data['close'] == "yes") %}
           
-        {% elseif (data['scenario']) %}
+        {% elseif (data['scenario'] === 'award') %}
           {{ xGovukSecondaryNavigation({
             visuallyHiddenTitle: "Secondary menu",
             items: [{
@@ -172,10 +172,34 @@
 
         <div class="dwp-timeline">
           <ol class="dwp-timeline__items">
-            {% if (data['scenario']) %}
+            {% if (data['scenario'] === 'award') %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">date month time</p>
                 <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date month time</p>
+                <h2 class="dwp-timeline__heading">Claimant date of birth verified</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li> 
+            {% endif %}
+            {% if (data['scenario'] === 'further') %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date month time</p>
+                <h2 class="dwp-timeline__heading">Email sent to [appropriate agency]</h2>
+                <p class="dwp-timeline__by-line">by System</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date month time</p>
+                <h2 class="dwp-timeline__heading">Claimant date of birth verified</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li> 
+            {% endif %}
+            {% if (data['scenario'] === 'pensionCredit') %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">date month time</p>
+                <h2 class="dwp-timeline__heading">Part A of BR403 sent to Pension Credit team</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
               <li class="dwp-timeline__item">
