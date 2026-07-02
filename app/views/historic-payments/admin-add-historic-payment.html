@@ -14,7 +14,10 @@
       }) }}
 
       <h2 class="govuk-heading-l">Add historic payment</h2>
-      <p>Schedule status will be set to PAID.</p>
+
+      {% call govukInsetText() %}
+        Schedule status will be set to PAID.
+      {% endcall %}
 
       <h3 class="govuk-heading-m">Payment period</h3>
 
