@@ -2,6 +2,27 @@
 
 {% block content %}
 
+
+{% set historicPaymentAdded = data['historicPaymentAdded'] === "yes" %}
+
+{% if historicPaymentAdded %}
+  {% set bannerMessage = 'Historic payment added' %}
+{% endif %}
+
+{% set bannerHtml %}
+  <h3 class="govuk-notification-banner__heading">
+    {{ bannerMessage }}
+  </h3>
+{% endset %}
+
+{% if data['showBanner'] === "yes" %}
+  {{ govukNotificationBanner({
+    html: bannerHtml,
+    type: "success"
+  }) }}
+{% endif %}
+
+
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -21,11 +42,11 @@
         items: [{
           text: "Personal",
           href: "record-personal"
-        }, 
+        },
         {
           text: "Contact",
           href: "record-contact"
-        }, 
+        },
         {
           text: "Award",
           href: "record-award"
@@ -53,11 +74,11 @@
           text: "Personal",
           href: "record-personal",
           current: true
-        }, 
+        },
         {
           text: "Contact",
           href: "record-contact"
-        }, 
+        },
         {
           text: "Tasks",
           href: "record-tasks"
@@ -88,7 +109,7 @@
           <td class="govuk-table__cell">98765409</td>
           <td class="govuk-table__cell"></td>
         </tr>
-       
+
       </tbody>
     </table>
 
@@ -101,7 +122,7 @@
     <h2 class="govuk-heading-m">Payment details</h2>
 
     <br>
-    
+
     <table class="govuk-table">
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
@@ -143,7 +164,7 @@
 
     <h1 class="govuk-heading-m">Payment changes</h1>
     {{
-        dwpTimeline({ 
+        dwpTimeline({
             items: [
             {
               title:  "No changes made",

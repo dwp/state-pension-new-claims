@@ -51,7 +51,7 @@ router.post('/historic-payments/admin-historic-payment-cya', (req, res) => {
   req.session.data['extraStatePensionAmount'] = ''
   req.session.data['inheritedStatePensionAmount'] = ''
 
-  res.redirect('admin-payments')
+  res.redirect('record-payment')
 })
 
 module.exports = router
