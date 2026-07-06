@@ -9,7 +9,7 @@
 {% elif noArrears and representativeDetailsCollected and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'No arrears - account closed' %}
 {% elif representativeDetailsCollected and deathDateVerification === 'notVerified' %}
-  {% set bannerMessage = 'Person dealing with estate details added' %}
+  {% set bannerMessage = 'Recorded details of person dealing with the estate' %}
 {% elif representativeDetailsCollected and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'Arrears calculated - awaiting payee details' %}
 {% elif deathConfirmed and deathDateVerification === 'notVerified' %}

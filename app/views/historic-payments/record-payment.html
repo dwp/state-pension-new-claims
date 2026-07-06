@@ -2,27 +2,6 @@
 
 {% block content %}
 
-
-{% set historicPaymentAdded = data['historicPaymentAdded'] === "yes" %}
-
-{% if historicPaymentAdded %}
-  {% set bannerMessage = 'Historic payment added' %}
-{% endif %}
-
-{% set bannerHtml %}
-  <h3 class="govuk-notification-banner__heading">
-    {{ bannerMessage }}
-  </h3>
-{% endset %}
-
-{% if data['showBanner'] === "yes" %}
-  {{ govukNotificationBanner({
-    html: bannerHtml,
-    type: "success"
-  }) }}
-{% endif %}
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
@@ -35,208 +14,187 @@
 
     {% endif %}
 
-    {{ xGovukSecondaryNavigation({
-      visuallyHiddenTitle: "Secondary menu",
-      items: [{
-        text: "Personal",
-        href: "record-personal"
-      },
-      {
-        text: "Contact",
-        href: "record-contact"
-      },
-      {
-        text: "Award",
-        href: "record-award"
-      },
-      {
-        text: "Payment",
-        href: "record-payment",
-        current: true
-      },
-      {
-        text: "Tasks",
-        href: "record-tasks"
-      },
-      {
-        text: "Full history",
-        href: "record-full-history"
-      }]
-    }) }}
+    {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
+
+      {{ xGovukSecondaryNavigation({
+        visuallyHiddenTitle: "Secondary menu",
+        items: [{
+          text: "Personal",
+          href: "record-personal"
+        }, 
+        {
+          text: "Contact",
+          href: "record-contact"
+        }, 
+        {
+          text: "Award",
+          href: "record-award"
+        },
+        {
+          text: "Payment",
+          href: "record-payment",
+          current: true
+        },
+        {
+          text: "Tasks",
+          href: "record-tasks"
+        },
+        {
+          text: "Full history",
+          href: "record-full-history"
+        }]
+      }) }}
+
+      {% else %}
+
+      {{ xGovukSecondaryNavigation({
+        visuallyHiddenTitle: "Secondary menu",
+        items: [{
+          text: "Personal",
+          href: "record-personal",
+          current: true
+        }, 
+        {
+          text: "Contact",
+          href: "record-contact"
+        }, 
+        {
+          text: "Tasks",
+          href: "record-tasks"
+        }]
+      }) }}
+
+    {% endif %}
 
     <br>
 
     <h2 class="govuk-heading-m">Bank or building society account details</h2>
 
-    <p style="text-align: right; margin-bottom: 0; padding-bottom: .5em; border-bottom: 1px solid #b1b4b6;"><a href="#">Change</a></p>
+    <table class="govuk-table">
+      <tbody class="govuk-table__body">
 
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: { text: "Account holder" },
-          value: { text: "Leon Hibbert" }
-        },
-        {
-          key: { text: "Sort code" },
-          value: { text: "123456" }
-        },
-        {
-          key: { text: "Account number" },
-          value: { text: "12345678" }
-        }
-      ]
-    }) }}
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header" style="width: 45%">Account holder</th>
+          <td class="govuk-table__cell" style="width: 45%">Mr Leon Hibbert</td>
+          <td class="govuk-table__cell" style="width: 10%"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Sort code </th>
+          <td class="govuk-table__cell">54 76 98 </td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+        <tr class="govuk-table__row">
+          <th scope="row" class="govuk-table__header">Account number</th>
+          <td class="govuk-table__cell">98765409</td>
+          <td class="govuk-table__cell"></td>
+        </tr>
+       
+      </tbody>
+    </table>
+
+    <p class="govuk-body">
+      <a href="#" class="govuk-link--no-visited-state">Change bank or building society account details</a>
+    </p>
 
     <br>
 
-    {{ govukTable({
-      caption: "Payment details",
-      captionClasses: "govuk-table__caption--m",
-      head: [
-        { text: "Sequence" },
-        { text: "Date" },
-        { text: "Amount" }
-      ],
-      rows: [
-        [
-          { text: "First payment" },
-          { text: "Thursday 11 Apr 2019" },
-          { text: "£203.57" }
-        ],
-        [
-          { text: "Next payment" },
-          { text: "Tuesday 14 May 2019" },
-          { text: "£203.57" }
-        ]
-      ]
-    }) }}
+    <h2 class="govuk-heading-m">Payment details</h2>
 
-    {{ govukSummaryList({
-      rows: [
-        {
-          key: { text: "Payment frequency" },
-          value: { text: "Every 4 weeks" },
-          actions: {
-            items: [
-              {
-                href: "#",
-                text: "Change"
-              }
-            ]
-          }
-        }
-      ]
-    }) }}
+    <br>
+    
+    <table class="govuk-table">
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <th scope="row" class="govuk-table__header" style="width: 45%"> Payment frequency</th>
+            <td class="govuk-table__cell" style="width: 45%">Weekly</td>
+            <td class="govuk-table__cell" style="width: 10%"><a class="govuk-body govuk-link--no-visited-state" href="change-frequency">
+                <span class="govuk-link govuk-!-font-size-19">Change</span>
+              </a></td>
+          </tr>
 
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Next payment date</th>
+              <td class="govuk-table__cell">28 Jan 2025</td>
+              <td class="govuk-table__cell"></td>
+            </tr>
+
+            <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header">Next payment amount</th>
+                <td class="govuk-table__cell">
+                  {% if data['debitAmount'] and data['creditAmount'] %}
+                    £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+                  {% elseif data['creditAmount'] %}
+                    £{{ 200 + data.creditAmount | float }}.00
+                  {% elseif data['debitAmount']%}
+                    £{{ 200 - data.debitAmount | float }}.00
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell"></td>
+              </tr>
+
+        </tbody>
+      </table>
 
   </div>
 
 
   <div class="govuk-grid-column-one-third">
-    <h2 class="govuk-heading-m">Payment changes</h2>
-    <style>
-      .dwp-timeline__item {
-        display: flex;
-        flex-direction: column;
-      }
-      .dwp-timeline__heading,
-      .dwp-timeline__by-line,
-      .dwp-timeline__datetime {
-        font-size: 19px;
-        line-height: 25px;
-      }
-      .dwp-timeline__heading {
-        order: 1;
-        margin-bottom: 0;
-      }
-      .dwp-timeline__by-line {
-        order: 2;
-        margin-bottom: 0;
-      }
-      .dwp-timeline__datetime {
-        order: 4;
-        color: #505a5f;
-      }
-      .dwp-timeline__link {
-        order: 3;
-      }
-    </style>
-    {{ dwpTimeline({
-      items: [
-        {
-          title: "No changes made",
-          byline: "System",
-          date: "Today"
-        }
-      ]
-    }) }}
-    <script>
-      document.querySelectorAll('.dwp-timeline__by-line')
-      .forEach(element => {
-        element.textContent = element.textContent.replace('by ', '');
-      });
-    </script>
+    {% from "timeline/macro.njk" import dwpTimeline %}
+
+    <h1 class="govuk-heading-m">Payment changes</h1>
+    {{
+        dwpTimeline({ 
+            items: [
+            {
+              title:  "No changes made",
+              byline:  "",
+              date:  ""
+            }
+        ]
+        })
+    }}
 
   </div>
 
   <div class="govuk-grid-column-full">
-    <br>
     <h2 class="govuk-heading-m">Payment history</h2>
 
-    {% set startDateDay = data['startDate-day'] %}
-    {% set startDateMonth = data['startDate-month'] | monthName("truncate") %}
-    {% set startDateYear = data['startDate-year']%}
-    {% set endDateDay = data['endDate-day'] %}
-    {% set endDateMonth = data['endDate-month'] | monthName("truncate") %}
-    {% set endDateYear = data['endDate-year']%}
-    {% set sentDateDay = data['sentDate-day'] %}
-    {% set sentDateMonth = data['sentDate-month'] | monthName("truncate") %}
-    {% set sentDateYear = data['sentDate-year']%}
-    {% set paidDateDay = data['paidDate-day'] %}
-    {% set paidDateMonth = data['paidDate-month'] | monthName("truncate") %}
-    {% set paidDateYear = data['paidDate-year']%}
+    <br>
 
-    <p style="text-align: right; margin-top: -2.5em;"><a href="#">Record a manual payment</a></p>
 
-    {{ govukTable({
-      caption: "Payment history",
-      captionClasses: "govuk-visually-hidden",
-      head: [
-        { text: "Payment date" },
-        { text: "Period" },
-        { text: "Amount" },
-        { text: "Status" },
-        { text: "" }
-      ],
-      rows: [
-        [
-          { text: "28 May 2025" },
-          { text: "28 May 2025 to 3 Jun 2026" },
-          { text: "£203.57" },
-          { text: "Sent" },
-          { html: '
-            <a
-              class="govuk-link govuk-link--no-visited-state"
-              href="./payment">
-              Details
-            </a>
-          ' }
-        ],
-        [
-          { text: sentDateDay + " " + sentDateMonth + " " + sentDateYear },
-          { text: startDateDay + " " + startDateMonth + " " + startDateYear + " to " + endDateDay + " " + endDateMonth + " " + endDateYear },
-          { text: "£" + (((data['paymentAmount'] or 0) | float).toFixed(2)) },
-          { text: "Paid" },
-          { html: '
-            <a
-              class="govuk-link govuk-link--no-visited-state"
-              href="./historic-payment">
-              Details
-            </a>
-          ' }
-        ] if historicPaymentAdded
-      ]
-    }) }}
+    <table class="govuk-table">
+
+      <thead class="govuk-table__head">
+        <tr class="govuk-table__row">
+          <th class="govuk-table__header" scope="col" style="width: 15%">Payment date</th>
+          <th class="govuk-table__header" scope="col" style="width:20%">Period</th>
+          <th class="govuk-table__header" scope="col" style="width: 10%">Amount</th>
+          <th class="govuk-table__header" scope="col" style="width: 10%">Status</th>
+          <th class="govuk-table__header" scope="col" style="width: 5%;"></th>
+        </tr>
+      </thead>
+
+      <tbody class="govuk-table__body">
+
+        <tr class="govuk-table__row">
+          <td class="govuk-table__cell">28 Dec 2024</td>
+          <td class="govuk-table__cell">28 Dec 2024 to 3 Jan 2025</td>
+          <td class="govuk-table__cell">
+            {% if data['debitAmount'] and data['creditAmount'] %}
+              £{{ (200 - data.debitAmount | float + data.creditAmount | float).toFixed(2) }}
+            {% elseif data['creditAmount'] %}
+              £{{ 200 + data.creditAmount | float }}.00
+            {% elseif data['debitAmount']%}
+              £{{ 200 - data.debitAmount | float }}.00
+            {% endif %}
+          </td>
+          <td class="govuk-table__cell" class="govuk-orange">Sent
+          </td>
+          <td class="govuk-table__cell" style="text-align: right;"><a class="govuk-body govuk-link--no-visited-state" href="record-payment-details">Details</a></td>
+        </tr>
+
+      </tbody>
+    </table>
 
     <br><br><br>
 

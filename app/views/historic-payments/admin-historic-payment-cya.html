@@ -56,18 +56,11 @@
         },
         {
           key: { text: "Amount" },
-          value: {
-            text: "£" + (((data['paymentAmount'] or 0) | float).toFixed(2))
-          }
-        },
-        {
-          key: { text: "Change weekly amounts" },
-          value: {
-            text: "Yes" if data['changeWeeklyDetails'] == "yes" else "No"
-          }
+          value: { text: "£" + data['paymentAmount'] }
         }
       ]
     }) }}
+
 
     {% if data['changeWeeklyDetails'] == "yes" %}
       <h2 class="govuk-heading-m">Weekly details</h2>
@@ -77,19 +70,19 @@
       {{ govukSummaryList({
         rows: [
           {
-            key: { text: "State Pension amount" },
+            key: { text: "State Pension" },
             value: { text: "£" + (((data['statePensionAmount'] or 0) | float).toFixed(2)) }
           },
           {
-            key: { text: "Protected payment amount" },
+            key: { text: "Protected payment" },
             value: { text: "£" + (((data['protectedPaymentAmount'] or 0) | float).toFixed(2)) }
           },
           {
-            key: { text: "Extra State Pension amount" },
+            key: { text: "Extra State Pension" },
             value: { text: "£" + (((data['extraStatePensionAmount'] or 0) | float).toFixed(2)) }
           },
           {
-            key: { text: "Inherited State Pension amount" },
+            key: { text: "Inherited State Pension" },
             value: { text: "£" + (((data['inheritedStatePensionAmount'] or 0) | float).toFixed(2)) }
           }
         ]
