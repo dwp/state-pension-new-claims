@@ -56,7 +56,9 @@
         },
         {
           key: { text: "Amount" },
-          value: { text: "£" + data['paymentAmount'] }
+          value: {
+            text: "£" + (((data['paymentAmount'] or 0) | float).toFixed(2))
+          }
         },
         {
           key: { text: "Change weekly amounts" },
