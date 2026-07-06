@@ -46,25 +46,24 @@
   {% set paidDate = null %}
 {% endif %}
 
-{% set isSameDay = (sentDate and paidDate and sentDate === paidDate) %}
-
 {% set timelineItems = [] %}
+
+{% if paidDate %}
+  {% set timelineItems = timelineItems.concat([{
+    title: "Paid with CPS Local faster payments" if sentDate == paidDate else "Paid",
+    byline: "Agent",
+    date: paidDate
+  }]) %}
+{% endif %}
 
 {% if sentDate %}
   {% set timelineItems = timelineItems.concat([{
-    title: "Sent with CPS Local faster payments" if isSameDay else "Sent",
+    title: "Sent with CPS Local faster payments" if sentDate == paidDate else "Sent",
     byline: "Agent",
     date: sentDate
   }]) %}
 {% endif %}
 
-{% if paidDate %}
-  {% set timelineItems = timelineItems.concat([{
-    title: "Paid with CPS Local faster payments" if isSameDay else "Paid",
-    byline: "Agent",
-    date: paidDate
-  }]) %}
-{% endif %}
 {% if timelineItems.length === 0 %}
   {% set timelineItems = (timelineItems.push({
     title: "No changes made",
