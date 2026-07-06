@@ -46,11 +46,13 @@
   {% set paidDate = null %}
 {% endif %}
 
+{% set isSameDay = (sentDate and paidDate and sentDate === paidDate) %}
+
 {% set timelineItems = [] %}
 
 {% if sentDate %}
   {% set timelineItems = timelineItems.concat([{
-    title: "Sent",
+    title: "Sent with CPS Local faster payments" if isSameDay else "Sent",
     byline: "Agent",
     date: sentDate
   }]) %}
@@ -58,7 +60,7 @@
 
 {% if paidDate %}
   {% set timelineItems = timelineItems.concat([{
-    title: "Paid",
+    title: "Paid with CPS Local faster payments" if isSameDay else "Paid",
     byline: "Agent",
     date: paidDate
   }]) %}
