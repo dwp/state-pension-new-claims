@@ -1,0 +1,83 @@
+<style>
+  .dwp-timeline__item {
+    display: flex;
+    flex-direction: column;
+  }
+  .dwp-timeline__heading,
+  .dwp-timeline__by-line,
+  .dwp-timeline__datetime {
+    font-size: 19px;
+    line-height: 25px;
+  }
+  .dwp-timeline__heading {
+    order: 1;
+    margin-bottom: 0;
+  }
+  .dwp-timeline__by-line {
+    order: 2;
+    margin-bottom: 0;
+  }
+  .dwp-timeline__datetime {
+    order: 4;
+    color: #505a5f;
+  }
+  .dwp-timeline__link {
+    order: 3;
+  }
+</style>
+
+{% set timelineItems = [] %}
+
+{% if data['sentDate-day'] and data['sentDate-month'] and data['sentDate-year'] %}
+  {% set sentDateDay = data['sentDate-day'] %}
+  {% set sentDateMonth = data['sentDate-month'] | monthName %}
+  {% set sentDateYear = data['sentDate-year'] %}
+  {% set sentDate = sentDateDay + " " + sentDateMonth + " " + sentDateYear %}
+{% else %}
+  {% set sentDate = null %}
+{% endif %}
+
+{% if data['paidDate-day'] and data['paidDate-month'] and data['paidDate-year'] %}
+  {% set paidDateDay = data['paidDate-day'] %}
+  {% set paidDateMonth = data['paidDate-month'] | monthName %}
+  {% set paidDateYear = data['paidDate-year'] %}
+  {% set paidDate = paidDateDay + " " + paidDateMonth + " " + paidDateYear %}
+{% else %}
+  {% set paidDate = null %}
+{% endif %}
+
+{% set timelineItems = [] %}
+
+{% if sentDate %}
+  {% set timelineItems = timelineItems.concat([{
+    title: "Sent",
+    byline: "Agent",
+    date: sentDate
+  }]) %}
+{% endif %}
+
+{% if paidDate %}
+  {% set timelineItems = timelineItems.concat([{
+    title: "Paid",
+    byline: "Agent",
+    date: paidDate
+  }]) %}
+{% endif %}
+{% if timelineItems.length === 0 %}
+  {% set timelineItems = (timelineItems.push({
+    title: "No changes made",
+    byline: "System",
+    date: "Today"
+  }), timelineItems) %}
+{% endif %}
+
+{{ dwpTimeline({
+  items: timelineItems
+}) }}
+
+<script>
+  document.querySelectorAll('.dwp-timeline__by-line')
+  .forEach(element => {
+    element.textContent = element.textContent.replace('by ', '');
+  });
+</script>

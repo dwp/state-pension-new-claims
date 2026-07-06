@@ -160,21 +160,8 @@
 
 
   <div class="govuk-grid-column-one-third">
-    {% from "timeline/macro.njk" import dwpTimeline %}
-
-    <h1 class="govuk-heading-m">Payment changes</h1>
-    {{
-        dwpTimeline({
-            items: [
-            {
-              title:  "No changes made",
-              byline:  "",
-              date:  ""
-            }
-        ]
-        })
-    }}
-
+    <h2 class="govuk-heading-m">Payment changes</h2>
+    {% include './_timeline--payment.html' %}
   </div>
 
   <div class="govuk-grid-column-full">
