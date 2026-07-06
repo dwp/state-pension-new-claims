@@ -9,6 +9,14 @@
 <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
       <h1 class="govuk-heading-xl">Complete part A of the BR403</h1>
 
       <p>Use this information to complete part A of the BR403 and send it to the Pension Credit team.</p>
@@ -16,7 +24,7 @@
       <br><br>
       
       <table class="govuk-table">
-        <caption class="govuk-table__caption govuk-table__caption--m">State Pension award</caption>
+        <caption class="govuk-table__caption govuk-table__caption--m">State Pension revised award</caption>
         <thead class="govuk-table__head">
           <tr class="govuk-table__row">
             <th scope="col" class="govuk-table__header">Weekly amount</th>
@@ -26,7 +34,7 @@
         <tbody class="govuk-table__body">
           <tr class="govuk-table__row">
             <td class="govuk-table__cell">£109.80</td>
-            <td class="govuk-table__cell">1 March 2026</td>
+            <td class="govuk-table__cell">{{ "today" | govukDate }}</td>
           </tr>
         </tbody>
       </table>

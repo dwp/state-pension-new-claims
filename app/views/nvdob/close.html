@@ -17,19 +17,21 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Send a notification</h1>
+    <h1 class="govuk-heading-xl">Closing the claim</h1>
 
-    <p>Send any notifications needed to progress this task. You can now choose if you need to postpone the task.</p>
+    <p>We can only close the claim if we have already attempted to request information 3 times from the claimant.</p>
+
+    <p>We will automatically send a letter to the claimant telling them we have closed their claim. They will need to claim again to get their State Pension.</p>
 
     <br>
 
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "nvdobPostpone",
+      name: "close",
       fieldset: {
         legend: {
-          text: "Do you need to postpone the task?",
+          text: "Are you sure you want the claim closed?",
           isPageHeading: false,
           classes: "govuk-fieldset__legend--m"
         }
@@ -49,7 +51,7 @@
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      Continue
+      Confirm
     </button>
 
       

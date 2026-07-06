@@ -83,6 +83,7 @@ const dap = require('./routes/dap')
 const historicpayments = require('./routes/historicpayments')
 const generic = require('./routes/generic')
 const maritalstatus = require('./routes/maritalstatus')
+const nvdob = require('./routes/nvdob')
 
 // copy the router use and update the sprint version
 router.use(newclaims)
@@ -164,5 +165,6 @@ router.use(dap)
 router.use(historicpayments)
 router.use(generic)
 router.use(maritalstatus)
+router.use(nvdob)
 
 module.exports = router

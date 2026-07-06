@@ -17,39 +17,28 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Send a notification</h1>
-
-    <p>Send the notification needed to progress this task. You can then choose if you need to postpone the task.</p>
-
-    <br>
-
     {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
     {{ govukRadios({
-      name: "generalPostpone",
+      name: "evidence2",
       fieldset: {
         legend: {
-          text: "Which notification do you need to send?",
-          isPageHeading: false,
-          classes: "govuk-fieldset__legend--m"
+          text: "Can you verify their date of birth?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
         }
+      },
+      hint: {
+        text: "Additional hint text or paragraph text could go here, if needed."
       },
       items: [
         {
-          value: "1",
-          text: "Task specific notification 1"
+          value: "yes",
+          text: "Yes"
         },
         {
-          value: "2",
-          text: "Task specific notification 2"
-        },
-        {
-          value: "3",
-          text: "Task specific notification 3"
-        },
-        {
-          value: "4",
-          text: "Task specific notification 4"
+          value: "no",
+          text: "No"
         }
       ]
     }) }}

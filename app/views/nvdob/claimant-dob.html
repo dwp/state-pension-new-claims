@@ -17,15 +17,30 @@
 
     <br><br>
 
-    <h1 class="govuk-heading-xl">Claim closed</h1>
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-    <p>A letter will be automatically sent to the claimant telling them we have closed their claim.</p>
-
+    {{ govukDateInput({
+      id: "verifiedDOB",
+      namePrefix: "verifiedDOB",
+      fieldset: {
+        legend: {
+          text: "What is their date of birth?",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--xl"
+        }
+      },
+      hint: {
+        text: "Hint text here, if needed"
+      }
+    }) }}
+    
     <br><br>
 
     <button type="submit" class="govuk-button" data-module="govuk-button">
-      End task
+      Continue
     </button>
+
+      
 
     </form>
 

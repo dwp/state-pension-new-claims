@@ -17,40 +17,44 @@
 
       <br><br>
 
-      {% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-      {{ govukCheckboxes({
-        name: "evidence",
+      {{ govukRadios({
+        name: "provide",
         fieldset: {
           legend: {
-            text: "What evidence did you use?",
+            text: "Which document did they provide?",
             isPageHeading: true,
             classes: "govuk-fieldset__legend--xl"
           }
         },
         hint: {
-          text: "Select all that apply"
+          text: "Additional hint text or paragraph text could go here, if needed."
         },
         items: [
           {
-            value: "admissable evidence 1",
-            text: "admissable evidence 1"
+            value: "birth",
+            text: "Birth certificate"
           },
           {
-            value: "admissable evidence 2",
-            text: "admissable evidence 2"
+            value: "passport",
+            text: "Passport"
           },
           {
-            value: "admissable evidence 3",
-            text: "admissable evidence 3"
+            value: "adoption",
+            text: "Adoption certificate"
           },
           {
-            value: "admissable evidence 4",
-            text: "admissable evidence 4"
+            value: "driving",
+            text: "Photo driving licence"
           },
           {
-            value: "admissable evidence 5",
-            text: "admissable evidence 5"
+            value: "registration",
+            text: "Certificate of registration of birth"
+          },
+          {
+            value: "order",
+            text: "Adoption order"
           }
         ]
       }) }}
