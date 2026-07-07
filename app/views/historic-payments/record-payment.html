@@ -35,57 +35,34 @@
 
     {% endif %}
 
-    {% if data.hmrcQuestion3 === 'yes' or data.hmrcQuestion2 === 'yes' or data.hmrcQuestion === 'yes' %}
-
-      {{ xGovukSecondaryNavigation({
-        visuallyHiddenTitle: "Secondary menu",
-        items: [{
-          text: "Personal",
-          href: "record-personal"
-        },
-        {
-          text: "Contact",
-          href: "record-contact"
-        },
-        {
-          text: "Award",
-          href: "record-award"
-        },
-        {
-          text: "Payment",
-          href: "record-payment",
-          current: true
-        },
-        {
-          text: "Tasks",
-          href: "record-tasks"
-        },
-        {
-          text: "Full history",
-          href: "record-full-history"
-        }]
-      }) }}
-
-      {% else %}
-
-      {{ xGovukSecondaryNavigation({
-        visuallyHiddenTitle: "Secondary menu",
-        items: [{
-          text: "Personal",
-          href: "record-personal",
-          current: true
-        },
-        {
-          text: "Contact",
-          href: "record-contact"
-        },
-        {
-          text: "Tasks",
-          href: "record-tasks"
-        }]
-      }) }}
-
-    {% endif %}
+    {{ xGovukSecondaryNavigation({
+      visuallyHiddenTitle: "Secondary menu",
+      items: [{
+        text: "Personal",
+        href: "record-personal"
+      },
+      {
+        text: "Contact",
+        href: "record-contact"
+      },
+      {
+        text: "Award",
+        href: "record-award"
+      },
+      {
+        text: "Payment",
+        href: "record-payment",
+        current: true
+      },
+      {
+        text: "Tasks",
+        href: "record-tasks"
+      },
+      {
+        text: "Full history",
+        href: "record-full-history"
+      }]
+    }) }}
 
     <br>
 
