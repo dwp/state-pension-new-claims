@@ -27,31 +27,31 @@ router.post('/historic-payments/admin-historic-payment-cya', (req, res) => {
   req.session.data['historicPaymentAdded'] = 'yes'
   req.session.data['showBanner'] = 'yes'
 
-  req.session.data['startDate-day'] = ''
-  req.session.data['startDate-month'] = ''
-  req.session.data['startDate-year'] = ''
+  // req.session.data['startDate-day'] = ''
+  // req.session.data['startDate-month'] = ''
+  // req.session.data['startDate-year'] = ''
 
-  req.session.data['endDate-day'] = ''
-  req.session.data['endDate-month'] = ''
-  req.session.data['endDate-year'] = ''
+  // req.session.data['endDate-day'] = ''
+  // req.session.data['endDate-month'] = ''
+  // req.session.data['endDate-year'] = ''
 
-  req.session.data['sentDate-day'] = ''
-  req.session.data['sentDate-month'] = ''
-  req.session.data['sentDate-year'] = ''
+  // req.session.data['sentDate-day'] = ''
+  // req.session.data['sentDate-month'] = ''
+  // req.session.data['sentDate-year'] = ''
 
-  req.session.data['paidDate-day'] = ''
-  req.session.data['paidDate-month'] = ''
-  req.session.data['paidDate-year'] = ''
+  // req.session.data['paidDate-day'] = ''
+  // req.session.data['paidDate-month'] = ''
+  // req.session.data['paidDate-year'] = ''
 
-  req.session.data['paymentAmount'] = ''
+  // req.session.data['paymentAmount'] = ''
 
-  req.session.data['changeWeeklyDetails'] = ''
-  req.session.data['statePensionAmount'] = ''
-  req.session.data['protectedPaymentAmount'] = ''
-  req.session.data['extraStatePensionAmount'] = ''
-  req.session.data['inheritedStatePensionAmount'] = ''
+  // req.session.data['changeWeeklyDetails'] = ''
+  // req.session.data['statePensionAmount'] = ''
+  // req.session.data['protectedPaymentAmount'] = ''
+  // req.session.data['extraStatePensionAmount'] = ''
+  // req.session.data['inheritedStatePensionAmount'] = ''
 
-  res.redirect('admin-payments')
+  res.redirect('record-payment')
 })
 
 module.exports = router

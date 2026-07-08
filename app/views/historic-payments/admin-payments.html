@@ -2,28 +2,6 @@
 
 {% block content %}
 
-
-
-{% set historicPaymentAdded = data['historicPaymentAdded'] === "yes" %}
-
-{% if historicPaymentAdded %}
-  {% set bannerMessage = 'Historic payment added' %}
-{% endif %}
-
-{% set bannerHtml %}
-  <h3 class="govuk-notification-banner__heading">
-    {{ bannerMessage }}
-  </h3>
-{% endset %}
-
-{% if data['showBanner'] === "yes" %}
-  {{ govukNotificationBanner({
-    html: bannerHtml,
-    type: "success"
-  }) }}
-{% endif %}
-
-
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
