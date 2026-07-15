@@ -321,12 +321,11 @@ router.post('/dap/death-br330-send-new', (req, res) => {
   const sendNewBr330 = req.session.data['sendNewBr330']
   if (sendNewBr330 === 'yes') {
     req.session.data['showBanner'] = 'yes'
-    req.session.data['awaitingBannerType'] = 'br330'
     req.session.data['br330Sent'] = 'yes'
     req.session.data['newBr330Sent'] = 'yes'
   }
 
-  res.redirect('death-payee-details')
+  res.redirect('record-personal')
 })
 
 router.post('/dap/death-payee-bank', (req, res) => {

@@ -3,8 +3,11 @@
 {% set paymentDetailsCollected = data['paymentDetailsCollected'] === "yes" %}
 {% set deathConfirmed = data['deathConfirmed'] === "yes" %}
 {% set noArrears = data['finalPayment'] == "overpayment" or data['finalPayment'] == "nothing-due" %}
+{% set newBr330Sent = data['newBr330Sent'] === "yes" %}
 
-{% if paymentDetailsCollected %}
+{% if newBr330Sent %}
+  {% set bannerMessage = "BR330 sent" %}
+{% elif paymentDetailsCollected %}
   {% set bannerMessage = 'Arrears payment sent - account closed' %}
 {% elif noArrears and representativeDetailsCollected and deathDateVerification === 'verified' %}
   {% set bannerMessage = 'No arrears - account closed' %}
