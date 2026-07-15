@@ -7,7 +7,7 @@ router.post('/citizen/confirm-identity', function (req, res) {
   if (req.body['confirm-identity'] === 'code') {
     res.redirect('your-details')
   } else {
-    res.redirect('https://get-state-pension.service.gov.uk/request-invitation-code')
+    res.redirect('https://get-state-pension.service.gov.uk/verify')
   }
 })
 

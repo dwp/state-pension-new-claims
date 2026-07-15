@@ -1,4 +1,4 @@
-{% extends "layout-2.html" %}
+{% extends "layout.html" %}
 
 {% block pageTitle %}
 GOV.UK Prototype Kit
@@ -8,7 +8,10 @@ GOV.UK Prototype Kit
 
 <form method="post">
 
-  <a href="#" class="govuk-back-link">Back</a>
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:history.go(-1)"
+                    }) }}
 
   <div class="govuk-grid-row">
 
@@ -32,7 +35,7 @@ Do you have your invitation code?      </h1>
             value="verify">
 <label class="govuk-label govuk-radios__label" for="confirm-identity-2">
             <b>No, I do not have my invitation code</b></label>
-            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">You can ask us to send an invitation code to your home address</div>
+            <div id="signIn-item-hint" class="govuk-hint govuk-radios__hint">You can prove your identity with GOV.UK Verify instead</div>
 
         </div>
       </div>

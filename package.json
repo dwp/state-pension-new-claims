@@ -9,10 +9,10 @@
   },
   "name": "state-pension-new-claims",
   "dependencies": {
-    "@dwp/dwp-frontend": "3.4.0",
+    "@dwp/dwp-frontend": "3.3.0",
     "@govuk-prototype-kit/common-templates": "2.0.1",
     "@govuk-prototype-kit/step-by-step": "2.2.4",
-    "@x-govuk/govuk-prototype-components": "3.1.0",
+    "@x-govuk/govuk-prototype-components": "3.0.9",
     "@x-govuk/govuk-prototype-filters": "1.4.4",
     "browser-sync": "^3.0.4",
     "del": "^8.0.1",
@@ -28,10 +28,10 @@
   },
   "overrides": {
     "minimatch": "10.2.5",
-    "immutable": "5.1.9",
-    "qs": "6.15.3",
+    "immutable": "5.1.6",
+    "qs": "6.15.2",
     "uuid": "^11.1.1",
     "form-data": "2.5.6",
-    "ws": "8.21.1"
+    "ws": "8.21.0"
   }
 }
