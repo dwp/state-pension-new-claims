@@ -29,24 +29,21 @@
 {% from "govuk/components/textarea/macro.njk"         import govukTextarea %}
 {% from "govuk/components/warning-text/macro.njk"     import govukWarningText %}
 
-<!--{% block head %}
-  {% include "includes/head.html" %}
-  {% block headEnd %}{% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="/stylesheets/govuk-frontend.min.css">
 {% endblock %}
 
-{% block pageTitle %}
-  GOV.UK Prototype Kit
-{% endblock %}-->
+{% block content %}
+  <h1 class="govuk-heading-xl">Default page template</h1>
+{% endblock %}
 
-{% block header %}
-  {% include "includes/cookie-banner.html" %}
-  {# Set serviceName in config.js. #}
-  {% from "govuk/components/header/macro.njk" import govukHeader %}
-
-  {{ govukHeader({
-    homepageUrl: "#"
-  }) }}
-  
+{% block bodyEnd %}
+  {# Run JavaScript at end of the <body>, to avoid blocking the initial render. #}
+  <script type="module" src="/javascripts/govuk-frontend.min.js"></script>
+  <script type="module">
+    import { initAll } from '/javascripts/govuk-frontend.min.js'
+    initAll()
+  </script>
 {% endblock %}
 
 {% set mainClasses = mainClasses | default("govuk-main-wrapper--auto-spacing") %}
