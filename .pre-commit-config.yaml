@@ -71,7 +71,7 @@ repos:
       - id: markdownlint-cli2
         additional_dependencies:
           - markdownlint-rule-titlecase@0.1.0
-          - markdownlint-cli2-formatter-codequality@0.0.5
+          - markdownlint-cli2-formatter-codequality@0.0.7
 
   - repo: https://github.com/rbubley/mirrors-prettier
     rev: v3.5.3
