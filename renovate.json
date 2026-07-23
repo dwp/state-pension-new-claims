@@ -8,6 +8,7 @@
     "local>dwp/secure-development/renovate-bot//shared-configs/datasources/npm",
     "local>dwp/secure-development/renovate-bot//shared-configs/datasources/pypi",
     "local>dwp/secure-development/renovate-bot//shared-configs/datasources/terraform",
-    "local>dwp/secure-development/renovate-bot//shared-configs/terraform-provider-registry-tofu-override"
+    "local>dwp/secure-development/renovate-bot//shared-configs/terraform-provider-registry-tofu-override",
+    "local>dwp/retirement/common-components/renovate-config//renovate-auto-merge"
   ]
 }
