@@ -323,9 +323,10 @@ router.post('/dap/death-br330-send-new', (req, res) => {
     req.session.data['showBanner'] = 'yes'
     req.session.data['br330Sent'] = 'yes'
     req.session.data['newBr330Sent'] = 'yes'
+    res.redirect('record-personal')
+  } else {
+    res.redirect('death-payee-details')
   }
-
-  res.redirect('record-personal')
 })
 
 router.post('/dap/death-payee-bank', (req, res) => {
