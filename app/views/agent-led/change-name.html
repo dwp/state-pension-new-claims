@@ -1,0 +1,49 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-l">Name</h1>
+
+        {{ govukInput({
+          label: {
+            text: "First name"
+          },
+          classes: "govuk-!-width-full",
+          id: "first",
+          name: "first"
+        }) }}
+
+        {{ govukInput({
+          label: {
+            text: "Last name"
+          },
+          classes: "govuk-!-width-full",
+          id: "last",
+          name: "last"
+        }) }}
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

@@ -1,0 +1,537 @@
+{% from "timeline/macro.njk" import dwpTimeline %}
+
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+  <form method="post">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          text: "Back",
+          href: "javascript:history.go(-1)"
+        }) }}
+
+        <br><br>
+
+        <h2 class="govuk-heading-l">Lived or worked abroad</h2>
+
+        <br>
+
+        <div class="govuk-notification-banner" role="region"
+          aria-labelledby="govuk-notification-banner-title"
+          data-module="govuk-notification-banner">
+          <div class="govuk-notification-banner__header">
+            <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+              Important
+            </h2>
+          </div>
+          <div class="govuk-notification-banner__content">
+            <p class="govuk-notification-banner__heading">
+              Claimant has lived or worked in more than one country group.    </p>
+          </div>
+        </div>
+
+        <h2 class="govuk-heading-m">Claimant details</h2>
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "CFN1282"
+              },
+              value: {
+                text: "Not sent"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "name"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "CFN901"
+              },
+              value: {
+                text: "Not sent"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "date of birth"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <br><br>
+<br>
+        <h2 class="govuk-heading-m">ANZaC</h2>
+        <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        {{ govukSummaryList({
+        card: {
+          title: {
+            text: "New Zealand"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Remove this period"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+              key: {
+                text: "Lived"
+              },
+              value: {
+                html: "1 Feb 1985 to 31 Dec 1988"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Worked"
+              },
+              value: {
+                html: "1 Feb 1985 to 31 Dec 1988"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "nationality"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Social security number"
+              },
+              value: {
+                html: "987 65 4321"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "WINZ information"
+              },
+              value: {
+                html: "Not requested"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        {% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
+
+        <!--{{ govukSummaryList({
+          card: {
+            title: {
+              text: "Italy"
+            }
+          },
+
+          rows: [
+            {
+              key: {
+                text: "Lived"
+              },
+              value: {
+                html: "1 Jan 1980 to 31 Dec 1984"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Worked"
+              },
+              value: {
+                html: "1 Jan 1980 to 31 Dec 1984"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "nationality"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Social security number"
+              },
+              value: {
+                html: "987 65 4321"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Insurance record"
+              },
+              value: {
+                html: "Not requested yet"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <a href="#" class="govuk-link">Remove this period</a>-->
+
+        <br><br><br>
+
+        <h2 class="govuk-heading-m">EEA</h2>
+        <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-!-padding-bottom-6"></div>
+
+        {{ govukSummaryList({
+        card: {
+          title: {
+            text: "France"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Remove this period"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+              key: {
+                text: "Lived"
+              },
+              value: {
+                html: "1 Jan 1980 to 31 Dec 1984"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Worked"
+              },
+              value: {
+                html: "1 Jan 1980 to 31 Dec 1984"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "nationality"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Social security number"
+              },
+              value: {
+                html: "987 65 4321"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Insurance record"
+              },
+              value: {
+                html: "Not requested"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+        <br><br><br>
+
+        <h2 class="govuk-heading-m">RA</h2>
+        <hr class="govuk-section-break govuk-section-break--visible">
+        <div class="govuk-!-padding-bottom-6"></div>
+                            
+        {{ govukSummaryList({
+        card: {
+          title: {
+            text: "United States"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Remove this period"
+              }
+            ]
+          }
+        },
+        rows: [
+          {
+              key: {
+                text: "Lived"
+              },
+              value: {
+                html: "1 Mar 1990 to 31 Dec 1996"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "age"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Worked"
+              },
+              value: {
+                html: "1 Jan 1980 to 31 Dec 1984"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "nationality"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Social security number"
+              },
+              value: {
+                html: "987 65 4321"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            },
+            {
+              key: {
+                text: "Form"
+              },
+              value: {
+                html: "Not requested"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "#",
+                    text: "Change",
+                    visuallyHiddenText: "working situation"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      </div>
+
+      <div class="govuk-grid-column-one-third">
+
+        <h3 class="govuk-heading-m">Lived or worked abroad changes</h3>
+
+        <div class="dwp-timeline">
+          <ol class="dwp-timeline__items">
+
+            <!--{% if data['nsp'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">5 May 2025 at 3:09pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Check for increase complete. Change of award letter sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data.receivedInfo2 === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">5 May 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZAC: Urgent email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data.receivedInfo2 === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">5 May 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Information received from WINZ</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data.receivedInfo === 'yes' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Apr 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Information received from WINZ</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% elseif data.receivedInfo === 'no' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">14 Apr 2025 at 2:47pm</p>
+                <h2 class="dwp-timeline__heading">ANZAC: Urgent email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data.winz === 'winz' %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">16 Mar 2025 at 2:29pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: Email sent to WINZ liaison</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">16 Mar 2025 at 2:17pm</p>
+                <h2 class="dwp-timeline__heading">ANZaC: CFN1282 returned</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">1 Mar 2025 at 09:17am</p>
+              <h2 class="dwp-timeline__heading">ANZaC: CFN1282 form sent to claimant</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">25 Feb 2025 at 11:42am</p>
+              <h2 class="dwp-timeline__heading">EEA: Insurance record requested from Spain</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">14 Feb 2025 at 09:17am</p>
+              <h2 class="dwp-timeline__heading">EEA: CFN901 form sent to claimant</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">11 Feb 2025 at 10:27am</p>
+              <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>-->
+            </li>
+
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">10 Feb 2025 at 12:34pm</p>
+              <h2 class="dwp-timeline__heading">Claim received</h2>
+              <p class="dwp-timeline__by-line">by Online</p>
+            </li>
+
+          </ol>
+        </div>
+  
+      </div>
+
+    </div>
+
+{% endblock %}

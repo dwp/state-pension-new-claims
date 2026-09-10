@@ -29,13 +29,13 @@
   "overrides": {
     "minimatch": "10.2.5",
     "immutable": "5.1.9",
-    "qs": "6.15.3",
+    "qs": "6.16.0",
     "uuid": "^11.1.1",
     "form-data": "2.5.6",
     "ws": "8.21.1",
-    "brace-expansion": "5.0.7",
+    "brace-expansion": "5.0.9",
     "govuk-prototype-kit": {
-      "brace-expansion": "1.1.16"
+      "brace-expansion": "1.1.18"
     }
   }
 }

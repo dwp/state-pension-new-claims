@@ -1,0 +1,58 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-l">Add an action</h1>
+
+        <p>Explanitory paragraph text could go here, if needed. Something like, 'do what you need to do and come back to this page to log your actions'.</P>
+
+        <br><br>
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "addAction",
+          fieldset: {
+            legend: {
+              text: "What do you want to log in GySP?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "infoReceived",
+              text: "I have received valid information"
+            },
+            {
+              value: "infoSent",
+              text: "I have sent or requested information"
+            }
+          ]
+        }) }}
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

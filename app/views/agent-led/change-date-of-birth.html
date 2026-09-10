@@ -1,0 +1,62 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-l">Date of birth</h1>
+
+        <p>Supporting paragraph text could go here, if needed.</P>
+
+        <p>The claimant's date of birth is <b>12 January 1966<b>.</P>
+
+        <div class="govuk-inset-text">
+          The claimant's date of birth is <b>12 January 1966<b>.
+        </div>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "dateOfBirth",
+          fieldset: {
+            legend: {
+              text: "Can you verify the claimant's date of birth with the evidence you received?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

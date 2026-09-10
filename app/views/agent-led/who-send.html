@@ -1,0 +1,84 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+
+        {% set thirdParty %}
+        {{ xGovukAutocomplete({
+          id: "someoneElse",
+          name: "someoneElse",
+          allowEmpty: false,
+          label: {
+            classes: "govuk-label--s",
+            isPageHeading: true,
+            text: "Name of third party"
+          },
+          items: [
+            { text: "Country 1" },
+            { text: "Country 2" },
+            { text: "Country 3" },
+            { text: "Country 4" },
+            { text: "Country 5" },
+            { text: "Gov agency 1" },
+            { text: "Gov agency 2" },
+            { text: "Gov agency 3" },
+            { text: "Gov agency 4" },
+            { text: "Other" },
+            { text: "HMRC" },
+            { text: "CAB" },
+            { text: "PAB" }
+          ]
+        }) }}
+        {% endset -%}
+
+        {{ govukRadios({
+          name: "whoSent",
+          fieldset: {
+            legend: {
+              text: "Who did you send something to?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "claimant",
+              text: "Claimant"
+            },
+            {
+              value: "third",
+              text: "Third party",
+              conditional: {
+                html: thirdParty
+              }
+            }
+          ]
+        }) }}  
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

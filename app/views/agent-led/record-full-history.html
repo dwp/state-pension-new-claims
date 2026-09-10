@@ -1,0 +1,96 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <form method="post">
+
+      {% if data['creditAmount'] or data['debitAmount'] %}
+
+        {% include './_bar-2.html' %}
+  
+      {% else %}
+  
+        {% include './_bar.html' %}
+  
+      {% endif %}
+
+      {{ xGovukSecondaryNavigation({
+        visuallyHiddenTitle: "Secondary menu",
+        items: [{
+          text: "Personal",
+          href: "record-personal"
+        }, 
+        {
+          text: "Contact",
+          href: "record-contact"
+        }, 
+        {
+          text: "Pre award components",
+          href: "record-pre-award"
+        },
+        {
+          text: "Full history",
+          href: "record-full-history",
+          current: true
+        }]
+      }) }}
+
+      <br><br>
+
+      <div class="govuk-button-group">
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Add an action
+        </button>
+        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-action">Add an action</a>
+      </div>
+
+      <table class="govuk-table">
+        <!--<caption class="govuk-table__caption govuk-table__caption--m">Dates and events</caption>-->
+
+        <thead class="govuk-table__head">
+          <tr class="govuk-table__row">
+            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Date</th>
+            <th scope="col" class="govuk-table__header">Action</th>
+            <th scope="col" class="govuk-table__header"></th>
+            <th scope="col" class="govuk-table__header govuk-table__header--numeric">By</th>
+          </tr>
+        </thead>
+
+        <tbody class="govuk-table__body">
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">23 May 2026</td>
+            <td class="govuk-table__cell">
+              Timeline entry from a dropdown or subject line
+            </td>
+            <td class="govuk-table__cell">
+              <a class="govuk-link--no-visited-state" href="add-country-1">Notes</a>
+            </td>
+            <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+          </tr>
+          
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">19 May 2026</td>
+            <td class="govuk-table__cell">State Pension awarded</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+          </tr>
+
+          <tr class="govuk-table__row">
+            <td class="govuk-table__cell">11 May 2026</td>
+            <td class="govuk-table__cell">Claim received</td>
+            <td class="govuk-table__cell"></td>
+            <td class="govuk-table__cell govuk-table__header--numeric">Online</td>
+          </tr>
+        </tbody>
+        
+      </table>
+
+      <br>
+
+    </div>
+  </div>
+
+{% endblock %}

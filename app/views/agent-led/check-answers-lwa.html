@@ -1,0 +1,352 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form method="post">
+
+      {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-l">Check your answers</h1>
+
+      <br>
+
+      {% if data['addCountry'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">
+            {% if data['addCountry'] == "Australia" %}Australia
+            {% elseif data['addCountry'] == "Canada" %}Canada
+            {% elseif data['addCountry'] == "France" %}France
+            {% elseif data['addCountry'] == "Italy" %}Italy
+            {% elseif data['addCountry'] == "Japan" %}Japan
+            {% elseif data['addCountry'] == "United States" %}United States
+            {% endif %}
+          </h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="add-country-1">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-1">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom-day']}} {{data['livedFrom-month'] | monthName}} {{data['livedFrom-year']}} to {{data['livedTo-day']}} {{data['livedTo-month'] | monthName}} {{data['livedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom-day']}} {{data['workedFrom-month'] | monthName}} {{data['workedFrom-year']}} to {{data['workedTo-day']}} {{data['workedTo-month'] | monthName}} {{data['workedTo-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn'] %}
+                  {{ (data.ssn) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br><br>
+
+        {% elseif data['remove'] == "yes" %}
+
+      {% endif %}
+
+      {% if data['addCountry2'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">
+            {% if data['addCountry2'] == "Australia" %}Australia
+            {% elseif data['addCountry2'] == "Canada" %}Canada
+            {% elseif data['addCountry2'] == "France" %}France
+            {% elseif data['addCountry2'] == "Italy" %}Italy
+            {% elseif data['addCountry2'] == "Japan" %}Japan
+            {% elseif data['addCountry2'] == "United States" %}United States
+            {% endif %}
+          </h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="add-country-2">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-2">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom-day2']}} {{data['livedFrom-month2'] | monthName}} {{data['livedFrom-year2']}} to {{data['livedTo-day2']}} {{data['livedTo-month2'] | monthName}} {{data['livedTo-year2']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom-day2']}} {{data['workedFrom-month2'] | monthName}} {{data['workedFrom-year2']}} to {{data['workedTo-day2']}} {{data['workedTo-month2'] | monthName}} {{data['workedTo-year2']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn2'] %}
+                  {{ (data.ssn2) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br>
+
+        {% elseif data['remove2'] == "yes" %}
+
+      {% endif %}
+
+      {% if data['addCountry3'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">
+            {% if data['addCountry3'] == "Australia" %}Australia
+            {% elseif data['addCountry3'] == "Canada" %}Canada
+            {% elseif data['addCountry3'] == "France" %}France
+            {% elseif data['addCountry3'] == "Italy" %}Italy
+            {% elseif data['addCountry3'] == "Japan" %}Japan
+            {% elseif data['addCountry3'] == "United States" %}United States
+            {% endif %}
+          </h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="add-country-3">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-3">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom3-day']}} {{data['livedFrom3-month'] | monthName}} {{data['livedFrom3-year']}} to {{data['livedTo3-day']}} {{data['livedTo3-month'] | monthName}} {{data['livedTo3-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom3-day']}} {{data['workedFrom3-month'] | monthName}} {{data['workedFrom3-year']}} to {{data['workedTo3-day']}} {{data['workedTo3-month'] | monthName}} {{data['workedTo3-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn3'] %}
+                  {{ (data.ssn3) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br>
+
+        {% elseif data['remove3'] == "yes" %}
+
+      {% endif %}
+
+      {% if data['addCountry4'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">
+            {% if data['addCountry4'] == "Australia" %}Australia
+            {% elseif data['addCountry4'] == "Canada" %}Canada
+            {% elseif data['addCountry4'] == "France" %}France
+            {% elseif data['addCountry4'] == "Italy" %}Italy
+            {% elseif data['addCountry4'] == "Japan" %}Japan
+            {% elseif data['addCountry4'] == "United States" %}United States
+            {% endif %}
+          </h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="add-country-4">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-4">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom4-day']}} {{data['livedFrom4-month'] | monthName}} {{data['livedFrom4-year']}} to {{data['livedTo4-day']}} {{data['livedTo4-month'] | monthName}} {{data['livedTo4-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom4-day']}} {{data['workedFrom4-month'] | monthName}} {{data['workedFrom4-year']}} to {{data['workedTo4-day']}} {{data['workedTo4-month'] | monthName}} {{data['workedTo4-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn4'] %}
+                  {{ (data.ssn4) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br>
+
+        {% elseif data['remove4'] == "yes" %}
+
+      {% endif %}
+
+      {% if data['addCountry5'] %}
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">
+            {% if data['addCountry5'] == "Australia" %}Australia
+            {% elseif data['addCountry5'] == "Canada" %}Canada
+            {% elseif data['addCountry5'] == "France" %}France
+            {% elseif data['addCountry5'] == "Italy" %}Italy
+            {% elseif data['addCountry5'] == "Japan" %}Japan
+            {% elseif data['addCountry5'] == "United States" %}United States
+            {% endif %}
+          </h2>
+
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="add-country-5">Change<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="remove-country-5">Remove<span class="govuk-visually-hidden"> Australia</span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        <table class="govuk-table">
+
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Lived</th>
+              <td class="govuk-table__cell">
+                {{data['livedFrom5-day']}} {{data['livedFrom5-month'] | monthName}} {{data['livedFrom5-year']}} to {{data['livedTo5-day']}} {{data['livedTo5-month'] | monthName}} {{data['livedTo5-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Worked</th>
+              <td class="govuk-table__cell">
+                {{data['workedFrom5-day']}} {{data['workedFrom5-month'] | monthName}} {{data['workedFrom5-year']}} to {{data['workedTo5-day']}} {{data['workedTo5-month'] | monthName}} {{data['workedTo5-year']}}
+              </td>
+            </tr>
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header">Social security number</th>
+              <td class="govuk-table__cell">
+                {% if data['ssn5'] %}
+                  {{ (data.ssn5) }}
+                {% else %}
+                  
+                {% endif %}
+              </td>
+            </tr>
+          </tbody>
+          
+        </table>
+
+        <br>
+
+        {% elseif data['remove5'] == "yes" %}
+
+      {% endif %}
+      
+      {% if data['addCountry4'] %}
+        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-country-5">
+          Add another lived or worked abroad period<span class="govuk-visually-hidden"></span>
+        </a>
+        {% elseif data['addCountry3'] %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-country-4">
+            Add another lived or worked abroad period<span class="govuk-visually-hidden"></span>
+          </a>
+        {% elseif data['addCountry2'] %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-country-3">
+            Add another lived or worked abroad period<span class="govuk-visually-hidden"></span>
+          </a>
+        {% elseif data['addCountry'] %}
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-country-2">
+            Add another lived or worked abroad period<span class="govuk-visually-hidden"></span>
+          </a> 
+      {% endif %}   
+
+      <br><br><br><br>
+
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
