@@ -17,18 +17,20 @@
 
         <form method="post">
 
-        {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
-        {% set thirdParty %}
         {{ xGovukAutocomplete({
           id: "someoneElse",
           name: "someoneElse",
           allowEmpty: false,
           label: {
-            classes: "govuk-label--s",
+            classes: "govuk-label--l",
             isPageHeading: true,
-            text: "Name of third party"
+            text: "Who is third party?"
+          },
+          hint: {
+            text: "Enter the name of the person/place/thing you sent something to.
+                  If you cannot find what you're looking for, enter 'Other'."
           },
           items: [
             { text: "Country 1" },
@@ -46,31 +48,6 @@
             { text: "PAB" }
           ]
         }) }}
-        {% endset -%}
-
-        {{ govukRadios({
-          name: "whoSent",
-          fieldset: {
-            legend: {
-              text: "Who did you send something to?",
-              isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-            {
-              value: "claimant",
-              text: "Claimant"
-            },
-            {
-              value: "third",
-              text: "Third party",
-              conditional: {
-                html: thirdParty
-              }
-            }
-          ]
-        }) }}  
 
         <br><br>
 

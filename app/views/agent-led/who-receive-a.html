@@ -18,35 +18,6 @@
         <form method="post">
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
-        {% from "govuk/components/input/macro.njk" import govukInput %}
-
-        {% set thirdParty %}
-        {{ xGovukAutocomplete({
-          id: "3rdParty",
-          name: "3rdParty",
-          allowEmpty: false,
-          label: {
-            classes: "govuk-label--s",
-            isPageHeading: true,
-            text: "Name of third party"
-          },
-          items: [
-            { text: "Country 1" },
-            { text: "Country 2" },
-            { text: "Country 3" },
-            { text: "Country 4" },
-            { text: "Country 5" },
-            { text: "Gov agency 1" },
-            { text: "Gov agency 2" },
-            { text: "Gov agency 3" },
-            { text: "Gov agency 4" },
-            { text: "Other" },
-            { text: "HMRC" },
-            { text: "CAB" },
-            { text: "PAB" }
-          ]
-        }) }}
-        {% endset -%}
 
         {{ govukRadios({
           name: "whoReceived",
@@ -57,6 +28,10 @@
               classes: "govuk-fieldset__legend--l"
             }
           },
+          hint: {
+            text: "Third party is anyone or anything other than the claimant. This could be another person 
+                  (like a PAB), a place (like a foreign country), or a thing (like a gov agency)."
+          },
           items: [
             {
               value: "claimant",
@@ -64,10 +39,7 @@
             },
             {
               value: "third",
-              text: "Third party",
-              conditional: {
-                html: thirdParty
-              }
+              text: "Third party"
             }
           ]
         }) }}  

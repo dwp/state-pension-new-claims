@@ -1,0 +1,70 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-xl">Non verified date of birth (NVDOB)</h1>
+
+        <p>In this task you will need to match the claimants date of birth in GySP with the evidence they have provided.</p>
+
+        <p>You will need to:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>send the claimant an MF5 or MF4 requesting a birth certificate or secondary evidence</li>
+          <li>check ECMS for evidence</li>
+          <li>verify the claimant's date of birth</li>
+          <li>record your actions</li>
+        </ul>
+
+        <br><br>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+          {{ govukRadios({
+            name: "whatDo",
+            fieldset: {
+              legend: {
+                text: "What do you want to do?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--m"
+              }
+            },
+            items: [
+              {
+                value: "record",
+                text: "Go to citizen's record"
+              },
+              {
+                value: "postpone",
+                text: "Postpone the task"
+              },
+              {
+                value: "markComplete",
+                text: "Mark the task as complete"
+              }
+            ]
+          }) }}
+        
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Start this task
+        </button>
+
+      </div>
+    </div>
+
+{% endblock %}

@@ -17,7 +17,7 @@
 
         <form method="post">
 
-        <h1 class="govuk-heading-l">What other thing did you receive?</h1>
+        <!--<h1 class="govuk-heading-l">What other thing did you send or request?</h1>
 
         <p>Explanitory paragraph text could go here, if needed. Something like, 'enter the name of the form 
             that you sent or requested if there is one. If there isn't a name for the thing you sent, make your 
@@ -26,35 +26,34 @@
 
         <br><br>
         
-        <!--{% from "govuk/components/input/macro.njk" import govukInput %}
+        {% from "govuk/components/input/macro.njk" import govukInput %}
 
         {{ govukInput({
           label: {
-            text: "Thing you received",
+            text: "Thing you sent",
             classes: "govuk-label--m"
           },
           classes: "govuk-input--width-50",
-          id: "otherReceived",
-          name: "otherReceived"
-        }) }}-->
+          id: "otherSend",
+          name: "otherSend"
+        }) }}
 
-        <br><br>
+        <br><br>-->
 
         {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
         {{ govukCharacterCount({
-          name: "otherReceived",
-          id: "otherReceived",
+          name: "otherWhoSend",
+          id: "otherWhoSend",
           maxlength: 50,
           label: {
-            text: "What other thing did you receive?",
+            text: "Who was the other person/place/thing did you sent something to?",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "Explanitory text could go here, if needed. Something like, 'enter the name of the form that 
-                    you sent or requested if there is one. If there isn't a name for the thing you sent, make 
-                    your entry as concise as possible'."
+            text: "Enter the name of the other person/place/thing
+                    you sent something to. Make your entry as concise as possible."
           }
         }) }}
 

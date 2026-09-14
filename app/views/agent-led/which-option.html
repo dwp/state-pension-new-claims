@@ -1,0 +1,66 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+        {% call govukNotificationBanner() %}
+          <p class="govuk-notification-banner__heading">
+            This screen is to help test options in the prototype. It will not be part of the actual journey.
+          </p>
+        {% endcall %}
+
+        <form method="post">
+        
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "whichOption",
+          fieldset: {
+            legend: {
+              text: "Which option would you like to choose?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "optionA",
+              text: "Option A",
+              hint: {
+              text: "Seperate screens"
+            }
+            },
+            {
+              value: "optionB",
+              text: "Option B",
+              hint: {
+              text: "conditional reveals"
+            }
+            }
+          ]
+        }) }}
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}
