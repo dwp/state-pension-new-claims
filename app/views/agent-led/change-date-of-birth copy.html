@@ -17,37 +17,43 @@
 
         <form method="post">
 
+        <h1 class="govuk-heading-l">Date of birth</h1>
+
+        <p>Supporting paragraph text could go here, if needed.</P>
+
+        <p>The claimant's date of birth is <b>12 January 1966<b>.</P>
+
+        <div class="govuk-inset-text">
+          The claimant's date of birth is <b>12 January 1966<b>.
+        </div>
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "whoReceivedA",
+          name: "dateOfBirth",
           fieldset: {
             legend: {
-              text: "Who did you receive something from?",
+              text: "Can you verify the claimant's date of birth with the evidence you received?",
               isPageHeading: true,
-              classes: "govuk-fieldset__legend--l"
+              classes: "govuk-fieldset__legend--m"
             }
-          },
-          hint: {
-            text: "Third party is anyone or anything other than the claimant. This could be another person 
-                  (like a PAB), a place (like a foreign country), or a thing (like a gov agency)."
           },
           items: [
             {
-              value: "claimant",
-              text: "Claimant"
+              value: "yes",
+              text: "Yes"
             },
             {
-              value: "third",
-              text: "Third party"
+              value: "no",
+              text: "No"
             }
           ]
-        }) }}  
+        }) }}
 
         <br><br>
 
         <button class="govuk-button" data-module="govuk-button">
-          Continue
+          Save
         </button>
 
       </div>

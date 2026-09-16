@@ -22,8 +22,8 @@
 
         {% set thirdParty %}
         {{ xGovukAutocomplete({
-          id: "someoneElse",
-          name: "someoneElse",
+          id: "nameThirdSentB",
+          name: "nameThirdSentB",
           allowEmpty: false,
           label: {
             classes: "govuk-label--s",
@@ -49,7 +49,7 @@
         {% endset -%}
 
         {{ govukRadios({
-          name: "whoSent",
+          name: "whoSendB",
           fieldset: {
             legend: {
               text: "Who did you send something to?",

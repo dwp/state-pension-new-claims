@@ -20,13 +20,13 @@
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
         {{ xGovukAutocomplete({
-          id: "someoneElse",
-          name: "someoneElse",
+          id: "whoThirdSent",
+          name: "whoThirdSent",
           allowEmpty: false,
           label: {
             classes: "govuk-label--l",
             isPageHeading: true,
-            text: "Who is third party?"
+            text: "Who is the third party?"
           },
           hint: {
             text: "Enter the name of the person/place/thing you sent something to.

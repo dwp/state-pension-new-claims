@@ -21,136 +21,72 @@
         Check your answers
       </h1>
 
-      {% if data['addAction'] == "infoSent" %}
-        <h2 class="govuk-heading-m">Sent or requested information 1</h2>
+      <h2 class="govuk-heading-m">Received information 1</h2>
 
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Sent
-            </dt>
-            <dd class="govuk-summary-list__value--numeric">
-              {% if data['formSent'] == "Other" %}
-                {{ (data.otherSend) }}
+      <dl class="govuk-summary-list">
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            Received
+          </dt>
+          <dd class="govuk-summary-list__value--numeric">
+            {% if data['whatReceiveA'] == "email" %}
+              Email
+            {% elseif  data['whatReceiveA'] == "formLetter" %}
+              {% if data['haveNameA'] == "no" %}
+                information
+              {% elseif data['nameReceived'] == "Other" %}
+                {{ (data.otherWhatReceive) }}
               {% else %}
-                {{ (data.formSent) }}
+                {{ (data.nameReceived) }}
               {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="what-send">Change<span class="govuk-visually-hidden"></span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              To
-            </dt>
-            <dd class="govuk-summary-list__value--numeric">
-              {% if data['whoSent'] == "third" %}
-                {% if data['someoneElse'] == "Other" %}
-                  {{ (data.otherthird) }}
-                {% else %}
-                  {{ (data.someoneElse) }}
-                {% endif %}
+            {% endif %}
+
+            {% if data['whatReceiveB'] == "email" %}
+              Email
+            {% elseif  data['nameFormB'] == "Other" %}
+              {{ (data.otherWhatReceive) }}
+            {% else %}
+              {{ (data.nameFormB) }}
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link--no-visited-state" href="what-receive">Change<span class="govuk-visually-hidden"></span></a>
+          </dd>
+        </div>
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key">
+            From
+          </dt>
+          <dd class="govuk-summary-list__value--numeric">
+            {% if data['whoReceivedA'] == "claimant" %}
+              Claimant
+            {% elseif  data['whoReceivedA'] == "third" %}
+              {% if data['whoThirdA'] == "Other" %}
+                {{ (data.otherWhoReceive) }}
               {% else %}
-                Claimant
+                {{ (data.whoThirdA) }}
               {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="who-send">Change<span class="govuk-visually-hidden"></span></a>
-            </dd>
-          </div>
-        </dl>
+            {% endif %}
 
-        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-send">Add another</a>
-
-        <br><br><br>
-
-      {% elseif data['addAction'] == "infoReceived"%}
-        <h2 class="govuk-heading-m">Received information 1</h2>
-
-        <dl class="govuk-summary-list">
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Received
-            </dt>
-            <dd class="govuk-summary-list__value--numeric">
-              {% if data['formReceive'] == "Other" %}
-                {{ (data.otherReceived) }}
+            {% if data['whoReceivedB'] == "claimant" %}
+              Claimant
+            {% elseif  data['whoReceivedB'] == "third" %}
+              {% if data['whoThirdB'] == "Other" %}
+                {{ (data.otherWhoReceive) }}
               {% else %}
-                {{ (data.formReceive) }}
+                {{ (data.whoThirdB) }}
               {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="what-receive">Change<span class="govuk-visually-hidden"></span></a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              From
-            </dt>
-            <dd class="govuk-summary-list__value--numeric">
-              {% if data['whoReceived'] == "third" %}
-                {% if data['3rdParty'] == "Other" %}
-                  {{ (data.otherthird) }}
-                {% else %}
-                  {{ (data.3rdParty) }}
-                {% endif %}
-              {% else %}
-                Claimant
-              {% endif %}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link--no-visited-state" href="who-receive">Change<span class="govuk-visually-hidden"></span></a>
-            </dd>
-          </div>
-        </dl>
+            {% endif %}
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link--no-visited-state" href="who-receive">Change<span class="govuk-visually-hidden"></span></a>
+          </dd>
+        </div>
+      </dl>
 
-        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another</a>
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another</a>
 
-        <br><br><br>
-
-      {% endif %}
-
-
-      <!--{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
-
-      {{ govukCheckboxes({
-        name: "waste",
-        fieldset: {
-          legend: {
-            text: "2. What evidence did you use?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        hint: {
-          text: "Select all that apply"
-        },
-        items: [
-          {
-            value: "admissable evidence 1",
-            text: "admissable evidence 1"
-          },
-          {
-            value: "admissable evidence 2",
-            text: "admissable evidence 2"
-          },
-          {
-            value: "admissable evidence 3",
-            text: "admissable evidence 3"
-          },
-          {
-            value: "admissable evidence 4",
-            text: "admissable evidence 4"
-          },
-          {
-            value: "admissable evidence 5",
-            text: "admissable evidence 5"
-          }
-        ]
-      }) }}
-
-      <br><br>-->
+      <br><br><br>
 
       <button class="govuk-button" data-module="govuk-button">
         Confirm and continue

@@ -17,33 +17,6 @@
 
         <form method="post">
 
-        <!--<h1 class="govuk-heading-l">What did you send?</h1>
-
-        <p>Explanitory paragraph text could go here, if needed. Something like, 'enter the name of the form that you sent or requested. If you can't find the form you're looking for, select 'Other'.</P>
-
-        <br><br>
-        
-        {{ xGovukAutocomplete({
-          id: "formSent",
-          name: "formSent",
-          allowEmpty: false,
-          label: {
-            classes: "govuk-label--m",
-            isPageHeading: true,
-            text: "Form or type of correspondence sent"
-          },
-          items: [
-            { text: "Form 1" },
-            { text: "Form 2" },
-            { text: "Form 3" },
-            { text: "Form 4" },
-            { text: "Form 5" },
-            { text: "Other" },
-            { text: "Letter" },
-            { text: "Email" }
-          ]
-        }) }}-->
-
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
@@ -71,7 +44,7 @@
         {% endset -%}
 
         {{ govukRadios({
-          name: "whatSentB",
+          name: "haveNameA",
           fieldset: {
             legend: {
               text: "Does the form/letter have a name/title?",

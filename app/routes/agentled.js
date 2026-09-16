@@ -3,16 +3,36 @@ const router = govukPrototypeKit.requests.setupRouter()
 
 // Non verified date of birth
 
+router.post('/agent-led/task-details-nvdob', function (req, res) {
+  if (req.body['whatDo'] === 'postpone') {
+    res.redirect('postpone-task')
+  } else {
+    res.redirect('record-personal')
+}
+})
+
+router.post('/agent-led/postpone-task', function (req, res) {
+  res.redirect('check-answers-postpone')
+})
+
+router.post('/agent-led/check-answers-postpone', function (req, res) {
+  res.redirect('record-personal')
+})
+
 router.post('/agent-led/change-name', function (req, res) {
   res.redirect('record-personal')
 })
 
 router.post('/agent-led/change-date-of-birth', function (req, res) {
   if (req.body['dateOfBirth'] === 'yes') {
-    res.redirect('record-personal')
+    res.redirect('check-answers-dob')
   } else {
     res.redirect('how-continue')
 }
+})
+
+router.post('/agent-led/check-answers-dob', function (req, res) {
+  res.redirect('record-personal')
 })
 
 router.post('/agent-led/how-continue', function (req, res) {
@@ -45,59 +65,143 @@ router.post('/agent-led/which-option', function (req, res) {
 }
 })
 
-router.post('/agent-led/what-receive', function (req, res) {
-  if (req.body['formReceive'] === 'Other') {
-    res.redirect('other-receive')
+// Receive - Option A
+
+router.post('/agent-led/what-receive-a', function (req, res) {
+  if (req.body['whatReceiveA'] === 'formLetter') {
+    res.redirect('have-name-received')
   } else {
-    res.redirect('who-receive')
+    res.redirect('who-receive-a')
 }
 })
 
-router.post('/agent-led/other-receive', function (req, res) {
-  res.redirect('who-receive')
+router.post('/agent-led/have-name-received', function (req, res) {
+  if (req.body['nameReceived'] === 'Other') {
+    res.redirect('other-what-receive')
+  } else {
+    res.redirect('who-receive-a')
+}
 })
 
-router.post('/agent-led/who-receive', function (req, res) {
+router.post('/agent-led/who-receive-a', function (req, res) {
+  if (req.body['whoReceivedA'] === 'third') {
+    res.redirect('who-third-party-received')
+  } else {
+    res.redirect('check-answers-receive')
+}
+})
+
+router.post('/agent-led/who-third-party-received', function (req, res) {
+  if (req.body['whoThirdA'] === 'Other') {
+    res.redirect('other-who-receive')
+  } else {
+    res.redirect('check-answers-receive')
+}
+})
+
+router.post('/agent-led/other-who-receive', function (req, res) {
+  res.redirect('check-answers-receive')
+})
+
+// Receive - Option B
+
+router.post('/agent-led/what-receive-b', function (req, res) {
+  if (req.body['nameFormB'] === 'Other') {
+    res.redirect('other-what-receive')
+  } else {
+    res.redirect('who-receive-b')
+}
+})
+
+router.post('/agent-led/other-what-receive', function (req, res) {
+  if (req.session.data['whichOption'] === 'optionA') {
+    res.redirect('who-receive-a')
+  } else if (req.session.data['whichOption'] === 'optionB'){
+    res.redirect('who-receive-b')
+}
+})
+
+router.post('/agent-led/who-receive-b', function (req, res) {
   if (req.body['3rdParty'] === 'Other') {
-    res.redirect('other-third-party')
+    res.redirect('other-who-receive')
   } else {
-    res.redirect('check-answers-action')
+    res.redirect('check-answers-receive')
 }
 })
 
-router.post('/agent-led/what-send', function (req, res) {
-  if (req.body['formSent'] === 'Other') {
-    res.redirect('other-send')
+router.post('/agent-led/other-who-receive', function (req, res) {
+  res.redirect('check-answers-receive')
+})
+
+router.post('/agent-led/check-answers-receive', function (req, res) {
+  res.redirect('record-full-history')
+})
+
+// Send - Option A
+
+router.post('/agent-led/what-send-a', function (req, res) {
+  if (req.body['whatSentA'] === 'formLetter') {
+    res.redirect('have-name-sent')
   } else {
-    res.redirect('who-send')
+    res.redirect('who-send-a')
 }
 })
 
-router.post('/agent-led/other-send', function (req, res) {
-  res.redirect('who-send')
-})
-
-router.post('/agent-led/who-send', function (req, res) {
-  if (req.body['someoneElse'] === 'Other') {
-    res.redirect('other-third-party')
+router.post('/agent-led/have-name-sent', function (req, res) {
+  if (req.body['nameSent'] === 'Other') {
+    res.redirect('what-other-send')
   } else {
-    res.redirect('check-answers-action')
+    res.redirect('who-send-a')
 }
 })
 
-router.post('/agent-led/other-third-party', function (req, res) {
-  res.redirect('check-answers-action')
+router.post('/agent-led/who-send-a', function (req, res) {
+  if (req.body['whoSendA'] === 'claimant') {
+    res.redirect('check-answers-send')
+  } else {
+    res.redirect('who-third-party-sent')
+}
 })
 
+router.post('/agent-led/who-third-party-sent', function (req, res) {
+  if (req.body['whoThirdSent'] === 'Other') {
+    res.redirect('who-other-sent')
+  } else {
+    res.redirect('check-answers-send')
+}
+})
 
+router.post('/agent-led/who-other-sent', function (req, res) {
+  res.redirect('check-answers-send')
+})
 
-router.post('/arp/iteration-2/gmp-question-3', function (req, res) {
-  if (req.body['gmpQuestion2'] === 'yes') {
-    res.redirect('upload-documents-2')
-  } else if (req.body['gmpQuestion2'] === 'no') {
-    res.redirect('claim-removed')
-  } else if (req.body['gmpQuestion2'] === 'notSure') {
-    res.redirect('postpone-task')
+router.post('/agent-led/check-answers-send', function (req, res) {
+  res.redirect('record-full-history')
+})
+
+// Send - Option B
+
+router.post('/agent-led/what-send-b', function (req, res) {
+  if (req.body['nameSentB'] === 'Other') {
+    res.redirect('what-other-send')
+  } else {
+    res.redirect('who-send-b')
+}
+})
+
+router.post('/agent-led/what-other-send', function (req, res) {
+  if (req.session.data['whichOption'] === 'optionA') {
+    res.redirect('who-send-a')
+  } else if (req.session.data['whichOption'] === 'optionB'){
+    res.redirect('who-send-b')
+}
+})
+
+router.post('/agent-led/who-send-b', function (req, res) {
+  if (req.body['nameThirdSentB'] === 'Other') {
+    res.redirect('who-other-sent')
+  } else {
+    res.redirect('check-answers-send')
 }
 })
 
