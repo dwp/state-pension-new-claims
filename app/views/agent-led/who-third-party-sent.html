@@ -17,6 +17,13 @@
 
         <form method="post">
 
+        {% set html %}
+          <p class="govuk-body">Start typing the name of the person or place you sent something to. 
+            You can then select from the list diplayed.
+          </p>
+          <p class="govuk-body">You can type 'CAB' or 'PAB' if you you sent something to an acting body.</p>
+        {% endset %}  
+
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
         {{ xGovukAutocomplete({
@@ -29,8 +36,7 @@
             text: "Who is the third party?"
           },
           hint: {
-            text: "Enter the name of the person/place/thing you sent something to.
-                  If you cannot find what you're looking for, enter 'Other'."
+            html: html
           },
           items: [
             { text: "Country 1" },

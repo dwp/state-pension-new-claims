@@ -20,46 +20,52 @@
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
+        {% set html %}
+          <p class="govuk-body">You should select 'third party' if you sent something to anyone other than the claimant. 
+            A third party could be a government agency or another person, like a Personal Acting Body (PAB).
+          </p>
+          <p class="govuk-body">You can type 'CAB' or 'PAB' if you you sent something to an acting body.</p>
+        {% endset %}
+
         {% set thirdParty %}
-        {{ xGovukAutocomplete({
-          id: "nameThirdSentB",
-          name: "nameThirdSentB",
-          allowEmpty: false,
-          label: {
-            classes: "govuk-label--s",
-            isPageHeading: true,
-            text: "Name of third party"
-          },
-          items: [
-            { text: "Country 1" },
-            { text: "Country 2" },
-            { text: "Country 3" },
-            { text: "Country 4" },
-            { text: "Country 5" },
-            { text: "Gov agency 1" },
-            { text: "Gov agency 2" },
-            { text: "Gov agency 3" },
-            { text: "Gov agency 4" },
-            { text: "Other" },
-            { text: "HMRC" },
-            { text: "CAB" },
-            { text: "PAB" }
-          ]
-        }) }}
+          {{ xGovukAutocomplete({
+            id: "nameThirdSentB",
+            name: "nameThirdSentB",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of third party"
+            },
+            items: [
+              { text: "Country 1" },
+              { text: "Country 2" },
+              { text: "Country 3" },
+              { text: "Country 4" },
+              { text: "Country 5" },
+              { text: "Gov agency 1" },
+              { text: "Gov agency 2" },
+              { text: "Gov agency 3" },
+              { text: "Gov agency 4" },
+              { text: "Other" },
+              { text: "HMRC" },
+              { text: "CAB" },
+              { text: "PAB" }
+            ]
+          }) }}
         {% endset -%}
 
         {{ govukRadios({
           name: "whoSendB",
           fieldset: {
             legend: {
-              text: "Who did you send something to?",
+              text: "Who did you send it to?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "If you select 'Third party', enter the name of the person/place/thing you sent something to.
-                  If you cannot find what you're looking for, enter 'Other'."
+            html: html
           },
           items: [
             {

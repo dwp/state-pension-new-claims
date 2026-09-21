@@ -21,12 +21,12 @@
         Check your answers
       </h1>
 
-      <h2 class="govuk-heading-m">Sent information 1</h2>
+      <h2 class="govuk-heading-m">Information you sent</h2>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Sent
+            What you sent
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {% if data['whatSentA'] == "email" %}
@@ -51,15 +51,15 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if data['whichOption'] == 'optionA' %}
-              <a class="govuk-link--no-visited-state" href="what-send-a">Change<span class="govuk-visually-hidden"></span></a>
+              <a class="govuk-link--no-visited-state" href="what-send-a">Change<span class="govuk-visually-hidden">what you sent</span></a>
             {% elseif data['whichOption'] == 'optionB' %}  
-              <a class="govuk-link--no-visited-state" href="what-send-b">Change<span class="govuk-visually-hidden"></span></a>
+              <a class="govuk-link--no-visited-state" href="what-send-b">Change<span class="govuk-visually-hidden">what you sent</span></a>
             {% endif %}
           </dd>  
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            To
+            Who you sent it to
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {% if data['whoSendA'] == "claimant" %}
@@ -84,15 +84,15 @@
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if data['whichOption'] == 'optionA' %}
-              <a class="govuk-link--no-visited-state" href="who-send-a">Change<span class="govuk-visually-hidden"></span></a>
+              <a class="govuk-link--no-visited-state" href="who-send-a">Change<span class="govuk-visually-hidden">who you sent it to</span></a>
             {% elseif data['whichOption'] == 'optionB' %}  
-              <a class="govuk-link--no-visited-state" href="who-send-b">Change<span class="govuk-visually-hidden"></span></a>
+              <a class="govuk-link--no-visited-state" href="who-send-b">Change<span class="govuk-visually-hidden">who you sent it to</span></a>
             {% endif %}
           </dd>
         </div>
       </dl>
 
-      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another</a>
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another action</a>
 
       <br><br><br>
 
