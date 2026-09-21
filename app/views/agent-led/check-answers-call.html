@@ -1,0 +1,103 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      <h1 class="govuk-heading-xl">
+        Check your answers
+      </h1>
+
+      <h2 class="govuk-heading-m">Telephone call</h2>
+      
+      {% if data['whatCall'] == "outbound" %}
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Outbound call to
+            </dt>
+            <dd class="govuk-summary-list__value--numeric">
+              {% if data['whoSpeakTo'] == "claimant" %}
+                claimant
+              {% elseif  data['thirdSpokeTo'] == "Other" %}
+                {{ (data.otherWhoYouCalled) }}
+              {% else %}
+                {{ (data.thirdSpokeTo) }}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="what-receive">Change<span class="govuk-visually-hidden"></span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Details
+            </dt>
+            <dd class="govuk-summary-list__value--numeric">
+              <p class="govuk-body">{{ (data.moreDetail) }}</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="who-receive">Change<span class="govuk-visually-hidden"></span></a>
+            </dd>
+          </div>
+        </dl>
+      {% endif %}
+
+      {% if data['whatCall'] == "inbound" %}
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Inbound call from
+            </dt>
+            <dd class="govuk-summary-list__value--numeric">
+              {% if data['whoSpeakTo'] == "claimant" %}
+                claimant
+              {% elseif  data['thirdSpokeTo'] == "Other" %}
+                {{ (data.otherWhoCalledYou) }}
+              {% else %}
+                {{ (data.thirdSpokeTo) }}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="what-receive">Change<span class="govuk-visually-hidden"></span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Details
+            </dt>
+            <dd class="govuk-summary-list__value--numeric">
+              <p class="govuk-body">{{ (data.moreDetail) }}</p>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="who-receive">Change<span class="govuk-visually-hidden"></span></a>
+            </dd>
+          </div>
+        </dl>
+      {% endif %}
+
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another</a>
+
+      <br><br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Confirm and continue
+      </button>
+
+    </div>
+</div>
+
+{% endblock %}

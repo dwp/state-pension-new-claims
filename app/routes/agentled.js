@@ -50,10 +50,8 @@ router.post('/agent-led/record-full-history', function (req, res) {
 })
 
 router.post('/agent-led/add-action', function (req, res) {
-  if (req.session.data['addAction'] === 'receivedCall') {
-    res.redirect('who-called-you')
-  } else if (req.session.data['addAction'] === 'madeCall') {
-    res.redirect('who-did-you-call')
+  if (req.session.data['addAction'] === 'spokePhone') {
+    res.redirect('what-kind-call')
   } else {
     res.redirect('which-option')
 }
@@ -73,12 +71,26 @@ router.post('/agent-led/which-option', function (req, res) {
 
 // Make or receive a call
 
-router.post('/agent-led/who-called-you', function (req, res) {
-  if (req.body['nameThirdCalledYou'] === 'Other') {
-    res.redirect('other-called-you')
+router.post('/agent-led/what-kind-call', function (req, res) {
+  res.redirect('who-speak-to')
+})
+
+router.post('/agent-led/who-speak-to', function (req, res) {
+  if (req.session.data['whatCall'] === 'outbound' && req.body['thirdSpokeTo'] === 'Other') {
+    res.redirect('other-you-called')
+  } else if (req.session.data['whatCall'] === 'inbound' && req.body['thirdSpokeTo'] === 'Other') {
+    res.redirect('other-called-you')  
   } else {
     res.redirect('provide-detail-call')
 }
+})
+
+router.post('/agent-led/provide-detail-call', function (req, res) {
+  res.redirect('check-answers-call')
+})
+
+router.post('/agent-led/check-answers-call', function (req, res) {
+  res.redirect('record-full-history')
 })
 
 router.post('/agent-led/other-called-you', function (req, res) {
@@ -95,10 +107,6 @@ router.post('/agent-led/who-did-you-call', function (req, res) {
 
 router.post('/agent-led/other-you-called', function (req, res) {
   res.redirect('provide-detail-call')
-})
-
-router.post('/agent-led/provide-detail-call', function (req, res) {
-  res.redirect('record-full-history')
 })
 
 // Receive - Option A

@@ -20,55 +20,63 @@
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
-        {% set form %}
+        {% set thirdParty %}
         {{ xGovukAutocomplete({
-          id: "nameSent",
-          name: "nameSent",
+          id: "thirdSpokeTo",
+          name: "thirdSpokeTo",
           allowEmpty: false,
           label: {
             classes: "govuk-label--s",
             isPageHeading: true,
-            text: "Name of form or letter"
+            text: "Name of third party"
           },
           items: [
-            { text: "Form 1" },
-            { text: "Form 2" },
-            { text: "Form 3" },
-            { text: "Form 4" },
-            { text: "Form 5" },
-            { text: "Form 6" },
-            { text: "Form 7" },
-            { text: "MF5" },
-            { text: "MF4" },
-            { text: "Other" }
+            { text: "Country 1" },
+            { text: "Country 2" },
+            { text: "Country 3" },
+            { text: "Country 4" },
+            { text: "Country 5" },
+            { text: "Gov agency 1" },
+            { text: "Gov agency 2" },
+            { text: "Gov agency 3" },
+            { text: "Gov agency 4" },
+            { text: "Other" },
+            { text: "HMRC" },
+            { text: "CAB" },
+            { text: "PAB" }
           ]
         }) }}
         {% endset -%}
 
+        {% set html %}
+          <p class="govuk-body">You can check the official name of the caller in the Standard Working 
+             Instruction (SWI). If you do not know the person or agency you spoke to you can type 'other'.
+          </p>
+        {% endset %}
+
         {{ govukRadios({
-          name: "haveNameC",
+          name: "whoSpeakTo",
           fieldset: {
             legend: {
-              text: "Does the form or letter have a name?",
+              text: "Who did you speak to?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "You can check the official name of the form or letter in the Standard Working Instruction (SWI). 
-                  If you do not know the name of the form or letter you can type 'other'."
+            html: html
           },
           items: [
             {
-              value: "yes",
-              text: "Yes",
-              conditional: {
-                html: form
-              }
+              value: "claimant",
+              text: "Claimant"
             },
             {
-              value: "no",
-              text: "No"
+              value: "third",
+              text: "Third party",
+              conditional: {
+                html: thirdParty
+              }
             }
           ]
         }) }}  

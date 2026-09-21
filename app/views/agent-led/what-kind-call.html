@@ -16,29 +16,29 @@
         <br><br>
 
         <form method="post">
-
+        
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "whatSentA",
+          name: "whatCall",
           fieldset: {
             legend: {
-              text: "What did you send?",
-              isPageHeading: true,
+              text: "What kind of call was it?",
+              isPageHeading: false,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
             {
-              value: "formLetter",
-              text: "A form or letter by post"
+              value: "outbound",
+              text: "I made an outbound call"
             },
             {
-              value: "email",
-              text: "An email"
+              value: "inbound",
+              text: "I received an inbound call"
             }
           ]
-        }) }}  
+        }) }}
 
         <br><br>
 

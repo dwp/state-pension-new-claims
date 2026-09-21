@@ -25,7 +25,7 @@
         
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
-        {{ govukRadios({
+        <!--{{ govukRadios({
           name: "addAction",
           fieldset: {
             legend: {
@@ -50,6 +50,31 @@
             {
               value: "madeCall",
               text: "I made a phone call"
+            }
+          ]
+        }) }}-->
+
+        {{ govukRadios({
+          name: "addAction",
+          fieldset: {
+            legend: {
+              text: "What action do you want to add?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "infoReceived",
+              text: "I received something"
+            },
+            {
+              value: "infoSent",
+              text: "I sent something"
+            },
+            {
+              value: "spokePhone",
+              text: "I spoke on the phone"
             }
           ]
         }) }}

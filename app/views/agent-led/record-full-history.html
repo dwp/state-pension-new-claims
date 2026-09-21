@@ -122,7 +122,7 @@
               <td class="govuk-table__cell">
                 {% if data['whatReceiveA'] == "email" %}
                   Email
-                {% elseif  data['whatReceiveA'] == "formLetter" %}
+                {% elseif data['whatReceiveA'] == "formLetter" %}
                   {% if data['haveNameA'] == "no" %}
                     information
                   {% elseif data['nameReceived'] == "Other" %}
@@ -254,23 +254,41 @@
             </tr>
           {% endif %}
 
-          {% if data['whoYouCall'] %}
+          {% if data['whatCall'] == "inbound" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
               <td class="govuk-table__cell">
-                {% if data['whoYouCall'] == "claimant" %}
-                  Made call to claimant
-                {% elseif  data['nameThirdYouCall'] == "Other" %}
-                  Received call from {{ (data.otherWhoYouCalled) }}
+                {% if data['whoSpeakTo'] == "claimant" %}
+                  Received call from claimant
+                {% elseif  data['thirdSpokeTo'] == "Other" %}
+                  Received call from {{ (data.otherWhoCalledYou) }}
                 {% else %}
-                  Received call from {{ (data.nameThirdYouCall) }}
+                  Received call from {{ (data.thirdSpokeTo) }}
                 {% endif %}
+              </dd>
               </td>
               <td class="govuk-table__cell">
                 <a class="govuk-link--no-visited-state" href="call-details">Details</a>
               </td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
+          {% elseif data['whatCall'] == "outbound" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                {% if data['whoSpeakTo'] == "claimant" %}
+                  Made call to claimant
+                {% elseif  data['thirdSpokeTo'] == "Other" %}
+                  Made call to {{ (data.otherWhoCalledYou) }}
+                {% else %}
+                  Made call to {{ (data.thirdSpokeTo) }}
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>  
           {% endif %}
 
           <tr class="govuk-table__row">
