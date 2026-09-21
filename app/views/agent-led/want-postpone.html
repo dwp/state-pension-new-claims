@@ -1,0 +1,52 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "wantPostpone",
+          fieldset: {
+            legend: {
+              text: "Do you want to postpone [task name]?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes"
+            },
+            {
+              value: "no",
+              text: "No"
+            }
+          ]
+        }) }}
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

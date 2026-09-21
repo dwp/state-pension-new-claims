@@ -20,55 +20,63 @@
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
-        {% set form %}
+        {% set thirdParty %}
         {{ xGovukAutocomplete({
-          id: "nameSentB",
-          name: "nameSentB",
+          id: "nameThirdYouCall",
+          name: "nameThirdYouCall",
           allowEmpty: false,
           label: {
             classes: "govuk-label--s",
             isPageHeading: true,
-            text: "Name of form or letter"
+            text: "Name of third party"
           },
           items: [
-            { text: "Form 1" },
-            { text: "Form 2" },
-            { text: "Form 3" },
-            { text: "Form 4" },
-            { text: "Form 5" },
-            { text: "Form 6" },
-            { text: "Form 7" },
-            { text: "MF5" },
-            { text: "MF4" },
-            { text: "Other" }
+            { text: "Country 1" },
+            { text: "Country 2" },
+            { text: "Country 3" },
+            { text: "Country 4" },
+            { text: "Country 5" },
+            { text: "Gov agency 1" },
+            { text: "Gov agency 2" },
+            { text: "Gov agency 3" },
+            { text: "Gov agency 4" },
+            { text: "Other" },
+            { text: "HMRC" },
+            { text: "CAB" },
+            { text: "PAB" }
           ]
         }) }}
         {% endset -%}
 
+        {% set html %}
+          <p class="govuk-body">You can check the official name of who you called in the Standard Working 
+             Instruction (SWI). If you do not know the person or agency you spoke to you can type 'other'.
+          </p>
+        {% endset %}
+
         {{ govukRadios({
-          name: "whatSentB",
+          name: "whoYouCall",
           fieldset: {
             legend: {
-              text: "What did you send?",
+              text: "Who did you call?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "Hint text could go here, if needed. Something like, 'If you choose 'form/letter' enter the specific name/title of the form/letter that you sent. Check your SWI, if needed.
-                  If you can't find what you're looking for, enter 'Other'."
+            html: html
           },
           items: [
             {
-              value: "formLetter",
-              text: "Form/letter",
-              conditional: {
-                html: form
-              }
+              value: "claimant",
+              text: "Claimant"
             },
             {
-              value: "email",
-              text: "Email"
+              value: "third",
+              text: "Third party",
+              conditional: {
+                html: thirdParty
+              }
             }
           ]
         }) }}  

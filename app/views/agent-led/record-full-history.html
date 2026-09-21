@@ -8,13 +8,38 @@
       <form method="post">
 
       {% if data['creditAmount'] or data['debitAmount'] %}
-
         {% include './_bar-2.html' %}
-  
       {% else %}
-  
         {% include './_bar.html' %}
-  
+      {% endif %}
+
+      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+
+      {% if data['whatDo'] == "markComplete" %}
+        <br>
+        {% call govukNotificationBanner({
+          type: "success"
+        }) %}
+          <h3 class="govuk-notification-banner__heading">
+            Task complete.
+          </h3>
+        {% endcall %}
+      {% elseif data['dateOfBirth'] == "yes" %}
+        <br>
+        {% call govukNotificationBanner({
+          type: "success"
+        }) %}
+          <h3 class="govuk-notification-banner__heading">
+            Date of birth verified.
+          </h3>
+        {% endcall %}
+      {% elseif data['postponeUntil-day'] %}
+        <br>
+        {% call govukNotificationBanner() %}
+          <p class="govuk-notification-banner__heading">
+            Task postponed.
+          </p>
+        {% endcall %}  
       {% endif %}
 
       {{ xGovukSecondaryNavigation({
@@ -28,7 +53,7 @@
           href: "record-contact"
         }, 
         {
-          text: "Pre award components",
+          text: "Pre award",
           href: "record-pre-award"
         },
         {
@@ -40,12 +65,9 @@
 
       <br><br>
 
-      <div class="govuk-button-group">
-        <button type="submit" class="govuk-button" data-module="govuk-button">
-          Add an action
-        </button>
-        <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="add-action">Add an action</a>
-      </div>
+      <button type="submit" class="govuk-button" data-module="govuk-button">
+        Add an action
+      </button>
 
       <table class="govuk-table">
         <!--<caption class="govuk-table__caption govuk-table__caption--m">Dates and events</caption>-->
@@ -208,6 +230,44 @@
               </td>
               <td class="govuk-table__cell">
                 <a class="govuk-link--no-visited-state" href="#"></a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['whoCalledYou'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                {% if data['whoCalledYou'] == "claimant" %}
+                  Received call from claimant
+                {% elseif  data['nameThirdCalledYou'] == "Other" %}
+                  Received call from {{ (data.otherWhoCalledYou) }}
+                {% else %}
+                  Received call from {{ (data.whoCalledYou) }}
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['whoYouCall'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                {% if data['whoYouCall'] == "claimant" %}
+                  Made call to claimant
+                {% elseif  data['nameThirdYouCall'] == "Other" %}
+                  Received call from {{ (data.otherWhoYouCalled) }}
+                {% else %}
+                  Received call from {{ (data.nameThirdYouCall) }}
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
               </td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
