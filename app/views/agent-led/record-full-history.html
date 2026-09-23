@@ -13,7 +13,7 @@
         {% include './_bar.html' %}
       {% endif %}
 
-      {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
+      <!--{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
       {% if data['whatDo'] == "markComplete" %}
         <br>
@@ -21,7 +21,7 @@
           type: "success"
         }) %}
           <h3 class="govuk-notification-banner__heading">
-            Task complete.
+            Task complete
           </h3>
         {% endcall %}
       {% elseif data['dateOfBirth'] == "yes" %}
@@ -30,17 +30,17 @@
           type: "success"
         }) %}
           <h3 class="govuk-notification-banner__heading">
-            Date of birth verified.
+            Date of birth verified
           </h3>
         {% endcall %}
       {% elseif data['postponeUntil-day'] %}
         <br>
         {% call govukNotificationBanner() %}
           <p class="govuk-notification-banner__heading">
-            Task postponed.
+            Task postponed
           </p>
         {% endcall %}  
-      {% endif %}
+      {% endif %}-->
 
       {{ xGovukSecondaryNavigation({
         visuallyHiddenTitle: "Secondary menu",
@@ -105,16 +105,27 @@
             </tr>
           {% endif %}
           {% if data['dateOfBirth'] == "yes" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                Date of birth verified
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="#"></a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">DD Month YYYY</td>
+                <td class="govuk-table__cell">
+                  Date of birth verified
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link--no-visited-state" href="#"></a>
+                </td>
+                <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+              </tr>
+            {% elseif data['dateOfBirth'] == "no" %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">DD Month YYYY</td>
+                <td class="govuk-table__cell">
+                  Date of birth not verified
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link--no-visited-state" href="#"></a>
+                </td>
+                <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+              </tr>  
           {% endif %}
           {% if data['whatReceiveA'] or data['whatReceiveB'] %}
             <tr class="govuk-table__row">
@@ -143,7 +154,7 @@
                 received from
 
                 {% if data['whoReceivedA'] == "claimant" %}
-                  Claimant
+                  claimant
                 {% elseif  data['whoReceivedA'] == "third" %}
                   {% if data['whoThirdA'] == "Other" %}
                     {{ (data.otherWhoReceive) }}
@@ -153,7 +164,7 @@
                 {% endif %}
 
                 {% if data['whoReceivedB'] == "claimant" %}
-                  Claimant
+                  claimant
                 {% elseif  data['whoReceivedB'] == "third" %}
                   {% if data['whoThirdB'] == "Other" %}
                     {{ (data.otherWhoReceive) }}
@@ -209,7 +220,7 @@
                 sent to
 
                 {% if data['whoSendA'] == "claimant" %}
-                  Claimant
+                  claimant
                 {% elseif  data['whoSendA'] == "third" %}
                   {% if data['whoThirdSent'] == "Other" %}
                     {{ (data.otherWhoSend) }}
@@ -219,7 +230,7 @@
                 {% endif %}
 
                 {% if data['whoSendB'] == "claimant" %}
-                  Claimant
+                  claimant
                 {% elseif  data['whoSendB'] == "third" %}
                   {% if data['nameThirdSentB'] == "Other" %}
                     {{ (data.otherWhoSend) }}

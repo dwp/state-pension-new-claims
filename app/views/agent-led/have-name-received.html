@@ -20,48 +20,51 @@
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
+        {% set html %}
+          <p class="govuk-body">You can check the official name of the form or letter in the customer content portal. If you do not know the name of the form or letter you can type 'other'.</p>
+        {% endset %}
+
         {% set form %}
-        {{ xGovukAutocomplete({
-          id: "nameReceived",
-          name: "nameReceived",
-          allowEmpty: false,
-          label: {
-            classes: "govuk-label--s",
-            isPageHeading: true,
-            text: "Name of form or letter"
-          },
-          items: [
-            { text: "Form 1" },
-            { text: "Form 2" },
-            { text: "Form 3" },
-            { text: "Form 4" },
-            { text: "Form 5" },
-            { text: "Form 6" },
-            { text: "Form 7" },
-            { text: "Birth certificate (full or short)" },
-            { text: "certificate of registration of birth" },
-            { text: "UK passport" },
-            { text: "non-UK passport" },
-            { text: "UK photocard driving licence (full or provisional)" },
-            { text: "adoption order" },
-            { text: "certificate of adoption issued by the Registrar General" },
-            { text: "Other" }
-          ]
-        }) }}
+          {{ xGovukAutocomplete({
+            id: "nameReceived",
+            name: "nameReceived",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of form or letter"
+            },
+            items: [
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "Birth certificate (full or short)" },
+              { text: "certificate of registration of birth" },
+              { text: "UK passport" },
+              { text: "non-UK passport" },
+              { text: "UK photocard driving licence (full or provisional)" },
+              { text: "adoption order" },
+              { text: "certificate of adoption issued by the Registrar General" },
+              { text: "Other" }
+            ]
+          }) }}
         {% endset -%}
 
         {{ govukRadios({
           name: "haveNameA",
           fieldset: {
             legend: {
-              text: "Does the form/letter have a name/title?",
+              text: "Does the form or letter have a name?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "If yes, enter the specific name/title of the form/letter that you received. Check ECMS (formerly DRS), if needed.
-                  If you can't find a name or there isn't one, enter 'Other'."
+            html: html
           },
           items: [
             {

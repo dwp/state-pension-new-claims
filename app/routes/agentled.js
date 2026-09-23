@@ -27,7 +27,7 @@ router.post('/agent-led/change-date-of-birth', function (req, res) {
   if (req.body['dateOfBirth'] === 'yes') {
     res.redirect('check-answers-dob')
   } else {
-    res.redirect('how-continue')
+    res.redirect('claim-unsuccessful')
 }
 })
 
@@ -35,11 +35,19 @@ router.post('/agent-led/check-answers-dob', function (req, res) {
   res.redirect('record-personal')
 })
 
-router.post('/agent-led/how-continue', function (req, res) {
-  if (req.body['howContinue'] === 'sendPostpone') {
+router.post('/agent-led/claim-unsuccessful', function (req, res) {
+  if (req.body['unsuccessful'] === 'yes') {
     res.redirect('record-full-history')
   } else {
     res.redirect('record-personal')
+}
+})
+
+router.post('/agent-led/close-claim', function (req, res) {
+  if (req.body['close'] === 'yes') {
+    res.redirect('record-full-history')
+  } else {
+    res.redirect('how-continue')
 }
 })
 
@@ -51,7 +59,7 @@ router.post('/agent-led/record-full-history', function (req, res) {
 
 router.post('/agent-led/add-action', function (req, res) {
   if (req.session.data['addAction'] === 'spokePhone') {
-    res.redirect('what-kind-call')
+    res.redirect('receive-make-call')
   } else {
     res.redirect('which-option')
 }
@@ -71,7 +79,7 @@ router.post('/agent-led/which-option', function (req, res) {
 
 // Make or receive a call
 
-router.post('/agent-led/what-kind-call', function (req, res) {
+router.post('/agent-led/receive-make-call', function (req, res) {
   res.redirect('who-speak-to')
 })
 

@@ -19,18 +19,21 @@
 
         {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
+        {% set html %}
+          <p class="govuk-body">Enter a short deacription of the person or place you received something from.</p>
+        {% endset %}
+
         {{ govukCharacterCount({
           name: "otherWhoReceive",
           id: "otherWhoReceive",
           maxlength: 50,
           label: {
-            text: "Who is the other person/place/thing did you received something from?",
+            text: "Describe the third party",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "Enter the name of the other person/place/thing
-                    you received something from. Make your entry as concise as possible."
+            html: html
           }
         }) }}
 

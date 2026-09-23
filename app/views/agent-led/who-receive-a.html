@@ -19,18 +19,25 @@
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
+        {% set html %}
+          <p class="govuk-body">You should select 'third party' if you received something from anyone other 
+            than the claimant. A third party could be a government agency or another person, like a Personal 
+            Acting Body (PAB).
+          </p>
+          <p class="govuk-body">You can type 'CAB' or 'PAB' if you you sent something to an acting body.</p>
+        {% endset %}
+
         {{ govukRadios({
           name: "whoReceivedA",
           fieldset: {
             legend: {
-              text: "Who did you receive something from?",
+              text: "Who did you receive it from?",
               isPageHeading: true,
               classes: "govuk-fieldset__legend--l"
             }
           },
           hint: {
-            text: "Third party is anyone or anything other than the claimant. This could be another person 
-                  (like a PAB), a place (like a foreign country), or a thing (like a gov agency)."
+            html: html
           },
           items: [
             {

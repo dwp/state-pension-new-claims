@@ -19,17 +19,21 @@
 
         {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
+        {% set html %}
+          <p class="govuk-body">Enter the name of the person or company</p>
+        {% endset %}
+
         {{ govukCharacterCount({
           name: "otherWhoYouCalled",
           id: "otherWhoYouCalled",
           maxlength: 50,
           label: {
-            text: "Describe who you called",
+            text: "Who did you call?",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "Write a short title that describes who you called."
+            html:html
           }
         }) }}
 
