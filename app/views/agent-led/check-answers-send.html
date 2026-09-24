@@ -29,7 +29,13 @@
             What you sent
           </dt>
           <dd class="govuk-summary-list__value--numeric">
-            {% if data['whatSentA'] == "email" %}
+            {% if data['nameSentB'] == "MF4" %}
+                MF4
+              {% elseif data['nameSent'] == "MF5" %}
+                MF5
+            {% endif %}
+
+            <!--{% if data['whatSentA'] == "email" %}
               Email
             {% elseif  data['whatSentA'] == "formLetter" %}
               {% if data['haveNameC'] == "no" %}
@@ -48,7 +54,7 @@
             {% else %}
               {{ (data.nameSentB) }}
             {% endif %}
-          </dd>
+          </dd>-->
           <dd class="govuk-summary-list__actions">
             {% if data['whichOption'] == 'optionA' %}
               <a class="govuk-link--no-visited-state" href="what-send-a">Change<span class="govuk-visually-hidden">what you sent</span></a>
@@ -62,25 +68,31 @@
             Who you sent it to
           </dt>
           <dd class="govuk-summary-list__value--numeric">
-            {% if data['whoSendA'] == "claimant" %}
+            {% if data['whoSendB'] == "claimant" %}
+                Claimant
+              {% elseif data['whoSendA'] == "claimant" %}
+                Claimant
+            {% endif %}
+
+            <!--{% if data['whoSendB'] == "claimant" %}
               Claimant
-            {% elseif  data['whoSendA'] == "third" %}
-              {% if data['whoThirdSent'] == "Other" %}
+            {% elseif  data['whoSendB'] == "third" %}
+              {% if data['whoThirdSentB'] == "Other" %}
                 {{ (data.otherWhoSend) }}
               {% else %}
                 {{ (data.whoThirdSent) }}
               {% endif %}
             {% endif %}
 
-            {% if data['whoSendB'] == "claimant" %}
+            {% if data['whoSendA'] == "claimant" %}
               Claimant
-            {% elseif  data['whoSendB'] == "third" %}
-              {% if data['nameThirdSentB'] == "Other" %}
+            {% elseif  data['whoSendA'] == "third" %}
+              {% if data['nameThirdSent'] == "Other" %}
                 {{ (data.otherWhoSend) }}
               {% else %}
                 {{ (data.nameThirdSentB) }}
               {% endif %}
-            {% endif %}
+            {% endif %}-->
           </dd>
           <dd class="govuk-summary-list__actions">
             {% if data['whichOption'] == 'optionA' %}

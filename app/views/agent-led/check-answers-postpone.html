@@ -29,7 +29,11 @@
             Until
           </dt>
           <dd class="govuk-summary-list__value--numeric">
-            {{data['postponeUntil-day']}} {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
+            {% if data['whichOption'] == "optionB" %}
+                {{data['postponeUntilB-day']}} {{data['postponeUntilB-month'] | monthName}} {{data['postponeUntilB-year']}}
+              {% elseif data['whichOption'] == "optionA" %}
+                {{data['postponeUntil-day']}} {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}} 
+            {% endif %}
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link--no-visited-state" href="postpone-task">Change<span class="govuk-visually-hidden"></span></a>

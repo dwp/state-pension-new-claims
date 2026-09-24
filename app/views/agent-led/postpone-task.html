@@ -19,20 +19,37 @@
 
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-        {{ govukDateInput({
-        id: "postponeUntil",
-        namePrefix: "postponeUntil",
-        fieldset: {
-            legend: {
-            text: "When do you want to postpone the task until?",
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
+        {% if data['whichOption'] == "optionB" %}
+            {{ govukDateInput({
+            id: "postponeUntilB",
+            namePrefix: "postponeUntilB",
+            fieldset: {
+                legend: {
+                text: "When do you want to postpone the task until?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
             }
-        },
-        hint: {
-            text: "For example, 27 3 2007"
-        }
-        }) }}
+            }) }}
+          {% elseif data['whichOption'] == "optionA" %}
+            {{ govukDateInput({
+            id: "postponeUntil",
+            namePrefix: "postponeUntil",
+            fieldset: {
+                legend: {
+                text: "When do you want to postpone the task until?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
+            }
+            }) }}
+        {% endif %}
 
         <br><br>
 

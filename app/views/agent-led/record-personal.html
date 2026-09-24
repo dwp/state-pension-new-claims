@@ -21,7 +21,7 @@
             type: "success"
           }) %}
             <h3 class="govuk-notification-banner__heading">
-              Task complete.
+              Task complete
             </h3>
           {% endcall %}
         {% elseif data['dateOfBirth'] == "yes" %}
@@ -30,16 +30,16 @@
             type: "success"
           }) %}
             <h3 class="govuk-notification-banner__heading">
-              Date of birth verified.
+              Date of birth verified
             </h3>
           {% endcall %}
         {% elseif data['postponeUntil-day'] %}
           <br>
           {% call govukNotificationBanner() %}
             <p class="govuk-notification-banner__heading">
-              Task postponed.
+              Task postponed
             </p>
-          {% endcall %}  
+          {% endcall %}
         {% endif %}
 
         {{ xGovukSecondaryNavigation({
@@ -164,7 +164,7 @@
               </li>
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">Non verified date of birth task complete</h2>
+                <h2 class="dwp-timeline__heading">Unverified date of birth task complete</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% endif %}
@@ -227,28 +227,12 @@
               </li>
             {% endif %}
 
-            {% if data['nameSent'] == "MF5" or data['nameSentB'] == "MF5" %}
-                <li class="dwp-timeline__item">
-                  <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                  <h2 class="dwp-timeline__heading">MF5 sent to claimant</h2>
-                  <p class="dwp-timeline__by-line">by Agent</p>
-                </li>
-              {% elseif data['nameSent'] == "MF4" or data['nameSentB'] == "MF4" %}
-                <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">MF4 sent to claimant</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% endif %}
-
-            {% if data['howContinue'] == "sendPostpone" and data['postponeUntil-day'] %}
+            <!--{% if data['nameSent'] == "MF4" or data['nameSentB'] == "MF4" %}
               <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">Task postponed until {{data['postponeUntil-day']}} 
-                  {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
-                </h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
+              <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+              <h2 class="dwp-timeline__heading">MF4 sent to claimant</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
             {% endif %}
 
             {% if data['howContinue'] == "sendPostpone" %}
@@ -283,33 +267,9 @@
                   <a class="govuk-link--no-visited-state" href="call-details">Details</a>
                 </li>
               {% endif %}
-            {% endif %}
+            {% endif %} 
 
-            {% if data['postponeUntil-day'] %}
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">Task postponed until {{data['postponeUntil-day']}} 
-                  {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
-                </h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% endif %}
-
-            {% if data['nameSent'] == "MF5" or data['nameSentB'] == "MF5" %}
-                <li class="dwp-timeline__item">
-                  <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                  <h2 class="dwp-timeline__heading">MF5 sent to claimant</h2>
-                  <p class="dwp-timeline__by-line">by Agent</p>
-                </li>
-              {% elseif data['nameSent'] == "MF4" or data['nameSentB'] == "MF4" %}
-                <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">MF4 sent to claimant</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% endif %}  
-
-            <!--{% if data['whatSentA'] or data['whatSentB'] %}
+            {% if data['whatSentA'] or data['whatSentB'] %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
                 <h2 class="dwp-timeline__heading">
@@ -359,6 +319,24 @@
               </li>
             {% endif %}-->
 
+            {% if data['postponeUntilB-day'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">Task postponed until {{data['postponeUntil-day']}} 
+                  {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
+                </h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['nameSentB'] == "MF4" %}
+              <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+              <h2 class="dwp-timeline__heading">MF4 sent to claimant</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+            {% endif %}
+
             {% if data['whatCall'] == "inbound" %}
                 <li class="dwp-timeline__item">
                   <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
@@ -390,6 +368,25 @@
                   <a class="govuk-link--no-visited-state" href="call-details">Details</a>
                 </li>
             {% endif %}
+
+            {% if data['postponeUntil-day'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">Task postponed until {{data['postponeUntil-day']}} 
+                  {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
+                </h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['nameSent'] == "MF5" %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">MF5 sent to claimant</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
             <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
               <h2 class="dwp-timeline__heading">Claim received</h2>
