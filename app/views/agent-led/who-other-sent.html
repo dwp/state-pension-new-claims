@@ -19,18 +19,21 @@
 
         {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
+        {% set html %}
+          <p class="govuk-body">Enter a short description of the person or place you sent something to.</p>
+        {% endset %}
+
         {{ govukCharacterCount({
           name: "otherWhoSend",
           id: "otherWhoSend",
           maxlength: 50,
           label: {
-            text: "Who was the other person/place/thing did you sent something to?",
+            text: "Who did you send it to?",
             classes: "govuk-label--l",
             isPageHeading: true
           },
           hint: {
-            text: "Enter the name of the other person/place/thing
-                    you sent something to. Make your entry as concise as possible."
+            html: html
           }
         }) }}
 

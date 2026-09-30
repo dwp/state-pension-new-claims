@@ -23,11 +23,11 @@ router.post('/agent-led/change-name', function (req, res) {
   res.redirect('record-personal')
 })
 
-router.post('/agent-led/change-date-of-birth', function (req, res) {
+router.post('/agent-led/verify-date-of-birth', function (req, res) {
   if (req.body['dateOfBirth'] === 'yes') {
     res.redirect('check-answers-dob')
   } else {
-    res.redirect('claim-unsuccessful')
+    res.redirect('record-personal')
 }
 })
 
@@ -174,7 +174,7 @@ router.post('/agent-led/other-what-receive', function (req, res) {
 })
 
 router.post('/agent-led/who-receive-b', function (req, res) {
-  if (req.body['3rdParty'] === 'Other') {
+  if (req.body['whoThirdB'] === 'Other') {
     res.redirect('other-who-receive')
   } else {
     res.redirect('check-answers-receive')

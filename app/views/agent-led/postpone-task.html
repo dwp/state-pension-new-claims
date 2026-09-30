@@ -19,7 +19,22 @@
 
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-        {% if data['whichOption'] == "optionB" %}
+        {% if (data['dateOfBirth'] == "yes" or data['dateOfBirth'] == "noEvidence")  %}
+            {{ govukDateInput({
+            id: "postponeUntilC",
+            namePrefix: "postponeUntilC",
+            fieldset: {
+                legend: {
+                text: "When do you want to postpone the task until?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
+            }
+            }) }}
+          {% elseif data['whichOption'] == "optionB" %}
             {{ govukDateInput({
             id: "postponeUntilB",
             namePrefix: "postponeUntilB",
@@ -33,7 +48,7 @@
             hint: {
                 text: "For example, 27 3 2007"
             }
-            }) }}
+            }) }}  
           {% elseif data['whichOption'] == "optionA" %}
             {{ govukDateInput({
             id: "postponeUntil",

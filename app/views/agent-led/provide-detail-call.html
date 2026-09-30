@@ -20,8 +20,8 @@
         {% from "govuk/components/textarea/macro.njk" import govukTextarea %}
 
         {% set html %}
-          <p class="govuk-body">Do not include personal or financial information, like a National 
-            Insurance number or credit card details
+          <p class="govuk-body">You should include important details like names, dates and other relivant information. 
+            Do not include financial or personal information, like bank details or National Insurance number.
           </p>
         {% endset %}
 
@@ -29,7 +29,7 @@
           name: "moreDetail",
           id: "more-detail",
           label: {
-            text: "Can you provide more detail about your call?",
+            text: "Provide my detail about the call",
             classes: "govuk-label--l",
             isPageHeading: true
           },

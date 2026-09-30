@@ -1,0 +1,111 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <!--<h1 class="govuk-heading-l">Date of birth</h1>
+
+        <div class="govuk-inset-text">
+          The claimant's date of birth is <b>12 January 1960<b>.
+        </div>
+
+        <p>This is the date provided by the claimant.</P>
+
+        <p>You cannot change this date. You should close the claim if the evidence provided does not match this date, 
+          and ask the claimant to start a new claim.
+        </P>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "dateOfBirth",
+          fieldset: {
+            legend: {
+              text: "Can you verify 12 January 1960 as the claimant's date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, date of birth matches the evidence received"
+            },
+            {
+              value: "no",
+              text: "No, date of birthday does not match the evidence received"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "noEvidence",
+              text: "No evidence received"
+            }
+          ]
+        }) }}-->
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {% set html %}
+          <p class="govuk-body">This is the date provided by the claimant. You cannot change this date. 
+            You should close the claim if the evidence provided does not match this date, and ask the claimant 
+            to start a new claim.
+          </p>
+        {% endset %}
+
+        {{ govukRadios({
+          name: "dateOfBirth",
+          fieldset: {
+            legend: {
+              text: "Can you verify 12 January 1960 as the claimant's date of birth?",
+              isPageHeading: true,
+              classes: "govuk-fieldset__legend--l"
+            }
+          },
+          hint: {
+            html: html
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, date of birth matches the evidence received"
+            },
+            {
+              value: "no",
+              text: "No, date of birthday does not match the evidence received"
+            },
+            {
+              divider: "or"
+            },
+            {
+              value: "noEvidence",
+              text: "No evidence received"
+            }
+          ]
+        }) }}
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Save
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

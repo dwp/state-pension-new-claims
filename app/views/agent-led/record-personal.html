@@ -10,7 +10,6 @@
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
         {% if data['whatDo'] == "markComplete" %}
-            <br>
             {% call govukNotificationBanner({
               type: "success"
             }) %}
@@ -19,7 +18,6 @@
               </h3>
             {% endcall %}
           {% elseif data['dateOfBirth'] == "yes" %}
-            <br>
             {% call govukNotificationBanner({
               type: "success"
             }) %}
@@ -28,7 +26,6 @@
               </h3>
             {% endcall %}
           {% elseif data['dateOfBirth'] == "no" %}
-            <br>
             {% call govukNotificationBanner({
               type: "success"
             }) %}
@@ -37,7 +34,6 @@
               </h3>
             {% endcall %}  
           {% elseif data['postponeUntil-day'] %}
-            <br>
             {% call govukNotificationBanner() %}
               <p class="govuk-notification-banner__heading">
                 Task postponed
@@ -102,7 +98,7 @@
               <th scope="row" class="govuk-table__header">Full name</th>
               <td class="govuk-table__cell">Walter Gropius</td>
               <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-></a></td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-name>Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href=change-name>Change</a></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">National Insurance number</th>
@@ -120,36 +116,36 @@
                   Not verified
                 {% endif %}
               </td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-date-of-birth>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href=verify-date-of-birth>
                 {% if data['dateOfBirth'] == "yes" %}
                 {% else %}
-                 Change
+                 Verify
                 {% endif %}</a>
               </td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">State Pension date </th>
-              <td class="govuk-table__cell">10 April 2023 </td>
+              <td class="govuk-table__cell">10 April 2027 </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-></a></td>
             </tr>
-            <tr class="govuk-table__row">
+            <!--<tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">State Pension started </th>
               <td class="govuk-table__cell">10 April 2023 </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell"></td>
-            </tr>
+            </tr>-->
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Marital status </th>
               <td class="govuk-table__cell">Widowed</td>
               <td class="govuk-table__cell">Not verified</td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href=change-maritalstatus>Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href=change-maritalstatus>Change</a></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
               <td class="govuk-table__cell">Yes</td>
               <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell"><a class="govuk-link--no-visited-state" href="record-lwa-details">Details</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="record-lwa-details">Details</a></td>
             </tr>
           </tbody>
         </table>
@@ -159,7 +155,7 @@
           <br><br>
           <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Lock record</a>
         {% else %}-->
-          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="#">Close claim</a>
+          <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="close">Close claim</a>
         <!--{% endif %}-->
 
       </div>
@@ -182,6 +178,24 @@
                 <h2 class="dwp-timeline__heading">Unverified date of birth task complete</h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
+            {% endif %}
+
+            {% if data['postponeUntilC-day'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">Task postponed until {{data['postponeUntilC-day']}} 
+                  {{data['postponeUntilC-month'] | monthName}} {{data['postponeUntilC-year']}}
+                </h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['nameSent'] == "CIS500" or data['nameSentB'] == "CIS500" %}
+              <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+              <h2 class="dwp-timeline__heading">CIS500 sent to HMRC</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
             {% endif %}
 
             {% if data['dateOfBirth'] == "yes" %}

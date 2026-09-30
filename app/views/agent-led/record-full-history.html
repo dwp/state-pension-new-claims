@@ -104,6 +104,24 @@
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
           {% endif %}
+          {% if data['postponeUntilC-day'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">Task postponed until {{data['postponeUntilC-day']}} 
+                  {{data['postponeUntilC-month'] | monthName}} {{data['postponeUntilC-year']}}
+              </td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+          {% if data['nameSent'] == "CIS500" or data['nameSentB'] == "CIS500" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">CIS500 sent to HMRC</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
           {% if data['dateOfBirth'] == "yes" %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">DD Month YYYY</td>

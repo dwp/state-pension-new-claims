@@ -21,12 +21,12 @@
         Check your answers
       </h1>
 
-      <h2 class="govuk-heading-m">Received information 1</h2>
+      <h2 class="govuk-heading-m">Information you received</h2>
 
       <dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            Received
+            What you received
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {% if data['whatReceiveA'] == "email" %}
@@ -55,7 +55,7 @@
         </div>
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
-            From
+            Who you received it from
           </dt>
           <dd class="govuk-summary-list__value--numeric">
             {% if data['whoReceivedA'] == "claimant" %}
@@ -84,7 +84,7 @@
         </div>
       </dl>
 
-      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another</a>
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another action</a>
 
       <br><br><br>
 

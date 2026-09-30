@@ -20,6 +20,12 @@
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
+        {% set html %}
+          <p class="govuk-body">You can check the official name of the form or letter in the customer content portal. 
+            If you do not know the name of the form or letter you can type 'other'.
+          </p>
+        {% endset %}
+
         {% set form %}
         {{ xGovukAutocomplete({
           id: "nameSent",
@@ -31,7 +37,8 @@
             text: "Name of form or letter"
           },
           items: [
-            { text: "Claim closed letter" },
+            { text: "Claim unsuccessful letter" },
+            { text: "CIS500" },
             { text: "Form 1" },
             { text: "Form 2" },
             { text: "Form 3" },
@@ -56,8 +63,7 @@
             }
           },
           hint: {
-            text: "You can check the official name of the form or letter in the Standard Working Instruction (SWI). 
-                  If you do not know the name of the form or letter you can type 'other'."
+            html: html
           },
           items: [
             {

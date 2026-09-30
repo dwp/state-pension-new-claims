@@ -16,34 +16,44 @@
         <br><br>
 
         <form method="post">
-        
+
+        <br>
+
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
         {{ govukRadios({
-          name: "whatCall",
+          name: "whyClose",
           fieldset: {
             legend: {
-              text: "Who made the call?",
+              text: "Why are you closing the claim?",
               isPageHeading: false,
               classes: "govuk-fieldset__legend--l"
             }
           },
           items: [
             {
-              value: "outbound",
-              text: "I called them"
+              value: "notQualified",
+              text: "Claimant does not meet qualifications"
             },
             {
-              value: "inbound",
-              text: "They called me"
+              value: "insufficient",
+              text: "Insufficient evidence provided"
+            },
+            {
+              value: "noEvidence",
+              text: "No evidence provided"
+            },
+            {
+              value: "noEvidence",
+              text: "Claimant does not want their State Pension"
             }
           ]
         }) }}
 
         <br><br>
 
-        <button class="govuk-button" data-module="govuk-button">
-          Continue
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Confirm
         </button>
 
       </div>

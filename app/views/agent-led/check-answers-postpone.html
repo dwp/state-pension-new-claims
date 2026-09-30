@@ -29,7 +29,9 @@
             Until
           </dt>
           <dd class="govuk-summary-list__value--numeric">
-            {% if data['whichOption'] == "optionB" %}
+            {% if data['dateOfBirth'] == "yes" %}
+                {{data['postponeUntilC-day']}} {{data['postponeUntilC-month'] | monthName}} {{data['postponeUntilC-year']}}
+              {% elseif data['whichOption'] == "optionB" %}
                 {{data['postponeUntilB-day']}} {{data['postponeUntilB-month'] | monthName}} {{data['postponeUntilB-year']}}
               {% elseif data['whichOption'] == "optionA" %}
                 {{data['postponeUntil-day']}} {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}} 

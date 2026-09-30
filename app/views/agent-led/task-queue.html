@@ -7,36 +7,33 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
 
-        <h1 class="govuk-heading-xl">Tasks</h1>
-
         {% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
         {% if data['whatDo'] == "markComplete" %}
-          <br>
           {% call govukNotificationBanner({
             type: "success"
           }) %}
             <h3 class="govuk-notification-banner__heading">
-              Task complete.
+              Task complete
             </h3>
           {% endcall %}
         {% elseif data['dateOfBirth'] == "yes" %}
-          <br>
           {% call govukNotificationBanner({
             type: "success"
           }) %}
             <h3 class="govuk-notification-banner__heading">
-              Date of birth verified.
+              Date of birth verified
             </h3>
           {% endcall %}
         {% elseif data['postponeUntil-day'] %}
-          <br>
           {% call govukNotificationBanner() %}
             <p class="govuk-notification-banner__heading">
-              Task postponed.
+              Task postponed
             </p>
           {% endcall %}  
-        {% endif %}    
+        {% endif %}
+
+        <h1 class="govuk-heading-xl">Tasks</h1>    
 
         {% include './_claims.html' %}
 

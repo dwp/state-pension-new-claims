@@ -20,6 +20,12 @@
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
         {% from "govuk/components/input/macro.njk" import govukInput %}
 
+        {% set html %}
+          <p class="govuk-body">You can check the official name of the form or letter in the customer content portal. 
+            If you do not know the name of the form or letter you can type 'other'.
+          </p>
+        {% endset %}
+
         {% set form %}
         {{ xGovukAutocomplete({
           id: "nameFormB",
@@ -60,21 +66,19 @@
             }
           },
           hint: {
-            text: "Hint text could go here, if needed. Something like, 'If you select a 'form/letter' enter the 
-                  specific name/title of the form/letter that you received. Check your SWI, if needed.
-                  If you can't find what you're looking for, enter 'Other'."
+            html: html
           },
           items: [
             {
               value: "formLetter",
-              text: "Form/letter",
+              text: "A form or letter by post",
               conditional: {
                 html: form
               }
             },
             {
               value: "email",
-              text: "Email"
+              text: "An email"
             }
           ]
         }) }}  
