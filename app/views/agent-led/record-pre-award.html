@@ -31,6 +31,24 @@
         <br><br>
 
         <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">UK Qualifying years</caption>
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="col" class="govuk-table__header">Pre 2016</th>
+              <th scope="col" class="govuk-table__header">Post 2016</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">3</td>
+              <td class="govuk-table__cell">7</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Change</a></td></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!--<table class="govuk-table">
           <caption class="govuk-table__caption govuk-table__caption--m">Qualifying years</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -66,7 +84,94 @@
               <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Change</a></td></td>
             </tr>
           </tbody>
-        </table>
+        </table>-->
+
+        <br><br>
+
+        <div style="display:inline-block;width:103%;">
+          <h2 class="govuk-heading-m" style="float:left;">SRBs</h2>
+          <dd class="govuk-summary-list__actions govuk-!-font-size-19 govuk-!-width-one-half" style="float:right;vertical-align: baseline;">
+            <ul class="govuk-summary-list__actions-list">
+              <li class="govuk-summary-list__actions-list-item">
+                <a class="govuk-link--no-visited-state" href="date-srb-apply">Apply an SRB<span class="govuk-visually-hidden"></span></a>
+              </li>
+            </ul>
+          </dd>
+        </div>
+
+        {% if data['whatDate'] %}
+          <table class="govuk-table">
+            <thead class="govuk-table__head">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header"></th>
+                <th scope="col" class="govuk-table__header" style="width:30%">Date SRB applies from</th>
+                <th scope="col" class="govuk-table__header">Post 2016 years used</th>
+                <th scope="col" class="govuk-table__header">NSP qualifying years</th>
+                <th scope="col" class="govuk-table__header"></th>
+              </tr>
+            </thead>
+            <tbody class="govuk-table__body">
+              <tr class="govuk-table__row">
+                <th scope="row" class="govuk-table__header" style="width:12%">SRB 1</th>
+                <td class="govuk-table__cell">
+                  {% if data['another-month'] %}
+                      {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+                    {% else %}
+                      1 March 2025
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">{{data.post2016srb }}</td>
+                <td class="govuk-table__cell">{{data.nspQual }}</td>
+                <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="date-srb-apply">Change</a></td></td>
+              </tr>
+              {% if data['whatDate2'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width:12%">SRB 2</th>
+                  <td class="govuk-table__cell">
+                    {% if data['another2-month'] %}
+                        {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
+                      {% else %}
+                        1 March 2025
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell">{{data.post2016srb2 }}</td>
+                  <td class="govuk-table__cell">{{data.nspQual2 }}</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="date-srb-apply">Change</a></td></td>
+                </tr>
+              {% endif %}
+              {% if data['whatDate3'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width:12%">SRB 3</th>
+                  <td class="govuk-table__cell">
+                    {% if data['another3-month'] %}
+                        {{data['another3-day']}} {{data['another3-month'] | monthName}} {{data['another3-year']}}
+                      {% else %}
+                        1 March 2025
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell">{{data.post2016srb3 }}</td>
+                  <td class="govuk-table__cell">{{data.nspQual3 }}</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="date-srb-apply">Change</a></td></td>
+                </tr>
+              {% endif %}
+              {% if data['whatDate4'] %}
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header" style="width:12%">SRB 4</th>
+                  <td class="govuk-table__cell">
+                    {% if data['another4-month'] %}
+                        {{data['another4-day']}} {{data['another4-month'] | monthName}} {{data['another4-year']}}
+                      {% else %}
+                        1 March 2025
+                    {% endif %}
+                  </td>
+                  <td class="govuk-table__cell">{{data.post2016srb4 }}</td>
+                  <td class="govuk-table__cell">{{data.nspQual4 }}</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="date-srb-apply">Change</a></td></td>
+                </tr>
+              {% endif %}  
+            </tbody>
+          </table>
+        {% endif %}  
 
         <br><br>
 
@@ -143,20 +248,28 @@
 
       <div class="govuk-grid-column-one-third">
 
-      {% from "timeline/macro.njk" import dwpTimeline %}
-
       <h2 class="govuk-heading-m">Component changes</h2>
-      {{
-          dwpTimeline({ 
-              items: [
-              {
-                  title:  "No changes made",
-                  byline:  "",
-                  date:  ""
-              }
-          ]
-          })
-      }}
+
+      <div class="dwp-timeline">
+        <ol class="dwp-timeline__items">
+          {% if data['whatDate'] %}
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+              <h2 class="dwp-timeline__heading">SRBs applied</h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+              {% if data.post2016srb-2 %}
+                <a class="govuk-link--no-visited-state" href="record-srb-details">Details</a>
+              {% endif %}
+            </li>
+          {% else %}
+            <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime"></p>
+              <h2 class="dwp-timeline__heading">No changes made</h2>
+              <p class="dwp-timeline__by-line"></p>
+            </li>  
+          {% endif %}
+        </ol>
+      </div>  
 
       <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="record-full-history">Full history</a>
 

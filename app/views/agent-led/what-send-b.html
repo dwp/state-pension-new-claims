@@ -28,30 +28,59 @@
         {% endset %} 
 
         {% set form %}
-        {{ xGovukAutocomplete({
-          id: "nameSentB",
-          name: "nameSentB",
-          allowEmpty: false,
-          label: {
-            classes: "govuk-label--s",
-            isPageHeading: true,
-            text: "Name of form or letter"
-          },
-          items: [
-            { text: "Claim unsuccessful letter" },
-            { text: "CIS500" },
-            { text: "Form 1" },
-            { text: "Form 2" },
-            { text: "Form 3" },
-            { text: "Form 4" },
-            { text: "Form 5" },
-            { text: "Form 6" },
-            { text: "Form 7" },
-            { text: "MF5" },
-            { text: "MF4" },
-            { text: "Other" }
-          ]
-        }) }}
+          {{ xGovukAutocomplete({
+            id: "nameSentB",
+            name: "nameSentB",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of form or letter"
+            },
+            items: [
+              { text: "Claim unsuccessful letter" },
+              { text: "Class 2 paid date request" },
+              { text: "CIS500" },
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "MF2" },
+              { text: "MF5" },
+              { text: "Other" }
+            ]
+          }) }}
+        {% endset -%}
+
+        {% set email %}
+          {{ xGovukAutocomplete({
+            id: "nameSentB",
+            name: "nameSentB",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of form or letter"
+            },
+            items: [
+              { text: "Claim unsuccessful letter" },
+              { text: "Class 2 paid date request" },
+              { text: "CIS500" },
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "MF2" },
+              { text: "MF5" },
+              { text: "Other" }
+            ]
+          }) }}
         {% endset -%}
 
         {{ govukRadios({
@@ -76,7 +105,10 @@
             },
             {
               value: "email",
-              text: "An email"
+              text: "An email",
+              conditional: {
+                html: email
+              }
             }
           ]
         }) }}  

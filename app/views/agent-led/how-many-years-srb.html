@@ -1,0 +1,203 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form class="form" method="post">
+
+      {% include './_bar.html' %}
+
+      {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+      })
+      }}
+
+      <br><br>
+
+      {% if data['whatDate4'] %}
+
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">SRB 4</span>
+            How many qualifying years are recorded for this SRB?
+          <div id="account-number-hint" class="govuk-hint">
+            These are the number of years shown on the NSP calculation screen in OLE.
+          </div>
+        </h1>
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+          id: "post2016srb4",
+          name: "post2016srb4",
+          label: {
+            text: "Number of post 2016 years used",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          suffix: {
+            text: "years"
+          },
+          classes: "govuk-input--width-2",
+          spellcheck: false
+        }) }}
+
+        <br><br>
+
+        {{ govukInput({
+            id: "nspQual4",
+            name: "nspQual4",
+            label: {
+              text: "Number of NSP qualifying years",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            suffix: {
+              text: "years"
+            },
+            classes: "govuk-input--width-2",
+            spellcheck: false
+          }) }}
+
+      {% elseif data['whatDate3'] %}
+
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">SRB 3</span>
+            How many qualifying years are recorded for this SRB?
+          <div id="account-number-hint" class="govuk-hint">
+            These are the number of years shown on the NSP calculation screen in OLE.
+          </div>
+        </h1>
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+          id: "post2016srb3",
+          name: "post2016srb3",
+          label: {
+            text: "Number of post 2016 years used",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          suffix: {
+            text: "years"
+          },
+          classes: "govuk-input--width-2",
+          spellcheck: false
+        }) }}
+
+        <br><br>
+
+        {{ govukInput({
+            id: "nspQual3",
+            name: "nspQual3",
+            label: {
+              text: "Number of NSP qualifying years",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            suffix: {
+              text: "years"
+            },
+            classes: "govuk-input--width-2",
+            spellcheck: false
+          }) }}    
+
+      {% elseif data['whatDate2'] %}
+
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">SRB 2</span>
+            How many qualifying years are recorded for this SRB?
+          <div id="account-number-hint" class="govuk-hint">
+            These are the number of years shown on the NSP calculation screen in OLE.
+          </div>
+        </h1>
+        
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+          id: "post2016srb2",
+          name: "post2016srb2",
+          label: {
+            text: "Number of post 2016 years used",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          suffix: {
+            text: "years"
+          },
+          classes: "govuk-input--width-2",
+          spellcheck: false
+        }) }}
+
+        <br><br>
+
+        {{ govukInput({
+            id: "nspQual2",
+            name: "nspQual2",
+            label: {
+              text: "Number of NSP qualifying years",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            suffix: {
+              text: "years"
+            },
+            classes: "govuk-input--width-2",
+            spellcheck: false
+          }) }}    
+
+      {% else %}
+
+        <h1 class="govuk-heading-xl">
+          <span class="govuk-caption-xl">SRB 1</span>
+            How many qualifying years are recorded for this SRB?
+          <div id="account-number-hint" class="govuk-hint">
+            These are the number of years shown on the NSP calculation screen in OLE.
+          </div>
+        </h1>
+
+        {% from "govuk/components/input/macro.njk" import govukInput %}
+        {{ govukInput({
+          id: "post2016srb",
+          name: "post2016srb",
+          label: {
+            text: "Number of post 2016 years used",
+            classes: "govuk-label--m",
+            isPageHeading: false
+          },
+          suffix: {
+            text: "years"
+          },
+          classes: "govuk-input--width-2",
+          spellcheck: false
+        }) }}
+
+        <br><br>
+
+        {{ govukInput({
+            id: "nspQual",
+            name: "nspQual",
+            label: {
+              text: "Number of NSP qualifying years",
+              classes: "govuk-label--m",
+              isPageHeading: false
+            },
+            suffix: {
+              text: "years"
+            },
+            classes: "govuk-input--width-2",
+            spellcheck: false
+          }) }}
+
+      {% endif %} 
+
+      <br><br>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+  </div>
+</div>
+
+{% endblock %}

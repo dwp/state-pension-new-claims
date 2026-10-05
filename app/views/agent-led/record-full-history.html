@@ -15,7 +15,7 @@
 
       <!--{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
 
-      {% if data['whatDo'] == "markComplete" %}
+      {% if data['whatDoNVDOB'] == "markComplete" %}
         <br>
         {% call govukNotificationBanner({
           type: "success"
@@ -82,7 +82,7 @@
         </thead>
 
         <tbody class="govuk-table__body">
-          {% if data['whatDo'] == "markComplete" %}
+          {% if data['whatDoNVDOB'] == "markComplete" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
               <td class="govuk-table__cell">
@@ -104,16 +104,18 @@
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
           {% endif %}
-          {% if data['postponeUntilC-day'] %}
+
+          {% if data['postponeUntil3-day'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">Task postponed until {{data['postponeUntilC-day']}} 
-                  {{data['postponeUntilC-month'] | monthName}} {{data['postponeUntilC-year']}}
+              <td class="govuk-table__cell">Task postponed until {{data['postponeUntil3-day']}} 
+                  {{data['postponeUntil3-month'] | monthName}} {{data['postponeUntil3-year']}}
               </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
           {% endif %}
+
           {% if data['nameSent'] == "CIS500" or data['nameSentB'] == "CIS500" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
@@ -122,6 +124,7 @@
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
           {% endif %}
+
           {% if data['dateOfBirth'] == "yes" %}
               <tr class="govuk-table__row">
                 <td class="govuk-table__cell">DD Month YYYY</td>
@@ -145,6 +148,7 @@
                 <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
               </tr>  
           {% endif %}
+
           {% if data['whatReceiveA'] or data['whatReceiveB'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
@@ -197,200 +201,97 @@
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
           {% endif %}
-
-          <!--{% if data['postponeUntil-day'] %}
+          
+          {% if data['postponeUntil2-day'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                Task postponed until {{data['postponeUntil-day']}} {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="#"></a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% endif %}
-
-          {% if data['whoCalledYou'] %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                {% if data['whoCalledYou'] == "claimant" %}
-                  Received call from claimant
-                {% elseif  data['nameThirdCalledYou'] == "Other" %}
-                  Received call from {{ (data.otherWhoCalledYou) }}
-                {% else %}
-                  Received call from {{ (data.whoCalledYou) }}
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% endif %}
-
-          {% if data['whatCall'] == "inbound" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                {% if data['whoSpeakTo'] == "claimant" %}
-                  Received call from claimant
-                {% elseif  data['thirdSpokeTo'] == "Other" %}
-                  Received call from {{ (data.otherWhoCalledYou) }}
-                {% else %}
-                  Received call from {{ (data.thirdSpokeTo) }}
-                {% endif %}
-              </dd>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% elseif data['whatCall'] == "outbound" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                {% if data['whoSpeakTo'] == "claimant" %}
-                  Made call to claimant
-                {% elseif  data['thirdSpokeTo'] == "Other" %}
-                  Made call to {{ (data.otherWhoCalledYou) }}
-                {% else %}
-                  Made call to {{ (data.thirdSpokeTo) }}
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>  
-          {% endif %}
-
-          {% if data['whatSentA'] or data['whatSentB'] %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                {% if data['whatSentA'] == "email" %}
-                  Email
-                {% elseif  data['whatSentA'] == "formLetter" %}
-                  {% if data['haveNameC'] == "no" %}
-                    information
-                  {% elseif data['nameSent'] == "Other" %}
-                    {{ (data.otherWhatSend) }}
-                  {% else %}
-                    {{ (data.nameSent) }}
-                  {% endif %}
-                {% endif %}
-
-                {% if data['whatSentB'] == "email" %}
-                  Email
-                {% elseif  data['nameSentB'] == "Other" %}
-                  {{ (data.otherWhatSend) }}
-                {% else %}
-                  {{ (data.nameSentB) }}
-                {% endif %}
-
-                sent to
-
-                {% if data['whoSendA'] == "claimant" %}
-                  claimant
-                {% elseif  data['whoSendA'] == "third" %}
-                  {% if data['whoThirdSent'] == "Other" %}
-                    {{ (data.otherWhoSend) }}
-                  {% else %}
-                    {{ (data.whoThirdSent) }}
-                  {% endif %}
-                {% endif %}
-
-                {% if data['whoSendB'] == "claimant" %}
-                  claimant
-                {% elseif  data['whoSendB'] == "third" %}
-                  {% if data['nameThirdSentB'] == "Other" %}
-                    {{ (data.otherWhoSend) }}
-                  {% else %}
-                    {{ (data.nameThirdSentB) }}
-                  {% endif %}
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="#"></a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% endif %}-->
-          {% if data['postponeUntilB-day'] %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">Task postponed until {{data['postponeUntilB-day']}} 
-                  {{data['postponeUntilB-month'] | monthName}} {{data['postponeUntilB-year']}}
+              <td class="govuk-table__cell">Task postponed until {{data['postponeUntil2-day']}} 
+                  {{data['postponeUntil2-month'] | monthName}} {{data['postponeUntil2-year']}}
               </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
           {% endif %}
 
-          {% if data['nameSentB'] == "MF4" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">MF4 sent to claimant</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% endif %}
-
-          {% if data['whatCall'] == "inbound" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                {% if data['whoSpeakTo'] == "claimant" %}
-                  Received call from claimant
-                {% elseif  data['thirdSpokeTo'] == "Other" %}
-                  Received call from {{ (data.otherWhoCalledYou) }}
-                {% else %}
-                  Received call from {{ (data.thirdSpokeTo) }}
-                {% endif %}
-              </dd>
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% elseif data['whatCall'] == "outbound" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">
-                {% if data['whoSpeakTo'] == "claimant" %}
-                  Made call to claimant
-                {% elseif  data['thirdSpokeTo'] == "Other" %}
-                  Made call to {{ (data.otherWhoCalledYou) }}
-                {% else %}
-                  Made call to {{ (data.thirdSpokeTo) }}
-                {% endif %}
-              </td>
-              <td class="govuk-table__cell">
-                <a class="govuk-link--no-visited-state" href="call-details">Details</a>
-              </td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>  
-          {% endif %}
-
-          {% if data['postponeUntil-day'] %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">Task postponed until {{data['postponeUntil-day']}} 
-                  {{data['postponeUntil-month'] | monthName}} {{data['postponeUntil-year']}}
-              </td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% endif %}
-
-          {% if data['nameSent'] == "MF5" %}
+          {% if data['nameSentB'] == "MF5" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
               <td class="govuk-table__cell">MF5 sent to claimant</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['whatCall'] == "inbound" %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">DD Month YYYY</td>
+                <td class="govuk-table__cell">
+                  {% if data['whoSpeakTo'] == "claimant" %}
+                    Received call from claimant
+                  {% elseif  data['thirdSpokeTo'] == "Other" %}
+                    Received call from {{ (data.otherWhoCalledYou) }}
+                  {% else %}
+                    Received call from {{ (data.thirdSpokeTo) }}
+                  {% endif %}
+                </dd>
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link--no-visited-state" href="call-details">Details</a>
+                </td>
+                <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+              </tr>
+            {% elseif data['whatCall'] == "outbound" %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">DD Month YYYY</td>
+                <td class="govuk-table__cell">
+                  {% if data['whoSpeakTo'] == "claimant" %}
+                    Made call to claimant
+                  {% elseif  data['thirdSpokeTo'] == "Other" %}
+                    Made call to {{ (data.otherWhoCalledYou) }}
+                  {% else %}
+                    Made call to {{ (data.thirdSpokeTo) }}
+                  {% endif %}
+                </td>
+                <td class="govuk-table__cell">
+                  <a class="govuk-link--no-visited-state" href="call-details">Details</a>
+                </td>
+                <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+              </tr>  
+          {% endif %}
+
+          {% if data['nameFormB'] == "Class 2 paid dates" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">Class 2 paid dates received from HMRC</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['postponeUntil1-day'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">Task postponed until {{data['postponeUntil1-day']}} 
+                  {{data['postponeUntil1-month'] | monthName}} {{data['postponeUntil1-year']}}
+              </td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['nameSentB'] == "Class 2 paid date request" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">Class 2 paid date request sent to HMRC</td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['nameSent'] == "MF2" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">MF2 sent to claimant</td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>

@@ -1,0 +1,301 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+<form class="form" method="post">
+
+{% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    {{ govukBackLink({
+      "text": "Back",
+      "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <!--<div class="govuk-error-summary" data-module="govuk-error-summary">
+      <div role="alert">
+        <h2 class="govuk-error-summary__title">
+          There is a problem
+        </h2>
+        <div class="govuk-error-summary__body">
+          <ul class="govuk-list govuk-error-summary__list">
+            <li>
+              <a href="#">SRBs must be added in the correct date order with earliest SRB first</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>-->
+
+    <h1 class="govuk-heading-xl">Check your answers</h1>
+
+    {% if data['remove'] == 'yes' %}
+    {% elseif data['whatDate4'] %}
+      <p>You have added <b>4 SRBs</b>.</p>
+    {% elseif data['whatDate3'] %}
+      <p>You have added <b>3 SRBs</b>.</p>
+    {% elseif data['whatDate2'] %}
+      <p>You have added <b>2 SRBs</b>.</p>    
+    {% endif %}  
+
+    <br>
+
+    <div class="govuk-summary-card govuk-summary-card--error">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title">
+          SRB 1
+        </h2>
+        <ul class="govuk-summary-card__actions">
+          <li class="govuk-summary-card__action">
+            <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 1</span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key govuk-!-width-one-third">
+              Date SRB applies from
+            </dt>
+            <dd class="govuk-summary-list__value-numeric">
+              {% if data['another-month'] %}
+                {{data['another-day']}} {{data['another-month'] | monthName}} {{data['another-year']}}
+              {% else %}
+                1 March 2025
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of post 2016 years used
+            </dt>
+            <dd class="govuk-summary-list__value-numeric">
+                {{data.post2016srb }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Number of NSP qualifying years
+            </dt>
+            <dd class="govuk-summary-list__value-numeric">
+                {{data.nspQual }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </div>  
+
+    {% if data['whatDate2'] %}
+
+    <br><br>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            SRB 2
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 2</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                Date SRB applies from
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['another2-day'] or data['another2-month'] or data['another2-year'] %}
+                  {{data['another2-day']}} {{data['another2-month'] | monthName}} {{data['another2-year']}}
+                {% else %}
+                  1 March 2025
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of post 2016 years used
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                  {{data.post2016srb2 }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of NSP qualifying years
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                  {{data.nspQual2 }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+    {% endif %}
+
+    {% if data['whatDate3'] %}
+
+      <br><br>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            SRB 3
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 2</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                Date SRB applies from
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['another3-year'] %}
+                  {{data['another3-day']}} {{data['another3-month'] | monthName}} {{data['another3-year']}}
+                {% else %}
+                  1 March 2025
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of post 2016 years used
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                  {{data.post2016srb3 }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of NSP qualifying years
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                  {{data.nspQual3 }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+    {% endif %}
+
+    {% if data['whatDate4'] %}
+
+      <br><br>
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            SRB 4
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 2</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                Date SRB applies from
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['another4-year'] %}
+                  {{data['another4-day']}} {{data['another4-month'] | monthName}} {{data['another4-year']}}
+                {% else %}
+                  1 March 2025
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of post 2016 years used
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                  {{data.post2016srb4 }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Number of NSP qualifying years
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                  {{data.nspQual4 }}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+    {% endif %}
+
+    <br>
+    
+    <p class="govuk-body">
+      <a href="date-srb-apply" class="govuk-link--no-visited-state">Apply another SRB</a>
+    </p>
+
+    <br><br>
+
+    <!--<button type="submit" disabled aria-disabled="true" class="govuk-button" data-module="govuk-button">
+      Confirm and continue
+    </button>-->
+
+    <button class="govuk-button" data-module="govuk-button">
+      Confirm and continue
+    </button>
+
+  </div>
+</div>
+
+{% endblock %}

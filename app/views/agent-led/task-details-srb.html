@@ -17,24 +17,27 @@
 
         <form method="post">
 
-        <h1 class="govuk-heading-xl">Unverified date of birth (UDOB)</h1>
+        <h1 class="govuk-heading-xl">Apply an SRB</h1>
 
-        <p>You can verify the date of birth if the evidence provided matches the date we have in the claimant's record.</p>
+        <p>There has been a change in contributions or credits since the claimant's State Pension date.</p>
 
-        <p>You will need to:</p>
+        <p class="govuk-body">You will need to check:</p>
         <ul class="govuk-list govuk-list--bullet">
-          <li>send the claimant an MF5 or MF4 requesting a birth certificate or secondary evidence</li>
-          <li>check ECMS for evidence</li>
-          <li>verify the claimant's date of birth</li>
-          <li>record anything you have done with 'add an action'</li>
+          <li>the number of SRBs</li>
+          <li>the reason for the SRBs</li>
+          <li>if you have the required dates</li>
         </ul>
+
+        <br>
+
+        <p>You may then need to apply the SRB.</p>
 
         <br><br>
 
         {% from "govuk/components/radios/macro.njk" import govukRadios %}
 
           {{ govukRadios({
-            name: "whatDoNVDOB",
+            name: "whatDoSRB",
             fieldset: {
               legend: {
                 text: "What do you want to do?",

@@ -41,9 +41,7 @@
               {% endif %}
             {% endif %}
 
-            {% if data['whatReceiveB'] == "email" %}
-              Email
-            {% elseif  data['nameFormB'] == "Other" %}
+            {% if  data['nameFormB'] == "Other" %}
               {{ (data.otherWhatReceive) }}
             {% else %}
               {{ (data.nameFormB) }}

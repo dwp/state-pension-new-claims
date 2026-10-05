@@ -4,7 +4,7 @@ const router = govukPrototypeKit.requests.setupRouter()
 // Non verified date of birth
 
 router.post('/agent-led/task-details-nvdob', function (req, res) {
-  if (req.body['whatDo'] === 'postpone') {
+  if (req.body['whatDoNVDOB'] === 'postpone') {
     res.redirect('postpone-task')
   } else {
     res.redirect('record-personal')
@@ -255,6 +255,28 @@ router.post('/agent-led/who-send-b', function (req, res) {
   } else {
     res.redirect('check-answers-send')
 }
+})
+
+// SRBs
+
+router.post('/agent-led/task-details-srb', function (req, res) {
+  if (req.body['whatDoSRB'] === 'postpone') {
+    res.redirect('postpone-task')
+  } else {
+    res.redirect('record-personal')
+}
+})
+
+router.post('/agent-led/date-srb-apply', function (req, res) {
+  res.redirect('how-many-years-srb')
+})
+
+router.post('/agent-led/how-many-years-srb', function (req, res) {
+  res.redirect('check-answers-srb')
+})
+
+router.post('/agent-led/check-answers-srb', function (req, res) {
+  res.redirect('record-pre-award')
 })
 
 module.exports = router

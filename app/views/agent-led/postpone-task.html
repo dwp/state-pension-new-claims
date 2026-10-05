@@ -19,10 +19,10 @@
 
         {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
 
-        {% if (data['dateOfBirth'] == "yes" or data['dateOfBirth'] == "noEvidence")  %}
+        {% if data['postponeUntil3-year']  %}
             {{ govukDateInput({
-            id: "postponeUntilC",
-            namePrefix: "postponeUntilC",
+            id: "postponeUntil4",
+            namePrefix: "postponeUntil4",
             fieldset: {
                 legend: {
                 text: "When do you want to postpone the task until?",
@@ -34,10 +34,10 @@
                 text: "For example, 27 3 2007"
             }
             }) }}
-          {% elseif data['whichOption'] == "optionB" %}
+          {% elseif data['postponeUntil2-year'] %}
             {{ govukDateInput({
-            id: "postponeUntilB",
-            namePrefix: "postponeUntilB",
+            id: "postponeUntil3",
+            namePrefix: "postponeUntil3",
             fieldset: {
                 legend: {
                 text: "When do you want to postpone the task until?",
@@ -49,10 +49,10 @@
                 text: "For example, 27 3 2007"
             }
             }) }}  
-          {% elseif data['whichOption'] == "optionA" %}
+          {% elseif data['postponeUntil1-year'] %}
             {{ govukDateInput({
-            id: "postponeUntil",
-            namePrefix: "postponeUntil",
+            id: "postponeUntil2",
+            namePrefix: "postponeUntil2",
             fieldset: {
                 legend: {
                 text: "When do you want to postpone the task until?",
@@ -64,6 +64,21 @@
                 text: "For example, 27 3 2007"
             }
             }) }}
+          {% else %}
+            {{ govukDateInput({
+            id: "postponeUntil1",
+            namePrefix: "postponeUntil1",
+            fieldset: {
+                legend: {
+                text: "When do you want to postpone the task until?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+                }
+            },
+            hint: {
+                text: "For example, 27 3 2007"
+            }
+            }) }}  
         {% endif %}
 
         <br><br>
