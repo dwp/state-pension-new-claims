@@ -55,34 +55,69 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% if data['whatDoNVDOB'] == "markComplete" %}
+        {% if data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete"%}
           {% include './_bar2.html' %}
         {% else %}
           {% include './_bar.html' %} 
         {% endif %}
 
-        {{ xGovukSecondaryNavigation({
-          visuallyHiddenTitle: "Secondary menu",
-          items: [{
-            text: "Personal",
-            href: "record-personal",
-            current: true
-          }, 
-          {
-            text: "Contact",
-            href: "record-contact",
-            current: false
-          }, 
-          {
-            text: "Pre award",
-            href: "record-pre-award",
-            current: false
-          },
-          {
-            text: "Full history",
-            href: "record-full-history"
-          }]
-        }) }}
+        {% if data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete"%}
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "record-personal",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "record-contact",
+              current: false
+            }, 
+            {
+              text: "Award",
+              href: "record-award",
+              current: false
+            },
+            {
+              text: "Payment",
+              href: "record-payment",
+              current: false
+            },
+            {
+              text: "Tasks",
+              href: "record-tasks",
+              current: false
+            },
+            {
+              text: "Full history",
+              href: "record-full-history"
+            }]
+          }) }}
+        {% else %}
+          {{ xGovukSecondaryNavigation({
+            visuallyHiddenTitle: "Secondary menu",
+            items: [{
+              text: "Personal",
+              href: "record-personal",
+              current: true
+            }, 
+            {
+              text: "Contact",
+              href: "record-contact",
+              current: false
+            }, 
+            {
+              text: "Pre award",
+              href: "record-pre-award",
+              current: false
+            },
+            {
+              text: "Full history",
+              href: "record-full-history"
+            }]
+          }) }}
+        {% endif %}  
 
         <br><br>
 
