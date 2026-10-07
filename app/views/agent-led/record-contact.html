@@ -5,7 +5,13 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% include './_bar.html' %}
+        {% if data['sureClose'] == "yes" %}
+          {% include './_bar3.html' %}
+        {% elseif data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete" %}
+          {% include './_bar2.html' %}  
+        {% else %}
+          {% include './_bar.html' %} 
+        {% endif %}
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",

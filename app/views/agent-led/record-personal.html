@@ -24,7 +24,15 @@
               <h3 class="govuk-notification-banner__heading">
                 Task complete
               </h3>
-            {% endcall %}  
+            {% endcall %}
+          {% elseif data['sureClose'] == "yes" %}
+            {% call govukNotificationBanner({
+              type: "success"
+            }) %}
+              <h3 class="govuk-notification-banner__heading">
+                Claim closed
+              </h3>
+            {% endcall %}    
           {% elseif data['dateOfBirth'] == "yes" %}
             {% call govukNotificationBanner({
               type: "success"
@@ -55,8 +63,10 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% if data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete"%}
-          {% include './_bar2.html' %}
+        {% if data['sureClose'] == "yes" %}
+          {% include './_bar3.html' %}
+        {% elseif data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete" %}
+          {% include './_bar2.html' %}  
         {% else %}
           {% include './_bar.html' %} 
         {% endif %}
@@ -247,6 +257,51 @@
               </li>
             {% endif %}
 
+            {% if data['sureClose'] == "yes" %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">State Pension claim closed</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">
+                  {% if data['whyClose'] == "notQualified"%}
+                    Claimant does not meet minimum qualifications
+                  {% elseif data['whyClose'] == "insufficient"%}
+                    Insufficient or conflicting evidence provided
+                  {% elseif data['whyClose'] == "noEvidence"%}
+                    No evidence provided
+                  {% elseif data['whyClose'] == "doesNotWant"%}
+                    Claimant does not want their State Pension  
+                  {% endif %}
+                </h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['whatYouSent4'] %}
+              <li class="dwp-timeline__item">
+              <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+              <h2 class="dwp-timeline__heading">
+                {% if  data['whatYouSent4'] == "Other" %}
+                  {{ (data.otherWhatSend4) }}
+                {% else %}
+                  {{ (data.whatYouSent4) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSend4'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSent4'] == "Other" %}
+                  {{ (data.otherWhoSend4) }}
+                {% else %}
+                  {{ (data.nameThirdSent4) }}
+                {% endif %}
+              </h2>
+              <p class="dwp-timeline__by-line">by Agent</p>
+            </li>
+            {% endif %}
+
             {% if data['postponeUntil3-day'] %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
@@ -257,10 +312,24 @@
               </li>
             {% endif %}
 
-            {% if data['nameSent'] == "CIS500" or data['nameSentB'] == "CIS500" %}
+            {% if data['whatYouSent3'] %}
               <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-              <h2 class="dwp-timeline__heading">CIS500 sent to HMRC</h2>
+              <h2 class="dwp-timeline__heading">
+                {% if  data['whatYouSent3'] == "Other" %}
+                  {{ (data.otherWhatSend3) }}
+                {% else %}
+                  {{ (data.whatYouSent3) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSend3'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSent3'] == "Other" %}
+                  {{ (data.otherWhoSend3) }}
+                {% else %}
+                  {{ (data.nameThirdSent3) }}
+                {% endif %}
+              </h2>
               <p class="dwp-timeline__by-line">by Agent</p>
             </li>
             {% endif %}
@@ -352,10 +421,24 @@
               </li>
             {% endif %}
 
-            {% if data['whatYouSent2'] == "MF5" %}
+            {% if data['whatYouSent2'] %}
               <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-              <h2 class="dwp-timeline__heading">MF5 sent to claimant</h2>
+              <h2 class="dwp-timeline__heading">
+                {% if  data['whatYouSent2'] == "Other" %}
+                  {{ (data.otherWhatSend2) }}
+                {% else %}
+                  {{ (data.whatYouSent2) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSend2'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSent2'] == "Other" %}
+                  {{ (data.otherWhoSend2) }}
+                {% else %}
+                  {{ (data.nameThirdSent2) }}
+                {% endif %}
+              </h2>
               <p class="dwp-timeline__by-line">by Agent</p>
             </li>
             {% endif %}
@@ -411,18 +494,24 @@
               </li>
             {% endif %}
 
-            {% if data['whatYouSent'] == "Class 2 paid date request" %}
+            {% if data['whatYouSent'] %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">Class 2 paid date request sent to HMRC</h2>
-                <p class="dwp-timeline__by-line">by Agent</p>
-              </li>
-            {% endif %}
-
-            {% if data['whatYouSent'] == "MF2" %}
-              <li class="dwp-timeline__item">
-                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
-                <h2 class="dwp-timeline__heading">MF2 sent to claimant</h2>
+                <h2 class="dwp-timeline__heading">
+                  {% if  data['whatYouSent'] == "Other" %}
+                    {{ (data.otherWhatSend) }}
+                  {% else %}
+                    {{ (data.whatYouSent) }}
+                  {% endif %}
+                    sent to
+                  {% if data['whoSendB'] == "claimant" %}
+                    claimant
+                  {% elseif data['nameThirdSentB'] == "Other" %}
+                    {{ (data.otherWhoSend) }}
+                  {% else %}
+                    {{ (data.nameThirdSentB) }}
+                  {% endif %}
+                </h2>
                 <p class="dwp-timeline__by-line">by Agent</p>
               </li>
             {% endif %}

@@ -43,12 +43,12 @@ router.post('/agent-led/claim-unsuccessful', function (req, res) {
 }
 })
 
-router.post('/agent-led/close-claim', function (req, res) {
-  if (req.body['close'] === 'yes') {
-    res.redirect('record-full-history')
-  } else {
-    res.redirect('how-continue')
-}
+router.post('/agent-led/close', function (req, res) {
+    res.redirect('are-you-sure')
+})
+
+router.post('/agent-led/are-you-sure', function (req, res) {
+    res.redirect('record-personal')
 })
 
 // Add an action

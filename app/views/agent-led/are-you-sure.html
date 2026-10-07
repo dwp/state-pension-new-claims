@@ -1,0 +1,68 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-l">Closing the claim</h1>
+
+        <p>Before proceeding, you need to have sent a letter to the claimant telling them we have closed their claim.
+          They will need to claim again to get their State Pension.
+        </p>
+
+        <p class="govuk-body">Only close the claim if:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>we have already requested information 3 times without success</li>
+            <li>we have received insufficient or conflicting information</li>
+            <li>the claimant does not meet the minimum qualifications for State Pension</li>
+            <li>the claimant does not want their state pension</li>
+          </ul>
+
+        <br>
+
+        {% from "govuk/components/radios/macro.njk" import govukRadios %}
+
+        {{ govukRadios({
+          name: "sureClose",
+          fieldset: {
+            legend: {
+              text: "Are you sure you want the claim closed?",
+              isPageHeading: false,
+              classes: "govuk-fieldset__legend--m"
+            }
+          },
+          items: [
+            {
+              value: "yes",
+              text: "Yes, close the claim"
+            },
+            {
+              value: "no",
+              text: "No, I want to choose another way to continue"
+            }
+          ]
+        }) }}
+
+        <br><br>
+
+        <button type="submit" class="govuk-button" data-module="govuk-button">
+          Confirm
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

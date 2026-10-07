@@ -27,7 +27,117 @@
           <p class="govuk-body">You can type 'CAB' or 'PAB' if you you sent something to an acting body.</p>
         {% endset %}
 
-        {% if data['whatYouSent2'] %}
+        {% if data['whatYouSent4'] %}
+          {% set thirdParty %}
+            {{ xGovukAutocomplete({
+              id: "nameThirdSent4",
+              name: "nameThirdSent4",
+              allowEmpty: false,
+              label: {
+                classes: "govuk-label--s",
+                isPageHeading: true,
+                text: "Name of third party"
+              },
+              items: [
+                { text: "Country 1" },
+                { text: "Country 2" },
+                { text: "Country 3" },
+                { text: "Country 4" },
+                { text: "Country 5" },
+                { text: "Gov agency 1" },
+                { text: "Gov agency 2" },
+                { text: "Gov agency 3" },
+                { text: "Gov agency 4" },
+                { text: "Other" },
+                { text: "HMRC" },
+                { text: "CAB" },
+                { text: "PAB" }
+              ]
+            }) }}
+          {% endset -%}
+
+          {{ govukRadios({
+            name: "whoSend4",
+            fieldset: {
+              legend: {
+                text: "Who did you send it to?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: html
+            },
+            items: [
+              {
+                value: "claimant",
+                text: "Claimant"
+              },
+              {
+                value: "third",
+                text: "Third party",
+                conditional: {
+                  html: thirdParty
+                }
+              }
+            ]
+          }) }}
+        {% elseif data['whatYouSent3'] %}
+          {% set thirdParty %}
+            {{ xGovukAutocomplete({
+              id: "nameThirdSent3",
+              name: "nameThirdSent3",
+              allowEmpty: false,
+              label: {
+                classes: "govuk-label--s",
+                isPageHeading: true,
+                text: "Name of third party"
+              },
+              items: [
+                { text: "Country 1" },
+                { text: "Country 2" },
+                { text: "Country 3" },
+                { text: "Country 4" },
+                { text: "Country 5" },
+                { text: "Gov agency 1" },
+                { text: "Gov agency 2" },
+                { text: "Gov agency 3" },
+                { text: "Gov agency 4" },
+                { text: "Other" },
+                { text: "HMRC" },
+                { text: "CAB" },
+                { text: "PAB" }
+              ]
+            }) }}
+          {% endset -%}
+
+          {{ govukRadios({
+            name: "whoSend3",
+            fieldset: {
+              legend: {
+                text: "Who did you send it to?",
+                isPageHeading: true,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            hint: {
+              html: html
+            },
+            items: [
+              {
+                value: "claimant",
+                text: "Claimant"
+              },
+              {
+                value: "third",
+                text: "Third party",
+                conditional: {
+                  html: thirdParty
+                }
+              }
+            ]
+          }) }}  
+        {% elseif data['whatYouSent2'] %}
           {% set thirdParty %}
             {{ xGovukAutocomplete({
               id: "nameThirdSent2",
@@ -81,7 +191,7 @@
                 }
               }
             ]
-          }) }}
+          }) }}  
         {% else %}
           {% set thirdParty %}
             {{ xGovukAutocomplete({

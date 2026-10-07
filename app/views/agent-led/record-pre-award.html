@@ -21,7 +21,13 @@
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
-        {% include './_bar.html' %}
+        {% if data['sureClose'] == "yes" %}
+          {% include './_bar3.html' %}
+        {% elseif data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete" %}
+          {% include './_bar2.html' %}  
+        {% else %}
+          {% include './_bar.html' %} 
+        {% endif %}
 
         {{ xGovukSecondaryNavigation({
           visuallyHiddenTitle: "Secondary menu",
@@ -191,23 +197,21 @@
           </table>
         {% else %}
         <table class="govuk-table">
-          <thead class="govuk-table__head">
+          <!--<thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="row" class="govuk-table__header"></th>
-              <th scope="col" class="govuk-table__header" style="width:30%">Date SRB applies from</th>
+              <th scope="col" class="govuk-table__header" style="width:35%">Date SRB applies from</th>
               <th scope="col" class="govuk-table__header">Post 2016 years used</th>
               <th scope="col" class="govuk-table__header">NSP qualifying years</th>
               <th scope="col" class="govuk-table__header"></th>
             </tr>
-          </thead>
+          </thead>-->
           <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">
                 No SRBs applied yet
               </td>
-              <td class="govuk-table__cell">{{data.post2016srb }}</td>
-              <td class="govuk-table__cell">{{data.nspQual }}</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="date-srb-apply"></a></td></td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell"></td>
             </tr>
           </tbody>
         </table>

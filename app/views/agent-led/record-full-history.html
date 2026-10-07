@@ -7,10 +7,12 @@
 
       <form method="post">
 
-      {% if data['creditAmount'] or data['debitAmount'] %}
-        {% include './_bar-2.html' %}
+      {% if data['sureClose'] == "yes" %}
+        {% include './_bar3.html' %}
+      {% elseif data['whatDoNVDOB'] == "markComplete" or data['whatDoSRB'] == "markComplete" %}
+        {% include './_bar2.html' %}  
       {% else %}
-        {% include './_bar.html' %}
+        {% include './_bar.html' %} 
       {% endif %}
 
       <!--{% from "govuk/components/notification-banner/macro.njk" import govukNotificationBanner %}
@@ -105,6 +107,83 @@
             </tr>
           {% endif %}
 
+          {% if data['whatDoSRB'] == "markComplete" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                State Pension awarded
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="#"></a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                Apply an SRB task complete
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="#"></a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['sureClose'] == "yes" %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                State Pension claim closed
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="#"></a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                {% if data['whyClose'] == "notQualified"%}
+                  Claimant does not meet minimum qualifications
+                {% elseif data['whyClose'] == "insufficient"%}
+                  Insufficient or conflicting evidence provided
+                {% elseif data['whyClose'] == "noEvidence"%}
+                  No evidence provided
+                {% elseif data['whyClose'] == "doesNotWant"%}
+                  Claimant does not want their State Pension  
+                {% endif %}      
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="#"></a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['whatYouSent4'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                {% if  data['whatYouSent4'] == "Other" %}
+                  {{ (data.otherWhatSend4) }}
+                {% else %}
+                  {{ (data.whatYouSent4) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSend4'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSent4'] == "Other" %}
+                  {{ (data.otherWhoSend4) }}
+                {% else %}
+                  {{ (data.nameThirdSent4) }}
+                {% endif %}
+              </td>
+              <td class="govuk-table__cell"></td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
           {% if data['postponeUntil3-day'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
@@ -116,10 +195,24 @@
             </tr>
           {% endif %}
 
-          {% if data['nameSent'] == "CIS500" or data['nameSentB'] == "CIS500" %}
+          {% if data['whatYouSent3'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">CIS500 sent to HMRC</td>
+              <td class="govuk-table__cell">
+                {% if  data['whatYouSent3'] == "Other" %}
+                  {{ (data.otherWhatSend3) }}
+                {% else %}
+                  {{ (data.whatYouSent3) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSend3'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSent3'] == "Other" %}
+                  {{ (data.otherWhoSend3) }}
+                {% else %}
+                  {{ (data.nameThirdSent3) }}
+                {% endif %}
+              </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
