@@ -149,41 +149,46 @@
               </tr>  
           {% endif %}
 
-          {% if data['whatReceiveA'] or data['whatReceiveB'] %}
+          {% if data['whatYoureceived2'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
               <td class="govuk-table__cell">
-                {% if data['whatReceiveA'] == "email" %}
-                  Email
-                {% elseif data['whatReceiveA'] == "formLetter" %}
-                  {% if data['haveNameA'] == "no" %}
-                    information
-                  {% elseif data['nameReceived'] == "Other" %}
-                    {{ (data.otherWhatReceive) }}
-                  {% else %}
-                    {{ (data.nameReceived) }}
-                  {% endif %}
-                {% endif %}
-
-                {% if data['whatReceiveB'] == "email" %}
-                  Email
-                {% elseif  data['nameFormB'] == "Other" %}
+                {% if data['whatYoureceived2'] == "Other" %}
                   {{ (data.otherWhatReceive) }}
                 {% else %}
-                  {{ (data.nameFormB) }}
+                  {{ (data.whatYoureceived2) }}
                 {% endif %}
 
                 received from
 
-                {% if data['whoReceivedA'] == "claimant" %}
+                {% if data['whoReceived2'] == "claimant" %}
                   claimant
-                {% elseif  data['whoReceivedA'] == "third" %}
-                  {% if data['whoThirdA'] == "Other" %}
-                    {{ (data.otherWhoReceive) }}
+                {% elseif  data['whoReceived2'] == "third" %}
+                  {% if data['whoThird2'] == "Other" %}
+                    {{ (data.otherWhoReceive2) }}
                   {% else %}
-                    {{ (data.whoThirdA) }}
+                    {{ (data.whoThird2) }}
                   {% endif %}
                 {% endif %}
+              </td>
+              <td class="govuk-table__cell">
+                <a class="govuk-link--no-visited-state" href="#"></a>
+              </td>
+              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+            </tr>
+          {% endif %}
+
+          {% if data['whatYoureceived'] %}
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">DD Month YYYY</td>
+              <td class="govuk-table__cell">
+                {% if data['whatYoureceived'] == "Other" %}
+                  {{ (data.otherWhatReceive) }}
+                {% else %}
+                  {{ (data.whatYoureceived) }}
+                {% endif %}
+
+                received from
 
                 {% if data['whoReceivedB'] == "claimant" %}
                   claimant
@@ -213,10 +218,24 @@
             </tr>
           {% endif %}
 
-          {% if data['nameSentB'] == "MF5" %}
+          {% if data['whatYouSent2'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">MF5 sent to claimant</td>
+              <td class="govuk-table__cell">
+                {% if  data['whatYouSent2'] == "Other" %}
+                  {{ (data.otherWhatSend2) }}
+                {% else %}
+                  {{ (data.whatYouSent2) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSend2'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSent2'] == "Other" %}
+                  {{ (data.otherWhoSend2) }}
+                {% else %}
+                  {{ (data.nameThirdSent2) }}
+                {% endif %}
+              </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>
@@ -259,7 +278,7 @@
               </tr>  
           {% endif %}
 
-          {% if data['nameFormB'] == "Class 2 paid dates" %}
+          {% if data['whatYoureceived'] == "Class 2 paid dates" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
               <td class="govuk-table__cell">Class 2 paid dates received from HMRC</td>
@@ -279,7 +298,7 @@
             </tr>
           {% endif %}
 
-          {% if data['nameSentB'] == "Class 2 paid date request" %}
+          {% if data['whatYouSent'] == "Class 2 paid date request" %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
               <td class="govuk-table__cell">Class 2 paid date request sent to HMRC</td>
@@ -288,10 +307,24 @@
             </tr>
           {% endif %}
 
-          {% if data['nameSent'] == "MF2" %}
+          {% if data['whatYouSent'] %}
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">MF2 sent to claimant</td>
+              <td class="govuk-table__cell">
+                {% if  data['whatYouSent'] == "Other" %}
+                  {{ (data.otherWhatSend) }}
+                {% else %}
+                  {{ (data.whatYouSent) }}
+                {% endif %}
+                  sent to
+                {% if data['whoSendB'] == "claimant" %}
+                  claimant
+                {% elseif data['nameThirdSentB'] == "Other" %}
+                  {{ (data.otherWhoSend) }}
+                {% else %}
+                  {{ (data.nameThirdSentB) }}
+                {% endif %}  
+              </td>
               <td class="govuk-table__cell"></td>
               <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
             </tr>

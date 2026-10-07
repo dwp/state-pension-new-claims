@@ -21,9 +21,56 @@
         Check your answers
       </h1>
 
-      <h2 class="govuk-heading-m">Telephone call</h2>
+      <div class="govuk-summary-card govuk-summary-card--error">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Phone conversation 1
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 1</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                {% if data['whatCall'] == "outbound" %}
+                  Outbound call to
+                {% elseif data['whatCall'] == "inbound" %} 
+                  Inbound call from 
+                {% endif %}
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['whoSpeakTo'] == "claimant" %}
+                  Claimant
+                {% elseif  data['thirdSpokeTo'] == "Other" %}
+                  {{ (data.otherWhoYouCalled) }}
+                {% else %}
+                  {{ (data.thirdSpokeTo) }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Details
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {{ (data.moreDetail) }}  
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
       
-      {% if data['whatCall'] == "outbound" %}
+      <!--{% if data['whatCall'] == "outbound" %}
         <dl class="govuk-summary-list">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
@@ -87,9 +134,9 @@
             </dd>
           </div>
         </dl>
-      {% endif %}
+      {% endif %}-->
 
-      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another action</a>
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another call</a>
 
       <br><br><br>
 

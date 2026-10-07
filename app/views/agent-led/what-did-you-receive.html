@@ -1,0 +1,97 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-l">What did you receive?</h1>
+
+        <p class="govuk-body">You can check the official name of the form or letter in the customer content portal. 
+          If you do not know the name of the form or letter you can type 'other'.
+        </p>
+
+        <br>
+
+        {% if data['whoReceivedB']  %}
+          {{ xGovukAutocomplete({
+            id: "whatYoureceived2",
+            name: "whatYoureceived2",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of what you received"
+            },
+            items: [
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "Birth certificate (full or short)" },
+              { text: "Class 2 paid dates" },
+              { text: "Certificate of registration of birth" },
+              { text: "UK passport" },
+              { text: "non-UK passport" },
+              { text: "UK photocard driving licence (full or provisional)" },
+              { text: "adoption order" },
+              { text: "certificate of adoption issued by the Registrar General" },
+              { text: "Other" }
+            ]
+          }) }}
+        {% else %}
+          {{ xGovukAutocomplete({
+            id: "whatYoureceived",
+            name: "whatYoureceived",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of what you received"
+            },
+            items: [
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "Birth certificate (full or short)" },
+              { text: "Class 2 paid dates" },
+              { text: "Certificate of registration of birth" },
+              { text: "UK passport" },
+              { text: "non-UK passport" },
+              { text: "UK photocard driving licence (full or provisional)" },
+              { text: "adoption order" },
+              { text: "certificate of adoption issued by the Registrar General" },
+              { text: "Other" }
+            ]
+          }) }}
+        {% endif %}    
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

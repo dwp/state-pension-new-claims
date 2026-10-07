@@ -1,0 +1,91 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+
+        {% include './_bar.html' %}
+
+        {{ govukBackLink({
+          "text": "Back",
+          "href": "javascript: window.history.go(-1)"
+        })
+        }}
+
+        <br><br>
+
+        <form method="post">
+
+        <h1 class="govuk-heading-l">What did you send?</h1>
+
+        <p class="govuk-body">You can check the official name of the form or letter in the customer content portal. 
+          If you do not know the name of the form or letter you can type 'other'.
+        </p>
+
+        <br>
+
+        {% if data['whoSendB']  %}
+          {{ xGovukAutocomplete({
+            id: "whatYouSent2",
+            name: "whatYouSent2",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of what you sent"
+            },
+            items: [
+              { text: "Claim unsuccessful letter" },
+              { text: "Class 2 paid date request" },
+              { text: "CIS500" },
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "MF2" },
+              { text: "MF5" },
+              { text: "Other" }
+            ]
+          }) }}
+        {% else %}
+          {{ xGovukAutocomplete({
+            id: "whatYouSent",
+            name: "whatYouSent",
+            allowEmpty: false,
+            label: {
+              classes: "govuk-label--s",
+              isPageHeading: true,
+              text: "Name of what you sent"
+            },
+            items: [
+              { text: "Claim unsuccessful letter" },
+              { text: "Class 2 paid date request" },
+              { text: "CIS500" },
+              { text: "Form 1" },
+              { text: "Form 2" },
+              { text: "Form 3" },
+              { text: "Form 4" },
+              { text: "Form 5" },
+              { text: "Form 6" },
+              { text: "Form 7" },
+              { text: "MF2" },
+              { text: "MF5" },
+              { text: "Other" }
+            ]
+          }) }}
+        {% endif %}    
+
+        <br><br>
+
+        <button class="govuk-button" data-module="govuk-button">
+          Continue
+        </button>
+
+      </div>
+    </div>
+      
+{% endblock %}

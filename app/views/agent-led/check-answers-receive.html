@@ -21,31 +21,140 @@
         Check your answers
       </h1>
 
-      <h2 class="govuk-heading-m">Information you received</h2>
+      {% if data['remove'] == 'yes' %}
+      {% elseif data['whatYoureceived4'] %}
+        <p>You have added <b>4 things received</b>.</p>
+      {% elseif data['whatYoureceived3'] %}
+        <p>You have added <b>3 things received</b>.</p>
+      {% elseif data['whatYoureceived2'] %}
+        <p>You have added <b>2 things received</b>.</p>    
+      {% endif %} 
 
-      <dl class="govuk-summary-list">
+      <br>
+
+      <div class="govuk-summary-card govuk-summary-card--error">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title">
+            Received information 1
+          </h2>
+          <ul class="govuk-summary-card__actions">
+            <li class="govuk-summary-card__action">
+              <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 1</span></a>
+            </li>
+          </ul>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                What you received
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['whatYoureceived'] == "Other" %}
+                  {{ (data.otherWhatReceive) }}
+                {% else %}
+                  {{ (data.whatYoureceived) }}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+              </dd>
+            </div>
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key">
+                Who you received it from
+              </dt>
+              <dd class="govuk-summary-list__value-numeric">
+                {% if data['whoReceivedB'] == "claimant" %}
+                  Claimant
+                {% elseif  data['whoReceivedB'] == "third" %}
+                  {% if data['whoThirdB'] == "Other" %}
+                    {{ (data.otherWhoReceive) }}
+                  {% else %}
+                    {{ (data.whoThirdB) }}
+                  {% endif %}
+                {% endif %}
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+              </dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+
+      {% if data['whatYoureceived2'] %}
+        <div class="govuk-summary-card govuk-summary-card--error">
+          <div class="govuk-summary-card__title-wrapper">
+            <h2 class="govuk-summary-card__title">
+              Received information 2
+            </h2>
+            <ul class="govuk-summary-card__actions">
+              <li class="govuk-summary-card__action">
+                <a class="govuk-link--no-visited-state" href="are-you-sure">Remove<span class="govuk-visually-hidden"> SRB 1</span></a>
+              </li>
+            </ul>
+          </div>
+          <div class="govuk-summary-card__content">
+            <dl class="govuk-summary-list">
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key govuk-!-width-one-third">
+                  What you received
+                </dt>
+                <dd class="govuk-summary-list__value-numeric">
+                  {% if data['whatYoureceived2'] == "Other" %}
+                    {{ (data.otherWhatReceive) }}
+                  {% else %}
+                    {{ (data.whatYoureceived2) }}
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link--no-visited-state" href="date-srb-apply">Change<span class="govuk-visually-hidden">latePaid date</span></a>
+                </dd>
+              </div>
+              <div class="govuk-summary-list__row">
+                <dt class="govuk-summary-list__key">
+                  Who you received it from
+                </dt>
+                <dd class="govuk-summary-list__value-numeric">
+                  {% if data['whoReceived2'] == "claimant" %}
+                    Claimant
+                  {% elseif  data['whoReceived2'] == "third" %}
+                    {% if data['whoThird2'] == "Other" %}
+                      {{ (data.otherWhoReceive2) }}
+                    {% else %}
+                      {{ (data.whoThird2) }}
+                    {% endif %}
+                  {% endif %}
+                </dd>
+                <dd class="govuk-summary-list__actions">
+                  <a class="govuk-link--no-visited-state" href="how-many-years-srb">Change<span class="govuk-visually-hidden">Number of additional years</span></a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      {% endif %}  
+
+      <!--<dl class="govuk-summary-list">
         <div class="govuk-summary-list__row">
           <dt class="govuk-summary-list__key">
             What you received
           </dt>
           <dd class="govuk-summary-list__value--numeric">
-            {% if data['whatReceiveA'] == "email" %}
-              Email
-            {% elseif  data['whatReceiveA'] == "formLetter" %}
-              {% if data['haveNameA'] == "no" %}
-                information
-              {% elseif data['nameReceived'] == "Other" %}
+            {% if data['whatYoureceived2'] %}
+              {% if data['whatYoureceived2'] == "Other" %}
                 {{ (data.otherWhatReceive) }}
               {% else %}
-                {{ (data.nameReceived) }}
+                {{ (data.whatYoureceived2) }}
               {% endif %}
-            {% endif %}
-
-            {% if  data['nameFormB'] == "Other" %}
-              {{ (data.otherWhatReceive) }}
-            {% else %}
-              {{ (data.nameFormB) }}
-            {% endif %}
+            {% elseif data['whatYoureceived'] %}
+              {% if data['whatYoureceived'] == "Other" %}
+                {{ (data.otherWhatReceive) }}
+              {% else %}
+                {{ (data.whatYoureceived) }}
+              {% endif %}
+            {% endif %}  
           </dd>
           <dd class="govuk-summary-list__actions">
             <a class="govuk-link--no-visited-state" href="what-receive">Change<span class="govuk-visually-hidden"></span></a>
@@ -56,16 +165,6 @@
             Who you received it from
           </dt>
           <dd class="govuk-summary-list__value--numeric">
-            {% if data['whoReceivedA'] == "claimant" %}
-              Claimant
-            {% elseif  data['whoReceivedA'] == "third" %}
-              {% if data['whoThirdA'] == "Other" %}
-                {{ (data.otherWhoReceive) }}
-              {% else %}
-                {{ (data.whoThirdA) }}
-              {% endif %}
-            {% endif %}
-
             {% if data['whoReceivedB'] == "claimant" %}
               Claimant
             {% elseif  data['whoReceivedB'] == "third" %}
@@ -80,9 +179,9 @@
             <a class="govuk-link--no-visited-state" href="who-receive">Change<span class="govuk-visually-hidden"></span></a>
           </dd>
         </div>
-      </dl>
+      </dl>-->
 
-      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-receive">Add another action</a>
+      <a class="govuk-link--no-visited-state govuk-!-font-size-19" href="what-did-you-receive">Add another thing received</a>
 
       <br><br><br>
 

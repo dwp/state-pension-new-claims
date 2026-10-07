@@ -60,8 +60,10 @@ router.post('/agent-led/record-full-history', function (req, res) {
 router.post('/agent-led/add-action', function (req, res) {
   if (req.session.data['addAction'] === 'spokePhone') {
     res.redirect('receive-make-call')
+  } else if (req.session.data['addAction'] === 'infoSent') {
+    res.redirect('what-did-you-send')  
   } else {
-    res.redirect('which-option')
+    res.redirect('what-did-you-receive')
 }
 })
 
@@ -174,7 +176,7 @@ router.post('/agent-led/other-what-receive', function (req, res) {
 })
 
 router.post('/agent-led/who-receive-b', function (req, res) {
-  if (req.body['whoThirdB'] === 'Other') {
+  if (req.body['whoThird2'] === 'Other' || req.body['whoThirdB'] === 'Other') {
     res.redirect('other-who-receive')
   } else {
     res.redirect('check-answers-receive')
@@ -187,6 +189,26 @@ router.post('/agent-led/other-who-receive', function (req, res) {
 
 router.post('/agent-led/check-answers-receive', function (req, res) {
   res.redirect('record-full-history')
+})
+
+// Sent something
+
+router.post('/agent-led/what-did-you-send', function (req, res) {
+  if (req.body['whatYouSent'] === 'Other') {
+    res.redirect('what-other-send')
+  } else {
+    res.redirect('who-send-b')
+}
+})
+
+// Received something
+
+router.post('/agent-led/what-did-you-receive', function (req, res) {
+  if (req.body['whatYoureceived2'] === 'Other' || req.body['whatYoureceived'] === 'Other') {
+    res.redirect('what-other-send')
+  } else {
+    res.redirect('who-receive-b')
+}
 })
 
 // Send - Option A
@@ -250,7 +272,7 @@ router.post('/agent-led/what-other-send', function (req, res) {
 })
 
 router.post('/agent-led/who-send-b', function (req, res) {
-  if (req.body['nameThirdSentB'] === 'Other') {
+  if (req.body['nameThirdSent2'] === 'Other' || req.body['nameThirdSentB'] === 'Other') {
     res.redirect('who-other-sent')
   } else {
     res.redirect('check-answers-send')

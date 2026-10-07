@@ -2,6 +2,22 @@
 
 {% block content %}
 
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      {% if data['whatDate'] %}
+        {% call govukNotificationBanner({
+          type: "success"
+          }) %}
+            <h3 class="govuk-notification-banner__heading">
+              SRBs applied
+            </h3>
+        {% endcall %}
+      {% endif %} 
+
+    </div>
+  </div>   
+
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
 
@@ -34,8 +50,9 @@
           <caption class="govuk-table__caption govuk-table__caption--m">UK Qualifying years</caption>
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
-              <th scope="col" class="govuk-table__header">Pre 2016</th>
-              <th scope="col" class="govuk-table__header">Post 2016</th>
+              <th scope="col" class="govuk-table__header">Pre 2016 years</th>
+              <th scope="col" class="govuk-table__header">Post 2016 years</th>
+              <th scope="col" class="govuk-table__header">NSP qualifying years</th>
               <th scope="col" class="govuk-table__header"></th>
             </tr>
           </thead>
@@ -43,6 +60,7 @@
             <tr class="govuk-table__row">
               <td class="govuk-table__cell">3</td>
               <td class="govuk-table__cell">7</td>
+              <td class="govuk-table__cell">10</td>
               <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Change</a></td></td>
             </tr>
           </tbody>
@@ -171,6 +189,28 @@
               {% endif %}  
             </tbody>
           </table>
+        {% else %}
+        <table class="govuk-table">
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row">
+              <th scope="row" class="govuk-table__header"></th>
+              <th scope="col" class="govuk-table__header" style="width:30%">Date SRB applies from</th>
+              <th scope="col" class="govuk-table__header">Post 2016 years used</th>
+              <th scope="col" class="govuk-table__header">NSP qualifying years</th>
+              <th scope="col" class="govuk-table__header"></th>
+            </tr>
+          </thead>
+          <tbody class="govuk-table__body">
+            <tr class="govuk-table__row">
+              <td class="govuk-table__cell">
+                No SRBs applied yet
+              </td>
+              <td class="govuk-table__cell">{{data.post2016srb }}</td>
+              <td class="govuk-table__cell">{{data.nspQual }}</td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href="date-srb-apply"></a></td></td>
+            </tr>
+          </tbody>
+        </table>
         {% endif %}  
 
         <br><br>
@@ -186,22 +226,22 @@
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">New State Pension</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£163.38</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Change</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Protected payment</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Extra State Pension</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Inherited extra State Pension</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="lived-worked-details">Add</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="lived-worked-details"></a></td>
             </tr>
           </tbody>
         </table>
@@ -214,32 +254,40 @@
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header govuk-!-width-one-half">Additional pension</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Graduated Retirement Benefit</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Extra State Pension Basic Pension</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Extra State Pension Graduated Retirement Benefit</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#">Add</a></td></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="#"></a></td></td>
             </tr>
+          </tbody>
+        </table>
+
+        <br>
+
+        <table class="govuk-table">
+          <caption class="govuk-table__caption govuk-table__caption--m">Pension sharing on divorce (PSOD)</caption>
+          <tbody class="govuk-table__body">
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">PSOD credit</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="lived-worked-details">Add</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="psod-credit">Add</a></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">PSOD debit</th>
               <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="lived-worked-details">Add</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link" href="psod-debit">Add</a></td>
             </tr>
           </tbody>
         </table>

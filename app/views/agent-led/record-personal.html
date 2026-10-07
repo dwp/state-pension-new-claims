@@ -17,6 +17,14 @@
                 Task complete
               </h3>
             {% endcall %}
+          {% elseif data['whatDoSRB'] == "markComplete" %}
+            {% call govukNotificationBanner({
+              type: "success"
+            }) %}
+              <h3 class="govuk-notification-banner__heading">
+                Task complete
+              </h3>
+            {% endcall %}  
           {% elseif data['dateOfBirth'] == "yes" %}
             {% call govukNotificationBanner({
               type: "success"
@@ -85,7 +93,7 @@
             <strong class="govuk-warning-text__text">
               <span class="govuk-warning-text__assistive"></span>
               Claimant's date of birth is not verified.<br>
-              <a href="task-details-nvdob" class="govuk-link--no-visited-state">View task details</a>.
+              <a href="task-details-nvdob" class="govuk-link--no-visited-state">View task details</a>
             </strong>
           </div>
         {% endif %}
@@ -96,7 +104,7 @@
             <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
             <strong class="govuk-warning-text__text">
               <span class="govuk-warning-text__assistive"></span>
-              An SRB has been issued since State Pension date.<br> <a href="task-details-srb" class="govuk-link--no-visited-state">View task details</a>.
+              An SRB has been issued since State Pension date.<br> <a href="task-details-srb" class="govuk-link--no-visited-state">View task details</a>
             </strong>
           </div>
         {% endif %}
@@ -150,7 +158,7 @@
               <th scope="row" class="govuk-table__header">Marital status </th>
               <td class="govuk-table__cell">Widowed</td>
               <td class="govuk-table__cell">Not verified</td>
-              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href=change-maritalstatus>Change</a></td>
+              <td class="govuk-table__cell govuk-table__cell--numeric"><a class="govuk-link--no-visited-state" href=change-maritalstatus>Verify</a></td>
             </tr>
             <tr class="govuk-table__row">
               <th scope="row" class="govuk-table__header">Lived or worked abroad </th>
@@ -178,6 +186,19 @@
 
         <div class="dwp-timeline">
           <ol class="dwp-timeline__items">
+            {% if data['whatDoSRB'] == "markComplete" %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">State Pension awarded</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">Apply an SRB task complete</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
             {% if data['whatDoNVDOB'] == "markComplete" %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
@@ -223,41 +244,54 @@
                 </li>  
             {% endif %}  
 
-            {% if data['whatReceiveA'] or data['whatReceiveB'] %}
+            {% if data['whatDate'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">SRBs applied</h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+                {% if data.post2016srb-2 %}
+                  <a class="govuk-link--no-visited-state" href="record-srb-details">Details</a>
+                {% endif %}
+              </li>
+            {% endif %}
+
+            {% if data['whatYoureceived2'] %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
                 <h2 class="dwp-timeline__heading">
-                  {% if data['whatReceiveA'] == "email" %}
-                    Email
-                  {% elseif  data['whatReceiveA'] == "formLetter" %}
-                    {% if data['haveNameA'] == "no" %}
-                      Information
-                    {% elseif data['nameReceived'] == "Other" %}
-                      {{ (data.otherWhatReceive) }}
-                    {% else %}
-                      {{ (data.nameReceived) }}
-                    {% endif %}
-                  {% endif %}
-
-                  {% if data['whatReceiveB'] == "email" %}
-                    Email
-                  {% elseif  data['nameFormB'] == "Other" %}
+                  {% if data['whatYoureceived2'] == "Other" %}
                     {{ (data.otherWhatReceive) }}
                   {% else %}
-                    {{ (data.nameFormB) }}
+                    {{ (data.whatYoureceived2) }}
                   {% endif %}
 
                   received from
 
-                  {% if data['whoReceivedA'] == "claimant" %}
+                  {% if data['whoReceived2'] == "claimant" %}
                     claimant
-                  {% elseif  data['whoReceivedA'] == "third" %}
-                    {% if data['whoThirdA'] == "Other" %}
-                      {{ (data.otherWhoReceive) }}
+                  {% elseif  data['whoReceived2'] == "third" %}
+                    {% if data['whoThird2'] == "Other" %}
+                      {{ (data.otherWhoReceive2) }}
                     {% else %}
-                      {{ (data.whoThirdA) }}
+                      {{ (data.whoThird2) }}
                     {% endif %}
                   {% endif %}
+                </h2>
+                <p class="dwp-timeline__by-line">by Agent</p>
+              </li>
+            {% endif %}
+
+            {% if data['whatYoureceived'] %}
+              <li class="dwp-timeline__item">
+                <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
+                <h2 class="dwp-timeline__heading">
+                  {% if data['whatYoureceived'] == "Other" %}
+                    {{ (data.otherWhatReceive) }}
+                  {% else %}
+                    {{ (data.whatYoureceived) }}
+                  {% endif %}
+
+                  received from
 
                   {% if data['whoReceivedB'] == "claimant" %}
                     claimant
@@ -283,7 +317,7 @@
               </li>
             {% endif %}
 
-            {% if data['nameSentB'] == "MF5" %}
+            {% if data['whatYouSent2'] == "MF5" %}
               <li class="dwp-timeline__item">
               <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
               <h2 class="dwp-timeline__heading">MF5 sent to claimant</h2>
@@ -323,14 +357,14 @@
                 </li>
             {% endif %}
 
-            {% if data['nameFormB'] == "Class 2 paid dates" %}
-            <tr class="govuk-table__row">
-              <td class="govuk-table__cell">DD Month YYYY</td>
-              <td class="govuk-table__cell">Class 2 paid date received from HMRC</td>
-              <td class="govuk-table__cell"></td>
-              <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
-            </tr>
-          {% endif %}
+            <!--{% if data['whatYoureceived'] == "Class 2 paid dates" %}
+              <tr class="govuk-table__row">
+                <td class="govuk-table__cell">DD Month YYYY</td>
+                <td class="govuk-table__cell">Class 2 paid date received from HMRC</td>
+                <td class="govuk-table__cell"></td>
+                <td class="govuk-table__cell govuk-table__header--numeric">Agent</td>
+              </tr>
+            {% endif %}-->
 
             {% if data['postponeUntil1-year'] %}
               <li class="dwp-timeline__item">
@@ -342,7 +376,7 @@
               </li>
             {% endif %}
 
-            {% if data['nameSentB'] == "Class 2 paid date request" %}
+            {% if data['whatYouSent'] == "Class 2 paid date request" %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
                 <h2 class="dwp-timeline__heading">Class 2 paid date request sent to HMRC</h2>
@@ -350,7 +384,7 @@
               </li>
             {% endif %}
 
-            {% if data['nameSent'] == "MF2" %}
+            {% if data['whatYouSent'] == "MF2" %}
               <li class="dwp-timeline__item">
                 <p class="dwp-timeline__datetime">DD Month YYYY at MM:HH</p>
                 <h2 class="dwp-timeline__heading">MF2 sent to claimant</h2>

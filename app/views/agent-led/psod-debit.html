@@ -1,0 +1,78 @@
+{% extends "layouts/main-2.html" %}
+
+{% block content %}
+
+<form class="form" method="post" action="check-answers">
+
+  {% include './_bar.html' %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+      {{ govukBackLink({
+        "text": "Back",
+        "href": "javascript: window.history.go(-1)"
+      })
+    }}
+
+    <br><br>
+
+    <h1 class="govuk-heading-l">
+      PSOD credit information
+    </h1>
+
+    <p>Use the information from the Future Pension Centre to complete the following.</p>
+    
+    <!--<p>You may need to apply an uprating to the amounts depending on the claimant's State Pension date.</p>
+
+    <div class="govuk-inset-text">
+      The required uprating year is <b>2023</b>.
+    </div>-->
+
+    <br>
+
+    {% from "govuk/components/input/macro.njk" import govukInput %}
+
+    {{ govukInput({
+      id: "psodDebit",
+      name: "psodDebit",
+      label: {
+        text: "PSOD debit amount in pounds",
+        classes: "govuk-label--m",
+        isPageHeading: true
+      },
+      prefix: {
+        text: "£"
+      },
+      classes: "govuk-input--width-10",
+      spellcheck: false
+    }) }}
+
+    <br><br>
+
+    {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+
+    {{ govukDateInput({
+      id: "dateDebit",
+      namePrefix: "dateDebit",
+      fieldset: {
+        legend: {
+          text: "Date of effect of pension sharing order",
+          isPageHeading: true,
+          classes: "govuk-fieldset__legend--m"
+        }
+      }
+    }) }}
+      
+    <br><br><br>
+
+    <button class="govuk-button" data-module="govuk-button">
+    Continue
+    </button>
+
+    <br><br><br>
+
+  </div>
+</div>
+
+{% endblock %}

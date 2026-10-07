@@ -19,23 +19,43 @@
 
         {% from "govuk/components/character-count/macro.njk" import govukCharacterCount %}
 
-        {% set html %}
-          <p class="govuk-body">Enter a short description of the person or place you sent something to.</p>
-        {% endset %}
+        {% if data['whoSend2'] %}
+          {% set html %}
+            <p class="govuk-body">Enter a short description of the person or place you sent something to.</p>
+          {% endset %}
 
-        {{ govukCharacterCount({
-          name: "otherWhoSend",
-          id: "otherWhoSend",
-          maxlength: 50,
-          label: {
-            text: "Who did you send it to?",
-            classes: "govuk-label--l",
-            isPageHeading: true
-          },
-          hint: {
-            html: html
-          }
-        }) }}
+          {{ govukCharacterCount({
+            name: "otherWhoSend2",
+            id: "otherWhoSend2",
+            maxlength: 50,
+            label: {
+              text: "Who did you send it to?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              html: html
+            }
+          }) }}
+        {% else %}
+          {% set html %}
+            <p class="govuk-body">Enter a short description of the person or place you sent something to.</p>
+          {% endset %}
+
+          {{ govukCharacterCount({
+            name: "otherWhoSend",
+            id: "otherWhoSend",
+            maxlength: 50,
+            label: {
+              text: "Who did you send it to?",
+              classes: "govuk-label--l",
+              isPageHeading: true
+            },
+            hint: {
+              html: html
+            }
+          }) }}
+        {% endif %}    
 
         <br><br>
 
